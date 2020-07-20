@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.rayon;
+package ru.mos.smart.tests.mr;
 
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
