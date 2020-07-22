@@ -67,7 +67,13 @@ public class TestData {
         PASSWORD_OSSIG ="Passsword1",
 
         LOGIN_VMMDO = "vmmdo_i",
-        PASSWORD_VMMDO ="Passsword1",
+        PASSWORD_VMMDO = "Passsword1",
+
+        LOGIN_UGD = "ugd_i",
+        PASSWORD_UGD = "Passsword1",
+
+        LOGIN_APGR = "apgr_i",
+        PASSWORD_APGR = "Passsword1",
 
         DEFAULT_EMAIL = "ak@krlb.ru",
         DEFAULT_PHONE = "",
