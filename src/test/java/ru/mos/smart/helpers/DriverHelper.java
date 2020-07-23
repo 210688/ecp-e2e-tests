@@ -5,6 +5,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import ru.mos.smart.drivers.CustomWebDriver;
 
 import static com.codeborne.selenide.Browsers.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -19,7 +20,7 @@ import static ru.mos.smart.helpers.EnvironmentHelper.webUrl;
 public class DriverHelper {
 
     public static void configureSelenide() {
-//        Configuration.browser = CHROME;
+        Configuration.browser = CustomWebDriver.class.getName();
 //        Configuration.browser = FIREFOX;
 //        Configuration.browser = OPERA;
         Configuration.baseUrl = webUrl;
