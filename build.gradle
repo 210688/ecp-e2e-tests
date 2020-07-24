@@ -46,9 +46,9 @@ dependencies {
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
     testImplementation 'io.rest-assured:rest-assured:4.1.2'
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
-
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    testImplementation "ru.yandex.qatools.ashot:ashot:1.5.4"
 }
 
 tasks.withType(JavaCompile) {
@@ -87,6 +87,12 @@ task smoke_tests(type: Test) {
 }
 
 task gis_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'GIS'
+    }
+}
+
+task gis_3d(type: Test) {
     useJUnitPlatform {
         includeTags 'GIS'
     }

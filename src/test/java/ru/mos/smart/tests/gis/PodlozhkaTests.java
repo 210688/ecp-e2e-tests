@@ -16,8 +16,8 @@ import static com.codeborne.selenide.Selenide.$;
 @Epic("Платформа ЕЦП")
 @Feature("Модуль \"GIS\"")
 @Story("Проверка работы функционала  \"подложки\"")
-@Tag("GIS")
-@Tag("ECP")
+@Tag("gis")
+@Tag("ecp")
 class PodlozhkaTests extends TestBase {
 
     /*
