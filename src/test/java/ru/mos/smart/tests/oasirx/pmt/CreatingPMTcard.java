@@ -73,7 +73,7 @@ class CreatingPMTcard extends TestBase {
         });
 
         step("Сохранить", () -> {
-            $(byId("save")).click();
+            $(byId("next")).click();
         });
 
     }
