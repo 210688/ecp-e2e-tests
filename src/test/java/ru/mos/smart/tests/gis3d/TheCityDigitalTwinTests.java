@@ -42,7 +42,6 @@ class TheCityDigitalTwinTests extends TestBase {
         });
         step("Проверка, что карта загрузилась", ()-> {
             sleep(5000);
-            WebElement header =findElement(By.cssSelector(".header"));
             $(byText("Найти адресс")).shouldBe(Condition.visible);
         });
     }

@@ -49,6 +49,9 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     testImplementation "ru.yandex.qatools.ashot:ashot:1.5.4"
+    testImplementation 'io.rest-assured:rest-assured:4.3.1'
+
+
 }
 
 tasks.withType(JavaCompile) {
@@ -87,12 +90,6 @@ task smoke_tests(type: Test) {
 }
 
 task gis_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'GIS'
-    }
-}
-
-task gis_3d(type: Test) {
     useJUnitPlatform {
         includeTags 'GIS'
     }
