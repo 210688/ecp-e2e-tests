@@ -69,6 +69,9 @@ public class TestData {
         LOGIN_VMMDO = "vmmdo_i",
         PASSWORD_VMMDO ="Passsword1",
 
+        LOGIN_FEEDBACK = "89",
+        PASSWORD_FEEDBACK ="8t1FLxf",
+
         DEFAULT_EMAIL = "ak@krlb.ru",
         DEFAULT_PHONE = "",
         DEFAULT_SNILS = "",
