@@ -44,5 +44,6 @@ class catalogsMTSK extends TestBase {
             $(byText("Строительные ресурсы")).shouldBe(visible);
             $(byText("Проектные решения")).shouldBe(visible);
         });
+
     }
 }
