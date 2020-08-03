@@ -34,10 +34,13 @@ class SupportRequest extends TestBase {
         });
         step("Открытие ссылки Инициировать обращение в техническую поддержку", ()-> open(webUrll));
 
-        step("Заполнение полей для отправки обращения", ()-> {
-            $(by("placeholder", "Укажите тему")).setValue("fdfd").click();
-
-                    //handlingTopics
+        step("Заполнение поля Тип обращения", ()-> {
+            $(".ng-arrow-wrapper:nth-child(3)").click();
+            //$(":focus").setValue("Технические вопросы").click();
+        });
+        step("Заполнение поля Тема обращения", ()-> {
+            $(".ng-input",1).click();
+            $(":focus").setValue("Не работает почта");
         });
     }
 }

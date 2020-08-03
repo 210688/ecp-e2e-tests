@@ -88,7 +88,6 @@ task smoke_tests(type: Test) {
         includeTags 'ecp'
     }
 }
-
 task gis_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'GIS'
