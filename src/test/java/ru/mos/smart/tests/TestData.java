@@ -70,7 +70,7 @@ public class TestData {
         PASSWORD_VMMDO ="Passsword1",
 
         LOGIN_FEEDBACK = "89",
-        PASSWORD_FEEDBACK ="8t1FLxf",
+        PASSWORD_FEEDBACK ="8t7YHdf",
 
         DEFAULT_EMAIL = "ak@krlb.ru",
         DEFAULT_PHONE = "",

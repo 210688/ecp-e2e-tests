@@ -40,7 +40,12 @@ class SupportRequest extends TestBase {
         });
         step("Заполнение поля Тема обращения", ()-> {
             $(".ng-input",1).click();
-            $(":focus").setValue("Не работает почта");
+            $(":focus").setValue("Проверка автоматизации теста");
+        });
+        step("Заполнение поля Ссылка на страницу с ошибкой", ()-> {
+            $(By.name("pageUrl")).setValue("https://smart-predprod.mos.ru");
+            $(".btn.btn-primary").click();
         });
     }
 }
+
