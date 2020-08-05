@@ -1,8 +1,8 @@
 package ru.mos.smart.pages;
 
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -23,6 +23,7 @@ public class LoginPage {
         });
 
         step("Проверка успешной авторизации ", ()->
-                $(byText("Выйти")).shouldBe(Condition.visible));
+                $(byText("Выйти"))
+                        .waitUntil(visible, 10000).shouldBe(visible));
     }
 }

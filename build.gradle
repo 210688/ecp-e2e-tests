@@ -27,6 +27,7 @@ ext {
 repositories {
     jcenter()
     mavenCentral()
+    maven {url = "https://dl.bintray.com/qameta/maven-unstable/"}
 }
 
 
@@ -46,6 +47,7 @@ dependencies {
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
     testImplementation 'io.rest-assured:rest-assured:4.3.1'
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
+    testImplementation "io.qameta.allure:allure-ee-junit-platform:3.28.2"
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
@@ -72,6 +74,7 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+    systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
 }
 
 task gis_tests(type: Test) {
