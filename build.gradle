@@ -48,8 +48,6 @@ dependencies {
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-    testImplementation "ru.yandex.qatools.ashot:ashot:1.5.4"
-    testImplementation 'io.rest-assured:rest-assured:4.3.1'
 
 
 }
@@ -88,9 +86,9 @@ task smoke_tests(type: Test) {
         includeTags 'ecp'
     }
 }
-task gis_tests(type: Test) {
+task gis2d_tests(type: Test) {
     useJUnitPlatform {
-        includeTags 'GIS'
+        includeTags 'gis2d'
     }
 }
 task feedback_tests(type: Test) {
