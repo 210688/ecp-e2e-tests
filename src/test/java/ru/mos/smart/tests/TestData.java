@@ -75,6 +75,9 @@ public class TestData {
         LOGIN_APGR = "apgr_i",
         PASSWORD_APGR = "Passsword1",
 
+        LOGIN_FEEDBACK = "89",
+        PASSWORD_FEEDBACK ="8t7YHdf",
+
         DEFAULT_EMAIL = "ak@krlb.ru",
         DEFAULT_PHONE = "",
         DEFAULT_SNILS = "",

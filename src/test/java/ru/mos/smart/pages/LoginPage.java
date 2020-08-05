@@ -1,27 +1,29 @@
 package ru.mos.smart.pages;
 
-import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 
 public class LoginPage {
-    /* класс pageObject для autoclose.html - предварительное открытие любого закрытого аутентификацией
-     *  url платформы в браузере начинается с ввода логина и пароля с проходом через страницу авторизации.
-     * место появления - при открытии любого url платформы на 1м шаге (в частности в Моём районе).
-     * */
 
-    public static SelenideElement
-            loginWithPasswordLink = $(byText("Войти по логину и паролю")),
-            loginInput = $("#username"),
-            passwordInput = $("#password"),
-            submitButton = $("#kc-login");
+    @Step("Открытие ссылки {url} с авторизацией")
+    public static void openUrlWithAuthorization(String url, String login, String password) {
+        step("Открытие ссылки " + url, ()-> open(url));
 
-    public static void loginAs(String login, String password) {
-        loginWithPasswordLink.click();
-        loginInput.setValue(login);
-        passwordInput.setValue(password);
-        submitButton.click();
+        step("Заполнение формы авторизации", ()-> {
+            $(byText("Войти по логину и паролю")).click();
+            $("#username").setValue(login);
+            $("#password").setValue(password);
+            $("#kc-login").click();
+        });
+
+        step("Проверка успешной авторизации ", ()->
+                $(byText("Выйти"))
+                        .waitUntil(visible, 10000).shouldBe(visible));
     }
 }

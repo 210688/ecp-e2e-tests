@@ -1,5 +1,4 @@
-package ru.mos.smart.tests.gis;
-
+package ru.mos.smart.tests.gis2d;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -14,10 +13,9 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Selenide.$;
 
 @Epic("Платформа ЕЦП")
-@Feature("Модуль \"GIS\"")
-@Story("Проверка работы функционала  \"подложки\"")
-@Tag("GIS")
-@Tag("ECP")
+@Feature("GIS 2D (Картографическое обеспечение, Реинформ)")
+@Story("Проверка работы функционала \"подложки\"")
+@Tag("gis") @Tag("gis2d")
 class PodlozhkaTests extends TestBase {
 
     /*
@@ -30,8 +28,8 @@ class PodlozhkaTests extends TestBase {
     @Description("Используется тестовый пользователь gis_test c нужными правами")
     void mapsCanBeOpenedSputnik() {
 
-      //  openUrlWithAuthorizationGIS("/main/#/app/tasks",
-       //         "Открытие страницы \"Карта\"");
+        //  openUrlWithAuthorizationGIS("/main/#/app/tasks",
+        //         "Открытие страницы \"Карта\"");
         MapsPage.Menu();
         MapsPage.VerifyMapsObjectIsOpened();
         $(".btn btn-link").click();
