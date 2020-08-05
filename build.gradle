@@ -93,3 +93,8 @@ task gis_tests(type: Test) {
         includeTags 'GIS'
     }
 }
+task feedback_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'feedback'
+    }
+}

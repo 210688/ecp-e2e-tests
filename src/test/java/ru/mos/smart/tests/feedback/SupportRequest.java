@@ -1,6 +1,6 @@
 package ru.mos.smart.tests.feedback;
 
-import com.codeborne.selenide.Selectors;
+
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -11,9 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.helpers.DriverHelper.openUrlWithAuthorization;
 import static ru.mos.smart.helpers.EnvironmentHelper.webUrll;

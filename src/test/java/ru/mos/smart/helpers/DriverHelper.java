@@ -41,6 +41,7 @@ public class DriverHelper {
         step("Открытие ссылки " + url, ()-> open(url));
 
         step("Заполнение формы авторизации", ()-> {
+
             $(byText("Войти по логину и паролю")).click();
             $("#username").setValue(login);
             $("#password").setValue(password);
