@@ -9,7 +9,7 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
 
 
-public class RestLogin {
+public class RestLogin { // todo
     @Test
     public void AuthenticationBasics() {
         RestAssured.baseURI = "https://smart-predprod.mos.ru/oauth/expired";

@@ -35,21 +35,4 @@ public class DriverHelper {
     public static String getConsoleLogs() {
         return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
     }
-
-    @Step("Открытие ссылки {url} с авторизацией")
-    public static void openUrlWithAuthorization(String url, String login, String password) {
-        step("Открытие ссылки " + url, ()-> open(url));
-
-        step("Заполнение формы авторизации", ()-> {
-
-            $(byText("Войти по логину и паролю")).click();
-            $("#username").setValue(login);
-            $("#password").setValue(password);
-            $("#kc-login").click();
-        });
-
-        step("Проверка успешной авторизации ", ()->
-                $(byText("Выйти")).shouldBe(Condition.visible));
-    }
-
 }

@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.feedback;
 
-
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -14,25 +13,25 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.helpers.DriverHelper.openUrlWithAuthorization;
-import static ru.mos.smart.helpers.EnvironmentHelper.webUrll;
+import static ru.mos.smart.helpers.EnvironmentHelper.webUrl;
+import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
+
 
 @Epic("Платформа ЕЦП")
 @Feature("Модуль \"feedback\"")
 @Story("Проверка отправки уведомления в тех подержку")
 @Tag("feedback")
-@Tag("ecp")
 class SupportRequest extends TestBase {
 
     @Test
     @Description("Используется тестовый пользователь 89 c нужными правами")
     @DisplayName("Проверка отправки уведомления в тех подержку")
     void SupportRequestForward() {
-        step ("Авторизация", ()-> {
-            openUrlWithAuthorization("", LOGIN_FEEDBACK, PASSWORD_FEEDBACK); //авторизация в системе
-        });
+        openUrlWithAuthorization("", LOGIN_FEEDBACK, PASSWORD_FEEDBACK); //авторизация в системе
 
-        step("Открытие ссылки Инициировать обращение в техническую поддержку", ()-> open(webUrll));
+        step("Открытие ссылки Инициировать обращение в техническую поддержку", ()->
+                open("/feedback/#/app/feedback/form"));
+
         step("Заполнение поля Тип обращения", ()-> {
             $(".ng-arrow-wrapper:nth-child(3)").click();
         });
@@ -43,7 +42,7 @@ class SupportRequest extends TestBase {
         });
 
         step("Заполнение поля Ссылка на страницу с ошибкой", ()-> {
-            $(By.name("pageUrl")).setValue("https://smart-predprod.mos.ru");
+            $(By.name("pageUrl")).setValue(webUrl);
             $(".btn.btn-primary").click();
         });
     }

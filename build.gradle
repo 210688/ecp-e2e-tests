@@ -75,20 +75,19 @@ tasks.withType(Test) {
     }
 }
 
-task all_tests(type: Test) {
+task gis_tests(type: Test) {
     useJUnitPlatform {
-        includeTags 'login'
-    }
-}
-
-task smoke_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'ecp'
+        includeTags 'gis'
     }
 }
 task gis2d_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'gis2d'
+    }
+}
+task gis3d_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'gis3d'
     }
 }
 task feedback_tests(type: Test) {
