@@ -18,10 +18,9 @@ import static ru.mos.smart.helpers.DriverHelper.openUrlWithAuthorization;
 
 @Epic("Платформа ЕЦП")
 @Feature("Модуль \"OASIRX\"")
-@Story("Создание \"карточки ПМТ\"")
-@Tag("OASIRX")
-@Tag("PMT")
-@Tag("ECP")
+@Story("Создание карточки ПМТ")
+@Tag("oasirx") @Tag("pmt")
+
 class CreatingPMTcard extends TestBase {
     @Test
     @Description("Создание карточки ПМТ")
