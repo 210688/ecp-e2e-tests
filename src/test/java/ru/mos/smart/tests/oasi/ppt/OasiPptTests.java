@@ -24,7 +24,7 @@ class OasiPptTests extends TestBase {
     @Test
     @Description("Проверка наличия в витрине поля для поиска")
     void searchFieldShouldExist() {
-        openUrlWithAuthorization("", LOGIN_s_PRAVAMI, PASSWORD_s_PRAVAMI);
+        openUrlWithAuthorization("", LOGIN_s_PRAVAMI, PASSWORD_s_PRAVAMI); // заблокирован
 
         step("Открытие в навигаторе Настройки > Конструктор витрин", () -> {
             $(byText("Настройки")).click();
