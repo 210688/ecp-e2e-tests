@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.ugd;
+package ru.mos.smart.tests.ugd.oati;
 
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Description;
