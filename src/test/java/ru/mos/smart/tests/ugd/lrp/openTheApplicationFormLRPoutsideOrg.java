@@ -14,7 +14,8 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.helpers.DriverHelper.openUrlWithAuthorization;
+import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
+
 
 @Epic("Платформа ЕЦП")
 @Feature("Модуль \"UGD\"")
@@ -27,10 +28,7 @@ class openTheApplicationFormLRPoutsideOrg extends TestBase {
     @Test
     @Description("Проверка открытия формы подачи Подать заявку на участие в конкурсе ЛРП за стороннюю организацию")
     void openTheApplicationFormLRPPoutsideOrg() {
-
-        step("Авторизация", () -> {
-            openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
-        });
+        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Открытие в навигаторе Мои возможности", () -> {
             //В левом боковом меню выбрать «Госуслуги и функции» > «Возможности»

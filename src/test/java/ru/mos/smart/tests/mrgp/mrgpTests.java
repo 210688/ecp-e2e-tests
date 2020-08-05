@@ -1,4 +1,4 @@
 package ru.mos.smart.tests.mrgp;
 
-public class reestr {
+public class mrgpTests {
 }

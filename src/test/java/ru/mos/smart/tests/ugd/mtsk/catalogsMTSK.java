@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.helpers.DriverHelper.openUrlWithAuthorization;
+import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Epic("Платформа ЕЦП")
 @Feature("Модуль \"UGD\"")
@@ -27,10 +27,7 @@ class catalogsMTSK extends TestBase {
     @Test
     @Description("Проверка наличия каталогов МТСК")
     void catalogsMTSK() {
-
-        step("Авторизация", () -> {
-            openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
-        });
+        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Развернуть в навигаторе блок МТСК", () -> {
             $(byLinkText("МТСК")).click();

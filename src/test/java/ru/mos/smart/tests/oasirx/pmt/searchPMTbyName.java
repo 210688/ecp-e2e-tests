@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.helpers.DriverHelper.openUrlWithAuthorization;
+import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Epic("Платформа ЕЦП")
 @Feature("Модуль \"OASIRX\"")
@@ -26,9 +26,7 @@ class searchPMTbyName extends TestBase {
     @Test
     @Description("Поиск ПМТ по названию")
     void searchPMTbyName() {
-        step("Авторизация", () -> {
-            openUrlWithAuthorization("", LOGIN_PMT, PASSWORD_PMT);
-        });
+        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Открытие в навигаторе ПМТ", () -> {
             $(byLinkText("ПМТ")).click();
