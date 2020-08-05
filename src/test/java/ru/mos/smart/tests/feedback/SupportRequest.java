@@ -7,9 +7,9 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import ru.mos.smart.tests.TestBase;
 
+import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
@@ -42,7 +42,7 @@ class SupportRequest extends TestBase {
         });
 
         step("Заполнение поля Ссылка на страницу с ошибкой", ()-> {
-            $(By.name("pageUrl")).setValue(webUrl);
+            $(byName("pageUrl")).setValue(webUrl);
             $(".btn.btn-primary").click();
         });
     }

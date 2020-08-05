@@ -10,7 +10,6 @@ public class EnvironmentHelper {
     public static final String
 //        webUrl = "https://" + System.getProperty("web_url", "smart.mos.ru"), !! Прод
         webUrl = "https://" + System.getProperty("web_url", "smart-predprod.mos.ru"),
-
         browser = System.getProperty("browser", "chrome"),
 //        browser = System.getProperty("browser", "edge"),
 //        browser = System.getProperty("browser", "safari"),
