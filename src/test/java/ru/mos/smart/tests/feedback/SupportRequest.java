@@ -31,16 +31,17 @@ class SupportRequest extends TestBase {
         step ("Авторизация", ()-> {
             openUrlWithAuthorization("", LOGIN_FEEDBACK, PASSWORD_FEEDBACK); //авторизация в системе
         });
-        step("Открытие ссылки Инициировать обращение в техническую поддержку", ()-> open(webUrll));
 
+        step("Открытие ссылки Инициировать обращение в техническую поддержку", ()-> open(webUrll));
         step("Заполнение поля Тип обращения", ()-> {
             $(".ng-arrow-wrapper:nth-child(3)").click();
-            //$(":focus").setValue("Технические вопросы").click();
         });
+
         step("Заполнение поля Тема обращения", ()-> {
             $(".ng-input",1).click();
             $(":focus").setValue("Проверка автоматизации теста");
         });
+
         step("Заполнение поля Ссылка на страницу с ошибкой", ()-> {
             $(By.name("pageUrl")).setValue("https://smart-predprod.mos.ru");
             $(".btn.btn-primary").click();
