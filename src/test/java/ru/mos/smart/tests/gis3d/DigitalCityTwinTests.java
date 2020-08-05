@@ -20,8 +20,8 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 
 @Epic("Платформа ЕЦП")
-@Feature("Модуль \"GIS\"")
-@Story("Проверка открытия \"карты в режиме Цифровой двойник\"")
+@Feature("GIS 3D (Картографическое обеспечение, Конструктор)")
+@Story("Проверка работы карты в режиме Цифровой двойник")
 @Tag("gis") @Tag("gis3d")
 class DigitalCityTwinTests extends TestBase {
 
