@@ -97,3 +97,8 @@ task feedback_tests(type: Test) {
         includeTags 'feedback'
     }
 }
+task ugd_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'ugd'
+    }
+}

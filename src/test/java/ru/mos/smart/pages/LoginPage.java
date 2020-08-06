@@ -24,6 +24,6 @@ public class LoginPage {
 
         step("Проверка успешной авторизации ", ()->
                 $(byText("Выйти"))
-                        .waitUntil(visible, 10000).shouldBe(visible));
+                        .waitUntil(visible, 20000).shouldBe(visible));
     }
 }
