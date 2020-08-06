@@ -5,6 +5,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -17,28 +18,26 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Epic("Платформа ЕЦП")
-@Feature("Модуль \"UGD\"")
-@Story("Проверка открытия формы подачи Подать заявку на участие в конкурсе ЛРП")
-@Tag("UGD")
-@Tag("LRP")
-@Tag("ECP")
+@Feature("UGD (УГД)")
+//@Suite("LRP")
+@Story("Открытие формы подачи заявки на участие в конкурсе ЛРП")
+@Tag("ugd") @Tag("lrp")
+class UgdLrpTests extends TestBase {
 
-class openTheApplicationFormLRP extends TestBase {
     @Test
-    @Description("Проверка открытия формы подачи Подать заявку на участие в конкурсе ЛРП")
-    void openTheApplicationFormLRP() {
+    @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
+    void OpenTheApplicationFormLRP() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
-        step("Открытие в навигаторе Мои возможности", () -> {
+        step("Открытие в навигаторе \"Мои возможности\"", () -> {
             //В левом боковом меню выбрать «Госуслуги и функции» > «Возможности»
             $(byLinkText("Госуслуги и функции")).click();
             $(byLinkText("Возможности")).click();
         });
 
-        step("Выбрать операцию «Подать заявку на участие в конкурсе ЛРП».", () -> {
+        step("Выбрать операцию \"Подать заявку на участие в конкурсе ЛРП\"", () -> {
             //в поисковой строке ввести "Подать заявку на участие в конкурсе ЛРП"
             $(byClassName("form-control")).setValue("Подать заявку на участие в конкурсе ЛРП").pressEnter();
-
             //выбрать операцию "Подать заявку на участие в конкурсе ЛРП"
             $(byLinkText("Подать заявку на участие в конкурсе ЛРП")).click();
         });
