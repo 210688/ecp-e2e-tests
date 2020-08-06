@@ -26,7 +26,7 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
-    void OpenTheApplicationFormLRP() {
+    void OpenTheApplicationFormLrp() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Открытие в навигаторе \"Мои возможности\"", () -> {
@@ -40,6 +40,34 @@ class UgdLrpTests extends TestBase {
             $(byClassName("form-control")).setValue("Подать заявку на участие в конкурсе ЛРП").pressEnter();
             //выбрать операцию "Подать заявку на участие в конкурсе ЛРП"
             $(byLinkText("Подать заявку на участие в конкурсе ЛРП")).click();
+        });
+
+        step("Проверка наличия вкладок", () -> {
+            $(byText("Выбор участника конкурса")).shouldBe(visible);
+            $(byText("Сведения об участнике конкурса")).shouldBe(visible);
+            $(byText("Сведения об организации")).shouldBe(visible);
+            $(byText("Критерии номинации")).shouldBe(visible);
+            $(byText("Загрузка файлов")).shouldBe(visible);
+        });
+    }
+
+    @Test
+    @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП за стороннюю организацию\"")
+    void OpenTheApplicationFormLrpOutsideOrg() {
+        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+
+        step("Открытие в навигаторе Мои возможности", () -> {
+            //В левом боковом меню выбрать «Госуслуги и функции» > «Возможности»
+            $(byLinkText("Госуслуги и функции")).click();
+            $(byLinkText("Возможности")).click();
+        });
+
+        step("Выбрать операцию Подать заявку на участие в конкурсе ЛРП за стороннюю организацию", () -> {
+            //в поисковой строке ввести "Подать заявку на участие в конкурсе ЛРП за стороннюю организацию"
+            $(byClassName("form-control")).setValue("Подать заявку на участие в конкурсе ЛРП за стороннюю организацию").pressEnter();
+
+            //выбрать операцию "Подать заявку на участие в конкурсе ЛРП за стороннюю организацию"
+            $(byLinkText("Подать заявку на участие в конкурсе ЛРП за стороннюю организацию")).click();
         });
 
         step("Проверка наличия вкладок", () -> {
