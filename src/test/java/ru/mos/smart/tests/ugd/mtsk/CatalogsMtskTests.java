@@ -5,6 +5,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -17,16 +18,15 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Epic("Платформа ЕЦП")
-@Feature("Модуль \"UGD\"")
-@Story("Проверка наличия каталогов МТСК")
-@Tag("UGD")
-@Tag("MTSK")
-@Tag("ECP")
+@Feature("UGD (УГД)")
+//@Suite("LRP")
+@Story("Каталоги МТСК")
+@Tag("ugd") @Tag("mtsk")
+class CatalogsMtskTests extends TestBase {
 
-class catalogsMTSK extends TestBase {
     @Test
-    @Description("Проверка наличия каталогов МТСК")
-    void catalogsMTSK() {
+    @DisplayName("Проверка наличия каталогов МТСК")
+    void CheckCatalogsMtsk() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Развернуть в навигаторе блок МТСК", () -> {
@@ -41,6 +41,5 @@ class catalogsMTSK extends TestBase {
             $(byText("Строительные ресурсы")).shouldBe(visible);
             $(byText("Проектные решения")).shouldBe(visible);
         });
-
     }
 }
