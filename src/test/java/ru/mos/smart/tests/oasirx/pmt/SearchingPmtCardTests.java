@@ -5,6 +5,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -17,16 +18,16 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Epic("Платформа ЕЦП")
-@Feature("Модуль \"OASIRX\"")
-@Story("Поиск ПМТ по названию")
-@Tag("OASIRX")
-@Tag("PMT")
-@Tag("ECP")
-class searchPMTbyName extends TestBase {
+@Feature("OASIRX (ОАСИ Рефактор-Икс)")
+//@Suite("PMT")
+@Story("Поиск карточки ПМТ")
+@Tag("oasirx") @Tag("pmt")
+class SearchingPmtCardTests extends TestBase {
+
     @Test
-    @Description("Поиск ПМТ по названию")
-    void searchPMTbyName() {
-        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+    @DisplayName("Поиск ПМТ по названию")
+    void SearchingPmtCardByName() {
+        openUrlWithAuthorization("", LOGIN_PMT, PASSWORD_PMT);
 
         step("Открытие в навигаторе ПМТ", () -> {
             $(byLinkText("ПМТ")).click();
@@ -37,10 +38,11 @@ class searchPMTbyName extends TestBase {
         });
 
         step("В строке поиска ввести название ПМТ", () -> {
-            $(byClassName("form-control")).setValue("Тест").pressEnter();
+            $(byClassName("form-control")).setValue("Для префектуры").pressEnter();
         });
 
-        //проверка результатов
-
+        step("Проверка результата поиска", () -> {
+            $(byText("Для префектуры")).shouldBe(visible);
+        });
     }
 }
