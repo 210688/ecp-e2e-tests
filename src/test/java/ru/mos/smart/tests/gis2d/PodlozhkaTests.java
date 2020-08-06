@@ -13,7 +13,7 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Selenide.$;
 
 @Epic("Платформа ЕЦП")
-@Feature("Модуль \"GIS\"")
+@Feature("GIS 2D (Картографическое обеспечение, Реинформ)")
 @Story("Проверка работы функционала \"подложки\"")
 @Tag("gis") @Tag("gis2d")
 class PodlozhkaTests extends TestBase {
