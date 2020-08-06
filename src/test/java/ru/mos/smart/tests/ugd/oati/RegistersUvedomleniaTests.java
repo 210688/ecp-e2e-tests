@@ -5,6 +5,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -17,14 +18,14 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Epic("Платформа ЕЦП")
-@Feature("Модуль \"UGD\"")
-@Story("Проверка открытия \"реестров\"")
-@Tag("UGD")
-@Tag("OATI")
-@Tag("ECP")
-class OpenRegisterUvedomlenia extends TestBase {
+@Feature("UGD (УГД)")
+//@Suite("OATI")
+@Story("Проверка открытия реестров")
+@Tag("ugd") @Tag("oati")
+class RegistersUvedomleniaTests extends TestBase {
+
     @Test
-    @Description("Проверка открытия реестров")
+    @DisplayName("Проверка открытия реестров")
     void OpenRegisterUvedomlenia() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 

@@ -23,7 +23,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Tag("oasi") @Tag("oasippt")
 class OasiPptTests extends TestBase {
 
-    @Test
+    @Test //тест не работает - надо разобраться с правами
     @DisplayName("Проверка наличия в витрине поля для поиска")
     void searchFieldShouldExist() {
         openUrlWithAuthorization("", LOGIN_s_PRAVAMI, PASSWORD_s_PRAVAMI); // заблокирован
