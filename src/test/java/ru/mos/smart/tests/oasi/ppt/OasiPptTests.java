@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.tests.TestBase;
@@ -21,8 +22,9 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Story("Проверка наличия в витрине \"поля для поиска\"")
 @Tag("oasi") @Tag("oasippt")
 class OasiPptTests extends TestBase {
+
     @Test
-    @Description("Проверка наличия в витрине поля для поиска")
+    @DisplayName("Проверка наличия в витрине поля для поиска")
     void searchFieldShouldExist() {
         openUrlWithAuthorization("", LOGIN_s_PRAVAMI, PASSWORD_s_PRAVAMI); // заблокирован
 
@@ -31,9 +33,17 @@ class OasiPptTests extends TestBase {
             $(byText("Конструктор витрин")).click();
         });
 
-        $(byName("candidateSearchValue")).setValue("Запросы проверки версии Проекта планировки").pressEnter();
-        $(byTitle("Редактировать витрину")).click();
-        $(".nav-item:nth-child(3) span:nth-child(2)").click();
-        $(".form-control.ng-valid.ng-touched.ng-dirty").shouldBe(visible);
+        step("Найти витрину «Запросы проверки версии Проекта планировки»", () -> {
+            $(byName("candidateSearchValue")).setValue("Запросы проверки версии Проекта планировки").pressEnter();
+        });
+
+        step("Перейти к редактированию витрины", () -> {
+            $(byTitle("Редактировать витрину")).click();
+        });
+
+        //step("Перейти на вкладку Поля", () -> {
+
+        //step("Проверить наличие поля \"Номер версии данных\"", () -> {
+
     }
 }
