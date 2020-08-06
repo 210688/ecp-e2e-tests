@@ -24,7 +24,7 @@ class OasirxPmtTests extends TestBase {
     @Test
     @DisplayName("Создание карточки ПМТ")
     void CreatingPMTcard() {
-        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+        openUrlWithAuthorization("", LOGIN_PMT, PASSWORD_PMT);
 
         step("Открытие в навигаторе ПМТ", () -> {
             $(byLinkText("ПМТ")).click();
