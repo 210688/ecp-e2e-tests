@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -21,9 +22,10 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 //@Suite("PPT")
 @Story("Проверка наличия в витрине \"поля для поиска\"")
 @Tag("oasi") @Tag("oasippt")
-class OasiPptTests extends TestBase {
+class OasiPptTests extends TestBase { // todo in progress
 
-    @Test //тест не работает - надо разобраться с правами
+    @Test
+    @Disabled("тест не работает - надо разобраться с правами, не работает регистрация")
     @DisplayName("Проверка наличия в витрине поля для поиска")
     void searchFieldShouldExist() {
         openUrlWithAuthorization("", LOGIN_s_PRAVAMI, PASSWORD_s_PRAVAMI); // заблокирован
@@ -33,7 +35,7 @@ class OasiPptTests extends TestBase {
             $(byText("Конструктор витрин")).click();
         });
 
-        step("Найти витрину «Запросы проверки версии Проекта планировки»", () -> {
+        step("Найти витрину \"Запросы проверки версии Проекта планировки\"", () -> {
             $(byName("candidateSearchValue")).setValue("Запросы проверки версии Проекта планировки").pressEnter();
         });
 

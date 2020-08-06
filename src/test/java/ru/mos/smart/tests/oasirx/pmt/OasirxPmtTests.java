@@ -34,42 +34,46 @@ class OasirxPmtTests extends TestBase {
              $(byLinkText("Добавить ПМТ")).click();
         });
 
-        step("Заполнить поля", () -> {
+        step("Заполнить форму", () -> {
 
             //введение названия работы
-            $(byId("description-ctr")).setValue("Тест");
+            $("#description-ctr").setValue("Тест");
 
             //выбор цели проекта ("Стартовая площадка")
             $(".selectable-arrow").click();
             $(".value-row:nth-child(4)").click();
 
             //выбор округа ("ВАО")
-            $(byId("prefect-ctr")).click();
+            $("#prefect-ctr").click();
             $(byText("ВАО")).click();
 
             //выбор района ("Богородское")
-            $(byId("district-ctr")).click();
+            $("#district-ctr").click();
             $(byText("Богородское")).click();
 
             //введение адресного ориентира
-            $(byId("address-ctr")).setValue("Адресный ориентир");
+            $("#address-ctr").setValue("Адресный ориентир");
 
             //заявитель (Департамент городского имущества города Москвы)
-            $(byId("customer-ctr")).click();
+            $("#customer-ctr").click();
             $(byText("Департамент городского имущества города Москвы")).click();
 
             //ввести дату
             $(".ng-valid-required").setValue("27072020").click();
 
             //ввести номер обращения ЭДО
-            $(byId("inNumber-ctr")).setValue("0123");
+            $("#inNumber-ctr").setValue("0123");
 
             //чек-бокс "Нет файлов"
             $(".ui-chkbox-box").click();
         });
 
         step("Сохранить", () -> {
-            $(byId("assign")).click();
+            $("#assign").click();
+        });
+
+        step("<b>Проверка</b>, что карточка создана", () -> {
+            $("#assign").click();
         });
 
     }

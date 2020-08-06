@@ -26,10 +26,10 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
-    void OpenTheApplicationFormLrp() {
+    void openTheApplicationFormLrp() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
-        step("Открытие в навигаторе \"Мои возможности\"", () -> {
+        step("Открытие в навигаторе Мои возможности", () -> {
             //В левом боковом меню выбрать «Госуслуги и функции» > «Возможности»
             $(byLinkText("Госуслуги и функции")).click();
             $(byLinkText("Возможности")).click();
@@ -37,7 +37,7 @@ class UgdLrpTests extends TestBase {
 
         step("Выбрать операцию \"Подать заявку на участие в конкурсе ЛРП\"", () -> {
             //в поисковой строке ввести "Подать заявку на участие в конкурсе ЛРП"
-            $(byClassName("form-control")).setValue("Подать заявку на участие в конкурсе ЛРП").pressEnter();
+            $(".form-control").setValue("Подать заявку на участие в конкурсе ЛРП").pressEnter();
             //выбрать операцию "Подать заявку на участие в конкурсе ЛРП"
             $(byLinkText("Подать заявку на участие в конкурсе ЛРП")).click();
         });
@@ -52,8 +52,9 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП за стороннюю организацию\"")
-    void OpenTheApplicationFormLrpOutsideOrg() {
+    @DisplayName("Проверка открытия формы подачи " +
+            "\"Подать заявку на участие в конкурсе ЛРП за стороннюю организацию\"")
+    void openTheApplicationFormLrpOutsideOrg() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Открытие в навигаторе Мои возможности", () -> {
@@ -64,7 +65,8 @@ class UgdLrpTests extends TestBase {
 
         step("Выбрать операцию Подать заявку на участие в конкурсе ЛРП за стороннюю организацию", () -> {
             //в поисковой строке ввести "Подать заявку на участие в конкурсе ЛРП за стороннюю организацию"
-            $(byClassName("form-control")).setValue("Подать заявку на участие в конкурсе ЛРП за стороннюю организацию").pressEnter();
+            $(".form-control")
+                    .setValue("Подать заявку на участие в конкурсе ЛРП за стороннюю организацию").pressEnter();
 
             //выбрать операцию "Подать заявку на участие в конкурсе ЛРП за стороннюю организацию"
             $(byLinkText("Подать заявку на участие в конкурсе ЛРП за стороннюю организацию")).click();

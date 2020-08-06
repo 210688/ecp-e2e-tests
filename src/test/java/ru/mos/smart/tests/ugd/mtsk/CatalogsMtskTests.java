@@ -26,7 +26,7 @@ class CatalogsMtskTests extends TestBase {
 
     @Test
     @DisplayName("Проверка наличия каталогов МТСК")
-    void CheckCatalogsMtsk() {
+    void checkCatalogsMtsk() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Развернуть в навигаторе блок МТСК", () -> {

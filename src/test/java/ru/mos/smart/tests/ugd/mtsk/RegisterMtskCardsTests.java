@@ -26,7 +26,7 @@ class RegisterMtskCardsTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр полной карточки реестра \"МТСК. Реестр организаций\"")
-    void RegisterMtskCardsViewing() {
+    void registerMtskCardsViewing() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Перейти к реестру МТСК. Реестр организаций", () -> {
@@ -40,9 +40,9 @@ class RegisterMtskCardsTests extends TestBase {
 
         step("Открыть полную карточку организации \"Бийскхимстройматериалы\"", () -> {
             //в поле поиска ввести «ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ»
-            $(byClassName("form-control")).setValue("ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ").pressEnter();
+            $(".form-control").setValue("ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ").pressEnter();
             //карточка открывается через <a href="/ugd/#/app/organization/19290"></a>
-            open("https://smart-predprod.mos.ru/ugd/#/app/organization/19290");
+            open("/ugd/#/app/organization/19290");
         });
 
         step("Проверка открытия карточки", () -> {

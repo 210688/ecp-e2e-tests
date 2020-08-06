@@ -29,7 +29,7 @@ class RegistersUvedomleniaTests extends TestBase {
     void OpenRegisterUvedomlenia() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
-        step("Открытие в навигаторе Информация - Реестры", () -> {
+        step("Открытие в навигаторе Информация > Реестры", () -> {
             $(byLinkText("Информация")).click();
             $(byLinkText("Реестры")).click();
         });
