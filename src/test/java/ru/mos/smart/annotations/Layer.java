@@ -1,4 +1,4 @@
-package ru.mos.smart.helpers;
+package ru.mos.smart.annotations;
 
 import io.qameta.allure.LabelAnnotation;
 
