@@ -12,7 +12,6 @@ import static io.qameta.allure.util.ResultsUtils.SUITE_LABEL_NAME;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
-@Repeatable(Suites.class)
 @LabelAnnotation(name = SUITE_LABEL_NAME)
 public @interface Suite {
 
