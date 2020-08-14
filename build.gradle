@@ -102,3 +102,8 @@ task ugd_tests(type: Test) {
         includeTags 'ugd'
     }
 }
+task mgz_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'mgz'
+    }
+}
