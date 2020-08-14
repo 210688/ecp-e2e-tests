@@ -18,7 +18,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Epic("Платформа ЕЦП")
 @Feature("MGZ (МГЗ)")
 @Story("Карточки проектов МГЗ")
-@Tag("mgz")
+@Tag("mgz") @Tag("all_test")
 class openProjectsCard extends TestBase {
 
     @Test

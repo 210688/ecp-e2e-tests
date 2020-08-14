@@ -100,5 +100,11 @@ task feedback_tests(type: Test) {
 task ugd_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'ugd'
+
+    }
+}
+task mgz_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'mgz'
     }
 }
