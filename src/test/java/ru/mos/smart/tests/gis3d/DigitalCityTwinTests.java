@@ -20,9 +20,9 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
-@Epic("Платформа ЕЦП")
-@Feature("GIS 3D (Картографическое обеспечение, Конструктор)")
-@Story("Проверка работы карты в режиме Цифровой двойник")
+@Epic("GIS 3D (Картографическое обеспечение, Конструктор)")
+@Feature("ФС№11.ЕЦП ГИС_ФГМ")
+@Story("Проверка вспомогательной функциональности для отображения фотограмметрических моделей (ФГМ)")
 @Tag("gis") @Tag("gis3d")
 class DigitalCityTwinTests extends TestBase {
 

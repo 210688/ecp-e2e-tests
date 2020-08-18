@@ -16,14 +16,12 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
-@Epic("Платформа ЕЦП")
-@Feature("OASI (ОАСИ)")
-@Story("Проверка наличия в витрине \"поля для поиска\"")
-@Tag("oasi") @Tag("oasippt")
-class OasiPptTests extends TestBase { // todo in progress
+@Epic("OASI (ОАСИ)")
+@Feature("PPT (ППТ)")
+@Tag("oasi") @Tag("oasippt") @Tag("all_tests")
+class OasiPptTests extends TestBase {
 
     @Test
-    @Disabled("тест не работает - надо разобраться с правами, не работает регистрация")
     @DisplayName("Проверка наличия в витрине поля для поиска")
     void searchFieldShouldExist() {
         openUrlWithAuthorization("", LOGIN_s_PRAVAMI, PASSWORD_s_PRAVAMI); // заблокирован

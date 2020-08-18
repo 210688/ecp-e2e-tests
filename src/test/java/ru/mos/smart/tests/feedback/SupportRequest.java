@@ -18,10 +18,8 @@ import static ru.mos.smart.helpers.EnvironmentHelper.webUrl;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
-@Epic("Платформа ЕЦП")
-@Feature("Модуль \"feedback\"")
-@Story("Проверка отправки уведомления в тех подержку")
-@Tag("feedback")
+@Epic("FEEDBACK (Форма обратной связи)")
+@Tag("feedback") @Tag("all_tests")
 class SupportRequest extends TestBase {
 
     @Test

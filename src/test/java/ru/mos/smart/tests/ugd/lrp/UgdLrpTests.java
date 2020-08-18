@@ -3,7 +3,6 @@ package ru.mos.smart.tests.ugd.lrp;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -17,10 +16,9 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
-@Epic("Платформа ЕЦП")
-@Feature("UGD (УГД)")
-@Story("Открытие формы подачи заявки на участие в конкурсе ЛРП")
-@Tag("ugd") @Tag("lrp")
+@Epic("UGD (УГД)")
+@Feature("LRP (Конкурс \"Лучший реализованный проект\")")
+@Tag("ugd") @Tag("lrp") @Tag("all_tests")
 class UgdLrpTests extends TestBase {
 
     @Test

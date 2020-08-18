@@ -14,10 +14,10 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Selenide.$;
 
 @Layer("web")
-@Epic("Платформа ЕЦП")
-@Feature("GIS 2D (Картографическое обеспечение, Реинформ)")
-@Story("Проверка работы функционала \"подложки\"")
-@Tag("gis") @Tag("gis2")
+@Epic("GIS 2D (Картографическое обеспечение, Реинформ)")
+@Feature("ФС№1.ЕЦП ГИС_Базовый функционал 2D")
+@Story("Проверка базовой функциональности карты в 2Д режиме")
+@Tag("gis") @Tag("gis2d")
 class PodlozhkaTests extends TestBase {
 
     /*

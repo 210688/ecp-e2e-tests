@@ -1,20 +1,13 @@
 package ru.mos.smart.tests.mr;
 
 import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.Tag;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.Selenide.$;
-
 @Layer("web")
-@Epic("Платформа ЕЦП")
-@Feature("Модуль \"Мой район\"")
-@Story("Проверка работы функционала \"Создание объектов\"")
-@Tag("MR")
-@Tag("ECP")
+@Epic("RAYON (Мой район)")
+@Tag("MR") @Tag("all_tests")
 class CreateObjectTests extends TestBase {
 //
 //    /*
