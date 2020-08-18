@@ -77,9 +77,9 @@ tasks.withType(Test) {
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
 }
 
-task gis_tests(type: Test) {
+task all_tests(type: Test) {
     useJUnitPlatform {
-        includeTags 'gis'
+        includeTags 'all_tests'
     }
 }
 task gis2d_tests(type: Test) {
