@@ -17,11 +17,9 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 
-@Epic("Платформа ЕЦП")
-@Feature("OASI (ОАСИ)")
-//@Suite("PPT")
-@Story("Проверка наличия в витрине \"поля для поиска\"")
-@Tag("oasi") @Tag("oasippt")
+@Epic("OASI (ОАСИ)")
+@Feature("PPT (ППТ)")
+@Tag("oasi") @Tag("oasippt") @Tag("all_tests")
 class OasiPptTests extends TestBase { // todo in progress
 
     @Test

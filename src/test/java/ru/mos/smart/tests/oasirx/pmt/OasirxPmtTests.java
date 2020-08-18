@@ -14,11 +14,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
-@Epic("Платформа ЕЦП")
-@Feature("OASIRX (ОАСИ Рефактор-Икс)")
-//@Suite("PMT")
-@Story("Создание карточки ПМТ")
-@Tag("oasirx") @Tag("pmt")
+@Epic("OASIRX (ОАСИ Рефактор-Икс)")
+@Feature("PMT (ПМТ)")
+@Tag("oasirx") @Tag("pmt") @Tag("all_tests")
 class OasirxPmtTests extends TestBase {
 
     @Test

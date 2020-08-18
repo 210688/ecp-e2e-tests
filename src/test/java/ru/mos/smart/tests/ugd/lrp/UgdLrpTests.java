@@ -17,11 +17,9 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
-@Epic("Платформа ЕЦП")
-@Feature("UGD (УГД)")
-//@Suite("LRP")
-@Story("Открытие формы подачи заявки на участие в конкурсе ЛРП")
-@Tag("ugd") @Tag("lrp")
+@Epic("UGD (УГД)")
+@Feature("LRP (Конкурс \"Лучший реализованный проект\")")
+@Tag("ugd") @Tag("lrp") @Tag("all_tests")
 class UgdLrpTests extends TestBase {
 
     @Test

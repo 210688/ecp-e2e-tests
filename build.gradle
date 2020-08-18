@@ -77,28 +77,34 @@ tasks.withType(Test) {
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
 }
 
-task gis_tests(type: Test) {
+task all_tests(type: Test) {
     useJUnitPlatform {
-        includeTags 'gis'
-    }
-}
-task gis2d_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'gis2d'
-    }
-}
-task gis3d_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'gis3d'
-    }
-}
-task feedback_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'feedback'
-    }
-}
-task ugd_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'ugd'
+        includeTags 'all_tests'
+
+        task gis_tests(type: Test) {
+            useJUnitPlatform {
+                includeTags 'gis'
+            }
+        }
+        task gis2d_tests(type: Test) {
+            useJUnitPlatform {
+                includeTags 'gis2d'
+            }
+        }
+        task gis3d_tests(type: Test) {
+            useJUnitPlatform {
+                includeTags 'gis3d'
+            }
+        }
+        task feedback_tests(type: Test) {
+            useJUnitPlatform {
+                includeTags 'feedback'
+            }
+        }
+        task ugd_tests(type: Test) {
+            useJUnitPlatform {
+                includeTags 'ugd'
+            }
+        }
     }
 }

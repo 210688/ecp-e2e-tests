@@ -17,11 +17,9 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
-@Epic("Платформа ЕЦП")
-@Feature("UGD (УГД)")
-//@Suite("OATI")
-@Story("Проверка открытия реестров")
-@Tag("ugd") @Tag("oati")
+@Epic("UGD (УГД)")
+@Feature("OATI (Уведомления ОАТИ)")
+@Tag("ugd") @Tag("oati") @Tag("all_tests")
 class RegistersUvedomleniaTests extends TestBase {
 
     @Test
