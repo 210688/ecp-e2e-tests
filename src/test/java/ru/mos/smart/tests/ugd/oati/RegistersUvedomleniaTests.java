@@ -1,14 +1,12 @@
 package ru.mos.smart.tests.ugd.oati;
 
-import com.codeborne.selenide.Condition;
-import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -17,9 +15,9 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
+@Layer("web")
 @Epic("Платформа ЕЦП")
 @Feature("UGD (УГД)")
-//@Suite("OATI")
 @Story("Проверка открытия реестров")
 @Tag("ugd") @Tag("oati")
 class RegistersUvedomleniaTests extends TestBase {
