@@ -12,15 +12,7 @@ import ru.mos.smart.tests.TestBase;
 @Story("Проверка работы функционала \"Информация-Реестры\"")
 @Tag("MR")
 @Tag("ECP")
-// https://wiki.krlb.ru/pages/viewpage.action?pageId=34637799
 class ReestrTests extends TestBase {
-
-    /*
-    1 Перейти в Информация-Реестры.
-    2 В строке поиска ввести Объекты капитального строительства
-    3 Найти карточку Станция технического обслуживания автомобилей
-    4 Перейти в данную карточку
-    */
     @Test
     @Issue("KRLB-1")
     @DisplayName("Проверка просмотра реестра")
