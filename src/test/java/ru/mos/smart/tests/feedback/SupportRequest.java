@@ -7,6 +7,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selectors.byName;
@@ -17,12 +18,13 @@ import static ru.mos.smart.helpers.EnvironmentHelper.webUrl;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 
+@Layer("web")
 @Epic("FEEDBACK (Форма обратной связи)")
-@Tag("feedback") @Tag("all_tests")
+@Tag("feedback")
 class SupportRequest extends TestBase {
 
     @Test
-    @Description("Используется тестовый пользователь  c нужными правами")
+    @Description("Используется тестовый пользователь 89 c нужными правами")
     @DisplayName("Проверка отправки уведомления в тех подержку")
     void SupportRequestForward() {
         openUrlWithAuthorization("", LOGIN_FEEDBACK, PASSWORD_FEEDBACK); //авторизация в системе
