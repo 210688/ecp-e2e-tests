@@ -79,7 +79,6 @@ tasks.withType(Test) {
 
 task all_tests(type: Test) {
     useJUnitPlatform {
-        includeTags 'all_tests'
     }
 }
 task gis2d_tests(type: Test) {
