@@ -16,7 +16,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("MGZ (Мосгорзаказ)")
 @Tag("mgz") @Tag("all_test")
-class openProjectsCard extends TestBase {
+class OpenProjectsCard extends TestBase {
 
     @Test
     @DisplayName("Открытие карточки проекта МГЗ")
@@ -28,8 +28,9 @@ class openProjectsCard extends TestBase {
         });
 
         step("В строке поиска ввести название проекта", () -> {
-            $(".ng-input input").setValue("2.4.1 Формирование комплекта документов для расчета НМЦК на ПИР")
-            .pressEnter();
+            $(".ng-input input").setValue("2.4.1 Формирование комплекта документов " +
+                    "для расчета НМЦК на ПИР")
+                    .pressEnter();
         });
 
         step("В строке поиска ввести название проекта", () -> {
@@ -38,8 +39,11 @@ class openProjectsCard extends TestBase {
             $(".ng-input input", 1).pressEnter();
         });
 
-        $("input[type=radio]", 1).parent().click();
-        sleep(1000);
-        $(byText("Запустить процесс")).click();
+        step("В строке назначить задачи выбрать на текущего пользователя", () -> {
+            $("input[type=radio]", 1).parent().click();
+            sleep(1000);
+            $(byText("Запустить процесс")).click();
+        });
+
     }
 }
