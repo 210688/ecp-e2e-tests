@@ -44,6 +44,30 @@ class OpenProjectsCard extends TestBase {
             sleep(1000);
             $(byText("Запустить процесс")).click();
         });
+    }
 
+
+    @Test
+    @DisplayName("Задача УДМС")
+    void UDM() {
+        openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
+        step("Переход в задачу Сформировать ведомость объемов проектных работ, " +
+                "календарный план и отправить на утверждение Директором ", () -> {
+            open("/mgz/#/app/execution/mgzprojects/1671206" +
+                    "/mgzprojectsGenerateVOPRAndCalendarPlan?systemCode=MGZ");
+            $(byText("Сформировать ведомость объемов проектных работ, " +
+                    "календарный план и отправить на утверждение Директором")).click();
+        });
+        step("календарный план", () -> {
+            $(".nav-item:nth-child(2) span").click();
+            $(".ng-input input", 0).val("Дата заключения гос. контракта").pressEnter();
+            $(".ng-input input", 1).val("Дата окончания 1").pressEnter();
+            $(".ng-input input", 2).val("Дата окончания 2").pressEnter();
+            $(".ng-input input", 3).val("Дата окончания 3").pressEnter();
+            $(".ng-input input", 4).val("Дата окончания 4").pressEnter();
+            $(".ng-input input", 5).val("Дата окончания 5").pressEnter();
+            $(byText("Сформировать ведомость объемов проектных работ, " +
+                    "календарный план и отправить на утверждение Директ")).shouldBe(visible);
+        });
     }
 }
