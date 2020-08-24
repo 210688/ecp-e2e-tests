@@ -9,8 +9,7 @@ import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
@@ -25,19 +24,22 @@ class openProjectsCard extends TestBase {
         openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
 
         step("В боковом меню открыть вкладку \"Проекты\"", () -> {
-            open("/mgz/#/app/projects/list");
+            open("/mgz/#/app/start/process/");
         });
 
         step("В строке поиска ввести название проекта", () -> {
-            $(byName("value")).setValue("Тестовый").pressEnter();
+            $(".ng-input input").setValue("2.4.1 Формирование комплекта документов для расчета НМЦК на ПИР")
+            .pressEnter();
         });
 
-        step("Открыть карточку нужного проекта", () -> {
-            $(byText("Тестовый проект")).click();
+        step("В строке поиска ввести название проекта", () -> {
+            $(".ng-input input", 1).setValue("Тест релиза 7.8");
+            sleep(1000);
+            $(".ng-input input", 1).pressEnter();
         });
 
-        step("Проверка, что карточка открылась", () -> {
-            $(byText("Тестовый проект")).shouldBe(visible);
-        });
+        $("input[type=radio]", 1).parent().click();
+        sleep(1000);
+        $(byText("Запустить процесс")).click();
     }
 }
