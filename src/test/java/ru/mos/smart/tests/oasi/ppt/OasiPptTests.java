@@ -2,7 +2,6 @@ package ru.mos.smart.tests.oasi.ppt;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -25,7 +24,7 @@ class OasiPptTests extends TestBase {
     @Disabled("тест не работает - надо разобраться с правами, не работает регистрация")
     @DisplayName("Проверка наличия в витрине поля для поиска")
     void searchFieldShouldExist() {
-        openUrlWithAuthorization("", LOGIN_s_PRAVAMI, PASSWORD_s_PRAVAMI); // заблокирован
+        openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG); // заблокирован
 
         step("Открытие в навигаторе Настройки > Конструктор витрин", () -> {
             $(byText("Настройки")).click();

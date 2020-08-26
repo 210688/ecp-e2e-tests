@@ -3,14 +3,12 @@ package ru.mos.smart.tests;
 
 public class TestData {
     public static String
-        LOGIN_s_PRAVAMI = "ivanov_ii",
-        PASSWORD_s_PRAVAMI = "7654321rM",
-
-        LOGIN_BES_PRAV = "testing",
-        PASSWORD_BES_PRAV = "P@ssw0rd",
 
         LOGIN_MR_TEST = "mr_test",
         PASSWORD_MR_TEST ="P@ssw0rd",
+
+        LOGIN_ECP_TEST = "vgupt_operator",
+        PASSWORD_ECP_TEST ="pJl6wW5",
 
         LOGIN_GIS_TEST = "gis_test",
         PASSWORD_GIS_TEST ="P@ssw0rd",
