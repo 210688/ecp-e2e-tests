@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
@@ -31,7 +32,9 @@ class LoginTests extends TestBase {
         });
 
         step("Проверка успешной авторизации", ()-> {
-            $(byText("test test test")).shouldBe(Condition.visible);
+            $(byText("test test test"))
+                    .waitUntil(visible, 20000).shouldBe(visible);
+
         });
     }
 }
