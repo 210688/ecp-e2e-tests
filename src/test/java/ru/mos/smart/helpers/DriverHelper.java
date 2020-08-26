@@ -17,7 +17,7 @@ public class DriverHelper {
 //        Configuration.browser = FIREFOX;
 //        Configuration.browser = OPERA;
         Configuration.baseUrl = webUrl;
-        Configuration.timeout = 4000;
+        Configuration.timeout = 8000;
     }
 
 
