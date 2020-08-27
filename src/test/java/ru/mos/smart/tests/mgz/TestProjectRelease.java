@@ -20,6 +20,7 @@ class TestProjectRelease extends TestBase {
 
     @Test
     @DisplayName("Запуск процесса Тест релиза 7.8")
+    @Tag("mgz_refactor") @Tag("all_test")
     void MgzStartProcess() {
         openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
 
@@ -48,6 +49,7 @@ class TestProjectRelease extends TestBase {
 
     @Test
     @DisplayName("Выбрать функцию УДМС")
+    @Tag("mgz_refactor") @Tag("all_test")
     void UDMS() {
         openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
         step("Переход в задачу Выбрать функцию УДМС", () -> {
@@ -66,6 +68,7 @@ class TestProjectRelease extends TestBase {
     @Test
     @DisplayName("Сформировать ведомость объемов проектных работ," +
             "календарный план и отправить на утверждение Директором")
+    @Tag("mgz_refactor") @Tag("all_test")
     void GenerateVOPRAndCalendarPlan() {
         openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
         step("Переход в задачу Сформировать ведомость объемов проектных работ, " +
