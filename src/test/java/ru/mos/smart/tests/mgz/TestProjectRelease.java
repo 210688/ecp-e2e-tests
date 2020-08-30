@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.mgz;
 
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.*;
 import ru.mos.smart.annotations.Layer;
@@ -11,6 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.CalendarPlanPage.*;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
+import static ru.mos.smart.pages.VedomostProektnihRabot.*;
 
 @Layer("web")
 @Epic("MGZ (Мосгорзаказ)")
@@ -84,41 +84,16 @@ class TestProjectRelease extends TestBase {
             setTableCellValue(okazanieUslug, 1, "10");
             $(".ng-input input", 1).val("Дата окончания 1").pressEnter();
             setTableCellValue(poluchenieTechnicheskihUslovii, 0, "58");
-
-            $(byText("Получение технических условий для проектирования" +
-                    " объекта, составление задания на проектирование, " +
-                    "оказание услуг и работ технического заказчика на период " +
-                    "проектирования объекта (проектная документация)." +
-                    " Оказание услуг по направлению проектной документации" +
-                    " на гос. экспертизу."))
-                    .parent().$("input[type=number]", 1).setValue("20");
+            setTableCellValue(poluchenieTechnicheskihUslovii, 1, "20");
             $(".ng-input input", 2).val("Дата окончания 2").pressEnter();
-            $(byText("Корректировка по замечаниям гос. экспертизы. Получение" +
-                    " положительного заключения государственной экспертизы," +
-                    " передача его для выпуска Решения об утверждении" +
-                    " проектной документации, включая сводный сметный" +
-                    " расчет.")).parent().$("input[type=number]", 0).setValue("25");
-            $(byText("Корректировка по замечаниям гос. экспертизы. Получение" +
-                    " положительного заключения государственной экспертизы," +
-                    " передача его для выпуска Решения об утверждении" +
-                    " проектной документации, включая сводный сметный" +
-                    " расчет.")).parent().$("input[type=number]", 1).setValue("20");
+            setTableCellValue(korrektirovkaPoZamechaniyam, 0, "25");
+            setTableCellValue(korrektirovkaPoZamechaniyam, 1, "20");
             $(".ng-input input", 3).val("Дата окончания 3").pressEnter();
-            $(byText("Оказание услуг и работы технического заказчика на" +
-                    " период проектирования объекта в объеме, необходимом" +
-                    " и достаточном для обеспечения строительства (рабочая" +
-                    " документация).")).parent().$("input[type=number]", 0).setValue("4");
-            $(byText("Оказание услуг и работы технического заказчика на" +
-                    " период проектирования объекта в объеме, необходимом" +
-                    " и достаточном для обеспечения строительства (рабочая" +
-                    " документация).")).parent().$("input[type=number]", 1).setValue("30");
-           $(".ng-input input", 4).val("Дата окончания 4").pressEnter();
-           $(byText("Передача гос. заказчику утвержденной проектной" +
-                   " документации и других документов, по Акту приема-" +
-                   "передачи.")).parent().$("input[type=number]", 0).setValue("37");
-            $(byText("Передача гос. заказчику утвержденной проектной" +
-                    " документации и других документов, по Акту приема-" +
-                    "передачи.")).parent().$("input[type=number]", 1).setValue("20");
+            setTableCellValue(OkazanieUslug, 0, "4");
+            setTableCellValue(OkazanieUslug, 1, "30");
+            $(".ng-input input", 4).val("Дата окончания 4").pressEnter();
+            setTableCellValue(PeredachaGosZakazciku, 0, "37");
+            setTableCellValue(PeredachaGosZakazciku, 1, "20");
         });
 
         step("Перейти на вкладку Ведомость объемов проектных работ", () -> {
@@ -127,27 +102,29 @@ class TestProjectRelease extends TestBase {
 
         step("Открыть вкладку Добавить элемент", () -> {
             $(".pull-left.control-buttons").click(); // $(byText("Добавить элемент")).click()
-            $(byText("Номер параграфа")).parent().parent().$("input").val("1.");
-            $(byText("Имя параграфа")).parent().parent().$("input").setValue("Имя параграфа");
+            setParagrafCellValue(NomerParagrafa, "input", "1.");
+            setInputTextBox(ImyaParagrafa, "input", "Имя параграфа");
+            //$(byText("Имя параграфа")).parent().parent().$("input").setValue("Имя параграфа");
             $(byText("Заголовок левого столбца")).parent().parent().$("input").setValue("Заголовок левого столбца");
             $(byText("Заголовок правого столбца")).parent().parent().$("input").setValue("Заголовок правого столбца");
-            $("button[type=submit]").click();
+            $(byText("Добавить")).click();
+        });
+
+        step("Открыть вкладку Добавить элемент", () -> {
+            $(byText("Добавить элемент")).click();
+            //$(".pull-left.control-buttons").click(); // $(byText("Добавить элемент")).click()
+            setParagrafCellValue(NomerParagrafa, "input", "1.1.");
+            $(byText("Имя параграфа")).parent().parent().$("input").setValue("Имя параграфа");
+            $(byText("Содержание параграфа")).parent().parent().$("textarea").setValue("Содержание параграфа");
+            $(byText("Добавить")).click();
         });
 
         step("Открыть вкладку Добавить элемент", () -> {
             $(".pull-left.control-buttons").click(); // $(byText("Добавить элемент")).click()
-            $(byText("Номер параграфа")).parent().parent().$("input").val("1.1.");
+            setParagrafCellValue(NomerParagrafa, "input", "1.1.");
             $(byText("Имя параграфа")).parent().parent().$("input").setValue("Имя параграфа");
             $(byText("Содержание параграфа")).parent().parent().$("textarea").setValue("Содержание параграфа");
-            $("button[type=submit]").click();
-        });
-
-        step("Открыть вкладку Добавить элемент", () -> {
-            $(".pull-left.control-buttons").click(); // $(byText("Добавить элемент")).click()
-            $(byText("Номер параграфа")).parent().parent().$("input").val("1.1.");
-            $(byText("Имя параграфа")).parent().parent().$("input").setValue("Имя параграфа");
-            $(byText("Содержание параграфа")).parent().parent().$("textarea").setValue("Содержание параграфа");
-            $("button[type=submit]").click();
+            $(byText("Добавить")).click();
         });
  // todo 3th
 
