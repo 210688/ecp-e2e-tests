@@ -2,25 +2,26 @@ package ru.mos.smart.tests.mgz;
 
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Epic;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.pages.CalendarPlanPage.*;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("MGZ (Мосгорзаказ)")
 @Tag("mgz_refactor") @Tag("all_test")
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TestProjectRelease extends TestBase {
 
     @Test
+    @Order(1)
     @DisplayName("Запуск процесса Тест релиза 7.8")
-    void MgzStartProcess() {
+    void mgzStartProcess() {
         openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
 
         step("В боковом меню открыть вкладку \"Проекты\"", () -> {
@@ -47,8 +48,9 @@ class TestProjectRelease extends TestBase {
     }
 
     @Test
+    @Order(2)
     @DisplayName("Выбрать функцию УДМС")
-    void UDMS() {
+    void selectUDMSFunction() {
         openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
         step("Переход в задачу Выбрать функцию УДМС", () -> {
             $("#my-task-showcase").$(byText("Выбрать функцию УДМС")).click();
@@ -64,9 +66,10 @@ class TestProjectRelease extends TestBase {
     }
 
     @Test
+    @Order(3)
     @DisplayName("Сформировать ведомость объемов проектных работ," +
             "календарный план и отправить на утверждение Директором")
-    void GenerateVOPRAndCalendarPlan() {
+    void generateVOPRAndCalendarPlan() {
         openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
         step("Переход в задачу Сформировать ведомость объемов проектных работ, " +
                 "календарный план и отправить на утверждение Директором", () -> {
@@ -77,23 +80,11 @@ class TestProjectRelease extends TestBase {
         step("Перейти на вкладку календарный план", () -> {
             $(".nav-item:nth-child(2) span").click();
             $(".ng-input input", 0).val("Дата заключения гос. контракта").pressEnter();
-            $(byText("" +
-                    "Оказание услуг и работы по сбору исходных данных " +
-                    "в необходимом и достаточном объеме для проектирования. " +
-                    "Проведение инженерных изысканий."))
-                    .parent().$("input[type=number]", 0).setValue("37");
-            $(byText("Оказание услуг и работы по сбору исходных данных " +
-                    "в необходимом и достаточном объеме для проектирования. " +
-                    "Проведение инженерных изысканий."))
-                    .parent().$("input[type=number]", 1).setValue("10");
+            setTableCellValue(okazanieUslug, 0, "37");
+            setTableCellValue(okazanieUslug, 1, "10");
             $(".ng-input input", 1).val("Дата окончания 1").pressEnter();
-            $(byText("Получение технических условий для проектирования" +
-                    " объекта, составление задания на проектирование, " +
-                    "оказание услуг и работ технического заказчика на период " +
-                    "проектирования объекта (проектная документация)." +
-                    " Оказание услуг по направлению проектной документации" +
-                    " на гос. экспертизу."))
-                    .parent().$("input[type=number]", 0).setValue("58");
+            setTableCellValue(poluchenieTechnicheskihUslovii, 0, "58");
+
             $(byText("Получение технических условий для проектирования" +
                     " объекта, составление задания на проектирование, " +
                     "оказание услуг и работ технического заказчика на период " +
@@ -135,14 +126,32 @@ class TestProjectRelease extends TestBase {
         });
 
         step("Открыть вкладку Добавить элемент", () -> {
-            $(".pull-left.control-buttons").click();
-            $(".form-group:nth-child(1) .ng-dirty").val("1.");
-            $(".form-group:nth-child(2) .form-control").setValue("Имя параграфа");
-            $(".form-group:nth-child(3) .form-control").setValue("Заголовок левого столбца");
-            $(".form-group:nth-child(4) .form-control").setValue("Заголовок правого столбца");
+            $(".pull-left.control-buttons").click(); // $(byText("Добавить элемент")).click()
+            $(byText("Номер параграфа")).parent().parent().$("input").val("1.");
+            $(byText("Имя параграфа")).parent().parent().$("input").setValue("Имя параграфа");
+            $(byText("Заголовок левого столбца")).parent().parent().$("input").setValue("Заголовок левого столбца");
+            $(byText("Заголовок правого столбца")).parent().parent().$("input").setValue("Заголовок правого столбца");
             $("button[type=submit]").click();
-            $(byText("Сформировать ведомость")).shouldBe(Condition.visible);
         });
+
+        step("Открыть вкладку Добавить элемент", () -> {
+            $(".pull-left.control-buttons").click(); // $(byText("Добавить элемент")).click()
+            $(byText("Номер параграфа")).parent().parent().$("input").val("1.1.");
+            $(byText("Имя параграфа")).parent().parent().$("input").setValue("Имя параграфа");
+            $(byText("Содержание параграфа")).parent().parent().$("textarea").setValue("Содержание параграфа");
+            $("button[type=submit]").click();
+        });
+
+        step("Открыть вкладку Добавить элемент", () -> {
+            $(".pull-left.control-buttons").click(); // $(byText("Добавить элемент")).click()
+            $(byText("Номер параграфа")).parent().parent().$("input").val("1.1.");
+            $(byText("Имя параграфа")).parent().parent().$("input").setValue("Имя параграфа");
+            $(byText("Содержание параграфа")).parent().parent().$("textarea").setValue("Содержание параграфа");
+            $("button[type=submit]").click();
+        });
+ // todo 3th
+
+        $("button[type=submit]").click();
 
     }
 }
