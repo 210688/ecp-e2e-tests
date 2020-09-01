@@ -19,7 +19,6 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Epic("Платформа ЕЦП")
 @Feature("UGD (УГД)")
-//@Suite("LRP")
 @Story("Открытие формы подачи заявки на участие в конкурсе ЛРП")
 @Tag("ugd") @Tag("lrp")
 class UgdLrpTests extends TestBase {

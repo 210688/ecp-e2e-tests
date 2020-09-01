@@ -19,14 +19,13 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Epic("Платформа ЕЦП")
 @Feature("UGD (УГД)")
-//@Suite("OATI")
 @Story("Проверка открытия реестров")
 @Tag("ugd") @Tag("oati")
 class RegistersUvedomleniaTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия реестров")
-    void OpenRegisterUvedomlenia() {
+    void openRegisterUvedomlenia() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Открытие в навигаторе Информация > Реестры", () -> {

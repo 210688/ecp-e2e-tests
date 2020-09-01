@@ -19,7 +19,6 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Epic("Платформа ЕЦП")
 @Feature("UGD (УГД)")
-//@Suite("LRP")
 @Story("Каталоги МТСК")
 @Tag("ugd") @Tag("mtsk")
 class CatalogsMtskTests extends TestBase {
