@@ -104,31 +104,21 @@ class TestProjectRelease extends TestBase {
             $(".pull-left.control-buttons").click(); // $(byText("Добавить элемент")).click()
             setParagrafCellValue(NomerParagrafa, "input", "1.");
             setInputTextBox(ImyaParagrafa, "input", "Имя параграфа");
-            //$(byText("Имя параграфа")).parent().parent().$("input").setValue("Имя параграфа");
-            $(byText("Заголовок левого столбца")).parent().parent().$("input").setValue("Заголовок левого столбца");
-            $(byText("Заголовок правого столбца")).parent().parent().$("input").setValue("Заголовок правого столбца");
-            $(byText("Добавить")).click();
+            setInputTextBox(ZagolovokLevogoStolbca, "input", "Заголовок левого столбца");
+            setInputTextBox(ZagolovokPravogoStolbca, "input", "Заголовок правого столбца");
+            $(byText("Добавить")).click();;
         });
 
         step("Открыть вкладку Добавить элемент", () -> {
             $(byText("Добавить элемент")).click();
-            //$(".pull-left.control-buttons").click(); // $(byText("Добавить элемент")).click()
             setParagrafCellValue(NomerParagrafa, "input", "1.1.");
-            $(byText("Имя параграфа")).parent().parent().$("input").setValue("Имя параграфа");
+            $(".form-group:nth-child(2) .form-control").click();
+            $(".form-group:nth-child(2) .form-control").val("bvz");
             $(byText("Содержание параграфа")).parent().parent().$("textarea").setValue("Содержание параграфа");
             $(byText("Добавить")).click();
         });
 
-        step("Открыть вкладку Добавить элемент", () -> {
-            $(".pull-left.control-buttons").click(); // $(byText("Добавить элемент")).click()
-            setParagrafCellValue(NomerParagrafa, "input", "1.1.");
-            $(byText("Имя параграфа")).parent().parent().$("input").setValue("Имя параграфа");
-            $(byText("Содержание параграфа")).parent().parent().$("textarea").setValue("Содержание параграфа");
-            $(byText("Добавить")).click();
-        });
- // todo 3th
-
-        $("button[type=submit]").click();
+        $("button[type='submit']").click();
 
     }
 }

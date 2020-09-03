@@ -7,7 +7,9 @@ public class VedomostProektnihRabot {
 
     public static String
             NomerParagrafa = "Номер параграфа",
-            ImyaParagrafa = "Имя параграфа";
+            ImyaParagrafa = "Имя параграфа",
+            ZagolovokLevogoStolbca = "Заголовок левого столбца",
+            ZagolovokPravogoStolbca = "Заголовок правого столбца";
 
 
 
