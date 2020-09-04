@@ -36,13 +36,13 @@ class TestProjectRelease extends TestBase {
 
         step("В строке поиска ввести название проекта", () -> {
             $(".ng-input input", 1).setValue("Тест релиза 7.8");
-            sleep(1000);
+            sleep(5000);
             $(".ng-input input", 1).pressEnter();
         });
 
         step("В строке назначить задачи выбрать на текущего пользователя", () -> {
             $("input[type=radio]", 1).parent().click();
-            sleep(1000);
+            sleep(5000);
             $(byText("Запустить процесс")).click();
         });
     }
@@ -106,20 +106,84 @@ class TestProjectRelease extends TestBase {
             setInputTextBox(ImyaParagrafa, "input", "Имя параграфа");
             setInputTextBox(ZagolovokLevogoStolbca, "input", "Заголовок левого столбца");
             setInputTextBox(ZagolovokPravogoStolbca, "input", "Заголовок правого столбца");
-            $(byText("Добавить")).click();;
+            $(byText("Добавить")).click();
+            ;
         });
 
         step("Открыть вкладку Добавить элемент", () -> {
             $(byText("Добавить элемент")).click();
             setParagrafCellValue(NomerParagrafa, "input", "1.1.");
             $(".form-group:nth-child(2) .form-control").click();
-            $(".form-group:nth-child(2) .form-control").val("bvz");
-            $(byText("Содержание параграфа")).parent().parent().$("textarea").setValue("Содержание параграфа");
+            $(".form-group:nth-child(2) .form-control").val("тест");
+            $(byText("Комментарий к пункту: 1.")).parent().parent().$("textarea").setValue("Комментарий к пункту: 1.");
             $(byText("Добавить")).click();
+            $(byText("Завершить задачу")).click();
+        });
+    }
+
+    @Test
+    @Order(4)
+    @DisplayName("Проверить и согласовать ведомость" +
+            " объемов проектных работ и календарный план")
+    void generateVedomstAndKalendarPlan() {
+        openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
+        step("Переход в задачу Проверить и согласовать ведомость объемов проектных работ и календарный план", () -> {
+            $("#my-task-showcase").$(byText("Проверить и согласовать ведомость объемов" +
+                    " проектных работ и календарный план")).click();
         });
 
-        $("button[type='submit']").click();
+        step("Перейти на вкладку календарный план", () -> {
+            $(".nav-item:nth-child(2) span").click();
+            $("tr:nth-child(1) .ng-valid").setValue("Не согласую");
+            $(".active .btn-danger").click();
+            $(".nav-item:nth-child(3) span").click();
+            $(".glyphicon").click();
+            $(".comment-modal .btn-success").click();
+            $(".active .btn-danger").click();
+            $(byText("Завершить задачу")).click();
+        });
+    }
+
+    @Test
+    @Order(5)
+    @DisplayName("Сформировать ведомость объемов проектных работ календарный план" +
+            " и отправить на утверждение Директором")
+    void generateVOPRAndCalendarPlannn() {
+        openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
+        step("Переход в задачу Сформировать ведомость объемов проектных работ, " +
+                "календарный план и отправить на утверждение Директором", () -> {
+            $("#my-task-showcase").$(byText("Сформировать ведомость объемов проектных работ, " +
+                    "календарный план и отправить на утверждение Директором")).click();
+        });
+
+        step("Перейти на вкладку календарный план", () -> {
+            $(".nav-item:nth-child(2) span").click();
+            setTableCellValue(okazanieUslug, 0, "60");
+            $(byText("Завершить задачу")).click();
+        });
+    }
+
+    @Test
+    @Order(6)
+    @DisplayName("Проверить и согласовать ведомость" +
+            " объемов проектных работ и календарный план")
+    void generateVedomstAndKalendarPlann() {
+        openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
+        step("Переход в задачу Проверить и согласовать ведомость объемов проектных работ и календарный план", () -> {
+            $("#my-task-showcase").$(byText("Проверить и согласовать ведомость объемов" +
+                    " проектных работ и календарный план")).click();
+        });
+
+        step("Перейти на вкладку календарный план", () -> {
+            $(".nav-item:nth-child(2) span").click();
+            $(".active .btn-primary").click();
+            $(".nav-item:nth-child(3) span").click();
+            $(".active .btn-primary").click();
+            $(byText("Завершить задачу")).click();
+        });
+
 
     }
-}
 
+
+}
