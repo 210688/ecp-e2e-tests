@@ -19,7 +19,7 @@ class EooTests extends TestBase {
     @Test
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
-        openUrlWithAuthorization("", LOGIN_SZZ, PASSWORD_SZZ);
+        openUrlWithAuthorization("", LOGIN_EOO, PASSWORD_EOO);
 
     }
 
