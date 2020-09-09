@@ -22,7 +22,7 @@ class RegistersUvedomleniaTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия реестров")
-    void OpenRegisterUvedomlenia() {
+    void openRegisterUvedomlenia() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Открытие в навигаторе Информация > Реестры", () -> {
