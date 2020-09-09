@@ -3,6 +3,7 @@ package ru.mos.smart.tests.mgz;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.*;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.CalendarPlanPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -80,14 +81,14 @@ class TestProjectRelease extends TestBase {
         step("Перейти на вкладку календарный план", () -> {
             $(".nav-item:nth-child(2) span").click();
             $(".ng-input input", 0).val("Дата заключения гос. контракта").pressEnter();
-            setTableCellValue(okazanieUslug, 0, "37");
-            setTableCellValue(okazanieUslug, 1, "10");
+            setTableCellValue(CalendarPlanPage.OkazanieUslugi, 0, "37");
+            setTableCellValue(CalendarPlanPage.OkazanieUslugi, 1, "10");
             $(".ng-input input", 1).val("Дата окончания 1").pressEnter();
-            setTableCellValue(poluchenieTechnicheskihUslovii, 0, "58");
-            setTableCellValue(poluchenieTechnicheskihUslovii, 1, "20");
+            setTableCellValue(PoluchenieTechnicheskihUslovii, 0, "58");
+            setTableCellValue(PoluchenieTechnicheskihUslovii, 1, "20");
             $(".ng-input input", 2).val("Дата окончания 2").pressEnter();
-            setTableCellValue(korrektirovkaPoZamechaniyam, 0, "25");
-            setTableCellValue(korrektirovkaPoZamechaniyam, 1, "20");
+            setTableCellValue(KorrektirovkaPoZamechaniyam, 0, "25");
+            setTableCellValue(KorrektirovkaPoZamechaniyam, 1, "20");
             $(".ng-input input", 3).val("Дата окончания 3").pressEnter();
             setTableCellValue(OkazanieUslug, 0, "4");
             setTableCellValue(OkazanieUslug, 1, "30");
@@ -158,7 +159,7 @@ class TestProjectRelease extends TestBase {
 
         step("Перейти на вкладку календарный план", () -> {
             $(".nav-item:nth-child(2) span").click();
-            setTableCellValue(okazanieUslug, 0, "60");
+            setTableCellValue(CalendarPlanPage.OkazanieUslug, 0, "60");
             $(byText("Завершить задачу")).click();
         });
     }

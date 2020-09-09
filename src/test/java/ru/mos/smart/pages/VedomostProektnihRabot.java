@@ -10,17 +10,6 @@ public class VedomostProektnihRabot {
             ImyaParagrafa = "Имя параграфа",
             ZagolovokLevogoStolbca = "Заголовок левого столбца",
             ZagolovokPravogoStolbca = "Заголовок правого столбца";
-
-
-
-
-
-
-
-
-
-
-
     public static void setParagrafCellValue(String titleText, String input, String val) {
         $(byText(titleText))
                 .parent().parent().$("input").val(val);
