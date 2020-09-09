@@ -4,15 +4,12 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
-
-@Epic("Платформа ЕЦП")
-@Feature("Модуль \"Мой район\"")
-@Story("Проверка работы функционала \"Информация-Реестры\"")
-@Tag("MR")
-@Tag("ECP")
-// https://wiki.krlb.ru/pages/viewpage.action?pageId=34637799
+@Layer("web")
+@Epic("RAYON (Мой район)")
+@Tag("mr") @Tag("all_tests")
 class ReestrTests extends TestBase {
 
     /*

@@ -1,12 +1,11 @@
 package ru.mos.smart.tests.oasirx.pmt;
 
-import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selectors.*;
@@ -14,10 +13,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
-@Epic("Платформа ЕЦП")
-@Feature("OASIRX (ОАСИ Рефактор-Икс)")
-//@Suite("PMT")
-@Story("Создание карточки ПМТ")
+@Layer("web")
+@Epic("OASIRX (ОАСИ Рефактор-Икс)")
+@Feature("PMT (ПМТ)")
 @Tag("oasirx") @Tag("pmt")
 class OasirxPmtTests extends TestBase {
 

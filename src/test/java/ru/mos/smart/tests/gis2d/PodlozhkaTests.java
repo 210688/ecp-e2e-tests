@@ -7,14 +7,16 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.MapsPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.$;
 
-@Epic("Платформа ЕЦП")
-@Feature("GIS 2D (Картографическое обеспечение, Реинформ)")
-@Story("Проверка работы функционала \"подложки\"")
+@Layer("web")
+@Epic("GIS 2D (Картографическое обеспечение, Реинформ)")
+@Feature("ФС№1.ЕЦП ГИС_Базовый функционал 2D")
+@Story("Проверка базовой функциональности карты в 2Д режиме")
 @Tag("gis") @Tag("gis2d")
 class PodlozhkaTests extends TestBase {
 

@@ -12,6 +12,9 @@ public class TestData {
         LOGIN_MR_TEST = "mr_test",
         PASSWORD_MR_TEST ="P@ssw0rd",
 
+        LOGIN_DRONES_TEST = "volatile_drones",
+        PASSWORD_DRONES_TEST ="B2ym3gI",
+
         LOGIN_GIS_TEST = "gis_test",
         PASSWORD_GIS_TEST ="P@ssw0rd",
 
