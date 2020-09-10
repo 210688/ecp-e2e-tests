@@ -31,6 +31,18 @@ class EooTestsPpt extends TestBase {
             $(byLinkText("ЭОО")).click();
             $(byText("Общеcтвенные обcуждения")).shouldBe(visible);
         });
+
+    }
+
+    @Test
+    @DisplayName("Откр")
+    void openEooo() {
+        openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/list", LOGIN_EOO, PASSWORD_EOO);
+        step("Добавить ЭОО", () -> {
+            $(byLinkText("Добавить ЭОО")).click();
+            $("#description-ctr").setValue("Тестовый релиз"); // ввод надписи в Описание проекта
+            $("//input[@role='combobox'").setValue("ВАО").pressEnter();
+        });
     }
 
 }
