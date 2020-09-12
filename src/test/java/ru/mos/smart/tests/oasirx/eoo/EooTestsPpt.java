@@ -41,7 +41,9 @@ class EooTestsPpt extends TestBase {
         step("Добавить ЭОО", () -> {
             $(byLinkText("Добавить ЭОО")).click();
             $("#description-ctr").setValue("Тестовый релиз"); // ввод надписи в Описание проекта
-            $("//input[@role='combobox'").setValue("ВАО").pressEnter();
+            $("#prefect-ctr input").val("вао").pressEnter();
+            $("#district-ctr input").val("веш").pressEnter();
+            $("#source_type-ctr input").val("ППТ").pressEnter();
         });
     }
 
