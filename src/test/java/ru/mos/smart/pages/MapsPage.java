@@ -12,5 +12,6 @@ public class MapsPage {
         $(byText("Информация")).click();
         $(byText("Карта")).click();
     }
+
 }
 
