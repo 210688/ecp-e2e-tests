@@ -38,24 +38,23 @@ class EooTestsPpt extends TestBase {
             $("#district-ctr input").val("веш").pressEnter();
             $("#source_type-ctr input").val("ППТ").pressEnter();
             $("#assign").click();
+            SwitchTask();
+            TakeTask();
         });
-        SwitchTask();
-        TakeTask();
-            $(byText("Описание проект")).shouldBe(visible);
-    }
-//}
-
-    @Test
-    @DisplayName("Откр")
-    void openEoooooo() {
-        openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/551797", LOGIN_EOO, PASSWORD_EOO);
         step("3. Определить разработчика материалов ", () -> {
-            $("#address-ctr").setValue("Степной поселок");
-
+            $("#address-ctr").setValue("Степной поселок").click();
+            $("#responsibleExecutor_code-ctr input").setValue("УППТ").click();
+            $("#responsibleExecutor_login-ctr input").setValue("Электронные Общественные Обсуждения").click();
+            $("#projectType-ctr input").setValue("Конкурсный").click();
+            $("#developer_code-ctr input").setValue("Генплан ГАУ «Научно-исследовательский" +
+                    " и проектный институт Генерального плана города Москвы»").click();
         });
 
-
-
     }
-
 }
+
+ //   @Test
+ //   @DisplayName("Откр")
+ //   void openEoooooo() {
+ //       openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/551797", LOGIN_EOO, PASSWORD_EOO);
+
