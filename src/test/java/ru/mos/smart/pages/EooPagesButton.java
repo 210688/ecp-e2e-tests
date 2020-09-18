@@ -14,7 +14,7 @@ public class EooPagesButton {
     }
     @Step("Нажать на кнопку Взять задачу в работу?")
     public static void TakeTask() {
-        $(byText("Взять в работу")).click();
+        $(".btn-sm:nth-child(2)").click();
     }
 }
 
