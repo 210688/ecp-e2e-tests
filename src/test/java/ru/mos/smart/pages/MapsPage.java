@@ -12,8 +12,5 @@ public class MapsPage {
         $(byText("Информация")).click();
         $(byText("Карта")).click();
     }
-
-        @Step("Проверка, что карта открылась")
-        public static void VerifyMapsObjectIsOpened() {
-    }
 }
+
