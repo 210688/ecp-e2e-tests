@@ -9,16 +9,6 @@ public class VedomostProektnihRabot {
             NomerParagrafa = "Номер параграфа",
             ImyaParagrafa = "Имя параграфа";
 
-
-
-
-
-
-
-
-
-
-
     public static void setParagrafCellValue(String titleText, String input, String val) {
         $(byText(titleText))
                 .parent().parent().$("input").val(val);
