@@ -40,8 +40,8 @@ class EooTestsPpt extends TestBase {
             $("#district-ctr input").val("веш").pressEnter();
             $("#source_type-ctr input").val("ППТ").pressEnter();
             $("#assign").click();
-            SwitchTask();
-            TakeTask();
+            switchTask();
+            takeTask();
         });
         step("2. Определить разработчика материалов ", () -> {
             $("#address-ctr").setValue("Степной поселок").click();
@@ -50,16 +50,16 @@ class EooTestsPpt extends TestBase {
             $("#projectType-ctr input").setValue("Конкурсный").click();
             $("#developer_code-ctr input").setValue("Генплан ГАУ «Научно-исследовательский" +
                     " и проектный институт Генерального плана города Москвы»").click();
-            SwitchTask();
-            TakeTask();
+            switchTask();
+            takeTask();
         });
         step("3. Внесение информации о проведении", () -> {
             $(".ng-input input").setValue("Не более одного месяца").pressEnter();
             $("#notification_date-ctr input").setValue("21.09.2020");
             $("#calculateDate").click();
             $("#next").click();
-            SwitchTask();
-            TakeTask();
+            switchTask();
+            takeTask();
         });
     }
 
@@ -67,8 +67,8 @@ class EooTestsPpt extends TestBase {
     @DisplayName("Откр")
     void openEoooooo() {
         openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/555144", LOGIN_EOO, PASSWORD_EOO);
-        $("input[type=file]").uploadFile(new File("src/tests/resources/1.jpg"));
-
+        $("input[type=file]").uploadFile(new File("src/test/resources/images/1.jpg"));
+        $(byText("Подготовить материалы д")).shouldBe(visible);
 
     }
 }

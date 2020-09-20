@@ -6,10 +6,10 @@ import static com.codeborne.selenide.Selenide.$;
 public class EooPagesButton {
 
 
-    public static void SwitchTask() {
+    public static void switchTask() {
         $(".fa-lg").click(); // треугольничек нажатие перейти к задачи
     }
-    public static void TakeTask(){ // Взять в работу назначенным исполнителем
+    public static void takeTask(){ // Взять в работу назначенным исполнителем
         $(".btn-sm:nth-child(2)").click(); // взять в работу кнопка
     }
 }
