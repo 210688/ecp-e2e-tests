@@ -107,3 +107,8 @@ task mgz_refactor(type: Test) {
         includeTags 'mgz'
     }
 }
+task ppt_eootests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'ppt'
+    }
+}
