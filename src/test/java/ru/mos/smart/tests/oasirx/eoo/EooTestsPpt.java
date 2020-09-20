@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -31,7 +33,7 @@ class EooTestsPpt extends TestBase {
             $(byLinkText("ЭОО")).click();
             $(byText("Общеcтвенные обcуждения")).shouldBe(visible);
         });
-        step("2. Добавить ЭОО", () -> {
+        step("1. Добавить ЭОО", () -> {
             $(byLinkText("Добавить ЭОО")).click();
             $("#description-ctr").setValue("Тестовый релиз"); // ввод надписи в Описание проекта
             $("#prefect-ctr input").setValue("вао").pressEnter(); //ввод округа
@@ -41,20 +43,32 @@ class EooTestsPpt extends TestBase {
             SwitchTask();
             TakeTask();
         });
-        step("3. Определить разработчика материалов ", () -> {
+        step("2. Определить разработчика материалов ", () -> {
             $("#address-ctr").setValue("Степной поселок").click();
             $("#responsibleExecutor_code-ctr input").setValue("УППТ").click();
             $("#responsibleExecutor_login-ctr input").setValue("Электронные Общественные Обсуждения").click();
             $("#projectType-ctr input").setValue("Конкурсный").click();
             $("#developer_code-ctr input").setValue("Генплан ГАУ «Научно-исследовательский" +
                     " и проектный институт Генерального плана города Москвы»").click();
+            SwitchTask();
+            TakeTask();
         });
+        step("3. Внесение информации о проведении", () -> {
+            $(".ng-input input").setValue("Не более одного месяца").pressEnter();
+            $("#notification_date-ctr input").setValue("21.09.2020");
+            $("#calculateDate").click();
+            $("#next").click();
+            SwitchTask();
+            TakeTask();
+        });
+    }
+
+    @Test
+    @DisplayName("Откр")
+    void openEoooooo() {
+        openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/555144", LOGIN_EOO, PASSWORD_EOO);
+        $("input[type=file]").uploadFile(new File("src/tests/resources/1.jpg"));
+
 
     }
 }
-
- //   @Test
- //   @DisplayName("Откр")
- //   void openEoooooo() {
- //       openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/551797", LOGIN_EOO, PASSWORD_EOO);
-

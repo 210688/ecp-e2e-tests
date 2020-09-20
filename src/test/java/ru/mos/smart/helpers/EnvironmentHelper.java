@@ -15,7 +15,7 @@ public class EnvironmentHelper {
 //        browser = System.getProperty("browser", "safari"),
 //        browser = System.getProperty("browser", "firefox"),
 //        browser = System.getProperty("browser", "opera"),
-        screenResolution = System.getProperty("screen_resolution", "1360x768"),
+        screenResolution = System.getProperty("screen_resolution", "1280x1024"),
         webMobileDevice = System.getProperty("web_mobile_device"),
 //        webMobileDevice = System.getProperty("web_mobile_device", "iPhone X");
         remoteDriverUrl = System.getProperty("remote_driver_url"), // https://username:password@selenoid.autotests.cloud:4444/wd/hub/
