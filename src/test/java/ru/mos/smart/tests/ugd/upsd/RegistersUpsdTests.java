@@ -36,4 +36,5 @@ class RegistersUpsdTests extends TestBase {
         step("Проверка открытия реестра", () -> {
 
         });
+    }
 }
