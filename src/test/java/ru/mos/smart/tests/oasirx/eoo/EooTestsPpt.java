@@ -44,31 +44,44 @@ class EooTestsPpt extends TestBase {
             takeTask();
         });
         step("2. Определить разработчика материалов ", () -> {
-            $("#address-ctr").setValue("Степной поселок").click();
-            $("#responsibleExecutor_code-ctr input").setValue("УППТ").click();
-            $("#responsibleExecutor_login-ctr input").setValue("Электронные Общественные Обсуждения").click();
-            $("#projectType-ctr input").setValue("Конкурсный").click();
+            $("#address-ctr").setValue("Степной поселок").pressEnter();
+            $("#responsibleExecutor_code-ctr input").setValue("УППТ").pressEnter();
+            $("#responsibleExecutor_login-ctr input").setValue("Электронные Общественные Обсуждения").pressEnter();
+            $("#projectType-ctr input").setValue("Конкурсный").pressEnter();
             $("#developer_code-ctr input").setValue("Генплан ГАУ «Научно-исследовательский" +
-                    " и проектный институт Генерального плана города Москвы»").click();
-            switchTask();
+                    " и проектный институт Генерального плана города Москвы»").pressEnter();
+            saveButtonNextTask();
+            $(".level-0:nth-child(4) .pull-right > .fa").click();
             takeTask();
         });
         step("3. Внесение информации о проведении", () -> {
             $(".ng-input input").setValue("Не более одного месяца").pressEnter();
             $("#notification_date-ctr input").setValue("21.09.2020");
             $("#calculateDate").click();
-            $("#next").click();
+            saveButtonNextTask();
             switchTask();
             takeTask();
         });
+        step("4. Подготовить материалы для ЭОО");
+        $("input[type=file]", 0).uploadFile(new File("src/test/resources/images/423438.jpg"));
+        $("input[type=file]", 3).uploadFile(new File("src/test/resources/images/13446.doc")); //Текст для размещения на АГ
+        $("input[type=file]", 4).uploadFile(new File("src/test/resources/images/456459.jpg")); //Границы проведения ЭОО
+        $("input[type=file]", 5).uploadFile(new File("src/test/resources/images/56457.pdf")); //Утверждаемая часть
+        saveButtonNextTask();
+        switchTask();
+        takeTask();
+
     }
+
 
     @Test
     @DisplayName("Откр")
     void openEoooooo() {
-        openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/555144", LOGIN_EOO, PASSWORD_EOO);
-        $("input[type=file]").uploadFile(new File("src/test/resources/images/1.jpg"));
-        $(byText("Подготовить материалы д")).shouldBe(visible);
-
+        openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/aa0dd05a-1378-4b70-ad04-3c2dfa5bd5e9", LOGIN_EOO, PASSWORD_EOO);
+        $(".fa-lg", 1).click();
+        $(".ng-input input").setValue("Не более одного месяца").pressEnter();
+        $("#notification_date-ctr input").setValue("21.09.2020");
+        $("#calculateDate").click();
     }
+
 }
