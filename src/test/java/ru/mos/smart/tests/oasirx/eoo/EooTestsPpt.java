@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.io.File;
@@ -24,11 +25,10 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Story("ППТ")
 @Tag("oasirx") @Tag("eoo")
 class EooTestsPpt extends TestBase {
-
     @Test
     @DisplayName("0.0. Открытие вкладки ЭОО из навигатора")
     void openEoo() {
-        openUrlWithAuthorization("", LOGIN_EOO, PASSWORD_EOO);
+        LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
         step("Открытие в навигаторе ЭОО", () -> {
             $(byLinkText("ЭОО")).click();
             $(byText("Общеcтвенные обcуждения")).shouldBe(visible);
@@ -81,10 +81,10 @@ class EooTestsPpt extends TestBase {
    @Test
    @DisplayName("1. Открытие вкладки ЭОО из навигатора")
   void openEolo() {
-        openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/22aa69e4-bdf8-4fd4-8f80-1b826c8ba4eb", LOGIN_EOO, PASSWORD_EOO);
+       LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
         step("Открытие в навигаторе ЭОО", () -> {
             switchTask(1);
-       $("#address-ctr input").setValue("Степной поселок").pressEnter();
+            $("#address-ctr input").setValue("Степной поселок").pressEnter();
        });
    }
 }
