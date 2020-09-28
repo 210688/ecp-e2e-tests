@@ -13,11 +13,11 @@ import ru.mos.smart.tests.TestBase;
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byLinkText;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.EooPagesButton.*;
-import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -66,7 +66,7 @@ class EooTestsPpt extends TestBase {
             takeTask();
         });
 
-        step("3. Подготовка материалов для ЭОО ", () -> {
+        step("3. Подготовка материалов для ЭОО", () -> {
             $("input[type=file]", 0).uploadFile(new File("src/test/resources/images/423438.jpg"));
             $("input[type=file]", 3).uploadFile(new File("src/test/resources/images/13446.doc")); //Текст для размещения на АГ
             $("input[type=file]", 4).uploadFile(new File("src/test/resources/images/456459.jpg")); //Границы проведения ЭОО
@@ -75,16 +75,37 @@ class EooTestsPpt extends TestBase {
             switchTask(3);
             takeTask();
         });
+
+        step("4. Проверка материалов для ЭОО", () -> {
+            $("#docAgreeContent_confirmRounds_sectorChiefCheckConfirm-ctr-wrapper .ui-chkbox-icon").click();
+            $("#docAgreeContent_confirmRounds_zamChiefCheckConfirm-ctr-wrapper .ui-chkbox-icon").click();
+            saveButtonNextTask();
+            switchTask(4);
+            takeTask();
+        });
+
+        step("5. Подготовка решения руководителем УОС", () -> {
+            $("#detailView-ctr .right").click();
+            $("#executeBy-ctr .ui-radiobutton-label").click();
+            $("#approved-ctr .right").click();
+            $("#save").click();
+            switchTask(5);
+            takeTask();
+
+
+        });
     }
 
 
    @Test
-   @DisplayName("1. Открытие вкладки ЭОО из навигатора")
+   @DisplayName("1. Подготовка решения руководителем УОС")
   void openEolo() {
-       LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
-        step("Открытие в навигаторе ЭОО", () -> {
-            switchTask(1);
-            $("#address-ctr input").setValue("Степной поселок").pressEnter();
+       LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/6b9b0ea8-9ad5-49ae-96a9-4c60c10dfc94", loginEoo, passwordEoo);
+        step("Подготовка решения руководителем УОС", () -> {
+            switchTask(4);
+            $("#detailView-ctr .right").click();
+            $("#executeBy-ctr .ui-radiobutton-label").click();
+            $("#approved-ctr .right").click();
        });
    }
 }

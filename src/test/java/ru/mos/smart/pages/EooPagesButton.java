@@ -15,6 +15,7 @@ public class EooPagesButton {
     }
 
     public static void  saveButtonNextTask(){  //Сохранить и передать на подготовку
+
         $("#next").click();
     }
 }
