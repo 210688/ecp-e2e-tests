@@ -7,6 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.ActionsPage;
+import ru.mos.smart.pages.EooPagesButton;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -17,7 +19,7 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.pages.EooPagesButton.*;
+import static ru.mos.smart.pages.ActionsPage.actionName;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -25,6 +27,14 @@ import static ru.mos.smart.pages.EooPagesButton.*;
 @Story("ППТ")
 @Tag("oasirx") @Tag("eoo")
 class EooTestsPpt extends TestBase {
+    @Test
+    @DisplayName("0. Добавление ЭОО")
+    void addEoo() {
+        LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
+        ActionsPage.searchAction(actionName);
+
+    }
+
     @Test
     @DisplayName("0.0. Открытие вкладки ЭОО из навигатора")
     void openEoo() {
@@ -41,8 +51,8 @@ class EooTestsPpt extends TestBase {
             $("#district-ctr input").val("веш").pressEnter();
             $("#source_type-ctr input").val("ППТ").pressEnter();
             $("#assign").click();
-            switchTask(0);
-            takeTask();
+            EooPagesButton.switchTask(0);
+            EooPagesButton.takeTask();
         });
 
         step("1. Определение разработчика материалов", () -> {
@@ -52,18 +62,18 @@ class EooTestsPpt extends TestBase {
             $("#projectType-ctr input").setValue("Конкурсный").pressEnter();
             $("#developer_code-ctr input").setValue("Генплан ГАУ «Научно-исследовательский" +
                     " и проектный институт Генерального плана города Москвы»").pressEnter();
-            saveButtonNextTask();
-            switchTask(1);
-            takeTask();
+            EooPagesButton.saveButtonNextTask();
+            EooPagesButton.switchTask(1);
+            EooPagesButton.takeTask();
         });
 
         step("2. Внесение информации о проведении", () -> {
             $(".ng-input input").setValue("Не более одного месяца").pressEnter();
             $("#notification_date-ctr input").setValue("22.09.2020");
             $("#calculateDate").click();
-            saveButtonNextTask();
-            switchTask(2);
-            takeTask();
+            EooPagesButton.saveButtonNextTask();
+            EooPagesButton.switchTask(2);
+            EooPagesButton.takeTask();
         });
 
         step("3. Подготовка материалов для ЭОО", () -> {
@@ -71,17 +81,17 @@ class EooTestsPpt extends TestBase {
             $("input[type=file]", 3).uploadFile(new File("src/test/resources/images/13446.doc")); //Текст для размещения на АГ
             $("input[type=file]", 4).uploadFile(new File("src/test/resources/images/456459.jpg")); //Границы проведения ЭОО
             $("input[type=file]", 5).uploadFile(new File("src/test/resources/images/56457.pdf")); //Утверждаемая часть
-            saveButtonNextTask();
-            switchTask(3);
-            takeTask();
+            EooPagesButton.saveButtonNextTask();
+            EooPagesButton.switchTask(3);
+            EooPagesButton.takeTask();
         });
 
         step("4. Проверка материалов для ЭОО", () -> {
             $("#docAgreeContent_confirmRounds_sectorChiefCheckConfirm-ctr-wrapper .ui-chkbox-icon").click();
             $("#docAgreeContent_confirmRounds_zamChiefCheckConfirm-ctr-wrapper .ui-chkbox-icon").click();
-            saveButtonNextTask();
-            switchTask(4);
-            takeTask();
+            EooPagesButton.saveButtonNextTask();
+            EooPagesButton.switchTask(4);
+            EooPagesButton.takeTask();
         });
 
         step("5. Подготовка решения руководителем УОС", () -> {
@@ -89,23 +99,15 @@ class EooTestsPpt extends TestBase {
             $("#executeBy-ctr .ui-radiobutton-label").click();
             $("#approved-ctr .right").click();
             $("#save").click();
-            switchTask(5);
-            takeTask();
-
-
+            EooPagesButton.switchTask(5);
+            EooPagesButton.takeTask();
         });
     }
 
-
-   @Test
-   @DisplayName("1. Подготовка решения руководителем УОС")
-  void openEolo() {
-       LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/6b9b0ea8-9ad5-49ae-96a9-4c60c10dfc94", loginEoo, passwordEoo);
-        step("Подготовка решения руководителем УОС", () -> {
-            switchTask(4);
-            $("#detailView-ctr .right").click();
-            $("#executeBy-ctr .ui-radiobutton-label").click();
-            $("#approved-ctr .right").click();
-       });
-   }
+    @Test
+    @DisplayName("0. Добавление ЭОО")
+    void addhEoo() {
+        LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
+        ActionsPage.searchAction(actionName);
+    }
 }
