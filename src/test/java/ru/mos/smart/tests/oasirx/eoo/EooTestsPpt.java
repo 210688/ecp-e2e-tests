@@ -18,6 +18,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.ActionsPage.actionName;
 
@@ -32,7 +33,13 @@ class EooTestsPpt extends TestBase {
     void addEoo() {
         LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
         ActionsPage.searchAction(actionName);
-
+        step("0. Добавить ЭОО", () -> {
+            $("#description-ctr").setValue("Тестовый релиз"); // ввод надписи в Описание проекта
+            $("#prefect-ctr input").setValue("вао").pressEnter(); //ввод округа
+            $("#district-ctr input").val("веш").pressEnter();
+            $("#source_type-ctr input").val("ППТ").pressEnter();
+            $("#assign").click();
+        });
     }
 
     @Test
@@ -107,7 +114,10 @@ class EooTestsPpt extends TestBase {
     @Test
     @DisplayName("0. Добавление ЭОО")
     void addhEoo() {
-        LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
-        ActionsPage.searchAction(actionName);
+        LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/a2521db2-a223-4c9b-9cab-be71f26fe4f8", loginEoo, passwordEoo);
+        $x("//div[descendant::div[contains(text(), 'Подготовка материалов для ЭОО')]]//a[@title='Перейти к задаче']").click();
+        EooPagesButton.takeTask();
+        $(".ng-input input").setValue("Не более одного месяца").pressEnter();
+
     }
 }
