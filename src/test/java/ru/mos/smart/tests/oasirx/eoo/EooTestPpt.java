@@ -54,6 +54,7 @@ public class EooTestPpt extends TestBase {
             $("#projectType-ctr input").setValue("Конкурсный").pressEnter();
             $("#developer_code-ctr input").setValue("Генплан ГАУ «Научно-исследовательский" +
                     " и проектный институт Генерального плана города Москвы»").pressEnter();
+            EooPagesButton.saveButtonNextTask();
         });
 
     }
