@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
@@ -25,9 +26,9 @@ import static ru.mos.smart.pages.ActionsPage.actionName;
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("EOO (Электронные общественные обсуждения)")
-@Story("ППТ")
+@Story("PPT_")
 @Tag("oasirx") @Tag("eoo")
-class EooTestsPpt extends TestBase {
+public class EooTestsPpt extends TestBase {
     @Test
     @DisplayName("0. Добавление ЭОО")
     void addEoo() {
@@ -41,6 +42,50 @@ class EooTestsPpt extends TestBase {
             $("#assign").click();
         });
     }
+
+    @Test
+    @Order(1)
+    @DisplayName("1. Определение разработчика материалов")
+    void opredRazrabMaterial() {
+        LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
+        step("1. Определение разработчика материалов", () -> {
+
+            $("#address-ctr").setValue("Степной поселок").pressEnter();
+            $("#responsibleExecutor_code-ctr input").setValue("УППТ").pressEnter();
+            $("#responsibleExecutor_login-ctr input").setValue("Электронные Общественные Обсуждения").pressEnter();
+            $("#projectType-ctr input").setValue("Конкурсный").pressEnter();
+            $("#developer_code-ctr input").setValue("Генплан ГАУ «Научно-исследовательский" +
+                    " и проектный институт Генерального плана города Москвы»").pressEnter();
+
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Test
     @DisplayName("0.0. Открытие вкладки ЭОО из навигатора")
@@ -114,7 +159,8 @@ class EooTestsPpt extends TestBase {
     @Test
     @DisplayName("0. Добавление ЭОО")
     void addhEoo() {
-        LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/a2521db2-a223-4c9b-9cab-be71f26fe4f8", loginEoo, passwordEoo);
+        LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
+
         $x("//div[descendant::div[contains(text(), 'Подготовка материалов для ЭОО')]]//a[@title='Перейти к задаче']").click();
         EooPagesButton.takeTask();
         $(".ng-input input").setValue("Не более одного месяца").pressEnter();
