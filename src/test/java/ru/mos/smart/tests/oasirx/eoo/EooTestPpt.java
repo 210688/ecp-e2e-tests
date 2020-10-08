@@ -15,8 +15,7 @@ import ru.mos.smart.pages.EooPagesButton;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.ActionsPage.actionName;
 
@@ -47,7 +46,7 @@ public class EooTestPpt extends TestBase {
         LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/607030", loginEoo, passwordEoo);
         //TasksPages.searchTask(task1);
         //EooPagesButton.takeTask();
-        if ($x("//div/button[text()='Взять в работу']").waitUntil(Condition.visible, 5000).isDisplayed()) {
+        if  ($x("//div/button[text()='Взять в работу']").waitUntil(Condition.visible, 5000).isDisplayed()) {
             $(By.xpath("//div/button[text()='Взять в работу']")).click();
         } else {
             $("#address-ctr").setValue("Степной поселок").pressEnter();
