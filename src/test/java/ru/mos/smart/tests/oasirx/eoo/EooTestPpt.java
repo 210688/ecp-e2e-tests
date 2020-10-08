@@ -16,6 +16,7 @@ import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.ActionsPage.actionName;
 
@@ -46,7 +47,13 @@ public class EooTestPpt extends TestBase {
         LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/603947", loginEoo, passwordEoo);
         //TasksPages.searchTask(task1);
         //EooPagesButton.takeTask();
+        if ($x("//div/button[text()='Взять в работу']").isDisplayed()) {
+            $(By.xpath("//div/button[text()='Взять в работу']")).click();
+        } else {
+            $("#address-ctr").setValue("Степной поселок").pressEnter();
+        }
         ButtonKey.isVisible(By.xpath("//div/button[text()='Взять в работу']"));
+        $(By.xpath("//div/button[text()='Взять в работу']")).click();
         step("1.Определить разработчика материалов", () -> {
             //$x("//div[descendant::div[contains(text(), 'Определение разработчика материалов')]]//a[@title='Перейти к задаче']").click();
             $("#address-ctr").setValue("Степной поселок").pressEnter();
