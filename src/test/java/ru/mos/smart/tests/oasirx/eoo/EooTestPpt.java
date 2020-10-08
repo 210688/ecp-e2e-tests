@@ -7,17 +7,17 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.ActionsPage;
+import ru.mos.smart.pages.ButtonKey;
 import ru.mos.smart.pages.EooPagesButton;
 import ru.mos.smart.pages.LoginPage;
-import ru.mos.smart.pages.TasksPages;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.ActionsPage.actionName;
-import static ru.mos.smart.pages.TasksPages.task1;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -43,9 +43,10 @@ public class EooTestPpt extends TestBase {
     @Order(1)
     @DisplayName("1.Определить разработчика материалов")
     void opredRazrabMaterial() {
-        LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
-        TasksPages.searchTask(task1);
-        EooPagesButton.takeTask();
+        LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/603947", loginEoo, passwordEoo);
+        //TasksPages.searchTask(task1);
+        //EooPagesButton.takeTask();
+        ButtonKey.isVisible(By.xpath("//div/button[text()='Взять в работу']"));
         step("1.Определить разработчика материалов", () -> {
             //$x("//div[descendant::div[contains(text(), 'Определение разработчика материалов')]]//a[@title='Перейти к задаче']").click();
             $("#address-ctr").setValue("Степной поселок").pressEnter();
