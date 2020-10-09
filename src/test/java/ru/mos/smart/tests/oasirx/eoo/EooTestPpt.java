@@ -8,14 +8,13 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.ActionsPage;
-import ru.mos.smart.pages.EooPagesButton;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.*;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.ActionsPage.actionName;
+import static ru.mos.smart.pages.TasksPages.task1;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -42,14 +41,8 @@ public class EooTestPpt extends TestBase {
     @DisplayName("1.Определить разработчика материалов")
     void opredRazrabMaterial() {
         LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/607984", loginEoo, passwordEoo);
-        //TasksPages.searchTask(task1);
-        //EooPagesButton.takeTask();
-        sleep(5000);
-        if  ($x("//div/button[text()='Взять в работу']").isDisplayed()) {
-            ($x("//div/button[text()='Взять в работу']")).click();
-        } else {
-            $("#address-ctr").setValue("Степной поселок").pressEnter();
-        }
+        TasksPages.searchTask(task1);
+        ButtonKey.setButtonInRabota();
         //ButtonKey.isVisible(By.xpath("//div/button[text()='Взять в работу']"));
         //TasksPages.searchTask(task1);
         //EooPagesButton.takeTask();
