@@ -1,11 +1,10 @@
 package ru.mos.smart.pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ex.ElementNotFound;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
 //public class ButtonKey {
 //    public static boolean isVisib(By locator) {
@@ -18,5 +17,15 @@ import static com.codeborne.selenide.Selenide.$x;
 //   }
 
 
+public class ButtonKey {
+    public static boolean isVisible(String locator) {
+        try {
+            $(By.xpath("//div/button[text()='Взять в работу']")).waitUntil(visible, 5000).click();
+            return true;
+        } catch (ElementNotFound | Exception ex) {
+            return false;
+        }
+    }
+}
 
 

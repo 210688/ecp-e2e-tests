@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.oasirx.eoo;
 
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -8,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.ActionsPage;
 import ru.mos.smart.pages.EooPagesButton;
@@ -43,19 +41,21 @@ public class EooTestPpt extends TestBase {
     @Order(1)
     @DisplayName("1.Определить разработчика материалов")
     void opredRazrabMaterial() {
-        LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/607030", loginEoo, passwordEoo);
+        LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/execution/oasirxeoo/607984", loginEoo, passwordEoo);
         //TasksPages.searchTask(task1);
         //EooPagesButton.takeTask();
-        if  ($x("//div/button[text()='Взять в работу']").waitUntil(Condition.visible, 5000).isDisplayed()) {
-            $(By.xpath("//div/button[text()='Взять в работу']")).click();
+        sleep(5000);
+        if  ($x("//div/button[text()='Взять в работу']").isDisplayed()) {
+            ($x("//div/button[text()='Взять в работу']")).click();
         } else {
             $("#address-ctr").setValue("Степной поселок").pressEnter();
         }
         //ButtonKey.isVisible(By.xpath("//div/button[text()='Взять в работу']"));
-        //$(By.xpath("//div/button[text()='Взять в работу']")).click();
+        //TasksPages.searchTask(task1);
+        //EooPagesButton.takeTask();
         step("1.Определить разработчика материалов", () -> {
             //$x("//div[descendant::div[contains(text(), 'Определение разработчика материалов')]]//a[@title='Перейти к задаче']").click();
-            $("#address-ctr").setValue("Степной поселок").pressEnter();
+            //$("#address-ctr").setValue("Степной поселок").pressEnter();
             $("#responsibleExecutor_code-ctr input").setValue("УППТ").pressEnter();
             $("#responsibleExecutor_login-ctr input").setValue("Электронные Общественные Обсуждения").pressEnter();
             $("#projectType-ctr input").setValue("Конкурсный").pressEnter();
