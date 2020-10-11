@@ -9,7 +9,15 @@ import static io.qameta.allure.Allure.step;
 
 public class TasksPages {
     public static String
-            task1 = "Определить разработчика материалов";
+            task1 = "Определить разработчика материалов",
+            task2 = "Внести информацию о проведении",
+            task3 = "Подготовить материалы для ЭОО",
+            task4 = "Проверить материалы для ЭОО",
+            task5 = "Подготовить решение по материалам (руководитель)",
+            task6 = "Согласовать материалы для ЭОО (начальник управления)",
+            task7 = "Согласовать материалы (зам. пред.)",
+            task8 = "Согласовать материалы (зам. пред. ЭОО)";
+
 
     @Step("Выбор задачи")
     public static void searchTask(String tasksName) {
@@ -23,12 +31,6 @@ public class TasksPages {
 
         step("Выбор задачи в списке {taskName}", ()-> {
             $(By.xpath("//span[contains(@class,'task-title') and contains(.,'" + tasksName + "')]")).click();
-            //$(By.xpath("//div[contains(@class,'sk-spinner')]"))
-                    //.waitUntil(hidden, 60000);
-            //$(By.xpath("//h1[contains(text(),'" + tasksName + "')]"))
-                    //.waitUntil(visible, 60000);
-            //sleep(3000);
         });
-
     }
 }
