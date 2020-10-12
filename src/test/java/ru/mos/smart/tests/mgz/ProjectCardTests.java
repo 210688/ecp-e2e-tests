@@ -1,10 +1,11 @@
 package ru.mos.smart.tests.mgz;
 
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -14,14 +15,15 @@ import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
-@Layer("web")
-@Epic("MGZ (Мосгорзаказ)")
-@Tag("mgz") @Tag("all_test")
-class openProjectsCard extends TestBase {
+@Epic("Платформа ЕЦП")
+@Feature("MGZ (МГЗ)")
+@Story("Карточки проектов МГЗ")
+@Tag("mgz")
+class ProjectCardTests extends TestBase {
 
     @Test
     @DisplayName("Открытие карточки проекта МГЗ")
-    void openProjectsCard() {
+    void openingProjectCard() {
         openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
 
         step("В боковом меню открыть вкладку \"Проекты\"", () -> {

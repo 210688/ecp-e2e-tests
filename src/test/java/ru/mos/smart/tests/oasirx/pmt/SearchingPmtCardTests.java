@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.pmt;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -21,6 +22,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 class SearchingPmtCardTests extends TestBase {
 
     @Test
+    @AllureId("1000")
     @DisplayName("Поиск ПМТ по названию")
     void searchingPmtCardByName() {
         openUrlWithAuthorization("", LOGIN_PMT, PASSWORD_PMT);

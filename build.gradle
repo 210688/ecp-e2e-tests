@@ -103,6 +103,11 @@ task ugd_tests(type: Test) {
 
     }
 }
+task mgz_refactor(type: Test) {
+    useJUnitPlatform {
+        includeTags 'mgz'
+    }
+}
 task mgz_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'mgz'
