@@ -15,9 +15,10 @@ public class MainPage {
 
     @Step("Возможности")
     public static void actions() {
-    step("Возможности", ()-> {
-        $(By.xpath("//nav//a[@href='/main/#/app/actions']"))
-                .shouldBe(visible).click();
-    });
+        step("Возможности", ()-> {
+            $(By.xpath("//nav//a[@href='/main/#/app/actions']"))
+                    .shouldBe(visible).click();
+
+        });
     }
 }

@@ -31,6 +31,7 @@ public class EooTestPpt extends TestBase {
         LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
         ActionsPage.searchAction(actionName);
         step("0. Добавить ЭОО", () -> {
+            $x("//div[descendant::div[contains(text(), 'Внесение информации о проведении')]]//a[@title='Перейти к задаче']").click();
             $("#description-ctr").setValue("Тестовый релиз"); // ввод надписи в Описание проекта
             $("#prefect-ctr input").setValue("вао").pressEnter(); //ввод округа
             $("#district-ctr input").val("веш").pressEnter();
