@@ -25,7 +25,7 @@ public class EcpTest extends TestBase {
         step("открытие реестра", () -> {
             $(byLinkText("Информация")).click();
             $(byLinkText("Реестры")).click();
-            $(byText("Реестры")).shouldBe(Condition.visible);
+            $(byText("Реестр")).shouldBe(Condition.visible);
         });
     }
 }
