@@ -10,8 +10,7 @@ import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byLinkText;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
@@ -37,7 +36,7 @@ class SearchingPmtCardTests extends TestBase {
         });
 
         step("В строке поиска ввести название ПМТ", () -> {
-            $("#form-control").setValue("Для префектуры").pressEnter();
+            $(".input-group.ng-dirty").setValue("ПМТ-0044-2020").pressEnter();
         });
 
         step("Проверка, что в результатах поиска появилось \"Для префектуры\"", () -> {
@@ -45,3 +44,5 @@ class SearchingPmtCardTests extends TestBase {
         });
     }
 }
+//?/input[@safeclass~'\bform-control\b.*\bng-dirty\b.*\bng-touched\b.*\bng-valid\b']
+//ui-view[@id='pmt-module']/app-document-list/div[@class='pmt-styles']/div//app-search-input//form//input[@placeholder='Номер и тип документа, организация, источник']
