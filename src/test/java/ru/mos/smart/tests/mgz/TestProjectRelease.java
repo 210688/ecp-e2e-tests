@@ -182,9 +182,5 @@ class TestProjectRelease extends TestBase {
             $(".active .btn-primary").click();
             $(byText("Завершить задачу")).click();
         });
-
-
     }
-
-
 }
