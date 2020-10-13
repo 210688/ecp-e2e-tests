@@ -79,7 +79,6 @@ tasks.withType(Test) {
 
 task all_tests(type: Test) {
     useJUnitPlatform {
-        includeTags 'all_tests'
     }
 }
 task gis2d_tests(type: Test) {
@@ -111,5 +110,10 @@ task mgz_refactor(type: Test) {
 task mgz_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'mgz'
+    }
+}
+task ppt_eootests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'eoo'
     }
 }

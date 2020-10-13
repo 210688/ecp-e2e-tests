@@ -1,5 +1,6 @@
 package ru.mos.smart.drivers;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverProvider;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -56,6 +57,7 @@ public class CustomWebDriver implements WebDriverProvider {
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-infobars");
+        Configuration.browserSize = "1280x1024";
         if(isHeadless) chromeOptions.addArguments("headless");
 
         return chromeOptions;
