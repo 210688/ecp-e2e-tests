@@ -47,4 +47,3 @@ class SupportRequest extends TestBase {
         });
     }
 }
-

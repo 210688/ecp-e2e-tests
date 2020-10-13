@@ -22,6 +22,9 @@ public class TestData {
         LOGIN_SZZ = "ivanov_sz",
         PASSWORD_SZZ ="Passsword1",
 
+        loginEoo = "elektronnye_oo",
+        passwordEoo ="9zWjDx8",
+
         LOGIN_AGR_PKR = "ivanov_ap",
         PASSWORD_AGR_PKR ="Passsword1",
 

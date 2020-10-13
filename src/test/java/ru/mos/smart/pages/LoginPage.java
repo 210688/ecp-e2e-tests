@@ -16,7 +16,7 @@ public class LoginPage {
         step("Открытие ссылки " + url, ()-> open(url));
 
         step("Заполнение формы авторизации", ()-> {
-            $(byText("Войти по логину и паролю")).click();
+            $(byText("Войти по логину и паролю")).shouldBe(visible).click();
             $("#username").setValue(login);
             $("#password").setValue(password);
             $("#kc-login").click();
@@ -24,6 +24,6 @@ public class LoginPage {
 
         step("Проверка успешной авторизации ", ()->
                 $(byText("Выйти"))
-                        .waitUntil(visible, 20000).shouldBe(visible));
+                        .waitUntil(visible, 10000).shouldBe(visible));
     }
 }
