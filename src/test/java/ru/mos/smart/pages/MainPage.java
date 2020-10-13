@@ -24,7 +24,7 @@ public class MainPage {
 
     @Step("Выход")
     public static void logOut() {
-        $(withText("Выйти")).waitUntil(visible, 60000).click();
-        $(withText("Войти")).waitUntil(visible, 60000);
+        $(withText("Выйти")).waitUntil(visible, 10000).click();
+        $(withText("Войти")).waitUntil(visible, 10000);
     }
 }

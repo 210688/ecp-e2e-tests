@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selectors.byLinkText;
@@ -26,6 +27,7 @@ public class EcpTest extends TestBase {
             $(byLinkText("Информация")).click();
             $(byLinkText("Реестры")).click();
             $(byText("Реестр")).shouldBe(Condition.visible);
+            MainPage.logOut();
         });
     }
 }
