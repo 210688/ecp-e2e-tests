@@ -24,9 +24,9 @@ public class EcpTest extends TestBase {
     void openReestr() {
         LoginPage.openUrlWithAuthorization("", login_ecp, password_ecp);
         step("открытие реестра", () -> {
-            $(byLinkText("Информация")).click();
-            $(byLinkText("Реестры")).click();
-            $(byText("Реестр")).shouldBe(Condition.visible);
+            MainPage.informaciya();
+            MainPage.reestr();
+            $(byText("Реестры")).shouldBe(Condition.visible);
             MainPage.logOut();
         });
     }
