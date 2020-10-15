@@ -13,6 +13,7 @@ import ru.mos.smart.tests.TestBase;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.ActionsPage.actionName;
@@ -29,16 +30,15 @@ public class EooTestPpt extends TestBase {
     @DisplayName("0. Добавление ЭОО")
     void addEoo() {
         LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
-        ActionsPage.searchAction(actionName);
+        MainPage.dobavitEoo();
         step("0. Добавить ЭОО", () -> {
-            $x("//div[descendant::div[contains(text(), 'Внесение информации о проведении')]]//a[@title='Перейти к задаче']").click();
+            $(byLinkText("Добавить ЭОО")).click();
+            //$x("//div//a[@href='/#/app/eoo/create/eoo']").click();
             $("#description-ctr").setValue("Тестовый релиз"); // ввод надписи в Описание проекта
             $("#prefect-ctr input").setValue("вао").pressEnter(); //ввод округа
             $("#district-ctr input").val("веш").pressEnter();
             $("#source_type-ctr input").val("ППТ").pressEnter();
             $("#assign").click();
-
-
         });
     }
 
@@ -176,7 +176,6 @@ public class EooTestPpt extends TestBase {
             $("#approved").click();
         });
     }
-
 
     @Test
     @Order(9)
