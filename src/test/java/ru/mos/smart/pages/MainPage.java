@@ -13,25 +13,27 @@ import static io.qameta.allure.Allure.step;
  */
 
 public class MainPage {
-	@Step("Меню мои возможности")
-	public static void actionsPage() {
-		step("Возможности", () -> {
-			$(By.xpath("//nav//a[@href='/main/#/app/actions']")).
-					shouldBe(visible).click();
-		});
-}
 
-	@Step("Выход и Вход")
-	public static void logOut() {
-		$(withText("Выйти")).waitUntil(visible, 10000).click();
-		$(withText("Войти")).waitUntil(visible, 10000);
-	}
-	@Step("Реестр")
-	public static void reestr() {
-		$(By.xpath("//nav//a[@href='/main/#/app/catalog-registers']")).click();
-	}
-	@Step("Информация")
-	public static void informaciya() {
-		$(By.xpath("//nav//a//span[text()='Информация']")).click();
-	}
+    @Step("Меню мои возможности")
+    public static void actionsPage() {
+        step("Возможности", () -> {
+            $(By.xpath("//nav//a[@href='/main/#/app/actions']"))
+                    .shouldBe(visible).click();
+        });
+    }
+
+    @Step("Выход и Вход")
+    public static void logOut() {
+        $(withText("Выйти")).waitUntil(visible, 10000).click();
+        $(withText("Войти")).waitUntil(visible, 10000);
+    }
+
+    @Step("Реестр")
+    public static void reestr() {
+        $(By.xpath("//nav//a[@href='/main/#/app/catalog-registers']")).click();
+    }
+    @Step("Информация")
+    public static void informaciya() {
+        $(By.xpath("//nav//a//span[text()='Информация']")).click();
+    }
 }
