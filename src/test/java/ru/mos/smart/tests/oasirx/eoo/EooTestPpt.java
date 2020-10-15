@@ -13,7 +13,8 @@ import ru.mos.smart.tests.TestBase;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Selectors.byLinkText;
+import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byTitle;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.ActionsPage.actionName;
@@ -65,6 +66,7 @@ public class EooTestPpt extends TestBase {
     void infoOProvedenii() {
         LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
         TasksPages.searchTask(task2);
+        $(by("uisref", ".app.eoo.eoo")).click();
         EooPagesButton.buttonTakeTask();
         step("2.Внести информацию о проведении", () -> {
             $(".ng-input input").setValue("Не более одного месяца").pressEnter();
@@ -181,8 +183,8 @@ public class EooTestPpt extends TestBase {
     @Order(9)
     @DisplayName("9. Согласовать материалы (зам. пред. ЭОО)") //зайти и самим проставить руководителя
     void soglasov() {
-        LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/c5a79e34-7561-4027-b1e4-25c3515dc403", loginEoo, passwordEoo);
-        TasksPages.clickTask(task3);
+        LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/da3172e8-ff5b-4291-bee9-bc49cbc61c30", loginEoo, passwordEoo);
+        $(byText("Определение разработчика материалов")).parent().parent().$(byText("Не назначен")).click();
         //EooPagesButton.buttonTakeTask();
         step("9.Согласовать материалы (зам. пред. ЭОО)", () -> {
             $("#approved").click();
