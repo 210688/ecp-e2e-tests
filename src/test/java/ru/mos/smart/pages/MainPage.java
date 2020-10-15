@@ -32,8 +32,9 @@ public class MainPage {
     public static void reestr() {
         $(By.xpath("//nav//a[@href='/main/#/app/catalog-registers']")).click();
     }
+
     @Step("Информация")
-    public static void informaciya() {
+    public static void informaciya () {
         $(By.xpath("//nav//a//span[text()='Информация']")).click();
     }
 }
