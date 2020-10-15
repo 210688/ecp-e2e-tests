@@ -37,6 +37,8 @@ public class EooTestPpt extends TestBase {
             $("#district-ctr input").val("веш").pressEnter();
             $("#source_type-ctr input").val("ППТ").pressEnter();
             $("#assign").click();
+
+
         });
     }
 
@@ -174,9 +176,20 @@ public class EooTestPpt extends TestBase {
             $("#approved").click();
         });
     }
+
+
+    @Test
+    @Order(9)
+    @DisplayName("9. Согласовать материалы (зам. пред. ЭОО)") //зайти и самим проставить руководителя
+    void soglasov() {
+        LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/c5a79e34-7561-4027-b1e4-25c3515dc403", loginEoo, passwordEoo);
+        TasksPages.clickTask(task3);
+        //EooPagesButton.buttonTakeTask();
+        step("9.Согласовать материалы (зам. пред. ЭОО)", () -> {
+            $("#approved").click();
+        });
+    }
 }
-
-
 
 
 
