@@ -18,9 +18,9 @@ public class MainPage {
         step("Возможности", ()-> {
             $(By.xpath("//nav//a[@href='/main/#/app/actions']"))
                     .shouldBe(visible).click();
-
         });
     }
+
     @Step("Информация")
     public static void dobavitEoo() {
         $(By.xpath("//nav//a//span[text()='ЭОО']")).click();

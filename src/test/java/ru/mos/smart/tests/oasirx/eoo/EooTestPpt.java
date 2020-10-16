@@ -8,16 +8,18 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.*;
+import ru.mos.smart.pages.EooPagesButton;
+import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.TasksPages;
 import ru.mos.smart.tests.TestBase;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selectors.byTitle;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.pages.ActionsPage.actionName;
 import static ru.mos.smart.pages.TasksPages.*;
 
 
@@ -183,11 +185,18 @@ public class EooTestPpt extends TestBase {
     @Order(9)
     @DisplayName("9. Согласовать материалы (зам. пред. ЭОО)") //зайти и самим проставить руководителя
     void soglasov() {
-        LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/da3172e8-ff5b-4291-bee9-bc49cbc61c30", loginEoo, passwordEoo);
-        $(byText("Определение разработчика материалов")).parent().parent().$(byText("Не назначен")).click();
+        LoginPage.openUrlWithAuthorization("/oasirx/eoo/#/app/eoo/ac8d0ea8-9271-411c-bc3e-3d6af06e176b", loginEoo, passwordEoo);
+        $(byText("Определение разработчика материалов")).parent().parent().$(("fa fa-edit")).click();
+        $((".fa-edit")).setValue("Электронные").click();
         //EooPagesButton.buttonTakeTask();
+        $(byText("Определение разработчика материалов")).parent().parent().$((".fa-edit")).click();
         step("9.Согласовать материалы (зам. пред. ЭОО)", () -> {
             $("#approved").click();
+
+            $(byText("Определение разработчика материалов")).parent().parent().$((".fa-edit")).click();
+            $(".ng-input").click();
+            $(".ng-input input").setValue("Электронные Общественные Обсуждения").pressEnter();
+            $(".fa-save").click();
         });
     }
 }
