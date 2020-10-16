@@ -2,6 +2,10 @@ package ru.mos.smart.pages;
 
 import static com.codeborne.selenide.Selenide.*;
 
+/**
+ * Страница под вопросом
+ */
+
 public class ButtonKey {
 
     public static void setButtonInRabota() {

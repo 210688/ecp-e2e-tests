@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.EooPagesButton;
+import ru.mos.smart.pages.EooComponents;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.pages.TasksPages;
@@ -51,14 +51,14 @@ public class EooTestPpt extends TestBase {
     void opredRazrabMaterial() {
         LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
         TasksPages.searchTask(task1);
-        EooPagesButton.buttonTakeTask();
+        EooComponents.buttonTakeTask();
         step("1.Определить разработчика материалов", () -> {
             $("#responsibleExecutor_code-ctr input").setValue("УППТ").pressEnter();
             $("#responsibleExecutor_login-ctr input").setValue("Электронные Общественные Обсуждения").pressEnter();
             $("#projectType-ctr input").setValue("Конкурсный").pressEnter();
             $("#developer_code-ctr input").setValue("Генплан ГАУ «Научно-исследовательский" +
                     " и проектный институт Генерального плана города Москвы»").pressEnter();
-            EooPagesButton.saveButtonNextTask();
+            EooComponents.saveButtonNextTask();
         });
     }
 
@@ -69,12 +69,12 @@ public class EooTestPpt extends TestBase {
         LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
         TasksPages.searchTask(task2);
         $(by("uisref", ".app.eoo.eoo")).click();
-        EooPagesButton.buttonTakeTask();
+        EooComponents.buttonTakeTask();
         step("2.Внести информацию о проведении", () -> {
             $(".ng-input input").setValue("Не более одного месяца").pressEnter();
             $("#notification_date-ctr input").setValue("15.10.2020");
             $("#calculateDate").click();
-            EooPagesButton.saveButtonNextTask();
+            EooComponents.saveButtonNextTask();
         });
     }
 
@@ -84,7 +84,7 @@ public class EooTestPpt extends TestBase {
     void materialInEoo() {
         LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
         TasksPages.searchTask(task3);
-        EooPagesButton.buttonTakeTask();
+        EooComponents.buttonTakeTask();
         step("3. Подготовка материалов для ЭОО", () -> {
             sleep(5000);
             $("input[type=file]", 0).uploadFile(new File("src/test/resources/images/423438.jpg"));
@@ -95,7 +95,7 @@ public class EooTestPpt extends TestBase {
             sleep(5000);
             $("input[type=file]", 5).uploadFile(new File("src/test/resources/images/56457.pdf")); //Утверждаемая часть
             sleep(5000);
-            EooPagesButton.saveButtonNextTask();
+            EooComponents.saveButtonNextTask();
         });
     }
 
@@ -109,7 +109,7 @@ public class EooTestPpt extends TestBase {
         step("4. Проверка материалов для ЭОО", () -> {
             $("#docAgreeContent_confirmRounds_sectorChiefCheckConfirm-ctr-wrapper .ui-chkbox-icon").click();
             $("#docAgreeContent_confirmRounds_zamChiefCheckConfirm-ctr-wrapper .ui-chkbox-icon").click();
-            EooPagesButton.saveButtonNextTask();
+            EooComponents.saveButtonNextTask();
         });
     }
 
@@ -125,7 +125,7 @@ public class EooTestPpt extends TestBase {
             $("#executeBy-ctr .ui-radiobutton-label").click();
             $("#approved-ctr .right").click();
             $("#save").click();
-            EooPagesButton.saveButtonNextTask();
+            EooComponents.saveButtonNextTask();
         });
     }
 
@@ -141,7 +141,7 @@ public class EooTestPpt extends TestBase {
             $("#executeBy-ctr .ui-radiobutton-label").click();
             $("#approved-ctr .right").click();
             $("#save").click();
-            EooPagesButton.saveButtonNextTask();
+            EooComponents.saveButtonNextTask();
         });
     }
 
@@ -193,10 +193,7 @@ public class EooTestPpt extends TestBase {
         step("9.Согласовать материалы (зам. пред. ЭОО)", () -> {
             $("#approved").click();
 
-            $(byText("Определение разработчика материалов")).parent().parent().$((".fa-edit")).click();
-            $(".ng-input").click();
-            $(".ng-input input").setValue("Электронные Общественные Обсуждения").pressEnter();
-            $(".fa-save").click();
+
         });
     }
 }

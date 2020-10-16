@@ -3,10 +3,15 @@ package ru.mos.smart.pages;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selectors.by;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class EooPagesButton {
+/**
+ * Страница описания компонентов ЭОО
+ */
+
+public class EooComponents {
 
     public static void switchTask(int Index) {
         $(".fa-lg", Index).click(); // треугольничек нажатие перейти к задачи
@@ -26,4 +31,13 @@ public class EooPagesButton {
     public static void inTaskEoo() {
         $(by("uisref", "app.eoo.eoo")).click();
     }
+
+    @Step("Назначение прав определенному лицу")
+    public static void giveOutPrava(String task) {
+        $(byText(task)).parent().parent().$((".fa-edit")).click();
+        $(".ng-input").click();
+        $(".ng-input input").setValue("Электронные Общественные Обсуждения").pressEnter();
+        $(".fa-save").click();
+    }
 }
+
