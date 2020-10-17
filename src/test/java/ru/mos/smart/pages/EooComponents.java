@@ -27,6 +27,11 @@ public class EooComponents {
         $("#next").click();
     }
 
+    @Step("Сохранить и перейти дальше")
+    public static void saveButtonNextSoglas(){  //Сохранить и передать на подготовку approved
+        $("#approved").click();
+    }
+
     @Step("Переход в задачу из ЭОО")
     public static void inTaskEoo() {
         $(by("uisref", "app.eoo.eoo")).click();

@@ -21,7 +21,7 @@ public class MainPage {
         });
     }
 
-    @Step("Информация")
+    @Step("ЭОО")
     public static void dobavitEoo() {
         $(By.xpath("//nav//a//span[text()='ЭОО']")).click();
     }
