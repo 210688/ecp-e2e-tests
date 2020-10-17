@@ -52,6 +52,7 @@ public class EooTestPpt extends TestBase {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
 		EooComponents.inTaskEoo();
+		sleep(5000);
 		TasksPages.clickTask(task1);
 		EooComponents.buttonTakeTask();
 		step("Определить разработчика материалов", () -> {
