@@ -45,7 +45,7 @@ public class EooTestPptTests extends TestBase {
 
 	@Test
 	@Order(2)
-	@DisplayName("2.Определить разработчика материалов")
+	@DisplayName("2. Определить разработчика материалов")
 	void opredRazrabMaterial() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
@@ -65,7 +65,7 @@ public class EooTestPptTests extends TestBase {
 
 	@Test
 	@Order(3)
-	@DisplayName("3.Подготовка материалов для ЭОО")
+	@DisplayName("3. Подготовка материалов для ЭОО")
 	void materialInEoo() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
@@ -88,7 +88,7 @@ public class EooTestPptTests extends TestBase {
 
 	@Test
 	@Order(4)
-	@DisplayName("4.Внесение информации о проведении")
+	@DisplayName("4. Внесение информации о проведении")
 	void infoOProvedenii() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
@@ -105,7 +105,7 @@ public class EooTestPptTests extends TestBase {
 
 	@Test
 	@Order(5)
-	@DisplayName("5.Проверка материалов для ЭОО")
+	@DisplayName("5. Проверка материалов для ЭОО")
 	void proverkaMaterialaEoo() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
@@ -121,7 +121,7 @@ public class EooTestPptTests extends TestBase {
 
 	@Test
 	@Order(6)
-	@DisplayName("6.Подготовка решения руководителем УГР ВАО")
+	@DisplayName("6. Подготовка решения руководителем УГР ВАО")
 	void podgotovkaResheniyaUgrVa0() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
@@ -139,7 +139,7 @@ public class EooTestPptTests extends TestBase {
 
 	@Test
 	@Order(7)
-	@DisplayName("7.Подготовка решения руководителем УОС")
+	@DisplayName("7. Подготовка решения руководителем УОС")
 	void podgotovkaReshenyaUos() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
@@ -157,7 +157,7 @@ public class EooTestPptTests extends TestBase {
 
 	@Test
 	@Order(8)
-	@DisplayName("8.Согласовать материалы для ЭОО (начальник управления)")
+	@DisplayName("8. Согласовать материалы для ЭОО (начальник управления)")
 	void soglasovMaterialEooNach() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
@@ -172,7 +172,7 @@ public class EooTestPptTests extends TestBase {
 
 	@Test
 	@Order(9)
-	@DisplayName("9.Согласование материалов для ЭОО зам. председателя УППТ")
+	@DisplayName("9. Согласование материалов для ЭОО зам. председателя УППТ")
 	void soglasovMaterialZamPred() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
@@ -187,7 +187,7 @@ public class EooTestPptTests extends TestBase {
 
 	@Test
 	@Order(10)
-	@DisplayName("10.Согласование материалов зам. председателя ЭОО")
+	@DisplayName("10. Согласование материалов зам. председателя ЭОО")
 	void soglasovMaterialZamPredEoo() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
