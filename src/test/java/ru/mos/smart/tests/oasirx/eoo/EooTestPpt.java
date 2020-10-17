@@ -30,7 +30,7 @@ import static ru.mos.smart.pages.TasksPages.*;
 @Tag("oasirx") @Tag("eoo")
 public class EooTestPpt extends TestBase {
 	@Test
-	@Order(0)
+	@Order(01)
 	@DisplayName("0. Добавление ЭОО")
 	void addEoo() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
@@ -46,7 +46,7 @@ public class EooTestPpt extends TestBase {
 	}
 
 	@Test
-	@Order(1)
+	@Order(02)
 	@DisplayName("1.Определить разработчика материалов")
 	void opredRazrabMaterial() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
@@ -67,7 +67,7 @@ public class EooTestPpt extends TestBase {
 	}
 
 	@Test
-	@Order(2)
+	@Order(03)
 	@DisplayName("2.Подготовка материалов для ЭОО")
 	void materialInEoo() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
@@ -90,7 +90,7 @@ public class EooTestPpt extends TestBase {
 	}
 
 	@Test
-	@Order(3)
+	@Order(04)
 	@DisplayName("3.Внесение информации о проведении")
 	void infoOProvedenii() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
@@ -107,7 +107,7 @@ public class EooTestPpt extends TestBase {
 	}
 
 	@Test
-	@Order(4)
+	@Order(05)
 	@DisplayName("4.Проверка материалов для ЭОО")
 	void proverkaMaterialaEoo() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
@@ -123,7 +123,7 @@ public class EooTestPpt extends TestBase {
 	}
 
 	@Test
-	@Order(5)
+	@Order(06)
 	@DisplayName("5.Подготовка решения руководителем УГР ВАО")
 	void podgotovkaResheniyaUgrVa0() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
@@ -141,7 +141,7 @@ public class EooTestPpt extends TestBase {
 	}
 
 	@Test
-	@Order(6)
+	@Order(07)
 	@DisplayName("6.Подготовка решения руководителем УОС")
 		//зайти и самим проставить руководителя
 	void podgotovkaReshenyaUos() {
@@ -160,7 +160,7 @@ public class EooTestPpt extends TestBase {
 	}
 
 	@Test
-	@Order(7)
+	@Order(08)
 	@DisplayName("7.Согласовать материалы для ЭОО (начальник управления)")
 		//зайти и самим проставить руководителя
 	void soglasovMaterialEooNach() {
@@ -176,7 +176,7 @@ public class EooTestPpt extends TestBase {
 	}
 
 	@Test
-	@Order(8)
+	@Order(09)
 	@DisplayName("8.Согласование материалов для ЭОО зам. председателя УППТ")
 		//зайти и самим проставить руководителя
 	void soglasovMaterialZamPred() {
@@ -192,7 +192,7 @@ public class EooTestPpt extends TestBase {
 	}
 
 	@Test
-	@Order(9)
+	@Order(010)
 	@DisplayName("9.Согласование материалов зам. председателя ЭОО")
 	void soglasovMaterialZamPredEoo() {
 		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
