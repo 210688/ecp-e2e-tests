@@ -2,7 +2,7 @@ package ru.mos.smart.tests;
 
 
 public class TestData {
-    public static String
+	public static String
 
         LOGIN_MR_TEST = "mr_test",
         PASSWORD_MR_TEST ="P@ssw0rd",
