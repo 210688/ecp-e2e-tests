@@ -81,8 +81,8 @@ class TestProjectRelease extends TestBase {
         step("Перейти на вкладку календарный план", () -> {
             $(".nav-item:nth-child(2) span").click();
             $(".ng-input input", 0).val("Дата заключения гос. контракта").pressEnter();
-            setTableCellValue(CalendarPlanPage.OkazanieUslug, 0, "37");
-            setTableCellValue(CalendarPlanPage.OkazanieUslug, 1, "10");
+            setTableCellValue(okazanieUslug, 0, "37");
+            setTableCellValue(okazanieUslug, 1, "10");
             $(".ng-input input", 1).val("Дата окончания 1").pressEnter();
             setTableCellValue(poluchenieTechnicheskihUslovii, 0, "58");
             setTableCellValue(poluchenieTechnicheskihUslovii, 1, "20");
@@ -182,9 +182,5 @@ class TestProjectRelease extends TestBase {
             $(".active .btn-primary").click();
             $(byText("Завершить задачу")).click();
         });
-
-
     }
-
-
 }
