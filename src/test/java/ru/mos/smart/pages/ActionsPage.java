@@ -23,16 +23,16 @@ public class ActionsPage {
 
         step("Ввод наименования возможности в поиске", ()-> {
             $(By.name("common"))
-                    .waitUntil(visible, 10000).shouldBe(visible).setValue(actionName);
+                    .waitUntil(visible, 10000).setValue(actionName);
         });
 
         step("Найти", ()-> {
-            $(withText("Найти")).shouldBe(visible).click();
+            $(withText("Найти")).click();
         });
 
         step("Выбор найденной возможности в списке", ()-> {
             $(withText(actionName))
-                    .waitUntil(visible, 10000).shouldBe(visible).click();
+                    .waitUntil(visible, 10000).click();
         });
     }
 }
