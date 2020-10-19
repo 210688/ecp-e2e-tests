@@ -14,6 +14,7 @@ import ru.mos.smart.tests.TestBase;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
@@ -24,7 +25,7 @@ import static ru.mos.smart.pages.TasksPages.*;
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("EOO (Электронные общественные обсуждения)")
-@Story("PPT_")
+@Story("PPT (modules)")
 @Tag("oasirx") @Tag("eoo")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EooTestPptTests extends TestBase {
@@ -91,6 +92,7 @@ public class EooTestPptTests extends TestBase {
 	}
 
 	@Test
+	@AllureId("1901")
 	@Order(4)
 	@DisplayName("04. Внесение информации о проведении")
 	void infoOProvedenii() {
@@ -100,14 +102,18 @@ public class EooTestPptTests extends TestBase {
 		TasksPages.clickTask(task3);
 		EooComponents.buttonTakeTask();
 		step("Внесение информации о проведении", () -> {
-			$(".ng-input input").setValue("Не более одного месяца").pressEnter();
-			$("#notification_date-ctr input").setValue("15.10.2020");
-			$("#calculateDate").click();
+			$(".ng-input input").setValue("Не более одного месяца")
+					.waitUntil(visible, 10000).pressEnter();
+			$("#notification_date-ctr input")
+					.waitUntil(visible, 10000).setValue("15.10.2020");
+			$("#calculateDate")
+					.waitUntil(visible, 10000).click();
 			EooComponents.saveButtonNextTask();
 		});
 	}
 
 	@Test
+	@AllureId("1867")
 	@Order(5)
 	@DisplayName("05. Проверка материалов для ЭОО")
 	void proverkaMaterialaEoo() {
@@ -124,6 +130,7 @@ public class EooTestPptTests extends TestBase {
 	}
 
 	@Test
+	@AllureId("1868")
 	@Order(6)
 	@DisplayName("06. Подготовка решения руководителем УГР ВАО")
 	void podgotovkaResheniyaUgrVa0() {
@@ -142,6 +149,7 @@ public class EooTestPptTests extends TestBase {
 	}
 
 	@Test
+	@AllureId("1902")
 	@Order(7)
 	@DisplayName("07. Подготовка решения руководителем УОС")
 	void podgotovkaReshenyaUos() {
@@ -160,6 +168,7 @@ public class EooTestPptTests extends TestBase {
 	}
 
 	@Test
+	@AllureId("1870")
 	@Order(8)
 	@DisplayName("08. Согласование материалов для ЭОО (начальник управления)")
 	void soglasovMaterialEooNach() {
@@ -175,6 +184,7 @@ public class EooTestPptTests extends TestBase {
 	}
 
 	@Test
+	@AllureId("1872")
 	@Order(9)
 	@DisplayName("09. Согласование материалов для ЭОО зам. председателя УППТ")
 	void soglasovMaterialZamPred() {
@@ -190,6 +200,7 @@ public class EooTestPptTests extends TestBase {
 	}
 
 	@Test
+	@AllureId("1991")
 	@Order(10)
 	@DisplayName("10. Согласование материалов зам. председателя ЭОО")
 	void soglasovMaterialZamPredEoo() {
