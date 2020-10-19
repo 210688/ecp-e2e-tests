@@ -28,7 +28,7 @@ import static ru.mos.smart.pages.TasksPages.*;
 @Story("PPT (modules)")
 @Tag("oasirx") @Tag("eoo")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class EooTestPptTests extends TestBase {
+public class EooPptTests extends TestBase {
 	@Test
 	@AllureId("920")
 	@Order(1)

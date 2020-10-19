@@ -118,7 +118,7 @@ task mgz_tests(type: Test) {
     }
 }
 
-task ppt_eoo(type: Test) {
+task eoo_ppt(type: Test) {
     useJUnitPlatform {
         includeTags 'eoo'
     }
