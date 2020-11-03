@@ -25,4 +25,10 @@ public class MainPage {
         $x("//nav//a//span[text()='ЭОО']")
                 .waitUntil(visible, 10000).click();
     }
+
+    @Step("Реестры")
+    public static void otkrytReestr() {
+        $x("//nav//a[@href='/main/#/app/catalog-registers']")
+                .shouldBe(visible).click();
+    }
 }
