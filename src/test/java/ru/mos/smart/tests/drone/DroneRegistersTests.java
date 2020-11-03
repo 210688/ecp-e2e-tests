@@ -17,7 +17,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("DRONE (Аэрофотосъемка)")
-@Feature("Register (Реестр \"Данные аэрофотосъемки\")")
+@Feature("Реестр \"Данные аэрофотосъемки\"")
 @Tag("drone")
 public class DroneRegistersTests extends TestBase {
 
@@ -36,7 +36,7 @@ public class DroneRegistersTests extends TestBase {
             $(byLinkText("Данные аэрофотосъемки")).click();
         });
 
-        step("Проверка открытия реестра", () -> {
+        step("Проверка, что открылся реестр \"Данные аэрофотосъемки\"", () -> {
             $(byText("Данные аэрофотосъемки")).shouldBe(visible);
         });
     }
