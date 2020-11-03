@@ -22,7 +22,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 public class DroneRegistersTests extends TestBase {
 
     @Test
-    @DisplayName("Открытие реестра Данные аэрофотосъемки")
+    @DisplayName("Открытие реестра \"Данные аэрофотосъемки\"")
     void openRegister() {
         openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
