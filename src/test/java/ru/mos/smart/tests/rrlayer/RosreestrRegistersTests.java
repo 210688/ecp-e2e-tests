@@ -12,8 +12,7 @@ import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
@@ -26,20 +25,23 @@ public class RosreestrRegistersTests extends TestBase {
     @Test
     @DisplayName("02.Поиск \"Росреестр. Земельные участки\"")
     void openRosreestrZemUch() {
-        LoginPage.openUrlWithAuthorization("", LOGIN_FR, PASSWORD_FR);
+        LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
         //MainPage.otkrytReestr();
 
         step("Перейти в раздел \"Реестры\"", () -> {
+            sleep(10000);
             $(byLinkText("Информация")).click();
             $(byLinkText("Реестры")).click();
         });
 
         step("В списке реестров найти и открыть \"Росреестр. Земельные участки\"", () -> {
+            sleep(10000);
             $(byName("candidateSearchValue")).setValue("Росреестр. Земельные участки").pressEnter();
             $(byLinkText("Росреестр. Земельные участки")).click();
         });
 
         step("Реестр открывается, присутствует список", () -> {
+            sleep(10000);
             $(byText("Росреестр. Земельные участки")).shouldBe(visible);
         });
     }
