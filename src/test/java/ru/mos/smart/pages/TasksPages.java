@@ -29,7 +29,7 @@ public class TasksPages {
                     .waitUntil(visible, 5000).shouldBe(visible).setValue(tasksName).pressEnter();
         });
 
-        step("Выбор задачи в списке {taskName}", ()-> {
+        step("Выбор задачи в списке {taskName}", () -> {
             $(By.xpath("//span[contains(@class,'task-title') and contains(.,'" + tasksName + "')]")).click();
         });
     }

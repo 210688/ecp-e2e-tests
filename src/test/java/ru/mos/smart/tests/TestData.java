@@ -7,8 +7,8 @@ public class TestData {
         LOGIN_MR_TEST = "mr_test",
         PASSWORD_MR_TEST ="P@ssw0rd",
 
-        login_ecp = "vgupt_operator",
-        password_ecp ="pJl6wW5",
+        login_test = "user_tests",
+        password_test ="8QKo5bi",
 
         LOGIN_GIS_TEST = "gis_test",
         PASSWORD_GIS_TEST ="P@ssw0rd",

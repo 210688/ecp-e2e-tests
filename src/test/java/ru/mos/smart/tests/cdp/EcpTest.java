@@ -10,7 +10,6 @@ import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
@@ -18,16 +17,15 @@ import static io.qameta.allure.Allure.step;
 @Layer("web")
 @Epic("CDP (ЕЦП_платформа)")
 @Tag("cdp")
+@Tag("all_tests")
 public class EcpTest extends TestBase {
     @Test
     @DisplayName("Проверка открытия реестра")
     void openReestr() {
-        LoginPage.openUrlWithAuthorization("", login_ecp, password_ecp);
+        LoginPage.openUrlWithAuthorization("", login_test, password_test);
         step("открытие реестра", () -> {
-            MainPage.informaciya();
-            MainPage.reestr();
+            MainPage.InformaciyaAndReest();
             $(byText("Реестры")).shouldBe(Condition.visible);
-            MainPage.logOut();
         });
     }
 }
