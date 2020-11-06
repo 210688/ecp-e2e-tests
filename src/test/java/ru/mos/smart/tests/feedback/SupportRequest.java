@@ -47,7 +47,6 @@ class SupportRequest extends TestBase {
 		step("Заполнение поля Ссылка на страницу с ошибкой", () -> {
 			$(byName("pageUrl")).setValue(webUrl);
 			$x("//div/button[contains(text(),'Отправить')]").click();
-			$(byText("Мои задачи")).shouldBe(visible);
 		});
 	}
 }
