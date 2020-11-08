@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.feedback;
 
-import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -24,24 +21,23 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 class SupportRequest extends TestBase {
 
     @Test
-    @Description("Используется тестовый пользователь 89 c нужными правами")
     @DisplayName("Проверка отправки уведомления в тех подержку")
-    void SupportRequestForward() {
-        openUrlWithAuthorization("", LOGIN_FEEDBACK, PASSWORD_FEEDBACK); //авторизация в системе
+    void supportRequestForward() {
+        openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
-        step("Открытие ссылки Инициировать обращение в техническую поддержку", ()->
+        step("Открытие ссылки \"Инициировать обращение в техническую поддержку\"", ()->
                 open("/feedback/#/app/feedback/form"));
 
-        step("Заполнение поля Тип обращения", ()-> {
+        step("Заполнение поля \"Тип обращения\"", ()-> {
             $(".ng-arrow-wrapper:nth-child(3)").click();
         });
 
-        step("Заполнение поля Тема обращения", ()-> {
+        step("Заполнение поля \"Тема обращения\"", ()-> {
             $(".ng-input",1).click();
             $(":focus").setValue("Проверка автоматизации теста");
         });
 
-        step("Заполнение поля Ссылка на страницу с ошибкой", ()-> {
+        step("Заполнение поля \"Ссылка на страницу с ошибкой\"", ()-> {
             $(byName("pageUrl")).setValue(webUrl);
             $(".btn.btn-primary").click();
         });
