@@ -22,7 +22,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 public class BlagoRegistersTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка наличия реестров\n")
+    @DisplayName("Проверка наличия реестров")
     void checkingBlagoRegisters() {
         openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
         //MainPage.otkrytReestr();

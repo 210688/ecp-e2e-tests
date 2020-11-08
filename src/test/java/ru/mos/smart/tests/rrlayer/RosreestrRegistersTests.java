@@ -29,19 +29,16 @@ public class RosreestrRegistersTests extends TestBase {
         //MainPage.otkrytReestr();
 
         step("Перейти в раздел \"Реестры\"", () -> {
-            sleep(10000);
             $(byLinkText("Информация")).click();
             $(byLinkText("Реестры")).click();
         });
 
         step("В списке реестров найти и открыть \"Росреестр. Земельные участки\"", () -> {
-            sleep(10000);
             $(byName("candidateSearchValue")).setValue("Росреестр. Земельные участки").pressEnter();
             $(byLinkText("Росреестр. Земельные участки")).click();
         });
 
         step("Реестр открывается, присутствует список", () -> {
-            sleep(10000);
             $(byText("Росреестр. Земельные участки")).shouldBe(visible);
         });
     }
