@@ -14,6 +14,7 @@ import ru.mos.smart.tests.TestBase;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
@@ -27,7 +28,7 @@ import static ru.mos.smart.pages.TasksPages.*;
 @Story("PPT (modules)")
 @Tag("oasirx") @Tag("eoo")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class EooTestPptTests extends TestBase {
+public class EooPptTests extends TestBase {
 	@Test
 	@AllureId("920")
 	@Order(1)
@@ -101,9 +102,12 @@ public class EooTestPptTests extends TestBase {
 		TasksPages.clickTask(task3);
 		EooComponents.buttonTakeTask();
 		step("Внесение информации о проведении", () -> {
-			$(".ng-input input").setValue("Не более одного месяца").pressEnter();
-			$("#notification_date-ctr input").setValue("15.10.2020");
-			$("#calculateDate").click();
+			$(".ng-input input").setValue("Не более одного месяца")
+					.waitUntil(visible, 10000).pressEnter();
+			$("#notification_date-ctr input")
+					.waitUntil(visible, 10000).setValue("15.10.2020");
+			$("#calculateDate")
+					.waitUntil(visible, 10000).click();
 			EooComponents.saveButtonNextTask();
 		});
 	}
