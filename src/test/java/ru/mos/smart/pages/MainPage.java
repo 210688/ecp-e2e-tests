@@ -26,9 +26,9 @@ public class MainPage {
                 .waitUntil(visible, 10000).click();
     }
 
-    @Step("Реестры")
-    public static void otkrytReestr() {
-        $x("//nav//a[@href='/main/#/app/catalog-registers']")
-                .shouldBe(visible).click();
+    @Step("Реестр")
+    public static void informaciyaAndReest() { // Переход в реестры
+        $x("//span[contains(text(), 'Информация')]").click();
+        $x("//a[@href='/main/#/app/catalog-registers']").click();
     }
 }
