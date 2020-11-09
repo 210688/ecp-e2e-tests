@@ -29,7 +29,7 @@ public class ShablonyTests extends TestBase {
 
         step("Открыть раздел \"Портал ДС\" -> \"Документы\" -> \"Шаблоны\"", () -> {
             $(byLinkText("Портал ДС")).click();
-            $(byLinkText("Документы")).pressEnter();
+            $(byLinkText("Документы")).click();
             $(byLinkText("Шаблоны")).click();
         });
 
