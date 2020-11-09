@@ -21,36 +21,36 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Tag("mgz")
 class LaunchingBusinessProcessTests extends TestBase {
 
-    @Test
-    @DisplayName("Запуск бизнес-процесса \"Создание структуры работ по объекту\" на текущего пользователя")
-    void launchingBusinessProcessCreatingWorkStructureForAnObject() {
-        openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
+	@Test
+	@DisplayName("Запуск бизнес-процесса \"Создание структуры работ по объекту\" на текущего пользователя")
+	void launchingBusinessProcessCreatingWorkStructureForAnObject() {
+		openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
 
-        step("В Навигаторе открыть Госуслуги и функции -> Возможности", () -> {
-            $(byLinkText("Госуслуги и функции")).click();
-            $(byLinkText("Возможности")).click();
-        });
+		step("В Навигаторе открыть Госуслуги и функции -> Возможности", () -> {
+			$(byLinkText("Госуслуги и функции")).click();
+			$(byLinkText("Возможности")).click();
+		});
 
-        step("В списке возможностей выбрать \"Запустить процесс\"", () -> {
-            $((".form-control")).setValue("Запустить процесс").pressEnter();
-            open("/mgz/#/app/start/process/");
-        });
+		step("В списке возможностей выбрать \"Запустить процесс\"", () -> {
+			$((".form-control")).setValue("Запустить процесс").pressEnter();
+			open("/mgz/#/app/start/process/");
+		});
 
-        step("В строке \"Процесс\" выбрать \"Создание структуры работ по объекту\"", () -> {
-            $("ng-select").setValue("Создание структуры работ по объекту").pressEnter();
-        });
+		step("В строке \"Процесс\" выбрать \"Создание структуры работ по объекту\"", () -> {
+			$("ng-select").setValue("Создание структуры работ по объекту").pressEnter();
+		});
 
-        step("В выпадающем списке \"Проект\" выбрать предназначенный для тестирования проект", () -> {
-            $(".ng-input:nth-child(2)").setValue("Тест 9").pressEnter();
-        });
+		step("В выпадающем списке \"Проект\" выбрать предназначенный для тестирования проект", () -> {
+			$(".ng-input:nth-child(2)").setValue("Тест 9").pressEnter();
+		});
 
-        step("Поставить чек-бокс \"На текущего пользователя\"", () -> {
-            $(".iradio_square-orange").click();
-        });
+		step("Поставить чек-бокс \"На текущего пользователя\"", () -> {
+			$(".iradio_square-orange").click();
+		});
 
-        //ng-input ng-placeholder iradio_square-orange iCheck-helper"
-        //Нажать "Запустить процесс"".
-        //Проверка:Появление сообщения "Процесс "Создание структуры работ по объекту" успешно запущен",
-        //на текущего пользователя назначена задача.
-    }
+		//ng-input ng-placeholder iradio_square-orange iCheck-helper"
+		//Нажать "Запустить процесс"".
+		//Проверка:Появление сообщения "Процесс "Создание структуры работ по объекту" успешно запущен",
+		//на текущего пользователя назначена задача.
+	}
 }

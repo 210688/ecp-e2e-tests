@@ -77,6 +77,10 @@ tasks.withType(Test) {
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
 }
 
+test {
+    useJUnitPlatform()
+}
+
 task all_tests(type: Test) {
     useJUnitPlatform {
     }

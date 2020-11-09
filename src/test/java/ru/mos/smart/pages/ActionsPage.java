@@ -1,9 +1,9 @@
 package ru.mos.smart.pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
@@ -14,15 +14,16 @@ import static io.qameta.allure.Allure.step;
 
 public class ActionsPage {
     public static String
-            actionName = "Создать ЭОО";
+            actionName = "Создать ЭОО",
+            feedback = "Инициировать обращение в техническую поддержку";
 
     // Поиск и выбор возможности по наименованию. Можно добавлять свои.
     @Step("Выбор возможности {action}")
     public static void searchAction(String actionName) {
-        MainPage.actions();
+        MainPage.actionsPage();
 
         step("Ввод наименования возможности в поиске", ()-> {
-            $(By.name("common"))
+            $(byName("common"))
                     .waitUntil(visible, 10000).setValue(actionName);
         });
 

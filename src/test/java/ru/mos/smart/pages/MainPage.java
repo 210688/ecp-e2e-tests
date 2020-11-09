@@ -12,6 +12,21 @@ import static io.qameta.allure.Allure.step;
 
 public class MainPage {
 
+
+	@Step("Меню мои возможности")
+	public static void actionsPage() {
+		step("Возможности", () -> {
+			$x("//nav//a[@href='/main/#/app/actions']")
+					.shouldBe(visible).click();
+		});
+	}
+
+	@Step("Реестр")
+	public static void InformaciyaAndReest() { // Переход в реестры
+		$x("//span[contains(text(), 'Информация')]").click();
+		$x("//a[@href='/main/#/app/catalog-registers']").click();
+	}
+
     @Step("Возможности")
     public static void actions() {
         step("Возможности", ()-> {

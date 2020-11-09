@@ -15,7 +15,7 @@ import static ru.mos.smart.pages.VedomostProektnihRabot.*;
 
 @Layer("web")
 @Epic("MGZ (Мосгорзаказ)")
-@Tag("mgz_refactor") @Tag("all_test")
+@Tag("mgz_refactor")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TestProjectRelease extends TestBase {
 
