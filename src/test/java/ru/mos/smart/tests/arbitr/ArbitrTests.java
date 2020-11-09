@@ -19,7 +19,6 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Epic("ARBITR (Арбитраж)")
 @Feature("")
 @Tag("arbitr")
-
 public class ArbitrTests extends TestBase {
 
     @Test
