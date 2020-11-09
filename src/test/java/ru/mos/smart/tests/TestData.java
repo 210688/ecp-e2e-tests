@@ -2,7 +2,7 @@ package ru.mos.smart.tests;
 
 
 public class TestData {
-    public static String
+	public static String
 
         LOGIN_MR_TEST = "mr_test",
         PASSWORD_MR_TEST ="P@ssw0rd",
@@ -78,6 +78,9 @@ public class TestData {
 
         LOGIN_FEEDBACK = "89",
         PASSWORD_FEEDBACK ="8t7YHdf",
+
+        LOGIN_FR = "ivanov_fr",
+        PASSWORD_FR ="P@ssw0rd",
 
         DEFAULT_EMAIL = "ak@krlb.ru",
         DEFAULT_PHONE = "",

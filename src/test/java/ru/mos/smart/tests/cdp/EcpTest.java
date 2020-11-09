@@ -19,12 +19,14 @@ import static io.qameta.allure.Allure.step;
 @Tag("cdp")
 @Tag("all_tests")
 public class EcpTest extends TestBase {
+
     @Test
     @DisplayName("Проверка открытия реестра")
     void openReestr() {
-        LoginPage.openUrlWithAuthorization("", login_test, password_test);
-        step("открытие реестра", () -> {
-            MainPage.InformaciyaAndReest();
+        LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        MainPage.informaciyaAndReest();
+
+        step("Открыта вкладка с реестрами", () -> {
             $(byText("Реестры")).shouldBe(Condition.visible);
         });
     }

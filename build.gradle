@@ -77,43 +77,59 @@ tasks.withType(Test) {
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
 }
 
+test {
+    useJUnitPlatform()
+}
+
 task all_tests(type: Test) {
     useJUnitPlatform {
     }
 }
+
 task gis2d_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'gis2d'
     }
 }
+
 task gis3d_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'gis3d'
     }
 }
+
 task feedback_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'feedback'
     }
 }
+
 task ugd_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'ugd'
-
     }
 }
+
 task mgz_refactor(type: Test) {
     useJUnitPlatform {
         includeTags 'mgz'
     }
 }
+
 task mgz_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'mgz'
     }
 }
-task ppt_eootests(type: Test) {
+
+task eoo_ppt(type: Test) {
     useJUnitPlatform {
         includeTags 'eoo'
+    }
+}
+
+task order(type: Test) {
+    useJUnitPlatform {
+        includeTags 'order'
     }
 }

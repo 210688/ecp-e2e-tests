@@ -22,13 +22,18 @@ public class ActionsPage {
     public static void searchAction(String actionName) {
         MainPage.actionsPage();
 
-        step("Ввод наименования возможности в поиске", ()-> $(byName("common"))
-                .waitUntil(visible, 10000).setValue(actionName));
+        step("Ввод наименования возможности в поиске", ()-> {
+            $(byName("common"))
+                    .waitUntil(visible, 10000).setValue(actionName);
+        });
 
+        step("Найти", ()-> {
+            $(withText("Найти")).click();
+        });
 
-        step("Найти", ()-> $(withText("Найти")).click());
-
-        step("Выбор найденной возможности в списке", ()-> $(withText(actionName))
-                .waitUntil(visible, 10000).click());
+        step("Выбор найденной возможности в списке", ()-> {
+            $(withText(actionName))
+                    .waitUntil(visible, 10000).click();
+        });
     }
 }
