@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -27,10 +28,7 @@ public class DroneRegistersTests extends TestBase {
     void openRegister() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
-        step("Перейти в раздел \"Реестры\"", () -> {
-            $(byLinkText("Информация")).click();
-            $(byLinkText("Реестры")).click();
-        });
+        MainPage.informaciyaAndReest();
 
         step("Найти и открыть реестр \"Данные аэрофотосъемки\"", () -> {
             $(byName("candidateSearchValue")).setValue("Данные аэрофотосъемки").pressEnter();

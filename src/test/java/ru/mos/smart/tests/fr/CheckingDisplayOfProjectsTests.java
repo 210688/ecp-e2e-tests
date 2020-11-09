@@ -24,7 +24,7 @@ import static io.qameta.allure.Allure.step;
 public class CheckingDisplayOfProjectsTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка отображения проектов\n")
+    @DisplayName("Проверка отображения проектов")
     void checkingDisplayOfProjects() {
         LoginPage.openUrlWithAuthorization("", LOGIN_FR, PASSWORD_FR);
 
