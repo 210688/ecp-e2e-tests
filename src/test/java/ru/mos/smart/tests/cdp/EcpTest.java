@@ -18,11 +18,12 @@ import static io.qameta.allure.Allure.step;
 @Epic("CDP (ЕЦП_платформа)")
 @Tag("cdp")
 public class EcpTest extends TestBase {
+
     @Test
     @DisplayName("Проверка открытия реестра")
     void openReestr() {
-        LoginPage.openUrlWithAuthorization("", login_ecp, password_ecp);
-        step("открытие реестра", () -> {
+        LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        step("Открытие реестра", () -> {
             $(byLinkText("Информация")).click();
             $(byLinkText("Реестры")).click();
             $(byText("Реестры")).shouldBe(Condition.visible);
