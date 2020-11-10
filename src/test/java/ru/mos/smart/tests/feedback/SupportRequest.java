@@ -20,14 +20,15 @@ import static ru.mos.smart.pages.ActionsPage.feedback;
 
 @Layer("web")
 @Epic("FEEDBACK (Форма обратной связи)")
-@Tag("feedback")
-@Tag("all_tests")
+//@Tag("feedback")
+//@Tag("all_tests")
 public class SupportRequest extends TestBase {
 
 	@Test
 	@Description("Данная проверка отправляет письмо в тех поддержку, " +
 			"запускать на определеных средах.")
 	@DisplayName("Возможность инициировать обращение в техническую поддержку.")
+	@Tag("pr")
 	void SupportRequestForward() {
 		LoginPage.openUrlWithAuthorization("", login_test, password_test);
 		ActionsPage.searchAction(feedback);

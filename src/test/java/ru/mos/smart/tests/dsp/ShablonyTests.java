@@ -18,13 +18,14 @@ import static io.qameta.allure.Allure.step;
 @Layer("web")
 @Epic("DSP (Портал ДС)")
 @Feature("Шаблоны")
-@Tag("dsp")
-@Tag("all_tests")
-@Tag("prod_tests")
+//@Tag("dsp")
+//@Tag("all_tests")
+//@Tag("prod_tests")
 public class ShablonyTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия вкладки Шаблоны")
+    @Tag("pr")
     void openShablony() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 

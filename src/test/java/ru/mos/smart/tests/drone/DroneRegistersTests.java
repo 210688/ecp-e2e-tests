@@ -20,13 +20,14 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("DRONE (Аэрофотосъемка)")
 @Feature("Реестр Данные аэрофотосъемки")
-@Tag("drone")
-@Tag("all_tests")
-@Tag("prod_tests")
+//@Tag("drone")
+//@Tag("all_tests")
+//@Tag("prod_tests")
 public class DroneRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Открытие реестра Данные аэрофотосъемки")
+    @Tag("pr")
     void openReestrDrone() {
         LoginPage.openUrlWithAuthorization("", login_drone_test, password_drone_test);
         MainPage.InformaciyaAndReestr();

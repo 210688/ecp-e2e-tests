@@ -128,8 +128,8 @@ task eoo_ppt(type: Test) {
     }
 }
 
-task order(type: Test) {
+task primer(type: Test) {
     useJUnitPlatform {
-        includeTags 'order'
+        includeTags 'pr'
     }
 }
