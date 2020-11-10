@@ -27,6 +27,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Tag("gis")
 @Tag("gis3d")
 @Tag("all_tests")
+@Tag("prod_tests")
 class DigitalCityTwinTests extends TestBase {
 
     @Test

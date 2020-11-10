@@ -21,6 +21,7 @@ import static io.qameta.allure.Allure.step;
 @Feature("MRGP")
 @Tag("mrgp")
 @Tag("all_tests")
+@Tag("prod_tests")
 public class mrgpTests extends TestBase {
 	@Test
 	@DisplayName("Проверка открытия реестра")

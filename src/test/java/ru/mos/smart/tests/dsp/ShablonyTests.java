@@ -14,18 +14,17 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("DSP (Портал ДС)")
 @Feature("Шаблоны")
 @Tag("dsp")
 @Tag("all_tests")
-
+@Tag("prod_tests")
 public class ShablonyTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка открытия вкладки \"Шаблоны\"")
+    @DisplayName("Проверка открытия вкладки Шаблоны")
     void openShablony() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
@@ -35,8 +34,7 @@ public class ShablonyTests extends TestBase {
             $(byLinkText("Шаблоны")).click();
         });
 
-        step("Раздел открывается", () -> {
-            $(byText("Реестр шаблонов")).shouldBe(visible);
-        });
+        step("Раздел открывается", () -> $(byText("Реестр шаблонов"))
+                .shouldBe(visible));
     }
 }

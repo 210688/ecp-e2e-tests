@@ -17,7 +17,8 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("OASI (ОАСИ)")
 @Feature("PPT (ППТ)")
-@Tag("oasi") @Tag("oasippt")
+@Tag("oasi")
+@Tag("oasippt")
 class OasiPptTests extends TestBase {
 
     @Test
@@ -31,17 +32,12 @@ class OasiPptTests extends TestBase {
             $(byText("Конструктор витрин")).click();
         });
 
-        step("Найти витрину \"Запросы проверки версии Проекта планировки\"", () -> {
+        step("Найти витрину Запросы проверки версии Проекта планировки", () -> {
             $(byName("candidateSearchValue")).setValue("Запросы проверки версии Проекта планировки").pressEnter();
         });
 
         step("Перейти к редактированию витрины", () -> {
             $(byTitle("Редактировать витрину")).click();
         });
-
-        //step("Перейти на вкладку Поля", () -> {
-
-        //step("Проверить наличие поля \"Номер версии данных\"", () -> {
-
     }
 }

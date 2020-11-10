@@ -21,6 +21,7 @@ import static io.qameta.allure.Allure.step;
 @Feature("")
 @Tag("fr")
 @Tag("all_tests")
+@Tag("prod_tests")
 public class CheckingDisplayOfProjectsTests extends TestBase {
 
     @Test
@@ -28,11 +29,10 @@ public class CheckingDisplayOfProjectsTests extends TestBase {
     void checkingDisplayOfProjects() {
         LoginPage.openUrlWithAuthorization("", LOGIN_FR, PASSWORD_FR);
 
-        step("В боковом меню выбрать Проекты", () -> {
-            $(byLinkText("Проекты")).click();
-        });
+        step("В боковом меню выбрать Проекты", () -> $(byLinkText("Проекты"))
+                .click());
 
-        step("Открывается страница \"Проекты\" со списком всех проектов в виде таблицы", () -> {
+        step("Открывается страница Проекты со списком всех проектов в виде таблицы", () -> {
             $(byText("Проекты")).shouldBe(visible);
             $(byText("Номер")).shouldBe(visible);
         });

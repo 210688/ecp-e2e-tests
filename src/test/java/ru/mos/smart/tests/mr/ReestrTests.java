@@ -9,7 +9,7 @@ import ru.mos.smart.tests.TestBase;
 
 @Layer("web")
 @Epic("RAYON (Мой район)")
-@Tag("mr") @Tag("all_tests")
+@Tag("mr")
 class ReestrTests extends TestBase {
 
     /*

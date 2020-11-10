@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -21,15 +22,18 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("VRI (ВРИ)")
 @Story("Реестр ВРИ")
-@Tag("oasirx") @Tag("vri")
+@Tag("oasirx")
+@Tag("vri")
+@Tag("prod_tests")
+@Tag("all_tests")
 public class VriRegistersTests extends TestBase{
 
     @Test
     @DisplayName("Проверка вкладок в реестре ВРИ")
     void openRegisterVri() {
-        openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
-        step("В боковой панели открыть вкладку \"ВРИ\"", () -> {
+        step("В боковой панели открыть вкладку ВРИ", () -> {
             sleep(10000);
             $(byLinkText("ВРИ")).click();
         });

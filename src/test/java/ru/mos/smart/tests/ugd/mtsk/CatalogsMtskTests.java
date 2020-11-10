@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -17,17 +18,19 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("MTSK (Московский территориальный строительный каталог)")
-@Tag("ugd") @Tag("mtsk")
+@Tag("ugd")
+@Tag("mtsk")
+@Tag("all_tests")
+@Tag("prod_tests")
 class CatalogsMtskTests extends TestBase {
 
     @Test
     @DisplayName("Проверка наличия каталогов МТСК")
     void checkCatalogsMtsk() {
-        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+        LoginPage.openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
-        step("Развернуть в навигаторе блок МТСК", () -> {
-            $(byLinkText("МТСК")).click();
-        });
+        step("Развернуть в навигаторе блок МТСК", () -> $(byLinkText("МТСК"))
+                .click());
 
         step("Проверка наличия каталогов", () -> {
             $(byText("Инновации")).shouldBe(visible);

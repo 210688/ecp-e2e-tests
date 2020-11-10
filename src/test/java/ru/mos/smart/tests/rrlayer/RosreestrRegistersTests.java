@@ -20,20 +20,17 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Epic("RRLAYER (Росреестр)")
 @Feature("Поиск записи в реестре \"Росреестр. Земельные участки\"")
 @Tag("rrlayer")
+@Tag("prod_tests")
+@Tag("all_tests")
 public class RosreestrRegistersTests extends TestBase {
 
     @Test
     @DisplayName("02.Поиск \"Росреестр. Земельные участки\"")
     void openRosreestrZemUch() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
-        //MainPage.otkrytReestr();
+        MainPage.InformaciyaAndReestr();
 
-        step("Перейти в раздел \"Реестры\"", () -> {
-            $(byLinkText("Информация")).click();
-            $(byLinkText("Реестры")).click();
-        });
-
-        step("В списке реестров найти и открыть \"Росреестр. Земельные участки\"", () -> {
+        step("В списке реестров найти и открыть Росреестр. Земельные участки", () -> {
             $(byName("candidateSearchValue")).setValue("Росреестр. Земельные участки").pressEnter();
             $(byLinkText("Росреестр. Земельные участки")).click();
         });

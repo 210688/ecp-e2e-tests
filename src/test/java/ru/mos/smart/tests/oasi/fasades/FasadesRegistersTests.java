@@ -12,27 +12,25 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("OASI (ОАСИ)")
 @Feature("FASADES (ОАСИ Фасады)")
-@Tag("oasi") @Tag("fasades")
+@Tag("oasi")
+@Tag("fasades")
+@Tag("prod_tests")
+@Tag("all_tests")
 public class FasadesRegistersTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка перехода к реестру \"Проекты изменений фасадов зданий (жилые)\"")
+    @DisplayName("Проверка перехода к реестру Проекты изменений фасадов зданий (жилые)")
     void openRegisterFasadesZhil() {
         openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
-        //MainPage.otkrytReestr();
-        step("Перейти в раздел \"Реестры\"", () -> {
-            $(byLinkText("Информация")).click();
-            $(byLinkText("Реестры")).click();
-        });
+        MainPage.InformaciyaAndReestr();
 
-        step("В строке поиска найти реестр \"Проекты изменений фасадов зданий (жилые)\".", () -> {
+        step("В строке поиска найти реестр Проекты изменений фасадов зданий (жилые).", () -> {
             $(byName("candidateSearchValue")).setValue("Проекты изменений фасадов зданий (жилые)").pressEnter();
             $(byLinkText("Проекты изменений фасадов зданий (жилые)")).click();
         });

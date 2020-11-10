@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -18,20 +19,19 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("OASI (ОАСИ)")
 @Feature("BLAGO (ОАСИ Благоустройство)")
-@Tag("oasi") @Tag("blago")
+@Tag("oasi")
+@Tag("blago")
+@Tag("prod_tests")
+@Tag("all_tests")
 public class BlagoRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Проверка наличия реестров")
     void checkingBlagoRegisters() {
         openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
-        //MainPage.otkrytReestr();
-        step("Перейти в раздел \"Реестры\"", () -> {
-            $(byLinkText("Информация")).click();
-            $(byLinkText("Реестры")).click();
-        });
+        MainPage.InformaciyaAndReestr();
 
-        step("Выполнить поиск по \"Проекты благоустройства\"", () -> {
+        step("Выполнить поиск по Проекты благоустройства", () -> {
             $(byName("candidateSearchValue")).setValue("Проекты благоустройства").pressEnter();
         });
 

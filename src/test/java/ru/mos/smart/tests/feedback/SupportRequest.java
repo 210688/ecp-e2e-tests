@@ -17,7 +17,6 @@ import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.helpers.EnvironmentHelper.webUrl;
 import static ru.mos.smart.pages.ActionsPage.feedback;
-import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("FEEDBACK (Форма обратной связи)")

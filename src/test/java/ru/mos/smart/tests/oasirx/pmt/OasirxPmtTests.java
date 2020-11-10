@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selectors.*;
@@ -16,21 +17,20 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("PMT (ПМТ)")
-@Tag("oasirx") @Tag("pmt")
+@Tag("oasirx")
+@Tag("pmt")
 class OasirxPmtTests extends TestBase {
 
     @Test
     @DisplayName("Создание карточки ПМТ")
     void CreatingPMTcard() {
-        openUrlWithAuthorization("", LOGIN_PMT, PASSWORD_PMT);
+        LoginPage.openUrlWithAuthorization("", LOGIN_PMT, PASSWORD_PMT);
 
         step("Открытие в навигаторе ПМТ", () -> {
             $(byLinkText("ПМТ")).click();
         });
 
-        step("Нажать Добваить ПМТ", () -> {
-             $(byLinkText("Добавить ПМТ")).click();
-        });
+        step("Нажать Добваить ПМТ", () -> $(byLinkText("Добавить ПМТ")).click());
 
         step("Заполнить форму", () -> {
 

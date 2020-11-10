@@ -18,7 +18,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Epic("FR (Фонд реновации)")
 @Feature("Запуск проекта")
 @Tag("fr")
-@Tag("all_tests")
+//@Tag("all_tests")
 public class LaunchProjectTests extends TestBase {
 
     @Test
@@ -26,20 +26,14 @@ public class LaunchProjectTests extends TestBase {
     void launchProjectAip() {
         LoginPage.openUrlWithAuthorization("", LOGIN_FR, PASSWORD_FR);
 
-        step("В панели Навигатор нажать кнопку Объекты АИП", () -> {
-            open("/fr/#/app/aip/list");
-        });
+        step("В панели Навигатор нажать кнопку Объекты АИП", () ->
+                open("/fr/#/app/aip/list"));
 
-        step("В рабочей области витрины нажать на кнопку Создать Объект АИП", () -> {
-            $(byLinkText("Создать объект АИП")).click();
-        });
+        step("В рабочей области витрины нажать на кнопку Создать Объект АИП", () ->
+                $(byLinkText("Создать объект АИП")).click());
 
-        step("Заполнить поля", () -> {
-            $(".form-control").setValue("Автотест");
-        });
+        step("Заполнить поля", () -> $(".form-control").setValue("Автотест"));
 
-        step("Нажать на кнопку Сохранить", () -> {
-            $("#submit").click();
-        });
+        step("Нажать на кнопку Сохранить", () -> $("#submit").click());
     }
 }

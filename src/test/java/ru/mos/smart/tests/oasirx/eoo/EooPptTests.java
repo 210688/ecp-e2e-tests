@@ -26,7 +26,8 @@ import static ru.mos.smart.pages.TasksPages.*;
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("EOO (Электронные общественные обсуждения)")
 @Story("PPT (modules)")
-@Tag("oasirx") @Tag("eoo")
+@Tag("oasirx")
+@Tag("eoo")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EooPptTests extends TestBase {
 	@Test
@@ -210,7 +211,7 @@ public class EooPptTests extends TestBase {
 		EooComponents.giveOutPrava(task9);
 		TasksPages.clickTask(task9);
 		step("Согласование материалов зам. председателя ЭОО", () -> {
-			EooComponents.saveButtonNextSoglas();
+			//EooComponents.saveButtonNextSoglas();
 		});
 	}
 }

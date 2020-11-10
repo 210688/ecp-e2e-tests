@@ -6,6 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -17,18 +19,17 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("OATI (Уведомления ОАТИ)")
-@Tag("ugd") @Tag("oati")
+@Tag("ugd")
+@Tag("oati")
+@Tag("all_tests")
+@Tag("prod_tests")
 class RegistersUvedomleniaTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия реестров")
     void openRegisterUvedomlenia() {
-        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
-
-        step("Открытие в навигаторе Информация > Реестры", () -> {
-            $(byLinkText("Информация")).click();
-            $(byLinkText("Реестры")).click();
-        });
+        LoginPage.openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+        MainPage.InformaciyaAndReestr();
 
         step("Открыть реестр ОАТИ. Уведомления", () -> {
             $(byName("candidateSearchValue")).setValue("ОАТИ. Уведомления").pressEnter();

@@ -18,7 +18,8 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("PMT (ПМТ)")
-@Tag("oasirx") @Tag("pmt")
+@Tag("oasirx")
+@Tag("pmt")
 class SearchingPmtCardTests extends TestBase {
 
     @Test
@@ -39,10 +40,8 @@ class SearchingPmtCardTests extends TestBase {
             $(".input-group.ng-dirty").setValue("ПМТ-0044-2020").pressEnter();
         });
 
-        step("Проверка, что в результатах поиска появилось \"Для префектуры\"", () -> {
+        step("Проверка, что в результатах поиска появилось Для префектуры", () -> {
             $(byText("Для префектуры")).shouldBe(visible);
         });
     }
 }
-//?/input[@safeclass~'\bform-control\b.*\bng-dirty\b.*\bng-touched\b.*\bng-valid\b']
-//ui-view[@id='pmt-module']/app-document-list/div[@class='pmt-styles']/div//app-search-input//form//input[@placeholder='Номер и тип документа, организация, источник']

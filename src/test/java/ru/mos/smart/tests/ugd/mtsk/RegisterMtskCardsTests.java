@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -25,10 +26,8 @@ class RegisterMtskCardsTests extends TestBase {
     void registerMtskCardsViewing() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
+		MainPage.InformaciyaAndReestr();
         step("Перейти к реестру МТСК. Реестр организаций", () -> {
-            //открыть список реестров
-            $(byLinkText("Информация")).click();
-            $(byLinkText("Реестры")).click();
             //найти и открыть "МТСК. Реестр организаций"
             $(byName("candidateSearchValue")).setValue("МТСК. Реестр организаций").pressEnter();
             $(byLinkText("МТСК. Реестр организаций")).click();
