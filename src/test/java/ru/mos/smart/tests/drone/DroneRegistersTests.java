@@ -21,22 +21,21 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Epic("DRONE (Аэрофотосъемка)")
 @Feature("Реестр \"Данные аэрофотосъемки\"")
 @Tag("drone")
+@Tag("all_tests")
 public class DroneRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Открытие реестра \"Данные аэрофотосъемки\"")
     void openRegister() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        MainPage.InformaciyaAndReestr();
 
-        MainPage.informaciyaAndReest();
-
-        step("Найти и открыть реестр \"Данные аэрофотосъемки\"", () -> {
+        step("Найти и открыть реестр Данные аэрофотосъемки", () -> {
             $(byName("candidateSearchValue")).setValue("Данные аэрофотосъемки").pressEnter();
             $(byLinkText("Данные аэрофотосъемки")).click();
         });
 
-        step("Проверка, что открылся реестр \"Данные аэрофотосъемки\"", () -> {
-            $(byText("Данные аэрофотосъемки")).shouldBe(visible);
-        });
+        step("Проверка, что открылся реестр Данные аэрофотосъемки", () -> $(byText("Данные аэрофотосъемки"))
+                .shouldBe(visible));
     }
 }

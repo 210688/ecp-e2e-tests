@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -23,14 +24,16 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Epic("GIS 3D (Картографическое обеспечение, Конструктор)")
 @Feature("ФС№11.ЕЦП ГИС_ФГМ")
 @Story("Проверка вспомогательной функциональности для отображения фотограмметрических моделей (ФГМ)")
-@Tag("gis") @Tag("gis3d")
+@Tag("gis")
+@Tag("gis3d")
+@Tag("all_tests")
 class DigitalCityTwinTests extends TestBase {
 
     @Test
     @Description("Используется тестовый пользователь gis_test c нужными правами")
     @DisplayName("Проверка открытия карты в режиме Цифровой двойник")
     void mapsCanBeOpened() {
-        openUrlWithAuthorization("", LOGIN_GIS_TEST, PASSWORD_GIS_TEST);
+        LoginPage.openUrlWithAuthorization("", LOGIN_GIS_TEST, PASSWORD_GIS_TEST);
 
         step("Открытие в навигаторе Информация > Цифровой двойник", ()-> {
             $(byLinkText("Информация")).click();

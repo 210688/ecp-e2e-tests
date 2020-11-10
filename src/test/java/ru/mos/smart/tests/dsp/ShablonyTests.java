@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -19,15 +20,16 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Epic("DSP (Портал ДС)")
 @Feature("Шаблоны")
 @Tag("dsp")
+@Tag("all_tests")
 
 public class ShablonyTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия вкладки \"Шаблоны\"")
     void openShablony() {
-        openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
-        step("Открыть раздел \"Портал ДС\" -> \"Документы\" -> \"Шаблоны\"", () -> {
+        step("Открыть раздел Портал ДС -> Документы -> Шаблоны", () -> {
             $(byLinkText("Портал ДС")).click();
             $(byLinkText("Документы")).click();
             $(byLinkText("Шаблоны")).click();

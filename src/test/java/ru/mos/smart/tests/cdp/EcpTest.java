@@ -24,7 +24,7 @@ public class EcpTest extends TestBase {
     @DisplayName("Проверка открытия реестра")
     void openReestr() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
-        MainPage.informaciyaAndReest();
+        MainPage.InformaciyaAndReestr();
 
         step("Открыта вкладка с реестрами", () -> {
             $(byText("Реестры")).shouldBe(Condition.visible);

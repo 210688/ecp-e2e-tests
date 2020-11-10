@@ -1,11 +1,11 @@
 package ru.mos.smart.tests.arbitr;
 
 import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -17,16 +17,16 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("ARBITR (Арбитраж)")
-@Feature("")
 @Tag("arbitr")
+@Tag("all_tests")
 public class ArbitrTests extends TestBase {
 
     @Test
-    @DisplayName("Загрузка модуля \"Поиск дел\"")
+    @DisplayName("Загрузка модуля Поиск дел")
     void loadingModulePoiskDel() {
-        openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
-        step("Перейти в раздел \"Арбитраж\"", () -> {
+        step("Перейти в раздел Арбитраж", () -> {
             $(byLinkText("Информация")).click();
             $(byLinkText("Арбитраж")).click();
         });

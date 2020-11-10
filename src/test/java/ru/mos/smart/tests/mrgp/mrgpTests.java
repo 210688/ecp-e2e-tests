@@ -26,7 +26,7 @@ public class mrgpTests extends TestBase {
 	@DisplayName("Проверка открытия реестра")
 	void openReestr() {
 		LoginPage.openUrlWithAuthorization("", login_test, password_test);
-		step("открытие реестра", MainPage::InformaciyaAndReest);
+		MainPage.InformaciyaAndReestr();
 
 		step("Поиск в реестре", () -> $(byName("candidateSearchValue"))
 				.setValue("Перечень программ").pressEnter());

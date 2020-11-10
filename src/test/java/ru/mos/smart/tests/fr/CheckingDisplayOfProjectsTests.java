@@ -20,7 +20,7 @@ import static io.qameta.allure.Allure.step;
 @Epic("FR (Фонд реновации)")
 @Feature("")
 @Tag("fr")
-
+@Tag("all_tests")
 public class CheckingDisplayOfProjectsTests extends TestBase {
 
     @Test
@@ -28,7 +28,7 @@ public class CheckingDisplayOfProjectsTests extends TestBase {
     void checkingDisplayOfProjects() {
         LoginPage.openUrlWithAuthorization("", LOGIN_FR, PASSWORD_FR);
 
-        step("В боковом меню выбрать \"Проекты\"", () -> {
+        step("В боковом меню выбрать Проекты", () -> {
             $(byLinkText("Проекты")).click();
         });
 

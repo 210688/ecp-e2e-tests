@@ -21,17 +21,16 @@ import static io.qameta.allure.Allure.step;
 @Epic("FT (Электронная приемка по ФТ)")
 @Feature("EAIST (ЕАИСТ)")
 @Tag("eaist")
-
+@Tag("all_tests")
 public class EaistTests extends TestBase {
 
     @Test
     @DisplayName("Проверка реестров ЕАИСТ")
     void mapsCanBeOpened() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        MainPage.InformaciyaAndReestr();
 
-        MainPage.informaciyaAndReest();
-
-        step("В поисковой строке ввести \"ЕАИСТ\"", () -> {
+        step("В поисковой строке ввести ЕАИСТ", () -> {
             $(".form-control").setValue("ЕАИСТ").pressEnter();
         });
 
