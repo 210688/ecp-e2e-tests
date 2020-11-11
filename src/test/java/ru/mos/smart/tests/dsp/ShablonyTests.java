@@ -13,6 +13,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 
 @Layer("web")
@@ -30,7 +31,7 @@ public class ShablonyTests extends TestBase {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
         step("Открыть раздел Портал ДС -> Документы -> Шаблоны", () -> {
-            $(byLinkText("Портал ДС")).click();
+            $x("//span[contains(text(),'Портал ДС')]").click();
             $(byLinkText("Документы")).click();
             $(byLinkText("Шаблоны")).click();
         });

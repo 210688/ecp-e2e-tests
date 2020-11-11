@@ -20,7 +20,6 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("DRONE (Аэрофотосъемка)")
 @Feature("Реестр данные аэрофотосъемки")
-//@Tag("drone")
 public class DroneRegistersTests extends TestBase {
 
     @Test

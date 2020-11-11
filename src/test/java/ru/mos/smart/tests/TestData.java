@@ -49,8 +49,8 @@ public class TestData {
 	LOGIN_ITMKA = "itmka_i",
 			PASSWORD_ITMKA ="Passsword1",
 
-	LOGIN_PMT = "pmt_i",
-			PASSWORD_PMT ="Passsword1",
+	login_pmt = "pmt_i",
+	pasword_pmt ="Passsword1",
 
 	LOGIN_DPIOS = "dpioos_i",
 			PASSWORD_DPIOS ="Passsword1",
