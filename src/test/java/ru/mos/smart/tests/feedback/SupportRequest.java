@@ -28,7 +28,8 @@ public class SupportRequest extends TestBase {
 	@Description("Данная проверка отправляет письмо в тех поддержку, " +
 			"запускать на определеных средах.")
 	@DisplayName("Возможность инициировать обращение в техническую поддержку.")
-	@Tag("pr")
+	@Tag("allModules")
+	@Tag("prodRunPrc")
 	void SupportRequestForward() {
 		LoginPage.openUrlWithAuthorization("", login_test, password_test);
 		ActionsPage.searchAction(feedback);

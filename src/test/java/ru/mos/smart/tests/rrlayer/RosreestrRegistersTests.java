@@ -19,13 +19,12 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("RRLAYER (Росреестр)")
 @Feature("Поиск записи в реестре \"Росреестр. Земельные участки\"")
-@Tag("rrlayer")
-@Tag("prod_tests")
-@Tag("all_tests")
 public class RosreestrRegistersTests extends TestBase {
 
     @Test
-    @DisplayName("02.Поиск \"Росреестр. Земельные участки\"")
+    @DisplayName("02.Поиск Росреестр. Земельные участки")
+    @Tag("allModules")
+    @Tag("prod")
     void openRosreestrZemUch() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
         MainPage.InformaciyaAndReestr();

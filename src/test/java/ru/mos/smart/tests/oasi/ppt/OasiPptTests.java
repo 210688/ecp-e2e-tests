@@ -17,8 +17,6 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("OASI (ОАСИ)")
 @Feature("PPT (ППТ)")
-@Tag("oasi")
-@Tag("oasippt")
 class OasiPptTests extends TestBase {
 
     @Test

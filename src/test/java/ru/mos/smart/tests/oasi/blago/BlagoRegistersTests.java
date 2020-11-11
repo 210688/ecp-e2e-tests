@@ -19,14 +19,12 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("OASI (ОАСИ)")
 @Feature("BLAGO (ОАСИ Благоустройство)")
-@Tag("oasi")
-@Tag("blago")
-@Tag("prod_tests")
-@Tag("all_tests")
 public class BlagoRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Проверка наличия реестров")
+    @Tag("allModules")
+    @Tag("prod")
     void checkingBlagoRegisters() {
         openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
         MainPage.InformaciyaAndReestr();

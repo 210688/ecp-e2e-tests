@@ -23,6 +23,8 @@ public class LaunchProjectTests extends TestBase {
 
     @Test
     @DisplayName("Создать объект АИП")
+    @Tag("allModules")
+    @Tag("prodRunPrc")
     void launchProjectAip() {
         LoginPage.openUrlWithAuthorization("", LOGIN_FR, PASSWORD_FR);
 

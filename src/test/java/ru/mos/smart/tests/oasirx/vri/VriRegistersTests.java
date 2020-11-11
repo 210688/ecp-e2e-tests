@@ -22,21 +22,17 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("VRI (ВРИ)")
 @Story("Реестр ВРИ")
-@Tag("oasirx")
-@Tag("vri")
-@Tag("prod_tests")
-@Tag("all_tests")
 public class VriRegistersTests extends TestBase{
 
     @Test
     @DisplayName("Проверка вкладок в реестре ВРИ")
+    @Tag("allModules")
+    @Tag("prod")
     void openRegisterVri() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
-        step("В боковой панели открыть вкладку ВРИ", () -> {
-            sleep(10000);
-            $(byLinkText("ВРИ")).click();
-        });
+        step("В боковой панели открыть вкладку ВРИ", () -> $(byLinkText("ВРИ"))
+                .click());
 
         step("Реестр ВРИ содержит пять вкладок", () -> {
             $(byText("ВРИ в работе")).shouldBe(visible);

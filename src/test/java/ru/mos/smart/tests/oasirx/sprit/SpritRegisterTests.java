@@ -19,14 +19,12 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("SPRIT (Выдача СПРИТ)")
-@Tag("oasirx")
-@Tag("sprit")
-@Tag("prod_tests")
-@Tag("all_tests")
 public class SpritRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Проверка вкладок раздела Выдача СПРИТ")
+    @Tag("allModules")
+    @Tag("prod")
     void checkingSectionOfRegisterSprit() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 

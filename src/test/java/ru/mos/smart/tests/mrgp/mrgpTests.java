@@ -19,12 +19,11 @@ import static io.qameta.allure.Allure.step;
 @Layer("web")
 @Epic("OASI (ОАСИ)")
 @Feature("MRGP")
-@Tag("mrgp")
-@Tag("all_tests")
-@Tag("prod_tests")
 public class mrgpTests extends TestBase {
 	@Test
 	@DisplayName("Проверка открытия реестра")
+	@Tag("allModules")
+	@Tag("prod")
 	void openReestr() {
 		LoginPage.openUrlWithAuthorization("", login_test, password_test);
 		MainPage.InformaciyaAndReestr();

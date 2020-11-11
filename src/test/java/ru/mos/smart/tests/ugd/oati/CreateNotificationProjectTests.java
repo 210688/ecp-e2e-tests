@@ -21,13 +21,12 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Epic("Платформа ЕЦП")
 @Feature("UGD (УГД)")
 @Story("Создание проекта уведомдения")
-@Tag("ugd")
-@Tag("oati")
-@Tag("all_tests")
 class CreateNotificationProjectTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
+    @Tag("allModules")
+    @Tag("prodRunPrc")
     void checkingNotificationSubmissionForm() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 

@@ -25,13 +25,11 @@ import static ru.mos.smart.pages.TasksPages.*;
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("EOO (Электронные общественные обсуждения)")
-@Story("PPT (modules)")
-@Tag("oasirx")
-@Tag("eoo")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EooPptTests extends TestBase {
 	@Test
 	@AllureId("920")
+	@Disabled("Отдельная ветка")
 	@Order(1)
 	@DisplayName("01. Добавление ЭОО")
 	void addEoo() {

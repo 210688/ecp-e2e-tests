@@ -26,6 +26,8 @@ public class CheckingDisplayOfProjectsTests extends TestBase {
 
     @Test
     @DisplayName("Проверка отображения проектов")
+    @Tag("allModules")
+    @Tag("prod")
     void checkingDisplayOfProjects() {
         LoginPage.openUrlWithAuthorization("", LOGIN_FR, PASSWORD_FR);
 

@@ -16,13 +16,12 @@ import static io.qameta.allure.Allure.step;
 
 @Layer("web")
 @Epic("ARBITR (Арбитраж)")
-@Tag("arbitr")
-@Tag("all_tests")
-@Tag("prod_tests")
 public class ArbitrTests extends TestBase {
 
     @Test
     @DisplayName("Загрузка модуля Поиск дел")
+    @Tag("allModules")
+    @Tag("prod")
     void loadingModulePoiskDel() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 

@@ -19,14 +19,12 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("OATI (Уведомления ОАТИ)")
-@Tag("ugd")
-@Tag("oati")
-@Tag("all_tests")
-@Tag("prod_tests")
 class RegistersUvedomleniaTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия реестров")
+    @Tag("allModules")
+    @Tag("prod")
     void openRegisterUvedomlenia() {
         LoginPage.openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
         MainPage.InformaciyaAndReestr();

@@ -15,11 +15,11 @@ import static ru.mos.smart.pages.VedomostProektnihRabot.*;
 
 @Layer("web")
 @Epic("MGZ (Мосгорзаказ)")
-@Tag("mgz_refactor")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TestProjectRelease extends TestBase {
 
     @Test
+    @Disabled("Отдельные люди пишут автотесты")
     @Order(1)
     @DisplayName("Запуск процесса Тест релиза 7.8")
     void mgzStartProcess() {

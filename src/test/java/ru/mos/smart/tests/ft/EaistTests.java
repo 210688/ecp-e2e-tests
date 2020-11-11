@@ -18,13 +18,12 @@ import static io.qameta.allure.Allure.step;
 @Layer("web")
 @Epic("FT (Электронная приемка по ФТ)")
 @Feature("EAIST (ЕАИСТ)")
-@Tag("eaist")
-@Tag("all_tests")
-@Tag("prod_tests")
 public class EaistTests extends TestBase {
 
     @Test
     @DisplayName("Проверка реестров ЕАИСТ")
+    @Tag("allModules")
+    @Tag("prod")
     void reestrEaistCanBeOpened() {
         LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
         MainPage.InformaciyaAndReestr();

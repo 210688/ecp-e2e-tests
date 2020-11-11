@@ -18,14 +18,12 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("MTSK (Московский территориальный строительный каталог)")
-@Tag("ugd")
-@Tag("mtsk")
-@Tag("all_tests")
-@Tag("prod_tests")
 class CatalogsMtskTests extends TestBase {
 
     @Test
     @DisplayName("Проверка наличия каталогов МТСК")
+    @Tag("allModules")
+    @Tag("prod")
     void checkCatalogsMtsk() {
         LoginPage.openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 

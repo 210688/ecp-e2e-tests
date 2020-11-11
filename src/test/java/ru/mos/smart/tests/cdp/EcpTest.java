@@ -16,21 +16,18 @@ import static io.qameta.allure.Allure.step;
 
 @Layer("web")
 @Epic("CDP (ЕЦП_платформа)")
-//@Tag("cdp")
-//@Tag("all_tests")
-//@Tag("prod_tests")
 
 public class EcpTest extends TestBase {
+	@Test
+	@DisplayName("Проверка открытия реестра")
+	@Tag("allModules")
+	@Tag("prod")
+	void openReestr() {
+		LoginPage.openUrlWithAuthorization("", login_test, password_test);
+		MainPage.InformaciyaAndReestr();
 
-    @Test
-    @DisplayName("Проверка открытия реестра")
-    @Tag("pr")
-    void openReestr() {
-        LoginPage.openUrlWithAuthorization("", login_test, password_test);
-        MainPage.InformaciyaAndReestr();
-
-        step("Открыта вкладка с реестрами", () -> {
-            $(byText("Реестры")).shouldBe(Condition.visible);
-        });
-    }
+		step("Открыта вкладка с реестрами", () -> {
+			$(byText("Реестры")).shouldBe(Condition.visible);
+		});
+	}
 }

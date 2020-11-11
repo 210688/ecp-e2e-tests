@@ -18,13 +18,12 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("PMT (ПМТ)")
-@Tag("oasirx")
-@Tag("pmt")
 class SearchingPmtCardTests extends TestBase {
 
     @Test
-    @AllureId("1000")
     @DisplayName("Поиск ПМТ по названию")
+    @Tag("allModules")
+    @Tag("prod")
     void searchingPmtCardByName() {
         openUrlWithAuthorization("", LOGIN_PMT, PASSWORD_PMT);
 

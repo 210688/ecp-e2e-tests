@@ -18,14 +18,12 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("OASI (ОАСИ)")
 @Feature("FASADES (ОАСИ Фасады)")
-@Tag("oasi")
-@Tag("fasades")
-@Tag("prod_tests")
-@Tag("all_tests")
 public class FasadesRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода к реестру Проекты изменений фасадов зданий (жилые)")
+    @Tag("allModules")
+    @Tag("prod")
     void openRegisterFasadesZhil() {
         openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
         MainPage.InformaciyaAndReestr();
