@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.ugd.mtsk;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -21,6 +22,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 class CatalogsMtskTests extends TestBase {
 
     @Test
+    @AllureId("1064")
     @DisplayName("Проверка наличия каталогов МТСК")
     @Tag("allModules")
     @Tag("prod")

@@ -24,7 +24,7 @@ class RegisterMtskCardsTests extends TestBase {
 
     @Test
     @Disabled("")
-    @DisplayName("Просмотр полной карточки реестра \"МТСК. Реестр организаций\"")
+    @DisplayName("Просмотр полной карточки реестра МТСК. Реестр организаций")
     void registerMtskCardsViewing() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 

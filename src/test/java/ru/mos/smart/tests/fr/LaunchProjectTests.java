@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.fr;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -20,7 +21,8 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 public class LaunchProjectTests extends TestBase {
 
     @Test
-    @DisplayName("Создать объект АИП")
+    @AllureId("877")
+    @DisplayName("Создание объекта АИП")
     @Tag("allModules")
     @Tag("prodRunPrc")
     void launchProjectAip() {

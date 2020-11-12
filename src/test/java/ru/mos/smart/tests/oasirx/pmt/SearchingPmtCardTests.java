@@ -23,6 +23,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 class SearchingPmtCardTests extends TestBase {
 
 	@Test
+	@AllureId("1144")
 	@DisplayName("Поиск ПМТ по названию")
 	@Tag("allModules")
 	@Tag("prod")

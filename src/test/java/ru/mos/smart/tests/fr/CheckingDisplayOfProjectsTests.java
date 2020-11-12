@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.fr;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -18,13 +19,11 @@ import static io.qameta.allure.Allure.step;
 
 @Layer("web")
 @Epic("FR (Фонд реновации)")
-@Feature("")
-@Tag("fr")
-@Tag("all_tests")
-@Tag("prod_tests")
+@Feature("Запуск проекта")
 public class CheckingDisplayOfProjectsTests extends TestBase {
 
     @Test
+    @AllureId("2695")
     @DisplayName("Проверка отображения проектов")
     @Tag("allModules")
     @Tag("prod")

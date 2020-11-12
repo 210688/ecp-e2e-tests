@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.sprit;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -22,6 +23,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 public class SpritRegisterTests extends TestBase {
 
     @Test
+    @AllureId("2719")
     @DisplayName("Проверка вкладок раздела Выдача СПРИТ")
     @Tag("allModules")
     @Tag("prod")

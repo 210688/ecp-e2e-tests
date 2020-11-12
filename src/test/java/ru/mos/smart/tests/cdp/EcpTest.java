@@ -1,6 +1,7 @@
 package ru.mos.smart.tests.cdp;
 
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -19,6 +20,7 @@ import static io.qameta.allure.Allure.step;
 
 public class EcpTest extends TestBase {
 	@Test
+	@AllureId("2324")
 	@DisplayName("Проверка открытия реестра")
 	@Tag("allModules")
 	@Tag("prod")

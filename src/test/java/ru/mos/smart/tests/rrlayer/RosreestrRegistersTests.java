@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.rrlayer;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -22,6 +23,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 public class RosreestrRegistersTests extends TestBase {
 
     @Test
+    @AllureId("2551")
     @DisplayName("02.Поиск Росреестр. Земельные участки")
     @Tag("allModules")
     @Tag("prod")

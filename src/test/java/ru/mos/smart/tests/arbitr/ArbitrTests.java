@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.arbitr;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -19,6 +20,7 @@ import static io.qameta.allure.Allure.step;
 public class ArbitrTests extends TestBase {
 
     @Test
+    @AllureId("2726")
     @DisplayName("Загрузка модуля Поиск дел")
     @Tag("allModules")
     @Tag("prod")

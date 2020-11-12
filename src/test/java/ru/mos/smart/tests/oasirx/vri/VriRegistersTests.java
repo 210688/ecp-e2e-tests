@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.vri;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -25,6 +26,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 public class VriRegistersTests extends TestBase{
 
     @Test
+    @AllureId("2558")
     @DisplayName("Проверка вкладок в реестре ВРИ")
     @Tag("allModules")
     @Tag("prod")

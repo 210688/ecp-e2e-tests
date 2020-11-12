@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.ugd.oati;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -22,6 +23,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 class RegistersUvedomleniaTests extends TestBase {
 
     @Test
+    @AllureId("2056")
     @DisplayName("Проверка открытия реестров")
     @Tag("allModules")
     @Tag("prod")

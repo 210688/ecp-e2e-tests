@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.dsp;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -24,6 +25,7 @@ import static io.qameta.allure.Allure.step;
 public class ShablonyTests extends TestBase {
 
     @Test
+    @AllureId("2690")
     @DisplayName("Проверка открытия вкладки Шаблоны")
     @Tag("allModules")
     @Tag("prod")
