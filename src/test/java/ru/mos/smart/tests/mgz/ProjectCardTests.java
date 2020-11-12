@@ -16,10 +16,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
-@Epic("Платформа ЕЦП")
-@Feature("MGZ (МГЗ)")
-@Story("Карточки проектов МГЗ")
-@Tag("mgz")
+@Epic("MGZ (Мосгорзаказ)")
 class ProjectCardTests extends TestBase {
 
 	@Test

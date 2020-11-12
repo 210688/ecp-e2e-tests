@@ -17,8 +17,8 @@ import static io.qameta.allure.Allure.step;
 
 
 
-@Epic("Платформа ЕЦП")
-@Feature("UGD (УГД)")
+@Epic("UGD (УГД)")
+@Feature("OATI (Уведомления ОАТИ)")
 @Story("Создание проекта уведомдения")
 class CreateNotificationProjectTests extends TestBase {
 
