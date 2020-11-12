@@ -3,6 +3,7 @@ package ru.mos.smart.tests.dsp;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -20,11 +21,10 @@ import static io.qameta.allure.Allure.step;
 @Layer("web")
 @Epic("DSP (Портал ДС)")
 @Feature("Шаблоны")
-//@Tag("dsp")
-//@Tag("prod_tests")
 public class ShablonyTests extends TestBase {
 
     @Test
+    @Disabled("")
     @AllureId("2690")
     @DisplayName("Проверка открытия вкладки Шаблоны")
     @Tag("allModules")
