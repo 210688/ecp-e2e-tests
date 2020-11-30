@@ -15,24 +15,24 @@ import static ru.mos.smart.helpers.EnvironmentHelper.isVideoOn;
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
 public class TestBase extends TestData {
 
-    @BeforeAll
-    public static void beforeAll() {
-        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-        configureSelenide();
-    }
+	@BeforeAll
+	public static void beforeAll() {
+		addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+		configureSelenide();
+	}
 
-    @AfterEach
-    public void afterEach(){
-        String sessionId = getSessionId();
+	@AfterEach
+	public void afterEach(){
+		String sessionId = getSessionId();
 
-        attachScreenshot("Last screenshot");
-        attachPageSource();
+		attachScreenshot("Last screenshot");
+		attachPageSource();
 //        attachNetwork(); // todo
-        attachAsText("Browser console logs", getConsoleLogs());
-        if (isVideoOn) attachVideo(sessionId);
+		attachAsText("Browser console logs", getConsoleLogs());
+		if (isVideoOn) attachVideo(sessionId);
 
-        closeWebDriver();
-    }
+		closeWebDriver();
+	}
 
 }
 
