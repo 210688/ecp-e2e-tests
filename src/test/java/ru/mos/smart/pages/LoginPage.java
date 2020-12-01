@@ -21,9 +21,5 @@ public class LoginPage {
             $("#password").setValue(password);
             $("#kc-login").click();
         });
-
-        //step("Проверка успешной авторизации ", ()->
-                //$(byText("Выйти"))
-                        //.waitUntil(visible, 10000).shouldBe(visible));
     }
 }
