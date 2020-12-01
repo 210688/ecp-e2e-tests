@@ -52,7 +52,7 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия формы подачи " +
-            "\"Подать заявку на участие в конкурсе ЛРП за стороннюю организацию\"")
+            "\"Подать завку на участие в конкурсе ЛРП за стороннюю организацию\"")
     void openTheApplicationFormLrpOutsideOrg() {
         openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
