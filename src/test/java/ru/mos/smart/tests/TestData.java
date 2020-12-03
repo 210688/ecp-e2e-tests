@@ -85,8 +85,18 @@ public class TestData {
 			DEFAULT_PASSWORD = "1qazxsw2",
 
 	LOGIN_MR_TEST = "mr_test",
-	PASSWORD_MR_TEST ="P@ssw0rd";
+	PASSWORD_MR_TEST ="P@ssw0rd",
 
+	//todo prod Login and password
+
+	loginAll = "Users_all_tests",
+	passwordAll = "ddR53Ku",
+
+	loginOsi = "Users_osi_tests",
+	passwordOsi = "Xtkd90Y",
+
+	loginRni = "Users_rni_tests",
+	passwordRni = "j0Yzr4M";
 }
 
 
