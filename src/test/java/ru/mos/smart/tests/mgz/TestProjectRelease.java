@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.mgz;
 
 import io.qameta.allure.Epic;
@@ -184,3 +185,4 @@ class TestProjectRelease extends TestBase {
         });
     }
 }
+*/

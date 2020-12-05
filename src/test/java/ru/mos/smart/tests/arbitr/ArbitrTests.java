@@ -26,7 +26,7 @@ public class ArbitrTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void loadingModulePoiskDel() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getUsername());
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
 
         step("Перейти в раздел Арбитраж", () -> {
             $(byLinkText("Информация")).click();

@@ -24,7 +24,7 @@ class ProjectCardTests extends TestBase {
 	@Tag("allModules")
 	@Tag("prod")
 	void openingProjectCard() {
-		LoginPage.openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
+		//LoginPage.openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
 
 		step("В боковом меню открыть вкладку Проекты", () -> open
 				("/mgz/#/app/projects/list"));

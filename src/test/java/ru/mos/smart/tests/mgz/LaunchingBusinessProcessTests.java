@@ -26,7 +26,7 @@ class LaunchingBusinessProcessTests extends TestBase {
 	@DisplayName("Запуск бизнес-процесса \"Создание структуры работ по объекту\" на текущего пользователя")
 	@Tag("prodRunPrc")
 	void launchingBusinessProcessCreatingWorkStructureForAnObject() {
-		openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
+		//openUrlWithAuthorization("", LOGIN_MGZ, PASSWORD_MGZ);
 
 		step("В Навигаторе открыть Госуслуги и функции -> Возможности", () -> {
 			$(byLinkText("Госуслуги и функции")).click();

@@ -30,7 +30,7 @@ public class DroneRegistersTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openReestrDrone() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getUsername());
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Данные аэрофотосъемки", () -> {
