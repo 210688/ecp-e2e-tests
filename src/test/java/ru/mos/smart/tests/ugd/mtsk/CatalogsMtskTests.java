@@ -27,7 +27,7 @@ class CatalogsMtskTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void checkCatalogsMtsk() {
-        LoginPage.openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+     //   LoginPage.openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Развернуть в навигаторе блок МТСК", () -> $(byLinkText("МТСК"))
                 .click());

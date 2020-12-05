@@ -23,7 +23,7 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("VRI (ВРИ)")
 @Story("Реестр ВРИ")
-public class VriRegistersTests extends TestBase{
+public class VriRegistersTests extends TestBase {
 
     @Test
     @AllureId("2558")
@@ -31,7 +31,7 @@ public class VriRegistersTests extends TestBase{
     @Tag("allModules")
     @Tag("prod")
     void openRegisterVri() {
-        LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        // LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
         step("В боковой панели открыть вкладку ВРИ", () -> $(byLinkText("ВРИ"))
                 .click());

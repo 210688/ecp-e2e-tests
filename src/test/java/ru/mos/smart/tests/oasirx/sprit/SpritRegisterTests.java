@@ -28,7 +28,7 @@ public class SpritRegisterTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void checkingSectionOfRegisterSprit() {
-        LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        //    LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
         step("В боковой панели открыть вкладку Выдача СПРИТ", () -> {
             $(byLinkText("Выдача СПРИТ")).click();

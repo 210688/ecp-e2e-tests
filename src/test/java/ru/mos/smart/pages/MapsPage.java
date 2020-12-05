@@ -7,13 +7,13 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MapsPage {
 
-	@Step("Нажатие на пункты меню")
-	public static void Menu() {
-		$(byText("Информация")).click();
-		$(byText("Карта")).click();
-	}
+    @Step("Нажатие на пункты меню")
+    public static void Menu() {
+        $(byText("Информация")).click();
+        $(byText("Карта")).click();
+    }
 
-	@Step("Проверка, что карта открылась")
-	public static void VerifyMapsObjectIsOpened() {
-	}
+    @Step("Проверка, что карта открылась")
+    public static void VerifyMapsObjectIsOpened() {
+    }
 }

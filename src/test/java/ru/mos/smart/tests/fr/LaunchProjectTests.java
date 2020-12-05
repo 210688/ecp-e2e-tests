@@ -26,7 +26,7 @@ public class LaunchProjectTests extends TestBase {
     @Tag("allModules")
     @Tag("prodRunPrc")
     void launchProjectAip() {
-        LoginPage.openUrlWithAuthorization("", LOGIN_FR, PASSWORD_FR);
+        //LoginPage.openUrlWithAuthorization("", LOGIN_FR, PASSWORD_FR);
 
         step("В панели Навигатор нажать кнопку Объекты АИП", () ->
                 $x("//span[contains(text(),'Объекты АИП')]").click());

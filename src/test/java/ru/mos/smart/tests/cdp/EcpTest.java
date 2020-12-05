@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
@@ -19,17 +20,17 @@ import static io.qameta.allure.Allure.step;
 @Epic("CDP (ЕЦП_платформа)")
 
 public class EcpTest extends TestBase {
-	@Test
-	@AllureId("2324")
-	@DisplayName("Проверка открытия реестра")
-	@Tag("allModules")
-	@Tag("prod")
-	void openReestr() {
-		LoginPage.openUrlWithAuthorization("", login_test, password_test);
-		MainPage.InformaciyaAndReestr();
+    @Test
+    @AllureId("2324")
+    @DisplayName("Проверка открытия реестра")
+    @Tag("allModules")
+    @Tag("prod")
+    void openReestr() {
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getUsername());
+        MainPage.InformaciyaAndReestr();
 
-		step("Открыта вкладка с реестрами", () -> {
-			$(byText("Реестры")).shouldBe(Condition.visible);
-		});
-	}
+        step("Открыта вкладка с реестрами", () -> {
+            $(byText("Реестры")).shouldBe(Condition.visible);
+        });
+    }
 }

@@ -23,7 +23,7 @@ class OasiPptTests extends TestBase {
     @Disabled("тест не работает - надо разобраться с правами, не работает регистрация")
     @DisplayName("Проверка наличия в витрине поля для поиска")
     void searchFieldShouldExist() {
-        openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG); // заблокирован
+      //  openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG); // заблокирован
 
         step("Открытие в навигаторе Настройки > Конструктор витрин", () -> {
             $(byText("Настройки")).click();

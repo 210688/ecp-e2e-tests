@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.ActionsPage;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
@@ -23,32 +24,32 @@ import static ru.mos.smart.pages.ActionsPage.feedback;
 @Epic("FEEDBACK (Форма обратной связи)")
 public class SupportRequest extends TestBase {
 
-	@Test
-	@AllureId("1145")
-	@Description("Данная проверка отправляет письмо в тех поддержку, " +
-			"запускать на определеных средах.")
-	@DisplayName("Возможность инициировать обращение в техническую поддержку.")
-	@Tag("allModules")
-	@Tag("prodRunPrc")
-	void SupportRequestForward() {
-		LoginPage.openUrlWithAuthorization("", login_test, password_test);
-		ActionsPage.searchAction(feedback);
+    @Test
+    @AllureId("1145")
+    @Description("Данная проверка отправляет письмо в тех поддержку, " +
+            "запускать на определеных средах.")
+    @DisplayName("Возможность инициировать обращение в техническую поддержку.")
+    @Tag("allModules")
+    @Tag("prodRunPrc")
+    void SupportRequestForward() {
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getUsername());
+        ActionsPage.searchAction(feedback);
 
-		step("Заполнение поля Тип обращения", () -> {
-			$x("//input[@role='combobox']").click();
-			$x("//span[contains(text(),'Технические вопросы')]").click();
-		});
+        step("Заполнение поля Тип обращения", () -> {
+            $x("//input[@role='combobox']").click();
+            $x("//span[contains(text(),'Технические вопросы')]").click();
+        });
 
-		step("Заполнение поля Тема обращения", () -> {
-			$(".ng-select-taggable input").click();
-			$(".ng-select-taggable input").val("Не заходит на главную страницу").pressEnter();
-		});
+        step("Заполнение поля Тема обращения", () -> {
+            $(".ng-select-taggable input").click();
+            $(".ng-select-taggable input").val("Не заходит на главную страницу").pressEnter();
+        });
 
-		step("Заполнение поля Ссылка на страницу с ошибкой", () -> {
-			$(byName("pageUrl")).setValue(webUrl);
-			$x("//div/button[contains(text(),'Отправить')]").click();
-		});
-	}
+        step("Заполнение поля Ссылка на страницу с ошибкой", () -> {
+            $(byName("pageUrl")).setValue(webUrl);
+            $x("//div/button[contains(text(),'Отправить')]").click();
+        });
+    }
 }
 
 

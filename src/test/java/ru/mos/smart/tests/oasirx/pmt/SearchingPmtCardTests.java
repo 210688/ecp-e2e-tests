@@ -22,20 +22,20 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Feature("PMT (ПМТ)")
 class SearchingPmtCardTests extends TestBase {
 
-	@Test
-	@AllureId("1144")
-	@DisplayName("Поиск ПМТ по названию")
-	@Tag("allModules")
-	@Tag("prod")
-	void searchingPmtCardByName() {
-		LoginPage.openUrlWithAuthorization("", login_pmt, pasword_pmt);
+    @Test
+    @AllureId("1144")
+    @DisplayName("Поиск ПМТ по названию")
+    @Tag("allModules")
+    @Tag("prod")
+    void searchingPmtCardByName() {
+        //	LoginPage.openUrlWithAuthorization("", login_pmt, pasword_pmt);
 
-		step("Открытие в навигаторе ПМТ", () -> $x("//span[text()='ПМТ']").click());
+        step("Открытие в навигаторе ПМТ", () -> $x("//span[text()='ПМТ']").click());
 
 
-		step("Перейти во вкладку Все ПМТ", () -> $("#tab2-link").click());
+        step("Перейти во вкладку Все ПМТ", () -> $("#tab2-link").click());
 
-		step("Проверка, что появилась строчка Межевание территорий", () -> $
-				(byText("Межевание территорий")).shouldBe(visible));
-	}
+        step("Проверка, что появилась строчка Межевание территорий", () -> $
+                (byText("Межевание территорий")).shouldBe(visible));
+    }
 }

@@ -30,7 +30,7 @@ public class ShablonyTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openShablony() {
-        LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        // LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
 
         step("Открыть раздел Портал ДС -> Документы -> Шаблоны", () -> {
             $x("//span[contains(text(),'Портал ДС')]").click();

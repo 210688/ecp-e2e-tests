@@ -26,7 +26,7 @@ class UgdLrpTests extends TestBase {
     @Disabled("Пометка")
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
-        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+       // openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Открытие в навигаторе Мои возможности", () -> {
             //В левом боковом меню выбрать «Госуслуги и функции» > «Возможности»
@@ -54,7 +54,7 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Проверка открытия формы подачи " +
             "\"Подать завку на участие в конкурсе ЛРП за стороннюю организацию\"")
     void openTheApplicationFormLrpOutsideOrg() {
-        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+        //openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Открытие в навигаторе Мои возможности", () -> {
             //В левом боковом меню выбрать «Госуслуги и функции» > «Возможности»

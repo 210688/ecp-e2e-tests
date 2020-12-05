@@ -13,9 +13,9 @@ public class LoginPage {
 
     @Step("Открытие ссылки {url} с авторизацией")
     public static void openUrlWithAuthorization(String url, String login, String password) {
-        step("Открытие ссылки " + url, ()-> open(url));
+        step("Открытие ссылки " + url, () -> open(url));
 
-        step("Заполнение формы авторизации", ()-> {
+        step("Заполнение формы авторизации", () -> {
             $(byText("Войти по логину и паролю")).shouldBe(visible).click();
             $("#username").setValue(login);
             $("#password").setValue(password);

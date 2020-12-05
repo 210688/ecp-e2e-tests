@@ -28,7 +28,7 @@ public class BlagoRegistersTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void checkingBlagoRegisters() {
-        openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+    //    openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
         MainPage.InformaciyaAndReestr();
 
         step("Выполнить поиск по Проекты благоустройства", () -> {

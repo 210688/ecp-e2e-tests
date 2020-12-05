@@ -27,7 +27,7 @@ public class EaistTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void reestrEaistCanBeOpened() {
-        LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        //LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
         MainPage.InformaciyaAndReestr();
 
         step("В поисковой строке ввести ЕАИСТ", () -> {

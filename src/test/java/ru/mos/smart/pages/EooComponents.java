@@ -19,18 +19,18 @@ public class EooComponents {
     }
 
     @Step("Взять в работу назначенным исполнителем")
-    public static void buttonTakeTask(){ // Взять в работу назначенным исполнителем
+    public static void buttonTakeTask() { // Взять в работу назначенным исполнителем
         $x("//div/button[text()='Взять в работу']")
                 .waitUntil(visible, 10000).click(); // взять в работу кнопка
     }
 
     @Step("Сохранить и перейти дальше")
-    public static void saveButtonNextTask(){  //Сохранить и передать на подготовку
+    public static void saveButtonNextTask() {  //Сохранить и передать на подготовку
         $("#next").waitUntil(visible, 10000).click();
     }
 
     @Step("Сохранить и перейти дальше")
-    public static void saveButtonNextSoglas(){  //Сохранить и передать на подготовку approved
+    public static void saveButtonNextSoglas() {  //Сохранить и передать на подготовку approved
         $("#approved").waitUntil(visible, 10000).click();
     }
 

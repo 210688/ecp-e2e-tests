@@ -25,7 +25,7 @@ public class FasadesRegistersTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openRegisterFasadesZhil() {
-        openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+       // openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
         MainPage.InformaciyaAndReestr();
 
         step("В строке поиска найти реестр Проекты изменений фасадов зданий (жилые).", () -> {

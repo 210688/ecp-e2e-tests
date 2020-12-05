@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.oasirx.eoo;
 
 import io.qameta.allure.AllureId;
@@ -33,7 +34,7 @@ public class EooPptTests extends TestBase {
 	@Order(1)
 	@DisplayName("01. Добавление ЭОО")
 	void addEoo() {
-		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
+		//LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
 		step("Добавить ЭОО", () -> {
 			$(byLinkText("Добавить ЭОО")).click();
@@ -212,4 +213,4 @@ public class EooPptTests extends TestBase {
 			//EooComponents.saveButtonNextSoglas();
 		});
 	}
-}
+}*/

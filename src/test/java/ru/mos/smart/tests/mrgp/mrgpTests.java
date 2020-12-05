@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
@@ -20,22 +21,22 @@ import static io.qameta.allure.Allure.step;
 @Epic("OASI (ОАСИ)")
 @Feature("MRGP")
 public class mrgpTests extends TestBase {
-	@Test
-	@DisplayName("Проверка открытия реестра")
-	@Tag("allModules")
-	@Tag("prod")
-	void openReestr() {
-		LoginPage.openUrlWithAuthorization("", login_test, password_test);
-		MainPage.InformaciyaAndReestr();
+    @Test
+    @DisplayName("Проверка открытия реестра")
+    @Tag("allModules")
+    @Tag("prod")
+    void openReestr() {
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getUsername());
+        MainPage.InformaciyaAndReestr();
 
-		step("Поиск в реестре", () -> $(byName("candidateSearchValue"))
-				.setValue("Перечень программ").pressEnter());
+        step("Поиск в реестре", () -> $(byName("candidateSearchValue"))
+                .setValue("Перечень программ").pressEnter());
 
-		step("Открытие реестра Перечень программ", () -> {
-			$x("//span[contains(text(),'Перечень программ')]").click();
-			$x("//span[contains(text(),'Государственная программа города Москвы «Экономиче')]").click();
-			$x("//a[contains(text(),'Мероприятия')]").click();
-			$(byText("Мероприятия")).shouldBe(visible);
-		});
-	}
+        step("Открытие реестра Перечень программ", () -> {
+            $x("//span[contains(text(),'Перечень программ')]").click();
+            $x("//span[contains(text(),'Государственная программа города Москвы «Экономиче')]").click();
+            $x("//a[contains(text(),'Мероприятия')]").click();
+            $(byText("Мероприятия")).shouldBe(visible);
+        });
+    }
 }
