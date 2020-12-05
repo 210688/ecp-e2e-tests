@@ -34,6 +34,8 @@ target/
 .project
 .settings
 .vscode
+*.DS_Store
+._*
 /gradlew
 /gradlew.bat
 /null/
