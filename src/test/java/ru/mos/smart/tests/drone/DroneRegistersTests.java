@@ -39,7 +39,6 @@ public class DroneRegistersTests extends TestBase {
         });
 
         step("Проверка, что открылся реестр Данные аэрофотосъемки", () ->
-                $(byText("4159"))
-                        .shouldBe(visible));
+                $(byText("4159")).shouldBe(visible));
     }
 }

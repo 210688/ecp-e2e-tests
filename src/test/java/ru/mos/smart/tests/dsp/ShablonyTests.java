@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -15,7 +16,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 
 @Layer("web")
@@ -24,16 +24,15 @@ import static io.qameta.allure.Allure.step;
 public class ShablonyTests extends TestBase {
 
     @Test
-    @Disabled("")
     @AllureId("2690")
     @DisplayName("Проверка открытия вкладки Шаблоны")
     @Tag("allModules")
     @Tag("prod")
     void openShablony() {
-        // LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
 
         step("Открыть раздел Портал ДС -> Документы -> Шаблоны", () -> {
-            $x("//span[contains(text(),'Портал ДС')]").click();
+            $(byLinkText("Портал ДС")).click();
             $(byLinkText("Документы")).click();
             $(byLinkText("Шаблоны")).click();
         });

@@ -13,9 +13,10 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
+//
 @Layer("web")
 @Epic("ARBITR (Арбитраж)")
 public class ArbitrTests extends TestBase {
@@ -28,13 +29,15 @@ public class ArbitrTests extends TestBase {
     void loadingModulePoiskDel() {
         LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
 
-        step("Перейти в раздел Арбитраж", () -> {
-            $(byLinkText("Информация")).click();
-            $(byLinkText("Арбитраж")).click();
-        });
+        step("Перейти в раздел Поиск судебных дел", () -> $(byLinkText("Информация"))
+                .click());
 
-        step("Раздел открывается", () -> {
-            $(byText("Арбитраж")).shouldBe(visible);
+        step("Раздел открывается", () -> $(byLinkText("Поиск судебных дел"))
+                .click());
+
+        step("На странице присутствуют элементы: Номер дела, Участник дела", () -> {
+            $(byText("Участник дела")).shouldBe(visible);
+            $(byText("Номер дела")).shouldBe(visible);
         });
     }
 }

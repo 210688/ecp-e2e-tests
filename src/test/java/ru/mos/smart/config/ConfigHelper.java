@@ -14,7 +14,5 @@ public class ConfigHelper {
 
     private static WebDriverConfig getConfig() {
         return ConfigFactory.newInstance().create(WebDriverConfig.class, System.getProperties());
-
     }
-
 }

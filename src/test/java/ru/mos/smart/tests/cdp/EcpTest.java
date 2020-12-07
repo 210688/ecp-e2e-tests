@@ -30,7 +30,7 @@ public class EcpTest extends TestBase {
         MainPage.InformaciyaAndReestr();
 
         step("Открыта вкладка с реестрами", () -> {
-            $(byText("Реестры")).shouldBe(Condition.visible);
+            $(byText("Название реестра")).shouldBe(Condition.visible);
         });
     }
 }

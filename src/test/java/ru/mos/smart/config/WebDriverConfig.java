@@ -5,9 +5,9 @@ import org.aeonbits.owner.Config;
 @Config.Sources("classpath:predprod.properties")
 public interface WebDriverConfig extends Config {
 
-    @Key("login.reestr")
+    @Key("login.reestr") //учетка для тестов с реестрами
     String username();
 
-    @Key("password.reestrs")
+    @Key("password.reestrs") //учетка для тестов с реестрами
     String password();
 }

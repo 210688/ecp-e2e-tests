@@ -16,10 +16,8 @@ public class MainPage {
 
     @Step("Открытие меню  возможности")
     public static void actionsPage() {
-        step("Возможности", () -> {
-            $x("//nav//a[@href='/main/#/app/actions']")
-                    .shouldBe(visible).click();
-        });
+        step("Возможности", () -> $x("//nav//a[@href='/main/#/app/actions']")
+                .shouldBe(visible).click());
     }
 
     @Step("Открытие Реестра")
