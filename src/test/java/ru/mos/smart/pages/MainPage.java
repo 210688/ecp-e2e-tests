@@ -14,23 +14,23 @@ import static io.qameta.allure.Allure.step;
 
 public class MainPage {
 
-    @Step("Открытие меню  возможности")
-    public static void actionsPage() {
-        step("Возможности", () -> {
-            $x("//nav//a[@href='/main/#/app/actions']")
-                    .shouldBe(visible).click();
-        });
-    }
+	@Step("Открытие меню  возможности")
+	public static void actionsPage() {
+		step("Возможности", () -> $x("//nav//a[@href='/main/#/app/actions']")
+				.shouldBe(visible).click());
+	}
 
-    @Step("Открытие Реестра")
-    public static void InformaciyaAndReestr() { // Переход в реестры
-        $(byLinkText("Информация")).waitUntil(visible, 10000).click();
-        $x("//a[@href='/main/#/app/catalog-registers']").waitUntil(visible, 10000).click();
-    }
+	@Step("Открытие Реестра")
+	public static void InformaciyaAndReestr() { // Переход в реестры
+		$(byLinkText("Информация"))
+				.waitUntil(visible, 10000).click();
+		$x("//a[@href='/main/#/app/catalog-registers']")
+				.waitUntil(visible, 10000).click();
+	}
 
-    @Step("ЭОО")
-    public static void dobavitEoo() {
-        $x("//nav//a//span[text()='ЭОО']")
-                .waitUntil(visible, 10000).click();
-    }
+	@Step("ЭОО")
+	public static void dobavitEoo() {
+		$x("//nav//a//span[text()='ЭОО']")
+				.waitUntil(visible, 10000).click();
+	}
 }
