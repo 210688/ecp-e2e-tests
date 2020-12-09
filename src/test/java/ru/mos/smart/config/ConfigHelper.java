@@ -12,6 +12,13 @@ public class ConfigHelper {
         return getConfig().password();
     }
 
+    public static String getPas() {
+        return getConfig().pass();
+    }
+
+    public static String getUsers() {
+        return getConfig().users();
+    }
     private static WebDriverConfig getConfig() {
         return ConfigFactory.newInstance().create(WebDriverConfig.class, System.getProperties());
     }

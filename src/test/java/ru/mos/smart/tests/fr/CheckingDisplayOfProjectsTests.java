@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -28,10 +29,11 @@ public class CheckingDisplayOfProjectsTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void checkingDisplayOfProjects() {
-        //LoginPage.openUrlWithAuthorization("", LOGIN_FR, PASSWORD_FR);
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsers(), ConfigHelper.getPas());
 
-        step("В боковом меню выбрать Проекты", () -> $(byLinkText("Проекты"))
-                .click());
+        step("В боковом меню выбрать Проекты", () ->
+                $(byLinkText("Проекты"))
+                        .click());
 
         step("Открывается страница Проекты со списком всех проектов в виде таблицы", () -> {
             $(byText("Проекты")).shouldBe(visible);

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -28,7 +29,7 @@ class SearchingPmtCardTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void searchingPmtCardByName() {
-        //	LoginPage.openUrlWithAuthorization("", login_pmt, pasword_pmt);
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsers(), ConfigHelper.getPas());
 
         step("Открытие в навигаторе ПМТ", () -> $x("//span[text()='ПМТ']").click());
 

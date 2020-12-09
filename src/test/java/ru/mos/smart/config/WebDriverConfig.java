@@ -10,4 +10,10 @@ public interface WebDriverConfig extends Config {
 
     @Key("password.reestrs") //учетка для тестов с реестрами
     String password();
+
+    @Key("login.zadachi") //учетка для тестов с реестрами
+    String users();
+
+    @Key("password.zadachi") //учетка для тестов с реестрами
+    String pass();
 }
