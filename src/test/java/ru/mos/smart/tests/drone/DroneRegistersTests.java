@@ -38,7 +38,7 @@ public class DroneRegistersTests extends TestBase {
             $(byLinkText("Данные аэрофотосъемки")).click();
         });
 
-        step("Проверка, что открылся реестр Данные аэрофотосъемки", () ->
+        step("Проверить, что открывается  реестр Данные аэрофотосъемки", () ->
                 $(byText("Найти")).shouldBe(visible));
     }
 }
