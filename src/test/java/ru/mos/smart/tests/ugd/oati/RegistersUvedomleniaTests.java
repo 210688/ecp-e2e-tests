@@ -26,7 +26,6 @@ class RegistersUvedomleniaTests extends TestBase {
 
     @Test
     @AllureId("2056")
-    @Disabled("")
     @DisplayName("Проверка открытия реестров")
     @Tag("allModules")
     @Tag("prod")
