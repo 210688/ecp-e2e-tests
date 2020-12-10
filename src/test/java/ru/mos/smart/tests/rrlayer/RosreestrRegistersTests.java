@@ -34,7 +34,7 @@ public class RosreestrRegistersTests extends TestBase {
 
         step("В списке реестров найти и открыть Росреестр. Земельные участки", () -> {
             $(byName("candidateSearchValue")).setValue("Росреестр. Земельные участки").pressEnter();
-            $(byLinkText("Росреестр. Земельные участки")).pressEnter();
+            $(byLinkText("Росреестр. Земельные участки")).click();
         });
 
         step("Реестр открывается, присутствует список", () -> {

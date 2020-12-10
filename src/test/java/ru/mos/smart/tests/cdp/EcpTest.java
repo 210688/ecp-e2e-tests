@@ -35,7 +35,7 @@ public class EcpTest extends TestBase {
         MainPage.InformaciyaAndReestr();
 
         step("Проверить переход на страницу реестры" + reestrPage + ";", () -> {
-            $(byText("49"))
+            $(byText("Реестры"))
                     .shouldBe(Condition.visible);
             assertEquals(reestrPage, WebDriverRunner.url());
         });

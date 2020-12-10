@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
@@ -30,15 +31,16 @@ class RegistersUvedomleniaTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openRegisterUvedomlenia() {
-     //   LoginPage.openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
         MainPage.InformaciyaAndReestr();
 
         step("Открыть реестр ОАТИ. Уведомления", () -> {
             $(byName("candidateSearchValue")).setValue("ОАТИ. Уведомления").pressEnter();
         });
 
-        step("Проверка, что реестр открылся", ()-> {
-            $(byText("ОАТИ. Уведомления")).shouldBe(visible);
+        step("Проверить, что реестр открылся", ()-> {
+            $(byText("ОАТИ. Уведомления"))
+                    .shouldBe(visible);
         });
     }
 }
