@@ -1,18 +1,18 @@
 package ru.mos.smart.tests.ft;
 
-import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byLinkText;
+import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
@@ -20,19 +20,18 @@ import static io.qameta.allure.Allure.step;
 @Layer("web")
 @Epic("FT (Электронная приемка по ФТ)")
 @Feature("EAIST (ЕАИСТ)")
-@Tag("eaist")
-
 public class EaistTests extends TestBase {
 
     @Test
     @DisplayName("Проверка реестров ЕАИСТ")
-    void mapsCanBeOpened() {
-        LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+    @Tag("allModules")
+    @Tag("prod")
+    void reestrEaistCanBeOpened() {
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
+        MainPage.InformaciyaAndReestr();
 
-        MainPage.informaciyaAndReest();
-
-        step("В поисковой строке ввести \"ЕАИСТ\"", () -> {
-            $(".form-control").setValue("ЕАИСТ").pressEnter();
+        step("В поисковой строке ввести ЕАИСТ", () -> {
+            $(byName("candidateSearchValue")).setValue("ЕАИСТ").pressEnter();
         });
 
         step("Найдены реестры", () -> {

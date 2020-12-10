@@ -13,8 +13,7 @@ import static ru.mos.smart.helpers.EnvironmentHelper.isVideoOn;
 
 
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
-public class TestBase extends TestData {
-
+public class TestBase {
     @BeforeAll
     public static void beforeAll() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
@@ -22,7 +21,7 @@ public class TestBase extends TestData {
     }
 
     @AfterEach
-    public void afterEach(){
+    public void afterEach() {
         String sessionId = getSessionId();
 
         attachScreenshot("Last screenshot");

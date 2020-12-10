@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -13,26 +14,25 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 @Layer("web")
 @Epic("FR (Фонд реновации)")
-@Feature("")
-@Tag("fr")
-
+@Feature("Запуск проекта")
 public class CheckingDisplayOfProjectsTests extends TestBase {
 
     @Test
     @DisplayName("Проверка отображения проектов")
+    @Tag("allModules")
+    @Tag("prod")
     void checkingDisplayOfProjects() {
-        LoginPage.openUrlWithAuthorization("", LOGIN_FR, PASSWORD_FR);
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsers(), ConfigHelper.getPas());
 
-        step("В боковом меню выбрать \"Проекты\"", () -> {
-            $(byLinkText("Проекты")).click();
-        });
+        step("В боковом меню выбрать Проекты", () ->
+                $(byLinkText("Проекты"))
+                        .click());
 
-        step("Открывается страница \"Проекты\" со списком всех проектов в виде таблицы", () -> {
+        step("Открывается страница Проекты со списком всех проектов в виде таблицы", () -> {
             $(byText("Проекты")).shouldBe(visible);
             $(byText("Номер")).shouldBe(visible);
         });

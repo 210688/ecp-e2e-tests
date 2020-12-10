@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.oasirx.eoo;
 
 import io.qameta.allure.AllureId;
@@ -25,16 +26,15 @@ import static ru.mos.smart.pages.TasksPages.*;
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("EOO (Электронные общественные обсуждения)")
-@Story("PPT (modules)")
-@Tag("oasirx") @Tag("eoo")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EooPptTests extends TestBase {
 	@Test
 	@AllureId("920")
+	@Disabled("Отдельная ветка")
 	@Order(1)
 	@DisplayName("01. Добавление ЭОО")
 	void addEoo() {
-		LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
+		//LoginPage.openUrlWithAuthorization("", loginEoo, passwordEoo);
 		MainPage.dobavitEoo();
 		step("Добавить ЭОО", () -> {
 			$(byLinkText("Добавить ЭОО")).click();
@@ -210,7 +210,7 @@ public class EooPptTests extends TestBase {
 		EooComponents.giveOutPrava(task9);
 		TasksPages.clickTask(task9);
 		step("Согласование материалов зам. председателя ЭОО", () -> {
-			EooComponents.saveButtonNextSoglas();
+			//EooComponents.saveButtonNextSoglas();
 		});
 	}
-}
+}*/

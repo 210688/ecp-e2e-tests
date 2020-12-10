@@ -6,6 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
+import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -13,20 +15,20 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("SPRIT (Выдача СПРИТ)")
-@Tag("oasirx") @Tag("sprit")
 public class SpritRegisterTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка вкладок раздела \"Выдача СПРИТ\"")
+    @DisplayName("Проверка вкладок раздела Выдача СПРИТ")
+    @Tag("allModules")
+    @Tag("prod")
     void checkingSectionOfRegisterSprit() {
-        openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsers(), ConfigHelper.getPas());
 
-        step("В боковой панели открыть вкладку \"Выдача СПРИТ\"", () -> {
+        step("В боковой панели открыть вкладку Выдача СПРИТ", () -> {
             $(byLinkText("Выдача СПРИТ")).click();
         });
 

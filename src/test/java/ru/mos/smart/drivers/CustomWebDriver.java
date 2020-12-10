@@ -38,7 +38,7 @@ public class CustomWebDriver implements WebDriverProvider {
         capabilities.setCapability(ChromeOptions.CAPABILITY, getChromeOptions());
         WebDriverManager.chromedriver().setup();
 
-        if(isRemoteDriver) {
+        if (isRemoteDriver) {
             return getRemoteWebDriver(capabilities);
         } else {
             return getLocalChromeDriver(capabilities);
@@ -58,7 +58,7 @@ public class CustomWebDriver implements WebDriverProvider {
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-infobars");
         Configuration.browserSize = "1280x1024";
-        if(isHeadless) chromeOptions.addArguments("headless");
+        if (isHeadless) chromeOptions.addArguments("headless");
 
         return chromeOptions;
     }

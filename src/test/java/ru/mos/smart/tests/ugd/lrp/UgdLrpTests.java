@@ -3,6 +3,7 @@ package ru.mos.smart.tests.ugd.lrp;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -22,9 +23,10 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 class UgdLrpTests extends TestBase {
 
     @Test
+    @Disabled("Пометка")
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
-        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+       // openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Открытие в навигаторе Мои возможности", () -> {
             //В левом боковом меню выбрать «Госуслуги и функции» > «Возможности»
@@ -50,9 +52,9 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия формы подачи " +
-            "\"Подать заявку на участие в конкурсе ЛРП за стороннюю организацию\"")
+            "\"Подать завку на участие в конкурсе ЛРП за стороннюю организацию\"")
     void openTheApplicationFormLrpOutsideOrg() {
-        openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+        //openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
 
         step("Открытие в навигаторе Мои возможности", () -> {
             //В левом боковом меню выбрать «Госуслуги и функции» > «Возможности»

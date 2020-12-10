@@ -27,7 +27,7 @@ ext {
 repositories {
     jcenter()
     mavenCentral()
-    maven {url = "https://dl.bintray.com/qameta/maven-unstable/"}
+    maven { url = "https://dl.bintray.com/qameta/maven-unstable/" }
 }
 
 
@@ -42,12 +42,13 @@ allure {
 }
 
 dependencies {
-    testImplementation 'com.codeborne:selenide:5.13.1'
+    testImplementation 'com.codeborne:selenide:5.16.2'
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
     testImplementation 'io.rest-assured:rest-assured:4.3.1'
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
     testImplementation "io.qameta.allure:allure-ee-junit-platform:3.28.2"
+    testImplementation "org.aeonbits.owner:owner:1.0.12"
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
@@ -81,55 +82,20 @@ test {
     useJUnitPlatform()
 }
 
-task all_tests(type: Test) {
+task modules(type: Test) { //Запускает все модули на предпроде (исключительно предпрод)
     useJUnitPlatform {
+        includeTags 'allModules'
     }
 }
 
-task gis2d_tests(type: Test) {
+task prodd(type: Test) { //запускает все модули на проде (исключительно прод)
     useJUnitPlatform {
-        includeTags 'gis2d'
+        includeTags 'prod'
     }
 }
 
-task gis3d_tests(type: Test) {
+task produktiv(type: Test) { //Запускать осторожно, данная task, запускает процессы на проде
     useJUnitPlatform {
-        includeTags 'gis3d'
-    }
-}
-
-task feedback_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'feedback'
-    }
-}
-
-task ugd_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'ugd'
-    }
-}
-
-task mgz_refactor(type: Test) {
-    useJUnitPlatform {
-        includeTags 'mgz'
-    }
-}
-
-task mgz_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'mgz'
-    }
-}
-
-task eoo_ppt(type: Test) {
-    useJUnitPlatform {
-        includeTags 'eoo'
-    }
-}
-
-task order(type: Test) {
-    useJUnitPlatform {
-        includeTags 'order'
+        includeTags 'prodRunPrc'
     }
 }
