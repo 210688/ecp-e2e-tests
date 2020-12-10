@@ -6,6 +6,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
@@ -27,7 +28,7 @@ class CreateNotificationProjectTests extends TestBase {
     @Tag("allModules")
     @Tag("prodRunPrc")
     void checkingNotificationSubmissionForm() {
-       // LoginPage.openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsers(), ConfigHelper.getPas());
         MainPage.actionsPage();
 
         step("Выбрать операцию Направить новое уведомление ОАТИ о проведении работ", () -> {
@@ -38,7 +39,6 @@ class CreateNotificationProjectTests extends TestBase {
 
         step("Выбрать Уведомление ОАТИ о проведении работ, предусмотренных АИП", () -> {
             $x("//div[contains(text(),'Уведомление ОАТИ о проведении работ, предусмотренных АИП')]").click();
-            //$(".cdp-radio.green checked").click();
             $x("//button[contains(text(),'Выбрать')]").click();
             $(byText("Выберите объект капитального строительства")).shouldBe(visible);
         });

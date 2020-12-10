@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -28,7 +29,7 @@ public class SpritRegisterTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void checkingSectionOfRegisterSprit() {
-        //    LoginPage.openUrlWithAuthorization("", LOGIN_OSSIG, PASSWORD_OSSIG);
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsers(), ConfigHelper.getPas());
 
         step("В боковой панели открыть вкладку Выдача СПРИТ", () -> {
             $(byLinkText("Выдача СПРИТ")).click();

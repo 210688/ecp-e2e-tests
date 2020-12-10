@@ -14,7 +14,7 @@ import static io.qameta.allure.Allure.step;
 
 public class MainPage {
 
-    @Step("Открытие меню  возможности")
+    @Step("Открыть меню  Возможности")
     public static void actionsPage() {
         step("Возможности", () -> $x("//nav//a[@href='/main/#/app/actions']")
                 .shouldBe(visible).click());
