@@ -22,8 +22,10 @@ public class MainPage {
 
     @Step("Открытие Реестра")
     public static void InformaciyaAndReestr() { // Переход в реестры
-        $(byLinkText("Информация")).waitUntil(visible, 10000).click();
-        $x("//a[@href='/main/#/app/catalog-registers']").waitUntil(visible, 10000).click();
+        $(byLinkText("Информация"))
+                .waitUntil(visible, 10000).click();
+        $x("//a[@href='/main/#/app/catalog-registers']")
+                .waitUntil(visible, 10000).click();
     }
 
     @Step("ЭОО")

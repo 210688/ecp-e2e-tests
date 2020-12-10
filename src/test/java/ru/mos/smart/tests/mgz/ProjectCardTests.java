@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.mgz;
 
 import io.qameta.allure.Epic;
@@ -39,3 +40,4 @@ class ProjectCardTests extends TestBase {
 				.shouldBe(visible));
 	}
 }
+*/
