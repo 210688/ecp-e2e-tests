@@ -1,7 +1,6 @@
 package ru.mos.smart.tests.feedback;
 
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
@@ -25,7 +24,6 @@ import static ru.mos.smart.pages.ActionsPage.feedback;
 public class SupportRequest extends TestBase {
 
     @Test
-    @AllureId("1145")
     @Description("Данная проверка отправляет письмо в тех поддержку, " +
             "запускать на определеных средах.")
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")

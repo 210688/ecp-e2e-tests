@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.fr;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +14,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 @Layer("web")
@@ -24,7 +22,6 @@ import static io.qameta.allure.Allure.step;
 public class CheckingDisplayOfProjectsTests extends TestBase {
 
     @Test
-    @AllureId("2695")
     @DisplayName("Проверка отображения проектов")
     @Tag("allModules")
     @Tag("prod")

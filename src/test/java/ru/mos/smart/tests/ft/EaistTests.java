@@ -1,12 +1,10 @@
 package ru.mos.smart.tests.ft;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
@@ -25,7 +23,6 @@ import static io.qameta.allure.Allure.step;
 public class EaistTests extends TestBase {
 
     @Test
-    @AllureId("1127")
     @DisplayName("Проверка реестров ЕАИСТ")
     @Tag("allModules")
     @Tag("prod")

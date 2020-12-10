@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.rrlayer;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -14,17 +13,15 @@ import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("RRLAYER (Росреестр)")
-@Feature("Поиск записи в реестре \"Росреестр. Земельные участки\"")
+@Feature("Поиск записи в реестре Росреестр. Земельные участки")
 public class RosreestrRegistersTests extends TestBase {
 
     @Test
-    @AllureId("2551")
     @DisplayName("02.Поиск Росреестр. Земельные участки")
     @Tag("allModules")
     @Tag("prod")

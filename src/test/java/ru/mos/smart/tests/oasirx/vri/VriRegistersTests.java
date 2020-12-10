@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.oasirx.vri;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -16,9 +15,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -27,7 +24,6 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 public class VriRegistersTests extends TestBase {
 
     @Test
-    @AllureId("2558")
     @DisplayName("Проверка вкладок в реестре ВРИ")
     @Tag("allModules")
     @Tag("prod")

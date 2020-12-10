@@ -2,33 +2,34 @@ package ru.mos.smart.tests.ugd.mtsk;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
+import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("MTSK (Московский территориальный строительный каталог)")
-@Tag("ugd") @Tag("mtsk")
+@Tag("ugd")
+@Tag("mtsk")
 class RegisterMtskCardsTests extends TestBase {
 
     @Test
-    @Disabled("")
     @DisplayName("Просмотр полной карточки реестра МТСК. Реестр организаций")
     void registerMtskCardsViewing() {
-     //   openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsers(), ConfigHelper.getPas());
 
-		MainPage.InformaciyaAndReestr();
+        MainPage.InformaciyaAndReestr();
         step("Перейти к реестру МТСК. Реестр организаций", () -> {
             //найти и открыть "МТСК. Реестр организаций"
             $(byName("candidateSearchValue")).setValue("МТСК. Реестр организаций").pressEnter();

@@ -2,7 +2,6 @@ package ru.mos.smart.tests.cdp;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -26,7 +25,6 @@ public class EcpTest extends TestBase {
     final String reestrPage = "https://smart-predprod.mos.ru/main/#/app/catalog-registers";
 
     @Test
-    @AllureId("2324")
     @DisplayName("Проверка открытия реестра")
     @Tag("allModules")
     @Tag("prod")

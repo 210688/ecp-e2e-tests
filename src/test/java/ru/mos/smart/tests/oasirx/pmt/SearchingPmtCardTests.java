@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.oasirx.pmt;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -12,11 +11,10 @@ import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -24,7 +22,6 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 class SearchingPmtCardTests extends TestBase {
 
     @Test
-    @AllureId("1144")
     @DisplayName("Поиск ПМТ по названию")
     @Tag("allModules")
     @Tag("prod")

@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.oasirx.sprit;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -16,7 +15,6 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -24,7 +22,6 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 public class SpritRegisterTests extends TestBase {
 
     @Test
-    @AllureId("2719")
     @DisplayName("Проверка вкладок раздела Выдача СПРИТ")
     @Tag("allModules")
     @Tag("prod")
