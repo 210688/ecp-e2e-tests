@@ -16,6 +16,7 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.config.ConfigHelper.smart;
 
 @Layer("web")
 @Epic("UGD (УГД)")
@@ -27,7 +28,7 @@ class RegisterMtskCardsTests extends TestBase {
     @Test
     @DisplayName("Просмотр полной карточки реестра МТСК. Реестр организаций")
     void registerMtskCardsViewing() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsers(), ConfigHelper.getPas());
+        LoginPage.openUrlWithAuthorization("", smart().logins(), smart().password());
 
         MainPage.InformaciyaAndReestr();
         step("Перейти к реестру МТСК. Реестр организаций", () -> {

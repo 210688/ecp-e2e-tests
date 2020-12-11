@@ -15,6 +15,7 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.config.ConfigHelper.smart;
 
 @Layer("web")
 @Epic("FR (Фонд реновации)")
@@ -26,7 +27,7 @@ public class CheckingDisplayOfProjectsTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void checkingDisplayOfProjects() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsers(), ConfigHelper.getPas());
+        LoginPage.openUrlWithAuthorization("", smart().logins(), smart().password());
 
         step("В боковом меню выбрать Проекты", () ->
                 $(byLinkText("Проекты"))

@@ -15,6 +15,7 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.config.ConfigHelper.smart;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -26,7 +27,7 @@ public class SpritRegisterTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void checkingSectionOfRegisterSprit() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsers(), ConfigHelper.getPas());
+        LoginPage.openUrlWithAuthorization("", smart().logins(), smart().password());
 
         step("В боковой панели открыть вкладку Выдача СПРИТ", () -> {
             $(byLinkText("Выдача СПРИТ")).click();
