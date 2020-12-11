@@ -15,6 +15,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.config.ConfigHelper.user;
 
 @Layer("web")
 @Epic("RRLAYER (Росреестр)")
@@ -26,7 +27,7 @@ public class RosreestrRegistersTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openRosreestrZemUch() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
+        LoginPage.openUrlWithAuthorization("", user().login(), user().pass());
         MainPage.InformaciyaAndReestr();
 
         step("В списке реестров найти и открыть Росреестр. Земельные участки", () -> {

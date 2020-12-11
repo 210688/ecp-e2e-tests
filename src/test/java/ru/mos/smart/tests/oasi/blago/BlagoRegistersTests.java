@@ -16,6 +16,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.config.ConfigHelper.user;
 
 @Layer("web")
 @Epic("OASI (ОАСИ)")
@@ -27,7 +28,7 @@ public class BlagoRegistersTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void checkingBlagoRegisters() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
+        LoginPage.openUrlWithAuthorization("", user().login(), user().pass());
         MainPage.InformaciyaAndReestr();
 
         step("Выполнить поиск по Проекты благоустройства", () -> {

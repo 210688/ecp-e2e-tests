@@ -13,7 +13,9 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.getUserAgent;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.config.ConfigHelper.user;
 
 
 @Layer("web")
@@ -25,7 +27,7 @@ public class ArbitrTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void loadingModulePoiskDel() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
+        LoginPage.openUrlWithAuthorization("", user().login(), user().pass());
 
         step("Перейти в раздел Поиск судебных дел", () -> $(byLinkText("Информация"))
                 .click());
@@ -36,6 +38,7 @@ public class ArbitrTests extends TestBase {
         step("На странице присутствуют элементы: Номер дела, Участник дела", () -> {
             $(byText("Участник дела")).shouldBe(visible);
             $(byText("Номер дела")).shouldBe(visible);
+
         });
     }
 }

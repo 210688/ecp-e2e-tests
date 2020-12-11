@@ -15,6 +15,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.config.ConfigHelper.user;
 import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
@@ -27,7 +28,7 @@ public class FasadesRegistersTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openRegisterFasadesZhil() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
+        LoginPage.openUrlWithAuthorization("", user().login(), user().pass());
         MainPage.InformaciyaAndReestr();
 
         step("В строке поиска найти реестр Проекты изменений фасадов зданий (жилые).", () -> {
