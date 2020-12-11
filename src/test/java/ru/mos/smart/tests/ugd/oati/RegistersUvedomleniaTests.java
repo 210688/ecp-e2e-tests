@@ -34,7 +34,7 @@ class RegistersUvedomleniaTests extends TestBase {
             $(byName("candidateSearchValue")).setValue("ОАТИ. Уведомления").pressEnter();
         });
 
-        step("Проверить, что реестр открылся", ()-> {
+        step("Проверить, что реестр открылся", () -> {
             $(byText("ОАТИ. Уведомления"))
                     .shouldBe(visible);
         });

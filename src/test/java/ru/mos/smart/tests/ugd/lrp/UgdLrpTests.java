@@ -12,16 +12,17 @@ import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selectors.byLinkText;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
-import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("LRP (Конкурс \"Лучший реализованный проект\")")
-@Tag("ugd") @Tag("lrp")
+@Tag("ugd")
+@Tag("lrp")
 class UgdLrpTests extends TestBase {
 
     @Test
