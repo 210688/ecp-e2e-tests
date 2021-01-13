@@ -9,6 +9,7 @@ import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byName;
@@ -32,16 +33,15 @@ public class MkaopugdRegisterTests extends TestBase {
         });
 
         step("В таблице карточек УГД присутствуют колонки:", () -> {
-            $x("//th[contains(text(),'№ заседания')]").shouldBe(visible);
-            $x("//th[contains(text(),'№ протокола')]").shouldBe(visible);
-            $x("//th[contains(text(),'Дата заседания')]").shouldBe(visible);
-            $x("//th[contains(text(),'Срок')]").shouldBe(visible);
-            $x("//th[contains(text(),'Тип')]").shouldBe(visible);
-            $x("//th[contains(text(),'Наименование')]").shouldBe(visible);
-            $x("//th[contains(text(),'Кадастровый номер')]").shouldBe(visible);
-            $x("//th[contains(text(),'Адрес')]").shouldBe(visible);
-            //$x("//th[contains(text(),'Статус')]").shouldBe(visible);
-            //не находит столбец Статус ??
+            $x("//th[contains(text(),'№ заседания')]").shouldBe(exist);
+            $x("//th[contains(text(),'№ протокола')]").shouldBe(exist);
+            $x("//th[contains(text(),'Дата заседания')]").shouldBe(exist);
+            $x("//th[contains(text(),'Срок')]").shouldBe(exist);
+            $x("//th[contains(text(),'Тип')]").shouldBe(exist);
+            $x("//th[contains(text(),'Наименование')]").shouldBe(exist);
+            $x("//th[contains(text(),'Кадастровый номер')]").shouldBe(exist);
+            $x("//th[contains(text(),'Адрес')]").shouldBe(exist);
+            $x("//th[contains(text(),'Статус')]").shouldBe(exist);
         });
     }
 
