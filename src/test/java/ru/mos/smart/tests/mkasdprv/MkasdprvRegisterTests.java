@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
@@ -18,6 +19,9 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("MKASDPRV (МКА Вывески)")
 @Feature("Работа с реестрами")
+@Tag("allModules")
+@Tag("predprod")
+@Tag("prod")
 public class MkasdprvRegisterTests extends TestBase {
 
     @Test

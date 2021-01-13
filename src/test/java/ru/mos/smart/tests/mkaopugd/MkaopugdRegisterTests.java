@@ -3,6 +3,7 @@ package ru.mos.smart.tests.mkaopugd;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
@@ -19,6 +20,9 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("MKAOPUGD (МКА ОП УГД)")
 @Feature("Работа с реестром УГД")
+@Tag("allModules")
+@Tag("predprod")
+@Tag("prod")
 public class MkaopugdRegisterTests extends TestBase {
 
     @Test
