@@ -19,7 +19,9 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("LRP (Конкурс \"Лучший реализованный проект\")")
-@Tag("ugd") @Tag("lrp")
+@Tag("allModules")
+@Tag("predprod")
+@Tag("prod")
 class UgdLrpTests extends TestBase {
 
     @Test
