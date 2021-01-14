@@ -19,13 +19,13 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("MKASDPRV (МКА Вывески)")
 @Feature("Работа с реестрами")
-@Tag("allModules")
-@Tag("predprod")
-@Tag("prod")
 public class MkasdprvRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Проверка атрибутивного состава реестра")
+    @Tag("allModules")
+    @Tag("predprod")
+    @Tag("prod")
     void checkingTheAttributesOfTheRegistry() {
         LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
         MainPage.InformaciyaAndReestr();
@@ -52,6 +52,8 @@ public class MkasdprvRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Открытие карточки реестра")
+    @Tag("allModules")
+    @Tag("predprod")
     void openingRegistryCard() {
         LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
         MainPage.InformaciyaAndReestr();

@@ -20,13 +20,13 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("MKAOPUGD (МКА ОП УГД)")
 @Feature("Работа с реестром УГД")
-@Tag("allModules")
-@Tag("predprod")
-@Tag("prod")
 public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Реестр поручений УГД")
+    @Tag("allModules")
+    @Tag("predprod")
+    @Tag("prod")
     void registerOfInstructionsUgd() {
         LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
         MainPage.InformaciyaAndReestr();
@@ -51,6 +51,8 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Карточка Реестра поручений УГД")
+    @Tag("allModules")
+    @Tag("predprod")
     void cardOfRegisterUgd() {
         LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
         MainPage.InformaciyaAndReestr();
