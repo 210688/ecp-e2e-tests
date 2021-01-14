@@ -8,6 +8,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.config.ConfigHelper;
+import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -25,22 +28,18 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 class UgdLrpTests extends TestBase {
 
     @Test
-    @Disabled("Пометка")
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
-       // openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
 
-        step("Открытие в навигаторе Мои возможности", () -> {
-            //В левом боковом меню выбрать «Госуслуги и функции» > «Возможности»
+        step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
             $(byLinkText("Возможности")).click();
         });
 
-        step("Выбрать операцию \"Подать заявку на участие в конкурсе ЛРП\"", () -> {
-            //в поисковой строке ввести "Подать заявку на участие в конкурсе ЛРП"
+        step("Найти и выбрать операцию Подать заявку на участие в конкурсе ЛРП", () -> {
             $(".form-control").setValue("Подать заявку на участие в конкурсе ЛРП").pressEnter();
-            //выбрать операцию "Подать заявку на участие в конкурсе ЛРП"
-            $(byLinkText("Подать заявку на участие в конкурсе ЛРП")).click();
+            $x("//span[contains(text(),'Подать заявку на участие в конкурсе ЛРП')]").click();
         });
 
         step("Проверка наличия вкладок", () -> {
@@ -53,24 +52,21 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка открытия формы подачи " +
+    @DisplayName("Проверка открытия формы подачи" +
             "\"Подать завку на участие в конкурсе ЛРП за стороннюю организацию\"")
     void openTheApplicationFormLrpOutsideOrg() {
-        //openUrlWithAuthorization("", LOGIN_UGD, PASSWORD_UGD);
+        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
 
-        step("Открытие в навигаторе Мои возможности", () -> {
-            //В левом боковом меню выбрать «Госуслуги и функции» > «Возможности»
+        step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
             $(byLinkText("Возможности")).click();
         });
 
-        step("Выбрать операцию Подать заявку на участие в конкурсе ЛРП за стороннюю организацию", () -> {
-            //в поисковой строке ввести "Подать заявку на участие в конкурсе ЛРП за стороннюю организацию"
-            $(".form-control")
-                    .setValue("Подать заявку на участие в конкурсе ЛРП за стороннюю организацию").pressEnter();
-
-            //выбрать операцию "Подать заявку на участие в конкурсе ЛРП за стороннюю организацию"
-            $(byLinkText("Подать заявку на участие в конкурсе ЛРП за стороннюю организацию")).click();
+        step("Найти и выбрать операцию Подать заявку на участие в конкурсе ЛРП за стороннюю организацию", () -> {
+            $(".form-control").setValue("Подать заявку на участие в конкурсе ЛРП за стороннюю организацию")
+                    .pressEnter();
+            $x("//span[contains(text(),'Подать заявку на участие в конкурсе ЛРП за стороннюю организацию')]")
+                    .click();
         });
 
         step("Проверка наличия вкладок", () -> {
