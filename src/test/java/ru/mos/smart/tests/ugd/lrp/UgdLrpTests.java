@@ -1,6 +1,7 @@
 package ru.mos.smart.tests.ugd.lrp;
 
 
+import com.sun.xml.bind.v2.TODO;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -14,10 +15,11 @@ import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byLinkText;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.config.ConfigHelper.smart;
 
 @Layer("web")
 @Epic("UGD (УГД)")
@@ -29,7 +31,7 @@ class UgdLrpTests extends TestBase {
     @Tag("allModules")
     @Tag("predprod")
     void openTheApplicationFormLrp() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
 
         step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
@@ -56,7 +58,7 @@ class UgdLrpTests extends TestBase {
     @Tag("allModules")
     @Tag("predprod")
     void openTheApplicationFormLrpOutsideOrg() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
 
         step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
@@ -85,7 +87,7 @@ class UgdLrpTests extends TestBase {
     @Tag("predprod")
     @Tag("prod")
     void openRegisterLrpZayavki() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Заявки на участие в конкурсе ЛРП", () -> {
@@ -110,7 +112,7 @@ class UgdLrpTests extends TestBase {
     @Tag("predprod")
     @Tag("prod")
     void openRegisterLrpMoiZayavki() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Мои заявки на участие в конкурсе ЛРП", () -> {
@@ -120,6 +122,7 @@ class UgdLrpTests extends TestBase {
 
         step("Открыт реестр Мои заявки на участие в конкурсе ЛРП", () -> {
             $x("//h2[contains(text(),'Мои заявки на участие в конкурсе ЛРП')]").click();
+            //TODO добавить проверку
         });
     }
 }
