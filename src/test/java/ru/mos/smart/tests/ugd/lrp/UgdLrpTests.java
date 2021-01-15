@@ -1,14 +1,12 @@
 package ru.mos.smart.tests.ugd.lrp;
 
 
-import com.sun.xml.bind.v2.TODO;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
@@ -109,7 +107,6 @@ class UgdLrpTests extends TestBase {
     @Test
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
     @Tag("allModules")
-    @Tag("predprod")
     @Tag("prod")
     void openRegisterLrpMoiZayavki() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());

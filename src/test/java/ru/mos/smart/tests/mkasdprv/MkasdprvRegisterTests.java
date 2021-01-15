@@ -25,7 +25,6 @@ public class MkasdprvRegisterTests extends TestBase {
     @Test
     @DisplayName("Проверка атрибутивного состава реестра")
     @Tag("allModules")
-    @Tag("predprod")
     @Tag("prod")
     void checkingTheAttributesOfTheRegistry() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
@@ -54,7 +53,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Test
     @DisplayName("Открытие карточки реестра")
     @Tag("allModules")
-    @Tag("predprod")
+    @Tag("prod")
     void openingRegistryCard() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
         MainPage.InformaciyaAndReestr();
