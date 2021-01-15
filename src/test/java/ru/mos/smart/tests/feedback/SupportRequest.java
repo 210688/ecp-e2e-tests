@@ -1,14 +1,12 @@
 package ru.mos.smart.tests.feedback;
 
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.ActionsPage;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
@@ -17,6 +15,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.config.ConfigHelper.smart;
 import static ru.mos.smart.helpers.EnvironmentHelper.webUrl;
 import static ru.mos.smart.pages.ActionsPage.feedback;
 
@@ -25,14 +24,13 @@ import static ru.mos.smart.pages.ActionsPage.feedback;
 public class SupportRequest extends TestBase {
 
     @Test
-    @AllureId("1145")
     @Description("Данная проверка отправляет письмо в тех поддержку, " +
             "запускать на определеных средах.")
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")
     @Tag("allModules")
     @Tag("prodRunPrc")
     void SupportRequestForward() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
         ActionsPage.searchAction(feedback);
 
         step("Заполнение поля Тип обращения", () -> {
