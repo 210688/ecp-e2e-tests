@@ -23,6 +23,7 @@ public class Map3dTests extends TestBase {
     @Tag("allModules")
     @Tag("predprod")
     @Tag("prod")
+    @Tag("regress")
     void openTheTsifrovoyDvoynik() {
         LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
 
@@ -42,6 +43,7 @@ public class Map3dTests extends TestBase {
     @Tag("allModules")
     @Tag("predprod")
     @Tag("prod")
+    @Tag("regress")
     void checkingTheDisplayOfLayersPanel() {
         LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsername(), ConfigHelper.getPassword());
 
