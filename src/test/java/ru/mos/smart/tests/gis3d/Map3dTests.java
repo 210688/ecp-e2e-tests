@@ -34,7 +34,7 @@ public class Map3dTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").waitUntil(visible, 10000);
+            $("#city").waitUntil(visible, 15000);
         });
     }
 
@@ -54,7 +54,7 @@ public class Map3dTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").waitUntil(visible, 10000);
+            $("#city").waitUntil(visible, 15000);
         });
 
         step("В левой боковой панели открыть Дерево слоев 2D", () -> {
