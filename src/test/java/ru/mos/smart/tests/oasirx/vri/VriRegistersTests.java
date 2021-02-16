@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.oasirx.vri;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -8,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -16,9 +14,8 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
+import static ru.mos.smart.config.ConfigHelper.smart;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -27,12 +24,11 @@ import static ru.mos.smart.pages.LoginPage.openUrlWithAuthorization;
 public class VriRegistersTests extends TestBase {
 
     @Test
-    @AllureId("2558")
     @DisplayName("Проверка вкладок в реестре ВРИ")
     @Tag("allModules")
     @Tag("prod")
     void openRegisterVri() {
-        LoginPage.openUrlWithAuthorization("", ConfigHelper.getUsers(), ConfigHelper.getPas());
+        LoginPage.openUrlWithAuthorization("", smart().logins(), smart().password());
 
         step("В боковой панели открыть вкладку ВРИ", () -> $(byLinkText("ВРИ"))
                 .click());
