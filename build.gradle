@@ -99,3 +99,10 @@ task produktiv(type: Test) { //Запускать осторожно, данна
         includeTags 'prodRunPrc'
     }
 }
+
+task regress(type: Test) { //Запуск регресс тестов
+    useJUnitPlatform {
+        includeTags 'regress'
+    }
+}
+
