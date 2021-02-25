@@ -5,7 +5,6 @@ import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
@@ -22,7 +21,6 @@ import static ru.mos.smart.config.ConfigHelper.smart;
 @Epic("MKAOPUGD (МКА ОП УГД)")
 @Feature("Работа с реестром УГД")
 public class MkaopugdRegisterTests extends TestBase {
-
 
     @Test
     @DisplayName("Реестр поручений УГД")
