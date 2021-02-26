@@ -10,9 +10,9 @@ import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
 
@@ -24,19 +24,23 @@ public class SpritRegisterTests extends TestBase {
     @Test
     @DisplayName("Проверка вкладок раздела Выдача СПРИТ")
     @Tag("allModules")
+    @Tag("predprod")
     @Tag("prod")
+    @Tag("regress")
     void checkingSectionOfRegisterSprit() {
-        LoginPage.openUrlWithAuthorization("", smart().logins(), smart().password());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
 
-        step("В боковой панели открыть вкладку Выдача СПРИТ", () -> {
-            $(byLinkText("Выдача СПРИТ")).click();
-        });
+        step("В боковой панели открыть вкладку Выдача СПРИТ", () ->
+            $x("//span[text()='Выдача СПРИТ']").click());
 
-        step("Реестр ВРИ содержит четыре вкладки", () -> {
-            $(byText("Запросы в работе")).shouldBe(visible);
-            $(byText("Все запросы")).shouldBe(visible);
-            $(byText("Мои запросы")).shouldBe(visible);
-            $(byText("Витрина")).shouldBe(visible);
+        step("Открыт раздел СПРИТ", () ->
+            $x("//div/h2[contains(text(),'СПРИТ')]").shouldBe(visible));
+
+        step("Реестр Выдача СПРИТ содержит четыре вкладки:", () -> {
+            $x("//a/span[contains(text(),'Запросы в работе')]").shouldBe(visible);
+            $x("//a/span[contains(text(),'Все запросы')]").shouldBe(visible);
+            $x("//a/span[contains(text(),'Мои запросы')]").shouldBe(visible);
+            $x("//a/span[contains(text(),'Витрина')]").shouldBe(visible);
         });
     }
 }

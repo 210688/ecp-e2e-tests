@@ -11,8 +11,6 @@ import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
@@ -30,16 +28,15 @@ public class EooRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openingTheRegisterELMA() {
-
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
 
         step("Из боковой панели перейти в раздел ЭОО", () ->
             $x("//span[text()='ЭОО']").click());
 
         step("Открыт раздел Общественные обсуждения", () ->
-            $(byText("Общественные обсуждения")).shouldBe(visible));
+            $x("//div/h2[contains(text(),'Общеcтвенные обcуждения')]").shouldBe(visible));
 
-        step("Отображается список карточек. Присутствуют разделы:", () -> {
+        step("Отображается список карточек. Присутствуют вкладки:", () -> {
             $x("//span[contains(text(),'ЭОО в работе')]").shouldBe(visible);
             $x("//span[contains(text(),'Вcе ЭОО')]").shouldBe(visible);
             $x("//span[contains(text(),'Мои ЭОО')]").shouldBe(visible);

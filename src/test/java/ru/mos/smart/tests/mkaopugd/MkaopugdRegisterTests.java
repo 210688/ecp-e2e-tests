@@ -25,7 +25,9 @@ public class MkaopugdRegisterTests extends TestBase {
     @Test
     @DisplayName("Реестр поручений УГД")
     @Tag("allModules")
+    @Tag("predprod")
     @Tag("prod")
+    @Tag("regress")
     void registerOfInstructionsUgd() {
 
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
@@ -52,7 +54,8 @@ public class MkaopugdRegisterTests extends TestBase {
     @Test
     @DisplayName("Карточка Реестра поручений УГД")
     @Tag("allModules")
-    @Tag("prod")
+    @Tag("predprod")
+    @Tag("regress")
     void cardOfRegisterUgd() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
         MainPage.InformaciyaAndReestr();
