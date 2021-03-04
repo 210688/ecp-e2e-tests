@@ -32,10 +32,10 @@ public class EooRegisterTests extends TestBase {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
 
         step("Из боковой панели перейти в раздел ЭОО", () ->
-                $x("//span[text()='ЭОО']").click());
+            $x("//span[text()='ЭОО']").click());
 
         step("Открыт раздел Общественные обсуждения", () ->
-                $x("//div/h2[contains(text(),'Общеcтвенные обcуждения')]").shouldBe(visible));
+            $x("//div/h2[contains(text(),'Общеcтвенные обcуждения')]").shouldBe(visible));
 
         step("Отображается список карточек. Присутствуют вкладки:", () -> {
             $x("//span[contains(text(),'ЭОО в работе')]").shouldBe(visible);
