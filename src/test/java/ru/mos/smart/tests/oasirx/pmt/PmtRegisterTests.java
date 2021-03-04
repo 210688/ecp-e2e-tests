@@ -49,7 +49,7 @@ class PmtRegisterTests extends TestBase {
     @Tag("allModules")
     @Tag("predprod")
     @Tag("regress")
-    void searchingPmtCardByName() {
+    void searchingPmtCardByNumber() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
 
         step("Открытие в навигаторе ПМТ", () -> $x("//span[text()='ПМТ']").click());

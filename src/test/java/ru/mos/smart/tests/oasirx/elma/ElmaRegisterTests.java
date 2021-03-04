@@ -11,8 +11,7 @@ import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
 
@@ -27,7 +26,7 @@ public class ElmaRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("predprod")
     @Tag("regress")
-    void openingTheRegisterELMA() {
+    void openingTheRegisterElma() {
 
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
 
@@ -45,6 +44,37 @@ public class ElmaRegisterTests extends TestBase {
             $x("//span[contains(text(),'Срок истекает')]").shouldBe(visible);
             $x("//span[contains(text(),'Отчёты')]").shouldBe(visible);
             $x("//span[contains(text(),'ЭДО')]").shouldBe(visible);
+        });
+    }
+
+    @Test
+    @DisplayName("Поиск карточки реестра Соответствие СП (МГГТ) по номеру")
+    @Tag("allModules")
+    @Tag("predprod")
+    @Tag("regress")
+    void searchingElmaCardByNumber() {
+
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+
+        step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () -> {
+            $x("//span[text()='Соответствие СП (МГГТ)']").waitUntil(visible, 10000);
+            $x("//span[text()='Соответствие СП (МГГТ)']").click();
+        });
+
+        step("Открыт раздел Соответствие проектной документации СППК", () -> {
+            $(byText("Соответствие проектной документации СППК")).shouldBe(visible);
+        });
+
+        step("В строке поиска ввести номер карточки", () -> {
+            $x("//div/input[contains(@class,'form-control')]").setValue("ССП-0003-2021").pressEnter();
+        });
+
+        step("Открыть найденную карточку", () -> {
+            $$(byText("ССП-0003-2021")).find(visible).click();
+        });
+
+        step("Проверить, что карточка открылась", () -> {
+            $x("//div/h2[contains(text(),'ССП-0003-2021')]").shouldBe(visible);
         });
     }
 }

@@ -11,8 +11,7 @@ import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
 
@@ -42,5 +41,31 @@ public class SpritRegisterTests extends TestBase {
             $x("//a/span[contains(text(),'Мои запросы')]").shouldBe(visible);
             $x("//a/span[contains(text(),'Витрина')]").shouldBe(visible);
         });
+    }
+
+    @Test
+    @DisplayName("Поиск карточки реестра СПРИТ по номеру")
+    @Tag("allModules")
+    @Tag("predprod")
+    @Tag("regress")
+    void searchingSpritCardByNumber() {
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+
+        step("Из боковой панели перейти в раздел СПРИТ", () -> {
+            $x("//span[text()='Выдача СПРИТ']").waitUntil(visible, 10000);
+            $x("//span[text()='Выдача СПРИТ']").click();
+        });
+
+        step("Открыт раздел СПРИТ", () ->
+            $x("//div/h2[contains(text(),'СПРИТ')]").shouldBe(visible));
+
+        step("В строке поиска ввести номер карточки", () ->
+            $x("//div/input[contains(@class,'form-control')]").setValue("ЛГР-0083-2020").pressEnter());
+
+        step("Открыть найденную карточку", () ->
+            $$(byText("ЛГР-0083-2020")).find(visible).click());
+
+        step("Проверить, что карточка открылась", () ->
+            $x("//div/h2[contains(text(),'ЛГР-0083-2020')]").shouldBe(visible));
     }
 }
