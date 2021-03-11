@@ -26,7 +26,7 @@ public class TestBase {
 
         attachScreenshot("Last screenshot");
         attachPageSource();
-//        attachNetwork();
+//        attachNetwork()/;
         attachAsText("Browser console logs", getConsoleLogs());
         if (isVideoOn) attachVideo(sessionId);
 
