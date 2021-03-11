@@ -28,6 +28,8 @@ public class EcpTest extends TestBase {
     @DisplayName("Проверка открытия реестра")
     @Tag("allModules")
     @Tag("prod")
+    @Tag("predprod")
+    @Tag("regress")
     void openReestr() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
         MainPage.InformaciyaAndReestr();

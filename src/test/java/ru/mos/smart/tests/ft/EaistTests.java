@@ -26,6 +26,8 @@ public class EaistTests extends TestBase {
     @DisplayName("Проверка реестров ЕАИСТ")
     @Tag("allModules")
     @Tag("prod")
+    @Tag("predprod")
+    @Tag("regress")
     void reestrEaistCanBeOpened() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
         MainPage.InformaciyaAndReestr();

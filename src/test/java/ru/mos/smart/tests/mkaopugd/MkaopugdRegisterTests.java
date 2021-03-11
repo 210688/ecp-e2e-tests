@@ -5,7 +5,6 @@ import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
@@ -23,11 +22,12 @@ import static ru.mos.smart.config.ConfigHelper.smart;
 @Feature("Работа с реестром УГД")
 public class MkaopugdRegisterTests extends TestBase {
 
-
     @Test
     @DisplayName("Реестр поручений УГД")
     @Tag("allModules")
+    @Tag("predprod")
     @Tag("prod")
+    @Tag("regress")
     void registerOfInstructionsUgd() {
 
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
@@ -54,7 +54,8 @@ public class MkaopugdRegisterTests extends TestBase {
     @Test
     @DisplayName("Карточка Реестра поручений УГД")
     @Tag("allModules")
-    @Tag("prod")
+    @Tag("predprod")
+    @Tag("regress")
     void cardOfRegisterUgd() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
         MainPage.InformaciyaAndReestr();
