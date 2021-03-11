@@ -1,12 +1,10 @@
 package ru.mos.smart.tests.mkasdprv;
 
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
@@ -25,7 +23,9 @@ public class MkasdprvRegisterTests extends TestBase {
     @Test
     @DisplayName("Проверка атрибутивного состава реестра")
     @Tag("allModules")
+    @Tag("predprod")
     @Tag("prod")
+    @Tag("regress")
     void checkingTheAttributesOfTheRegistry() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
         MainPage.InformaciyaAndReestr();
@@ -37,7 +37,6 @@ public class MkasdprvRegisterTests extends TestBase {
 
         step("В реестре присутствуют поля:", () -> {
             $x("//th[contains(text(),'Номер заявления')]").shouldBe(exist);
-            //$x("//th[contains(text(),'Дата подачи')]").shouldBe(visible);
             $x("//th[contains(text(),'Планируемая дата')]").shouldBe(exist);
             $x("//th[contains(text(),'Фактическая дата')]").shouldBe(exist);
             $x("//th[contains(text(),'Статус')]").shouldBe(exist);
@@ -46,14 +45,14 @@ public class MkasdprvRegisterTests extends TestBase {
             $x("//th[contains(text(),'Заявитель')]").shouldBe(exist);
             $x("//th[contains(text(),'Адрес')]").shouldBe(exist);
             $x("//th[contains(text(),'Номер ПГУ')]").shouldBe(exist);
-            //не находит столбцы Дата подачи, Адрес, Номер ПГУ ??
         });
     }
 
     @Test
     @DisplayName("Открытие карточки реестра")
     @Tag("allModules")
-    @Tag("prod")
+    @Tag("predprod")
+    @Tag("regress")
     void openingRegistryCard() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
         MainPage.InformaciyaAndReestr();

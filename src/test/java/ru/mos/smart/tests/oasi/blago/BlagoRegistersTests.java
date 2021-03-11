@@ -25,7 +25,9 @@ public class BlagoRegistersTests extends TestBase {
     @Test
     @DisplayName("Проверка наличия реестров")
     @Tag("allModules")
+    @Tag("predprod")
     @Tag("prod")
+    @Tag("regress")
     void checkingBlagoRegisters() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
         MainPage.InformaciyaAndReestr();

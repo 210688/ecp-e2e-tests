@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
 
@@ -24,6 +25,8 @@ public class ArbitrTests extends TestBase {
     @DisplayName("Загрузка модуля Поиск дел")
     @Tag("allModules")
     @Tag("prod")
+    @Tag("predprod")
+    @Tag("regress")
     void loadingModulePoiskDel() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
 
@@ -33,10 +36,29 @@ public class ArbitrTests extends TestBase {
         step("Раздел открывается", () -> $(byLinkText("Поиск судебных дел"))
                 .click());
 
-        step("На странице присутствуют элементы: Номер дела, Участник дела", () -> {
-            $(byText("Участник дела")).shouldBe(visible);
-            $(byText("Номер дела")).shouldBe(visible);
+        step("На странице есть поле Участник дела для ввода названия, ИНН, ОГРН, ФИО", () -> {
+            $("#member").shouldBe(visible);
+        });
 
+        step("На странице есть поле для ввода номера дела", () -> {
+            $("#case_number").shouldBe(visible);
+        });
+
+        step("На странице есть чек-бокс Арбитражный суд", () -> {
+            $(byText("Арбитражный суд")).shouldBe(visible);
+        });
+
+        step("На странице есть чек-бокс Суд общей юрисдикции", () -> {
+            $(byText("Суд общей юрисдикции")).shouldBe(visible);
+        });
+
+        step("Присутствует поле Дата регистрации дела с...по", () -> {
+            $(byText("Дата регистрации дела с")).shouldBe(visible);
+        });
+
+        step("Присутствуют кнопки Найти и Очистить", () -> {
+            $x("//div/button[contains(text(),'Найти')]").shouldBe(visible);
+            $x("//div/button[contains(text(),'Очистить')]").shouldBe(visible);
         });
     }
 }

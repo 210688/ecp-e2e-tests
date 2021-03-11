@@ -13,7 +13,8 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
 
@@ -30,8 +31,11 @@ public class VriRegistersTests extends TestBase {
     void openRegisterVri() {
         LoginPage.openUrlWithAuthorization("", smart().logins(), smart().password());
 
-        step("В боковой панели открыть вкладку ВРИ", () -> $(byLinkText("ВРИ"))
-                .click());
+        step("Из боковой панели перейти в раздел ВРИ", () ->
+            $x("//span[text()='ВРИ']").click());
+
+        step("Открыт раздел ВРИ", () ->
+            $x("//div/h2[contains(text(),'ВРИ')]").shouldBe(visible));
 
         step("Реестр ВРИ содержит пять вкладок", () -> {
             $(byText("ВРИ в работе")).shouldBe(visible);
@@ -40,5 +44,31 @@ public class VriRegistersTests extends TestBase {
             $(byText("Срок истекает")).shouldBe(visible);
             $(byText("Отчеты")).shouldBe(visible);
         });
+    }
+
+    @Test
+    @DisplayName("Поиск карточки реестра ВРИ по номеру")
+    @Tag("allModules")
+    @Tag("predprod")
+    @Tag("regress")
+    void searchingVriCardByNumber() {
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+
+        step("Из боковой панели перейти в раздел ВРИ", () -> {
+            $x("//span[text()='ВРИ']").waitUntil(visible, 10000);
+            $x("//span[text()='ВРИ']").click();
+        });
+
+        step("Открыт раздел ВРИ", () ->
+            $x("//div/h2[contains(text(),'ВРИ')]").shouldBe(visible));
+
+        step("В строке поиска ввести номер карточки", () ->
+            $x("//div/input[contains(@class,'form-control')]").setValue("ВРИ-0035-2021").pressEnter());
+
+        step("Открыть найденную карточку", () ->
+            $$(byText("ВРИ-0035-2021")).find(visible).click());
+
+        step("Проверить, что карточка открылась", () ->
+            $x("//div/h2[contains(text(),'ВРИ-0035-2021')]").shouldBe(visible));
     }
 }
