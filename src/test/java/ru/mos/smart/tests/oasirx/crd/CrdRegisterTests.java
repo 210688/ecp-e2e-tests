@@ -11,6 +11,8 @@ import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
@@ -32,16 +34,16 @@ public class CrdRegisterTests extends TestBase {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
 
         step("Из боковой панели перейти в раздел СД", () ->
-            $x("//span[text()='СД']").click());
+                $(byText("СД")).click());
 
         step("Открыт раздел СД", () ->
-            $x("//div/h2[contains(text(),'СД')]").shouldBe(visible));
+                $(byText("СД")).shouldBe(visible));
 
         step("Отображается список согласований. Присутствуют разделы:", () -> {
-            $x("//span[contains(text(),'В работе')]").shouldBe(visible);
-            $x("//span[contains(text(),'Все')]").shouldBe(visible);
-            $x("//span[contains(text(),'Созданные мной')]").shouldBe(visible);
-            $x("//span[contains(text(),'Мои')]").shouldBe(visible);
+            $(byText("В работе")).shouldBe(visible);
+            $(byText("Все")).shouldBe(visible);
+            $(byText("Созданные мной")).shouldBe(visible);
+            $(byText("Мои")).shouldBe(visible);
         });
     }
 
