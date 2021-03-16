@@ -27,7 +27,7 @@ class RegistersUvedomleniaTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openRegisterUvedomlenia() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Открыть реестр ОАТИ. Уведомления", () -> {

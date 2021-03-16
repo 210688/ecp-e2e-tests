@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.gis2d;
+package ru.mos.smart.tests.regressions;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -13,21 +13,19 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
 
 @Layer("web")
-@Epic("GIS 2D (Картографическое обеспечение, Реинформ)")
+@Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
 @Feature("Базовый функционал 2D")
-public class Map2DInstrumentTests extends TestBase {
+public class Map2DInstrumentalTests extends TestBase {
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
+    @Description("")
     @DisplayName("Проверка наличия инструментов измерений")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void checkingAvailabilityOfInstruments() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
@@ -49,12 +47,9 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
+    @Description("")
     @DisplayName("Проверка наличия строки адресного поиска")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void checkingAvailabilityOfAddressSearch() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
@@ -74,12 +69,9 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
+    @Description("")
     @DisplayName("Проверка наличия инструментов масштабирования")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void checkingAvailabilityOfScalingTools() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
@@ -100,12 +92,9 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
+    @Description("")
     @DisplayName("Проверка наличия инструмента Мое местоположение")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void checkingAvailabilityOfMyLocationTool() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
@@ -125,12 +114,9 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
+    @Description("")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void checkingAvailabilityOfInitialPositionTool() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 

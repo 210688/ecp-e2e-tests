@@ -20,7 +20,7 @@ public class ActionsPage {
     // Поиск и выбор возможности по наименованию. Можно добавлять свои.
     @Step("Выбор возможности {action}")
     public static void searchAction(String actionName) {
-        MainPage.actionsPage();
+        MainPage.ActionsPage();
 
         step("Ввод наименования возможности в поиске", () -> {
             $(byName("common"))

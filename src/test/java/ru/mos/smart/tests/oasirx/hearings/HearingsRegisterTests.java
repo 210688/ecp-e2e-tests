@@ -26,7 +26,7 @@ public class HearingsRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterHearings() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Из боковой панели перейти в раздел Публичные слушания", () ->
             $x("//span[text()='Публичные слушания']").click());

@@ -27,7 +27,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingTheAttributesOfTheRegistry() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {
@@ -54,7 +54,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openingRegistryCard() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {

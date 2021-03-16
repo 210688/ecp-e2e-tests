@@ -7,12 +7,9 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
-import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
@@ -30,7 +27,7 @@ class PmtRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterPMT() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Из боковой панели перейти в раздел ПМТ", () ->
             $x("//span[text()='ПМТ']").click());
@@ -50,7 +47,7 @@ class PmtRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingPmtCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Открытие в навигаторе ПМТ", () -> $x("//span[text()='ПМТ']").click());
 

@@ -1,29 +1,29 @@
-package ru.mos.smart.tests.gis3d;
+package ru.mos.smart.tests.regressions;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
 
-@Epic("GIS 3D (Картографическое обеспечение, Конструктор)")
-@Feature("Базовый функционал")
-public class Map3dTests extends TestBase {
+@Layer("web")
+@Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
+@Feature("Базовый функционал Цифровой двойник")
+public class Map3DInstrumentalTests extends TestBase {
 
     @Test
     @DisplayName("Открытие приложения Цифровой двойник")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void openTheTsifrovoyDvoynik() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
@@ -40,10 +40,7 @@ public class Map3dTests extends TestBase {
 
     @Test
     @DisplayName("Проверка отображения панели слоев")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void checkingTheDisplayOfLayersPanel() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 

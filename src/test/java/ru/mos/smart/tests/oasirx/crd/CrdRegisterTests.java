@@ -29,7 +29,7 @@ public class CrdRegisterTests extends TestBase {
     @Tags({@Tag("allmodules"), @Tag("prod"), @Tag("predprod"), @Tag("regress")})
     void openingTheRegisterCRD() {
 
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Из боковой панели перейти в раздел СД", () ->
                 $(byText("СД")).click());
@@ -50,7 +50,7 @@ public class CrdRegisterTests extends TestBase {
     @Tags({@Tag("allmodules"), @Tag("predprod"), @Tag("regress")})
     void searchingCrdCardByNumber() {
 
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Из боковой панели перейти в раздел СД", () ->
                 $(byText("СД")).click());
