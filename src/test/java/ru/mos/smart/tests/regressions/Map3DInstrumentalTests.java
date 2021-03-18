@@ -107,7 +107,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
     @Test
     @Description("")
-    @DisplayName("Проверка наличия строки адресного поиска")
+    @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     @Tag("regressions")
     void checkingAvailabilityOfScalingTools() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
@@ -152,7 +152,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
     @Test
     @Description("")
-    @DisplayName("Проверка наличия инструмента Первоначальная позиция")
+    @DisplayName("Проверка наличия инструментов")
     @Tag("regressions")
     void checkingAvailabilityOfInstruments() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
