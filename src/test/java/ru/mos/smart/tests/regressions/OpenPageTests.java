@@ -63,7 +63,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Открытие меню Реестр")
+    @DisplayName("Открытие меню справочник")
     @Tag("regressions")
     void openTheSpravochnikPage() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());

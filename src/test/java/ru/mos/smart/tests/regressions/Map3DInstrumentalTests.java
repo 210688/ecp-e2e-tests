@@ -123,8 +123,8 @@ public class Map3DInstrumentalTests extends TestBase {
         });
 
         step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
-            $((".fal.fa-plus")).shouldBe(visible);
-            $((".fal.fa-minus")).shouldBe(visible);
+            $((".far.fa-plus")).shouldBe(visible);
+            $((".far.fa-minus")).shouldBe(visible);
         });
     }
 
