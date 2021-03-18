@@ -2,6 +2,8 @@ package ru.mos.smart.pages;
 
 import io.qameta.allure.Step;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.withText;
@@ -24,7 +26,7 @@ public class ActionsPage {
 
         step("Ввод наименования возможности в поиске", () -> {
             $(byName("common"))
-                    .waitUntil(visible, 10000).setValue(actionName);
+                    .should(visible, Duration.ofSeconds(10)).setValue(actionName);
         });
 
         step("Найти", () -> {
@@ -33,7 +35,7 @@ public class ActionsPage {
 
         step("Выбор найденной возможности в списке", () -> {
             $(withText(actionName))
-                    .waitUntil(visible, 10000).click();
+                    .should(visible, Duration.ofSeconds(10)).click();
         });
     }
 }

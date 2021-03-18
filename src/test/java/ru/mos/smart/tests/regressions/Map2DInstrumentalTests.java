@@ -10,10 +10,11 @@ import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
 
@@ -36,7 +37,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
         });
 
         step("Проверить наличие инструментов измерений: линейка, квадрат, многоугольник", () -> {
@@ -60,7 +61,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
         });
 
         step("Проверить наличие строки адресного поиска", () -> {
@@ -82,7 +83,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
         });
 
         step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
@@ -105,7 +106,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
         });
 
         step("Проверить наличия инструмента Мое местоположение", () -> {
@@ -127,7 +128,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
         });
 
         step("Проверить наличия инструмента Первоначальная позиция", () -> {

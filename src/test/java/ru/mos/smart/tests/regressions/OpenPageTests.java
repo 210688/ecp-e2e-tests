@@ -10,6 +10,8 @@ import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -20,7 +22,7 @@ import static ru.mos.smart.config.ConfigHelper.smart;
 @Layer("web")
 @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
 @Feature("Меню Госуслуги и функции")
-public class ActionsTasksOpenTests extends TestBase {
+public class OpenPageTests extends TestBase {
 
     @Test
     @DisplayName("Открытие меню возможности")
@@ -43,12 +45,36 @@ public class ActionsTasksOpenTests extends TestBase {
             $(byText("Госуслуги и функции")).shouldBe(visible).click();
             $x("//a[@href='/main/#/app/tasks']").shouldBe(visible).click();
             $x("//input[@placeholder='Найти задачу']")
-                    .waitUntil(visible, 30000);
+                    .should(visible, Duration.ofSeconds(20)).click();
         });
     }
 
+    @Test
+    @DisplayName("Открытие меню Реестр")
+    @Tag("regressions")
+    void openTheReestrPage() {
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        step("Найти и открыть меню реестр", () -> {
+            $(byText("Информация")).shouldBe(visible).click();
+            $x("//a[@href='/main/#/app/catalog-registers']").shouldBe(visible).click();
+            $(byName("candidateSearchValue")).shouldBe(visible);
+            $(byText("Название реестра")).shouldBe(visible);
+        });
+    }
 
-
+    @Test
+    @DisplayName("Открытие меню Реестр")
+    @Tag("regressions")
+    void openTheSpravochnikPage() {
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        step("Найти и открыть меню справочник", () -> {
+            $(byText("Настройки")).shouldBe(visible).click();
+            $x("//a[@href='/main/#/app/dicts/system']")
+                    .shouldBe(visible, Duration.ofSeconds(10)).click();
+            $(byName("filterinput")).shouldBe(visible);
+            $(byText("Системные справочники")).shouldBe(visible);
+        });
+    }
 
 
 
