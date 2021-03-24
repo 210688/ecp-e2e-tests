@@ -20,8 +20,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-    allureVersion = '2.13.5'
-    junitVersion = '5.6.2'
+    allureVersion = '2.13.8'
+    junitVersion = '5.7.0'
 }
 
 repositories {
@@ -42,16 +42,21 @@ allure {
 }
 
 dependencies {
-    testImplementation 'com.codeborne:selenide:5.16.2'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testImplementation 'com.codeborne:selenide:5.19.0'
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
     testImplementation 'io.rest-assured:rest-assured:4.3.1'
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
     testImplementation "io.qameta.allure:allure-ee-junit-platform:3.28.2"
     testImplementation "org.aeonbits.owner:owner:1.0.12"
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+
 }
 
 tasks.withType(JavaCompile) {
