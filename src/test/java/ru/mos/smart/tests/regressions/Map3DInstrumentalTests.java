@@ -37,7 +37,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").waitUntil(visible, 15000);
+            $("#city").should(visible, Duration.ofSeconds(20)).click();
         });
     }
 
