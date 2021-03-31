@@ -27,7 +27,7 @@ public class SpritRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingSectionOfRegisterSprit() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("В боковой панели открыть вкладку Выдача СПРИТ", () ->
             $x("//span[text()='Выдача СПРИТ']").click());
@@ -49,7 +49,7 @@ public class SpritRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingSpritCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Из боковой панели перейти в раздел СПРИТ", () -> {
             $x("//span[text()='Выдача СПРИТ']").waitUntil(visible, 10000);

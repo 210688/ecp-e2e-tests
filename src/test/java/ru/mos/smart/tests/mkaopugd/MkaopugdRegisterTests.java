@@ -30,7 +30,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @Tag("regress")
     void registerOfInstructionsUgd() {
 
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть Реестр поручений УГД", () -> {
@@ -57,7 +57,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void cardOfRegisterUgd() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть Реестр поручений УГД", () -> {

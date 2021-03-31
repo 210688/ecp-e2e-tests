@@ -31,7 +31,7 @@ public class DroneRegistersTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openReestrDrone() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Данные аэрофотосъемки", () -> {
@@ -51,7 +51,7 @@ public class DroneRegistersTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openCardDrone() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Данные аэрофотосъемки", () -> {

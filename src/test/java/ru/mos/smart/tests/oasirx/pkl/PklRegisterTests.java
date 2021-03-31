@@ -28,7 +28,7 @@ public class PklRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterPkl() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Из боковой панели перейти в раздел ПКЛ", () ->
             $x("//span[text()='ПКЛ']").click());
@@ -52,7 +52,7 @@ public class PklRegisterTests extends TestBase {
     @Tag("regress")
     void searchingPklCardByNumber() {
 
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Из боковой панели перейти в раздел ПКЛ", () -> {
             $x("//span[text()='ПКЛ']").waitUntil(visible, 10000);

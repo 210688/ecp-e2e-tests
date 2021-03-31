@@ -2,6 +2,8 @@ package ru.mos.smart.pages;
 
 import io.qameta.allure.Step;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byTitle;
@@ -24,18 +26,18 @@ public class TasksPages {
 
     public static void clickTask(String task) {
         $(byText(task)).parent().parent().$(byTitle("Перейти к задаче"))
-                .waitUntil(visible, 10000).click();
+                .should(visible, Duration.ofSeconds(10)).click();
     }
 
 
     @Step("Выбор задачи")
     public static void searchTask(String tasksName) {
         $x("//a[@href='/main/#/app/tasks']") // Задачи
-                .waitUntil(visible, 5000).click();
+                .should(visible, Duration.ofSeconds(10)).click();
 
         step("Ввод наименования задачи в поиске", () -> {
             $x("//input[@placeholder='Найти задачу']")
-                    .waitUntil(visible, 10000).setValue(tasksName).pressEnter();
+                    .should(visible, Duration.ofSeconds(10)).click();
         });
 
         step("Выбор задачи в списке {taskName}", () -> {

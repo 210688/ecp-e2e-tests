@@ -29,7 +29,7 @@ public class EooRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openingTheRegisterELMA() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Из боковой панели перейти в раздел ЭОО", () ->
             $x("//span[text()='ЭОО']").click());
@@ -54,7 +54,7 @@ public class EooRegisterTests extends TestBase {
     @Tag("regress")
     void searchingEooCardByNumber() {
 
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Из боковой панели перейти в раздел ЭОО", () -> {
             $x("//span[text()='ЭОО']").waitUntil(visible, 10000);

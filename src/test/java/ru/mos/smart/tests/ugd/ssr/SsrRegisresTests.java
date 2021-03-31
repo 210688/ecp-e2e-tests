@@ -28,7 +28,7 @@ public class SsrRegisresTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openRegisterSsrReestrZhiteli() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр ССР. Реестр жителей", () -> {
@@ -54,7 +54,7 @@ public class SsrRegisresTests extends TestBase {
     @Tag("predprod")
     @Tag("prod")
     void openRegisterSsrReestrOtselDomov() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр ССР. Реестр отселяемых домов", () -> {
@@ -81,7 +81,7 @@ public class SsrRegisresTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openRegisterSsrReestrcentrovInf() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр ССР. Реестр центров информирования по переселению жителей", () -> {

@@ -3,7 +3,7 @@ package ru.mos.smart.pages;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byLinkText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
@@ -14,10 +14,11 @@ import static io.qameta.allure.Allure.step;
 
 public class MainPage {
 
-    @Step("Открыть меню  Возможности")
-    public static void actionsPage() {
-        step("Возможности", () -> $x("//nav//a[@href='/main/#/app/actions']")
-                .shouldBe(visible).click());
+    @Step("Открытие меню  Возможности")
+    public static void ActionsPage() {
+        step("Найти и открыть Возможности", () -> {
+            $x("//a[@href='/main/#/app/actions']").shouldBe(visible).click();
+        });
     }
 
     @Step("Открытие Реестра")

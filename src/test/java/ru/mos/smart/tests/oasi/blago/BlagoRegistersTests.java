@@ -29,7 +29,7 @@ public class BlagoRegistersTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingBlagoRegisters() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Выполнить поиск по Проекты благоустройства", () -> {

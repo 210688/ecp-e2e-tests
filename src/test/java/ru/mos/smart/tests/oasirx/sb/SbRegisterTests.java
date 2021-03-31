@@ -28,7 +28,7 @@ public class SbRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterSb() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Из боковой панели перейти в раздел Самострой", () ->
             $x("//span[text()='Самострой']").click());
@@ -51,7 +51,7 @@ public class SbRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingSbCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
         step("Из боковой панели перейти в раздел Самострой", () -> {
             $x("//span[text()='Самострой']").waitUntil(visible, 10000);

@@ -27,7 +27,7 @@ public class mrgpTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openReestr() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().pass());
+        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Поиск в реестре", () -> $(byName("candidateSearchValue"))

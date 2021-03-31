@@ -11,11 +11,11 @@ import org.aeonbits.owner.Config;
 
 public interface WebConfig extends Config {
 
-    @Key("user.login.reestr")
+    @Key("user.login.tests")
     String login();
 
-    @Key("user.pass.reestrs")
-    String pass();
+    @Key("user.password.tests")
+    String passwords();
 
     @Key("user.login.process")
     String logins();

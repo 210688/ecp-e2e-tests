@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.gis2d;
+package ru.mos.smart.tests.regressions;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -10,6 +10,8 @@ import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
@@ -17,17 +19,14 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
 
 @Layer("web")
-@Epic("GIS 2D (Картографическое обеспечение, Реинформ)")
+@Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
 @Feature("Базовый функционал 2D")
-public class Map2DInstrumentTests extends TestBase {
+public class Map2DInstrumentalTests extends TestBase {
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
+    @Description("")
     @DisplayName("Проверка наличия инструментов измерений")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void checkingAvailabilityOfInstruments() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
@@ -38,7 +37,7 @@ public class Map2DInstrumentTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
         });
 
         step("Проверить наличие инструментов измерений: линейка, квадрат, многоугольник", () -> {
@@ -49,12 +48,9 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
+    @Description("")
     @DisplayName("Проверка наличия строки адресного поиска")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void checkingAvailabilityOfAddressSearch() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
@@ -65,7 +61,7 @@ public class Map2DInstrumentTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
         });
 
         step("Проверить наличие строки адресного поиска", () -> {
@@ -74,12 +70,9 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
+    @Description("")
     @DisplayName("Проверка наличия инструментов масштабирования")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void checkingAvailabilityOfScalingTools() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
@@ -90,7 +83,7 @@ public class Map2DInstrumentTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
         });
 
         step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
@@ -100,12 +93,9 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
+    @Description("")
     @DisplayName("Проверка наличия инструмента Мое местоположение")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void checkingAvailabilityOfMyLocationTool() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
@@ -116,7 +106,7 @@ public class Map2DInstrumentTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
         });
 
         step("Проверить наличия инструмента Мое местоположение", () -> {
@@ -125,12 +115,9 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
+    @Description("")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tag("regressions")
     void checkingAvailabilityOfInitialPositionTool() {
         LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
 
@@ -141,7 +128,7 @@ public class Map2DInstrumentTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
         });
 
         step("Проверить наличия инструмента Первоначальная позиция", () -> {
