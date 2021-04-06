@@ -14,8 +14,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.smart;
 
@@ -57,8 +56,13 @@ public class OpenPageTests extends TestBase {
         step("Найти и открыть меню реестр", () -> {
             $(byText("Информация")).shouldBe(visible).click();
             $x("//a[@href='/main/#/app/catalog-registers']").shouldBe(visible).click();
+        });
+        step("Проверка, что реестр доступен", () -> {
             $(byName("candidateSearchValue")).shouldBe(visible);
             $(byText("Название реестра")).shouldBe(visible);
+            Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
+                    $$(".table-striped").size() > 0);
+            //table-striped
         });
     }
 
