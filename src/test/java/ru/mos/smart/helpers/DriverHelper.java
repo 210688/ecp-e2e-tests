@@ -13,6 +13,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class DriverHelper {
 
     public static void configureSelenide() {
+        System.out.println(System.getProperty("tag"));
         Configuration.browser = CustomWebDriver.class.getName();
 //        Configuration.browser = FIREFOX;
 //        Configuration.browser = OPERA;

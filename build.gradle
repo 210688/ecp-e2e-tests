@@ -114,3 +114,9 @@ task regressing(type: Test) { //Запуск
         includeTags 'regressions'
     }
 }
+
+task tests(type: Test) { //Запуск
+    useJUnitPlatform {
+        includeTags System.getProperty("tag")
+    }
+}
