@@ -7,8 +7,6 @@ import org.aeonbits.owner.Config;
         //"system.properties",
         "classpath:${environment}.properties"
 })
-
-
 public interface WebConfig extends Config {
 
     @Key("web.url")
