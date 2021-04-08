@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -29,7 +29,7 @@ public class EooRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openingTheRegisterELMA() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Из боковой панели перейти в раздел ЭОО", () ->
             $x("//span[text()='ЭОО']").click());
@@ -54,7 +54,7 @@ public class EooRegisterTests extends TestBase {
     @Tag("regress")
     void searchingEooCardByNumber() {
 
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Из боковой панели перейти в раздел ЭОО", () -> {
             $x("//span[text()='ЭОО']").waitUntil(visible, 10000);

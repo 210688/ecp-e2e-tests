@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Epic("MKASDPRV (МКА Вывески)")
 @Feature("Работа с реестрами")
@@ -27,7 +27,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingTheAttributesOfTheRegistry() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {
@@ -54,7 +54,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openingRegistryCard() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {

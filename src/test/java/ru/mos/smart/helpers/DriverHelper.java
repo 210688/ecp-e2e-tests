@@ -7,7 +7,7 @@ import ru.mos.smart.drivers.CustomWebDriver;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
-import static ru.mos.smart.helpers.EnvironmentHelper.webUrl;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 
 public class DriverHelper {
@@ -16,7 +16,7 @@ public class DriverHelper {
         Configuration.browser = CustomWebDriver.class.getName();
 //        Configuration.browser = FIREFOX;
 //        Configuration.browser = OPERA;
-        Configuration.baseUrl = webUrl;
+        Configuration.baseUrl = webConfig().webUrl();
         Configuration.timeout = 6000;
     }
 

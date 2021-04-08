@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
@@ -27,7 +27,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню возможности")
     @Tag("regressions")
     void openTheActionsPage() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.ActionsPage();
         step("Найти и открыть Возможности", () -> {
             $(byText("Возможности")).shouldBe(visible);
@@ -39,7 +39,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню Задачи")
     @Tag("regressions")
     void openTheTasksPage() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         step("Найти и открыть меню Задачи", () -> {
             $(byText("Госуслуги и функции")).shouldBe(visible).click();
             $x("//a[@href='/main/#/app/tasks']").shouldBe(visible).click();
@@ -52,7 +52,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню Реестр")
     @Tag("regressions")
     void openTheReestrPage() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         step("Найти и открыть меню реестр", () -> {
             $(byText("Информация")).shouldBe(visible).click();
             $x("//a[@href='/main/#/app/catalog-registers']").shouldBe(visible).click();
@@ -70,7 +70,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню справочник")
     @Tag("regressions")
     void openTheSpravochnikPage() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         step("Найти и открыть меню справочник", () -> {
             $(byText("Настройки")).shouldBe(visible).click();
             $x("//a[@href='/main/#/app/dicts/system']")

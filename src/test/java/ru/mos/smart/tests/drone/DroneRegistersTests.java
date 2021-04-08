@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("DRONE (Аэрофотосъемка)")
@@ -31,7 +31,7 @@ public class DroneRegistersTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openReestrDrone() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Данные аэрофотосъемки", () -> {
@@ -51,7 +51,7 @@ public class DroneRegistersTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openCardDrone() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Данные аэрофотосъемки", () -> {

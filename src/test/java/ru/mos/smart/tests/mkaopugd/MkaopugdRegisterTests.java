@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Epic("MKAOPUGD (МКА ОП УГД)")
 @Feature("Работа с реестром УГД")
@@ -30,7 +30,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @Tag("regress")
     void registerOfInstructionsUgd() {
 
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть Реестр поручений УГД", () -> {
@@ -57,7 +57,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void cardOfRegisterUgd() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть Реестр поручений УГД", () -> {

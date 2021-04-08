@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -27,7 +27,7 @@ class PmtRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterPMT() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Из боковой панели перейти в раздел ПМТ", () ->
             $x("//span[text()='ПМТ']").click());
@@ -47,7 +47,7 @@ class PmtRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingPmtCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Открытие в навигаторе ПМТ", () -> $x("//span[text()='ПМТ']").click());
 

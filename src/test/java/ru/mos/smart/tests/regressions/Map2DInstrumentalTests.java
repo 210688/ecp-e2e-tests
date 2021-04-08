@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
@@ -28,7 +28,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов измерений")
     @Tag("regressions")
     void checkingAvailabilityOfInstruments() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -52,7 +52,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tag("regressions")
     void checkingAvailabilityOfAddressSearch() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -74,7 +74,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов масштабирования")
     @Tag("regressions")
     void checkingAvailabilityOfScalingTools() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -97,7 +97,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     @Tag("regressions")
     void checkingAvailabilityOfMyLocationTool() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -119,7 +119,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tag("regressions")
     void checkingAvailabilityOfInitialPositionTool() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();

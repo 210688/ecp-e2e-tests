@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -28,7 +28,7 @@ public class SbRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterSb() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Из боковой панели перейти в раздел Самострой", () ->
             $x("//span[text()='Самострой']").click());
@@ -51,7 +51,7 @@ public class SbRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingSbCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Из боковой панели перейти в раздел Самострой", () -> {
             $x("//span[text()='Самострой']").waitUntil(visible, 10000);

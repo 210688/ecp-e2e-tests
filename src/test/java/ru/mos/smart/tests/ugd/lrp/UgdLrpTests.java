@@ -17,7 +17,7 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("UGD (УГД)")
@@ -29,7 +29,7 @@ class UgdLrpTests extends TestBase {
     @Tag("allModules")
     @Tag("predprod")
     void openTheApplicationFormLrp() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
@@ -56,7 +56,7 @@ class UgdLrpTests extends TestBase {
     @Tag("allModules")
     @Tag("predprod")
     void openTheApplicationFormLrpOutsideOrg() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
@@ -85,7 +85,7 @@ class UgdLrpTests extends TestBase {
     @Tag("predprod")
     @Tag("prod")
     void openRegisterLrpZayavki() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Заявки на участие в конкурсе ЛРП", () -> {
@@ -109,7 +109,7 @@ class UgdLrpTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openRegisterLrpMoiZayavki() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Мои заявки на участие в конкурсе ЛРП", () -> {

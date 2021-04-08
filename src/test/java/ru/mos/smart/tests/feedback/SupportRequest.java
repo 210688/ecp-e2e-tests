@@ -15,8 +15,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
-import static ru.mos.smart.helpers.EnvironmentHelper.webUrl;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 import static ru.mos.smart.pages.ActionsPage.feedback;
 
 @Layer("web")
@@ -30,7 +29,7 @@ public class SupportRequest extends TestBase {
     @Tag("allModules")
     @Tag("prodRunPrc")
     void SupportRequestForward() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         ActionsPage.searchAction(feedback);
 
         step("Заполнение поля Тип обращения", () -> {
@@ -44,7 +43,7 @@ public class SupportRequest extends TestBase {
         });
 
         step("Заполнение поля Ссылка на страницу с ошибкой", () -> {
-            $(byName("pageUrl")).setValue(webUrl);
+            $(byName("pageUrl")).setValue(webConfig().webUrl());
             $x("//div/button[contains(text(),'Отправить')]").click();
         });
     }

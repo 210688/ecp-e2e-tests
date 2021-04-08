@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -27,7 +27,7 @@ public class SpritRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingSectionOfRegisterSprit() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("В боковой панели открыть вкладку Выдача СПРИТ", () ->
             $x("//span[text()='Выдача СПРИТ']").click());
@@ -49,7 +49,7 @@ public class SpritRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingSpritCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Из боковой панели перейти в раздел СПРИТ", () -> {
             $x("//span[text()='Выдача СПРИТ']").waitUntil(visible, 10000);

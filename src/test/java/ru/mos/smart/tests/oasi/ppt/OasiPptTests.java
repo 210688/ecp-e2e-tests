@@ -12,7 +12,7 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("OASI (ОАСИ)")
@@ -23,7 +23,7 @@ class OasiPptTests extends TestBase {
     @Disabled("тест не работает - надо разобраться с правами, не работает регистрация")
     @DisplayName("Проверка наличия в витрине поля для поиска")
     void searchFieldShouldExist() {
-        LoginPage.openUrlWithAuthorization("", smart().logins(), smart().password());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
 
         step("Открытие в навигаторе Настройки > Конструктор витрин", () -> {

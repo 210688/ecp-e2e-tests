@@ -15,8 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
+
 import java.util.logging.Level;
 
 import static ru.mos.smart.helpers.EnvironmentHelper.*;
@@ -28,7 +27,6 @@ public class CustomWebDriver implements WebDriverProvider {
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
 
-        capabilities.setBrowserName(browser);
         capabilities.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", isVideoOn);
@@ -48,12 +46,6 @@ public class CustomWebDriver implements WebDriverProvider {
     private ChromeOptions getChromeOptions() {
         ChromeOptions chromeOptions = new ChromeOptions();
 
-        if (isWebMobile) {
-            Map<String, Object> mobileDevice = new HashMap<>();
-            mobileDevice.put("deviceName", webMobileDevice);
-            chromeOptions.setExperimentalOption("mobileEmulation", mobileDevice);
-        }
-        chromeOptions.addArguments("--window-size=" + screenResolution);
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-infobars");

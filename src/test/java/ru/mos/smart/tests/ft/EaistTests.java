@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("FT (Электронная приемка по ФТ)")
@@ -29,7 +29,7 @@ public class EaistTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void reestrEaistCanBeOpened() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("В поисковой строке ввести ЕАИСТ", () -> {

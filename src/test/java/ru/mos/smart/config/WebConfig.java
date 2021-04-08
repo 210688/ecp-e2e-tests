@@ -11,6 +11,9 @@ import org.aeonbits.owner.Config;
 
 public interface WebConfig extends Config {
 
+    @Key("web.url")
+    String webUrl();
+
     @Key("user.login.tests")
     String login();
 

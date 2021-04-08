@@ -12,7 +12,7 @@ import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Epic("Платформа ЕЦП")
 @Feature("UGD (УГД)")
@@ -25,7 +25,7 @@ class RegistersUpsdTests extends TestBase {
     @Disabled()
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
     void registerUpsdViewing() {
-        LoginPage.openUrlWithAuthorization("", smart().logins(), smart().password());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         MainPage.InformaciyaAndReestr();
 
         step("Найти реестр и перейти в него", () -> {

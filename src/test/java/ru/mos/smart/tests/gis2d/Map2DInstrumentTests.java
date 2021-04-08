@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("GIS 2D (Картографическое обеспечение, Реинформ)")
@@ -29,7 +29,7 @@ public class Map2DInstrumentTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingAvailabilityOfInstruments() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -56,7 +56,7 @@ public class Map2DInstrumentTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingAvailabilityOfAddressSearch() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -81,7 +81,7 @@ public class Map2DInstrumentTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingAvailabilityOfScalingTools() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -107,7 +107,7 @@ public class Map2DInstrumentTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingAvailabilityOfMyLocationTool() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -132,7 +132,7 @@ public class Map2DInstrumentTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingAvailabilityOfInitialPositionTool() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();

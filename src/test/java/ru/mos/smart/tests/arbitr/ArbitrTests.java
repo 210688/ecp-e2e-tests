@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 
 @Layer("web")
@@ -28,7 +28,7 @@ public class ArbitrTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void loadingModulePoiskDel() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Перейти в раздел Поиск судебных дел", () -> $(byLinkText("Информация"))
                 .click());

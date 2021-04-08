@@ -12,7 +12,7 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -26,7 +26,7 @@ public class HearingsRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterHearings() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Из боковой панели перейти в раздел Публичные слушания", () ->
             $x("//span[text()='Публичные слушания']").click());

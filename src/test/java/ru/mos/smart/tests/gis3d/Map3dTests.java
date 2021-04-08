@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.smart;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Epic("GIS 3D (Картографическое обеспечение, Конструктор)")
 @Feature("Базовый функционал")
@@ -25,7 +25,7 @@ public class Map3dTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openTheTsifrovoyDvoynik() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).click();
@@ -45,7 +45,7 @@ public class Map3dTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingTheDisplayOfLayersPanel() {
-        LoginPage.openUrlWithAuthorization("", smart().login(), smart().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).click();
