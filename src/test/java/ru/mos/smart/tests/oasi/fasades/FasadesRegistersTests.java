@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
@@ -23,8 +24,7 @@ public class FasadesRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода к реестру Проекты изменений фасадов зданий (жилые)")
-    @Tag("allModules")
-    @Tag("prod")
+    @Tags({@Tag("fasades"),@Tag("preprod"),@Tag("prod")})
     void openRegisterFasadesZhil() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();

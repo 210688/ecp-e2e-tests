@@ -109,13 +109,13 @@ task regress(type: Test) { //Запуск регресс тестов
     }
 }
 
-task regressing(type: Test) { //Запуск
+task regressing(type: Test) { //Запуск регрессионных тестов на 3-ёх платформах
     useJUnitPlatform {
         includeTags 'regressions'
     }
 }
 
-task tests(type: Test) { //Запуск
+task tests(type: Test) { //Запуск тестов из системной переменной
     useJUnitPlatform {
         includeTags System.getProperty("tag")
     }

@@ -5,6 +5,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
@@ -25,8 +26,7 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
-    @Tag("allModules")
-    @Tag("prod")
+    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrZhiteli() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
@@ -50,9 +50,7 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
+    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrOtselDomov() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
@@ -78,8 +76,7 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестр ССР. Реестр центров информирования по переселению жителей")
-    @Tag("allModules")
-    @Tag("prod")
+    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrcentrovInf() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();

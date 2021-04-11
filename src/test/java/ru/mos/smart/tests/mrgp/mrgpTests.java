@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
@@ -24,8 +25,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class mrgpTests extends TestBase {
     @Test
     @DisplayName("Проверка открытия реестра")
-    @Tag("allModules")
-    @Tag("prod")
+    @Tags({@Tag("mrgp"),@Tag("preprod"),@Tag("prod")})
     void openReestr() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
