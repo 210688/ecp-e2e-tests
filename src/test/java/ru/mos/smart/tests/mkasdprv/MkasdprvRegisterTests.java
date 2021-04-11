@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
@@ -22,10 +23,7 @@ public class MkasdprvRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Проверка атрибутивного состава реестра")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tags({@Tag("mkasdprv"),@Tag("preprod"),@Tag("prod")})
     void checkingTheAttributesOfTheRegistry() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
@@ -50,9 +48,7 @@ public class MkasdprvRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Открытие карточки реестра")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("mkasdprv"),@Tag("preprod"),@Tag("prod")})
     void openingRegistryCard() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();

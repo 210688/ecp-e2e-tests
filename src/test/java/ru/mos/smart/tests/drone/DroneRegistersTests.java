@@ -5,6 +5,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
@@ -26,10 +27,7 @@ public class DroneRegistersTests extends TestBase {
     @Test
     @AllureId("2075")
     @DisplayName("Открытие реестра Данные аэрофотосъемки")
-    @Tag("allModules")
-    @Tag("prod")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("drone"),@Tag("preprod"),@Tag("prod")})
     void openReestrDrone() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
@@ -47,9 +45,7 @@ public class DroneRegistersTests extends TestBase {
     @Test
     @AllureId("2076")
     @DisplayName("Переход в карточку из реестра")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("drone"),@Tag("preprod"),@Tag("prod")})
     void openCardDrone() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();

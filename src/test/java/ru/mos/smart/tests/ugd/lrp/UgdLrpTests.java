@@ -5,6 +5,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
@@ -26,8 +27,7 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
-    @Tag("allModules")
-    @Tag("predprod")
+    @Tags({@Tag("lrp"),@Tag("preprod")})
     void openTheApplicationFormLrp() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
@@ -53,8 +53,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @DisplayName("Проверка открытия формы подачи" +
             "\"Подать завку на участие в конкурсе ЛРП за стороннюю организацию\"")
-    @Tag("allModules")
-    @Tag("predprod")
+    @Tags({@Tag("lrp"),@Tag("preprod")})
     void openTheApplicationFormLrpOutsideOrg() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
@@ -81,9 +80,7 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
+    @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("prod")})
     void openRegisterLrpZayavki() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
@@ -106,8 +103,7 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
-    @Tag("allModules")
-    @Tag("prod")
+    @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("prod")})
     void openRegisterLrpMoiZayavki() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();

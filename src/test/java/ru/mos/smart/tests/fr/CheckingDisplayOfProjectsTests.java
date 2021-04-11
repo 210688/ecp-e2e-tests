@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
@@ -23,10 +24,7 @@ public class CheckingDisplayOfProjectsTests extends TestBase {
 
     @Test
     @DisplayName("Проверка отображения проектов")
-    @Tag("allModules")
-    @Tag("prod")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("fr"),@Tag("preprod"),@Tag("prod")})
     void checkingDisplayOfProjects() {
         LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 

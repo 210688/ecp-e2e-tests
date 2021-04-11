@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.pages.MainPage;
@@ -24,10 +25,7 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Реестр поручений УГД")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tags({@Tag("mkaopugd"),@Tag("preprod"),@Tag("prod")})
     void registerOfInstructionsUgd() {
 
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
@@ -53,9 +51,7 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Карточка Реестра поручений УГД")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("mkaopugd"),@Tag("preprod"),@Tag("prod")})
     void cardOfRegisterUgd() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
