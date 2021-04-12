@@ -32,7 +32,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
-            $(By.cssSelector("a[href='map/#/map']")).click();
+            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -50,7 +50,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).click();
-            $(By.cssSelector("a[href='map/#/map']")).click();
+            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -74,7 +74,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
-            $(By.cssSelector("a[href='map/#/map']")).click();
+            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -96,7 +96,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
-            $(By.cssSelector("a[href='map/#/map']")).click();
+            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -119,7 +119,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
-            $(By.cssSelector("a[href='map/#/map']")).click();
+            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -141,7 +141,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
-            $(By.cssSelector("a[href='map/#/map']")).click();
+            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
