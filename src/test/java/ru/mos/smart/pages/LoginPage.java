@@ -11,7 +11,7 @@ import static io.qameta.allure.Allure.step;
 
 public class LoginPage {
 
-    @Step("Открытие ссылки {url} с авторизацией")
+    @Step("Открытие страницы авторизации")
     public static void openUrlWithAuthorization(String url, String login, String password) {
         step("Открытие ссылки " + url, () -> open(url));
 

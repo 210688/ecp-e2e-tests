@@ -31,13 +31,13 @@ public class Map3DInstrumentalTests extends TestBase {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).click();
-            $x("//a[@href='/map3d/#/map3d']").click();
+            $(byLinkText("Информация")).should(visible).click();
+            $(byLinkText(" Цифровой двойник")).should(visible).click();
         });
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(20)).click();
+            $("#city").should(visible, Duration.ofSeconds(30)).click();
         });
     }
 
@@ -48,13 +48,13 @@ public class Map3DInstrumentalTests extends TestBase {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).click();
-            $x("//a[@href='/map3d/#/map3d']").click();
+            $(byLinkText("Информация")).should(visible).click();
+            $(byLinkText(" Цифровой двойник")).should(visible).click();
         });
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(20)).click();
+            $("#city").should(visible, Duration.ofSeconds(30)).click();
         });
 
         step("В левой боковой панели открыть Дерево слоев 2D", () -> $((".fas.fa-layer-group"))
@@ -91,8 +91,8 @@ public class Map3DInstrumentalTests extends TestBase {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).click();
-            $x("//a[@href='/map3d/#/map3d']").click();
+            $(byLinkText("Информация")).should(visible).click();
+            $(byLinkText(" Цифровой двойник")).should(visible).click();
         });
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
@@ -113,8 +113,8 @@ public class Map3DInstrumentalTests extends TestBase {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).click();
-            $x("//a[@href='/map3d/#/map3d']").click();
+            $(byLinkText("Информация")).should(visible).click();
+            $(byLinkText(" Цифровой двойник")).should(visible).click();
         });
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
@@ -136,8 +136,8 @@ public class Map3DInstrumentalTests extends TestBase {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).click();
-            $x("//a[@href='/map3d/#/map3d']").click();
+            $(byLinkText("Информация")).should(visible).click();
+            $(byLinkText(" Цифровой двойник")).should(visible).click();
         });
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
@@ -158,8 +158,8 @@ public class Map3DInstrumentalTests extends TestBase {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).click();
-            $x("//a[@href='/map3d/#/map3d']").click();
+            $(byLinkText("Информация")).should(visible).click();
+            $(byLinkText(" Цифровой двойник")).should(visible).click();
         });
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {

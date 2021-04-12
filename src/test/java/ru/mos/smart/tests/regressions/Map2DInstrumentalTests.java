@@ -24,20 +24,37 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Map2DInstrumentalTests extends TestBase {
 
     @Test
+    @DisplayName("Открытие приложения Цифровой двойник")
+    @Tag("regressions")
+    void openTheTsifrovoyDvoynik() {
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+
+        step("Перейти Информация - Цифровой двойник", () -> {
+            $(byLinkText("Информация")).shouldBe(visible).click();
+            $(byLinkText("Карта")).shouldBe(visible).click();
+        });
+
+        step("Проверка: Карта открылась в новой вкладке", () -> {
+            switchTo().window(1);
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(15)).click();
+        });
+    }
+
+    @Test
     @Description("")
     @DisplayName("Проверка наличия инструментов измерений")
     @Tag("regressions")
     void checkingAvailabilityOfInstruments() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
-        step("Открыть Информация - Карта", () -> {
-            $x("//span[contains(text(),'Информация')]").click();
+        step("Перейти Информация - Карта", () -> {
+            $(byLinkText("Информация")).click();
             $(byLinkText("Карта")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(15)).click();
         });
 
         step("Проверить наличие инструментов измерений: линейка, квадрат, многоугольник", () -> {
@@ -54,18 +71,18 @@ public class Map2DInstrumentalTests extends TestBase {
     void checkingAvailabilityOfAddressSearch() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
-        step("Открыть Информация - Карта", () -> {
-            $x("//span[contains(text(),'Информация')]").click();
-            $(byLinkText("Карта")).click();
+        step("Перейти Информация - Карта", () -> {
+            $(byLinkText("Информация")).shouldBe(visible).click();
+            $(byLinkText("Карта")).shouldBe(visible).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(15)).click();
         });
 
-        step("Проверить наличие строки адресного поиска", () -> {
-            $x("//div/input[contains(@class,'form-control')]").shouldBe(visible);
+        step("Проверить наличие строк адресного поиска и найти слой", () -> {
+            $(".form-control").shouldBe(visible);
         });
     }
 
@@ -76,14 +93,14 @@ public class Map2DInstrumentalTests extends TestBase {
     void checkingAvailabilityOfScalingTools() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
-        step("Открыть Информация - Карта", () -> {
-            $x("//span[contains(text(),'Информация')]").click();
-            $(byLinkText("Карта")).click();
+        step("Перейти Информация - Карта", () -> {
+            $(byLinkText("Информация")).shouldBe(visible).click();
+            $(byLinkText("Карта")).shouldBe(visible).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10)).click();
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(15)).click();
         });
 
         step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
@@ -99,9 +116,9 @@ public class Map2DInstrumentalTests extends TestBase {
     void checkingAvailabilityOfMyLocationTool() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
-        step("Открыть Информация - Карта", () -> {
-            $x("//span[contains(text(),'Информация')]").click();
-            $(byLinkText("Карта")).click();
+        step("Перейти Информация - Карта", () -> {
+            $(byLinkText("Информация")).shouldBe(visible).click();
+            $(byLinkText("Карта")).shouldBe(visible).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -121,9 +138,9 @@ public class Map2DInstrumentalTests extends TestBase {
     void checkingAvailabilityOfInitialPositionTool() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
-        step("Открыть Информация - Карта", () -> {
-            $x("//span[contains(text(),'Информация')]").click();
-            $(byLinkText("Карта")).click();
+        step("Перейти Информация - Карта", () -> {
+            $(byLinkText("Информация")).shouldBe(visible).click();
+            $(byLinkText("Карта")).shouldBe(visible).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {

@@ -55,15 +55,15 @@ public class OpenPageTests extends TestBase {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         step("Найти и открыть меню реестр", () -> {
             $(byText("Информация")).shouldBe(visible).click();
-            $x("//a[@href='/main/#/app/catalog-registers']").shouldBe(visible).click();
+            $(byText("Реестры")).shouldBe(visible).click();
         });
         step("Проверка, что реестр доступен", () -> {
             $(byName("candidateSearchValue")).shouldBe(visible);
             $(byText("Название реестра")).shouldBe(visible);
-            Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
-                    $$(".table-striped").size() > 0);
-            //table-striped
         });
+        step("Проверка, что в реестре присутствуют записи", () ->
+                Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
+                        $$(".table-striped").size() > 0));
     }
 
     @Test
@@ -73,10 +73,14 @@ public class OpenPageTests extends TestBase {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
         step("Найти и открыть меню справочник", () -> {
             $(byText("Настройки")).shouldBe(visible).click();
-            $x("//a[@href='/main/#/app/dicts/system']")
-                    .shouldBe(visible, Duration.ofSeconds(10)).click();
+            $(byText("Справочники")).shouldBe(visible).click();
+        });
+        step("Проверка, что справочник доступен", () -> {
             $(byName("filterinput")).shouldBe(visible);
             $(byText("Системные справочники")).shouldBe(visible);
         });
+        step("Проверка, что в справочнике присутствуют записи", () ->
+                Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
+                        $$(".float-e-margins").size() > 0));
     }
 }
