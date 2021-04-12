@@ -49,7 +49,8 @@ public class Map3DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).should(visible).click();
-            $(byLinkText(" Цифровой двойник")).should(visible).click();
+            $(byLinkText(" Цифровой двойник")).
+                    should(visible, Duration.ofSeconds(20)).click();
         });
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
