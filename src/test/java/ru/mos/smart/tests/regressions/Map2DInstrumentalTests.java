@@ -6,6 +6,7 @@ import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
 import ru.mos.smart.tests.TestBase;
@@ -24,14 +25,14 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Map2DInstrumentalTests extends TestBase {
 
     @Test
-    @DisplayName("Открытие приложения Цифровой двойник")
+    @DisplayName("Открытие приложения карта")
     @Tag("regressions")
     void openTheTsifrovoyDvoynik() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
-        step("Перейти Информация - Цифровой двойник", () -> {
+        step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
-            $(byLinkText("Карта")).shouldBe(visible).click();
+            $(By.cssSelector("a[href='map/#/map']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -49,7 +50,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).click();
-            $(byLinkText("Карта")).click();
+            $(By.cssSelector("a[href='map/#/map']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -73,7 +74,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
-            $(byLinkText("Карта")).shouldBe(visible).click();
+            $(By.cssSelector("a[href='map/#/map']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -95,7 +96,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
-            $(byLinkText("Карта")).shouldBe(visible).click();
+            $(By.cssSelector("a[href='map/#/map']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -118,7 +119,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
-            $(byLinkText("Карта")).shouldBe(visible).click();
+            $(By.cssSelector("a[href='map/#/map']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -140,7 +141,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
-            $(byLinkText("Карта")).shouldBe(visible).click();
+            $(By.cssSelector("a[href='map/#/map']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
