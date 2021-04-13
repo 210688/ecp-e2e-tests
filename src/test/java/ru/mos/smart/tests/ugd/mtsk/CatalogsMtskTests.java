@@ -24,20 +24,20 @@ class CatalogsMtskTests extends TestBase {
 
     @Test
     @DisplayName("Проверка наличия каталогов МТСК")
-    @Tags({@Tag("mtsk"), @Tag("preprod"), @Tag("prod")})
+    @Tags({@Tag("mtsk"), @Tag("preprod"), @Tag("prod"), @Tag("ugd")})
     void checkCatalogsMtsk() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
 
         step("Развернуть в навигаторе блок МТСК", () -> $(byLinkText("МТСК"))
                 .click());
 
         step("Проверка наличия каталогов", () -> {
-            $(byText("Инновации")).shouldBe(visible);
             $(byText("Документы")).shouldBe(visible);
+            $(byText("Инновации")).shouldBe(visible);
             $(byText("Услуги")).shouldBe(visible);
-            $(byText("Организации")).shouldBe(visible);
             $(byText("Строительные ресурсы")).shouldBe(visible);
             $(byText("Проектные решения")).shouldBe(visible);
+            $(byText("Организации")).shouldBe(visible);
         });
     }
 }

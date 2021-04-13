@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.LoginPage;
@@ -20,31 +21,26 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("MTSK (Московский территориальный строительный каталог)")
-@Tag("ugd")
-@Tag("mtsk")
+@Tags({@Tag("mtsk"), @Tag("preprod"), @Tag("prod"), @Tag("ugd")})
 class RegisterMtskCardsTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр полной карточки реестра МТСК. Реестр организаций")
     void registerMtskCardsViewing() {
         LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-
         MainPage.InformaciyaAndReestr();
         step("Перейти к реестру МТСК. Реестр организаций", () -> {
-            //найти и открыть "МТСК. Реестр организаций"
             $(byName("candidateSearchValue")).setValue("МТСК. Реестр организаций").pressEnter();
             $(byLinkText("МТСК. Реестр организаций")).click();
         });
 
-        step("Открыть полную карточку организации \"Бийскхимстройматериалы\"", () -> {
-            //в поле поиска ввести «ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ»
-            $(".form-control").setValue("ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ").pressEnter();
-            //карточка открывается через <a href="/ugd/#/app/organization/19290"></a>
-            open("/ugd/#/app/organization/19290");
+        step("Открыть полную карточку организации ООО ТЕПЛОРИУМ", () -> {
+            $(".form-control").setValue("ООО ТЕПЛОРИУМ").pressEnter();
+            open("/ugd/mtsk/#/app/organization/17171");
         });
 
         step("Проверка открытия карточки", () -> {
-            $(byText("Общество с ограниченной ответственностью \"Бийскхимстройматериалы\"")).shouldBe(visible);
+            $(byText("ООО ТЕПЛОРИУМ")).shouldBe(visible);
         });
     }
 }

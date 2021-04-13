@@ -27,9 +27,9 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
-    @Tags({@Tag("lrp"),@Tag("preprod")})
+    @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("ugd")})
     void openTheApplicationFormLrp() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
@@ -53,9 +53,9 @@ class UgdLrpTests extends TestBase {
     @Test
     @DisplayName("Проверка открытия формы подачи" +
             "\"Подать завку на участие в конкурсе ЛРП за стороннюю организацию\"")
-    @Tags({@Tag("lrp"),@Tag("preprod")})
+    @Tags({@Tag("lrp"), @Tag("preprod")})
     void openTheApplicationFormLrpOutsideOrg() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
@@ -82,7 +82,7 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("prod")})
     void openRegisterLrpZayavki() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Заявки на участие в конкурсе ЛРП", () -> {
@@ -98,24 +98,6 @@ class UgdLrpTests extends TestBase {
             $x("//th[contains(text(),'Статус')]").shouldBe(exist);
             $x("//th[contains(text(),'Исполнитель')]").shouldBe(exist);
             $x("//th[contains(text(),'Исполнено')]").shouldBe(exist);
-        });
-    }
-
-    @Test
-    @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
-    @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("prod")})
-    void openRegisterLrpMoiZayavki() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
-        MainPage.InformaciyaAndReestr();
-
-        step("Найти и открыть реестр Мои заявки на участие в конкурсе ЛРП", () -> {
-            $(byName("candidateSearchValue")).setValue("Мои заявки на участие в конкурсе ЛРП").pressEnter();
-            $x("//span[contains(text(),'Мои заявки на участие в конкурсе ЛРП')]").click();
-        });
-
-        step("Открыт реестр Мои заявки на участие в конкурсе ЛРП", () -> {
-            $x("//h2[contains(text(),'Мои заявки на участие в конкурсе ЛРП')]").click();
-            //TODO добавить проверку
         });
     }
 }

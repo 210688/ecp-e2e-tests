@@ -26,9 +26,9 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
-    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
+    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod"), @Tag("ugd")})
     void openRegisterSsrReestrZhiteli() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр ССР. Реестр жителей", () -> {
@@ -50,9 +50,9 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
-    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
+    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod"), @Tag("ugd")})
     void openRegisterSsrReestrOtselDomov() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр ССР. Реестр отселяемых домов", () -> {
@@ -76,9 +76,9 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестр ССР. Реестр центров информирования по переселению жителей")
-    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
+    @Tags({@Tag("ss"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrcentrovInf() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр ССР. Реестр центров информирования по переселению жителей", () -> {
