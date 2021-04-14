@@ -20,7 +20,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-    allureVersion = '2.13.8'
+    allureVersion = '2.13.9'
     junitVersion = '5.7.0'
 }
 
