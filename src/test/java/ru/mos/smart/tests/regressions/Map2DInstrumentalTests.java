@@ -42,7 +42,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @Description("")
+    @Description()
     @DisplayName("Проверка наличия инструментов измерений")
     @Tag("regressions")
     void checkingAvailabilityOfInstruments() {
@@ -66,7 +66,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @Description("")
+    @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tag("regressions")
     void checkingAvailabilityOfAddressSearch() {
@@ -88,7 +88,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @Description("")
+    @Description()
     @DisplayName("Проверка наличия инструментов масштабирования")
     @Tag("regressions")
     void checkingAvailabilityOfScalingTools() {
@@ -111,7 +111,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @Description("")
+    @Description()
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     @Tag("regressions")
     void checkingAvailabilityOfMyLocationTool() {
@@ -133,7 +133,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @Description("")
+    @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tag("regressions")
     void checkingAvailabilityOfInitialPositionTool() {
