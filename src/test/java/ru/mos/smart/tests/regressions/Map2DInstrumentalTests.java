@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.regressions;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -15,7 +16,8 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.switchTo;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -25,6 +27,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Map2DInstrumentalTests extends TestBase {
 
     @Test
+    @AllureId("4020")
     @DisplayName("Открытие приложения карта")
     @Tag("regressions")
     void openTheTsifrovoyDvoynik() {
@@ -42,6 +45,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("3734")
     @Description()
     @DisplayName("Проверка наличия инструментов измерений")
     @Tag("regressions")
@@ -66,6 +70,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("3736")
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tag("regressions")
@@ -88,6 +93,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("3737")
     @Description()
     @DisplayName("Проверка наличия инструментов масштабирования")
     @Tag("regressions")
@@ -111,6 +117,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("3738")
     @Description()
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     @Tag("regressions")
@@ -133,6 +140,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("3735")
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tag("regressions")

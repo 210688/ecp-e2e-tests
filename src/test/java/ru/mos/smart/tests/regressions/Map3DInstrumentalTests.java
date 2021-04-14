@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.regressions;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -26,6 +27,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
+    @AllureId("3739")
     @DisplayName("Открытие приложения Цифровой двойник")
     @Tag("regressions")
     void openTheTsifrovoyDvoynik() {
@@ -43,6 +45,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("3740")
     @DisplayName("Проверка отображения панели слоев")
     @Tag("regressions")
     void checkingTheDisplayOfLayersPanel() {
@@ -85,6 +88,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("3749")
     @Description("")
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tag("regressions")
@@ -107,6 +111,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("3750")
     @Description("")
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     @Tag("regressions")
@@ -130,6 +135,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("3748")
     @Description("")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tag("regressions")
@@ -152,8 +158,9 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("3747")
     @Description("")
-    @DisplayName("Проверка наличия инструментов")
+    @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
     @Tag("regressions")
     void checkingAvailabilityOfInstruments() {
         LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());

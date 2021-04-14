@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.regressions;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -24,6 +25,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class OpenPageTests extends TestBase {
 
     @Test
+    @AllureId("3753")
     @DisplayName("Открытие меню возможности")
     @Tag("regressions")
     void openTheActionsPage() {
@@ -36,6 +38,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @AllureId("3752")
     @DisplayName("Открытие меню Задачи")
     @Tag("regressions")
     void openTheTasksPage() {
@@ -49,6 +52,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @AllureId("3751")
     @DisplayName("Открытие меню Реестр")
     @Tag("regressions")
     void openTheReestrPage() {
@@ -67,6 +71,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @AllureId("3754")
     @DisplayName("Открытие меню справочник")
     @Tag("regressions")
     void openTheSpravochnikPage() {
