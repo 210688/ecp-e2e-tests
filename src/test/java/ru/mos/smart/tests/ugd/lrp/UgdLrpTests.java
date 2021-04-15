@@ -26,7 +26,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 class UgdLrpTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
+    @DisplayName("Проверка открытия формы подачи Подать заявку на участие в конкурсе ЛРП")
     @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("ugd")})
     void openTheApplicationFormLrp() {
         LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
