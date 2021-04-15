@@ -29,7 +29,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню возможности")
     @Tag("regressions")
     void openTheActionsPage() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
         MainPage.ActionsPage();
         step("Найти и открыть Возможности", () -> {
             $(byText("Возможности")).shouldBe(visible);
@@ -42,7 +42,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню Задачи")
     @Tag("regressions")
     void openTheTasksPage() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
         step("Найти и открыть меню Задачи", () -> {
             $(byText("Госуслуги и функции")).shouldBe(visible).click();
             $x("//a[@href='/main/#/app/tasks']").shouldBe(visible).click();
@@ -56,7 +56,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню Реестр")
     @Tag("regressions")
     void openTheReestrPage() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
         step("Найти и открыть меню реестр", () -> {
             $(byText("Информация")).shouldBe(visible).click();
             $(byText("Реестры")).shouldBe(visible).click();
@@ -75,7 +75,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню справочник")
     @Tag("regressions")
     void openTheSpravochnikPage() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
         step("Найти и открыть меню справочник", () -> {
             $(byText("Настройки")).shouldBe(visible).click();
             $(byText("Справочники")).shouldBe(visible).click();

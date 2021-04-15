@@ -51,7 +51,7 @@ public class VriRegistersTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingVriCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
 
         step("Из боковой панели перейти в раздел ВРИ", () -> {
             $x("//span[text()='ВРИ']").waitUntil(visible, 10000);

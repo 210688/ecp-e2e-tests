@@ -28,7 +28,7 @@ public class ArbitrTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void loadingModulePoiskDel() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().loog(), webConfig().passwords());
 
         step("Перейти в раздел Поиск судебных дел", () -> $(byLinkText("Информация"))
                 .click());

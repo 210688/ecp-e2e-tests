@@ -29,7 +29,7 @@ public class DroneRegistersTests extends TestBase {
     @DisplayName("Открытие реестра Данные аэрофотосъемки")
     @Tags({@Tag("drone"),@Tag("preprod"),@Tag("prod")})
     void openReestrDrone() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Данные аэрофотосъемки", () -> {
@@ -47,7 +47,7 @@ public class DroneRegistersTests extends TestBase {
     @DisplayName("Переход в карточку из реестра")
     @Tags({@Tag("drone"),@Tag("preprod"),@Tag("prod")})
     void openCardDrone() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Данные аэрофотосъемки", () -> {

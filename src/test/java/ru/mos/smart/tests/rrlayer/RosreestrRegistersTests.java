@@ -26,7 +26,7 @@ public class RosreestrRegistersTests extends TestBase {
     @Tag("allModules")
     @Tag("prod")
     void openRosreestrZemUch() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("В списке реестров найти и открыть Росреестр. Земельные участки", () -> {

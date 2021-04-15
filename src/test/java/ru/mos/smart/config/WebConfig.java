@@ -9,18 +9,26 @@ import org.aeonbits.owner.Config;
 })
 public interface WebConfig extends Config {
 
-    @Key("web.url")
-    String webUrl();
-
-    @Key("user.login.tests")
-    String login();
-
-    @Key("user.password.tests")
-    String passwords();
-
     @Key("user.login.process")
     String logins();
 
     @Key("user.pass.process")
     String password();
+
+    @Key("web.url")
+    String webUrl();
+
+    @Key("user.login.regress")
+    String login_regress();
+
+    @Key("user.password.regress")
+    String password_regress();
+
+    @Key("user.login.sudir")
+    String login_sudir();
+
+    @Key("user.password.sudir")
+    String password_sudir();
+
+
 }

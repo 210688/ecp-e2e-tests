@@ -31,7 +31,7 @@ public class EcpTest extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openReestr() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
         MainPage.InformaciyaAndReestr();
 
         step("Проверить переход на страницу реестры" + reestrPage + ";", () -> {
