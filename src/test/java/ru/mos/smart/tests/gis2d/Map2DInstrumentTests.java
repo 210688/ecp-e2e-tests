@@ -29,7 +29,7 @@ public class Map2DInstrumentTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingAvailabilityOfInstruments() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -56,7 +56,7 @@ public class Map2DInstrumentTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingAvailabilityOfAddressSearch() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -81,7 +81,7 @@ public class Map2DInstrumentTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingAvailabilityOfScalingTools() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -107,7 +107,7 @@ public class Map2DInstrumentTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingAvailabilityOfMyLocationTool() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -132,7 +132,7 @@ public class Map2DInstrumentTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingAvailabilityOfInitialPositionTool() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();

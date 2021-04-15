@@ -7,26 +7,39 @@ import org.aeonbits.owner.Config;
         //"system.properties",
         "classpath:${environment}.properties"
 })
+/**
+ * Конфиг с учётными записями для авторизации
+ */
+
 public interface WebConfig extends Config {
 
     @Key("web.url")
     String webUrl();
 
-    @Key("user.login.tests")  // учётка для регрессионных тестов
-    String login();
+    /**
+     * Учетная запись для регрессионного тестирования
+     */
+    @Key("user.login.regress")
+    String login_regress();
 
-    @Key("user.password.tests") // учётка для регрессионных тестов
-    String passwords();
+    @Key("user.password.regress")
+    String password_regress();
 
-    @Key("user.login.process")
-    String logins();
+    /**
+     * Учетная запись для СУДИР
+     */
+    @Key("user.login.sudir")
+    String login_sudir();
 
-    @Key("user.pass.process")
-    String password();
+    @Key("user.password.sudir")
+    String password_sudir();
 
-    @Key("user.login.podsistem") // учётка для тестов по подсистемам
-    String login_();
+    /**
+     * Учетная запись для подсистем
+     */
+    @Key("user.login.podsistem")
+    String login_podsistem();
 
-    @Key("user.pass.podsistem")
-    String password_(); // учётка для тестов по подсистемам
+    @Key("user.password.podsistem")
+    String password_podsistem();
 }

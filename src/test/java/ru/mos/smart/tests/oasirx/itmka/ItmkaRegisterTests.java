@@ -30,7 +30,7 @@ public class ItmkaRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterItmka() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Из боковой панели перейти в раздел Управление ИТ МКА", () ->
             $x("//span[text()='Управление ИТ МКА']").click());
@@ -53,7 +53,7 @@ public class ItmkaRegisterTests extends TestBase {
     @Tag("regress")
     void searchingItmkaCardByNumber() {
 
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Из боковой панели перейти в раздел Управление ИТ МКА", () -> {
             $x("//span[text()='Управление ИТ МКА']").waitUntil(visible, 10000);

@@ -24,9 +24,9 @@ public class CheckingDisplayOfProjectsTests extends TestBase {
 
     @Test
     @DisplayName("Проверка отображения проектов")
-    @Tags({@Tag("fr"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("fr"), @Tag("preprod"), @Tag("prod")})
     void checkingDisplayOfProjects() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("В боковом меню выбрать Проекты", () ->
                 $(byLinkText("Проекты"))

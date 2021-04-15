@@ -27,7 +27,7 @@ public class EventmanagerActionTests extends TestBase {
     @Tag("regress")
     @DisplayName("Проверка доступности реестра Подписки на уведомления о событиях")
     void checkingEventmanagerReestr() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Подписки на уведомления о событиях", () -> {

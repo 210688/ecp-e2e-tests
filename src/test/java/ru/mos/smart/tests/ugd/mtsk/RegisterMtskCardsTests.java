@@ -27,7 +27,7 @@ class RegisterMtskCardsTests extends TestBase {
     @Test
     @DisplayName("Просмотр полной карточки реестра МТСК. Реестр организаций")
     void registerMtskCardsViewing() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
         MainPage.InformaciyaAndReestr();
         step("Перейти к реестру МТСК. Реестр организаций", () -> {
             $(byName("candidateSearchValue")).setValue("МТСК. Реестр организаций").pressEnter();

@@ -27,7 +27,7 @@ class PmtRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterPMT() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Из боковой панели перейти в раздел ПМТ", () ->
             $x("//span[text()='ПМТ']").click());
@@ -47,7 +47,7 @@ class PmtRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingPmtCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Открытие в навигаторе ПМТ", () -> $x("//span[text()='ПМТ']").click());
 

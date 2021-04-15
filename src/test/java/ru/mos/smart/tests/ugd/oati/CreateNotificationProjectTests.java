@@ -29,7 +29,7 @@ class CreateNotificationProjectTests extends TestBase {
     @Tag("allModules")
     @Tag("prodRunPrc")
     void checkingNotificationSubmissionForm() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
         MainPage.ActionsPage();
 
         step("Выбрать операцию Направить новое уведомление ОАТИ о проведении работ", () -> {

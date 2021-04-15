@@ -29,7 +29,7 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("ugd")})
     void openTheApplicationFormLrp() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
@@ -55,7 +55,7 @@ class UgdLrpTests extends TestBase {
             "\"Подать завку на участие в конкурсе ЛРП за стороннюю организацию\"")
     @Tags({@Tag("lrp"), @Tag("preprod")})
     void openTheApplicationFormLrpOutsideOrg() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
@@ -82,7 +82,7 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("prod")})
     void openRegisterLrpZayavki() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр Заявки на участие в конкурсе ЛРП", () -> {

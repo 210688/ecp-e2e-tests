@@ -29,7 +29,7 @@ public class EaistTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void reestrEaistCanBeOpened() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
         MainPage.InformaciyaAndReestr();
 
         step("В поисковой строке ввести ЕАИСТ", () -> {

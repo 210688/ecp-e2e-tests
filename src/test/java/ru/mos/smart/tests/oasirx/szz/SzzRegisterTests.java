@@ -28,7 +28,7 @@ public class SzzRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterSzz() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Из боковой панели перейти в раздел СЗЗ", () ->
                 $x("//span[text()='СЗЗ']").click());
@@ -51,7 +51,7 @@ public class SzzRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingSzzCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Из боковой панели перейти в раздел СЗЗ", () -> {
             $x("//span[text()='СЗЗ']").waitUntil(visible, 10000);

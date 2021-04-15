@@ -27,7 +27,7 @@ class RegistersUvedomleniaTests extends TestBase {
     @DisplayName("Проверка открытия реестров")
     @Tags({@Tag("oati"), @Tag("preprod"), @Tag("prod"), @Tag("ugd")})
     void openRegisterUvedomlenia() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
         MainPage.InformaciyaAndReestr();
 
         step("Открыть реестр ОАТИ. Уведомления", () -> {

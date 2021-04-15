@@ -27,7 +27,7 @@ public class BlagoRegistersTests extends TestBase {
     @DisplayName("Проверка наличия реестров")
     @Tags({@Tag("blago"),@Tag("preprod"),@Tag("prod")})
     void checkingBlagoRegisters() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
         MainPage.InformaciyaAndReestr();
 
         step("Выполнить поиск по Проекты благоустройства", () -> {

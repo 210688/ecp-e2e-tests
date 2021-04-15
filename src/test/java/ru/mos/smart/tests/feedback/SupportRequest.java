@@ -29,7 +29,7 @@ public class SupportRequest extends TestBase {
     @Tag("allModules")
     @Tag("prodRunPrc")
     void SupportRequestForward() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
         ActionsPage.searchAction(feedback);
 
         step("Заполнение поля Тип обращения", () -> {

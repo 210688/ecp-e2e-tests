@@ -28,7 +28,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов измерений")
     @Tag("regressions")
     void checkingAvailabilityOfInstruments() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -52,7 +52,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tag("regressions")
     void checkingAvailabilityOfAddressSearch() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -74,7 +74,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов масштабирования")
     @Tag("regressions")
     void checkingAvailabilityOfScalingTools() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -97,7 +97,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     @Tag("regressions")
     void checkingAvailabilityOfMyLocationTool() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -119,7 +119,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tag("regressions")
     void checkingAvailabilityOfInitialPositionTool() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
