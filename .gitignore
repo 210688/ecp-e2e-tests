@@ -39,3 +39,6 @@ target/
 /gradlew
 /gradlew.bat
 /null/
+
+# Properties files
+*.properties
