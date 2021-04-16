@@ -25,7 +25,7 @@ public class Map3dTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openTheTsifrovoyDvoynik() {
-        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).click();
@@ -45,7 +45,7 @@ public class Map3dTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingTheDisplayOfLayersPanel() {
-        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).click();

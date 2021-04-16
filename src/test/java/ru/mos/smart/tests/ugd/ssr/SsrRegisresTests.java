@@ -28,7 +28,7 @@ public class SsrRegisresTests extends TestBase {
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
     @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrZhiteli() {
-        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр ССР. Реестр жителей", () -> {
@@ -52,7 +52,7 @@ public class SsrRegisresTests extends TestBase {
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
     @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrOtselDomov() {
-        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр ССР. Реестр отселяемых домов", () -> {
@@ -78,7 +78,7 @@ public class SsrRegisresTests extends TestBase {
     @DisplayName("Проверка доступности реестр ССР. Реестр центров информирования по переселению жителей")
     @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrcentrovInf() {
-        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         MainPage.InformaciyaAndReestr();
 
         step("Найти и открыть реестр ССР. Реестр центров информирования по переселению жителей", () -> {

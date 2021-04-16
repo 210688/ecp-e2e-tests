@@ -7,8 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.*;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -29,7 +28,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню возможности")
     @Tag("regressions")
     void openTheActionsPage() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        SudirAuthorizationPage.openUrlWithAuthorization("", webConfig().login_sudir(), webConfig().password_sudir()); //LoginPage.openUrlWithAuthorization
         MainPage.ActionsPage();
         step("Найти и открыть Возможности", () -> {
             $(byText("Возможности")).shouldBe(visible);

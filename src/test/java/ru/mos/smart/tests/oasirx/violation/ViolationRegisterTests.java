@@ -28,7 +28,7 @@ public class ViolationRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterViolation() {
-        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Нарушения ОГД", () ->
             $x("//span[text()='Нарушения ОГД']").click());
@@ -50,7 +50,7 @@ public class ViolationRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingViolationCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Нарушения ОГД", () -> {
             $x("//span[text()='Нарушения ОГД']").waitUntil(visible, 10000);

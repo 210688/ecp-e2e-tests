@@ -27,7 +27,7 @@ public class mrgpTests extends TestBase {
     @DisplayName("Проверка открытия реестра")
     @Tags({@Tag("mrgp"),@Tag("preprod"),@Tag("prod")})
     void openReestr() {
-        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         MainPage.InformaciyaAndReestr();
 
         step("Поиск в реестре", () -> $(byName("candidateSearchValue"))

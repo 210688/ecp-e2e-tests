@@ -28,7 +28,7 @@ public class ElmaRegisterTests extends TestBase {
     @Tag("regress")
     void openingTheRegisterElma() {
 
-        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () ->
                 $x("//span[text()='Соответствие СП (МГГТ)']").click());
@@ -54,7 +54,7 @@ public class ElmaRegisterTests extends TestBase {
     @Tag("regress")
     void searchingElmaCardByNumber() {
 
-        LoginPage.openUrlWithAuthorization("", webConfig().log(), webConfig().passwords());
+        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () -> {
             $x("//span[text()='Соответствие СП (МГГТ)']").waitUntil(visible, 10000);

@@ -8,15 +8,14 @@ import org.aeonbits.owner.Config;
         "classpath:${environment}.properties"
 })
 public interface WebConfig extends Config {
+    @Key("web.url")
+    String webUrl();
 
     @Key("user.login.process")
     String logins();
 
     @Key("user.pass.process")
     String password();
-
-    @Key("web.url")
-    String webUrl();
 
     @Key("user.login.regress")
     String login_regress();
@@ -29,6 +28,4 @@ public interface WebConfig extends Config {
 
     @Key("user.password.sudir")
     String password_sudir();
-
-
 }
