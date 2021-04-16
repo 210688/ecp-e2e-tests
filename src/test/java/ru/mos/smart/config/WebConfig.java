@@ -6,7 +6,9 @@ import org.aeonbits.owner.Config;
 @Config.Sources({
         //"system.properties",
         "classpath:${environment}.properties",
-        "classpath:config/predprod.properties"
+        "classpath:config/predprod.properties",
+        "classpath:resources/predprod.properties",
+        "src/test/resources/predprod.properties"
 })
 /**
  * Конфиг с учётными записями для авторизации
