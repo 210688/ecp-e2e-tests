@@ -29,6 +29,7 @@ public class OpenPageTests extends TestBase {
     @Tag("regressions")
     void openTheActionsPage() {
         SudirAuthorizationPage.openUrlWithAuthorization("", webConfig().login_sudir(), webConfig().password_sudir()); //LoginPage.openUrlWithAuthorization
+        new SmsVerificationPage().verifyBySms("79449440001");
         MainPage.ActionsPage();
         step("Найти и открыть Возможности", () -> {
             $(byText("Возможности")).shouldBe(visible);
