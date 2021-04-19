@@ -13,6 +13,10 @@ public class SmsVerificationPage {
     public static void verifyBySms(String phoneNumber) {
         sleep(1000);
         System.out.println(phoneNumber + "Second");
+        if ($("#otp").exists()) {
+            String verificationCode = getPhoneCode(phoneNumber);
+            $("#otp").val(verificationCode).pressEnter();
+        }
         if ($("#sms-code").exists()) {
             String verificationCode = getPhoneCode(phoneNumber);
             $("#sms-code").val(verificationCode).pressEnter();
@@ -36,6 +40,6 @@ public class SmsVerificationPage {
                 .get("https://test.krlb.ru/sudir/sms/?mobile=" + phoneNumber + "&latest")
                 .then()
                 .log().body()
-                .extract().path("[0]code");
+                .extract().path("[0].code");
     }
 }

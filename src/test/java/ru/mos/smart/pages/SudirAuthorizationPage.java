@@ -20,5 +20,7 @@ public class SudirAuthorizationPage {
             $("#password").setValue(password);
             $("#bind").click();
         });
+        step("Нажатие кнопки переход на страницу по подтверждению СМС", () ->
+                $("#showMethodsList").click());
     }
 }
