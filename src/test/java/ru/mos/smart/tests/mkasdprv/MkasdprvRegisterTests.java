@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -25,8 +25,8 @@ public class MkasdprvRegisterTests extends TestBase {
     @DisplayName("Проверка атрибутивного состава реестра")
     @Tags({@Tag("mkasdprv"),@Tag("preprod"),@Tag("prod")})
     void checkingTheAttributesOfTheRegistry() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр оказания услуги Вывесок").pressEnter();
@@ -50,8 +50,8 @@ public class MkasdprvRegisterTests extends TestBase {
     @DisplayName("Открытие карточки реестра")
     @Tags({@Tag("mkasdprv"),@Tag("preprod"),@Tag("prod")})
     void openingRegistryCard() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр оказания услуги Вывесок").pressEnter();

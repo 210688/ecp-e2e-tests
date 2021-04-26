@@ -5,7 +5,7 @@ import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -25,7 +25,7 @@ public class Map3dTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openTheTsifrovoyDvoynik() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).click();
@@ -45,7 +45,7 @@ public class Map3dTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void checkingTheDisplayOfLayersPanel() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).click();

@@ -9,15 +9,16 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -30,17 +31,16 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("4020")
     @DisplayName("Открытие приложения карта")
     @Tag("regressions")
-    void openTheTsifrovoyDvoynik() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+    void openTheMaps() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        MainPage.OpenMaps();
+        switchTo().window(1);
+        step("Проверяем, что карта открылась в новой вкладке");
+        $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(20));
 
-        step("Перейти Информация - Карта", () -> {
-            $(byLinkText("Информация")).shouldBe(visible).click();
-            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
-        });
-
-        step("Проверка: Карта открылась в новой вкладке", () -> {
-            switchTo().window(1);
-            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(15)).click();
+        step("Проверяем, что на карте присутсвуют слои", () -> {
+            Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
+                    $$(".ng-star-inserted").size() > 0);
         });
     }
 
@@ -50,7 +50,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов измерений")
     @Tag("regressions")
     void checkingAvailabilityOfInstruments() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).click();
@@ -75,7 +75,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tag("regressions")
     void checkingAvailabilityOfAddressSearch() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
@@ -98,7 +98,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов масштабирования")
     @Tag("regressions")
     void checkingAvailabilityOfScalingTools() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
@@ -122,7 +122,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     @Tag("regressions")
     void checkingAvailabilityOfMyLocationTool() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
@@ -145,7 +145,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tag("regressions")
     void checkingAvailabilityOfInitialPositionTool() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();

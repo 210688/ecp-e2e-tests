@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -28,7 +28,7 @@ public class ElmaRegisterTests extends TestBase {
     @Tag("regress")
     void openingTheRegisterElma() {
 
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () ->
                 $x("//span[text()='Соответствие СП (МГГТ)']").click());
@@ -54,7 +54,7 @@ public class ElmaRegisterTests extends TestBase {
     @Tag("regress")
     void searchingElmaCardByNumber() {
 
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () -> {
             $x("//span[text()='Соответствие СП (МГГТ)']").waitUntil(visible, 10000);

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -29,8 +29,8 @@ public class DroneRegistersTests extends TestBase {
     @DisplayName("Открытие реестра Данные аэрофотосъемки")
     @Tags({@Tag("drone"),@Tag("preprod"),@Tag("prod")})
     void openReestrDrone() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Найти и открыть реестр Данные аэрофотосъемки", () -> {
             $(byName("candidateSearchValue")).setValue("Данные аэрофотосъемки").pressEnter();
@@ -47,8 +47,8 @@ public class DroneRegistersTests extends TestBase {
     @DisplayName("Переход в карточку из реестра")
     @Tags({@Tag("drone"),@Tag("preprod"),@Tag("prod")})
     void openCardDrone() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Найти и открыть реестр Данные аэрофотосъемки", () -> {
             $(byName("candidateSearchValue")).setValue("Данные аэрофотосъемки").pressEnter();

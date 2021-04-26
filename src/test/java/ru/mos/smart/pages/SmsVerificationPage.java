@@ -2,8 +2,6 @@ package ru.mos.smart.pages;
 
 import io.qameta.allure.Step;
 
-import java.util.Arrays;
-
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
 import static io.restassured.RestAssured.given;

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -30,7 +30,7 @@ public class ItmkaRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterItmka() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Управление ИТ МКА", () ->
             $x("//span[text()='Управление ИТ МКА']").click());
@@ -53,7 +53,7 @@ public class ItmkaRegisterTests extends TestBase {
     @Tag("regress")
     void searchingItmkaCardByNumber() {
 
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Управление ИТ МКА", () -> {
             $x("//span[text()='Управление ИТ МКА']").waitUntil(visible, 10000);

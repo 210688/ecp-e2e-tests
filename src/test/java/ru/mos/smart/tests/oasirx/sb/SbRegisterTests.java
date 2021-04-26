@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -28,7 +28,7 @@ public class SbRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterSb() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Самострой", () ->
             $x("//span[text()='Самострой']").click());
@@ -51,7 +51,7 @@ public class SbRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingSbCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Самострой", () -> {
             $x("//span[text()='Самострой']").waitUntil(visible, 10000);

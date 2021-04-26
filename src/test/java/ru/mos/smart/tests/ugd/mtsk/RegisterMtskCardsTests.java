@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -27,9 +27,9 @@ class RegisterMtskCardsTests extends TestBase {
     @Test
     @DisplayName("Просмотр полной карточки реестра МТСК. Реестр организаций")
     void registerMtskCardsViewing() {
-        LoginPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
-        MainPage.InformaciyaAndReestr();
+        MainPage.ReestrPage();
         step("Перейти к реестру МТСК. Реестр организаций", () -> {
             //найти и открыть "МТСК. Реестр организаций"
             $(byName("candidateSearchValue")).setValue("МТСК. Реестр организаций").pressEnter();
