@@ -28,4 +28,7 @@ public interface WebConfig extends Config {
 
     @Key("user.password.sudir")
     String password_sudir();
+
+    @Key("browser.name")
+    String getBrowserName();
 }

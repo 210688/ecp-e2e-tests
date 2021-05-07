@@ -1,3 +1,4 @@
+
 package ru.mos.smart.helpers;
 
 import static java.lang.Boolean.parseBoolean;
@@ -14,3 +15,4 @@ public class EnvironmentHelper {
             isVideoOn = videoStorageUrl != null;
 
 }
+

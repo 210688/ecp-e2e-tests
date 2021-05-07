@@ -1,3 +1,4 @@
+
 package ru.mos.smart.helpers;
 
 import io.qameta.allure.Attachment;
@@ -47,3 +48,4 @@ public class AttachmentsHelper {
     }
 
 }
+
