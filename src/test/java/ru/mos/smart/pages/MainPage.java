@@ -47,5 +47,7 @@ public class MainPage {
             $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
         });
     }
+
+
 }
 
