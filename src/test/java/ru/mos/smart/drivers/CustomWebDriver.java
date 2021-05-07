@@ -1,8 +1,10 @@
+
 package ru.mos.smart.drivers;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverProvider;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,6 +20,7 @@ import java.net.URL;
 
 import java.util.logging.Level;
 
+import static javax.management.remote.JMXConnectionNotification.FAILED;
 import static ru.mos.smart.helpers.EnvironmentHelper.*;
 
 

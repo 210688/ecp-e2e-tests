@@ -62,7 +62,7 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
-    systemProperties = System.properties
+    systemProperties += System.properties
     if (project.hasProperty("web_threads")) {
         systemProperties += [
                 'junit.jupiter.execution.parallel.enabled'                 : true,

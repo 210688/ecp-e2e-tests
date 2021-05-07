@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -27,8 +27,8 @@ public class mrgpTests extends TestBase {
     @DisplayName("Проверка открытия реестра")
     @Tags({@Tag("mrgp"),@Tag("preprod"),@Tag("prod")})
     void openReestr() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Поиск в реестре", () -> $(byName("candidateSearchValue"))
                 .setValue("Перечень программ").pressEnter());

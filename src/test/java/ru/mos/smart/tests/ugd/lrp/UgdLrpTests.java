@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.ugd.lrp;
 
-
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -8,7 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -26,10 +25,10 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 class UgdLrpTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка открытия формы подачи Подать заявку на участие в конкурсе ЛРП")
-    @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("ugd")})
+    @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
+    @Tags({@Tag("lrp"),@Tag("preprod")})
     void openTheApplicationFormLrp() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
@@ -53,9 +52,9 @@ class UgdLrpTests extends TestBase {
     @Test
     @DisplayName("Проверка открытия формы подачи" +
             "\"Подать завку на участие в конкурсе ЛРП за стороннюю организацию\"")
-    @Tags({@Tag("lrp"), @Tag("preprod")})
+    @Tags({@Tag("lrp"),@Tag("preprod")})
     void openTheApplicationFormLrpOutsideOrg() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Перейти во вкладку Гослуслуги - Возможности", () -> {
             $(byLinkText("Госуслуги и функции")).click();
@@ -82,8 +81,8 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("prod")})
     void openRegisterLrpZayavki() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Найти и открыть реестр Заявки на участие в конкурсе ЛРП", () -> {
             $(byName("candidateSearchValue")).setValue("Заявки на участие в конкурсе ЛРП").pressEnter();
@@ -98,6 +97,24 @@ class UgdLrpTests extends TestBase {
             $x("//th[contains(text(),'Статус')]").shouldBe(exist);
             $x("//th[contains(text(),'Исполнитель')]").shouldBe(exist);
             $x("//th[contains(text(),'Исполнено')]").shouldBe(exist);
+        });
+    }
+
+    @Test
+    @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
+    @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("prod")})
+    void openRegisterLrpMoiZayavki() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
+
+        step("Найти и открыть реестр Мои заявки на участие в конкурсе ЛРП", () -> {
+            $(byName("candidateSearchValue")).setValue("Мои заявки на участие в конкурсе ЛРП").pressEnter();
+            $x("//span[contains(text(),'Мои заявки на участие в конкурсе ЛРП')]").click();
+        });
+
+        step("Открыт реестр Мои заявки на участие в конкурсе ЛРП", () -> {
+            $x("//h2[contains(text(),'Мои заявки на участие в конкурсе ЛРП')]").click();
+            //TODO добавить проверку
         });
     }
 }

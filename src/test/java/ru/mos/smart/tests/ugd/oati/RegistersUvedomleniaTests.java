@@ -4,10 +4,9 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -25,10 +24,11 @@ class RegistersUvedomleniaTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия реестров")
-    @Tags({@Tag("oati"), @Tag("preprod"), @Tag("prod"), @Tag("ugd")})
+    @Tag("allModules")
+    @Tag("prod")
     void openRegisterUvedomlenia() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Открыть реестр ОАТИ. Уведомления", () -> {
             $(byName("candidateSearchValue")).setValue("ОАТИ. Уведомления").pressEnter();

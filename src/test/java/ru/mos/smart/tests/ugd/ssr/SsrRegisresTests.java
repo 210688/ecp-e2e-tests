@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -26,10 +26,10 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
-    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod"), @Tag("ugd")})
+    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrZhiteli() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Найти и открыть реестр ССР. Реестр жителей", () -> {
             $(byName("candidateSearchValue")).setValue("ССР. Реестр жителей").pressEnter();
@@ -50,10 +50,10 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
-    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod"), @Tag("ugd")})
+    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrOtselDomov() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Найти и открыть реестр ССР. Реестр отселяемых домов", () -> {
             $(byName("candidateSearchValue")).setValue("ССР. Реестр отселяемых домов").pressEnter();
@@ -76,10 +76,10 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестр ССР. Реестр центров информирования по переселению жителей")
-    @Tags({@Tag("ss"), @Tag("preprod"), @Tag("prod")})
+    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrcentrovInf() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Найти и открыть реестр ССР. Реестр центров информирования по переселению жителей", () -> {
             $(byName("candidateSearchValue"))

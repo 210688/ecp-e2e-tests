@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -28,8 +28,8 @@ public class MkaopugdRegisterTests extends TestBase {
     @Tags({@Tag("mkaopugd"),@Tag("preprod"),@Tag("prod")})
     void registerOfInstructionsUgd() {
 
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Найти и открыть Реестр поручений УГД", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр поручений УГД").pressEnter();
@@ -53,8 +53,8 @@ public class MkaopugdRegisterTests extends TestBase {
     @DisplayName("Карточка Реестра поручений УГД")
     @Tags({@Tag("mkaopugd"),@Tag("preprod"),@Tag("prod")})
     void cardOfRegisterUgd() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("Найти и открыть Реестр поручений УГД", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр поручений УГД").pressEnter();

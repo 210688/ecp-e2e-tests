@@ -4,10 +4,9 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -21,26 +20,31 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("MTSK (Московский территориальный строительный каталог)")
-@Tags({@Tag("mtsk"), @Tag("preprod"), @Tag("prod"), @Tag("ugd")})
+@Tag("ugd")
+@Tag("mtsk")
 class RegisterMtskCardsTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр полной карточки реестра МТСК. Реестр организаций")
     void registerMtskCardsViewing() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+
+        MainPage.ReestrPage();
         step("Перейти к реестру МТСК. Реестр организаций", () -> {
+            //найти и открыть "МТСК. Реестр организаций"
             $(byName("candidateSearchValue")).setValue("МТСК. Реестр организаций").pressEnter();
             $(byLinkText("МТСК. Реестр организаций")).click();
         });
 
-        step("Открыть полную карточку организации ООО ТЕПЛОРИУМ", () -> {
-            $(".form-control").setValue("ООО ТЕПЛОРИУМ").pressEnter();
-            open("/ugd/mtsk/#/app/organization/17171");
+        step("Открыть полную карточку организации \"Бийскхимстройматериалы\"", () -> {
+            //в поле поиска ввести «ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ»
+            $(".form-control").setValue("ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ").pressEnter();
+            //карточка открывается через <a href="/ugd/#/app/organization/19290"></a>
+            open("/ugd/#/app/organization/19290");
         });
 
         step("Проверка открытия карточки", () -> {
-            $(byText("ООО ТЕПЛОРИУМ")).shouldBe(visible);
+            $(byText("Общество с ограниченной ответственностью \"Бийскхимстройматериалы\"")).shouldBe(visible);
         });
     }
 }

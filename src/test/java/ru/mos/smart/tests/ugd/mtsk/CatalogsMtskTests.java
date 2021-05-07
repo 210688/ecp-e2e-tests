@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -24,20 +24,20 @@ class CatalogsMtskTests extends TestBase {
 
     @Test
     @DisplayName("Проверка наличия каталогов МТСК")
-    @Tags({@Tag("mtsk"), @Tag("preprod"), @Tag("prod"), @Tag("ugd")})
+    @Tags({@Tag("mtsk"), @Tag("preprod"), @Tag("prod")})
     void checkCatalogsMtsk() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Развернуть в навигаторе блок МТСК", () -> $(byLinkText("МТСК"))
                 .click());
 
         step("Проверка наличия каталогов", () -> {
-            $(byText("Документы")).shouldBe(visible);
             $(byText("Инновации")).shouldBe(visible);
+            $(byText("Документы")).shouldBe(visible);
             $(byText("Услуги")).shouldBe(visible);
+            $(byText("Организации")).shouldBe(visible);
             $(byText("Строительные ресурсы")).shouldBe(visible);
             $(byText("Проектные решения")).shouldBe(visible);
-            $(byText("Организации")).shouldBe(visible);
         });
     }
 }

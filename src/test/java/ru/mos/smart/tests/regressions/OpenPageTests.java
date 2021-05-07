@@ -1,19 +1,21 @@
 package ru.mos.smart.tests.regressions;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.*;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
@@ -24,59 +26,55 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class OpenPageTests extends TestBase {
 
     @Test
+    @AllureId("3753")
     @DisplayName("Открытие меню возможности")
     @Tag("regressions")
     void openTheActionsPage() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
         MainPage.ActionsPage();
-        step("Найти и открыть Возможности", () -> {
-            $(byText("Возможности")).shouldBe(visible);
+        step("Проверяем, что строка поиска доступна", () -> {
             $(byName("common")).shouldBe(visible);
         });
     }
 
     @Test
+    @AllureId("3752")
     @DisplayName("Открытие меню Задачи")
     @Tag("regressions")
     void openTheTasksPage() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        step("Найти и открыть меню Задачи", () -> {
-            $(byText("Госуслуги и функции")).shouldBe(visible).click();
-            $x("//a[@href='/main/#/app/tasks']").shouldBe(visible).click();
-            $x("//input[@placeholder='Найти задачу']")
-                    .should(visible, Duration.ofSeconds(20)).click();
-        });
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        MainPage.TasksPage();
     }
 
     @Test
+    @AllureId("3751")
     @DisplayName("Открытие меню Реестр")
     @Tag("regressions")
     void openTheReestrPage() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        step("Найти и открыть меню реестр", () -> {
-            $(byText("Информация")).shouldBe(visible).click();
-            $x("//a[@href='/main/#/app/catalog-registers']").shouldBe(visible).click();
-        });
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        MainPage.ReestrPage();
         step("Проверка, что реестр доступен", () -> {
             $(byName("candidateSearchValue")).shouldBe(visible);
             $(byText("Название реестра")).shouldBe(visible);
-            Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
-                    $$(".table-striped").size() > 0);
-            //table-striped
         });
+        step("Проверка, что в реестре присутствуют записи", () ->
+                Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
+                        $$(".table-striped").size() > 0));
     }
 
     @Test
+    @AllureId("3754")
     @DisplayName("Открытие меню справочник")
     @Tag("regressions")
     void openTheSpravochnikPage() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        step("Найти и открыть меню справочник", () -> {
-            $(byText("Настройки")).shouldBe(visible).click();
-            $x("//a[@href='/main/#/app/dicts/system']")
-                    .shouldBe(visible, Duration.ofSeconds(10)).click();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        MainPage.SpravochnikPage();
+        step("Проверка, что справочник доступен", () -> {
             $(byName("filterinput")).shouldBe(visible);
             $(byText("Системные справочники")).shouldBe(visible);
         });
+        step("Проверка, что в справочнике присутствуют записи", () ->
+                Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
+                        $$(".float-e-margins").size() > 0));
     }
 }

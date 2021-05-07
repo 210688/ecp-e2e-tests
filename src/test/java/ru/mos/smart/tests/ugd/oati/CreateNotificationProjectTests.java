@@ -6,7 +6,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -29,7 +29,7 @@ class CreateNotificationProjectTests extends TestBase {
     @Tag("allModules")
     @Tag("prodRunPrc")
     void checkingNotificationSubmissionForm() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         MainPage.ActionsPage();
 
         step("Выбрать операцию Направить новое уведомление ОАТИ о проведении работ", () -> {

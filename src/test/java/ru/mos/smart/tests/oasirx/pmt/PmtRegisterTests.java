@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -27,7 +27,7 @@ class PmtRegisterTests extends TestBase {
     @Tag("prod")
     @Tag("regress")
     void openingTheRegisterPMT() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел ПМТ", () ->
             $x("//span[text()='ПМТ']").click());
@@ -47,7 +47,7 @@ class PmtRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void searchingPmtCardByNumber() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Открытие в навигаторе ПМТ", () -> $x("//span[text()='ПМТ']").click());
 

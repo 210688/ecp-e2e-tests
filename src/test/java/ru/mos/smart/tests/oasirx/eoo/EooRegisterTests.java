@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -29,7 +29,7 @@ public class EooRegisterTests extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openingTheRegisterELMA() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел ЭОО", () ->
             $x("//span[text()='ЭОО']").click());
@@ -54,7 +54,7 @@ public class EooRegisterTests extends TestBase {
     @Tag("regress")
     void searchingEooCardByNumber() {
 
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел ЭОО", () -> {
             $x("//span[text()='ЭОО']").waitUntil(visible, 10000);

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MainPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -26,8 +26,8 @@ public class FasadesRegistersTests extends TestBase {
     @DisplayName("Проверка перехода к реестру Проекты изменений фасадов зданий (жилые)")
     @Tags({@Tag("fasades"),@Tag("preprod"),@Tag("prod")})
     void openRegisterFasadesZhil() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        MainPage.ReestrPage();
 
         step("В строке поиска найти реестр Проекты изменений фасадов зданий (жилые).", () -> {
             $(byName("candidateSearchValue")).setValue("Проекты изменений фасадов зданий (жилые)").pressEnter();
