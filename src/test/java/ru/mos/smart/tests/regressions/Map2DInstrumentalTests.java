@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -33,7 +33,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Tag("regressions")
     void openTheMaps() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
-        MainPage.OpenMaps();
+        NavigatorPage.openMaps();
         switchTo().window(1);
         step("Проверяем, что карта открылась в новой вкладке");
         $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(20));

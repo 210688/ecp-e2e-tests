@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -30,7 +30,7 @@ public class DroneRegistersTests extends TestBase {
     @Tags({@Tag("drone"),@Tag("preprod"),@Tag("prod")})
     void openReestrDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть реестр Данные аэрофотосъемки", () -> {
             $(byName("candidateSearchValue")).setValue("Данные аэрофотосъемки").pressEnter();
@@ -48,7 +48,7 @@ public class DroneRegistersTests extends TestBase {
     @Tags({@Tag("drone"),@Tag("preprod"),@Tag("prod")})
     void openCardDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть реестр Данные аэрофотосъемки", () -> {
             $(byName("candidateSearchValue")).setValue("Данные аэрофотосъемки").pressEnter();

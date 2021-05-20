@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -82,7 +82,7 @@ class UgdLrpTests extends TestBase {
     @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("prod")})
     void openRegisterLrpZayavki() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть реестр Заявки на участие в конкурсе ЛРП", () -> {
             $(byName("candidateSearchValue")).setValue("Заявки на участие в конкурсе ЛРП").pressEnter();
@@ -105,7 +105,7 @@ class UgdLrpTests extends TestBase {
     @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("prod")})
     void openRegisterLrpMoiZayavki() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть реестр Мои заявки на участие в конкурсе ЛРП", () -> {
             $(byName("candidateSearchValue")).setValue("Мои заявки на участие в конкурсе ЛРП").pressEnter();

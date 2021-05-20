@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -30,7 +30,7 @@ class CreateNotificationProjectTests extends TestBase {
     @Tag("prodRunPrc")
     void checkingNotificationSubmissionForm() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ActionsPage();
+        NavigatorPage.actionsPage();
 
         step("Выбрать операцию Направить новое уведомление ОАТИ о проведении работ", () -> {
             $(byName("common")).setValue("Направить новое уведомление ОАТИ о проведении работ");

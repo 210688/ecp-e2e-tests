@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -29,7 +29,7 @@ public class MkaopugdRegisterTests extends TestBase {
     void registerOfInstructionsUgd() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть Реестр поручений УГД", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр поручений УГД").pressEnter();
@@ -54,7 +54,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @Tags({@Tag("mkaopugd"),@Tag("preprod"),@Tag("prod")})
     void cardOfRegisterUgd() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть Реестр поручений УГД", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр поручений УГД").pressEnter();

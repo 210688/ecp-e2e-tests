@@ -7,8 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.LoginPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -31,8 +31,8 @@ public class EcpTest extends TestBase {
     @Tag("predprod")
     @Tag("regress")
     void openReestr() {
-        LoginPage.openUrlWithAuthorization("", webConfig().login_podsistem(), webConfig().password_podsistem());
-        MainPage.InformaciyaAndReestr();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        NavigatorPage.reestrPage();
 
         step("Проверить переход на страницу реестры" + reestrPage + ";", () -> {
             $(byText("Реестры"))
