@@ -60,7 +60,7 @@ public class DroneRegistersTests extends TestBase {
             $x("//a/div[contains(text(),'2000000933_S')]").click();
         });
 
-        step("Проверить, что карточка открылась", () -> {
+        step("Проверить,что карточка открылась", () -> {
             $x("//div/h1[contains(text(),'Технический номер заявки 2000000933_S')]")
                     .shouldBe(visible);
         });
