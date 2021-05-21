@@ -94,4 +94,25 @@ public class SpritTests extends TestBase {
                 Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
                         $$("div[class='panel-body']").size() > 0));
     }
+
+    @Test
+    @AllureId("3313")
+    @DisplayName("Форма карточки: Процесс")
+    @Tags({@Tag("predprod"), @Tag("regress"), @Tag("sprit")})
+    @Feature("SPRIT (Выдача СПРИТ)")
+    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    void Process() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        NavigatorPage.openSprit();
+        step("Открыть любую карточку", () ->
+                $(byText("ЛГР-0079-2020")).click());
+        step("Нажать на иконку шестеренка", () ->
+                $("#ddm").click());
+        step("В блоке Бизнес процессы нажать на иконку Процесс", () ->
+                $(byText("Процесс")).click());
+        step("Открывается страница со схемой бизнес-процесса", () ->
+                $(byText("Процесс СПРИТ")).shouldBe(visible));
+        Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
+                $$("div[class='m-t-md m-l-md m-b-md']").size() > 0);
+    }
 }
