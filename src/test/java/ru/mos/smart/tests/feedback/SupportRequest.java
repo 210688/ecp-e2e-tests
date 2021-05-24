@@ -28,6 +28,7 @@ public class SupportRequest extends TestBase {
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")
     @Tag("allModules")
     @Tag("prodRunPrc")
+    @Tag("predprod")
     void SupportRequestForward() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         ActionsPage.searchAction(feedback);

@@ -31,6 +31,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("4020")
     @DisplayName("Открытие приложения карта")
     @Tag("regressions")
+    @Tag("predprod")
     void openTheMaps() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
         NavigatorPage.openMaps();
@@ -49,6 +50,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия инструментов измерений")
     @Tag("regressions")
+    @Tag("predprod")
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -74,6 +76,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tag("regressions")
+    @Tag("predprod")
     void checkingAvailabilityOfAddressSearch() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -97,6 +100,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия инструментов масштабирования")
     @Tag("regressions")
+    @Tag("predprod")
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -121,6 +125,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     @Tag("regressions")
+    @Tag("predprod")
     void checkingAvailabilityOfMyLocationTool() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -144,6 +149,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tag("regressions")
+    @Tag("predprod")
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 

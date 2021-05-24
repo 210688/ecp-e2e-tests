@@ -26,6 +26,7 @@ class RegistersUvedomleniaTests extends TestBase {
     @DisplayName("Проверка открытия реестров")
     @Tag("allModules")
     @Tag("prod")
+    @Tag("predprod")
     void openRegisterUvedomlenia() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();

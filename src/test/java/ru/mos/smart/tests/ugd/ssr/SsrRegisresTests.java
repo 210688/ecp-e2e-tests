@@ -26,7 +26,7 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
-    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
+    @Tags({@Tag("ssr"), @Tag("predprod"), @Tag("prod")})
     void openRegisterSsrReestrZhiteli() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();
@@ -50,7 +50,7 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
-    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
+    @Tags({@Tag("ssr"), @Tag("predprod"), @Tag("prod")})
     void openRegisterSsrReestrOtselDomov() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();
@@ -76,7 +76,7 @@ public class SsrRegisresTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности реестр ССР. Реестр центров информирования по переселению жителей")
-    @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
+    @Tags({@Tag("ssr"), @Tag("predprod"), @Tag("prod")})
     void openRegisterSsrReestrcentrovInf() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();

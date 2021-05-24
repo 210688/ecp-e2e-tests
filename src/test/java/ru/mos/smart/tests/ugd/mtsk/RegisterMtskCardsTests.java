@@ -22,6 +22,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Feature("MTSK (Московский территориальный строительный каталог)")
 @Tag("ugd")
 @Tag("mtsk")
+@Tag("predprod")
 class RegisterMtskCardsTests extends TestBase {
 
     @Test

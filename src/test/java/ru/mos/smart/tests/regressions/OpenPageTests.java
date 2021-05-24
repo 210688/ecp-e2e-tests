@@ -28,6 +28,7 @@ public class OpenPageTests extends TestBase {
     @AllureId("3753")
     @DisplayName("Открытие меню возможности")
     @Tag("regressions")
+    @Tag("predprod")
     void openTheActionsPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
         NavigatorPage.actionsPage();
@@ -40,6 +41,7 @@ public class OpenPageTests extends TestBase {
     @AllureId("3752")
     @DisplayName("Открытие меню Задачи")
     @Tag("regressions")
+    @Tag("predprod")
     void openTheTasksPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
         NavigatorPage.tasksPage();
@@ -49,6 +51,7 @@ public class OpenPageTests extends TestBase {
     @AllureId("3751")
     @DisplayName("Открытие меню Реестр")
     @Tag("regressions")
+    @Tag("predprod")
     void openTheReestrPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
         NavigatorPage.reestrPage();
@@ -65,6 +68,7 @@ public class OpenPageTests extends TestBase {
     @AllureId("3754")
     @DisplayName("Открытие меню справочник")
     @Tag("regressions")
+    @Tag("predprod")
     void openTheSpravochnikPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
         NavigatorPage.spravochnikPage();

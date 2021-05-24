@@ -116,3 +116,17 @@ public class SpritTests extends TestBase {
                 $$("div[class='m-t-md m-l-md m-b-md']").size() > 0);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

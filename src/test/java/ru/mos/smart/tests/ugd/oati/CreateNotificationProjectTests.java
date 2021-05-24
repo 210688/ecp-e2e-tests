@@ -28,6 +28,7 @@ class CreateNotificationProjectTests extends TestBase {
     @DisplayName("Проверка доступности формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
     @Tag("allModules")
     @Tag("prodRunPrc")
+    @Tag("predprod")
     void checkingNotificationSubmissionForm() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.actionsPage();

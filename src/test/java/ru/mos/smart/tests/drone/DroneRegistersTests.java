@@ -27,7 +27,7 @@ public class DroneRegistersTests extends TestBase {
     @Test
     @AllureId("2075")
     @DisplayName("Открытие реестра Данные аэрофотосъемки")
-    @Tags({@Tag("drone"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("drone"),@Tag("predprod"),@Tag("prod")})
     void openReestrDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();
@@ -45,7 +45,7 @@ public class DroneRegistersTests extends TestBase {
     @Test
     @AllureId("2076")
     @DisplayName("Переход в карточку из реестра")
-    @Tags({@Tag("drone"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("drone"),@Tag("predprod"),@Tag("prod")})
     void openCardDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();

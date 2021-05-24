@@ -25,7 +25,7 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Реестр поручений УГД")
-    @Tags({@Tag("mkaopugd"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("mkaopugd"),@Tag("predprod"),@Tag("prod")})
     void registerOfInstructionsUgd() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
@@ -51,7 +51,7 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Карточка Реестра поручений УГД")
-    @Tags({@Tag("mkaopugd"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("mkaopugd"),@Tag("predprod"),@Tag("prod")})
     void cardOfRegisterUgd() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();

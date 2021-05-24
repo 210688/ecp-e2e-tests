@@ -30,6 +30,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @AllureId("3739")
     @DisplayName("Открытие приложения Цифровой двойник")
     @Tag("regressions")
+    @Tag("predprod")
     void openTheTsifrovoyDvoynik() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -48,6 +49,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @AllureId("3740")
     @DisplayName("Проверка отображения панели слоев")
     @Tag("regressions")
+    @Tag("predprod")
     void checkingTheDisplayOfLayersPanel() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -92,6 +94,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Description("")
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tag("regressions")
+    @Tag("predprod")
     void checkingAvailabilityOfAddressSearch() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -115,6 +118,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Description("")
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     @Tag("regressions")
+    @Tag("predprod")
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -139,6 +143,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Description("")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tag("regressions")
+    @Tag("predprod")
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -162,6 +167,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Description("")
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
     @Tag("regressions")
+    @Tag("predprod")
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 

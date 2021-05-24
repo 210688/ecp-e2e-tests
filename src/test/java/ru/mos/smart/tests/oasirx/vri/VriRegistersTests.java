@@ -27,6 +27,7 @@ public class VriRegistersTests extends TestBase {
     @DisplayName("Проверка вкладок в реестре ВРИ")
     @Tag("allModules")
     @Tag("prod")
+    @Tag("predprod")
     void openRegisterVri() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
