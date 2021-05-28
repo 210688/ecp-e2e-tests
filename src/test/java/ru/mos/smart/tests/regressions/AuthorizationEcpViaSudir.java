@@ -5,6 +5,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -25,8 +26,7 @@ public class AuthorizationEcpViaSudir extends TestBase {
     @Test
     @AllureId("4161")
     @DisplayName("Проверка авторизации через СУДИР")
-    @Tag("regressions")
-    @Tag("predprod")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void AuthorizationEcpSudir() {
         AuthorizationPage.openUrlWithAuthorizationSudir("", webConfig().login_sudir(), webConfig().password_sudir());
         step("Ввод СМС кода");

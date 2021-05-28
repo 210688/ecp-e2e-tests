@@ -24,7 +24,7 @@ public class FasadesRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода к реестру Проекты изменений фасадов зданий (жилые)")
-    @Tags({@Tag("fasades"),@Tag("predprod"),@Tag("prod")})
+    @Tags({@Tag("fasades"),@Tag("preprod"),@Tag("prod"), @Tag("oasi")})
     void openRegisterFasadesZhil() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();

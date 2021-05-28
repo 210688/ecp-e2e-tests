@@ -5,6 +5,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
@@ -26,9 +27,7 @@ class CreateNotificationProjectTests extends TestBase {
 
     @Test
     @DisplayName("Проверка доступности формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
-    @Tag("allModules")
-    @Tag("prodRunPrc")
-    @Tag("predprod")
+    @Tags({@Tag("oati"),@Tag("preprod"),@Tag("prod")})
     void checkingNotificationSubmissionForm() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.actionsPage();

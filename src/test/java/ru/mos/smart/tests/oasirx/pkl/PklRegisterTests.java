@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -23,18 +24,15 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class PklRegisterTests extends TestBase {
     @Test
     @DisplayName("Просмотр реестра ПКЛ")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("pkl")})
     void openingTheRegisterPkl() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел ПКЛ", () ->
-            $x("//span[text()='ПКЛ']").click());
+                $x("//span[text()='ПКЛ']").click());
 
         step("Открыт раздел ПКЛ", () ->
-            $x("//div/h2[contains(text(),'ПКЛ')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'ПКЛ')]").shouldBe(visible));
 
         step("В разделе присутствуют вкладки:", () -> {
             $x("//a/span[contains(text(),'В работе')]").shouldBe(visible);
@@ -47,9 +45,7 @@ public class PklRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра ПКЛ по номеру")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("pkl")})
     void searchingPklCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
@@ -60,15 +56,15 @@ public class PklRegisterTests extends TestBase {
         });
 
         step("Открыт раздел ПКЛ", () ->
-            $x("//div/h2[contains(text(),'ПКЛ')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'ПКЛ')]").shouldBe(visible));
 
         step("В строке поиска ввести номер карточки", () ->
-            $x("//div/input[contains(@class,'form-control')]").setValue("ПК-0016-2021-ПКЛ").pressEnter());
+                $x("//div/input[contains(@class,'form-control')]").setValue("ПК-0016-2021-ПКЛ").pressEnter());
 
         step("Открыть найденную карточку", () ->
-            $$(byText("ПК-0016-2021-ПКЛ")).find(visible).click());
+                $$(byText("ПК-0016-2021-ПКЛ")).find(visible).click());
 
         step("Проверить, что карточка открылась", () ->
-            $x("//div/h2[contains(text(),'ПК-0016-2021-ПКЛ')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'ПК-0016-2021-ПКЛ')]").shouldBe(visible));
     }
 }

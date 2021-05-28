@@ -27,7 +27,7 @@ public class SpritTests extends TestBase {
     @Test
     @AllureId("1043")
     @DisplayName("Просмотр карточки СПРИТ")
-    @Tags({@Tag("predprod"), @Tag("regress"), @Tag("sprit")})
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("sprit")})
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Owner("Amidosha")
@@ -53,7 +53,7 @@ public class SpritTests extends TestBase {
     @Test
     @AllureId("3315")
     @DisplayName("Форма карточки: История изменений")
-    @Tags({@Tag("predprod"), @Tag("regress"), @Tag("sprit")})
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("sprit")})
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void historyChangeCard() {
@@ -72,7 +72,7 @@ public class SpritTests extends TestBase {
     @Test
     @AllureId("4207")
     @DisplayName("Новая форма подачи заявления (новый регламент)")
-    @Tags({@Tag("predprod"), @Tag("regress"), @Tag("sprit")})
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("sprit")})
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Feature("SPRIT (Выдача СПРИТ)")
     void newReglament() {
@@ -98,7 +98,7 @@ public class SpritTests extends TestBase {
     @Test
     @AllureId("3313")
     @DisplayName("Форма карточки: Процесс")
-    @Tags({@Tag("predprod"), @Tag("regress"), @Tag("sprit")})
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("sprit")})
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void Process() {

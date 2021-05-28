@@ -26,7 +26,7 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
-    @Tags({@Tag("lrp"),@Tag("predprod")})
+    @Tags({@Tag("lrp"),@Tag("preprod")})
     void openTheApplicationFormLrp() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -52,7 +52,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @DisplayName("Проверка открытия формы подачи" +
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
-    @Tags({@Tag("lrp"),@Tag("predprod")})
+    @Tags({@Tag("lrp"),@Tag("preprod")})
     void openTheApplicationFormLrpOutsideOrg() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -79,7 +79,7 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
-    @Tags({@Tag("lrp"), @Tag("predprod"), @Tag("prod")})
+    @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("prod")})
     void openRegisterLrpZayavki() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();
@@ -102,7 +102,7 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
-    @Tags({@Tag("lrp"), @Tag("predprod"), @Tag("prod")})
+    @Tags({@Tag("lrp"), @Tag("preprod"), @Tag("prod")})
     void openRegisterLrpMoiZayavki() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();

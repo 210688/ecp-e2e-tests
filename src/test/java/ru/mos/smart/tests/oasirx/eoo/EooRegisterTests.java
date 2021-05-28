@@ -13,7 +13,6 @@ import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -29,10 +28,10 @@ public class EooRegisterTests extends TestBase {
     @Test
     @AllureId("920")
     @DisplayName("01. Добавление ЭОО")
-    @Tags({@Tag("eoo"), @Tag("oasirx") })
     @Story("PPT (modules)")
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("eoo")})
     void addCartEoo() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
         NavigatorPage.openEoo();
@@ -67,9 +66,7 @@ public class EooRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра ЭОО по номеру")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("eoo")})
     void searchingEooCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());

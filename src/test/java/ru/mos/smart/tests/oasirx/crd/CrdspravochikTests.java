@@ -5,6 +5,8 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -17,6 +19,7 @@ public class CrdspravochikTests {
     @Story("Справочники")
     @Feature("CRD (Согласование документов)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("crd")})
     void Crdspravochiki() {
         step("Открыть по очереди перечисленные справочники, в поле код ввести crd:", () -> {
             step("Подсистемы");

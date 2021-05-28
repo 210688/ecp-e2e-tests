@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -20,9 +21,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("MTSK (Московский территориальный строительный каталог)")
-@Tag("ugd")
-@Tag("mtsk")
-@Tag("predprod")
+@Tags({@Tag("mtsk"),@Tag("preprod"),@Tag("prod")})
 class RegisterMtskCardsTests extends TestBase {
 
     @Test

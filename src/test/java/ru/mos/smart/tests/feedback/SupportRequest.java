@@ -7,6 +7,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.ActionsPage;
@@ -28,9 +29,7 @@ public class SupportRequest extends TestBase {
     @Description("Данная проверка отправляет письмо в тех поддержку, " +
             "запускать на определеных средах.")
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")
-    @Tag("allModules")
-    @Tag("prodRunPrc")
-    @Tag("predprod")
+    @Tags({@Tag("preprod"), @Tag("feedback")})
     void SupportRequestForward() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         ActionsPage.searchAction(feedback);
@@ -56,6 +55,7 @@ public class SupportRequest extends TestBase {
 @DisplayName("02. Проверка работоспособности инструмента Измерение расстояния")
 @Epic("GIS 2D (Картографическое обеспечение, Реинформ)")
 @Feature("Базовый функционал - Инструменты измерения")
+@Tags({@Tag("preprod"), @Tag("feedback")})
 void feedbackk () {
     step("Выбрать инструмент Измерение расстояния (линейка)");
     step("Отметить несколько точек на карте");

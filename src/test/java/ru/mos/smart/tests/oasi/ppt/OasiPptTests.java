@@ -2,9 +2,7 @@ package ru.mos.smart.tests.oasi.ppt;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -22,6 +20,7 @@ class OasiPptTests extends TestBase {
     @Test
     @Disabled("тест не работает - надо разобраться с правами, не работает регистрация")
     @DisplayName("Проверка наличия в витрине поля для поиска")
+    @Tags({@Tag("ppt"),@Tag("preprod"),@Tag("prod"), @Tag("oasi")})
     void searchFieldShouldExist() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 

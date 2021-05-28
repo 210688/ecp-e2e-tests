@@ -28,7 +28,7 @@ public class DroneRegistersTests extends TestBase {
     @Test
     @AllureId("2075")
     @DisplayName("Открытие реестра Данные аэрофотосъемки")
-    @Tags({@Tag("drone"), @Tag("predprod"), @Tag("prod")})
+    @Tags({@Tag("drone"), @Tag("preprod")})
     void openReestrDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.reestrPage();
@@ -42,7 +42,7 @@ public class DroneRegistersTests extends TestBase {
     @Test
     @AllureId("2076")
     @DisplayName("Переход в карточку из реестра")
-    @Tags({@Tag("drone"), @Tag("predprod"), @Tag("prod")})
+    @Tags({@Tag("drone"), @Tag("preprod")})
     void openCardDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.reestrPage();
@@ -62,9 +62,9 @@ public class DroneRegistersTests extends TestBase {
     @Test
     @AllureId("2079")
     @DisplayName("Создать карточку аэросъемки")
-    @Tag("DRONE_TRACK")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Работа с карточкой аэросъёмки")
+    @Tags({@Tag("preprod"), @Tag("drone_track")})
     void addCartDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.actionsPage();
@@ -94,17 +94,15 @@ public class DroneRegistersTests extends TestBase {
             step("Материалы аэрофотосъемки - загрузить материалы: файлы формата mp4, zip При загрузке данных других форматов будет выходить сообщение об ошибке.");
             step("Прикрепить лог файл полета дрона");
         });
-
         step("Нажать на кнопку Внести данные");
     }
-
 
     @Test
     @AllureId("2080")
     @DisplayName("Просмотреть карточку аэросъемки")
-    @Tag("DRONE_TRACK")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Работа с карточкой аэросъёмки")
+    @Tags({@Tag("preprod"), @Tag("drone_track")})
     void viewCartDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.reestrPage();
@@ -114,7 +112,4 @@ public class DroneRegistersTests extends TestBase {
         step("Проверить, что карточка окрывается", () ->
                 $(byText("Технический номер заявки 2000000969_S")).should(visible));
     }
-
-
-
 }

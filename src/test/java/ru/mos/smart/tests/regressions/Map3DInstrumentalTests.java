@@ -6,6 +6,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import ru.mos.smart.annotations.Layer;
@@ -29,8 +30,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @AllureId("3739")
     @DisplayName("Открытие приложения Цифровой двойник")
-    @Tag("regressions")
-    @Tag("predprod")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void openTheTsifrovoyDvoynik() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -48,8 +48,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @AllureId("3740")
     @DisplayName("Проверка отображения панели слоев")
-    @Tag("regressions")
-    @Tag("predprod")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void checkingTheDisplayOfLayersPanel() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -93,8 +92,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @AllureId("3749")
     @Description("")
     @DisplayName("Проверка наличия строки адресного поиска")
-    @Tag("regressions")
-    @Tag("predprod")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void checkingAvailabilityOfAddressSearch() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -117,8 +115,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @AllureId("3750")
     @Description("")
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
-    @Tag("regressions")
-    @Tag("predprod")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -142,8 +139,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @AllureId("3748")
     @Description("")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
-    @Tag("regressions")
-    @Tag("predprod")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -166,8 +162,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @AllureId("3747")
     @Description("")
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
-    @Tag("regressions")
-    @Tag("predprod")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 

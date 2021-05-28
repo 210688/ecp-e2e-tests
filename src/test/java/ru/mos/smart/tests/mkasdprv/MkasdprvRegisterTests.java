@@ -25,7 +25,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Test
     @AllureId("3017")
     @DisplayName("Проверка атрибутивного состава реестра")
-    @Tags({@Tag("mkasdprv"),@Tag("predprod"),@Tag("prod")})
+    @Tags({@Tag("mkasdprv"),@Tag("preprod"),@Tag("prod")})
     void checkingTheAttributesOfTheRegistry() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();
@@ -51,7 +51,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Test
     @AllureId("3018")
     @DisplayName("Открытие карточки реестра")
-    @Tags({@Tag("mkasdprv"),@Tag("predprod"),@Tag("prod")})
+    @Tags({@Tag("mkasdprv"),@Tag("preprod"),@Tag("prod")})
     void openingRegistryCard() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();

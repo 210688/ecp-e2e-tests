@@ -26,7 +26,7 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Реестр поручений УГД")
-    @Tags({@Tag("mkaopugd"),@Tag("predprod"),@Tag("prod")})
+    @Tags({@Tag("mkaopugd"),@Tag("preprod")})
     void registerOfInstructionsUgd() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
@@ -52,7 +52,7 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Карточка Реестра поручений УГД")
-    @Tags({@Tag("mkaopugd"),@Tag("predprod"),@Tag("prod")})
+    @Tags({@Tag("mkaopugd"),@Tag("preprod")})
     void cardOfRegisterUgd() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.reestrPage();
@@ -79,6 +79,7 @@ public class MkaopugdRegisterTests extends TestBase {
 @DisplayName("Карточка Реестра поручений УГД")
 @Epic("MKAOPUGD (МКА ОП УГД)")
 @Feature("Работа с реестром УГД")
+@Tags({@Tag("mkaopugd"),@Tag("preprod")})
 void resultCartUgd () {
     step("Открыть Информация -> Реестры");
     step("Найти и открыть Реестр поручений УГД");

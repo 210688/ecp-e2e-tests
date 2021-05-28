@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -23,10 +24,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class SzzRegisterTests extends TestBase {
     @Test
     @DisplayName("Просмотр реестра СЗЗ")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("szz")})
     void openingTheRegisterSzz() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -47,9 +45,7 @@ public class SzzRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра СЗЗ по номеру")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("szz")})
     void searchingSzzCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -59,15 +55,15 @@ public class SzzRegisterTests extends TestBase {
         });
 
         step("Открыт раздел СПРИТ", () ->
-            $x("//div/h2[contains(text(),'Реестр CЗЗ')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'Реестр CЗЗ')]").shouldBe(visible));
 
         step("В строке поиска ввести номер карточки", () ->
-            $x("//div/input[contains(@class,'form-control')]").setValue("СЗЗ-000271-2020").pressEnter());
+                $x("//div/input[contains(@class,'form-control')]").setValue("СЗЗ-000271-2020").pressEnter());
 
         step("Открыть найденную карточку", () ->
-            $$(byText("СЗЗ-000271-2020")).find(visible).click());
+                $$(byText("СЗЗ-000271-2020")).find(visible).click());
 
         step("Проверить, что карточка открылась", () ->
-            $x("//div/h2[contains(text(),'СЗЗ-000271-2020')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'СЗЗ-000271-2020')]").shouldBe(visible));
     }
 }
