@@ -1,8 +1,10 @@
 package ru.mos.smart.tests.feedback;
 
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -48,6 +50,17 @@ public class SupportRequest extends TestBase {
             $x("//div/button[contains(text(),'Отправить')]").click();
         });
     }
+
+@Test
+@AllureId("3046")
+@DisplayName("02. Проверка работоспособности инструмента Измерение расстояния")
+@Epic("GIS 2D (Картографическое обеспечение, Реинформ)")
+@Feature("Базовый функционал - Инструменты измерения")
+void feedbackk () {
+    step("Выбрать инструмент Измерение расстояния (линейка)");
+    step("Отметить несколько точек на карте");
+    step("В окне карты отображается общее расстояние между начальной и конечной точками в метрах");
+}
 }
 
 

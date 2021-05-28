@@ -1,13 +1,7 @@
 package ru.mos.smart.pages;
 
-import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
 /**
@@ -17,41 +11,47 @@ import static io.qameta.allure.Allure.step;
 public class NavigatorPage {
 
     public static void actionsPage() {
-        step("Открытие Госуслуги и функции -> Возможности", () ->
-                $(byCssSelector("a[href='/main/#/app/actions']")).click());
+        step("В навигаторе открыть раздел Госуслуги и функции -> Возможности", () ->
+                $(("a[href='/main/#/app/actions']")).click());
     }
 
     public static void tasksPage() {
-        step("Открытие меню Госуслуги и функции -> Задачи", () -> {
-            $(byCssSelector("a[href='/main/#/app/tasks']")).click();
+        step("В навигаторе открыть раздел Госуслуги и функции -> Задачи", () -> {
+            $(("a[href='/main/#/app/tasks']")).click();
         });
     }
 
     public static void reestrPage() {
-        step("Открытие меню Информация -> Реестр", () -> {
+        step("В навигаторе открыть раздел Информация -> Реестр", () -> {
             $(byText("Информация")).click();
-            $(byCssSelector("a[href='/main/#/app/catalog-registers']")).click();
+            $(("a[href='/main/#/app/catalog-registers']")).click();
         });
     }
 
     public static void spravochnikPage() {
-        step("Открытие меню Настройки -> Справочники", () -> {
+        step("В навигаторе открыть раздел Настройки -> Справочники", () -> {
             $(byText("Настройки")).click();
-            $(byCssSelector("a[href='/main/#/app/dicts/system']")).click();
+            $(("a[href='/main/#/app/dicts/system']")).click();
         });
     }
 
     public static void openMaps() {
-        step("Открытие меню Информация -> карта", () -> {
+        step("В навигаторе открыть раздел Информация -> карта", () -> {
             $(byText("Информация")).click();
-            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
+            $(("a[href='/map/#/map;onMode3D=true']")).click();
         });
     }
 
     public static void openSprit() {
-        step("Открыть меню Выдача СПРИТ", () -> {
-            $(By.cssSelector("a[href='/oasirx/sprit/#/app/sprit/list']")).click();
+        step("В навигаторе открыть раздел Выдача СПРИТ", () -> {
+            $(("a[href='/oasirx/sprit/#/app/sprit/list']")).click();
+        });
+    }
+
+
+    public static void openEoo() {
+        step("В Навигаторе открыть раздел ЭОО", () -> {
+            $(("a[href='/oasirx/eoo/#/app/eoo/list']")).click();
         });
     }
 }
-

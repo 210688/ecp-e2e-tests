@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.crd;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -25,6 +26,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class CrdRegisterTests extends TestBase {
 
     @Test
+    @AllureId("3266")
     @DisplayName("Открытие реестра СД")
     @Tags({@Tag("allmodules"), @Tag("prod"), @Tag("predprod"), @Tag("regress")})
     void openingTheRegisterCRD() {

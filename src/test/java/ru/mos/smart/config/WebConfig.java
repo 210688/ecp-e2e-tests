@@ -37,4 +37,17 @@ public interface WebConfig extends Config {
 
     @Key("user.password.oasirx")
     String passwordOasirx();
+
+    @Key("user.login.oasirxEoo")
+    String loginOasirxEoo();
+
+    @Key("user.password.oasirxEoo")
+    String passwordOasirxEoo();
+
+    @Key("user.login.drone")
+    String loginDrone();
+
+    @Key("user.password.drone")
+    String passwordDrone();
+
 }

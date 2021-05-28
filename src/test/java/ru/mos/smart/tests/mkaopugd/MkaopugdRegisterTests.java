@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.mkaopugd;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -72,4 +73,22 @@ public class MkaopugdRegisterTests extends TestBase {
             $x("//span[contains(text(),'Техническая информация')]").shouldBe(visible);
         });
     }
+
+@Test
+@AllureId("2993")
+@DisplayName("Карточка Реестра поручений УГД")
+@Epic("MKAOPUGD (МКА ОП УГД)")
+@Feature("Работа с реестром УГД")
+void resultCartUgd () {
+    step("Открыть Информация -> Реестры");
+    step("Найти и открыть Реестр поручений УГД");
+    step("Открыть любую карточку");
+    step("В карточке присутствуют вкладки:", () -> {
+        step("Поручение - с блоками Сведения о поручении УГД, Список задач");
+        step("История - с колонками Номер, Ответственный руководитель, Подразделение, Срок");
+        step("Техническая информация - с блоками Данные поручения в системе, Первичные данные из УГД, Данные bpm-задачи, Данные процесса");
+        step("История БП");
+    });
+}
+
 }
