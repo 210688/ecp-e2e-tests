@@ -50,4 +50,9 @@ public interface WebConfig extends Config {
     @Key("user.password.drone")
     String passwordDrone();
 
+    @Key("user.login.ugd")
+    String loginUgd();
+
+    @Key("user.password.ugd")
+    String passwordUgd();
 }

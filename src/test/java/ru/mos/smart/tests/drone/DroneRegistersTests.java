@@ -14,7 +14,8 @@ import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byName;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
@@ -111,5 +112,6 @@ public class DroneRegistersTests extends TestBase {
                 $(byText("2000000969_S")).click());
         step("Проверить, что карточка окрывается", () ->
                 $(byText("Технический номер заявки 2000000969_S")).should(visible));
+
     }
 }
