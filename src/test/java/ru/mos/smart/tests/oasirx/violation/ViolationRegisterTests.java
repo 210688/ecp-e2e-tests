@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -23,18 +24,15 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class ViolationRegisterTests extends TestBase {
     @Test
     @DisplayName("Просмотр раздела Нарушения ОГД")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("violation")})
     void openingTheRegisterViolation() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Нарушения ОГД", () ->
-            $x("//span[text()='Нарушения ОГД']").click());
+                $x("//span[text()='Нарушения ОГД']").click());
 
         step("Открыт раздел Административные правонарушения", () ->
-            $x("//div/h2[contains(text(),'Административные правонарушения')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'Административные правонарушения')]").shouldBe(visible));
 
         step("В разделе присутствуют вкладки:", () -> {
             $x("//a/span[contains(text(),'АП в работе')]").shouldBe(visible);
@@ -46,9 +44,7 @@ public class ViolationRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра Нарушения ОГДпо номеру")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("violation")})
     void searchingViolationCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 

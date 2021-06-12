@@ -31,4 +31,28 @@ public interface WebConfig extends Config {
 
     @Key("browser.name")
     String getBrowserName();
+
+    @Key("user.login.oasirx")
+    String loginOasirx();
+
+    @Key("user.password.oasirx")
+    String passwordOasirx();
+
+    @Key("user.login.oasirxEoo")
+    String loginOasirxEoo();
+
+    @Key("user.password.oasirxEoo")
+    String passwordOasirxEoo();
+
+    @Key("user.login.drone")
+    String loginDrone();
+
+    @Key("user.password.drone")
+    String passwordDrone();
+
+    @Key("user.login.ugd")
+    String loginUgd();
+
+    @Key("user.password.ugd")
+    String passwordUgd();
 }

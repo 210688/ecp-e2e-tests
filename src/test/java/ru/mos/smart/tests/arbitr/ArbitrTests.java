@@ -3,6 +3,7 @@ package ru.mos.smart.tests.arbitr;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -23,10 +24,7 @@ public class ArbitrTests extends TestBase {
 
     @Test
     @DisplayName("Загрузка модуля Поиск дел")
-    @Tag("allModules")
-    @Tag("prod")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("arbitr")})
     void loadingModulePoiskDel() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 

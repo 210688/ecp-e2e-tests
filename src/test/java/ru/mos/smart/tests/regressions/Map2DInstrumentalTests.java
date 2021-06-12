@@ -6,11 +6,12 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -30,10 +31,10 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @AllureId("4020")
     @DisplayName("Открытие приложения карта")
-    @Tag("regressions")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void openTheMaps() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
-        MainPage.OpenMaps();
+        NavigatorPage.openMaps();
         switchTo().window(1);
         step("Проверяем, что карта открылась в новой вкладке");
         $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(20));
@@ -48,7 +49,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("3734")
     @Description()
     @DisplayName("Проверка наличия инструментов измерений")
-    @Tag("regressions")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -73,7 +74,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("3736")
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
-    @Tag("regressions")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void checkingAvailabilityOfAddressSearch() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -96,7 +97,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("3737")
     @Description()
     @DisplayName("Проверка наличия инструментов масштабирования")
-    @Tag("regressions")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -120,7 +121,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("3738")
     @Description()
     @DisplayName("Проверка наличия инструмента Мое местоположение")
-    @Tag("regressions")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void checkingAvailabilityOfMyLocationTool() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -143,7 +144,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("3735")
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
-    @Tag("regressions")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 

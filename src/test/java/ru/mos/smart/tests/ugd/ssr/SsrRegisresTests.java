@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -29,7 +29,7 @@ public class SsrRegisresTests extends TestBase {
     @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrZhiteli() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть реестр ССР. Реестр жителей", () -> {
             $(byName("candidateSearchValue")).setValue("ССР. Реестр жителей").pressEnter();
@@ -53,7 +53,7 @@ public class SsrRegisresTests extends TestBase {
     @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrOtselDomov() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть реестр ССР. Реестр отселяемых домов", () -> {
             $(byName("candidateSearchValue")).setValue("ССР. Реестр отселяемых домов").pressEnter();
@@ -79,7 +79,7 @@ public class SsrRegisresTests extends TestBase {
     @Tags({@Tag("ssr"), @Tag("preprod"), @Tag("prod")})
     void openRegisterSsrReestrcentrovInf() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть реестр ССР. Реестр центров информирования по переселению жителей", () -> {
             $(byName("candidateSearchValue"))

@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.mkaopugd;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -7,7 +8,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -25,11 +26,11 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Реестр поручений УГД")
-    @Tags({@Tag("mkaopugd"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("mkaopugd"),@Tag("preprod")})
     void registerOfInstructionsUgd() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть Реестр поручений УГД", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр поручений УГД").pressEnter();
@@ -51,10 +52,10 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Карточка Реестра поручений УГД")
-    @Tags({@Tag("mkaopugd"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("mkaopugd"),@Tag("preprod")})
     void cardOfRegisterUgd() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть Реестр поручений УГД", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр поручений УГД").pressEnter();
@@ -72,4 +73,23 @@ public class MkaopugdRegisterTests extends TestBase {
             $x("//span[contains(text(),'Техническая информация')]").shouldBe(visible);
         });
     }
+
+@Test
+@AllureId("2993")
+@DisplayName("Карточка Реестра поручений УГД")
+@Epic("MKAOPUGD (МКА ОП УГД)")
+@Feature("Работа с реестром УГД")
+@Tags({@Tag("mkaopugd"),@Tag("preprod")})
+void resultCartUgd () {
+    step("Открыть Информация -> Реестры");
+    step("Найти и открыть Реестр поручений УГД");
+    step("Открыть любую карточку");
+    step("В карточке присутствуют вкладки:", () -> {
+        step("Поручение - с блоками Сведения о поручении УГД, Список задач");
+        step("История - с колонками Номер, Ответственный руководитель, Подразделение, Срок");
+        step("Техническая информация - с блоками Данные поручения в системе, Первичные данные из УГД, Данные bpm-задачи, Данные процесса");
+        step("История БП");
+    });
+}
+
 }

@@ -47,10 +47,5 @@ class LaunchingBusinessProcessTests extends TestBase {
         step("Поставить чек-бокс \"На текущего пользователя\"", () -> {
             $(".iradio_square-orange").click();
         });
-
-        //ng-input ng-placeholder iradio_square-orange iCheck-helper"
-        //Нажать "Запустить процесс"".
-        //Проверка:Появление сообщения "Процесс "Создание структуры работ по объекту" успешно запущен",
-        //на текущего пользователя назначена задача.
     }
 }
