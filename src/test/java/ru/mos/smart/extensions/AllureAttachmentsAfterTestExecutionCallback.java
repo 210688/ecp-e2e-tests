@@ -14,7 +14,6 @@ public class AllureAttachmentsAfterTestExecutionCallback implements AfterTestExe
     public void afterTestExecution(ExtensionContext context) {
         if (context.getExecutionException().isPresent()) {
             String sessionId = getSessionId();
-            System.out.println(sessionId);
             attachScreenshot("Last screenshot");
             attachPageSource();
             attachAsText("Browser console logs", getConsoleLogs());
