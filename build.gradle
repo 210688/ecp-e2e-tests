@@ -42,7 +42,7 @@ allure {
 }
 
 dependencies {
-    testImplementation 'com.codeborne:selenide:5.20.1'
+    testImplementation 'com.codeborne:selenide:5.22.0'
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
     testImplementation 'io.rest-assured:rest-assured:4.3.1'
