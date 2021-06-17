@@ -5,8 +5,8 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.*;
 import ru.mos.smart.tests.TestBase;
@@ -28,10 +28,10 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("3753")
     @DisplayName("Открытие меню возможности")
-    @Tag("regressions")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void openTheActionsPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
-        MainPage.ActionsPage();
+        NavigatorPage.actionsPage();
         step("Проверяем, что строка поиска доступна", () -> {
             $(byName("common")).shouldBe(visible);
         });
@@ -40,19 +40,19 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("3752")
     @DisplayName("Открытие меню Задачи")
-    @Tag("regressions")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void openTheTasksPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
-        MainPage.TasksPage();
+        NavigatorPage.tasksPage();
     }
 
     @Test
     @AllureId("3751")
     @DisplayName("Открытие меню Реестр")
-    @Tag("regressions")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void openTheReestrPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
         step("Проверка, что реестр доступен", () -> {
             $(byName("candidateSearchValue")).shouldBe(visible);
             $(byText("Название реестра")).shouldBe(visible);
@@ -65,10 +65,10 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("3754")
     @DisplayName("Открытие меню справочник")
-    @Tag("regressions")
+    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void openTheSpravochnikPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
-        MainPage.SpravochnikPage();
+        NavigatorPage.spravochnikPage();
         step("Проверка, что справочник доступен", () -> {
             $(byName("filterinput")).shouldBe(visible);
             $(byText("Системные справочники")).shouldBe(visible);

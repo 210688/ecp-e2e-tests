@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -23,18 +24,15 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class SbRegisterTests extends TestBase {
     @Test
     @DisplayName("Просмотр реестра Самострой")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("sbr")})
     void openingTheRegisterSb() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Самострой", () ->
-            $x("//span[text()='Самострой']").click());
+                $x("//span[text()='Самострой']").click());
 
         step("Открыт раздел Самострой", () ->
-            $x("//div/h2[contains(text(),'Самострой')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'Самострой')]").shouldBe(visible));
 
         step("В разделе присутствуют вкладки:", () -> {
             $x("//a/span[contains(text(),'В работе')]").shouldBe(visible);
@@ -47,9 +45,7 @@ public class SbRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра Самострой по номеру")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("sbr")})
     void searchingSbCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -59,15 +55,15 @@ public class SbRegisterTests extends TestBase {
         });
 
         step("Открыт раздел Самострой", () ->
-            $x("//div/h2[contains(text(),'Самострой')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'Самострой')]").shouldBe(visible));
 
         step("В строке поиска ввести номер карточки", () ->
-            $x("//div/input[contains(@class,'form-control')]").setValue("ОСС-0028-2021").pressEnter());
+                $x("//div/input[contains(@class,'form-control')]").setValue("ОСС-0028-2021").pressEnter());
 
         step("Открыть найденную карточку", () ->
-            $$(byText("ОСС-0028-2021")).find(visible).click());
+                $$(byText("ОСС-0028-2021")).find(visible).click());
 
         step("Проверить, что карточка открылась", () ->
-            $x("//div/h2[contains(text(),'ОСС-0028-2021')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'ОСС-0028-2021')]").shouldBe(visible));
     }
 }

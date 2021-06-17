@@ -1,60 +1,46 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath group: 'io.qameta.allure', name: 'allure-gradle', version: '2.8.1'
-    }
-}
-
 plugins {
     id 'java-library'
-    id 'application'
     id 'io.qameta.allure' version '2.8.1'
 }
 
 group 'ru.mos.smart'
 version '1.0'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-ext {
-    allureVersion = '2.13.9'
-    junitVersion = '5.7.0'
-}
 
 repositories {
     jcenter()
     mavenCentral()
-    maven { url = "https://dl.bintray.com/qameta/maven-unstable/" }
 }
 
+def allureVersion = "2.13.9",
+    selenideVersion = "5.22.0",
+    junitVersion = "5.7.1"
 
 allure {
     version = "${allureVersion}"
     autoconfigure = true
     aspectjweaver = true
-
+    configuration = "testImplementation"
     useJUnit5 {
-        version = "${allureVersion}"
+        version = allureVersion
     }
 }
 
 dependencies {
-    testImplementation 'com.codeborne:selenide:5.19.0'
-    testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
-    testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
-    testImplementation 'io.rest-assured:rest-assured:4.3.1'
-    testImplementation 'ch.qos.logback:logback-classic:1.2.3'
-    testImplementation "io.qameta.allure:allure-ee-junit-platform:3.28.2"
-    testImplementation "org.aeonbits.owner:owner:1.0.12"
-    testCompileOnly 'org.projectlombok:lombok:1.18.16'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testImplementation(
+            "org.aspectj:aspectjweaver:1.9.6",
+            "com.codeborne:selenide:$selenideVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "io.rest-assured:rest-assured:4.3.1",
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "org.aeonbits.owner:owner:1.0.12",
+            "org.assertj:assertj-core:3.19.0",
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion",
+            "ch.qos.logback:logback-classic:1.2.3",
+            "org.projectlombok:lombok:1.18.20",
+            "org.slf4j:slf4j-api:1.7.25")
 
-    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
-
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
 tasks.withType(JavaCompile) {
@@ -62,23 +48,17 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
-    systemProperties += System.properties
-    if (project.hasProperty("web_threads")) {
-        systemProperties += [
-                'junit.jupiter.execution.parallel.enabled'                 : true,
-                'junit.jupiter.execution.parallel.mode.default'            : 'concurrent',
-                'junit.jupiter.execution.parallel.mode.classes.default'    : 'concurrent',
-                'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
-                'junit.jupiter.execution.parallel.config.fixed.parallelism': project.getProperty("web_threads").toInteger()
-        ]
-    }
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+    maxParallelForks = 1
+}
+
+
+tasks.withType(Test) {
     testLogging {
-        lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
+        events "started", "skipped", "passed", "failed", "standard_error", "standard_out"
+        exceptionFormat "short"
     }
-    systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
 }
 
 test {
@@ -120,5 +100,3 @@ task tests(type: Test) { //Запуск тестов из системной п�
         includeTags System.getProperty('tag', 'ugd')
     }
 }
-
-

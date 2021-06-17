@@ -5,6 +5,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -25,18 +26,15 @@ public class ItmkaRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр реестра заявок Управление ИТ МКА")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("itmka")})
     void openingTheRegisterItmka() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Управление ИТ МКА", () ->
-            $x("//span[text()='Управление ИТ МКА']").click());
+                $x("//span[text()='Управление ИТ МКА']").click());
 
         step("Открыт раздел Управление ИТ МКА", () ->
-            $x("//div/h2[contains(text(),'Управление информатизацией МКА')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'Управление информатизацией МКА')]").shouldBe(visible));
 
         step("В разделе присутствуют вкладки:", () -> {
             $x("//a/span[contains(text(),'В работе')]").shouldBe(visible);
@@ -48,9 +46,7 @@ public class ItmkaRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра заявок Управление ИТ МКА по номеру")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("itmka")})
     void searchingItmkaCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
@@ -61,15 +57,15 @@ public class ItmkaRegisterTests extends TestBase {
         });
 
         step("Открыт раздел Управление ИТ МКА", () ->
-            $x("//div/h2[contains(text(),'Управление информатизацией МКА')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'Управление информатизацией МКА')]").shouldBe(visible));
 
         step("В строке поиска ввести номер карточки", () ->
-            $x("//div/input[contains(@class,'form-control')]").setValue("ДРБ-017-2021").pressEnter());
+                $x("//div/input[contains(@class,'form-control')]").setValue("ДРБ-017-2021").pressEnter());
 
         step("Открыть найденную карточку", () ->
-            $$(byText("ДРБ-017-2021")).find(visible).click());
+                $$(byText("ДРБ-017-2021")).find(visible).click());
 
         step("Проверить, что карточка открылась", () ->
-            $x("//div/h2[contains(text(),'ДРБ-017-2021')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'ДРБ-017-2021')]").shouldBe(visible));
     }
 }

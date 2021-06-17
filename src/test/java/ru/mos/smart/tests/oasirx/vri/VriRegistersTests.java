@@ -5,6 +5,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -25,16 +26,15 @@ public class VriRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Проверка вкладок в реестре ВРИ")
-    @Tag("allModules")
-    @Tag("prod")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("vri")})
     void openRegisterVri() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел ВРИ", () ->
-            $x("//span[text()='ВРИ']").click());
+                $x("//span[text()='ВРИ']").click());
 
         step("Открыт раздел ВРИ", () ->
-            $x("//div/h2[contains(text(),'ВРИ')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'ВРИ')]").shouldBe(visible));
 
         step("Реестр ВРИ содержит пять вкладок", () -> {
             $(byText("ВРИ в работе")).shouldBe(visible);
@@ -47,9 +47,7 @@ public class VriRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра ВРИ по номеру")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("vri")})
     void searchingVriCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -59,15 +57,15 @@ public class VriRegistersTests extends TestBase {
         });
 
         step("Открыт раздел ВРИ", () ->
-            $x("//div/h2[contains(text(),'ВРИ')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'ВРИ')]").shouldBe(visible));
 
         step("В строке поиска ввести номер карточки", () ->
-            $x("//div/input[contains(@class,'form-control')]").setValue("ВРИ-0035-2021").pressEnter());
+                $x("//div/input[contains(@class,'form-control')]").setValue("ВРИ-0035-2021").pressEnter());
 
         step("Открыть найденную карточку", () ->
-            $$(byText("ВРИ-0035-2021")).find(visible).click());
+                $$(byText("ВРИ-0035-2021")).find(visible).click());
 
         step("Проверить, что карточка открылась", () ->
-            $x("//div/h2[contains(text(),'ВРИ-0035-2021')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'ВРИ-0035-2021')]").shouldBe(visible));
     }
 }

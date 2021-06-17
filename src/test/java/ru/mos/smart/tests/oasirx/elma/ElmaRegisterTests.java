@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -22,10 +23,7 @@ public class ElmaRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр раздела Соответствие СП (МГГТ)")
-    @Tag("allModules")
-    @Tag("prod")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("elma")})
     void openingTheRegisterElma() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
@@ -49,9 +47,7 @@ public class ElmaRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра Соответствие СП (МГГТ) по номеру")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("elma")})
     void searchingElmaCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());

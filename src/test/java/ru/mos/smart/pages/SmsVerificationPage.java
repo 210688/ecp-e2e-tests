@@ -29,6 +29,7 @@ public class SmsVerificationPage {
         }
     }
 
+
     @Step("Получение кода подтверждения по номеру телефона")
     public static String getPhoneCode(String phoneNumber) {
         return given()

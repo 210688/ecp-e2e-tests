@@ -3,10 +3,11 @@ package ru.mos.smart.tests.eventmanager;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -21,14 +22,11 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class EventmanagerActionTests extends TestBase {
 
     @Test
-    @Tag("allModules")
-    @Tag("prod")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("eventmanager")})
     @DisplayName("Проверка доступности реестра Подписки на уведомления о событиях")
     void checkingEventmanagerReestr() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть реестр Подписки на уведомления о событиях", () -> {
             $(byName("candidateSearchValue")).setValue("Подписки на уведомления о событиях").pressEnter();

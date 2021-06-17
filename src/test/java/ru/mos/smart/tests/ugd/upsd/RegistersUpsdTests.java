@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static io.qameta.allure.Allure.step;
@@ -26,7 +26,7 @@ class RegistersUpsdTests extends TestBase {
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
     void registerUpsdViewing() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти реестр и перейти в него", () -> {
 

@@ -1,9 +1,5 @@
 package ru.mos.smart.pages;
 
-import io.qameta.allure.Step;
-
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -30,7 +26,7 @@ public class AuthorizationPage {
             $("#login").setValue(login);
             $("#password").setValue(password);
             $("#bind").click();
-            $("#showMethodsList").click();
+            //$("#showMethodsList").click();
         });
     }
 }

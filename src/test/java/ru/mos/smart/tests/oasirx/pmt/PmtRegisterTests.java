@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -22,18 +23,15 @@ class PmtRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр реестра ПМТ")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("pmt")})
     void openingTheRegisterPMT() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел ПМТ", () ->
-            $x("//span[text()='ПМТ']").click());
+                $x("//span[text()='ПМТ']").click());
 
         step("Открыт раздел Межевание территорий", () ->
-            $x("//div/h2[contains(text(),'Межевание территорий')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'Межевание территорий')]").shouldBe(visible));
 
         step("В разделе присутствуют вкладки:", () -> {
             $x("//span[contains(text(),'ПМТ в работе')]").shouldBe(visible);
@@ -43,21 +41,19 @@ class PmtRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск ПМТ по номеру")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("pmt")})
     void searchingPmtCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Открытие в навигаторе ПМТ", () -> $x("//span[text()='ПМТ']").click());
 
         step("В строке поиска ввести номер ПМТ", () ->
-            $x("//div/input[contains(@class,'form-control')]").setValue("ПМТ-0096-2020").pressEnter());
+                $x("//div/input[contains(@class,'form-control')]").setValue("ПМТ-0096-2020").pressEnter());
 
         step("Открыть найденную карточку", () ->
-            $x("//a[@href='#/app/pmt/2d5b2530-80dc-45ea-b684-8dc0649b5a10']").click());
+                $x("//a[@href='#/app/pmt/2d5b2530-80dc-45ea-b684-8dc0649b5a10']").click());
 
         step("Проверить, что карточка открылась", () ->
-            $x("//div/h2[contains(text(),'ПМТ-0096-2020')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'ПМТ-0096-2020')]").shouldBe(visible));
     }
 }

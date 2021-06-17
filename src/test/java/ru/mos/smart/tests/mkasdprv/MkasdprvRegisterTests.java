@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.mkasdprv;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -7,7 +8,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MainPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.*;
@@ -22,11 +23,12 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class MkasdprvRegisterTests extends TestBase {
 
     @Test
+    @AllureId("3017")
     @DisplayName("Проверка атрибутивного состава реестра")
     @Tags({@Tag("mkasdprv"),@Tag("preprod"),@Tag("prod")})
     void checkingTheAttributesOfTheRegistry() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр оказания услуги Вывесок").pressEnter();
@@ -47,11 +49,12 @@ public class MkasdprvRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("3018")
     @DisplayName("Открытие карточки реестра")
     @Tags({@Tag("mkasdprv"),@Tag("preprod"),@Tag("prod")})
     void openingRegistryCard() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        MainPage.ReestrPage();
+        NavigatorPage.reestrPage();
 
         step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр оказания услуги Вывесок").pressEnter();
@@ -59,8 +62,8 @@ public class MkasdprvRegisterTests extends TestBase {
         });
 
         step("Открыть любую карточку реестра", () -> {
-            $(".input-lg").setValue("КВ-2021-109").pressEnter();
-            $(byLinkText("КВ-2021-109")).click();
+            $(".input-lg").setValue("КВ-2021-1855").pressEnter();
+            $(byLinkText("КВ-2021-1855")).click();
         });
 
         step("В карточке присутствуют вкладки:", () -> {

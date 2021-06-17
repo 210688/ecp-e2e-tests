@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -21,18 +22,15 @@ public class HearingsRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр раздела Публичные слушания")
-    @Tag("allModules")
-    @Tag("predprod")
-    @Tag("prod")
-    @Tag("regress")
+    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("hearing")})
     void openingTheRegisterHearings() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел Публичные слушания", () ->
-            $x("//span[text()='Публичные слушания']").click());
+                $x("//span[text()='Публичные слушания']").click());
 
         step("Открыт раздел Публичные слушания", () ->
-            $x("//div/h2[contains(text(),'Публичные слушания')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'Публичные слушания')]").shouldBe(visible));
 
         step("В разделе присутствуют вкладки:", () -> {
             $x("//a/span[contains(text(),'ПС в работе')]").shouldBe(visible);
