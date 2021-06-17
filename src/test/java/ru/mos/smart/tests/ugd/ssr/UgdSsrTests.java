@@ -45,7 +45,6 @@ public class UgdSsrTests extends TestBase {
                         "Обогащалась из ДГИ")));
     }
 
-
     @Test
     @AllureId("3081")
     @DisplayName("Проверка открытия карточки жителя через реестр ССР. Реестр жителей")
@@ -83,6 +82,4 @@ public class UgdSsrTests extends TestBase {
             step("Журнал изменений");
         });
     }
-
-
 }
