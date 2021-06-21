@@ -200,7 +200,45 @@ public class UgdSsrTests extends TestBase {
             $(byText("Подписанный акт")).$(".our-mandatory").shouldNotBe(visible);
         });
         step("Нажать на кнопку Отмена", () -> {
-            $$("button[_ngcontent-c13]").findBy(text("Отмена")).click();
+            $$("button").findBy(text("Отмена")).click();
+            $("app-standard-header").shouldBe(visible);
+        });
+    }
+
+    @Test
+    @AllureId("4129")
+    @DisplayName("Проверка возможности выдачи ключей")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Epic("UGD (УГД)")
+    @Feature("SSR (Суперсервис реновации ССР)")
+    void keysIssuanceTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        NavigatorPage.reestrPage();
+        step("Открыть реестр ССР. Реестр жителей", () -> {
+            $(byName("candidateSearchValue")).setValue("ССР. Реестр жителей").pressEnter();
+            $(byText("ССР. Реестр жителей")).click();
+        });
+        step("Открыть карточку жителя, нажав на поле с ФИО жителя", () -> {
+            $("showcase-builder-runtime a").click();
+            switchTo().window(1);
+        });
+        step("Перейти на вкладку Возможности", () -> {
+            $("app-standard-header").shouldBe(visible);
+            $$(".nav-link").findBy(text("Возможности")).click();
+        });
+        step("Открыть возможность Внести сведения о выдаче ключей от новой квартиры", () -> {
+            $$("td[_ngcontent-c6]").findBy(text("Внести сведения о выдаче ключей от новой квартиры")).click();
+        });
+        step("В модальном окне с предупреждением нажать на кнопку Ок", () -> {
+            $(".modal-content button").click();
+        });
+        step("Проверка  перехода в возможность 'Внести сведения о выдаче ключей от новой квартиры'", () -> {
+            $("app-standard-form-field[label='Номер акта']").shouldBe(visible).$(".our-mandatory").shouldBe(visible);
+            $("app-standard-form-field[label='Дата']").shouldBe(visible).$(".our-mandatory").shouldBe(visible);
+            $("app-standard-form-field[label='Акт']").shouldBe(visible).$(".our-mandatory").shouldNotBe(visible);
+        });
+        step("Нажать на кнопку Отмена", () -> {
+            $$("button").findBy(text("Отмена")).click();
             $("app-standard-header").shouldBe(visible);
         });
     }
