@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
+import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -56,16 +57,8 @@ public class UgdSsrTests extends TestBase {
     void checkOpenReestrSsr() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.reestrPage();
-
-        step("Найти и открыть реестр ССР. Реестр жителей", () -> {
-            $(byName("candidateSearchValue")).setValue("ССР. Реестр жителей").pressEnter();
-            $(byText("ССР. Реестр жителей")).click();
-        });
-
-        step("Открыть просмотровую форму карточки жителя", () -> {
-            $("showcase-builder-runtime a").click();
-            switchTo().window(1);
-        });
+        ReestrPage.open("ССР. Реестр жителей");
+        ReestrPage.gotoFirstCard();
 
         step("Отображается просмотровая форма карточки жителя со следующими вкладками: ", () -> {
             step("Общая информация, в которую входят вкладки:", () -> {
@@ -126,11 +119,8 @@ public class UgdSsrTests extends TestBase {
     void administrationWorkingDaysTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.reestrPage();
+        ReestrPage.open("Администрирование рабочих дней помощи в переезде");
 
-        step("Найти и открыть реестр Администрирование рабочих дней помощи в переезде", () -> {
-            $(byName("candidateSearchValue")).setValue("Администрирование рабочих дней помощи в переезде").pressEnter();
-            $(byText("Администрирование рабочих дней помощи в переезде")).click();
-        });
         step("Отображается реестр Администрирование рабочих дней помощи в переезде", () -> {
             $("h2[_ngcontent-c4]").shouldHave(text("Администрирование рабочих дней помощи в переезде"));
             $(".catalog-showcase-wrapper").$$("tr[_ngcontent-c19]").shouldHave(sizeGreaterThan(0));
@@ -146,11 +136,7 @@ public class UgdSsrTests extends TestBase {
     void shippingApplicationTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.reestrPage();
-
-        step("Найти и открыть реестр Реестр заявлений на помощь в переезде", () -> {
-            $(byName("candidateSearchValue")).setValue("Реестр заявлений на помощь в переезде").pressEnter();
-            $(byText("Реестр заявлений на помощь в переезде")).click();
-        });
+        ReestrPage.open("Реестр заявлений на помощь в переезде");
 
         step("Отображается реестр Реестр заявлений на помощь в переезде", () -> {
             $("h2[_ngcontent-c4]").shouldHave(text("Реестр заявлений на помощь в переезде"));
@@ -167,15 +153,9 @@ public class UgdSsrTests extends TestBase {
     void reestrSigningTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.reestrPage();
+        ReestrPage.open("ССР. Реестр жителей");
+        ReestrPage.gotoFirstCard();
 
-        step("Открыть реестр ССР. Реестр жителей", () -> {
-            $(byName("candidateSearchValue")).setValue("ССР. Реестр жителей").pressEnter();
-            $(byText("ССР. Реестр жителей")).click();
-        });
-        step("Открыть карточку жителя, нажав на поле с ФИО жителя", () -> {
-            $("showcase-builder-runtime a").click();
-            switchTo().window(1);
-        });
         step("Перейти на вкладку Возможности", () -> {
             $("app-standard-header").shouldBe(visible);
             $$(".nav-link").findBy(text("Возможности")).click();
@@ -214,14 +194,9 @@ public class UgdSsrTests extends TestBase {
     void keysIssuanceTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.reestrPage();
-        step("Открыть реестр ССР. Реестр жителей", () -> {
-            $(byName("candidateSearchValue")).setValue("ССР. Реестр жителей").pressEnter();
-            $(byText("ССР. Реестр жителей")).click();
-        });
-        step("Открыть карточку жителя, нажав на поле с ФИО жителя", () -> {
-            $("showcase-builder-runtime a").click();
-            switchTo().window(1);
-        });
+        ReestrPage.open("ССР. Реестр жителей");
+        ReestrPage.gotoFirstCard();
+
         step("Перейти на вкладку Возможности", () -> {
             $("app-standard-header").shouldBe(visible);
             $$(".nav-link").findBy(text("Возможности")).click();
@@ -236,6 +211,35 @@ public class UgdSsrTests extends TestBase {
             $("app-standard-form-field[label='Номер акта']").shouldBe(visible).$(".our-mandatory").shouldBe(visible);
             $("app-standard-form-field[label='Дата']").shouldBe(visible).$(".our-mandatory").shouldBe(visible);
             $("app-standard-form-field[label='Акт']").shouldBe(visible).$(".our-mandatory").shouldNotBe(visible);
+        });
+        step("Нажать на кнопку Отмена", () -> {
+            $$("button").findBy(text("Отмена")).click();
+            $("app-standard-header").shouldBe(visible);
+        });
+    }
+
+    @Test
+    @AllureId("4130")
+    @DisplayName("Проверка возможности освобождения квартиры")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Epic("UGD (УГД)")
+    @Feature("SSR (Суперсервис реновации ССР)")
+    void apartmentsVacatingTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        NavigatorPage.reestrPage();
+        ReestrPage.open("ССР. Реестр жителей");
+        ReestrPage.gotoFirstCard();
+
+        step("Перейти на вкладку Возможности", () -> {
+            $("app-standard-header").shouldBe(visible);
+            $$(".nav-link").findBy(text("Возможности")).click();
+        });
+        step("Открыть возможность Внести сведения об освобождении квартиры", () -> {
+            $$("td").findBy(text("Внести сведения об освобождении квартиры")).click();
+        });
+        step("Проверка  перехода в возможность 'Внести сведения об освобождении квартиры'", () -> {
+            $("app-standard-form-field[ng-reflect-label='Номер акта']").shouldBe(visible).$(".our-mandatory").shouldBe(visible);
+            $("app-standard-form-field[ng-reflect-label='Дата']").shouldBe(visible).$(".our-mandatory").shouldBe(visible);
         });
         step("Нажать на кнопку Отмена", () -> {
             $$("button").findBy(text("Отмена")).click();
