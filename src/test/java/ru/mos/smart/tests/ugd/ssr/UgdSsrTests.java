@@ -348,4 +348,21 @@ public class UgdSsrTests extends TestBase {
             $$(".floor-number").shouldHave(sizeGreaterThan(0));
         });
     }
+
+    @Test
+    @AllureId("4627")
+    @DisplayName("Проверка доступности реестра по заявлениям на комиссионный осмотр")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("stage"), @Tag("regress")})
+    @Epic("UGD (УГД)")
+    @Feature("SSR (Суперсервис реновации ССР)")
+    void commissionInspectionRegisterTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        NavigatorPage.reestrPage();
+        ReestrPage.open("Реестр заявлений на устранение строительных дефектов");
+
+        step("Найти и открыть реестр Реестр заявлений на устранение строительных дефектов", () -> {
+            $("h2").shouldHave(text("Реестр заявлений на устранение строительных дефектов"));
+            $("cdp-showcase-builder-search-results-table").$$("td").shouldHave(sizeGreaterThan(0));
+        });
+    }
 }
