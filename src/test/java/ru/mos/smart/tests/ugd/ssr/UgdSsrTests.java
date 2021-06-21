@@ -12,8 +12,6 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.*;
 import ru.mos.smart.tests.TestBase;
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.*;
@@ -24,6 +22,31 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 public class UgdSsrTests extends TestBase {
+    @Test
+    @AllureId("1141")
+    @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Epic("UGD (УГД)")
+    @Feature("SSR (Суперсервис реновации ССР)")
+    void ugdSsrRealEstateCatalogTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        NavigatorPage.reestrPage();
+        ReestrPage.open("ССР. Реестр отселяемых домов");
+
+        step("Реестр содержит по умолчанию такие колонки, как:", () -> {
+            $("table").$$("th").shouldHave(textsInAnyOrder(
+                    "UNOM",
+                    "Адрес",
+                    "Номер дома",
+                    "Административный округ",
+                    "Год постройки",
+                    "Скоро начнется переселение дома",
+                    "Статус обогащения",
+                    "Дата обогащения",
+                    "Количество SsoId",
+                    "Количество квартир"));
+        });
+    }
 
     @Test
     @AllureId("3080")
