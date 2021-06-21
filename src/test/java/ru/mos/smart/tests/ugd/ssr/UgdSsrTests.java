@@ -320,4 +320,32 @@ public class UgdSsrTests extends TestBase {
             $x("//button[text()='Отмена']").click();
         });
     }
+
+    @Test
+    @AllureId("4266")
+    @DisplayName("Проверка открытия дашборда 'Оперативный мониторинг за ходом переселения'")
+    @Tags({@Tag("predprod"), @Tag("allModules"), @Tag("regress")})
+    @Epic("UGD (УГД)")
+    @Feature("SSR (Суперсервис реновации ССР)")
+    void ssrChessboardTest() {
+        String address = "город Москва, улица Госпитальный Вал, дом 3 " +
+                "(УНОМ: 31354, Центральный административный округ, муниципальный округ Басманный)";
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        NavigatorPage.gotoChessboard();
+
+        step("Проверка  перехода в Единую витрину данных", () -> {
+            $(".tag.res-tag").shouldHave(attribute("class", "tag res-tag active"));
+            $(".tag.oks-tag").shouldBe(visible).shouldHave(attribute("class", "tag oks-tag"));
+        });
+        step("В поисковой строке ввести 31354 и нажать на строку " + address, () -> {
+            $("#search").setValue("31354");
+            $(".search-dropdown").$(byText(address)).click();
+        });
+        step("Проверка, что отображаются данные по отселяемому дому", () -> {
+            $(".house-card").shouldBe(visible);
+            $$(".entrance-card").shouldHave(sizeGreaterThan(0));
+            $$(".tag-text").shouldHave(sizeGreaterThan(0));
+            $$(".floor-number").shouldHave(sizeGreaterThan(0));
+        });
+    }
 }
