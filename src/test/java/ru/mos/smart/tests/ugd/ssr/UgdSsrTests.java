@@ -1,5 +1,7 @@
 package ru.mos.smart.tests.ugd.ssr;
 
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -10,10 +12,11 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.*;
 import ru.mos.smart.tests.TestBase;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -268,6 +271,53 @@ public class UgdSsrTests extends TestBase {
         step("Нажать на кнопку Отмена", () -> {
             $x("//button[contains(text(),'Отмена')]").click();
             $(byText("Все задачи")).shouldBe(visible);
+        });
+    }
+
+    @Test
+    @AllureId("4132")
+    @DisplayName(" Проверка открытия возможности Инициировать обогащения данных отселяемых домов из ДГИ")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Epic("UGD (УГД)")
+    @Feature("SSR (Суперсервис реновации ССР)")
+    void dgiPersonEnrichmentTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        NavigatorPage.actionsPage();
+        ActionsPage.searchAction("Инициировать обогащения данных отселяемых домов из ДГИ");
+
+        step("Проверка  перехода в возможность 'Инициировать обогащения данных отселяемых домов из ДГИ'", () -> {
+            $x("//h3[text()='Отселяемые дома']").shouldBe(visible);
+            $x("//h3[text()='Принять решение']").shouldBe(visible);
+            $x("//button[contains(text(),'Отмена')]").shouldBe(visible);
+            $x("//button[contains(text(),'Инициировать')]").shouldHave(attribute("disabled"));
+        });
+        step("Нажать на кнопку Добавить дом/а", () -> {
+            $x("//button[text()='Добавить дома/а']").click();
+            $(".modal-header").shouldHave(text("Выберите отселяемые дома"));
+            $("input[placeholder='УНОМ или адрес']").shouldBe(visible);
+            $(".modal-content").$$("button").shouldHave(textsInAnyOrder(
+                    "Найти",
+                    "Очистить",
+                    "Отмена",
+                    "Выбрать",
+                    "Предыдущая",
+                    "Следующая"));
+            $(".modal-content").$("th", 1).shouldHave(text("UNOM"));
+            $(".modal-content").$("th", 2).shouldHave(text("Адрес"));
+
+            ElementsCollection addressesTable = $(".modal-content").$$("tbody tr").snapshot();
+
+            addressesTable.shouldHave(sizeGreaterThan(0));
+            for (SelenideElement address : addressesTable) {
+                address.$(byName("selectedItem")).shouldBe(visible);
+            }
+        });
+        step("В модальном окне нажать на кнопку Отмена", () -> {
+            $(".modal-content").$(byText("Отмена")).click();
+            $(".modal-content").shouldNotBe(visible);
+        });
+        step("Нажать на кнопку Отмена", () -> {
+            $x("//button[text()='Отмена']").click();
         });
     }
 }
