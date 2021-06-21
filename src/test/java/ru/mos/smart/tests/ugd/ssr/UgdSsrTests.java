@@ -33,7 +33,7 @@ public class UgdSsrTests extends TestBase {
         NavigatorPage.reestrPage();
         ReestrPage.open("ССР. Реестр отселяемых домов");
 
-        step("Реестр содержит по умолчанию такие колонки, как:", () -> {
+        step("Реестр содержит по умолчанию колонки:", () -> {
             $("table").$$("th").shouldHave(textsInAnyOrder(
                     "UNOM",
                     "Адрес",
@@ -45,6 +45,30 @@ public class UgdSsrTests extends TestBase {
                     "Дата обогащения",
                     "Количество SsoId",
                     "Количество квартир"));
+        });
+    }
+
+    @Test
+    @AllureId("2557")
+    @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Epic("UGD (УГД)")
+    @Feature("SSR (Суперсервис реновации ССР)")
+    void ugdSsrPersonCatalogTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        NavigatorPage.reestrPage();
+        ReestrPage.open("ССР. Реестр жителей");
+
+        step("Реестр содержит по умолчанию колонки:", () -> {
+            $("table").$$("th").shouldHave(textsInAnyOrder(
+                    "Фамилия, имя, отчество",
+                    "Дата рождения",
+                    "Адрес отселяемого дома",
+                    "Номер квартиры",
+                    "Статус обогащения из ПФР",
+                    "Дата обогащения из ПФР",
+                    "Статус обогащения из ЕЛК",
+                    "Дата обогащения из ЕЛК"));
         });
     }
 
