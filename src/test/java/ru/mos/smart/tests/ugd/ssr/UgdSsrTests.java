@@ -13,9 +13,11 @@ import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -54,32 +56,64 @@ public class UgdSsrTests extends TestBase {
     void checkOpenReestrSsr() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.reestrPage();
-        step("Найти и открыть реестр ССР. Реестр жителей", () ->
-                $(byName("candidateSearchValue")).setValue("ССР. Реестр жителей").pressEnter());
-        $(byText("ССР. Реестр жителей")).click();
 
-        step("Открыть просмотровую форму карточки жителя", () ->
-                $("input[placeholder='Поиск по ФИО и СНИЛС жителя']").setValue("Анненков Михаил Дмитриевич").pressEnter());
-        $(byText("Анненков Михаил Дмитриевич")).click();
+        step("Найти и открыть реестр ССР. Реестр жителей", () -> {
+            $(byName("candidateSearchValue")).setValue("ССР. Реестр жителей").pressEnter();
+            $(byText("ССР. Реестр жителей")).click();
+        });
+
+        step("Открыть просмотровую форму карточки жителя", () -> {
+            $("showcase-builder-runtime a").click();
+            switchTo().window(1);
+        });
 
         step("Отображается просмотровая форма карточки жителя со следующими вкладками: ", () -> {
             step("Общая информация, в которую входят вкладки:", () -> {
-                step("в таблице есть записи", () ->
-                        $("app-person-card-general-base").$$("div _ngcontent-c18").should(sizeGreaterThan(0)));
-                step("Расширенные сведения");
+                step("Базовые сведения", () ->
+                        $("app-person-card-general-base").$$("div[_ngcontent-c18]").shouldHave(sizeGreaterThan(0)));
+                step("Расширенные сведения", () -> {
+                    $(byText("Расширенные сведения")).click();
+                    $("app-person-card-general-external").$$("div[_ngcontent-c19]").shouldHave(sizeGreaterThan(0));
+                });
+
             });
             step("Сведения о переселении, в которую входят вкладки:", () -> {
-                step("Основные сведения");
-                step("Письма с предложениями, согласия и отказы");
-                step("Договоры");
-                step("Техническая информация с вкладками:", () -> {
-                    step("Информирование жителей");
-                    step("Межведомственные взаимодействия");
+                step("Основные сведения", () -> {
+                    $(byText("Сведения о переселении")).click();
+                    $("app-person-card-resettlement-general").$$("div[_ngcontent-c22]").shouldHave(sizeGreaterThan(0));
                 });
-                step("Акты по дефектам");
+                step("Письма с предложениями, согласия и отказы", () -> {
+                    $(byText("Письма с предложениями, согласия и отказы")).click();
+                    $("app-resettlement-letters").$$("div[_ngcontent-c29]").shouldHave(sizeGreaterThan(0));
+                });
+                step("Договоры", () -> {
+                    $(byText("Договоры")).click();
+                    $("app-person-card-resettlement-contracts").$$("div[_ngcontent-c24]").shouldHave(sizeGreaterThan(0));
+                });
+                step("Техническая информация с вкладками:", () -> {
+                    step("Информирование жителей", () -> {
+                        $$(".nav-link").findBy(text("Техническая информация")).click();
+                        $("app-person-card-resettlement-tech-info").$$("div[_ngcontent-c25]").shouldHave(sizeGreaterThan(0));
+                    });
+                    step("Межведомственные взаимодействия", () -> {
+                        $(byText("Межведомственные взаимодействия")).click();
+                        $("app-person-card-resettlement-tech-info").$$("div[_ngcontent-c25]").shouldHave(sizeGreaterThan(0));
+                    });
+                });
+                step("Акты по дефектам", () -> {
+                    $(byText("Устранение дефектов")).click();
+                    $(byText("Акты по дефектам")).click();
+                    $("app-person-card-defect-acts").$("div.defect-acts").shouldBe(visible);
+                });
             });
-            step("Возможности");
-            step("Журнал изменений");
+            step("Возможности", () -> {
+                $$(".nav-link").findBy(text("Возможности")).click();
+                $("app-person-card-actions").$$("div[_ngcontent-c6]").shouldHave(sizeGreaterThan(0));
+            });
+            step("Журнал изменений", () -> {
+                $(byText("Журнал изменений")).click();
+                $("app-standard-changelog").$$("div[_ngcontent-c27]").shouldHave(sizeGreaterThan(0));
+            });
         });
     }
 }
