@@ -30,7 +30,7 @@ public class MkaopugdRegisterTests extends TestBase {
     void registerOfInstructionsUgd() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
 
         step("Найти и открыть Реестр поручений УГД", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр поручений УГД").pressEnter();
@@ -55,7 +55,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @Tags({@Tag("mkaopugd"),@Tag("preprod")})
     void cardOfRegisterUgd() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
 
         step("Найти и открыть Реестр поручений УГД", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр поручений УГД").pressEnter();

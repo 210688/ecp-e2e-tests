@@ -30,7 +30,7 @@ class CreateNotificationProjectTests extends TestBase {
     @Tags({@Tag("oati"),@Tag("preprod"),@Tag("prod")})
     void checkingNotificationSubmissionForm() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        NavigatorPage.actionsPage();
+        NavigatorPage.goToActions();
 
         step("Выбрать операцию Направить новое уведомление ОАТИ о проведении работ", () -> {
             $(byName("common")).setValue("Направить новое уведомление ОАТИ о проведении работ");

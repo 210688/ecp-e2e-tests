@@ -32,7 +32,7 @@ public class DroneRegistersTests extends TestBase {
     @Tags({@Tag("drone"), @Tag("preprod")})
     void openReestrDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.Drone();
 
         step("Проверить, что открывается  реестр Данные аэрофотосъемки", () -> {
@@ -46,7 +46,7 @@ public class DroneRegistersTests extends TestBase {
     @Tags({@Tag("drone"), @Tag("preprod")})
     void openCardDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.Drone();
 
         step("Открыть карточку реестра", () -> {
@@ -68,7 +68,7 @@ public class DroneRegistersTests extends TestBase {
     @Tags({@Tag("preprod"), @Tag("drone_track")})
     void addCartDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
-        NavigatorPage.actionsPage();
+        NavigatorPage.goToActions();
         step("Выбрать Создать карточку аэросъемки", () ->
                 $(byText(" Создать карточку аэросъемки ")).click());
         $(byName("object")).click();
@@ -106,7 +106,7 @@ public class DroneRegistersTests extends TestBase {
     @Tags({@Tag("preprod"), @Tag("drone_track")})
     void viewCartDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.Drone();
         step("Открыть карточку аэрофотосъемки", () ->
                 $(byText("2000000969_S")).click());

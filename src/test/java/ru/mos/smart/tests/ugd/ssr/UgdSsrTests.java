@@ -29,7 +29,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void reestrArm() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         step("Найти и открыть реестр АРМ сотрудника Центра информирования по переселению жителей", () ->
                 $(byText("АРМ сотрудника Центра информирования по переселению жителей")).click());
         step("Реестр содержит по умолчанию такие колонки, как:", () ->
@@ -53,7 +53,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void checkOpenReestrSsr() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         step("Найти и открыть реестр ССР. Реестр жителей", () ->
                 $(byName("candidateSearchValue")).setValue("ССР. Реестр жителей").pressEnter());
         $(byText("ССР. Реестр жителей")).click();

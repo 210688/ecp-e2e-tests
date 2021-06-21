@@ -27,7 +27,7 @@ public class FasadesRegistersTests extends TestBase {
     @Tags({@Tag("fasades"),@Tag("preprod"),@Tag("prod"), @Tag("oasi")})
     void openRegisterFasadesZhil() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
 
         step("В строке поиска найти реестр Проекты изменений фасадов зданий (жилые).", () -> {
             $(byName("candidateSearchValue")).setValue("Проекты изменений фасадов зданий (жилые)").pressEnter();

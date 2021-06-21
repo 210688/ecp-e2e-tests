@@ -31,7 +31,7 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void openTheActionsPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
-        NavigatorPage.actionsPage();
+        NavigatorPage.goToActions();
         step("Проверяем, что строка поиска доступна", () -> {
             $(byName("common")).shouldBe(visible);
         });
@@ -43,7 +43,7 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void openTheTasksPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
-        NavigatorPage.tasksPage();
+        NavigatorPage.goToTasks();
     }
 
     @Test
@@ -52,7 +52,7 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void openTheReestrPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         step("Проверка, что реестр доступен", () -> {
             $(byName("candidateSearchValue")).shouldBe(visible);
             $(byText("Название реестра")).shouldBe(visible);
@@ -68,7 +68,7 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void openTheSpravochnikPage() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
-        NavigatorPage.spravochnikPage();
+        NavigatorPage.goToSpravochnik();
         step("Проверка, что справочник доступен", () -> {
             $(byName("filterinput")).shouldBe(visible);
             $(byText("Системные справочники")).shouldBe(visible);

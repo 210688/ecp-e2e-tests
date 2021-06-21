@@ -34,7 +34,7 @@ public class SpritTests extends TestBase {
     void cardViewSprit() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.openSprit();
+        NavigatorPage.goToSprit();
         step("Открыть любую карточку", () ->
                 $(byText("ЛГР-0079-2020")).click());
         step("В карточке присутствуют блоки:", () -> {
@@ -58,7 +58,7 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void historyChangeCard() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.openSprit();
+        NavigatorPage.goToSprit();
         step("Открыть любую карточку", () ->
                 $(byText("ЛГР-0079-2020")).click());
         step("Нажать на иконку шестеренка", () ->
@@ -77,7 +77,7 @@ public class SpritTests extends TestBase {
     @Feature("SPRIT (Выдача СПРИТ)")
     void newReglament() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.openSprit();
+        NavigatorPage.goToSprit();
         step("Открыть любую карточку", () ->
                 $(byText("ЛГР-0079-2020")).click());
 
@@ -103,7 +103,7 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void Process() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.openSprit();
+        NavigatorPage.goToSprit();
         step("Открыть любую карточку", () ->
                 $(byText("ЛГР-0079-2020")).click());
         step("Нажать на иконку шестеренка", () ->

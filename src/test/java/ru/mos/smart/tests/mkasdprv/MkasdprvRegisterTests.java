@@ -28,7 +28,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tags({@Tag("mkasdprv"),@Tag("preprod"),@Tag("prod")})
     void checkingTheAttributesOfTheRegistry() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
 
         step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр оказания услуги Вывесок").pressEnter();
@@ -54,7 +54,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tags({@Tag("mkasdprv"),@Tag("preprod"),@Tag("prod")})
     void openingRegistryCard() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
 
         step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {
             $(byName("candidateSearchValue")).setValue("Реестр оказания услуги Вывесок").pressEnter();

@@ -28,7 +28,7 @@ public class EaistTests extends TestBase {
     @Tags({@Tag("preprod"), @Tag("ft")})
     void reestrEaistCanBeOpened() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
 
         step("В поисковой строке ввести ЕАИСТ", () -> {
             $(byName("candidateSearchValue")).setValue("ЕАИСТ").pressEnter();

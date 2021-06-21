@@ -26,7 +26,7 @@ public class EventmanagerActionTests extends TestBase {
     @DisplayName("Проверка доступности реестра Подписки на уведомления о событиях")
     void checkingEventmanagerReestr() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
 
         step("Найти и открыть реестр Подписки на уведомления о событиях", () -> {
             $(byName("candidateSearchValue")).setValue("Подписки на уведомления о событиях").pressEnter();

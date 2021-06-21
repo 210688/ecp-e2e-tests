@@ -29,7 +29,7 @@ class RegisterMtskCardsTests extends TestBase {
     void registerMtskCardsViewing() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         step("Перейти к реестру МТСК. Реестр организаций", () -> {
             //найти и открыть "МТСК. Реестр организаций"
             $(byName("candidateSearchValue")).setValue("МТСК. Реестр организаций").pressEnter();
