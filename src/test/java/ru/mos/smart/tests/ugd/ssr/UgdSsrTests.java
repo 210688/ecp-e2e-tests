@@ -73,6 +73,28 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @AllureId("3079")
+    @DisplayName("Проверка доступности реестра ССР. Реестр центров информирования по переселению жителей")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Epic("UGD (УГД)")
+    @Feature("SSR (Суперсервис реновации ССР)")
+    void ugdSsrCipCatalog() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        NavigatorPage.reestrPage();
+        ReestrPage.open("ССР. Реестр центров информирования по переселению жителей");
+
+        step("Реестр содержит по умолчанию колонки:", () -> {
+            $("table").$$("th").shouldHave(textsInAnyOrder(
+                    "Адрес центра переселения (округ, район)",
+                    "Отселяемых домов",
+                    "Заселяемых домов",
+                    "Дата открытия центра",
+                    "Дата закрытия центра",
+                    "Статус"));
+        });
+    }
+
+    @Test
     @AllureId("3080")
     @DisplayName("Проверка доступности реестра АРМ сотрудника Центра информирования по переселению жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
