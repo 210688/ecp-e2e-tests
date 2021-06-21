@@ -7,9 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.ReestrPage;
+import ru.mos.smart.pages.*;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -155,17 +153,11 @@ public class UgdSsrTests extends TestBase {
         NavigatorPage.reestrPage();
         ReestrPage.open("ССР. Реестр жителей");
         ReestrPage.gotoFirstCard();
+        PersonalCard.gotoTab("Возможности");
+        PersonalCard.openCapability("Внести сведения о подписании договора");
 
-        step("Перейти на вкладку Возможности", () -> {
-            $("app-standard-header").shouldBe(visible);
-            $$(".nav-link").findBy(text("Возможности")).click();
-        });
-        step("Открыть возможность Внести сведения о подписании договора", () -> {
-            $$("td[_ngcontent-c6]").findBy(text("Внести сведения о подписании договора")).click();
-        });
-        step("В модальном окне с предупреждением нажать на кнопку Ок", () -> {
-            $(".modal-content button").click();
-        });
+        PersonalCard.clickOk();
+
         step("Проверка  перехода в возможность 'Внести сведения о подписании договора'", () ->
                 $$(".wrapper-content h3[_ngcontent-c13]").shouldHave(textsInAnyOrder(
                         "Общие сведения",
@@ -196,20 +188,13 @@ public class UgdSsrTests extends TestBase {
         NavigatorPage.reestrPage();
         ReestrPage.open("ССР. Реестр жителей");
         ReestrPage.gotoFirstCard();
+        PersonalCard.gotoTab("Возможности");
+        PersonalCard.openCapability("Внести сведения о выдаче ключей от новой квартиры");
+        PersonalCard.clickOk();
 
-        step("Перейти на вкладку Возможности", () -> {
-            $("app-standard-header").shouldBe(visible);
-            $$(".nav-link").findBy(text("Возможности")).click();
-        });
-        step("Открыть возможность Внести сведения о выдаче ключей от новой квартиры", () -> {
-            $$("td[_ngcontent-c6]").findBy(text("Внести сведения о выдаче ключей от новой квартиры")).click();
-        });
-        step("В модальном окне с предупреждением нажать на кнопку Ок", () -> {
-            $(".modal-content button").click();
-        });
         step("Проверка  перехода в возможность 'Внести сведения о выдаче ключей от новой квартиры'", () -> {
-            $("app-standard-form-field[label='Номер акта']").shouldBe(visible).$(".our-mandatory").shouldBe(visible);
-            $("app-standard-form-field[label='Дата']").shouldBe(visible).$(".our-mandatory").shouldBe(visible);
+            $("app-standard-form-field[label='Номер акта']").$(".our-mandatory").shouldBe(visible);
+            $("app-standard-form-field[label='Дата']").$(".our-mandatory").shouldBe(visible);
             $("app-standard-form-field[label='Акт']").shouldBe(visible).$(".our-mandatory").shouldNotBe(visible);
         });
         step("Нажать на кнопку Отмена", () -> {
@@ -229,21 +214,60 @@ public class UgdSsrTests extends TestBase {
         NavigatorPage.reestrPage();
         ReestrPage.open("ССР. Реестр жителей");
         ReestrPage.gotoFirstCard();
+        PersonalCard.gotoTab("Возможности");
+        PersonalCard.openCapability("Внести сведения об освобождении квартиры");
 
-        step("Перейти на вкладку Возможности", () -> {
-            $("app-standard-header").shouldBe(visible);
-            $$(".nav-link").findBy(text("Возможности")).click();
-        });
-        step("Открыть возможность Внести сведения об освобождении квартиры", () -> {
-            $$("td").findBy(text("Внести сведения об освобождении квартиры")).click();
-        });
         step("Проверка  перехода в возможность 'Внести сведения об освобождении квартиры'", () -> {
-            $("app-standard-form-field[ng-reflect-label='Номер акта']").shouldBe(visible).$(".our-mandatory").shouldBe(visible);
-            $("app-standard-form-field[ng-reflect-label='Дата']").shouldBe(visible).$(".our-mandatory").shouldBe(visible);
+            $("app-standard-form-field[ng-reflect-label='Номер акта']").$(".our-mandatory").shouldBe(visible);
+            $("app-standard-form-field[ng-reflect-label='Дата']").$(".our-mandatory").shouldBe(visible);
         });
         step("Нажать на кнопку Отмена", () -> {
             $$("button").findBy(text("Отмена")).click();
             $("app-standard-header").shouldBe(visible);
+        });
+    }
+
+    @Test
+    @AllureId("4131")
+    @DisplayName("Проверка открытия возможности Инициация процесса начала переселения")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Epic("UGD (УГД)")
+    @Feature("SSR (Суперсервис реновации ССР)")
+    void processInitiatingTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        NavigatorPage.actionsPage();
+        ActionsPage.searchAction("Инициация процесса начала переселения");
+
+        step("В модальном окне нажать на кнопку Взять", () -> {
+            $(".modal-content").$(byText("Взять")).click();
+        });
+        step("Проверка  перехода в возможность 'Инициация процесса начала переселения'", () -> {
+            $x("//label[contains(text(),'Дата начала переселения')]").$(".our-mandatory").shouldBe(visible);
+            $x("//label[contains(text(),'Письмо о начале переселения от')]").$(".our-mandatory").shouldBe(visible);
+            $x("//label[contains(text(),'Номер')]").$(".our-mandatory").shouldBe(visible);
+            $x("//h3[text()='Заселяемые дома']").shouldBe(visible);
+            $x("//h3[text()='Принять решение']").shouldBe(visible);
+            $x("//button[contains(text(),'Инициировать')]").shouldBe(visible);
+            $x("//span[contains(text(),'Сохранить')]").shouldBe(visible);
+            $x("//button[contains(text(),'Отмена')]").shouldBe(visible);
+        });
+        step("Нажать на кнопку Добавить дом/а", () -> {
+            $x("//button[text()='Добавить дом/а']").click();
+            $x("//button[contains(text(),'Выбрать заселяемый дом')]").shouldBe(visible);
+            $x("//button[contains(text(),'Добавить отселяемые дома')]").shouldBe(visible);
+            $x("//button[contains(text(),'Сохранить данные переселения')]").shouldBe(visible);
+            $x("//button[contains(text(),'Отмена')]").shouldBe(visible);
+        });
+        step("Нажать на кнопку Отмена", () -> {
+            $x("//button[contains(text(),'Отмена')]").click();
+            $(".modal-content").$(byText("Отмена")).shouldBe(visible);
+        });
+        step("В модальном окне нажать на кнопку Закрыть", () -> {
+            $(".modal-content").$(byText("Закрыть")).click();
+        });
+        step("Нажать на кнопку Отмена", () -> {
+            $x("//button[contains(text(),'Отмена')]").click();
+            $(byText("Все задачи")).shouldBe(visible);
         });
     }
 }
