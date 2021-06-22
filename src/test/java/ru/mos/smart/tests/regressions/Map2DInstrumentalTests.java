@@ -19,7 +19,6 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -60,13 +59,13 @@ public class Map2DInstrumentalTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(15)).click();
+            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(20)).click();
         });
 
         step("Проверить наличие инструментов измерений: линейка, квадрат, многоугольник", () -> {
-            $((".fas.fa-ruler")).shouldBe(visible);
-            $((".fas.fa-square-full")).shouldBe(visible);
-            $((".fal.fa-draw-polygon")).shouldBe(visible);
+            $((".fas.fa-ruler")).shouldBe(visible, Duration.ofSeconds(10));
+            $((".fas.fa-square-full")).shouldBe(visible, Duration.ofSeconds(10));
+            $((".fal.fa-draw-polygon")).shouldBe(visible, Duration.ofSeconds(10));
         });
     }
 
