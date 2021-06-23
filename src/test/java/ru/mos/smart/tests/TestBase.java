@@ -10,7 +10,7 @@ import ru.mos.smart.extensions.AllureAttachmentsAfterTestExecutionCallback;
 
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
-import static ru.mos.smart.helpers.DriverHelper.*;
+import static ru.mos.smart.helpers.DriverHelper.configureSelenide;
 
 
 @ExtendWith(AllureAttachmentsAfterTestExecutionCallback.class)
@@ -29,9 +29,3 @@ public class TestBase {
         closeWebDriver();
     }
 }
-
-
-
-
-
-
