@@ -2,6 +2,7 @@ package ru.mos.smart.pages;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.switchTo;
 import static io.qameta.allure.Allure.step;
 
 /**
@@ -25,6 +26,15 @@ public class NavigatorPage {
         step("В навигаторе открыть раздел Информация -> Реестр", () -> {
             $(byText("Информация")).click();
             $(("a[href='/main/#/app/catalog-registers']")).click();
+        });
+    }
+
+    public static void gotoChessboard() {
+        step("В навигаторе открыть раздел Информация -> Дашборды -> Оперативный мониторинг за ходом переселения", () -> {
+            $(byText("Информация")).click();
+            $(byText("Дашборды")).click();
+            $(("a[href='/ssr/chessboard/']")).click();
+            switchTo().window(1);
         });
     }
 
