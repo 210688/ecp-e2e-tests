@@ -13,6 +13,9 @@ import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -60,21 +63,20 @@ public class EooRegisterTests extends TestBase {
         });
         step("Нажатие кнопки Сохранить и перейти к формированию процесса.", () ->
                 $("#assign").click());
-        step("Осуществляется переход в задачу ЭОО" , () ->
+        step("Осуществляется переход в задачу ЭОО", () ->
                 $(byText("Этап")));
     }
 
     @Test
+    @AllureId("3691")
     @DisplayName("Поиск карточки реестра ЭОО по номеру")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("eoo")})
+    @Tags({@Tag("eoo"), @Tag("oasirx"), @Tag("preprod")})
+    @Story("Реестр ЭОО")
+    @Feature("EOO (Электронные общественные обсуждения)")
+    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void searchingEooCardByNumber() {
-
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-
-        step("Из боковой панели перейти в раздел ЭОО", () -> {
-            $x("//span[text()='ЭОО']").waitUntil(visible, 10000);
-            $x("//span[text()='ЭОО']").click();
-        });
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
+        NavigatorPage.goToEoo();
 
         step("Открыт раздел Общественные обсуждения", () ->
                 $x("//div/h2[contains(text(),'Общеcтвенные обcуждения')]").shouldBe(visible));
@@ -87,5 +89,55 @@ public class EooRegisterTests extends TestBase {
 
         step("Проверить, что карточка открылась", () ->
                 $x("//div/h2[contains(text(),'ПЗЗ-00016-2021-ЭОО')]").shouldBe(visible));
+    }
+
+    @Test
+    @AllureId("3285")
+    @DisplayName("Открытие карточки ЭОО")
+    @Story("Реестр ЭОО")
+    @Feature("EOO (Электронные общественные обсуждения)")
+    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    void openCardEooTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
+        NavigatorPage.goToEoo();
+
+        step("Открыть любую карточку", () ->
+                $("[uisref='app.eoo.eoo']").click());
+
+        step("В карточке присутствуют блоки:", () -> {
+            step("Общая информация (шапка карточки)", () ->
+                    $(".title-panel.cardtpanel").shouldBe(visible));
+            step("Дополнительная информация", () ->
+                    $(byText("Дополнительная информация")).shouldBe(visible));
+            step("Этапы", () ->
+                    $(".stage.header").shouldHave(text("Этап")));
+            step("Вкладки Карточка, Статистика, Материалы, Предложения, Настройки", () -> {
+                $(".mobilecardbtns").$$("button").shouldHave(textsInAnyOrder(
+                        "Карточка",
+                        "Статистика",
+                        "Материалы",
+                        "Предложения"
+                ));
+                $(".dropdown").shouldBe(visible);
+            });
+        });
+    }
+
+    @Test
+    @AllureId("3690")
+    @DisplayName("Просмотр реестра ЭОО")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Story("Реестр ЭОО")
+    @Feature("EOO (Электронные общественные обсуждения)")
+    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    void registerEooTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
+        NavigatorPage.goToEoo();
+
+        step("В реестре есть вкладки", () ->
+                $(".nav-tabs").$$(".nav-item").shouldHave(sizeGreaterThan(0)));
+
+        step("Отображается список", () ->
+                $(".viewtable table").$$("tr").shouldHave(sizeGreaterThan(0)));
     }
 }
