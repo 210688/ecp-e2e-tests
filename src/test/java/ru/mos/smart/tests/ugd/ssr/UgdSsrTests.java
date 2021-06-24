@@ -25,7 +25,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("1141")
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void ugdSsrRealEstateCatalogTest() {
@@ -51,7 +51,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("2557")
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void ugdSsrPersonCatalogTest() {
@@ -75,7 +75,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("3079")
     @DisplayName("Проверка доступности реестра ССР. Реестр центров информирования по переселению жителей")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void ugdSsrCipCatalog() {
@@ -97,7 +97,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("3080")
     @DisplayName("Проверка доступности реестра АРМ сотрудника Центра информирования по переселению жителей")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void reestrArm() {
@@ -121,7 +121,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("3081")
     @DisplayName("Проверка открытия карточки жителя через реестр ССР. Реестр жителей")
-    @Tags({@Tag("predprod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void checkOpenReestrSsr() {
@@ -183,7 +183,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("3085")
     @DisplayName("Проверка доступности реестра Администрирование рабочих дней помощи в переезде")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void administrationWorkingDaysTest() {
@@ -200,7 +200,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("3086")
     @DisplayName("Проверка доступности реестра Реестр заявлений на помощь в переезде")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void shippingApplicationTest() {
@@ -217,7 +217,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("4128")
     @DisplayName("Проверка возможности подписания договора и акта приема-передачи")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void reestrSigningTest() {
@@ -252,7 +252,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("4129")
     @DisplayName("Проверка возможности выдачи ключей")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void keysIssuanceTest() {
@@ -278,7 +278,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("4130")
     @DisplayName("Проверка возможности освобождения квартиры")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void apartmentsVacatingTest() {
@@ -302,7 +302,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("4131")
     @DisplayName("Проверка открытия возможности Инициация процесса начала переселения")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void processInitiatingTest() {
@@ -345,7 +345,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("4132")
     @DisplayName(" Проверка открытия возможности Инициировать обогащения данных отселяемых домов из ДГИ")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void dgiPersonEnrichmentTest() {
@@ -390,7 +390,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("4266")
     @DisplayName("Проверка открытия дашборда 'Оперативный мониторинг за ходом переселения'")
-    @Tags({@Tag("predprod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void ssrChessboardTest() {
@@ -418,7 +418,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("4627")
     @DisplayName("Проверка доступности реестра по заявлениям на комиссионный осмотр")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("stage"), @Tag("regress")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void commissionInspectionRegisterTest() {

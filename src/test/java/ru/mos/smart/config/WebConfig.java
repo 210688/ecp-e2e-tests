@@ -55,4 +55,10 @@ public interface WebConfig extends Config {
 
     @Key("user.password.ugd")
     String passwordUgd();
+
+    @Key("user.login.mka")
+    String loginMka();
+
+    @Key("user.password.mka")
+    String passwordMka();
 }

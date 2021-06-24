@@ -20,7 +20,7 @@ class OasiPptTests extends TestBase {
     @Test
     @Disabled("тест не работает - надо разобраться с правами, не работает регистрация")
     @DisplayName("Проверка наличия в витрине поля для поиска")
-    @Tags({@Tag("ppt"),@Tag("preprod"),@Tag("prod"), @Tag("oasi")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("ppt")})
     void searchFieldShouldExist() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 

@@ -29,12 +29,11 @@ public class DroneRegistersTests extends TestBase {
     @Test
     @AllureId("2075")
     @DisplayName("Открытие реестра Данные аэрофотосъемки")
-    @Tags({@Tag("drone"), @Tag("preprod")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void openReestrDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.goToRegister();
-        ReestrPage.Drone();
-
+        ReestrPage.open("Данные аэрофотосъемки");
         step("Проверить, что открывается  реестр Данные аэрофотосъемки", () -> {
             $(byText("Данные аэрофотосъемки")).shouldBe(visible);
         });
@@ -43,11 +42,11 @@ public class DroneRegistersTests extends TestBase {
     @Test
     @AllureId("2076")
     @DisplayName("Переход в карточку из реестра")
-    @Tags({@Tag("drone"), @Tag("preprod")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void openCardDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.goToRegister();
-        ReestrPage.Drone();
+        ReestrPage.open("Данные аэрофотосъемки");
 
         step("Открыть карточку реестра", () -> {
             $((".form-control.input-lg")).setValue("2000000933_S").pressEnter();
@@ -65,7 +64,7 @@ public class DroneRegistersTests extends TestBase {
     @DisplayName("Создать карточку аэросъемки")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Работа с карточкой аэросъёмки")
-    @Tags({@Tag("preprod"), @Tag("drone_track")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void addCartDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.goToActions();
@@ -103,15 +102,14 @@ public class DroneRegistersTests extends TestBase {
     @DisplayName("Просмотреть карточку аэросъемки")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Работа с карточкой аэросъёмки")
-    @Tags({@Tag("preprod"), @Tag("drone_track")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void viewCartDrone() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.goToRegister();
-        ReestrPage.Drone();
+        ReestrPage.open("Данные аэрофотосъемки");
         step("Открыть карточку аэрофотосъемки", () ->
                 $(byText("2000000969_S")).click());
         step("Проверить, что карточка окрывается", () ->
                 $(byText("Технический номер заявки 2000000969_S")).should(visible));
-
     }
 }

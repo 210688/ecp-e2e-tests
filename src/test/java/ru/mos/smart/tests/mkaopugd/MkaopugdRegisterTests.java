@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.mkaopugd;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -9,12 +8,12 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
+import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
-import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
@@ -26,18 +25,14 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Реестр поручений УГД")
-    @Tags({@Tag("mkaopugd"),@Tag("preprod")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkaopugd")})
     void registerOfInstructionsUgd() {
 
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
         NavigatorPage.goToRegister();
+        ReestrPage.open("Реестр поручений УГД");
 
-        step("Найти и открыть Реестр поручений УГД", () -> {
-            $(byName("candidateSearchValue")).setValue("Реестр поручений УГД").pressEnter();
-            $x("//span[contains(text(),'Реестр поручений УГД')]").click();
-        });
-
-        step("В таблице карточек УГД присутствуют колонки:", () -> {
+        step("Реестр содержит по умолчанию колонки:", () -> {
             $x("//th[contains(text(),'№ заседания')]").shouldBe(exist);
             $x("//th[contains(text(),'№ протокола')]").shouldBe(exist);
             $x("//th[contains(text(),'Дата заседания')]").shouldBe(exist);
@@ -52,15 +47,11 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Карточка Реестра поручений УГД")
-    @Tags({@Tag("mkaopugd"),@Tag("preprod")})
+    @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkaopugd")})
     void cardOfRegisterUgd() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
         NavigatorPage.goToRegister();
-
-        step("Найти и открыть Реестр поручений УГД", () -> {
-            $(byName("candidateSearchValue")).setValue("Реестр поручений УГД").pressEnter();
-            $x("//span[contains(text(),'Реестр поручений УГД')]").click();
-        });
+        ReestrPage.open("Реестр поручений УГД");
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg").setValue("88").pressEnter();
@@ -73,23 +64,4 @@ public class MkaopugdRegisterTests extends TestBase {
             $x("//span[contains(text(),'Техническая информация')]").shouldBe(visible);
         });
     }
-
-@Test
-@AllureId("2993")
-@DisplayName("Карточка Реестра поручений УГД")
-@Epic("MKAOPUGD (МКА ОП УГД)")
-@Feature("Работа с реестром УГД")
-@Tags({@Tag("mkaopugd"),@Tag("preprod")})
-void resultCartUgd () {
-    step("Открыть Информация -> Реестры");
-    step("Найти и открыть Реестр поручений УГД");
-    step("Открыть любую карточку");
-    step("В карточке присутствуют вкладки:", () -> {
-        step("Поручение - с блоками Сведения о поручении УГД, Список задач");
-        step("История - с колонками Номер, Ответственный руководитель, Подразделение, Срок");
-        step("Техническая информация - с блоками Данные поручения в системе, Первичные данные из УГД, Данные bpm-задачи, Данные процесса");
-        step("История БП");
-    });
-}
-
 }

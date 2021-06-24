@@ -9,9 +9,11 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
+import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -51,15 +53,11 @@ public class MkasdprvRegisterTests extends TestBase {
     @Test
     @AllureId("3018")
     @DisplayName("Открытие карточки реестра")
-    @Tags({@Tag("mkasdprv"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkasdprv")})
     void openingRegistryCard() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
         NavigatorPage.goToRegister();
-
-        step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {
-            $(byName("candidateSearchValue")).setValue("Реестр оказания услуги Вывесок").pressEnter();
-            $x("//span[contains(text(),'Реестр оказания услуги Вывесок')]").click();
-        });
+        ReestrPage.open("Реестр оказания услуги Вывесок");
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg").setValue("КВ-2021-1855").pressEnter();

@@ -21,13 +21,13 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("MTSK (Московский территориальный строительный каталог)")
-@Tags({@Tag("mtsk"),@Tag("preprod"),@Tag("prod")})
+@Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("mtsk")})
 class RegisterMtskCardsTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр полной карточки реестра МТСК. Реестр организаций")
     void registerMtskCardsViewing() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
 
         NavigatorPage.goToRegister();
         step("Перейти к реестру МТСК. Реестр организаций", () -> {

@@ -16,9 +16,8 @@ import ru.mos.smart.tests.TestBase;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -30,7 +29,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @AllureId("3739")
     @DisplayName("Открытие приложения Цифровой двойник")
-    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod"), @Tag("prod"), @Tag("prod")})
     void openTheTsifrovoyDvoynik() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 

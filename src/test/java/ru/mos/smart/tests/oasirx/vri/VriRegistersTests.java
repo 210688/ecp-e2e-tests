@@ -14,7 +14,6 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -26,7 +25,7 @@ public class VriRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Проверка вкладок в реестре ВРИ")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("vri")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void openRegisterVri() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 

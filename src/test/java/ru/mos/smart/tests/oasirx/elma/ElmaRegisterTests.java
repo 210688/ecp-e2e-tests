@@ -23,7 +23,7 @@ public class ElmaRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр раздела Соответствие СП (МГГТ)")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("elma")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("elma")})
     void openingTheRegisterElma() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());

@@ -29,13 +29,11 @@ public class ActionsPage {
                     .should(visible, Duration.ofSeconds(10)).setValue(actionName);
         });
 
-        step("Найти", () -> {
-            $(withText("Найти")).click();
-        });
+        step("Найти", () ->
+                $(withText("Найти")).click());
 
-        step("Выбор найденной возможности в списке", () -> {
-            $(withText(actionName))
-                    .should(visible, Duration.ofSeconds(10)).click();
-        });
+        step("Выбор найденной возможности в списке", () ->
+                $(withText(actionName))
+                        .should(visible, Duration.ofSeconds(10)).click());
     }
 }
