@@ -19,7 +19,6 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 public class SpritTests extends TestBase {
@@ -27,7 +26,7 @@ public class SpritTests extends TestBase {
     @Test
     @AllureId("1043")
     @DisplayName("Просмотр карточки СПРИТ")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("sprit")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sprit")})
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Owner("Amidosha")

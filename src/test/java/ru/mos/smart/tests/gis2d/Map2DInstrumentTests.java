@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.gis2d;
 
-import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -10,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
+
+import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
@@ -23,11 +24,10 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Map2DInstrumentTests extends TestBase {
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
     @DisplayName("Проверка наличия инструментов измерений")
-    @Tags({@Tag("preprod"), @Tag("gis2d")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis2d")})
     void checkingAvailabilityOfInstruments() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -36,7 +36,7 @@ public class Map2DInstrumentTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(10));
         });
 
         step("Проверить наличие инструментов измерений: линейка, квадрат, многоугольник", () -> {
@@ -47,11 +47,10 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
     @DisplayName("Проверка наличия строки адресного поиска")
-    @Tags({@Tag("preprod"), @Tag("gis2d")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis2d")})
     void checkingAvailabilityOfAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -60,7 +59,7 @@ public class Map2DInstrumentTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(10));
         });
 
         step("Проверить наличие строки адресного поиска", () -> {
@@ -69,11 +68,10 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
     @DisplayName("Проверка наличия инструментов масштабирования")
-    @Tags({@Tag("preprod"), @Tag("gis2d")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis2d")})
     void checkingAvailabilityOfScalingTools() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -82,7 +80,7 @@ public class Map2DInstrumentTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(10));
         });
 
         step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
@@ -92,11 +90,10 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
     @DisplayName("Проверка наличия инструмента Мое местоположение")
-    @Tags({@Tag("preprod"), @Tag("gis2d")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis2d")})
     void checkingAvailabilityOfMyLocationTool() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -105,7 +102,7 @@ public class Map2DInstrumentTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(10));
         });
 
         step("Проверить наличия инструмента Мое местоположение", () -> {
@@ -114,11 +111,10 @@ public class Map2DInstrumentTests extends TestBase {
     }
 
     @Test
-    @Description("Используется тестовый пользователь с правами группы GIS")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
-    @Tags({@Tag("preprod"), @Tag("gis2d")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis2d")})
     void checkingAvailabilityOfInitialPositionTool() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -127,7 +123,7 @@ public class Map2DInstrumentTests extends TestBase {
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
             switchTo().window(1);
-            $(".mapboxgl-canvas").waitUntil(visible, 15000);
+            $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(10));
         });
 
         step("Проверить наличия инструмента Первоначальная позиция", () -> {

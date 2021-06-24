@@ -28,7 +28,7 @@ public class CrdRegisterTests extends TestBase {
     @Test
     @AllureId("3266")
     @DisplayName("Открытие реестра СД")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("crd")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("crd")})
     void openingTheRegisterCRD() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());

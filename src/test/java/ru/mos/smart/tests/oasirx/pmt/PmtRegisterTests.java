@@ -11,7 +11,6 @@ import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
@@ -23,7 +22,7 @@ class PmtRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр реестра ПМТ")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("pmt")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pmt")})
     void openingTheRegisterPMT() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 

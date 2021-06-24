@@ -9,13 +9,12 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
+import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -25,19 +24,14 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class mrgpTests extends TestBase {
     @Test
     @DisplayName("Проверка открытия реестра")
-    @Tags({@Tag("mrgp"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("mrgp")})
     void openReestr() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.goToRegister();
-
-        step("Поиск в реестре", () -> $(byName("candidateSearchValue"))
-                .setValue("Перечень программ").pressEnter());
+        ReestrPage.open("Перечень программ");
 
         step("Открытие реестра Перечень программ", () -> {
-            $x("//span[contains(text(),'Перечень программ')]").click();
-            $x("//span[contains(text(),'Государственная программа города Москвы «Экономиче')]").click();
-            $x("//a[contains(text(),'Мероприятия')]").click();
-            $(byText("Мероприятия")).shouldBe(visible);
+            $(byText("Перечень программ")).shouldBe(visible);
         });
     }
 }

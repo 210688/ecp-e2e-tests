@@ -35,13 +35,11 @@ public class TasksPages {
         $x("//a[@href='/main/#/app/tasks']") // Задачи
                 .should(visible, Duration.ofSeconds(10)).click();
 
-        step("Ввод наименования задачи в поиске", () -> {
-            $x("//input[@placeholder='Найти задачу']")
-                    .should(visible, Duration.ofSeconds(10)).click();
-        });
+        step("Ввод наименования задачи в поиске", () ->
+                $x("//input[@placeholder='Найти задачу']")
+                        .should(visible, Duration.ofSeconds(10)).click());
 
-        step("Выбор задачи в списке {taskName}", () -> {
-            $x("//span[contains(@class,'task-title') and contains(.,'" + tasksName + "')]").click();
-        });
+        step("Выбор задачи в списке {taskName}", () ->
+                $x("//span[contains(@class,'task-title') and contains(.,'" + tasksName + "')]").click());
     }
 }

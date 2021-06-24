@@ -24,7 +24,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class SbRegisterTests extends TestBase {
     @Test
     @DisplayName("Просмотр реестра Самострой")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("sbr")})
+    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sb")})
     void openingTheRegisterSb() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
