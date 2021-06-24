@@ -60,21 +60,20 @@ public class EooRegisterTests extends TestBase {
         });
         step("Нажатие кнопки Сохранить и перейти к формированию процесса.", () ->
                 $("#assign").click());
-        step("Осуществляется переход в задачу ЭОО" , () ->
+        step("Осуществляется переход в задачу ЭОО", () ->
                 $(byText("Этап")));
     }
 
     @Test
+    @AllureId("3691")
     @DisplayName("Поиск карточки реестра ЭОО по номеру")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("eoo")})
+    @Tags({@Tag("eoo"), @Tag("oasirx"), @Tag("preprod")})
+    @Story("Реестр ЭОО")
+    @Feature("EOO (Электронные общественные обсуждения)")
+    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void searchingEooCardByNumber() {
-
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-
-        step("Из боковой панели перейти в раздел ЭОО", () -> {
-            $x("//span[text()='ЭОО']").waitUntil(visible, 10000);
-            $x("//span[text()='ЭОО']").click();
-        });
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
+        NavigatorPage.goToEoo();
 
         step("Открыт раздел Общественные обсуждения", () ->
                 $x("//div/h2[contains(text(),'Общеcтвенные обcуждения')]").shouldBe(visible));
@@ -88,4 +87,5 @@ public class EooRegisterTests extends TestBase {
         step("Проверить, что карточка открылась", () ->
                 $x("//div/h2[contains(text(),'ПЗЗ-00016-2021-ЭОО')]").shouldBe(visible));
     }
+
 }
