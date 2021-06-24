@@ -34,7 +34,7 @@ public class EooRegisterTests extends TestBase {
     @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("eoo")})
     void addCartEoo() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
-        NavigatorPage.openEoo();
+        NavigatorPage.goToEoo();
         step("В открывшейся форме выбрать Добавить ЭОО", () ->
                 $(byText("Добавить ЭОО")).click());
         step("В открывшейся форме заполнить обязательные поля:", () -> {

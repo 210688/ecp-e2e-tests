@@ -27,7 +27,7 @@ public class EcpTest extends TestBase {
     @DisplayName("Проверка открытия реестра")
     void openReestr() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
 
         step("Проверить переход на страницу реестры" + reestrPage + ";", () -> {
             $(byText("Реестры"))

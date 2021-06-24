@@ -33,7 +33,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
     void openTheMaps() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
-        NavigatorPage.openMaps();
+        NavigatorPage.goToMaps();
         switchTo().window(1);
         step("Проверяем, что карта открылась в новой вкладке");
         $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(20));

@@ -28,7 +28,7 @@ class RegistersUvedomleniaTests extends TestBase {
     @Tags({@Tag("oati"),@Tag("preprod"),@Tag("prod")})
     void openRegisterUvedomlenia() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
 
         step("Открыть реестр ОАТИ. Уведомления", () -> {
             $(byName("candidateSearchValue")).setValue("ОАТИ. Уведомления").pressEnter();

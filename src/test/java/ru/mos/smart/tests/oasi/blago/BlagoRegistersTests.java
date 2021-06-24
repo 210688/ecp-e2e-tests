@@ -28,7 +28,7 @@ public class BlagoRegistersTests extends TestBase {
     @Tags({@Tag("blago"),@Tag("preprod"),@Tag("prod"), @Tag("oasi")})
     void checkingBlagoRegisters() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
 
         step("Выполнить поиск по Проекты благоустройства", () -> {
             $(byName("candidateSearchValue")).setValue("Проекты благоустройства").pressEnter();
