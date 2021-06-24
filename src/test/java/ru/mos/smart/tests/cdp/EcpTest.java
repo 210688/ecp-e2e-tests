@@ -4,8 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -27,7 +25,6 @@ public class EcpTest extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия реестра")
-    @Tags({@Tag("preprod"), @Tag("cdp")})
     void openReestr() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.goToRegister();
