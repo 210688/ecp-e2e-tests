@@ -122,4 +122,22 @@ public class EooRegisterTests extends TestBase {
             });
         });
     }
+
+    @Test
+    @AllureId("3690")
+    @DisplayName("Просмотр реестра ЭОО")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Story("Реестр ЭОО")
+    @Feature("EOO (Электронные общественные обсуждения)")
+    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    void registerEooTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
+        NavigatorPage.goToEoo();
+
+        step("В реестре есть вкладки", () ->
+                $(".nav-tabs").$$(".nav-item").shouldHave(sizeGreaterThan(0)));
+
+        step("Отображается список", () ->
+                $(".viewtable table").$$("tr").shouldHave(sizeGreaterThan(0)));
+    }
 }
