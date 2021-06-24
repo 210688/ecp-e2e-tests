@@ -24,7 +24,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class SbRegisterTests extends TestBase {
     @Test
     @DisplayName("Просмотр реестра Самострой")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sb")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sb")})
     void openingTheRegisterSb() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -45,7 +45,7 @@ public class SbRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра Самострой по номеру")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("sbr")})
+    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("sbr")})
     void searchingSbCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 

@@ -25,7 +25,7 @@ public class VriRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Проверка вкладок в реестре ВРИ")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void openRegisterVri() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -46,7 +46,7 @@ public class VriRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра ВРИ по номеру")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("vri")})
+    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("vri")})
     void searchingVriCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 

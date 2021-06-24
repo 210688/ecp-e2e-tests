@@ -24,7 +24,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class PklRegisterTests extends TestBase {
     @Test
     @DisplayName("Просмотр реестра ПКЛ")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pkl")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pkl")})
     void openingTheRegisterPkl() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -45,7 +45,7 @@ public class PklRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра ПКЛ по номеру")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("pkl")})
+    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("pkl")})
     void searchingPklCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());

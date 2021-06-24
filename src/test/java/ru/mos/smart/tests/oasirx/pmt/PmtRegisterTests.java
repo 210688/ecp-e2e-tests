@@ -22,7 +22,7 @@ class PmtRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр реестра ПМТ")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pmt")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pmt")})
     void openingTheRegisterPMT() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -40,7 +40,7 @@ class PmtRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск ПМТ по номеру")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("pmt")})
+    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("pmt")})
     void searchingPmtCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 

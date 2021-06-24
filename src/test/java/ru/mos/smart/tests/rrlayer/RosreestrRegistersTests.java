@@ -24,7 +24,7 @@ public class RosreestrRegistersTests extends TestBase {
 
     @Test
     @DisplayName("02.Поиск Росреестр. Земельные участки")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("rrlayer")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("rrlayer")})
     void openRosreestrZemUch() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.goToRegister();

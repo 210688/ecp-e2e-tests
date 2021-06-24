@@ -24,7 +24,7 @@ public class BlagoRegistersTests extends TestBase {
 
     @Test
     @DisplayName("Проверка наличия реестров")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("blago")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("blago")})
     void checkingBlagoRegisters() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
         NavigatorPage.goToRegister();

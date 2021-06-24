@@ -23,7 +23,7 @@ public class ElmaRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр раздела Соответствие СП (МГГТ)")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("elma")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("elma")})
     void openingTheRegisterElma() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
@@ -47,7 +47,7 @@ public class ElmaRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра Соответствие СП (МГГТ) по номеру")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("elma")})
+    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("elma")})
     void searchingElmaCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());

@@ -14,7 +14,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Epic("Платформа ЕЦП")
 @Feature("UGD (УГД)")
 @Story("Проверка доступности реестров УПСД")
-@Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("upsd")})
+@Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("upsd")})
 class RegistersUpsdTests extends TestBase {
 
     @Test

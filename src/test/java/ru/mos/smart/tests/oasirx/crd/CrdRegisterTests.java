@@ -28,7 +28,7 @@ public class CrdRegisterTests extends TestBase {
     @Test
     @AllureId("3266")
     @DisplayName("Открытие реестра СД")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("crd")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("crd")})
     void openingTheRegisterCRD() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
@@ -49,7 +49,7 @@ public class CrdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра СД по номеру")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("crd")})
+    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("crd")})
     void searchingCrdCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());

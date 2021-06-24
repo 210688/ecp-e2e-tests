@@ -21,7 +21,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("MTSK (Московский территориальный строительный каталог)")
-@Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("mtsk")})
+@Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("mtsk")})
 class RegisterMtskCardsTests extends TestBase {
 
     @Test

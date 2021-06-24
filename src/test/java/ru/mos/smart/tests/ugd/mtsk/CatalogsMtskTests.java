@@ -24,7 +24,7 @@ class CatalogsMtskTests extends TestBase {
 
     @Test
     @DisplayName("Проверка наличия каталогов МТСК")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("mtsk")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("mtsk")})
     void checkCatalogsMtsk() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
 

@@ -19,7 +19,7 @@ public class CrdspravochikTests {
     @Story("Справочники")
     @Feature("CRD (Согласование документов)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("crd")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("crd")})
     void Crdspravochiki() {
         step("Открыть по очереди перечисленные справочники, в поле код ввести crd:", () -> {
             step("Подсистемы");

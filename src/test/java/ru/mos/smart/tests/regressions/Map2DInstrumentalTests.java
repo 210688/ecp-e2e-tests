@@ -30,7 +30,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @AllureId("4020")
     @DisplayName("Открытие приложения карта")
-    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheMaps() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
         NavigatorPage.goToMaps();
@@ -48,7 +48,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("3734")
     @Description()
     @DisplayName("Проверка наличия инструментов измерений")
-    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -73,7 +73,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("3736")
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
-    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfAddressSearch() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -96,7 +96,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("3737")
     @Description()
     @DisplayName("Проверка наличия инструментов масштабирования")
-    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -120,7 +120,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("3738")
     @Description()
     @DisplayName("Проверка наличия инструмента Мое местоположение")
-    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfMyLocationTool() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -143,7 +143,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("3735")
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
-    @Tags({@Tag("regressions"),@Tag("preprod"),@Tag("prod")})
+    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
 

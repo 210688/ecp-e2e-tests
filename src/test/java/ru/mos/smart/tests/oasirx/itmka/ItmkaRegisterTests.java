@@ -26,7 +26,7 @@ public class ItmkaRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр реестра заявок Управление ИТ МКА")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("itmka")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("itmka")})
     void openingTheRegisterItmka() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -46,7 +46,7 @@ public class ItmkaRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра заявок Управление ИТ МКА по номеру")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("itmka")})
+    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("itmka")})
     void searchingItmkaCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());

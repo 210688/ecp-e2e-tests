@@ -24,7 +24,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class SzzRegisterTests extends TestBase {
     @Test
     @DisplayName("Просмотр реестра СЗЗ")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("szz")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("szz")})
     void openingTheRegisterSzz() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
@@ -45,7 +45,7 @@ public class SzzRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра СЗЗ по номеру")
-    @Tags({@Tag("preprod"), @Tag("oasirx"), @Tag("szz")})
+    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("szz")})
     void searchingSzzCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 

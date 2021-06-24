@@ -22,7 +22,7 @@ public class HearingsRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр раздела Публичные слушания")
-    @Tags({@Tag("preprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("hearing")})
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("hearing")})
     void openingTheRegisterHearings() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
 
