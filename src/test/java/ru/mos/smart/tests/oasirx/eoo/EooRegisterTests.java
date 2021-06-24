@@ -13,6 +13,9 @@ import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -88,4 +91,35 @@ public class EooRegisterTests extends TestBase {
                 $x("//div/h2[contains(text(),'ПЗЗ-00016-2021-ЭОО')]").shouldBe(visible));
     }
 
+    @Test
+    @AllureId("3285")
+    @DisplayName("Открытие карточки ЭОО")
+    @Story("Реестр ЭОО")
+    @Feature("EOO (Электронные общественные обсуждения)")
+    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    void openCardEooTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
+        NavigatorPage.goToEoo();
+
+        step("Открыть любую карточку", () ->
+                $("[uisref='app.eoo.eoo']").click());
+
+        step("В карточке присутствуют блоки:", () -> {
+            step("Общая информация (шапка карточки)", () ->
+                    $(".title-panel.cardtpanel").shouldBe(visible));
+            step("Дополнительная информация", () ->
+                    $(byText("Дополнительная информация")).shouldBe(visible));
+            step("Этапы", () ->
+                    $(".stage.header").shouldHave(text("Этап")));
+            step("Вкладки Карточка, Статистика, Материалы, Предложения, Настройки", () -> {
+                $(".mobilecardbtns").$$("button").shouldHave(textsInAnyOrder(
+                        "Карточка",
+                        "Статистика",
+                        "Материалы",
+                        "Предложения"
+                ));
+                $(".dropdown").shouldBe(visible);
+            });
+        });
+    }
 }
