@@ -30,7 +30,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void ugdSsrRealEstateCatalogTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр отселяемых домов");
 
         step("Реестр содержит по умолчанию колонки:", () -> {
@@ -56,7 +56,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void ugdSsrPersonCatalogTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр жителей");
 
         step("Реестр содержит по умолчанию колонки:", () -> {
@@ -80,7 +80,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void ugdSsrCipCatalog() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр центров информирования по переселению жителей");
 
         step("Реестр содержит по умолчанию колонки:", () -> {
@@ -126,7 +126,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void checkOpenReestrSsr() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр жителей");
         ReestrPage.gotoFirstCard();
 
@@ -188,7 +188,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void administrationWorkingDaysTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.open("Администрирование рабочих дней помощи в переезде");
 
         step("Отображается реестр Администрирование рабочих дней помощи в переезде", () -> {
@@ -205,7 +205,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void shippingApplicationTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.open("Реестр заявлений на помощь в переезде");
 
         step("Отображается реестр Реестр заявлений на помощь в переезде", () -> {
@@ -222,7 +222,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void reestrSigningTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр жителей");
         ReestrPage.gotoFirstCard();
         PersonalCard.gotoTab("Возможности");
@@ -257,7 +257,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void keysIssuanceTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр жителей");
         ReestrPage.gotoFirstCard();
         PersonalCard.gotoTab("Возможности");
@@ -283,7 +283,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void apartmentsVacatingTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр жителей");
         ReestrPage.gotoFirstCard();
         PersonalCard.gotoTab("Возможности");
@@ -307,12 +307,11 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void processInitiatingTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.actionsPage();
+        NavigatorPage.goToActions();
         ActionsPage.searchAction("Инициация процесса начала переселения");
 
-        step("В модальном окне нажать на кнопку Взять", () -> {
-            $(".modal-content").$(byText("Взять")).click();
-        });
+        step("В модальном окне нажать на кнопку Взять", () ->
+                $(".modal-content").$(byText("Взять")).click());
         step("Проверка  перехода в возможность 'Инициация процесса начала переселения'", () -> {
             $x("//label[contains(text(),'Дата начала переселения')]").$(".our-mandatory").shouldBe(visible);
             $x("//label[contains(text(),'Письмо о начале переселения от')]").$(".our-mandatory").shouldBe(visible);
@@ -334,9 +333,9 @@ public class UgdSsrTests extends TestBase {
             $x("//button[contains(text(),'Отмена')]").click();
             $(".modal-content").$(byText("Отмена")).shouldBe(visible);
         });
-        step("В модальном окне нажать на кнопку Закрыть", () -> {
-            $(".modal-content").$(byText("Закрыть")).click();
-        });
+        step("В модальном окне нажать на кнопку Закрыть", () ->
+                $(".modal-content").$(byText("Закрыть")).click());
+
         step("Нажать на кнопку Отмена", () -> {
             $x("//button[contains(text(),'Отмена')]").click();
             $(byText("Все задачи")).shouldBe(visible);
@@ -351,7 +350,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void dgiPersonEnrichmentTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.actionsPage();
+        NavigatorPage.goToActions();
         ActionsPage.searchAction("Инициировать обогащения данных отселяемых домов из ДГИ");
 
         step("Проверка  перехода в возможность 'Инициировать обогащения данных отселяемых домов из ДГИ'", () -> {
@@ -385,9 +384,7 @@ public class UgdSsrTests extends TestBase {
             $(".modal-content").$(byText("Отмена")).click();
             $(".modal-content").shouldNotBe(visible);
         });
-        step("Нажать на кнопку Отмена", () -> {
-            $x("//button[text()='Отмена']").click();
-        });
+        step("Нажать на кнопку Отмена", () -> $x("//button[text()='Отмена']").click());
     }
 
     @Test
@@ -426,7 +423,7 @@ public class UgdSsrTests extends TestBase {
     @Feature("SSR (Суперсервис реновации ССР)")
     void commissionInspectionRegisterTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.reestrPage();
+        NavigatorPage.goToRegister();
         ReestrPage.open("Реестр заявлений на устранение строительных дефектов");
 
         step("Найти и открыть реестр Реестр заявлений на устранение строительных дефектов", () -> {

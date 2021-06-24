@@ -17,9 +17,8 @@ public class NavigatorPage {
     }
 
     public static void goToTasks() {
-        step("В навигаторе открыть раздел Госуслуги и функции -> Задачи", () -> {
-            $(("a[href='/main/#/app/tasks']")).click();
-        });
+        step("В навигаторе открыть раздел Госуслуги и функции -> Задачи", () ->
+                $(("a[href='/main/#/app/tasks']")).click());
     }
 
     public static void goToRegister() {
@@ -43,16 +42,22 @@ public class NavigatorPage {
         });
     }
 
-    public static void goToSprit() {
-        step("В навигаторе открыть раздел Выдача СПРИТ", () -> {
-            $(("a[href='/oasirx/sprit/#/app/sprit/list']")).click();
+    public static void gotoChessboard() {
+        step("В навигаторе открыть раздел Информация -> Дашборды -> Оперативный мониторинг за ходом переселения", () -> {
+            $(byText("Информация")).click();
+            $(byText("Дашборды")).click();
+            $(("a[href='/ssr/chessboard/']")).click();
+            switchTo().window(1);
         });
     }
 
+    public static void goToSprit() {
+        step("В навигаторе открыть раздел Выдача СПРИТ", () ->
+                $(("a[href='/oasirx/sprit/#/app/sprit/list']")).click());
+    }
 
     public static void goToEoo() {
-        step("В Навигаторе открыть раздел ЭОО", () -> {
-            $(("a[href='/oasirx/eoo/#/app/eoo/list']")).click();
-        });
+        step("В Навигаторе открыть раздел ЭОО", () ->
+                $(("a[href='/oasirx/eoo/#/app/eoo/list']")).click());
     }
 }
