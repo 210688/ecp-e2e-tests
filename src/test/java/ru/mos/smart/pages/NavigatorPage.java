@@ -1,8 +1,8 @@
 package ru.mos.smart.pages;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 /**
@@ -59,5 +59,7 @@ public class NavigatorPage {
     public static void goToEoo() {
         step("В Навигаторе открыть раздел ЭОО", () ->
                 $(("a[href='/oasirx/eoo/#/app/eoo/list']")).click());
+        step("Открыт раздел Общественные обсуждения", () ->
+                $x("//div/h2[contains(text(),'Общеcтвенные обcуждения')]").shouldBe(visible));
     }
 }

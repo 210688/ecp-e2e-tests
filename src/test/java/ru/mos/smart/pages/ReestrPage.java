@@ -2,6 +2,7 @@ package ru.mos.smart.pages;
 
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -19,5 +20,11 @@ public class ReestrPage {
     public static void gotoFirstCard() {
         $("showcase-builder-runtime a").click();
         switchTo().window(1);
+    }
+
+    @Step("Открытие раздела СД")
+    public static void goToSdCard() {
+        $(byText("СД")).click();
+        $(byText("СД")).shouldBe(visible);
     }
 }

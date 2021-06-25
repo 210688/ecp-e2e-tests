@@ -29,21 +29,6 @@ public interface WebConfig extends Config {
     @Key("user.password.sudir")
     String password_sudir();
 
-    @Key("browser.name")
-    String getBrowserName();
-
-    @Key("user.login.oasirx")
-    String loginOasirx();
-
-    @Key("user.password.oasirx")
-    String passwordOasirx();
-
-    @Key("user.login.oasirxEoo")
-    String loginOasirxEoo();
-
-    @Key("user.password.oasirxEoo")
-    String passwordOasirxEoo();
-
     @Key("user.login.drone")
     String loginDrone();
 
@@ -61,4 +46,12 @@ public interface WebConfig extends Config {
 
     @Key("user.password.mka")
     String passwordMka();
+
+    @Key("user.login.oasirx")
+    String loginOasirx();
+
+    @Key("user.password.oasirx")
+    String passwordOasirx();
+
+
 }

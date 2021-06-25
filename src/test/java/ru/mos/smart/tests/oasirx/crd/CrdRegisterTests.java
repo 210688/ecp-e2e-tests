@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -31,13 +32,8 @@ public class CrdRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("crd")})
     void openingTheRegisterCRD() {
 
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-
-        step("Из боковой панели перейти в раздел СД", () ->
-                $(byText("СД")).click());
-
-        step("Открыт раздел СД", () ->
-                $(byText("СД")).shouldBe(visible));
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        ReestrPage.goToSdCard();
 
         step("Отображается список согласований. Присутствуют разделы:", () -> {
             $(byText("В работе")).shouldBe(visible);
@@ -48,25 +44,20 @@ public class CrdRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("4175")
     @DisplayName("Поиск карточки реестра СД по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("crd")})
     void searchingCrdCardByNumber() {
 
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-
-        step("Из боковой панели перейти в раздел СД", () ->
-                $(byText("СД")).click());
-
-        step("Открыт раздел СД", () ->
-                $(byText("СД")).shouldBe(visible));
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        ReestrPage.goToSdCard();
 
         step("В строке поиска ввести номер карточки", () ->
-                $x("//input[@type='search']").setValue("СД-0015-2021").pressEnter());
+                $x("//input[@type='search']").setValue("СД-0061-2021").pressEnter());
 
         step("Открыть найденную карточку", () ->
-                $x("//a/[@href='#/app/crd/f1703056-4463-41d3-a863-55309b8fc37d']").click());
-
+                $(byText("СД-0061-2021")).click());
         step("Проверить, что карточка открылась", () ->
-                $(byText("СД-0015-2021")).shouldBe(visible));
+                $(byText("СД-0061-2021")).shouldBe(visible));
     }
 }

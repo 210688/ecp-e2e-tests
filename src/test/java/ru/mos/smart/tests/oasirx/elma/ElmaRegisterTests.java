@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.elma;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -16,17 +17,19 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
-@Layer("web")
+
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("ELMA (ЭЛМА)")
 public class ElmaRegisterTests extends TestBase {
 
     @Test
+    @Layer("web")
+    @AllureId("3694")
     @DisplayName("Просмотр раздела Соответствие СП (МГГТ)")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("elma")})
     void openingTheRegisterElma() {
 
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () ->
                 $x("//span[text()='Соответствие СП (МГГТ)']").click());
@@ -45,15 +48,17 @@ public class ElmaRegisterTests extends TestBase {
         });
     }
 
+
     @Test
+    @Layer("web")
+    @AllureId("3695")
     @DisplayName("Поиск карточки реестра Соответствие СП (МГГТ) по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("elma")})
     void searchingElmaCardByNumber() {
 
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () -> {
-            $x("//span[text()='Соответствие СП (МГГТ)']").waitUntil(visible, 10000);
             $x("//span[text()='Соответствие СП (МГГТ)']").click();
         });
 

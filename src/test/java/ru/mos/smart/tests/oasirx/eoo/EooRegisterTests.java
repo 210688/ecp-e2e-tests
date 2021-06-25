@@ -36,10 +36,10 @@ public class EooRegisterTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("eoo")})
     void addCartEoo() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToEoo();
         step("В открывшейся форме выбрать Добавить ЭОО", () ->
-                $(byText("Добавить ЭОО")).click());
+                $(byText("Запрос на ЭОО")).click());
         step("В открывшейся форме заполнить обязательные поля:", () -> {
             step("Описание проекта – ввести текстовое описание, например, Проект планировки территории.");
             $("#description-ctr").setValue("тестовая заявка");
@@ -48,23 +48,8 @@ public class EooRegisterTests extends TestBase {
             $(byText("САО")).click();
             step("Район – выбрать из справочника районов, может быть выбрано несколько вариантов, например, Капотня, Замоскворечье.");
             $("#district-ctr").click();
-            $(byText("Коптево")).click();
-            step("Адресный ориентир – вести текстовое описание адресного ориентира, например, пр-т Мира, д. 123.");
-            $("#address-ctr").setValue("Ломоносовский проспект");
-            step("Тип исходного проекта – выбрать из справочника одно значение, например, ППТ.");
-            $("#source_type-ctr").click();
-            $(byText("ППТ")).click();
-            step("Ответственное управление – выбрать из списка управлений одно значение, например, УППТ.");
-            $("#responsibleExecutor_code-ctr").click();
-            $(byText("УППТ")).click();
-            step("Исполнитель – выбрать пользователя из списка, этот пользователь становится ответственным исполнителем по проекту, и следующая задача процесса должна быть назначена ему.");
-            $("#responsibleExecutor_login-ctr").click();
-            $(byText("Учетная для автотестов (autotest_eoo)")).click();
+            $(byText("Аэропорт")).click();
         });
-        step("Нажатие кнопки Сохранить и перейти к формированию процесса.", () ->
-                $("#assign").click());
-        step("Осуществляется переход в задачу ЭОО", () ->
-                $(byText("Этап")));
     }
 
     @Test
@@ -75,11 +60,8 @@ public class EooRegisterTests extends TestBase {
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void searchingEooCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToEoo();
-
-        step("Открыт раздел Общественные обсуждения", () ->
-                $x("//div/h2[contains(text(),'Общеcтвенные обcуждения')]").shouldBe(visible));
 
         step("В строке поиска ввести номер карточки", () ->
                 $x("//div/input[contains(@class,'form-control')]").setValue("ПЗЗ-00016-2021-ЭОО").pressEnter());
@@ -98,7 +80,7 @@ public class EooRegisterTests extends TestBase {
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void openCardEooTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToEoo();
 
         step("Открыть любую карточку", () ->
@@ -131,7 +113,7 @@ public class EooRegisterTests extends TestBase {
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void registerEooTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirxEoo(), webConfig().passwordOasirxEoo());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToEoo();
 
         step("В реестре есть вкладки", () ->

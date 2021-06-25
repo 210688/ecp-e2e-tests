@@ -1,11 +1,13 @@
 package ru.mos.smart.tests.mkaopugd;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.pages.ReestrPage;
@@ -19,11 +21,13 @@ import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
+@Layer("web")
 @Epic("MKAOPUGD (МКА ОП УГД)")
 @Feature("Работа с реестром УГД")
 public class MkaopugdRegisterTests extends TestBase {
 
     @Test
+    @AllureId("3199")
     @DisplayName("Реестр поручений УГД")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkaopugd")})
     void registerOfInstructionsUgd() {
@@ -46,6 +50,7 @@ public class MkaopugdRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("3198")
     @DisplayName("Карточка Реестра поручений УГД")
     @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkaopugd")})
     void cardOfRegisterUgd() {

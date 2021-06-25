@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.pages.ReestrPage;
@@ -20,6 +21,7 @@ import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
+@Layer("web")
 @Epic("MKASDPRV (МКА Вывески)")
 @Feature("Работа с реестрами")
 public class MkasdprvRegisterTests extends TestBase {
