@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.ugd.lrp;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -25,15 +26,12 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 class UgdLrpTests extends TestBase {
 
     @Test
+    @AllureId("1063")
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openTheApplicationFormLrp() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-
-        step("Перейти во вкладку Гослуслуги - Возможности", () -> {
-            $(byLinkText("Госуслуги и функции")).click();
-            $(byLinkText("Возможности")).click();
-        });
+        NavigatorPage.goToActions();
 
         step("Найти и выбрать операцию Подать заявку на участие в конкурсе ЛРП", () -> {
             $(".form-control").setValue("Подать заявку на участие в конкурсе ЛРП").pressEnter();
@@ -50,16 +48,13 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка открытия формы подачи" +
+    @AllureId("1062")
+    @DisplayName("Проверка открытия формы подачи " +
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openTheApplicationFormLrpOutsideOrg() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-
-        step("Перейти во вкладку Гослуслуги - Возможности", () -> {
-            $(byLinkText("Госуслуги и функции")).click();
-            $(byLinkText("Возможности")).click();
-        });
+        NavigatorPage.goToActions();
 
         step("Найти и выбрать операцию Подать заявку на участие в конкурсе ЛРП за стороннюю организацию", () -> {
             $(".form-control").setValue("Подать заявку на участие в конкурсе ЛРП за стороннюю организацию")
