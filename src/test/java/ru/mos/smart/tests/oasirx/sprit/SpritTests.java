@@ -114,6 +114,23 @@ public class SpritTests extends TestBase {
         Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
                 $$("div[class='m-t-md m-l-md m-b-md']").size() > 0);
     }
+
+    @Test
+    @AllureId("3314")
+    @DisplayName("Форма карточки: Материалы")
+    @Tags({@Tag("predprod"), @Tag("regress"), @Tag("sprit")})
+    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    @Feature("SPRIT (Выдача СПРИТ)")
+    void cardMaterialsTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        NavigatorPage.goToSprit();
+        step("Открыть любую катрочку",() ->
+                $("[heading='Запросы в работе']").$("a").click());
+        step("Нажать на кнопку Материалы", () ->
+                $x("//button[contains(text(), 'Материалы')]").click());
+        step("Открылась таблица с приложенными материалами", () ->
+                $("app-view-stage-materials-table").shouldBe(visible));
+    }
 }
 
 
