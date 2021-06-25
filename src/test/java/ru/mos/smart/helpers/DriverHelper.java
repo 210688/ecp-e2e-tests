@@ -4,6 +4,7 @@ package ru.mos.smart.helpers;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.selenide.AllureSelenide;
+import io.restassured.RestAssured;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import ru.mos.smart.drivers.CustomWebDriver;
 
@@ -19,6 +20,7 @@ public class DriverHelper {
         System.out.println(System.getProperty("tag"));
         Configuration.browser = CustomWebDriver.class.getName();
         Configuration.baseUrl = webConfig().webUrl();
+        RestAssured.baseURI = webConfig().webUrl();
         Configuration.timeout = 6000;
     }
 
