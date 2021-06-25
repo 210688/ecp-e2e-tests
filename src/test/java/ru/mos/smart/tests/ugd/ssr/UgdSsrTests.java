@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.*;
 import ru.mos.smart.tests.TestBase;
 
@@ -25,6 +26,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 public class UgdSsrTests extends TestBase {
     @Test
+    @Layer("web")
     @AllureId("1141")
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -51,6 +53,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("2557")
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -75,6 +78,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("3079")
     @DisplayName("Проверка доступности реестра ССР. Реестр центров информирования по переселению жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -97,6 +101,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("3080")
     @DisplayName("Проверка доступности реестра АРМ сотрудника Центра информирования по переселению жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -121,6 +126,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("3081")
     @DisplayName("Проверка открытия карточки жителя через реестр ССР. Реестр жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -186,6 +192,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("3085")
     @DisplayName("Проверка доступности реестра Администрирование рабочих дней помощи в переезде")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -203,6 +210,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("3086")
     @DisplayName("Проверка доступности реестра Реестр заявлений на помощь в переезде")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -220,6 +228,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("4128")
     @DisplayName("Проверка возможности подписания договора и акта приема-передачи")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -255,6 +264,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("4129")
     @DisplayName("Проверка возможности выдачи ключей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -281,6 +291,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("4130")
     @DisplayName("Проверка возможности освобождения квартиры")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -305,6 +316,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("4131")
     @DisplayName("Проверка открытия возможности Инициация процесса начала переселения")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -348,6 +360,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("4132")
     @DisplayName(" Проверка открытия возможности Инициировать обогащения данных отселяемых домов из ДГИ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -393,6 +406,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("4266")
     @DisplayName("Проверка открытия дашборда 'Оперативный мониторинг за ходом переселения'")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
@@ -421,6 +435,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("4627")
     @DisplayName("Проверка доступности реестра по заявлениям на комиссионный осмотр")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})

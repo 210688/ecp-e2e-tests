@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
@@ -24,6 +25,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class SpritTests extends TestBase {
 
     @Test
+    @Layer("web")
     @AllureId("1043")
     @DisplayName("Просмотр карточки СПРИТ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sprit")})
@@ -50,6 +52,7 @@ public class SpritTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("3315")
     @DisplayName("Форма карточки: История изменений")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
@@ -69,6 +72,7 @@ public class SpritTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("4207")
     @DisplayName("Новая форма подачи заявления (новый регламент)")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
@@ -116,6 +120,7 @@ public class SpritTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("3314")
     @DisplayName("Форма карточки: Материалы")
     @Tags({@Tag("predprod"), @Tag("regress"), @Tag("sprit")})

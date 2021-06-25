@@ -26,7 +26,7 @@ public class BlagoRegistersTests extends TestBase {
     @DisplayName("Проверка наличия реестров")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("blago")})
     void checkingBlagoRegisters() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToRegister();
         ReestrPage.open("Проекты благоустройства");
         $(byText("Реестры")).shouldBe(visible);

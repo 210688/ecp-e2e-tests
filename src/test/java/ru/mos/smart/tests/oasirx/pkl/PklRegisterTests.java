@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.pkl;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -23,10 +24,11 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 public class PklRegisterTests extends TestBase {
     @Test
+    @AllureId("3699")
     @DisplayName("Просмотр реестра ПКЛ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pkl")})
     void openingTheRegisterPkl() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел ПКЛ", () ->
                 $x("//span[text()='ПКЛ']").click());
@@ -44,11 +46,12 @@ public class PklRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("3700")
     @DisplayName("Поиск карточки реестра ПКЛ по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("pkl")})
     void searchingPklCardByNumber() {
 
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел ПКЛ", () -> {
             $x("//span[text()='ПКЛ']").waitUntil(visible, 10000);
