@@ -19,7 +19,8 @@ public class AuthorizationPage {
 
     @Step("Авторизация {login}, {password}")
     public static void openUrlWithAuthorization(String url, String login, String password) {
-        Authorization.auth(url, login, password);
+        Authorization.auth(login, password);
+        open(url);
     }
 
     public static void openUrlWithAuthorizationUI(String url, String login, String password) {

@@ -38,7 +38,7 @@ public class Authorization {
         cookiesMap.forEach((k, v) -> getWebDriver().manage().addCookie(new Cookie(k, v)));
     }
 
-    public static void auth(String url, String login, String password) {
+    public static void auth(String login, String password) {
         ExtractableResponse<Response> autocloseResponse = getAutocloseResponse();
         String requestUrl = getRequestUrl(autocloseResponse.asString());
         Map<String, String> autocloseCookies = autocloseResponse.cookies();
@@ -64,7 +64,6 @@ public class Authorization {
                         .extract().cookies();
 
         setCookies(authorizationCookies);
-        open(url);
     }
 
 }
