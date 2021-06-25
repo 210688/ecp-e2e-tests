@@ -26,7 +26,7 @@ public class ViolationRegisterTests extends TestBase {
     @DisplayName("Просмотр раздела Нарушения ОГД")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("violation")})
     void openingTheRegisterViolation() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Нарушения ОГД", () ->
                 $x("//span[text()='Нарушения ОГД']").click());
@@ -46,7 +46,7 @@ public class ViolationRegisterTests extends TestBase {
     @DisplayName("Поиск карточки реестра Нарушения ОГДпо номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("violation")})
     void searchingViolationCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Нарушения ОГД", () -> {
             $x("//span[text()='Нарушения ОГД']").waitUntil(visible, 10000);

@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.pmt;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -21,10 +22,11 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 class PmtRegisterTests extends TestBase {
 
     @Test
+    @AllureId("3701")
     @DisplayName("Просмотр реестра ПМТ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pmt")})
     void openingTheRegisterPMT() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел ПМТ", () ->
                 $x("//span[text()='ПМТ']").click());
@@ -39,10 +41,11 @@ class PmtRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("3702")
     @DisplayName("Поиск ПМТ по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("pmt")})
     void searchingPmtCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Открытие в навигаторе ПМТ", () -> $x("//span[text()='ПМТ']").click());
 

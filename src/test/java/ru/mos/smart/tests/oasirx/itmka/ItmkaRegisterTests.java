@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.itmka;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -25,10 +26,11 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class ItmkaRegisterTests extends TestBase {
 
     @Test
+    @AllureId("3698")
     @DisplayName("Просмотр реестра заявок Управление ИТ МКА")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("itmka")})
     void openingTheRegisterItmka() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Управление ИТ МКА", () ->
                 $x("//span[text()='Управление ИТ МКА']").click());
@@ -45,6 +47,7 @@ public class ItmkaRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("3697")
     @DisplayName("Поиск карточки реестра заявок Управление ИТ МКА по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("itmka")})
     void searchingItmkaCardByNumber() {

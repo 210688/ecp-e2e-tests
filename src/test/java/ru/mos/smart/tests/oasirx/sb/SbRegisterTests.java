@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.sb;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -23,10 +24,11 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 public class SbRegisterTests extends TestBase {
     @Test
+    @AllureId("3703")
     @DisplayName("Просмотр реестра Самострой")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sb")})
     void openingTheRegisterSb() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Самострой", () ->
                 $x("//span[text()='Самострой']").click());
@@ -44,10 +46,11 @@ public class SbRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("3704")
     @DisplayName("Поиск карточки реестра Самострой по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("sbr")})
     void searchingSbCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Самострой", () -> {
             $x("//span[text()='Самострой']").waitUntil(visible, 10000);

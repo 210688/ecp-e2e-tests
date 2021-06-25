@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.hearings;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -21,10 +22,11 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class HearingsRegisterTests extends TestBase {
 
     @Test
+    @AllureId("3696")
     @DisplayName("Просмотр раздела Публичные слушания")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("hearing")})
     void openingTheRegisterHearings() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Публичные слушания", () ->
                 $x("//span[text()='Публичные слушания']").click());

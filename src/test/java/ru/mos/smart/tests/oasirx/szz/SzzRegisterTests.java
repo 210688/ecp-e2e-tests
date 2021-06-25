@@ -26,7 +26,7 @@ public class SzzRegisterTests extends TestBase {
     @DisplayName("Просмотр реестра СЗЗ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("szz")})
     void openingTheRegisterSzz() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел СЗЗ", () ->
                 $x("//span[text()='СЗЗ']").click());
@@ -47,7 +47,7 @@ public class SzzRegisterTests extends TestBase {
     @DisplayName("Поиск карточки реестра СЗЗ по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("szz")})
     void searchingSzzCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел СЗЗ", () -> {
             $x("//span[text()='СЗЗ']").waitUntil(visible, 10000);
