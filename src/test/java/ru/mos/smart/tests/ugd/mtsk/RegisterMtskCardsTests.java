@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.ugd.mtsk;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
+import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -25,22 +27,16 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 class RegisterMtskCardsTests extends TestBase {
 
     @Test
+    @AllureId("1065")
     @DisplayName("Просмотр полной карточки реестра МТСК. Реестр организаций")
     void registerMtskCardsViewing() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
-
         NavigatorPage.goToRegister();
-        step("Перейти к реестру МТСК. Реестр организаций", () -> {
-            //найти и открыть "МТСК. Реестр организаций"
-            $(byName("candidateSearchValue")).setValue("МТСК. Реестр организаций").pressEnter();
-            $(byLinkText("МТСК. Реестр организаций")).click();
-        });
+        ReestrPage.open("МТСК. Реестр организаций");
 
         step("Открыть полную карточку организации \"Бийскхимстройматериалы\"", () -> {
-            //в поле поиска ввести «ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ»
             $(".form-control").setValue("ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ").pressEnter();
-            //карточка открывается через <a href="/ugd/#/app/organization/19290"></a>
-            open("/ugd/#/app/organization/19290");
+            $(byLinkText("Общество с ограниченной ответственностью \"Бийскхимстройматериалы\"")).click();
         });
 
         step("Проверка открытия карточки", () -> {
