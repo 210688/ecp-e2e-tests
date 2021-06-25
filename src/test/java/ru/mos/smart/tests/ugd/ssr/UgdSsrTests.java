@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.*;
 import ru.mos.smart.tests.TestBase;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.*;
@@ -132,35 +134,38 @@ public class UgdSsrTests extends TestBase {
 
         step("Отображается просмотровая форма карточки жителя со следующими вкладками: ", () -> {
             step("Общая информация, в которую входят вкладки:", () -> {
-                step("Базовые сведения", () ->
-                        $("app-person-card-general-base").$$("div[_ngcontent-c18]").shouldHave(sizeGreaterThan(0)));
+                step("Базовые сведения", () -> {
+                    $("app-person-card-general-base").shouldBe(visible, Duration.ofSeconds(10));
+                    $("app-person-card-general-base").$$("h3").shouldHave(sizeGreaterThan(0));
+                });
+
                 step("Расширенные сведения", () -> {
                     $(byText("Расширенные сведения")).click();
-                    $("app-person-card-general-external").$$("div[_ngcontent-c19]").shouldHave(sizeGreaterThan(0));
+                    $("app-person-card-general-external").$$("h3").shouldHave(sizeGreaterThan(0));
                 });
 
             });
             step("Сведения о переселении, в которую входят вкладки:", () -> {
                 step("Основные сведения", () -> {
                     $(byText("Сведения о переселении")).click();
-                    $("app-person-card-resettlement-general").$$("div[_ngcontent-c22]").shouldHave(sizeGreaterThan(0));
+                    $("app-person-card-resettlement-general").$$("h3").shouldHave(sizeGreaterThan(0));
                 });
                 step("Письма с предложениями, согласия и отказы", () -> {
                     $(byText("Письма с предложениями, согласия и отказы")).click();
-                    $("app-resettlement-letters").$$("div[_ngcontent-c29]").shouldHave(sizeGreaterThan(0));
+                    $("app-resettlement-letters").$$("h3").shouldHave(sizeGreaterThan(0));
                 });
                 step("Договоры", () -> {
                     $(byText("Договоры")).click();
-                    $("app-person-card-resettlement-contracts").$$("div[_ngcontent-c24]").shouldHave(sizeGreaterThan(0));
+                    $("app-person-card-resettlement-contracts").$$("tr").shouldHave(sizeGreaterThan(0));
                 });
                 step("Техническая информация с вкладками:", () -> {
                     step("Информирование жителей", () -> {
                         $$(".nav-link").findBy(text("Техническая информация")).click();
-                        $("app-person-card-resettlement-tech-info").$$("div[_ngcontent-c25]").shouldHave(sizeGreaterThan(0));
+                        $("app-person-card-resettlement-tech-info").$$("tr").shouldHave(sizeGreaterThan(0));
                     });
                     step("Межведомственные взаимодействия", () -> {
                         $(byText("Межведомственные взаимодействия")).click();
-                        $("app-person-card-resettlement-tech-info").$$("div[_ngcontent-c25]").shouldHave(sizeGreaterThan(0));
+                        $("app-person-card-resettlement-tech-info").$$("tr").shouldHave(sizeGreaterThan(0));
                     });
                 });
                 step("Акты по дефектам", () -> {
@@ -171,11 +176,11 @@ public class UgdSsrTests extends TestBase {
             });
             step("Возможности", () -> {
                 $$(".nav-link").findBy(text("Возможности")).click();
-                $("app-person-card-actions").$$("div[_ngcontent-c6]").shouldHave(sizeGreaterThan(0));
+                $("app-person-card-actions").$$("tr").shouldHave(sizeGreaterThan(0));
             });
             step("Журнал изменений", () -> {
                 $(byText("Журнал изменений")).click();
-                $("app-standard-changelog").$$("div[_ngcontent-c27]").shouldHave(sizeGreaterThan(0));
+                $("app-standard-changelog").$$("h3").shouldHave(sizeGreaterThan(0));
             });
         });
     }
