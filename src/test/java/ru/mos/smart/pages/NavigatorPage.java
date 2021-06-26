@@ -72,4 +72,9 @@ public class NavigatorPage {
         step("Из боковой панели перейти в раздел Нарушения ОГД", () ->
                 $x("//span[text()='Нарушения ОГД']").click());
     }
+
+    public static void goToPkl() {
+        step("Из боковой панели перейти в раздел ПКЛ", () ->
+                $x("//span[text()='ПКЛ']").click());
+    }
 }
