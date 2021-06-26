@@ -15,6 +15,7 @@ import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
@@ -82,20 +83,17 @@ public class SpritTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToSprit();
         step("Открыть любую карточку", () ->
-                $(byText("ЛГР-0079-2020")).click());
+                $(".viewtable").$("a").click());
 
         step("В карточке присутствуют блоки:", () -> {
+            $(".panel-body").$$("label").shouldHave(sizeGreaterThan(0));
             $(byText("Название заявки:")).shouldBe(visible);
             $(byText("Номер договора:")).shouldBe(visible);
             $(byText("Заявитель:")).shouldBe(visible);
-            $(byText("Документ заявителя:")).shouldBe(visible);
-            $(byText("Почтовый адрес:")).shouldBe(visible);
-            $(byText("Контактный тел.:")).shouldBe(visible);
             $(byText("E-mail:")).shouldBe(visible);
         });
         step("Проверка, что блоках есть записи", () ->
-                Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
-                        $$("div[class='panel-body']").size() > 0));
+                $$("div.panel-body").shouldHave(sizeGreaterThan(0), Duration.ofSeconds(10)));
     }
 
     @Test
