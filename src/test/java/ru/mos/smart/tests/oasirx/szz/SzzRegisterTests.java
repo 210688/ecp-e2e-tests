@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.oasirx.szz;
 
-import com.codeborne.selenide.CollectionCondition;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -17,7 +16,8 @@ import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -37,15 +37,14 @@ public class SzzRegisterTests extends TestBase {
         step("Открыт раздел СЗЗ", () ->
                 $("h2").shouldHave(text("Реестр CЗЗ")));
 
-        step("В разделе присутствуют вкладки:", () -> {
-            $$(".nav-item").shouldHave(textsInAnyOrder(
-                    "СЗЗ в работе",
-                    "Вcе СЗЗ",
-                    "Мои СЗЗ",
-                    "Мои задачи",
-                    "СЗЗ в ожидании"
-            ));
-        });
+        step("В разделе присутствуют вкладки:", () ->
+                $$(".nav-item").shouldHave(textsInAnyOrder(
+                        "СЗЗ в работе",
+                        "Вcе СЗЗ",
+                        "Мои СЗЗ",
+                        "Мои задачи",
+                        "СЗЗ в ожидании"
+                )));
     }
 
     @Test
