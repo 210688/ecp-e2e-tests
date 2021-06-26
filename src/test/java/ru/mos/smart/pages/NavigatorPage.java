@@ -67,4 +67,9 @@ public class NavigatorPage {
         step("Из боковой панели перейти в раздел Управление ИТ МКА", () ->
                 $x("//span[text()='Управление ИТ МКА']").click());
     }
+
+    public static void goToViolations() {
+        step("Из боковой панели перейти в раздел Нарушения ОГД", () ->
+                $x("//span[text()='Нарушения ОГД']").click());
+    }
 }

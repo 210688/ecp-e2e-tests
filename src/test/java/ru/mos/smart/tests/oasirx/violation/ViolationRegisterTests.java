@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.violation;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -8,12 +9,17 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
+import java.util.concurrent.atomic.AtomicReference;
+
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -27,9 +33,7 @@ public class ViolationRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("violation")})
     void openingTheRegisterViolation() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-
-        step("Из боковой панели перейти в раздел Нарушения ОГД", () ->
-                $x("//span[text()='Нарушения ОГД']").click());
+        NavigatorPage.goToViolations();
 
         step("Открыт раздел Административные правонарушения", () ->
                 $x("//div/h2[contains(text(),'Административные правонарушения')]").shouldBe(visible));
@@ -43,26 +47,27 @@ public class ViolationRegisterTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Поиск карточки реестра Нарушения ОГДпо номеру")
+    @AllureId("3707")
+    @DisplayName("Поиск карточки реестра Нарушения ОГД по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("violation")})
     void searchingViolationCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-
-        step("Из боковой панели перейти в раздел Нарушения ОГД", () -> {
-            $x("//span[text()='Нарушения ОГД']").waitUntil(visible, 10000);
-            $x("//span[text()='Нарушения ОГД']").click();
-        });
+        NavigatorPage.goToViolations();
 
         step("Открыт раздел Административные правонарушения", () ->
                 $x("//div/h2[contains(text(),'Административные правонарушения')]").shouldBe(visible));
 
+        AtomicReference<String> card = new AtomicReference<>("");
+
+        step("Получаем номер существующей карточки", () -> {
+            $(".viewtable").$$("tr").shouldHave(sizeGreaterThan(0));
+            card.set($(".viewtable").$("a").getText());
+        });
+
         step("В строке поиска ввести номер карточки", () ->
-                $x("//div/input[contains(@class,'form-control')]").setValue("АП-0001-2021").pressEnter());
+                $("input.form-control").setValue(card.get()).pressEnter());
 
-        step("Открыть найденную карточку", () ->
-                $$(byText("АП-0001-2021")).find(visible).click());
-
-        step("Проверить, что карточка открылась", () ->
-                $x("//div/h2[contains(text(),'АП-0001-2021')]").shouldBe(visible));
+        step("Карточка должна быть видна в результатах поиска", () ->
+                $$("app-violation-filtered-list").findBy(visible).shouldHave(text(card.get())));
     }
 }
