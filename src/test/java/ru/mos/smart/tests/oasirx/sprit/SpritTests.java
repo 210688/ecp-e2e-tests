@@ -63,7 +63,7 @@ public class SpritTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToSprit();
         step("Открыть любую карточку", () ->
-                $(byText("ЛГР-0079-2020")).click());
+                $(".viewtable").$("a").click());
         step("Нажать на иконку шестеренка", () ->
                 $("#ddm").click());
         step("Выбрать История изменений", () ->
