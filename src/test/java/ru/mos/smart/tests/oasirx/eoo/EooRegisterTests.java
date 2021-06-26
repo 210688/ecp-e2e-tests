@@ -13,6 +13,8 @@ import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.text;
@@ -62,15 +64,21 @@ public class EooRegisterTests extends TestBase {
     void searchingEooCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToEoo();
+        AtomicReference<String> card = new AtomicReference<>("");
+
+        step("Получаем номер существующей карточки", () -> {
+            $(".viewtable").$$("tr").shouldHave(sizeGreaterThan(0));
+            card.set($(".viewtable").$("a").getText());
+        });
 
         step("В строке поиска ввести номер карточки", () ->
-                $x("//div/input[contains(@class,'form-control')]").setValue("ПЗЗ-00016-2021-ЭОО").pressEnter());
+                $x("//div/input[contains(@class,'form-control')]").setValue(card.get()).pressEnter());
 
         step("Открыть найденную карточку", () ->
-                $$(byText("ПЗЗ-00016-2021-ЭОО")).find(visible).click());
+                $$(byText(card.get())).find(visible).click());
 
         step("Проверить, что карточка открылась", () ->
-                $x("//div/h2[contains(text(),'ПЗЗ-00016-2021-ЭОО')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'" + card.get() +  "')]").shouldBe(visible));
     }
 
     @Test
