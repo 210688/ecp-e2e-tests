@@ -77,4 +77,9 @@ public class NavigatorPage {
         step("Из боковой панели перейти в раздел ПКЛ", () ->
                 $x("//span[text()='ПКЛ']").click());
     }
+
+    public static void goToPmt() {
+        step("Из боковой панели перейти в раздел ПМТ", () ->
+                $x("//span[text()='ПМТ']").click());
+    }
 }
