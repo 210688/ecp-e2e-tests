@@ -34,11 +34,11 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Owner("Amidosha")
     void cardViewSprit() {
-
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToSprit();
+
         step("Открыть любую карточку", () ->
-                $(byText("ЛГР-0079-2020")).click());
+                $(".viewtable").$("a").click());
         step("В карточке присутствуют блоки:", () -> {
             step("Этапы");
             $(byText("Этап")).shouldBe(visible);
