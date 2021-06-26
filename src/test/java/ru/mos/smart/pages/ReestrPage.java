@@ -16,6 +16,10 @@ public class ReestrPage {
         $(byText(registerName)).click();
     }
 
+    public static void search(String registerName) {
+        $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
+    }
+
     @Step("Открыть карточку жителя, нажав на поле с ФИО жителя")
     public static void gotoFirstCard() {
         $("showcase-builder-runtime a").click();

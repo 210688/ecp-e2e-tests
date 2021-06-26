@@ -62,4 +62,29 @@ public class NavigatorPage {
         step("Открыт раздел Общественные обсуждения", () ->
                 $x("//div/h2[contains(text(),'Общеcтвенные обcуждения')]").shouldBe(visible));
     }
+
+    public static void goToItmka() {
+        step("Из боковой панели перейти в раздел Управление ИТ МКА", () ->
+                $x("//span[text()='Управление ИТ МКА']").click());
+    }
+
+    public static void goToViolations() {
+        step("Из боковой панели перейти в раздел Нарушения ОГД", () ->
+                $x("//span[text()='Нарушения ОГД']").click());
+    }
+
+    public static void goToPkl() {
+        step("Из боковой панели перейти в раздел ПКЛ", () ->
+                $x("//span[text()='ПКЛ']").click());
+    }
+
+    public static void goToPmt() {
+        step("Из боковой панели перейти в раздел ПМТ", () ->
+                $x("//span[text()='ПМТ']").click());
+    }
+
+    public static void goToSzz() {
+        step("Из боковой панели перейти в раздел СЗЗ", () ->
+                $x("//span[text()='СЗЗ']").click());
+    }
 }

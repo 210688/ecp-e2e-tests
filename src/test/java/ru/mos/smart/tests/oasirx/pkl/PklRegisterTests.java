@@ -9,12 +9,17 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
+import java.util.concurrent.atomic.AtomicReference;
+
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -29,9 +34,7 @@ public class PklRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pkl")})
     void openingTheRegisterPkl() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-
-        step("Из боковой панели перейти в раздел ПКЛ", () ->
-                $x("//span[text()='ПКЛ']").click());
+        NavigatorPage.goToPkl();
 
         step("Открыт раздел ПКЛ", () ->
                 $x("//div/h2[contains(text(),'ПКЛ')]").shouldBe(visible));
@@ -52,22 +55,25 @@ public class PklRegisterTests extends TestBase {
     void searchingPklCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-
-        step("Из боковой панели перейти в раздел ПКЛ", () -> {
-            $x("//span[text()='ПКЛ']").waitUntil(visible, 10000);
-            $x("//span[text()='ПКЛ']").click();
-        });
+        NavigatorPage.goToPkl();
 
         step("Открыт раздел ПКЛ", () ->
                 $x("//div/h2[contains(text(),'ПКЛ')]").shouldBe(visible));
 
+        AtomicReference<String> card = new AtomicReference<>("");
+
+        step("Получаем номер существующей карточки", () -> {
+            $(".viewtable").$$("tr").shouldHave(sizeGreaterThan(0));
+            card.set($(".viewtable").$("a").getText());
+        });
+
         step("В строке поиска ввести номер карточки", () ->
-                $x("//div/input[contains(@class,'form-control')]").setValue("ПК-0016-2021-ПКЛ").pressEnter());
+                $("input.form-control").setValue(card.get()).pressEnter());
 
         step("Открыть найденную карточку", () ->
-                $$(byText("ПК-0016-2021-ПКЛ")).find(visible).click());
+                $$(byText(card.get())).find(visible).click());
 
         step("Проверить, что карточка открылась", () ->
-                $x("//div/h2[contains(text(),'ПК-0016-2021-ПКЛ')]").shouldBe(visible));
+                $("h2").shouldHave(text(card.get())));
     }
 }

@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.gis2d;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -24,6 +25,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Map2DInstrumentTests extends TestBase {
 
     @Test
+    @AllureId("3604")
     @DisplayName("Проверка наличия инструментов измерений")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis2d")})
     void checkingAvailabilityOfInstruments() {

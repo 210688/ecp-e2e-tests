@@ -13,6 +13,9 @@ import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
+import java.util.concurrent.atomic.AtomicReference;
+
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
@@ -107,9 +110,16 @@ public class DroneRegistersTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.goToRegister();
         ReestrPage.open("Данные аэрофотосъемки");
+
+        AtomicReference<String> card = new AtomicReference<>("");
+
+        step("Получаем номер существующей карточки", () -> {
+            $(".search-result-table tbody").$$("tr").shouldHave(sizeGreaterThan(0));
+            card.set($(".search-result-table").$("a").getText());
+        });
         step("Открыть карточку аэрофотосъемки", () ->
-                $(byText("2000000969_S")).click());
+                $(byText(card.get())).click());
         step("Проверить, что карточка окрывается", () ->
-                $(byText("Технический номер заявки 2000000969_S")).should(visible));
+                $(byText("Технический номер заявки " + card.get())).should(visible));
     }
 }

@@ -15,6 +15,7 @@ import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
@@ -33,11 +34,11 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Owner("Amidosha")
     void cardViewSprit() {
-
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToSprit();
+
         step("Открыть любую карточку", () ->
-                $(byText("ЛГР-0079-2020")).click());
+                $(".viewtable").$("a").click());
         step("В карточке присутствуют блоки:", () -> {
             step("Этапы");
             $(byText("Этап")).shouldBe(visible);
@@ -62,7 +63,7 @@ public class SpritTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToSprit();
         step("Открыть любую карточку", () ->
-                $(byText("ЛГР-0079-2020")).click());
+                $(".viewtable").$("a").click());
         step("Нажать на иконку шестеренка", () ->
                 $("#ddm").click());
         step("Выбрать История изменений", () ->
@@ -82,20 +83,17 @@ public class SpritTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToSprit();
         step("Открыть любую карточку", () ->
-                $(byText("ЛГР-0079-2020")).click());
+                $(".viewtable").$("a").click());
 
         step("В карточке присутствуют блоки:", () -> {
+            $(".panel-body").$$("label").shouldHave(sizeGreaterThan(0));
             $(byText("Название заявки:")).shouldBe(visible);
             $(byText("Номер договора:")).shouldBe(visible);
             $(byText("Заявитель:")).shouldBe(visible);
-            $(byText("Документ заявителя:")).shouldBe(visible);
-            $(byText("Почтовый адрес:")).shouldBe(visible);
-            $(byText("Контактный тел.:")).shouldBe(visible);
             $(byText("E-mail:")).shouldBe(visible);
         });
         step("Проверка, что блоках есть записи", () ->
-                Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
-                        $$("div[class='panel-body']").size() > 0));
+                $$("div.panel-body").shouldHave(sizeGreaterThan(0), Duration.ofSeconds(10)));
     }
 
     @Test
@@ -104,19 +102,18 @@ public class SpritTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
-    void Process() {
+    void process() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToSprit();
         step("Открыть любую карточку", () ->
-                $(byText("ЛГР-0079-2020")).click());
+                $(".viewtable").$("a").click());
         step("Нажать на иконку шестеренка", () ->
                 $("#ddm").click());
         step("В блоке Бизнес процессы нажать на иконку Процесс", () ->
                 $(byText("Процесс")).click());
         step("Открывается страница со схемой бизнес-процесса", () ->
                 $(byText("Процесс СПРИТ")).shouldBe(visible));
-        Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
-                $$("div[class='m-t-md m-l-md m-b-md']").size() > 0);
+        $$("div[class='m-t-md m-l-md m-b-md']").shouldHave(sizeGreaterThan(0), Duration.ofSeconds(10));
     }
 
     @Test
@@ -129,7 +126,7 @@ public class SpritTests extends TestBase {
     void cardMaterialsTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToSprit();
-        step("Открыть любую катрочку",() ->
+        step("Открыть любую катрочку", () ->
                 $("[heading='Запросы в работе']").$("a").click());
         step("Нажать на кнопку Материалы", () ->
                 $x("//button[contains(text(), 'Материалы')]").click());

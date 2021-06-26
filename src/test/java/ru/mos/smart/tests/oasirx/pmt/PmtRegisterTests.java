@@ -9,10 +9,16 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
+import java.util.concurrent.atomic.AtomicReference;
+
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -27,9 +33,7 @@ class PmtRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pmt")})
     void openingTheRegisterPMT() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-
-        step("Из боковой панели перейти в раздел ПМТ", () ->
-                $x("//span[text()='ПМТ']").click());
+        NavigatorPage.goToPmt();
 
         step("Открыт раздел Межевание территорий", () ->
                 $x("//div/h2[contains(text(),'Межевание территорий')]").shouldBe(visible));
@@ -46,16 +50,22 @@ class PmtRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("pmt")})
     void searchingPmtCardByNumber() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        NavigatorPage.goToPmt();
 
-        step("Открытие в навигаторе ПМТ", () -> $x("//span[text()='ПМТ']").click());
+        AtomicReference<String> card = new AtomicReference<>("");
+
+        step("Получаем номер существующей карточки", () -> {
+            $(".viewtable").$$("tr").shouldHave(sizeGreaterThan(0));
+            card.set($(".viewtable").$("a").getText());
+        });
 
         step("В строке поиска ввести номер ПМТ", () ->
-                $x("//div/input[contains(@class,'form-control')]").setValue("ПМТ-0096-2020").pressEnter());
+                $("input.form-control").setValue(card.get()).pressEnter());
 
         step("Открыть найденную карточку", () ->
-                $x("//a[@href='#/app/pmt/2d5b2530-80dc-45ea-b684-8dc0649b5a10']").click());
+                $$(byText(card.get())).find(visible).click());
 
         step("Проверить, что карточка открылась", () ->
-                $x("//div/h2[contains(text(),'ПМТ-0096-2020')]").shouldBe(visible));
+                $("h2").shouldHave(text(card.get())));
     }
 }

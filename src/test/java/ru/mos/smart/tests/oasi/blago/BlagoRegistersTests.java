@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasi.blago;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -12,9 +13,9 @@ import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selenide.$;
+import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
@@ -23,12 +24,16 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class BlagoRegistersTests extends TestBase {
 
     @Test
+    @AllureId("2716")
     @DisplayName("Проверка наличия реестров")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("blago")})
     void checkingBlagoRegisters() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToRegister();
-        ReestrPage.open("Проекты благоустройства");
-        $(byText("Реестры")).shouldBe(visible);
+        ReestrPage.search("Проекты благоустройства");
+
+        step("Должны быть найдены Проекты благоустройства", () ->
+                $(".search-result-table tbody").$$("tr").shouldHave(sizeGreaterThan(0)));
+
     }
 }
