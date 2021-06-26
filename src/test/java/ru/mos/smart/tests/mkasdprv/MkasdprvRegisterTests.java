@@ -31,13 +31,9 @@ public class MkasdprvRegisterTests extends TestBase {
     @DisplayName("Проверка атрибутивного состава реестра")
     @Tags({@Tag("mkasdprv"), @Tag("predprod"), @Tag("prod")})
     void checkingTheAttributesOfTheRegistry() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
         NavigatorPage.goToRegister();
-
-        step("Найти и открыть реестр Реестр оказания услуги Вывесок", () -> {
-            $(byName("candidateSearchValue")).setValue("Реестр оказания услуги Вывесок").pressEnter();
-            $x("//span[contains(text(),'Реестр оказания услуги Вывесок')]").click();
-        });
+        ReestrPage.open("Реестр оказания услуги Вывесок");
 
         step("В реестре присутствуют поля:", () -> {
             $x("//th[contains(text(),'Номер заявления')]").shouldBe(exist);
