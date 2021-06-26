@@ -62,4 +62,9 @@ public class NavigatorPage {
         step("Открыт раздел Общественные обсуждения", () ->
                 $x("//div/h2[contains(text(),'Общеcтвенные обcуждения')]").shouldBe(visible));
     }
+
+    public static void goToItmka() {
+        step("Из боковой панели перейти в раздел Управление ИТ МКА", () ->
+                $x("//span[text()='Управление ИТ МКА']").click());
+    }
 }

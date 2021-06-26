@@ -10,7 +10,10 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
+
+import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
@@ -31,9 +34,7 @@ public class ItmkaRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("itmka")})
     void openingTheRegisterItmka() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-
-        step("Из боковой панели перейти в раздел Управление ИТ МКА", () ->
-                $x("//span[text()='Управление ИТ МКА']").click());
+        NavigatorPage.goToItmka();
 
         step("Открыт раздел Управление ИТ МКА", () ->
                 $x("//div/h2[contains(text(),'Управление информатизацией МКА')]").shouldBe(visible));
@@ -51,13 +52,8 @@ public class ItmkaRegisterTests extends TestBase {
     @DisplayName("Поиск карточки реестра заявок Управление ИТ МКА по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("itmka")})
     void searchingItmkaCardByNumber() {
-
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
-
-        step("Из боковой панели перейти в раздел Управление ИТ МКА", () -> {
-            $x("//span[text()='Управление ИТ МКА']").waitUntil(visible, 10000);
-            $x("//span[text()='Управление ИТ МКА']").click();
-        });
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        NavigatorPage.goToItmka();
 
         step("Открыт раздел Управление ИТ МКА", () ->
                 $x("//div/h2[contains(text(),'Управление информатизацией МКА')]").shouldBe(visible));
