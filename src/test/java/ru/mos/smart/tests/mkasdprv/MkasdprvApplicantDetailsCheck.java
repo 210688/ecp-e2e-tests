@@ -244,13 +244,19 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void refuseDocsTest() {
-        step("Авторизоваться под ролью «Служба одного окна»");
-        step("Принять в работу задачу «Проверить данные заявления»");
-        step("В поле «Принять решение по заявлению» выбрать радиобаттон «Отказать в приеме документов»");
-        step("В поле «Причина отказа» выбрать причину из выпадающего списка");
-        step("В поле «Комментарий» ввести произвольное текстовое значение");
-        step("Нажать на кнопку «Завершить задачу»");
-        step("Нажать на кнопку «Сформировать файл решения»");
+        MkasdprvPage mkasdprvPage = new MkasdprvPage();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        TasksPage.takeUnusedTask("Проверить данные заявления");
+        //TasksPage.openTaskByDocumentName("КВ-2021-2375");
+        mkasdprvPage.selectRefuseDocsRadioButton();
+        mkasdprvPage.selectReason();
+        mkasdprvPage.addComment("ТЕСТ");
+
+        step("Нажать на кнопку «Завершить задачу»", () -> {
+            $$("button").findBy(text("Завершить задачу")).click();
+            $$(".toast-message").findBy(text("Файл заключения: необходимо сформировать файл!")).shouldBe(visible);
+        });
+        mkasdprvPage.createDecisionFile();
         step("Нажать на кнопку «Завершить задачу»");
     }
 }
