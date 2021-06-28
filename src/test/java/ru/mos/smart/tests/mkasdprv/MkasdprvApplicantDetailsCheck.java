@@ -18,7 +18,6 @@ import java.time.Duration;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -97,10 +96,13 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
                 $("cdp-ex-file-manager.to-check-File").shouldBe(visible));
         step("Нажать на кнопку «Завершить задачу»", () -> {
             $$("button").findBy(text("Завершить задачу")).click();
-            $(".toast-message").shouldHave(text("Файл заключения: необходимо сформировать файл!"));
+            $$(".toast-message").findBy(text("Файл заключения: необходимо сформировать файл!")).shouldBe(visible);
         });
-        step("Нажать на кнопку «Закрыть»", () ->
-                $$("button").findBy(text("Закрыть")).click());
+        step("Нажать на кнопку «Закрыть»", () -> {
+            $$("button").findBy(text("Закрыть")).click();
+            $(".modal-content").shouldHave(text("На форме имеются несохраненные изменения.\n" +
+                    "Все равно закрыть форму?"));
+        });
         step("В модальном окне проверить кнопки «Отмена» и «Да»", () -> {
             $(".modal-content").$(".btn-primary").shouldBe(visible);
             $(".modal-content").$(".btn-warning").click();
