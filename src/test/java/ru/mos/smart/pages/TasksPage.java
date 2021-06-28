@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 
-public class TasksPages {
+public class TasksPage {
     public static String
             task1 = "Определение разработчика материалов",
             task2 = "Подготовка материалов для ЭОО",
@@ -41,5 +41,17 @@ public class TasksPages {
 
         step("Выбор задачи в списке {taskName}", () ->
                 $x("//span[contains(@class,'task-title') and contains(.,'" + tasksName + "')]").click());
+    }
+
+    @Step("Принять в работу задачу «{taskName}»")
+    public static void takeUnusedTask(String taskName) {
+        $("cdp-my-tasks-menu").$(byText(taskName)).click();
+        $("#my-task-showcase").$("[title='Исполнитель не назначен']").click();
+        $(".modal-content").$(byText("Взять")).click();
+    }
+    @Step("Принять в работу задачу «{taskName}»")
+    public static void takeTask(String taskName) {
+        $("cdp-my-tasks-menu").$(byText(taskName)).click();
+        $("#my-task-showcase").$(byText(taskName)).click();
     }
 }

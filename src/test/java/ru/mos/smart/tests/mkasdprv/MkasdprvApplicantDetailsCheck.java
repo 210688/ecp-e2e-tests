@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.pages.TasksPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -18,6 +19,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -37,12 +39,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Feature("Автотесты")
     void mainControlsTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-
-        step("Принять в работу задачу «Проверить данные заявления»", () -> {
-            $("cdp-my-tasks-menu").$(byText("Проверить данные заявления")).click();
-            $("#my-task-showcase").$("[title='Исполнитель не назначен']").click();
-            $(".modal-content").$(byText("Взять")).click();
-        });
+        TasksPage.takeUnusedTask("Проверить данные заявления");
 
         ElementsCollection dataBlocks = $$(".main-container .title");
 
@@ -109,5 +106,21 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         });
         step("Нажать на кнопку «Сохранить без завершения задачи»", () ->
                 $$("button").findBy(text("Сохранить без завершения задачи")).click());
+    }
+
+    @Test
+    @AllureId("4806")
+    @DisplayName("02. Проверка перехода в карточку заявления")
+    @Tags({@Tag("prod"), @Tag("mkasdprv")})
+    @Epic("MKASDPRV (МКА Вывески)")
+    @Feature("Автотесты")
+    void applicationCardTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        TasksPage.takeUnusedTask("Проверить данные заявления");
+
+        step("В шапке задачи нажать на номер заявления", () -> {
+            $(byName("docNumber")).click();
+            $("h1").shouldHave(text("Карточка заявления"));
+        });
     }
 }
