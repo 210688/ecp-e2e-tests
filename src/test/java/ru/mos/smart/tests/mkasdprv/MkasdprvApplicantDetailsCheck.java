@@ -139,8 +139,8 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Feature("Автотесты")
     void negativeDecisionTest() {
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-        //TasksPage.takeUnusedTask("Проверить данные заявления");
-        TasksPage.openTaskByDocumentName("КВ-2021-2375");
+        TasksPage.takeUnusedTask("Проверить данные заявления");
+
         step("В поле «Принять решение по заявлению» выбрать радиобаттон «Отказать в приеме документов»", () -> {
             $("[for=Refuse]").parent().$("input").click();
             $("[placeholder=Причина]").click();
@@ -208,6 +208,9 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
             Selenide.executeJavaScript("$(\"input[type='file']\").last().val('');");
             $$("input[type='file']").last().uploadFromClasspath("files_for_tests/doc.doc");
             $("[title='doc.doc']").shouldBe(visible);
+            $$(".ex-small-file-box").last().$(".fa.fa-trash-o").click();
+            $(".modal-content").$(".btn-primary").click();
+            $("[title='doc.doc']").shouldNotBe(visible);
         });
     }
 }
