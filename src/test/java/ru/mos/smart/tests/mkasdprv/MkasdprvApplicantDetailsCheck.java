@@ -21,8 +21,7 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -89,8 +88,14 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
             $$(".ex-small-file-box").last().$(".fa.fa-trash-o").click();
             $(".modal-content").$(".btn-primary").click();
         });
-        step("Проверить, что после удаления файла отображается область с возможностью загрузки нового файла, добавить новый файл", () ->
-                $("cdp-ex-file-manager.to-check-File").shouldBe(visible));
+        step("Проверить, что после удаления файла отображается область с возможностью загрузки нового файла, добавить новый файл", () -> {
+            $("cdp-ex-file-manager.to-check-File").shouldBe(visible);
+            $$("input[type='file']").last().uploadFromClasspath("files_for_tests/doc.docx");
+            $("[title='doc.docx']").shouldBe(visible);
+            $$("button").findBy(text("Подписать и завершить задачу")).shouldBe(visible);
+            $$(".ex-small-file-box").last().$(".fa.fa-trash-o").click();
+            $(".modal-content").$(".btn-primary").click();
+        });
         step("Нажать на кнопку «Завершить задачу»", () -> {
             $$("button").findBy(text("Завершить задачу")).click();
             $$(".toast-message").findBy(text("Файл заключения: необходимо сформировать файл!")).shouldBe(visible);

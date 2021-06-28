@@ -54,4 +54,9 @@ public class TasksPage {
         $("cdp-my-tasks-menu").$(byText(taskName)).click();
         $("#my-task-showcase").$(byText(taskName)).click();
     }
+
+    @Step("Открыть задачу по имени документа «{documentName}»")
+    public static void openTaskByDocumentName(String documentName) {
+        $x("//*[@id='my-task-showcase']//*[contains(text(), '" + documentName + "')]").click();
+    }
 }
