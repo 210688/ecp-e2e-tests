@@ -1,7 +1,6 @@
 package ru.mos.smart.tests.mkasdprv;
 
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
@@ -10,8 +9,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.pages.MkasdprvPage;
 import ru.mos.smart.pages.TasksPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -30,6 +32,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Layer("web")
 @Epic("MKASDPRV (МКА Вывески)")
 @Feature("Проверить данные заявления")
+@Execution(ExecutionMode.SAME_THREAD)
 public class MkasdprvApplicantDetailsCheck extends TestBase {
 
     @Test
@@ -39,8 +42,10 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void mainControlsTest() {
+        MkasdprvPage mkasdprvPage = new MkasdprvPage();
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.takeUnusedTask("Проверить данные заявления");
+        //TasksPage.openTaskByDocumentName("КВ-2021-2379");
 
         ElementsCollection dataBlocks = $$(".main-container .title");
 
@@ -77,10 +82,9 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         });
         step("Проверить кнопку «Сформировать файл решения»", () -> {
             $(".ex-dropzone-outer").shouldNotBe(visible);
-            $("[placeholder=Причина]").click();
-            $("ng-dropdown-panel").$(".ng-option").click();
-            $("textarea.form-control").setValue("ТЕСТ");
-            $("button.for-reason-btn").click();
+            mkasdprvPage.selectReason();
+            mkasdprvPage.addComment("ТЕСТ");
+            mkasdprvPage.createDecisionFile();
             $$(".ex-small-file-box").last().shouldHave(text("Отказ в приеме документов.docx"));
             $$(".ex-small-file-box").last().$(byText("Подписать")).shouldBe(visible);
             $$(".ex-small-file-box").last().$(byText("Скачать"))
@@ -92,11 +96,10 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         });
         step("Проверить, что после удаления файла отображается область с возможностью загрузки нового файла, добавить новый файл", () -> {
             $("cdp-ex-file-manager.to-check-File").shouldBe(visible);
-            $$("input[type='file']").last().uploadFromClasspath("files_for_tests/doc.docx");
+            mkasdprvPage.uploadDecisionFile("files_for_tests/doc.docx");
             $("[title='doc.docx']").shouldBe(visible);
             $$("button").findBy(text("Подписать и завершить задачу")).shouldBe(visible);
-            $$(".ex-small-file-box").last().$(".fa.fa-trash-o").click();
-            $(".modal-content").$(".btn-primary").click();
+            mkasdprvPage.deleteDecisionFile();
         });
         step("Нажать на кнопку «Завершить задачу»", () -> {
             $$("button").findBy(text("Завершить задачу")).click();
@@ -138,14 +141,14 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void negativeDecisionTest() {
+        MkasdprvPage mkasdprvPage = new MkasdprvPage();
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.takeUnusedTask("Проверить данные заявления");
+        //TasksPage.openTaskByDocumentName("КВ-2021-2375");
+        mkasdprvPage.selectRefuseDocsRadioButton();
 
-        step("В поле «Принять решение по заявлению» выбрать радиобаттон «Отказать в приеме документов»", () -> {
-            $("[for=Refuse]").parent().$("input").click();
-            $("[placeholder=Причина]").click();
-        });
         step("В поле «Причина отказа» в выпадающем списке проверить наличие 3 причин отказа:", () -> {
+            $("[placeholder=Причина]").click();
             $("ng-dropdown-panel").$(byText(
                     "Представление заявителем запроса и документов," +
                             " подписанных с использованием электронной подписи," +
@@ -169,15 +172,9 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
             $(".fas.fa-minus").click();
             $$(byText("Причина отказа")).shouldHave(size(1));
         });
-        step("В поле «Причина отказа» выбрать причину из выпадающего списка", () -> {
-            $("[placeholder=Причина]").click();
-            $("ng-dropdown-panel").$(".ng-option").click();
-        });
-        step("В поле «Комментарий» ввести произвольное текстовое значение", () -> {
-            $("textarea.form-control").setValue("ТЕСТ");
-        });
-        step("Нажать на кнопку «Сформировать файл решения»", () ->
-                $("button.for-reason-btn").click());
+        mkasdprvPage.selectReason();
+        mkasdprvPage.addComment("ТЕСТ");
+        mkasdprvPage.createDecisionFile();
         step("Проверить, что сформированный файл можно скачать, подписать, удалить", () -> {
             $$(".ex-small-file-box").last().shouldHave(text("Отказ в приеме документов.docx"));
             $$(".ex-small-file-box").last().$(byText("Подписать")).shouldBe(visible);
@@ -186,31 +183,74 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
             $$(".ex-small-file-box").last().$(".fa.fa-trash-o").shouldBe(visible);
         });
         step("После удаления файла проверить, что можно загрузить файл решения в расширении pdf, doc(x)", () -> {
-            $$(".ex-small-file-box").last().$(".fa.fa-trash-o").click();
-            $(".modal-content").$(".btn-primary").click();
-
+            mkasdprvPage.deleteDecisionFile();
             $("cdp-ex-file-manager.to-check-File").shouldHave(text("Загрузить файл"));
-            $$("input[type='file']").last().uploadFromClasspath("files_for_tests/doc.docx");
+            mkasdprvPage.uploadDecisionFile("files_for_tests/doc.docx");
             $("[title='doc.docx']").shouldBe(visible);
-            $$(".ex-small-file-box").last().$(".fa.fa-trash-o").click();
-            $(".modal-content").$(".btn-primary").click();
+            mkasdprvPage.deleteDecisionFile();
             $("[title='doc.docx']").shouldNotBe(visible);
 
             $("cdp-ex-file-manager.to-check-File").shouldHave(text("Загрузить файл"));
-            Selenide.executeJavaScript("$(\"input[type='file']\").last().val('');");
-            $$("input[type='file']").last().uploadFromClasspath("files_for_tests/pdf.pdf");
+            mkasdprvPage.uploadDecisionFile("files_for_tests/pdf.pdf");
             $("[title='pdf.pdf']").shouldBe(visible);
-            $$(".ex-small-file-box").last().$(".fa.fa-trash-o").click();
-            $(".modal-content").$(".btn-primary").click();
+            mkasdprvPage.deleteDecisionFile();
             $("[title='pdf.pdf']").shouldNotBe(visible);
 
             $("cdp-ex-file-manager.to-check-File").shouldHave(text("Загрузить файл"));
-            Selenide.executeJavaScript("$(\"input[type='file']\").last().val('');");
-            $$("input[type='file']").last().uploadFromClasspath("files_for_tests/doc.doc");
+            mkasdprvPage.uploadDecisionFile("files_for_tests/doc.doc");
             $("[title='doc.doc']").shouldBe(visible);
-            $$(".ex-small-file-box").last().$(".fa.fa-trash-o").click();
-            $(".modal-content").$(".btn-primary").click();
+            mkasdprvPage.deleteDecisionFile();
             $("[title='doc.doc']").shouldNotBe(visible);
         });
+    }
+
+    @Test
+    @AllureId("4808")
+    @DisplayName("04. Принять решение. Сформировать файл решения. Загрузка файлов")
+    @Tags({@Tag("predprod"), @Tag("mkasdprv")})
+    @Epic("MKASDPRV (МКА Вывески)")
+    @Feature("Автотесты")
+    void negativeFilesTest() {
+        MkasdprvPage mkasdprvPage = new MkasdprvPage();
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        TasksPage.takeUnusedTask("Проверить данные заявления");
+        //TasksPage.openTaskByDocumentName("КВ-2021-2375");
+
+        mkasdprvPage.selectRefuseDocsRadioButton();
+        mkasdprvPage.selectReason();
+        mkasdprvPage.addComment("ТЕСТ");
+        mkasdprvPage.createDecisionFile();
+        mkasdprvPage.deleteDecisionFile();
+
+        step("Проверить, что после удаления файла отображается область с возможностью загрузки нового файла, добавить новый файл", () ->
+                $("cdp-ex-file-manager.to-check-File").shouldHave(text("Загрузить файл")));
+        step("Загрузить файл с расширением pdf, doc(x)", () -> {
+            mkasdprvPage.uploadDecisionFile("files_for_tests/pdf.pdf");
+            $("[title='pdf.pdf']").shouldBe(visible);
+            mkasdprvPage.deleteDecisionFile();
+            $("[title='pdf.pdf']").shouldNotBe(visible);
+
+        });
+        step("Загрузить файл с расширением не pdf, doc(x)", () -> {
+            mkasdprvPage.uploadDecisionFile("files_for_tests/bad.file");
+            $$(".toast-message").findBy(text("не загружен!")).shouldBe(visible);
+        });
+    }
+
+    @Test
+    @AllureId("4809")
+    @DisplayName("05. Успешный отказ в приёме документов")
+    @Tags({@Tag("predprod"), @Tag("mkasdprv")})
+    @Epic("MKASDPRV (МКА Вывески)")
+    @Feature("Автотесты")
+    void refuseDocsTest() {
+        step("Авторизоваться под ролью «Служба одного окна»");
+        step("Принять в работу задачу «Проверить данные заявления»");
+        step("В поле «Принять решение по заявлению» выбрать радиобаттон «Отказать в приеме документов»");
+        step("В поле «Причина отказа» выбрать причину из выпадающего списка");
+        step("В поле «Комментарий» ввести произвольное текстовое значение");
+        step("Нажать на кнопку «Завершить задачу»");
+        step("Нажать на кнопку «Сформировать файл решения»");
+        step("Нажать на кнопку «Завершить задачу»");
     }
 }
