@@ -2,6 +2,7 @@ package ru.mos.smart.tests.mkasdprv;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import e2e.kronverk.utils.RandomUtils;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.api.mkasdprv.Application;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MkasdprvPage;
 import ru.mos.smart.pages.TasksPage;
@@ -42,10 +44,14 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void mainControlsTest() {
+        String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         MkasdprvPage mkasdprvPage = new MkasdprvPage();
+        Application application = new Application();
+
+        application.create(randomTestId);
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-        TasksPage.takeUnusedTask("Проверить данные заявления");
-        //TasksPage.openTaskByDocumentName("КВ-2021-2379");
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
 
         ElementsCollection dataBlocks = $$(".main-container .title");
 
@@ -125,8 +131,13 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void applicationCardTest() {
+        String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
+        Application application = new Application();
+
+        application.create(randomTestId);
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-        TasksPage.takeUnusedTask("Проверить данные заявления");
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
 
         step("В шапке задачи нажать на номер заявления", () -> {
             $(byName("docNumber")).click();
@@ -141,10 +152,14 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void negativeDecisionTest() {
+        String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         MkasdprvPage mkasdprvPage = new MkasdprvPage();
+        Application application = new Application();
+
+        application.create(randomTestId);
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-        TasksPage.takeUnusedTask("Проверить данные заявления");
-        //TasksPage.openTaskByDocumentName("КВ-2021-2375");
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
 
         step("В поле «Причина отказа» в выпадающем списке проверить наличие 3 причин отказа:", () -> {
@@ -211,10 +226,14 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void negativeFilesTest() {
+        String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         MkasdprvPage mkasdprvPage = new MkasdprvPage();
+        Application application = new Application();
+
+        application.create(randomTestId);
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-        TasksPage.takeUnusedTask("Проверить данные заявления");
-        //TasksPage.openTaskByDocumentName("КВ-2021-2375");
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
 
         mkasdprvPage.selectRefuseDocsRadioButton();
         mkasdprvPage.selectReason();
@@ -244,10 +263,14 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void refuseDocsTest() {
+        String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         MkasdprvPage mkasdprvPage = new MkasdprvPage();
+        Application application = new Application();
+
+        application.create(randomTestId);
         AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-        TasksPage.takeUnusedTask("Проверить данные заявления");
-        //TasksPage.openTaskByDocumentName("КВ-2021-2375");
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
         mkasdprvPage.selectReason();
         mkasdprvPage.addComment("ТЕСТ");

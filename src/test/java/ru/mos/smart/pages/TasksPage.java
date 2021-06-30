@@ -6,7 +6,8 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.byTitle;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
@@ -42,29 +43,24 @@ public class TasksPage {
                 $x("//span[contains(@class,'task-title') and contains(.,'" + tasksName + "')]").click());
     }
 
-    @Step("Принять в работу задачу «{taskName}»")
-    public static void takeUnusedTask(String taskName) {
-        $("#my-task-showcase").shouldBe(visible,Duration.ofSeconds(15));
-        $("cdp-my-tasks-menu").$(byText(taskName)).click();
-        $("#my-task-showcase").$("[title='Исполнитель не назначен']").click();
-        $("h1").shouldHave(text(taskName), Duration.ofSeconds(10));
-        sleep(5000);
-        if($(".modal-content").isDisplayed()) {
-            $(".modal-content").$(byText("Взять")).click();
-        }
+    @Step("Принять в работу задачу")
+    public static void takeUnusedTask() {
+        $(".modal-content").$(byText("Взять")).click();
+        $(".toast-message").shouldBe(visible);
+        $$(".toast-message").findBy(text("Задача взята в работу!")).shouldBe(visible);
     }
+
     @Step("Принять в работу задачу «{taskName}»")
     public static void takeTask(String taskName) {
-        $("#my-task-showcase").shouldBe(visible,Duration.ofSeconds(15));
+        $("#my-task-showcase").shouldBe(visible, Duration.ofSeconds(15));
         $("cdp-my-tasks-menu").$(byText(taskName)).click();
         $("#my-task-showcase").$(byText(taskName)).click();
         $("h1").shouldHave(text(taskName), Duration.ofSeconds(10));
     }
 
     @Step("Открыть задачу по имени документа «{documentName}»")
-    public static void openTaskByDocumentName(String documentName) {
-        $("#my-task-showcase").shouldBe(visible,Duration.ofSeconds(15));
-        $x("//*[@id='my-task-showcase']//*[contains(text(), '" + documentName + "')]").click();
-        $(byName("docNumber")).shouldHave(text(documentName), Duration.ofSeconds(10));
+    public static void openTaskByTestId(String testId) {
+        $("#my-task-showcase").shouldBe(visible, Duration.ofSeconds(30));
+        $x("//*[@id='my-task-showcase']//*[contains(text(), '" + testId + "')]").click();
     }
 }
