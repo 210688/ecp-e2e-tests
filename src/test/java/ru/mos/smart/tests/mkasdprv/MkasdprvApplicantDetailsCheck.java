@@ -59,7 +59,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
                 dataBlock.scrollIntoView(true);
                 dataBlock.parent().$(".content").scrollIntoView(true).shouldBe(visible, Duration.ofSeconds(10));
                 dataBlock.scrollIntoView(true).click();
-                dataBlock.parent().$(".content").scrollIntoView(true).shouldNotBe(visible, Duration.ofSeconds(10));
+                dataBlock.parent().$(".content").shouldNotBe(visible, Duration.ofSeconds(10));
                 dataBlock.scrollIntoView(true).click();
                 dataBlock.parent().$(".content").scrollIntoView(true).shouldBe(visible, Duration.ofSeconds(10));
             }
