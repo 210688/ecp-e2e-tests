@@ -4,13 +4,10 @@ import io.restassured.http.ContentType;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
 import org.jsoup.Jsoup;
-import org.openqa.selenium.Cookie;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.restassured.RestAssured.given;
 
 public class Authorization {
