@@ -88,9 +88,8 @@ public class Authorization {
             sleep(200);
         }
         if (authCookiesCollection.get(login) == null) {
-            return authCookiesCollection.put(login, authorize(login, password));
-        } else {
-            return authCookiesCollection.get(login);
+            authCookiesCollection.put(login, authorize(login, password));
         }
+        return authCookiesCollection.get(login);
     }
 }
