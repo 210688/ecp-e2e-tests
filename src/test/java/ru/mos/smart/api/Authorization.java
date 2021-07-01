@@ -75,11 +75,9 @@ public class Authorization {
     }
 
     public static Map<String, String> getAuthCookie(String login, String password) {
-        if (authCookiesCollection.get(login) != null) {
-            return authCookiesCollection.get(login);
-        } else {
+        if (authCookiesCollection.get(login) == null) {
             authCookiesCollection.put(login, authorize(login, password));
-            return authCookiesCollection.get(login);
         }
+        return authCookiesCollection.get(login);
     }
 }
