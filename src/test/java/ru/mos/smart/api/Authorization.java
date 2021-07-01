@@ -15,7 +15,7 @@ public class Authorization {
     static Map<String, Map<String, String>> authCookiesCollection = new HashMap<>();
     static Map<String, String> loginStatus = new HashMap<>();
 
-    private static ExtractableResponse<Response> getAutocloseResponse() {
+    private ExtractableResponse<Response> getAutocloseResponse() {
         return
                 given()
                         .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0")
@@ -30,11 +30,11 @@ public class Authorization {
                         .extract();
     }
 
-    private static String getRequestUrl(String pageSource) {
+    private String getRequestUrl(String pageSource) {
         return Jsoup.parse(pageSource).select("#kc-form-login").get(0).attr("action");
     }
 
-    private static Map<String, String> authorize(String login, String password) {
+    private Map<String, String> authorize(String login, String password) {
         ExtractableResponse<Response> autocloseResponse = getAutocloseResponse();
         String requestUrl = getRequestUrl(autocloseResponse.asString());
         Map<String, String> autocloseCookies = autocloseResponse.cookies();
