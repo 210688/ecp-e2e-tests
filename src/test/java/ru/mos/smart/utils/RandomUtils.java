@@ -1,4 +1,4 @@
-package e2e.kronverk.utils;
+package ru.mos.smart.utils;
 
 import java.sql.Timestamp;
 import java.util.Random;
@@ -40,7 +40,7 @@ public class RandomUtils {
         int messageLength = getRandomInt(min, max);
         while (message.length() < messageLength) {
             int wordIndex = getRandomInt(0, words.length -1);
-            message.append(words[wordIndex] + " ");
+            message.append(words[wordIndex]).append(" ");
         }
 
         String readyMessage = StringUtils.capitalize(message.toString())

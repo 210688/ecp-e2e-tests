@@ -2,7 +2,7 @@ package ru.mos.smart.tests.mkasdprv;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import e2e.kronverk.utils.RandomUtils;
+import ru.mos.smart.utils.RandomUtils;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
