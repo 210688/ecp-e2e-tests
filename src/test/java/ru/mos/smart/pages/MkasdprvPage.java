@@ -3,13 +3,16 @@ package ru.mos.smart.pages;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static com.codeborne.selenide.Condition.visible;
 
 public class MkasdprvPage {
     public void selectRefuseDocsRadioButton() {
         step("В поле «Принять решение по заявлению» выбрать радиобаттон «Отказать в приеме документов»", () -> {
             $("[for=Refuse]").parent().$("input").click();
+            $(byText("Сформировать файл решения")).shouldBe(visible);
         });
     }
 

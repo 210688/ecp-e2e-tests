@@ -34,7 +34,6 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Layer("web")
 @Epic("MKASDPRV (МКА Вывески)")
 @Feature("Проверить данные заявления")
-@Execution(ExecutionMode.SAME_THREAD)
 public class MkasdprvApplicantDetailsCheck extends TestBase {
 
     @Test
