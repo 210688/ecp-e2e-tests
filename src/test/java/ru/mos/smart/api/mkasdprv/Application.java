@@ -20,8 +20,10 @@ public class Application {
             request.setMessage(requestMessage);
             request.setMessageType("string");
 
+            Authorization authorization = new Authorization();
+
             given()
-                    .cookies(Authorization.getAuthCookie(webConfig().loginMka(), webConfig().passwordMka()))
+                    .cookies(authorization.getAuthCookie(webConfig().loginMka(), webConfig().passwordMka()))
                     .contentType(ContentType.JSON)
                     .body(request)
                     .when()

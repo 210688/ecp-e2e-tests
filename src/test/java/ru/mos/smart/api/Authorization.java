@@ -76,7 +76,7 @@ public class Authorization {
         return cookies;
     }
 
-    public static Map<String, String> getAuthCookie(String login, String password) {
+    public Map<String, String> getAuthCookie(String login, String password) {
         if (loginStatus.get(login) == null) {
             loginStatus.put(login, "Started");
             authCookiesCollection.put(login, authorize(login, password));
