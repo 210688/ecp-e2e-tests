@@ -8,10 +8,12 @@ import org.jsoup.Jsoup;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.codeborne.selenide.Selenide.sleep;
 import static io.restassured.RestAssured.given;
 
 public class Authorization {
     static Map<String, Map<String, String>> authCookiesCollection = new HashMap<>();
+    static Map<String, String> loginStatus = new HashMap<>();
 
     private static ExtractableResponse<Response> getAutocloseResponse() {
         return
@@ -33,6 +35,7 @@ public class Authorization {
     }
 
     private static Map<String, String> authorize(String login, String password) {
+        System.out.println("ААТОРИЗАЦИЯ!!!");
         ExtractableResponse<Response> autocloseResponse = getAutocloseResponse();
         String requestUrl = getRequestUrl(autocloseResponse.asString());
         Map<String, String> autocloseCookies = autocloseResponse.cookies();
@@ -75,9 +78,24 @@ public class Authorization {
     }
 
     public static Map<String, String> getAuthCookie(String login, String password) {
-        if (authCookiesCollection.get(login) == null) {
+        if (loginStatus.get(login) == null) {
+            loginStatus.put(login, "Started");
             authCookiesCollection.put(login, authorize(login, password));
+            loginStatus.put(login, "Done");
         }
-        return authCookiesCollection.get(login);
+        if (loginStatus.get(login).equals("Started")) {
+            for (int i = 0; i < 30; i++) {
+                if (loginStatus.get(login).equals("Started")) {
+                    sleep(1000);
+                } else {
+                    break;
+                }
+            }
+        }
+        if (authCookiesCollection.get(login) == null) {
+            return authCookiesCollection.put(login, authorize(login, password));
+        } else {
+            return authCookiesCollection.get(login);
+        }
     }
 }
