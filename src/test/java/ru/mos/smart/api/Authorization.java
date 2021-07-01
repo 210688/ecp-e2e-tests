@@ -35,7 +35,6 @@ public class Authorization {
     }
 
     private static Map<String, String> authorize(String login, String password) {
-        System.out.println("ААТОРИЗАЦИЯ!!!");
         ExtractableResponse<Response> autocloseResponse = getAutocloseResponse();
         String requestUrl = getRequestUrl(autocloseResponse.asString());
         Map<String, String> autocloseCookies = autocloseResponse.cookies();
