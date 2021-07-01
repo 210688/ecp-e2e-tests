@@ -1,6 +1,5 @@
 package ru.mos.smart.api;
 
-import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
@@ -15,6 +14,8 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.restassured.RestAssured.given;
 
 public class Authorization {
+    static Map<String, Map<String, String>> authCookiesCollection = new HashMap<>();
+
     private static ExtractableResponse<Response> getAutocloseResponse() {
         return
                 given()
@@ -34,12 +35,7 @@ public class Authorization {
         return Jsoup.parse(pageSource).select("#kc-form-login").get(0).attr("action");
     }
 
-    private static void setCookies(Map<String, String> cookiesMap) {
-        open("/autoclose.html");
-        cookiesMap.forEach((k, v) -> getWebDriver().manage().addCookie(new Cookie(k, v)));
-    }
-
-    public static void auth(String login, String password) {
+    private static Map<String, String> authorize(String login, String password) {
         ExtractableResponse<Response> autocloseResponse = getAutocloseResponse();
         String requestUrl = getRequestUrl(autocloseResponse.asString());
         Map<String, String> autocloseCookies = autocloseResponse.cookies();
@@ -48,33 +44,6 @@ public class Authorization {
             put("password", password);
         }};
 
-        Map<String, String> authorizationCookies =
-                given()
-                        .cookies(autocloseCookies)
-                        .contentType(ContentType.URLENC)
-                        .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0")
-                        .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
-                        .header("Accept-Language", "en-US,en;q=0.5")
-                        .header("Connection", "close")
-                        .header("DNT", "1")
-                        .header("Connection", "Upgrade-Insecure-Requests")
-                        .formParams(formParams)
-                        .when()
-                        .post(requestUrl)
-                        .then()
-                        .extract().cookies();
-
-        setCookies(authorizationCookies);
-    }
-
-    public static Map<String, String> getAuthCookie(String login, String password) {
-        ExtractableResponse<Response> autocloseResponse = getAutocloseResponse();
-        String requestUrl = getRequestUrl(autocloseResponse.asString());
-        Map<String, String> autocloseCookies = autocloseResponse.cookies();
-        Map<String, String> formParams = new HashMap<String, String>() {{
-            put("username", login);
-            put("password", password);
-        }};
 
         ExtractableResponse<Response> response =
                 given()
@@ -91,8 +60,8 @@ public class Authorization {
                         .post(requestUrl)
                         .then()
                         .extract();
-
-        return given()
+        Map<String, String> cookies = new HashMap<>(response.cookies());
+        cookies.putAll(given()
                 .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0")
                 .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
                 .header("Accept-Language", "en-US,en;q=0.5")
@@ -103,7 +72,17 @@ public class Authorization {
                 .redirects().follow(false)
                 .get(response.header("Location"))
                 .then()
-                .extract().cookies();
+                .extract().cookies());
+
+        return cookies;
     }
 
+    public static Map<String, String> getAuthCookie(String login, String password) {
+        if (authCookiesCollection.get(login) != null) {
+            return authCookiesCollection.get(login);
+        } else {
+            authCookiesCollection.put(login, authorize(login, password));
+            return authCookiesCollection.get(login);
+        }
+    }
 }
