@@ -14,7 +14,7 @@ import static io.qameta.allure.Allure.step;
 
 public class AuthorizationPage {
     private static void setCookies(Map<String, String> cookiesMap) {
-        open("/reg/#/registration");
+        open("/reg/favicon.ico");
         cookiesMap.forEach((k, v) -> getWebDriver().manage().addCookie(new Cookie(k, v)));
     }
 
