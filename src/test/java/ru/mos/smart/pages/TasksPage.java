@@ -58,7 +58,7 @@ public class TasksPage {
         $("h1").shouldHave(text(taskName), Duration.ofSeconds(10));
     }
 
-    @Step("Открыть задачу по имени документа «{documentName}»")
+    @Step("Открыть задачу по имени документа «{testId}»")
     public static void openTaskByTestId(String testId) {
         $("#my-task-showcase").shouldBe(visible, Duration.ofSeconds(30));
         $x("//*[@id='my-task-showcase']//*[contains(text(), '" + testId + "')]").click();
