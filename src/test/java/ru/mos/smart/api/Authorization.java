@@ -82,14 +82,10 @@ public class Authorization {
             authCookiesCollection.put(login, authorize(login, password));
             loginStatus.put(login, "Done");
         }
-        if (loginStatus.get(login).equals("Started")) {
-            for (int i = 0; i < 30; i++) {
-                if (loginStatus.get(login).equals("Started")) {
-                    sleep(1000);
-                } else {
-                    break;
-                }
-            }
+        int i = 0;
+        while(loginStatus.get(login).equals("Started") && i < 150) {
+            i++;
+            sleep(200);
         }
         if (authCookiesCollection.get(login) == null) {
             return authCookiesCollection.put(login, authorize(login, password));
