@@ -10,8 +10,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.api.mkasdprv.Application;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -59,11 +57,11 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         step("Проверить скрытие/раскрытие всех блоков данных", () -> {
             for (SelenideElement dataBlock : dataBlocks) {
                 dataBlock.scrollIntoView(true);
-                dataBlock.parent().$(".content").shouldBe(visible, Duration.ofSeconds(10));
-                dataBlock.click();
-                dataBlock.parent().$(".content").shouldNotBe(visible, Duration.ofSeconds(10));
-                dataBlock.click();
-                dataBlock.parent().$(".content").shouldBe(visible, Duration.ofSeconds(10));
+                dataBlock.parent().$(".content").scrollIntoView(true).shouldBe(visible, Duration.ofSeconds(10));
+                dataBlock.scrollIntoView(true).click();
+                dataBlock.parent().$(".content").scrollIntoView(true).shouldNotBe(visible, Duration.ofSeconds(10));
+                dataBlock.scrollIntoView(true).click();
+                dataBlock.parent().$(".content").scrollIntoView(true).shouldBe(visible, Duration.ofSeconds(10));
             }
         });
         step("Проверить скачивание файлов во всех блоках", () -> {
