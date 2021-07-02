@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <PguRequest xmlns:ns2="http://asguf.mos.ru/rkis_gu/coordinate/v6_1/">
 <ns2:CoordinateMessage>
 <ns2:CoordinateDataMessage>
