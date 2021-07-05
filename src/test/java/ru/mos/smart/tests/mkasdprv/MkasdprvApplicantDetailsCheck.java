@@ -2,10 +2,10 @@ package ru.mos.smart.tests.mkasdprv;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import ru.mos.smart.utils.RandomUtils;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -16,6 +16,7 @@ import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MkasdprvPage;
 import ru.mos.smart.pages.TasksPage;
 import ru.mos.smart.tests.TestBase;
+import ru.mos.smart.utils.RandomUtils;
 
 import java.time.Duration;
 
@@ -278,5 +279,32 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         });
         mkasdprvPage.createDecisionFile();
         step("Нажать на кнопку «Завершить задачу»");
+    }
+
+    @Test
+    @AllureId("5178")
+    @DisplayName("Завершение задачи (принять в работу)")
+    @Tags({@Tag("predprod"), @Tag("mkasdprv")})
+    @Story("02. Завершение задачи Проверить данные заявления (принять в работу)")
+    @Feature("Автотесты")
+    @Epic("MKASDPRV (МКА Вывески)")
+    void finishTaskTest() {
+        String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
+        MkasdprvPage mkasdprvPage = new MkasdprvPage();
+        Application application = new Application();
+
+        application.create(randomTestId);
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
+        mkasdprvPage.selectTakeToWorkRadioButton();
+
+        step("Нажать Завершить задачу", () -> {
+            $$(".toast-message").shouldHave(size(0), Duration.ofSeconds(15));
+            $("button.btn-primary").scrollIntoView(true).click();
+        });
+
+        step("Проверка, что заявка отправлена на ознакомление", () ->
+                $$(".toast-message").findBy(text("Заявка отправлена на ознакомление!")).shouldBe(visible, Duration.ofSeconds(20)));
     }
 }

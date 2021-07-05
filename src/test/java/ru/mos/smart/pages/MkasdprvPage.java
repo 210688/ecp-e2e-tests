@@ -16,6 +16,12 @@ public class MkasdprvPage {
         });
     }
 
+    public void selectTakeToWorkRadioButton() {
+        step("В поле «Принять решение по заявлению» выбрать радиобаттон «Принять в работу»", () -> {
+            $("[for=TakeToWork]").parent().$("input").click();
+        });
+    }
+
     public void addComment(String commentText) {
         step("В поле «Комментарий» ввести произвольное текстовое значение", () -> {
             $("textarea.form-control").setValue(commentText);
