@@ -4,14 +4,14 @@ import io.qameta.allure.Step;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byTitle;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class TasksPages {
+public class TasksPage {
     public static String
             task1 = "Определение разработчика материалов",
             task2 = "Подготовка материалов для ЭОО",
@@ -41,5 +41,26 @@ public class TasksPages {
 
         step("Выбор задачи в списке {taskName}", () ->
                 $x("//span[contains(@class,'task-title') and contains(.,'" + tasksName + "')]").click());
+    }
+
+    @Step("Принять в работу задачу")
+    public static void takeUnusedTask() {
+        $(".modal-content").$(byText("Взять")).click();
+        $(".toast-message").shouldBe(visible);
+        $$(".toast-message").findBy(text("Задача взята в работу!")).shouldBe(visible);
+    }
+
+    @Step("Принять в работу задачу «{taskName}»")
+    public static void takeTask(String taskName) {
+        $("#my-task-showcase").shouldBe(visible, Duration.ofSeconds(15));
+        $("cdp-my-tasks-menu").$(byText(taskName)).click();
+        $("#my-task-showcase").$(byText(taskName)).click();
+        $("h1").shouldHave(text(taskName), Duration.ofSeconds(10));
+    }
+
+    @Step("Открыть задачу по имени документа «{testId}»")
+    public static void openTaskByTestId(String testId) {
+        $("#my-task-showcase").shouldBe(visible, Duration.ofSeconds(30));
+        $x("//*[@id='my-task-showcase']//*[contains(text(), '" + testId + "')]").click();
     }
 }

@@ -1,18 +1,27 @@
 package ru.mos.smart.pages;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.Cookie;
 import ru.mos.smart.api.Authorization;
+
+import java.util.Map;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 
 public class AuthorizationPage {
+    private static void setCookies(Map<String, String> cookiesMap) {
+        open("/reg/favicon.ico");
+        cookiesMap.forEach((k, v) -> getWebDriver().manage().addCookie(new Cookie(k, v)));
+    }
 
     @Step("Авторизация {login}, {password}")
     public static void openUrlWithAuthorization(String url, String login, String password) {
-        Authorization.auth(login, password);
+        Authorization authorization = new Authorization();
+        setCookies(authorization.getAuthCookie(login, password));
         open(url);
     }
 
