@@ -1,12 +1,12 @@
 package ru.mos.smart.utils;
 
-import java.sql.Timestamp;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.sql.Timestamp;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
 
@@ -25,7 +25,6 @@ public class RandomUtils {
 
         return result.toString();
     }
-
     public static String getRandomMessage(int min, int max) {
         String[] words = {"and", "or", "but", "because",
                 "red", "white", "Jane", "John", "Bobby",
@@ -39,7 +38,7 @@ public class RandomUtils {
         StringBuilder message = new StringBuilder();
         int messageLength = getRandomInt(min, max);
         while (message.length() < messageLength) {
-            int wordIndex = getRandomInt(0, words.length -1);
+            int wordIndex = getRandomInt(0, words.length - 1);
             message.append(words[wordIndex]).append(" ");
         }
 
