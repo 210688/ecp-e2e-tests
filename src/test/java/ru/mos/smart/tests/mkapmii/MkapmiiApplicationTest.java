@@ -138,10 +138,54 @@ public class MkapmiiApplicationTest extends TestBase {
         mkapmiiPage.createDecisionFile();
 
         step("Нажать на кнопку Сохранить без завершения задачи", () ->
-                $(".buttons-container").$(byText("Сохранить без завершения задачи")).scrollIntoView(true).click());
+                $$("button").findBy(text("Сохранить без завершения задачи")).shouldNotHave(attribute("[disabled]")).click());
         step("Отрыть задачу, которая была закрыта на шаге 5", () ->
                 TasksPage.openTaskByTestId(randomTestId));
         step("Проверить, что внесенные данные сохранены и отображаются", () ->
                 $$(".ex-small-file-box").last().shouldHave(text("Отказ в приеме документов")));
+    }
+
+    @Test
+    @AllureId("5188")
+    @DisplayName("03. Проверка перехода в карточку заявления")
+    @Epic("Автотесты")
+    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    void applicationCardTest() {
+        String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
+        Mkapmii mkapmii = new Mkapmii();
+
+        mkapmii.create(randomTestId);
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
+
+        step("В шапке задачи нажать на номер заявления", () ->
+                $("[uisref='app.card']").click());
+        step("Проверить что происходит переход в карточку заявления", () ->
+                $("h1").shouldHave(text("Карточка заявления")));
+    }
+
+    @Test
+    @AllureId("5180")
+    @DisplayName("04. Успешный прием документов")
+    @Epic("Автотесты")
+    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    void positiveFinishTask() {
+        String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
+        Mkapmii mkapmii = new Mkapmii();
+        MkapmiiPage mkapmiiPage = new MkapmiiPage();
+
+        mkapmii.create(randomTestId);
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
+
+        mkapmiiPage.selectTakeToWorkRadioButton();
+
+        step("Нажать Завершить задачу", () ->{
+            $$("button").findBy(text("Завершить задачу")).shouldNotHave(attribute("[disabled]")).click();
+            $$(".toast-message").findBy(text("Заявка принята в работу!")).shouldBe(visible);
+            $("#my-task-showcase").shouldBe(visible, Duration.ofSeconds(30));
+        });
     }
 }
