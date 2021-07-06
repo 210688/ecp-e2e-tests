@@ -117,4 +117,31 @@ public class MkapmiiApplicationTest extends TestBase {
         step("Проверить, что внесенные данные НЕ сохранились", () ->
                 $$(".ex-small-file-box").last().shouldNotHave(text("Отказ в приеме документов")));
     }
+
+    @Test
+    @AllureId("5182")
+    @DisplayName("02. Сохранить без завершения")
+    @Epic("Автотесты")
+    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    void saveAndNotFinishTest() {
+        String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
+        Mkapmii mkapmii = new Mkapmii();
+        MkapmiiPage mkapmiiPage = new MkapmiiPage();
+
+        mkapmii.create(randomTestId);
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
+
+        mkapmiiPage.selectRefuseDocsRadioButton();
+        mkapmiiPage.selectReason();
+        mkapmiiPage.createDecisionFile();
+
+        step("Нажать на кнопку Сохранить без завершения задачи", () ->
+                $(".buttons-container").$(byText("Сохранить без завершения задачи")).scrollIntoView(true).click());
+        step("Отрыть задачу, которая была закрыта на шаге 5", () ->
+                TasksPage.openTaskByTestId(randomTestId));
+        step("Проверить, что внесенные данные сохранены и отображаются", () ->
+                $$(".ex-small-file-box").last().shouldHave(text("Отказ в приеме документов")));
+    }
 }

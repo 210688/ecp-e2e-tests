@@ -1,13 +1,15 @@
 package ru.mos.smart.pages;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class MkapmiiPage {
     public void selectRefuseDocsRadioButton() {
         step("В поле «Принять решение по заявлению» выбрать радиобаттон «Отказать в приеме документов»", () -> {
+            sleep(500);
             $("input[ng-reflect-value=NEGATIVE_DOC_REFUSED]").click();
             $(byText("Сформировать файл решения")).shouldBe(visible);
         });
@@ -38,7 +40,10 @@ public class MkapmiiPage {
     }
 
     public void createDecisionFile() {
-        step("Нажать на кнопку «Сформировать файл решения»", () ->
-                $("button.btn-file-generation").click());
+        step("Нажать на кнопку «Сформировать файл решения»", () -> {
+            $("button.btn-file-generation").click();
+            $$(".toast-message").findBy(text("Заключение успешно сформировано!")).shouldBe(visible);
+        });
+
     }
 }
