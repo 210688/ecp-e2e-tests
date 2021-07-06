@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.mkasdprv;
 
-import ru.mos.smart.utils.RandomUtils;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -14,8 +13,10 @@ import ru.mos.smart.tests.TestBase;
 
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.utils.RandomUtils.getRandomString;
 
 public class MkasdrvCreateApplicationTest extends TestBase {
+
     @Test
     @AllureId("4812")
     @DisplayName("Создание заявки через свагер + запрос")
@@ -23,7 +24,7 @@ public class MkasdrvCreateApplicationTest extends TestBase {
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void createApplicationViaApiTest() {
-        String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
+        String randomTestId = "TEST_ID:" + getRandomString(10);
         Application application = new Application();
         application.create(randomTestId);
 

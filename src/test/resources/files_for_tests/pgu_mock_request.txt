@@ -4,7 +4,7 @@
 <ns2:CoordinateDataMessage>
 <ns2:Service>
 <ns2:RegNum>156245713</ns2:RegNum>
-<ns2:RegDate>2020-12-04T13:02:56</ns2:RegDate>
+<ns2:RegDate>2021-12-04T13:02:56</ns2:RegDate>
 <ns2:ServiceNumber>0001-9300120-044301-00000663/20</ns2:ServiceNumber>
 <ns2:Responsible>
 <ns2:LastName>оператор Портала</ns2:LastName>
@@ -19,7 +19,7 @@
 <ns2:Code>2043</ns2:Code>
 <ns2:Inn>7710878000</ns2:Inn>
 <ns2:Ogrn>1107746943347</ns2:Ogrn>
-<ns2:RegDate>2019-09-12T00:00:00</ns2:RegDate>
+<ns2:RegDate>2021-09-12T00:00:00</ns2:RegDate>
 <ns2:SystemCode>9300003</ns2:SystemCode>
 </ns2:Department>
 <ns2:CreatedByDepartment>
@@ -182,12 +182,12 @@
 <NS2:address_type>0</NS2:address_type>
 <NS2:fias_no>true</NS2:fias_no>
 <NS2:address_street_PDF>{STREET}</NS2:address_street_PDF>
-<NS2:address_house>Дом 11</NS2:address_house>
-<NS2:address_vladenie>Владение 5</NS2:address_vladenie>
-<NS2:address_korpus>Корпус 77</NS2:address_korpus>
-<NS2:address_stroenie>Строение 88</NS2:address_stroenie>
-<NS2:address_okrug>0400</NS2:address_okrug>
-<NS2:address_rayon>0403</NS2:address_rayon>
+<NS2:address_house></NS2:address_house>
+<NS2:address_vladenie></NS2:address_vladenie>
+<NS2:address_korpus></NS2:address_korpus>
+<NS2:address_stroenie></NS2:address_stroenie>
+<NS2:address_okrug></NS2:address_okrug>
+<NS2:address_rayon></NS2:address_rayon>
 <NS2:address_county>Адрес район</NS2:address_county>
 <NS2:address_stateorprovince>Регион г Москва</NS2:address_stateorprovince>
 <NS2:address_city>Город город</NS2:address_city>
