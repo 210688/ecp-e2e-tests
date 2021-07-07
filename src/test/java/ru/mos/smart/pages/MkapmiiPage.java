@@ -1,7 +1,6 @@
 package ru.mos.smart.pages;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -9,15 +8,14 @@ import static io.qameta.allure.Allure.step;
 public class MkapmiiPage {
     public void selectRefuseDocsRadioButton() {
         step("В поле «Принять решение по заявлению» выбрать радиобаттон «Отказать в приеме документов»", () -> {
-            sleep(500);
-            $("input[ng-reflect-value=NEGATIVE_DOC_REFUSED]").click();
+            $("input[ng-reflect-value=NEGATIVE_DOC_REFUSED]").shouldNotHave(attribute("[disabled]")).click();
             $(byText("Сформировать файл решения")).shouldBe(visible);
         });
     }
 
     public void selectTakeToWorkRadioButton() {
         step("В поле «Принять решение по заявлению» выбрать радиобаттон «Принять в работу»", () -> {
-            $("input[ng-reflect-value=POSITIVE]").click();
+            $("input[ng-reflect-value=POSITIVE]").shouldNotHave(attribute("[disabled]")).click();
             $(byText("Сформировать файл решения")).shouldNotBe(visible);
         });
     }
