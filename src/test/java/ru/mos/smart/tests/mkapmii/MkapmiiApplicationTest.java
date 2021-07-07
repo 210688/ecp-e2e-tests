@@ -209,4 +209,47 @@ public class MkapmiiApplicationTest extends TestBase {
         mkapmiiPage.addRefuseComment("Тестовый комментарий");
         mkapmiiPage.createDecisionFile("Причина отказа: значение не выбрано!");
     }
+
+    @Test
+    @AllureId("6512")
+    @DisplayName("05. Неуспешный отказ в приёме документов (отсутствует файл заключения)")
+    @Tags({@Tag("stage"), @Tag("regress")})
+    @Epic("Автотесты")
+    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    void unsuccessfulRefuseNoFileTest() {
+        String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
+        Mkapmii mkapmii = new Mkapmii();
+        MkapmiiPage mkapmiiPage = new MkapmiiPage();
+
+        mkapmii.create(randomTestId);
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
+
+        mkapmiiPage.selectRefuseDocsRadioButton();
+        mkapmiiPage.selectReason();
+        mkapmiiPage.addRefuseComment("Тестовый комментарий");
+        step("Нажать Завершить задачу", () ->
+                $$("button").findBy(text("Завершить задачу")).shouldNotHave(attribute("[disabled]")).click());
+
+        step("Проверить, что всплывает алерт с ошибкой с " +
+                "указанием на отсутствие файла решения (Файл заключения: необходимо сформировать файл!)", () ->
+                $$(".toast-message").findBy(text("Файл заключения: необходимо сформировать файл!")).shouldBe(visible));
+
+        step("Поле Причина отказа оставить пустым," +
+                " в поле комментарий ввести произвольное значение," +
+                " сформировать файл, нажать на кнопку Завершить задачу", () -> {
+            mkapmiiPage.deleteRefuseReason();
+            mkapmiiPage.addRefuseComment("Тестовый комментарий");
+            mkapmiiPage.createDecisionFile("Причина отказа: значение не выбрано!");
+            $$("button").findBy(text("Завершить задачу")).shouldNotHave(attribute("[disabled]")).click();
+            $$(".toast-message").findBy(text("Файл заключения: необходимо сформировать файл!")).shouldBe(visible);
+        });
+        step("Оставить все поля пустыми, нажать на кнопку Завершить задачу", () -> {
+            mkapmiiPage.deleteRefuseReason();
+            $$("button").findBy(text("Завершить задачу")).shouldNotHave(attribute("[disabled]")).click();
+            $$(".toast-message").findBy(text("Причина отказа: значение не выбрано!")).shouldBe(visible);
+            $$(".toast-message").findBy(text("Файл заключения: необходимо сформировать файл!")).shouldBe(visible);
+        });
+    }
 }
