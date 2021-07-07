@@ -8,6 +8,7 @@ import static io.qameta.allure.Allure.step;
 public class MkapmiiPage {
     public void selectRefuseDocsRadioButton() {
         step("В поле «Принять решение по заявлению» выбрать радиобаттон «Отказать в приеме документов»", () -> {
+            sleep(500);
             $("input[ng-reflect-value=NEGATIVE_DOC_REFUSED]").shouldNotHave(attribute("[disabled]")).click();
             $(byText("Сформировать файл решения")).shouldBe(visible);
         });
@@ -15,6 +16,7 @@ public class MkapmiiPage {
 
     public void selectTakeToWorkRadioButton() {
         step("В поле «Принять решение по заявлению» выбрать радиобаттон «Принять в работу»", () -> {
+            sleep(500);
             $("input[ng-reflect-value=POSITIVE]").shouldNotHave(attribute("[disabled]")).click();
             $(byText("Сформировать файл решения")).shouldNotBe(visible);
         });
