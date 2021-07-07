@@ -252,4 +252,31 @@ public class MkapmiiApplicationTest extends TestBase {
             $$(".toast-message").findBy(text("Файл заключения: необходимо сформировать файл!")).shouldBe(visible);
         });
     }
+
+    @Test
+    @AllureId("6514")
+    @DisplayName("06. Неуспешный отказ в приёме документов (все поля не заполнены)")
+    @Tags({@Tag("stage"), @Tag("regress")})
+    @Epic("Автотесты")
+    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    void unsuccessfulRefuseEmptyFieldsTest() {
+        String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
+        Mkapmii mkapmii = new Mkapmii();
+        MkapmiiPage mkapmiiPage = new MkapmiiPage();
+
+        mkapmii.create(randomTestId);
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
+
+        mkapmiiPage.selectRefuseDocsRadioButton();
+        step("Нажать на кнопку Завершить задачу", () ->
+                $$("button").findBy(text("Завершить задачу")).shouldNotHave(attribute("[disabled]")).click());
+        step("Проверить, что всплывает алерт с ошибкой с указанием" +
+                " на отсутствие причины отказа и отсутствие файла решения" +
+                " (Причина отказа: значение не выбрано! Файл заключения: необходимо сформировать файл!)", () ->{
+            $$(".toast-message").findBy(text("Причина отказа: значение не выбрано!")).shouldBe(visible);
+            $$(".toast-message").findBy(text("Файл заключения: необходимо сформировать файл!")).shouldBe(visible);
+        });
+    }
 }
