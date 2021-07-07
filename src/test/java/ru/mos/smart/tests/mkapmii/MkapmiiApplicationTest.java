@@ -167,7 +167,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("5180")
-    @DisplayName("04. Успешный прием документов")
+    @DisplayName("07. Успешный прием документов")
     @Epic("Автотесты")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void positiveFinishTask() {
