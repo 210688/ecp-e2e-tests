@@ -1,8 +1,11 @@
 package ru.mos.smart.tests.mkapmii;
 
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -12,6 +15,9 @@ import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -111,5 +117,51 @@ public class MkapmiiRegisterTests extends TestBase {
             $(".buttons-container").$(byText("В реестр")).shouldBe(visible);
             $(".buttons-container").$(byText("Выдать на руки")).shouldBe(visible);
         });
+    }
+
+    @Test
+    @AllureId("5190")
+    @DisplayName("Проверка основных контролов карточки заявления")
+    @Tags({@Tag("stage"), @Tag("regress")})
+    @Epic("Автотесты")
+    @Feature("Реестр и карточка заявления")
+    void mainControlsTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        NavigatorPage.goToRegister();
+        ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
+        ReestrPage.gotoFirstCardNoSwitchWindow();
+
+        ElementsCollection dataBlocks = $$(".tab-content .collapsible-title");
+
+        step("Проверка наличия блоков данных", () ->
+                dataBlocks.shouldHave(sizeGreaterThan(0)));
+        step("Проверить скрытие/раскрытие всех блоков данных", () -> {
+            for (SelenideElement dataBlock : dataBlocks) {
+                if (dataBlock.has(text("Сведения о лице, обеспечившим выполнение инженерных изысканий")) ||
+                        dataBlock.has(text("Сведения о проведенных инженерных изысканиях"))) {
+                    dataBlock.sibling(0).shouldBe(visible, Duration.ofSeconds(10));
+                    dataBlock.click();
+                    dataBlock.sibling(0).shouldNotBe(visible, Duration.ofSeconds(10));
+                    dataBlock.click();
+                    dataBlock.sibling(0).shouldBe(visible, Duration.ofSeconds(10));
+
+                } else {
+                    dataBlock.sibling(0).shouldNotBe(visible, Duration.ofSeconds(10));
+                    dataBlock.click();
+                    dataBlock.sibling(0).shouldBe(visible, Duration.ofSeconds(10));
+                    dataBlock.click();
+                    dataBlock.sibling(0).shouldNotBe(visible, Duration.ofSeconds(10));
+                }
+            }
+        });
+        step("Нажать на кнопку Назад", () ->
+                $(".buttons-container").$(byText("Назад")).click());
+        step("Проверить, что форма успешно закрывается", () ->
+                $("h2").shouldHave(text("Реестр оказания услуги по размещению инженерных изысканий")));
+        ReestrPage.gotoFirstCardNoSwitchWindow();
+        step("Нажать на кнопку В реестр", () ->
+                $(".buttons-container").$(byText("В реестр")).click());
+        step("Проверить, что открывается реестр Реестр оказания услуг по размещению инженерных изысканий", () ->
+                $("h2").shouldHave(text("Реестр оказания услуги по размещению инженерных изысканий")));
     }
 }
