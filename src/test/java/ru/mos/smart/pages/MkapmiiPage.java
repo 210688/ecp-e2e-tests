@@ -44,6 +44,20 @@ public class MkapmiiPage {
             $("button.btn-file-generation").click();
             $$(".toast-message").findBy(text("Заключение успешно сформировано!")).shouldBe(visible);
         });
+    }
 
+    public void createDecisionFile(String error) {
+        step("Нажать на кнопку «Сформировать файл решения»", () ->
+                $("button.btn-file-generation").click());
+        step("Проверить, что всплывает алерт с ошибкой с указанием" +
+                " на отсутствие причины отказа " + error, () -> {
+            $$(".toast-message").findBy(text(error)).shouldBe(visible);
+        });
+    }
+
+    public void addRefuseComment(String commentText) {
+        step("В поле «Комментарий» ввести произвольное текстовое значение", () -> {
+            $("textarea.form-control").setValue(commentText);
+        });
     }
 }

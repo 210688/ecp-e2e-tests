@@ -182,10 +182,31 @@ public class MkapmiiApplicationTest extends TestBase {
 
         mkapmiiPage.selectTakeToWorkRadioButton();
 
-        step("Нажать Завершить задачу", () ->{
+        step("Нажать Завершить задачу", () -> {
             $$("button").findBy(text("Завершить задачу")).shouldNotHave(attribute("[disabled]")).click();
             $$(".toast-message").findBy(text("Заявка принята в работу!")).shouldBe(visible);
             $("#my-task-showcase").shouldBe(visible, Duration.ofSeconds(30));
         });
+    }
+
+    @Test
+    @AllureId("6513")
+    @DisplayName("04. Неуспешный отказ в приёме документов (отсутствует причина отказа и файл заключения)")
+    @Tags({@Tag("stage"), @Tag("regress")})
+    @Epic("Автотесты")
+    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    void unsuccessfulRefuseTest() {
+        String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
+        Mkapmii mkapmii = new Mkapmii();
+        MkapmiiPage mkapmiiPage = new MkapmiiPage();
+
+        mkapmii.create(randomTestId);
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        TasksPage.openTaskByTestId(randomTestId);
+        TasksPage.takeUnusedTask();
+
+        mkapmiiPage.selectRefuseDocsRadioButton();
+        mkapmiiPage.addRefuseComment("Тестовый комментарий");
+        mkapmiiPage.createDecisionFile("Причина отказа: значение не выбрано!");
     }
 }
