@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -196,5 +197,74 @@ public class MkapmiiRegisterTests extends TestBase {
             $(".buttons-container").$(byText("В реестр")).shouldBe(visible);
             $(".buttons-container").$(byText("Выдать на руки")).shouldBe(visible);
         });
+    }
+
+    @Test
+    @AllureId("6519")
+    @DisplayName("Проверка UI модальное окно Выдать на руки")
+    @Tags({@Tag("stage"), @Tag("regress")})
+    @Epic("Автотесты")
+    @Feature("Выдача заявления на руки")
+    void handingOverPlusTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        NavigatorPage.goToRegister();
+        ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
+
+        step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
+            $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();
+            $("#dropdown-columns-basic").$(byText("Услуга оказана. Решение положительное")).click();
+            $(".label-primary").shouldHave(text("Услуга оказана. Решение положительное")).click();
+        });
+        step("Проверить, что открыта форма Карточка заявления", () ->
+                $("h1").shouldHave(text("Карточка заявления")));
+        step("Открыть вкладку Выдача на руки", () ->
+                $("#hand-outs-history-link").click());
+        step("Проверить, что вкладка озаглавлена Выдача на руки", () ->
+                $(".nav-link.active").shouldHave(text("Выдача на руки")));
+        step("Проверить, что содержится блок со столбцами", () ->
+                $("app-tab-hand-outs").shouldHave(
+                        text("Исполнитель"),
+                        text("Дата выдачи"),
+                        text("Расписка о получении результата")
+                ));
+        step("Проверить, что есть кнопки", () -> {
+            $(".buttons-container").$(byText("В реестр")).shouldBe(visible);
+            $(".buttons-container").$(byText("Выдать на руки")).shouldBe(visible);
+        });
+
+        boolean inProcess = $("#hand-outs-history").has(text("Выдача на руки в процессе..."));
+
+        step("Нажать кнопку Выдать на руки", () ->
+                $(".buttons-container").$(byText("Выдать на руки")).click());
+
+        if (!inProcess) {
+            step("Проверить, что: открылось окно Сформировать печатный документ результата предоставления услуги?" +
+                    " (Это запустит процесс выдачи результатов услуги на руки)", () -> {
+                $(".modal-content h1").shouldHave(text("Сформировать печатный документ результата предоставления услуги?"));
+                $(".modal-content h3").shouldHave(text("(Это запустит процесс выдачи результатов услуги на руки)"));
+            });
+            step("В блоке содержатся кнопки: Отмена, Сформировать", () -> {
+                $(".modal-buttons-centered").$(byText("Отмена")).shouldBe(visible);
+                $(".modal-buttons-centered").$(byText("Сформировать")).shouldBe(visible);
+            });
+            step("Нажать на кнопку Сформировать", () -> {
+                $(".modal-buttons-centered").$(byText("Сформировать")).click();
+                $$(".toast-message").findBy(text("Файл сформирован и задача на выдачу создана")).shouldBe(visible);
+            });
+        }
+
+        step("Проверить, что отобразился блок со сформированными печатными документами: " +
+                "Результат согласования, Расписка о выдаче на руки и есть кнопки скачать", () -> {
+            $(".modal-content").$(byText("Результат согласования"))
+                    .sibling(0).shouldHave(text("Скачать"));
+            $(".modal-content").$(byText("Расписка о выдаче на руки"))
+                    .sibling(0).shouldHave(text("Скачать"));
+        });
+        step("Есть кнопка Закрыть", () ->
+                $(".modal-content").$(byText("Закрыть")).shouldBe(visible));
+        step("Нажать на кнопку Закрыть", () ->
+                $(".modal-content").$(byText("Закрыть")).click());
+        step("Проверить, что блок с документами закрывается", () ->
+                $(".modal-content").should(disappear));
     }
 }
