@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import ru.mos.smart.annotations.AutoMember;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -21,6 +22,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
+@AutoMember("soldatovks")
 @Layer("web")
 @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
 @Feature("Базовый функционал Цифровой двойник")

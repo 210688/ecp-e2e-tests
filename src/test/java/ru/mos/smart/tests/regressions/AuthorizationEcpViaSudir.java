@@ -3,10 +3,12 @@ package ru.mos.smart.tests.regressions;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.AutoMember;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.SmsVerificationPage;
@@ -15,9 +17,12 @@ import ru.mos.smart.tests.TestBase;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
+
+@AutoMember("soldatovks")
 @Layer("web")
 @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
-@Feature("Базовый функционал 2D")
+@Feature("СУДИР")
+@Story("Проверка авторизации через СУДИР")
 public class AuthorizationEcpViaSudir extends TestBase {
 
     @Test
