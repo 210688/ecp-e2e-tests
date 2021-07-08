@@ -5,7 +5,6 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -163,5 +162,39 @@ public class MkapmiiRegisterTests extends TestBase {
                 $(".buttons-container").$(byText("В реестр")).click());
         step("Проверить, что открывается реестр Реестр оказания услуг по размещению инженерных изысканий", () ->
                 $("h2").shouldHave(text("Реестр оказания услуги по размещению инженерных изысканий")));
+    }
+
+    @Test
+    @AllureId("6520")
+    @DisplayName("Проверка UI вкладки Выдача на руки")
+    @Tags({@Tag("stage"), @Tag("regress")})
+    @Epic("Автотесты")
+    @Feature("Выдача заявления на руки")
+    void handingOverTest() {
+        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        NavigatorPage.goToRegister();
+        ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
+
+        step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
+            $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();
+            $("#dropdown-columns-basic").$(byText("Услуга оказана. Решение положительное")).click();
+            $(".label-primary").shouldHave(text("Услуга оказана. Решение положительное")).click();
+        });
+        step("Проверить, что открыта форма Карточка заявления", () ->
+                $("h1").shouldHave(text("Карточка заявления")));
+        step("Открыть вкладку Выдача на руки", () ->
+                $("#hand-outs-history-link").click());
+        step("Проверить, что вкладка озаглавлена Выдача на руки", () ->
+                $(".nav-link.active").shouldHave(text("Выдача на руки")));
+        step("Проверить, что содержится блок со столбцами", () ->
+                $("app-tab-hand-outs").shouldHave(
+                        text("Исполнитель"),
+                        text("Дата выдачи"),
+                        text("Расписка о получении результата")
+                ));
+        step("Проверить, что есть кнопки", () -> {
+            $(".buttons-container").$(byText("В реестр")).shouldBe(visible);
+            $(".buttons-container").$(byText("Выдать на руки")).shouldBe(visible);
+        });
     }
 }
