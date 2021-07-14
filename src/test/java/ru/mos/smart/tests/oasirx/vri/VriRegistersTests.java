@@ -45,7 +45,8 @@ public class VriRegistersTests extends TestBase {
         }};
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToVri();
+        navigatorPage
+                .goToVri();
 
         vriPage
                 .checkIsOpened()

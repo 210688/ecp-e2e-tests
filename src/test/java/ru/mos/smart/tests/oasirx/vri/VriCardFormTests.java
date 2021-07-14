@@ -28,7 +28,8 @@ public class VriCardFormTests extends TestBase {
         VriPage vriPage = new VriPage();
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToVri();
+        navigatorPage
+                .goToVri();
 
         vriPage
                 .openFirstCard()
@@ -47,7 +48,8 @@ public class VriCardFormTests extends TestBase {
         VriPage vriPage = new VriPage();
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToVri();
+        navigatorPage
+                .goToVri();
 
         vriPage
                 .openFirstCard()
@@ -66,7 +68,8 @@ public class VriCardFormTests extends TestBase {
         VriPage vriPage = new VriPage();
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToVri();
+        navigatorPage
+                .goToVri();
 
         vriPage
                 .openFirstCard()

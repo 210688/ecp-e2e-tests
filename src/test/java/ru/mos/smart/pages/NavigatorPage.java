@@ -113,7 +113,7 @@ public class NavigatorPage {
         return this;
     }
 
-    public static void goToVri() {
+    public void goToVri() {
         step("Из боковой панели перейти в раздел ВРИ", () ->
                 $x("//span[text()='ВРИ']").click());
     }
