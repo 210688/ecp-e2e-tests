@@ -93,8 +93,7 @@ public class MkapmiiApplicationTest extends TestBase {
             mkapmiiPage.deleteRefuseReason();
             $$(byText("Причина отказа")).shouldHave(size(1));
         });
-        step("Добавить любую причину отказа", () ->
-                mkapmiiPage.selectReason());
+        step("Добавить любую причину отказа", mkapmiiPage::selectReason);
 
         step("Проверить, что в блоке отказа в приёме документов можно скачать/удалить файл решения", () -> {
             mkapmiiPage.createDecisionFile();

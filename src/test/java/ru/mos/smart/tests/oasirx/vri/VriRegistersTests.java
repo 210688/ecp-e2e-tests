@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.vri;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -9,7 +10,13 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.pages.NavigatorPage;
+import ru.mos.smart.pages.VriPage;
 import ru.mos.smart.tests.TestBase;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
@@ -24,24 +31,26 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class VriRegistersTests extends TestBase {
 
     @Test
+    @AllureId("2717")
     @DisplayName("Проверка вкладок в реестре ВРИ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void openRegisterVri() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
+        VriPage vriPage = new VriPage();
+        List<String> tabs = new ArrayList<String>() {{
+            add("ВРИ в работе");
+            add("Все ВРИ");
+            add("Мои ВРИ");
+            add("Срок истекает");
+            add("Отчеты");
+        }};
 
-        step("Из боковой панели перейти в раздел ВРИ", () ->
-                $x("//span[text()='ВРИ']").click());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        navigatorPage
+                .goToVri();
 
-        step("Открыт раздел ВРИ", () ->
-                $x("//div/h2[contains(text(),'ВРИ')]").shouldBe(visible));
-
-        step("Реестр ВРИ содержит пять вкладок", () -> {
-            $(byText("ВРИ в работе")).shouldBe(visible);
-            $(byText("Все ВРИ")).shouldBe(visible);
-            $(byText("Мои ВРИ")).shouldBe(visible);
-            $(byText("Срок истекает")).shouldBe(visible);
-            $(byText("Отчеты")).shouldBe(visible);
-        });
+        vriPage
+                .checkIsOpened()
+                .checkHasTabs(tabs);
     }
 
     @Test
@@ -51,7 +60,7 @@ public class VriRegistersTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел ВРИ", () -> {
-            $x("//span[text()='ВРИ']").waitUntil(visible, 10000);
+            $x("//span[text()='ВРИ']").shouldBe(visible, Duration.ofSeconds(10));
             $x("//span[text()='ВРИ']").click();
         });
 
