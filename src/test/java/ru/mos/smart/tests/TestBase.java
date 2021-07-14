@@ -7,10 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import ru.mos.smart.extensions.AllureAttachmentsAfterTestExecutionCallback;
-import ru.mos.smart.pages.ActionsPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.PersonalCard;
-import ru.mos.smart.pages.ReestrPage;
+import ru.mos.smart.pages.*;
 
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
@@ -25,6 +22,7 @@ public class TestBase {
     protected PersonalCard personalCard = new PersonalCard();
     protected NavigatorPage navigatorPage = new NavigatorPage();
     protected ActionsPage actionsPage = new ActionsPage();
+    protected VriPage vriPage = new VriPage();
 
 
     @BeforeAll

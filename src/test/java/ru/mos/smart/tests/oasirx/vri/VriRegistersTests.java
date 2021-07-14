@@ -35,7 +35,6 @@ public class VriRegistersTests extends TestBase {
     @DisplayName("Проверка вкладок в реестре ВРИ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void openRegisterVri() {
-        VriPage vriPage = new VriPage();
         List<String> tabs = new ArrayList<String>() {{
             add("ВРИ в работе");
             add("Все ВРИ");
