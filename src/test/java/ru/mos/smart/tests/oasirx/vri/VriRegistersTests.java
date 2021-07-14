@@ -27,7 +27,7 @@ public class VriRegistersTests extends TestBase {
     @DisplayName("Проверка вкладок в реестре ВРИ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void openRegisterVri() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел ВРИ", () ->
                 $x("//span[text()='ВРИ']").click());
@@ -48,7 +48,7 @@ public class VriRegistersTests extends TestBase {
     @DisplayName("Поиск карточки реестра ВРИ по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("vri")})
     void searchingVriCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел ВРИ", () -> {
             $x("//span[text()='ВРИ']").waitUntil(visible, 10000);

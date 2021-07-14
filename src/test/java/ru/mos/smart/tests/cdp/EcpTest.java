@@ -29,7 +29,7 @@ public class EcpTest extends TestBase {
     @DisplayName("Проверка открытия реестра")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ecp")})
     void openReestr() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
         NavigatorPage.goToRegister();
 
         step("Проверить переход на страницу реестры" + reestrPage + ";", () -> {

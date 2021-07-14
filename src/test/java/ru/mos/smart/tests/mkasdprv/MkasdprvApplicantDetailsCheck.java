@@ -2,7 +2,6 @@ package ru.mos.smart.tests.mkasdprv;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import ru.mos.smart.utils.RandomUtils;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -16,6 +15,7 @@ import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MkasdprvPage;
 import ru.mos.smart.pages.TasksPage;
 import ru.mos.smart.tests.TestBase;
+import ru.mos.smart.utils.RandomUtils;
 
 import java.time.Duration;
 
@@ -46,7 +46,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -132,7 +132,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -154,7 +154,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
@@ -228,7 +228,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -265,7 +265,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();

@@ -33,7 +33,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню возможности")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheActionsPage() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
         NavigatorPage.goToActions();
         step("Проверяем, что строка поиска доступна", () -> {
             $(byName("common")).shouldBe(visible);
@@ -45,7 +45,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню Задачи")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheTasksPage() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
         NavigatorPage.goToTasks();
     }
 
@@ -54,7 +54,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню Реестр")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheReestrPage() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
         NavigatorPage.goToRegister();
         step("Проверка, что реестр доступен", () -> {
             $(byName("candidateSearchValue")).shouldBe(visible);
@@ -70,7 +70,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню справочник")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheSpravochnikPage() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
         NavigatorPage.goToSpravochnik();
         step("Проверка, что справочник доступен", () -> {
             $(byName("filterinput")).shouldBe(visible);

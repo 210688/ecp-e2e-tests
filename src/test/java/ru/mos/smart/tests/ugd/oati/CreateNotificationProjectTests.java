@@ -29,7 +29,7 @@ class CreateNotificationProjectTests extends TestBase {
     @DisplayName("Проверка доступности формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("oati")})
     void checkingNotificationSubmissionForm() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToActions();
 
         step("Выбрать операцию Направить новое уведомление ОАТИ о проведении работ", () -> {

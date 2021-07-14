@@ -29,7 +29,7 @@ public class MkasdrvCreateApplicationTest extends TestBase {
         application.create(randomTestId);
 
         step("Открыть мои задачи на портале, должна появиться заявка Проверить данные заявления", () -> {
-            AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+            AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
             TasksPage.openTaskByTestId(randomTestId);
         });
     }

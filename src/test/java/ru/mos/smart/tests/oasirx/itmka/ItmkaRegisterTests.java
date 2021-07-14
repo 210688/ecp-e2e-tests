@@ -13,8 +13,6 @@ import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$$;
@@ -33,7 +31,7 @@ public class ItmkaRegisterTests extends TestBase {
     @DisplayName("Просмотр реестра заявок Управление ИТ МКА")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("itmka")})
     void openingTheRegisterItmka() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToItmka();
 
         step("Открыт раздел Управление ИТ МКА", () ->
@@ -52,7 +50,7 @@ public class ItmkaRegisterTests extends TestBase {
     @DisplayName("Поиск карточки реестра заявок Управление ИТ МКА по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("itmka")})
     void searchingItmkaCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToItmka();
 
         step("Открыт раздел Управление ИТ МКА", () ->

@@ -34,7 +34,7 @@ public class DroneRegistersTests extends TestBase {
     @DisplayName("Открытие реестра Данные аэрофотосъемки")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void openReestrDrone() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.goToRegister();
         ReestrPage.open("Данные аэрофотосъемки");
         step("Проверить, что открывается  реестр Данные аэрофотосъемки", () -> {
@@ -47,7 +47,7 @@ public class DroneRegistersTests extends TestBase {
     @DisplayName("Переход в карточку из реестра")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void openCardDrone() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.goToRegister();
         ReestrPage.open("Данные аэрофотосъемки");
 
@@ -69,7 +69,7 @@ public class DroneRegistersTests extends TestBase {
     @Feature("Работа с карточкой аэросъёмки")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void addCartDrone() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.goToActions();
         step("Выбрать Создать карточку аэросъемки", () ->
                 $(byText(" Создать карточку аэросъемки ")).click());
@@ -107,7 +107,7 @@ public class DroneRegistersTests extends TestBase {
     @Feature("Работа с карточкой аэросъёмки")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void viewCartDrone() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginDrone(), webConfig().passwordDrone());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
         NavigatorPage.goToRegister();
         ReestrPage.open("Данные аэрофотосъемки");
 

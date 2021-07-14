@@ -28,7 +28,7 @@ public class BlagoRegistersTests extends TestBase {
     @DisplayName("Проверка наличия реестров")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("blago")})
     void checkingBlagoRegisters() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToRegister();
         ReestrPage.search("Проекты благоустройства");
 

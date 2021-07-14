@@ -12,9 +12,9 @@ repositories {
     mavenCentral()
 }
 
-def allureVersion = "2.13.9",
-    selenideVersion = "5.22.1",
-    junitVersion = "5.7.1"
+def allureVersion = "2.14.0",
+    selenideVersion = "5.22.3",
+    junitVersion = "5.7.2"
 
 allure {
     version = "${allureVersion}"
@@ -71,34 +71,15 @@ test {
     useJUnitPlatform()
 }
 
-task modules(type: Test) { //Запускает все модули на предпроде (исключительно предпрод)
-    useJUnitPlatform {
-        includeTags 'allModules'
-    }
-}
-
 task preprod(type: Test) { //Запускает все модули на предпроде (исключительно предпрод)
     useJUnitPlatform {
         includeTags 'predprod'
     }
 }
 
-
 task prodd(type: Test) { //запускает все модули на проде (исключительно прод)
     useJUnitPlatform {
         includeTags 'prod'
-    }
-}
-
-task produktiv(type: Test) { //Запускать осторожно, данная task, запускает процессы на проде
-    useJUnitPlatform {
-        includeTags 'prodRunPrc'
-    }
-}
-
-task regress(type: Test) { //Запуск регресс тестов
-    useJUnitPlatform {
-        includeTags 'regress'
     }
 }
 
