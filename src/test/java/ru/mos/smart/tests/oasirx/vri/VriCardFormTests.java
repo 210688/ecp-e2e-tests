@@ -13,6 +13,7 @@ import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.pages.VriPage;
 import ru.mos.smart.tests.TestBase;
 
+import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 public class VriCardFormTests extends TestBase {
@@ -33,5 +34,24 @@ public class VriCardFormTests extends TestBase {
                 .openFirstCard()
                 .cogWheelChoose("История изменений")
                 .checkChangeLogShown();
+    }
+
+    @Test
+    @AllureId("3311")
+    @DisplayName("Форма карточки: Процесс")
+    @Story("Работа с реестром и карточкой ВРИ")
+    @Feature("VRI (ВРИ)")
+    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
+    void processTest() {
+        VriPage vriPage = new VriPage();
+
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        NavigatorPage.goToVri();
+
+        vriPage
+                .openFirstCard()
+                .cogWheelChoose("Процесс")
+                .openProcessDiagram();
     }
 }

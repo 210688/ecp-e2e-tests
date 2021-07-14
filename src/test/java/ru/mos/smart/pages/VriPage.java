@@ -1,6 +1,6 @@
 package ru.mos.smart.pages;
 
-import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 
 import java.util.List;
@@ -8,8 +8,7 @@ import java.util.List;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class VriPage {
@@ -53,6 +52,14 @@ public class VriPage {
         });
 
         return this;
+    }
+
+    @Step("Открывается страница со схемой бизнес-процесса")
+    public void openProcessDiagram() {
+        $(".fa.fa-bar-chart").click();
+        switchTo().window(1);
+        Selenide.closeWindow();
+        switchTo().window(0);
     }
 
     @Step("Открыть первую карточку")
