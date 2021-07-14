@@ -26,6 +26,12 @@ public class ReestrPage {
         switchTo().window(1);
     }
 
+    @Step("Открыть первую карточку реестра")
+    public static void gotoFirstCardNoSwitchWindow() {
+        $("showcase-builder-runtime a").click();
+    }
+
+
     @Step("Открытие раздела СД")
     public static void goToSdCard() {
         $(byText("СД")).click();
