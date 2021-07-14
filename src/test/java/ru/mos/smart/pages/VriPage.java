@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class VriPage {
     public VriPage checkIsOpened() {
@@ -58,6 +59,7 @@ public class VriPage {
     public void openProcessDiagram() {
         $(".fa.fa-bar-chart").click();
         switchTo().window(1);
+        assertTrue(title().contains("diagram"));
         Selenide.closeWindow();
         switchTo().window(0);
     }
