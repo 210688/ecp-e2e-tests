@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -32,7 +31,8 @@ class UgdLrpTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openTheApplicationFormLrp() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToActions();
+        navigatorPage
+                .goToActions();
 
         step("Найти и выбрать операцию Подать заявку на участие в конкурсе ЛРП", () -> {
             $(".form-control").setValue("Подать заявку на участие в конкурсе ЛРП").pressEnter();
@@ -55,7 +55,8 @@ class UgdLrpTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openTheApplicationFormLrpOutsideOrg() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToActions();
+        navigatorPage
+                .goToActions();
 
         step("Найти и выбрать операцию Подать заявку на участие в конкурсе ЛРП за стороннюю организацию", () -> {
             $(".form-control").setValue("Подать заявку на участие в конкурсе ЛРП за стороннюю организацию")
@@ -78,7 +79,8 @@ class UgdLrpTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openRegisterLrpZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
+        navigatorPage
+                .goToRegister();
 
         step("Найти и открыть реестр Заявки на участие в конкурсе ЛРП", () -> {
             $(byName("candidateSearchValue")).setValue("Заявки на участие в конкурсе ЛРП").pressEnter();
@@ -101,7 +103,8 @@ class UgdLrpTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openRegisterLrpMoiZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
+        navigatorPage
+                .goToRegister();
 
         step("Найти и открыть реестр Мои заявки на участие в конкурсе ЛРП", () -> {
             $(byName("candidateSearchValue")).setValue("Мои заявки на участие в конкурсе ЛРП").pressEnter();

@@ -11,18 +11,24 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class PersonalCard {
     @Step("Перейти на вкладку {tabName}")
-    public static void gotoTab(String tabName) {
+    public PersonalCard gotoTab(String tabName) {
         $("app-standard-header").shouldBe(visible, Duration.ofSeconds(10));
         $$(".nav-link").findBy(text("Возможности")).click();
+
+        return this;
     }
 
     @Step("В модальном окне с предупреждением нажать на кнопку Ок")
-    public static void clickOk() {
+    public PersonalCard clickOk() {
         $(".modal-content button").click();
+
+        return this;
     }
 
     @Step("Открыть возможность {capabilityName}")
-    public static void openCapability(String capabilityName) {
+    public PersonalCard openCapability(String capabilityName) {
         $$("td").findBy(text(capabilityName)).click();
+
+        return this;
     }
 }

@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -32,7 +31,8 @@ public class ItmkaRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("itmka")})
     void openingTheRegisterItmka() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToItmka();
+        navigatorPage
+                .goToItmka();
 
         step("Открыт раздел Управление ИТ МКА", () ->
                 $x("//div/h2[contains(text(),'Управление информатизацией МКА')]").shouldBe(visible));
@@ -51,7 +51,8 @@ public class ItmkaRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("itmka")})
     void searchingItmkaCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToItmka();
+        navigatorPage
+                .goToItmka();
 
         step("Открыт раздел Управление ИТ МКА", () ->
                 $x("//div/h2[contains(text(),'Управление информатизацией МКА')]").shouldBe(visible));

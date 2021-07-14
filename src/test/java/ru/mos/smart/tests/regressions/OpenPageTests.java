@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.AutoMember;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -34,7 +33,8 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheActionsPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
-        NavigatorPage.goToActions();
+        navigatorPage
+                .goToActions();
         step("Проверяем, что строка поиска доступна", () -> {
             $(byName("common")).shouldBe(visible);
         });
@@ -46,7 +46,8 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheTasksPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
-        NavigatorPage.goToTasks();
+        navigatorPage
+                .goToTasks();
     }
 
     @Test
@@ -55,7 +56,8 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheReestrPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
-        NavigatorPage.goToRegister();
+        navigatorPage
+                .goToRegister();
         step("Проверка, что реестр доступен", () -> {
             $(byName("candidateSearchValue")).shouldBe(visible);
             $(byText("Название реестра")).shouldBe(visible);
@@ -71,7 +73,8 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheSpravochnikPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
-        NavigatorPage.goToSpravochnik();
+        navigatorPage
+                .goToSpravochnik();
         step("Проверка, что справочник доступен", () -> {
             $(byName("filterinput")).shouldBe(visible);
             $(byText("Системные справочники")).shouldBe(visible);
