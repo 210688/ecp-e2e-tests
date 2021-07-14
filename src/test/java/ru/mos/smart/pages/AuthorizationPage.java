@@ -19,7 +19,7 @@ public class AuthorizationPage {
     }
 
     @Step("Авторизация {login}, {password}")
-    public static void openUrlWithAuthorization(String url, String login, String password) {
+    public static void openUrlWithAuthorizationAPI(String url, String login, String password) {
         Authorization authorization = new Authorization();
         setCookies(authorization.getAuthCookie(login, password));
         open(url);

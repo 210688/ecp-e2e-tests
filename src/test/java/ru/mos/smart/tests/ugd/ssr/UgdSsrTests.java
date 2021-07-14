@@ -33,7 +33,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void ugdSsrRealEstateCatalogTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр отселяемых домов");
 
@@ -60,7 +60,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void ugdSsrPersonCatalogTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр жителей");
 
@@ -85,7 +85,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void ugdSsrCipCatalog() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр центров информирования по переселению жителей");
 
@@ -108,7 +108,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void reestrArm() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
         step("Найти и открыть реестр АРМ сотрудника Центра информирования по переселению жителей", () ->
                 $(byText("АРМ сотрудника Центра информирования по переселению жителей")).click());
@@ -133,7 +133,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void checkOpenReestrSsr() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр жителей");
         ReestrPage.gotoFirstCard();
@@ -199,7 +199,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void administrationWorkingDaysTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
         ReestrPage.open("Администрирование рабочих дней помощи в переезде");
 
@@ -217,7 +217,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void shippingApplicationTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
         ReestrPage.open("Реестр заявлений на помощь в переезде");
 
@@ -235,7 +235,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void reestrSigningTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр жителей");
         ReestrPage.gotoFirstCard();
@@ -271,7 +271,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void keysIssuanceTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр жителей");
         ReestrPage.gotoFirstCard();
@@ -298,7 +298,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void apartmentsVacatingTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
         ReestrPage.open("ССР. Реестр жителей");
         ReestrPage.gotoFirstCard();
@@ -323,7 +323,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void processInitiatingTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToActions();
         ActionsPage.searchAction("Инициация процесса начала переселения");
 
@@ -367,7 +367,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void dgiPersonEnrichmentTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToActions();
         ActionsPage.searchAction("Инициировать обогащения данных отселяемых домов из ДГИ");
 
@@ -415,7 +415,7 @@ public class UgdSsrTests extends TestBase {
     void ssrChessboardTest() {
         String address = "город Москва, улица Госпитальный Вал, дом 3 " +
                 "(УНОМ: 31354, Центральный административный округ, муниципальный округ Басманный)";
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.gotoChessboard();
 
         step("Проверка  перехода в Единую витрину данных", () -> {
@@ -442,7 +442,7 @@ public class UgdSsrTests extends TestBase {
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
     void commissionInspectionRegisterTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
         ReestrPage.open("Реестр заявлений на устранение строительных дефектов");
 

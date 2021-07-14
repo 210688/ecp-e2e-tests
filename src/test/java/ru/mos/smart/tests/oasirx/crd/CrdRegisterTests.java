@@ -32,7 +32,7 @@ public class CrdRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("crd")})
     void openingTheRegisterCRD() {
 
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         ReestrPage.goToSdCard();
 
         step("Отображается список согласований. Присутствуют разделы:", () -> {
@@ -49,7 +49,7 @@ public class CrdRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("crd")})
     void searchingCrdCardByNumber() {
 
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         ReestrPage.goToSdCard();
 
         step("В строке поиска ввести номер карточки", () ->

@@ -14,7 +14,8 @@ import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byName;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
@@ -30,7 +31,7 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openTheApplicationFormLrp() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToActions();
 
         step("Найти и выбрать операцию Подать заявку на участие в конкурсе ЛРП", () -> {
@@ -53,7 +54,7 @@ class UgdLrpTests extends TestBase {
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openTheApplicationFormLrpOutsideOrg() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToActions();
 
         step("Найти и выбрать операцию Подать заявку на участие в конкурсе ЛРП за стороннюю организацию", () -> {
@@ -76,7 +77,7 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openRegisterLrpZayavki() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
 
         step("Найти и открыть реестр Заявки на участие в конкурсе ЛРП", () -> {
@@ -99,7 +100,7 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openRegisterLrpMoiZayavki() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
 
         step("Найти и открыть реестр Мои заявки на участие в конкурсе ЛРП", () -> {

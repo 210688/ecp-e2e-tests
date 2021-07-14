@@ -17,9 +17,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -32,7 +30,7 @@ public class ViolationRegisterTests extends TestBase {
     @DisplayName("Просмотр раздела Нарушения ОГД")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("violation")})
     void openingTheRegisterViolation() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToViolations();
 
         step("Открыт раздел Административные правонарушения", () ->
@@ -51,7 +49,7 @@ public class ViolationRegisterTests extends TestBase {
     @DisplayName("Поиск карточки реестра Нарушения ОГД по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("violation")})
     void searchingViolationCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToViolations();
 
         step("Открыт раздел Административные правонарушения", () ->

@@ -38,7 +38,7 @@ public class EooRegisterTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("eoo")})
     void addCartEoo() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToEoo();
         step("В открывшейся форме выбрать Добавить ЭОО", () ->
                 $(byText("Запрос на ЭОО")).click());
@@ -62,7 +62,7 @@ public class EooRegisterTests extends TestBase {
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void searchingEooCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToEoo();
         AtomicReference<String> card = new AtomicReference<>("");
 
@@ -88,7 +88,7 @@ public class EooRegisterTests extends TestBase {
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void openCardEooTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToEoo();
 
         step("Открыть любую карточку", () ->
@@ -121,7 +121,7 @@ public class EooRegisterTests extends TestBase {
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void registerEooTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToEoo();
 
         step("В реестре есть вкладки", () ->

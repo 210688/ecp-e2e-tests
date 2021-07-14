@@ -22,7 +22,7 @@ class OasiPptTests extends TestBase {
     @DisplayName("Проверка наличия в витрине поля для поиска")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("ppt")})
     void searchFieldShouldExist() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
 
         step("Открытие в навигаторе Настройки > Конструктор витрин", () -> {
@@ -34,8 +34,8 @@ class OasiPptTests extends TestBase {
             $(byName("candidateSearchValue")).setValue("Запросы проверки версии Проекта планировки").pressEnter();
         });
 
-        step("Перейти к редактированию витрины", () -> {
-            $(byTitle("Редактировать витрину")).click();
-        });
+        step("Перейти к редактированию витрины", () ->
+                $(byTitle("Редактировать витрину")).click());
+
     }
 }

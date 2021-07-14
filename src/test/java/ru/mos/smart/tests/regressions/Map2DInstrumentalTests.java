@@ -34,7 +34,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Открытие приложения карта")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheMaps() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
         NavigatorPage.goToMaps();
         switchTo().window(1);
         step("Проверяем, что карта открылась в новой вкладке");
@@ -52,11 +52,11 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов измерений")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfInstruments() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).click();
-            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
+            $(("a[href='/map/#/map;onMode3D=true']")).click();
         });
 
         step("Проверка: Карта открылась в новой вкладке", () -> {
@@ -65,9 +65,9 @@ public class Map2DInstrumentalTests extends TestBase {
         });
 
         step("Проверить наличие инструментов измерений: линейка, квадрат, многоугольник", () -> {
-            $((".fas.fa-ruler")).shouldBe(visible, Duration.ofSeconds(10));
-            $((".fas.fa-square-full")).shouldBe(visible, Duration.ofSeconds(10));
-            $((".fal.fa-draw-polygon")).shouldBe(visible, Duration.ofSeconds(10));
+            $(("button[title='Измерение расстояния']")).shouldBe(visible, Duration.ofSeconds(20));
+            $((".fas.fa-square-full")).shouldBe(visible, Duration.ofSeconds(20));
+            $((".fal.fa-draw-polygon")).shouldBe(visible, Duration.ofSeconds(20));
         });
     }
 
@@ -77,7 +77,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
@@ -100,7 +100,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов масштабирования")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfScalingTools() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
@@ -124,7 +124,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfMyLocationTool() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
@@ -147,7 +147,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfInitialPositionTool() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();

@@ -1,4 +1,4 @@
-package ru.mos.smart.swagger;
+package ru.mos.smart.tests.swagger;
 
 import com.github.javafaker.Faker;
 import io.qameta.allure.AllureId;
@@ -26,7 +26,7 @@ public class CreateTaskMkasdprv extends TestBase {
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     @AutoMember("SoldatovKS")
-    void CreateTaskMkasdprv() {
+    void createTaskMkasdprv() {
 
         Faker faker = new Faker();
         Number = faker.number().digits(4);
@@ -58,7 +58,7 @@ public class MkasdrvCreateApplicationTest extends TestBase {
         application.create(randomTestId);
 
         step("Открыть мои задачи на портале, должна появиться заявка Проверить данные заявления", () -> {
-            AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+            AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
             TasksPage.openTaskByTestId(randomTestId);
         });
     }

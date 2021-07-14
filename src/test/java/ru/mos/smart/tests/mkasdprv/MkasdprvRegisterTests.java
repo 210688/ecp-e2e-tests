@@ -15,7 +15,8 @@ import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byLinkText;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
@@ -31,7 +32,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @DisplayName("Проверка атрибутивного состава реестра")
     @Tags({@Tag("mkasdprv"), @Tag("predprod"), @Tag("prod")})
     void checkingTheAttributesOfTheRegistry() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         NavigatorPage.goToRegister();
         ReestrPage.open("Реестр оказания услуги Вывесок");
 
@@ -53,7 +54,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @DisplayName("Открытие карточки реестра")
     @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkasdprv")})
     void openingRegistryCard() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         NavigatorPage.goToRegister();
         ReestrPage.open("Реестр оказания услуги Вывесок");
 

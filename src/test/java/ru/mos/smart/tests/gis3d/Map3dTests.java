@@ -25,7 +25,7 @@ public class Map3dTests extends TestBase {
     @DisplayName("Открытие приложения Цифровой двойник")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis3d")})
     void openTheTsifrovoyDvoynik() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).click();
@@ -42,7 +42,7 @@ public class Map3dTests extends TestBase {
     @DisplayName("Проверка отображения панели слоев")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis3d")})
     void checkingTheDisplayOfLayersPanel() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).click();

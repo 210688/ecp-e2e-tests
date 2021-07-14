@@ -26,7 +26,7 @@ public class mrgpTests extends TestBase {
     @DisplayName("Проверка открытия реестра")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mrgp")})
     void openReestr() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
         NavigatorPage.goToRegister();
         ReestrPage.open("Перечень программ");
 

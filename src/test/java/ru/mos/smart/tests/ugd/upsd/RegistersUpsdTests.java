@@ -21,7 +21,7 @@ class RegistersUpsdTests extends TestBase {
     @Disabled()
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
     void registerUpsdViewing() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         NavigatorPage.goToRegister();
 
         step("Найти реестр и перейти в него", () -> {

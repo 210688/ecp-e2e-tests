@@ -29,7 +29,7 @@ public class ElmaRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("elma")})
     void openingTheRegisterElma() {
 
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () ->
                 $x("//span[text()='Соответствие СП (МГГТ)']").click());
@@ -56,26 +56,26 @@ public class ElmaRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("elma")})
     void searchingElmaCardByNumber() {
 
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
-        step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () -> {
-            $x("//span[text()='Соответствие СП (МГГТ)']").click();
-        });
+        step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () ->
+                $x("//span[text()='Соответствие СП (МГГТ)']").click());
 
-        step("Открыт раздел Соответствие проектной документации СППК", () -> {
-            $(byText("Соответствие проектной документации СППК")).shouldBe(visible);
-        });
 
-        step("В строке поиска ввести номер карточки", () -> {
-            $x("//div/input[contains(@class,'form-control')]").setValue("ССП-0003-2021").pressEnter();
-        });
+        step("Открыт раздел Соответствие проектной документации СППК", () ->
+                $(byText("Соответствие проектной документации СППК")).shouldBe(visible));
 
-        step("Открыть найденную карточку", () -> {
-            $$(byText("ССП-0003-2021")).find(visible).click();
-        });
 
-        step("Проверить, что карточка открылась", () -> {
-            $x("//div/h2[contains(text(),'ССП-0003-2021')]").shouldBe(visible);
-        });
+        step("В строке поиска ввести номер карточки", () ->
+                $x("//div/input[contains(@class,'form-control')]").setValue("ССП-0003-2021").pressEnter());
+
+
+        step("Открыть найденную карточку", () ->
+                $$(byText("ССП-0003-2021")).find(visible).click());
+
+
+        step("Проверить, что карточка открылась", () ->
+                $x("//div/h2[contains(text(),'ССП-0003-2021')]").shouldBe(visible));
+
     }
 }

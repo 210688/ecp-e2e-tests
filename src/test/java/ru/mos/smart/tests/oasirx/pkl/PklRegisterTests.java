@@ -19,7 +19,6 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
@@ -33,7 +32,7 @@ public class PklRegisterTests extends TestBase {
     @DisplayName("Просмотр реестра ПКЛ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pkl")})
     void openingTheRegisterPkl() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToPkl();
 
         step("Открыт раздел ПКЛ", () ->
@@ -54,7 +53,7 @@ public class PklRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("pkl")})
     void searchingPklCardByNumber() {
 
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToPkl();
 
         step("Открыт раздел ПКЛ", () ->

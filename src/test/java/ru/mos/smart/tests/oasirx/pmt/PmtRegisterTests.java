@@ -32,7 +32,7 @@ class PmtRegisterTests extends TestBase {
     @DisplayName("Просмотр реестра ПМТ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pmt")})
     void openingTheRegisterPMT() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToPmt();
 
         step("Открыт раздел Межевание территорий", () ->
@@ -49,7 +49,7 @@ class PmtRegisterTests extends TestBase {
     @DisplayName("Поиск ПМТ по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("pmt")})
     void searchingPmtCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToPmt();
 
         AtomicReference<String> card = new AtomicReference<>("");

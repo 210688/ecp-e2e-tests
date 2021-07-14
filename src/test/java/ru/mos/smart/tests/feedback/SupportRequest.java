@@ -31,7 +31,7 @@ public class SupportRequest extends TestBase {
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("feedback")})
     void SupportRequestForward() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
         ActionsPage.searchAction(feedback);
 
         step("Заполнение поля Тип обращения", () -> {

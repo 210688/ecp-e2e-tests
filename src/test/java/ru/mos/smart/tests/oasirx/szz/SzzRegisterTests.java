@@ -31,7 +31,7 @@ public class SzzRegisterTests extends TestBase {
     @DisplayName("Просмотр реестра СЗЗ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("szz")})
     void openingTheRegisterSzz() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToSzz();
 
         step("Открыт раздел СЗЗ", () ->
@@ -51,7 +51,7 @@ public class SzzRegisterTests extends TestBase {
     @DisplayName("Поиск карточки реестра СЗЗ по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("szz")})
     void searchingSzzCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         NavigatorPage.goToSzz();
 
         step("Открыт раздел СПРИТ", () ->

@@ -26,7 +26,7 @@ public class EventmanagerActionTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("eventmanager")})
     @DisplayName("Проверка доступности реестра Подписки на уведомления о событиях")
     void checkingEventmanagerReestr() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
         NavigatorPage.goToRegister();
         ReestrPage.open("Подписки на уведомления о событиях");
         step("Проверить, что открывается  реестр Подписки на уведомления о событиях", () -> {
