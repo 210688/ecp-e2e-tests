@@ -54,4 +54,23 @@ public class VriCardFormTests extends TestBase {
                 .cogWheelChoose("Процесс")
                 .openProcessDiagram();
     }
+
+    @Test
+    @AllureId("3326")
+    @DisplayName("Форма карточки: Материалы")
+    @Story("Работа с реестром и карточкой ВРИ")
+    @Feature("VRI (ВРИ)")
+    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
+    void materialsTest() {
+        VriPage vriPage = new VriPage();
+
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        NavigatorPage.goToVri();
+
+        vriPage
+                .openFirstCard()
+                .clickButton("Материалы")
+                .checkMaterialsShown();
+    }
 }

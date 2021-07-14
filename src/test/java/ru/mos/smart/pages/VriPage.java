@@ -30,12 +30,19 @@ public class VriPage {
         return this;
     }
 
-    @Step("Нажать на шестеренку")
+    @Step("Нажать на шестеренку и выбрать [{option}]")
     public VriPage cogWheelChoose(String option) {
         $(".fa.fa-cog").click();
         $(".additional-menu.dropdown").shouldHave(cssClass("show"));
         step("Выбрать " + option, () ->
                 $(".additional-menu.dropdown").$(byText(option)).click());
+
+        return this;
+    }
+
+    @Step("Нажать на кнопку [{buttonText}]")
+    public VriPage clickButton(String buttonText) {
+        $(".panel-title").$$("button").findBy(text(buttonText)).click();
 
         return this;
     }
@@ -50,6 +57,17 @@ public class VriPage {
             $(".table thead").shouldHave(text("Дата"));
             $(".table thead").shouldHave(text("Пользователь"));
             $(".table tbody").$$("tr").shouldHave(sizeGreaterThan(0));
+        });
+
+        return this;
+    }
+
+    @Step("Открывается таблица с приложенными материалами")
+    public VriPage checkMaterialsShown() {
+        $("app-vri-materials").shouldBe(visible);
+
+        step("Отображается информация о смене статуса заявки, авторе и времени", () -> {
+            $("app-vri-materials").$$("app-vri-material").shouldHave(sizeGreaterThan(0));
         });
 
         return this;
