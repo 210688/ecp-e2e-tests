@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -27,8 +25,10 @@ public class mrgpTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mrgp")})
     void openReestr() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Перечень программ");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Перечень программ");
 
         step("Открытие реестра Перечень программ", () -> {
             $(byText("Перечень программ")).shouldBe(visible);

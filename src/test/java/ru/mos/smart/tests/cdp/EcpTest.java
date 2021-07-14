@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -30,7 +29,8 @@ public class EcpTest extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ecp")})
     void openReestr() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
-        NavigatorPage.goToRegister();
+        navigatorPage
+                .goToRegister();
 
         step("Проверить переход на страницу реестры" + reestrPage + ";", () -> {
             $(byText("Реестры"))

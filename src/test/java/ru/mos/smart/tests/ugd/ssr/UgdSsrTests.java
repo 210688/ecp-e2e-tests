@@ -9,8 +9,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.AutoMember;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.*;
+import ru.mos.smart.annotations.ManualMember;
+import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -27,15 +29,20 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
-    @AllureId("1141")
+    @AllureId("6433")
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void ugdSsrRealEstateCatalogTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("ССР. Реестр отселяемых домов");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("ССР. Реестр отселяемых домов");
+
 
         step("Реестр содержит по умолчанию колонки:", () -> {
             $("table").$$("th").shouldHave(textsInAnyOrder(
@@ -54,15 +61,19 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("2557")
+    @AllureId("6478")
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void ugdSsrPersonCatalogTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("ССР. Реестр жителей");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("ССР. Реестр жителей");
 
         step("Реестр содержит по умолчанию колонки:", () -> {
             $("table").$$("th").shouldHave(textsInAnyOrder(
@@ -79,15 +90,19 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("3079")
+    @AllureId("6429")
     @DisplayName("Проверка доступности реестра ССР. Реестр центров информирования по переселению жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void ugdSsrCipCatalog() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("ССР. Реестр центров информирования по переселению жителей");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("ССР. Реестр центров информирования по переселению жителей");
 
         step("Реестр содержит по умолчанию колонки:", () -> {
             $("table").$$("th").shouldHave(textsInAnyOrder(
@@ -102,14 +117,17 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("3080")
+    @AllureId("6434")
     @DisplayName("Проверка доступности реестра АРМ сотрудника Центра информирования по переселению жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void reestrArm() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
+        navigatorPage
+                .goToRegister();
         step("Найти и открыть реестр АРМ сотрудника Центра информирования по переселению жителей", () ->
                 $(byText("АРМ сотрудника Центра информирования по переселению жителей")).click());
         step("Реестр содержит по умолчанию такие колонки, как:", () ->
@@ -127,16 +145,20 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("3081")
+    @AllureId("6430")
     @DisplayName("Проверка открытия карточки жителя через реестр ССР. Реестр жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void checkOpenReestrSsr() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("ССР. Реестр жителей");
-        ReestrPage.gotoFirstCard();
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("ССР. Реестр жителей")
+                .gotoFirstCard();
 
         step("Отображается просмотровая форма карточки жителя со следующими вкладками: ", () -> {
             step("Общая информация, в которую входят вкладки:", () -> {
@@ -193,15 +215,19 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("3085")
+    @AllureId("6423")
     @DisplayName("Проверка доступности реестра Администрирование рабочих дней помощи в переезде")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void administrationWorkingDaysTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Администрирование рабочих дней помощи в переезде");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Администрирование рабочих дней помощи в переезде");
 
         step("Отображается реестр Администрирование рабочих дней помощи в переезде", () -> {
             $("h2[_ngcontent-c4]").shouldHave(text("Администрирование рабочих дней помощи в переезде"));
@@ -211,15 +237,19 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("3086")
+    @AllureId("6432")
     @DisplayName("Проверка доступности реестра Реестр заявлений на помощь в переезде")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void shippingApplicationTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Реестр заявлений на помощь в переезде");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Реестр заявлений на помощь в переезде");
 
         step("Отображается реестр Реестр заявлений на помощь в переезде", () -> {
             $("h2[_ngcontent-c4]").shouldHave(text("Реестр заявлений на помощь в переезде"));
@@ -229,20 +259,25 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("4128")
+    @AllureId("6356")
     @DisplayName("Проверка возможности подписания договора и акта приема-передачи")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void reestrSigningTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("ССР. Реестр жителей");
-        ReestrPage.gotoFirstCard();
-        PersonalCard.gotoTab("Возможности");
-        PersonalCard.openCapability("Внести сведения о подписании договора");
+        navigatorPage
+                .goToRegister();
 
-        PersonalCard.clickOk();
+        reestrPage
+                .open("ССР. Реестр жителей")
+                .gotoFirstCard();
+        personalCard
+                .gotoTab("Возможности")
+                .openCapability("Внести сведения о подписании договора")
+                .clickOk();
 
         step("Проверка  перехода в возможность 'Внести сведения о подписании договора'", () ->
                 $$(".wrapper-content h3[_ngcontent-c13]").shouldHave(textsInAnyOrder(
@@ -265,19 +300,24 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("4129")
+    @AllureId("6421")
     @DisplayName("Проверка возможности выдачи ключей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void keysIssuanceTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("ССР. Реестр жителей");
-        ReestrPage.gotoFirstCard();
-        PersonalCard.gotoTab("Возможности");
-        PersonalCard.openCapability("Внести сведения о выдаче ключей от новой квартиры");
-        PersonalCard.clickOk();
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("ССР. Реестр жителей")
+                .gotoFirstCard();
+        personalCard
+                .gotoTab("Возможности")
+                .openCapability("Внести сведения о выдаче ключей от новой квартиры")
+                .clickOk();
 
         step("Проверка  перехода в возможность 'Внести сведения о выдаче ключей от новой квартиры'", () -> {
             $("app-standard-form-field[label='Номер акта']").$(".our-mandatory").shouldBe(visible);
@@ -292,18 +332,23 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("4130")
+    @AllureId("6420")
     @DisplayName("Проверка возможности освобождения квартиры")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void apartmentsVacatingTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("ССР. Реестр жителей");
-        ReestrPage.gotoFirstCard();
-        PersonalCard.gotoTab("Возможности");
-        PersonalCard.openCapability("Внести сведения об освобождении квартиры");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("ССР. Реестр жителей")
+                .gotoFirstCard();
+        personalCard
+                .gotoTab("Возможности")
+                .openCapability("Внести сведения об освобождении квартиры");
 
         step("Проверка  перехода в возможность 'Внести сведения об освобождении квартиры'", () -> {
             $("app-standard-form-field[ng-reflect-label='Номер акта']").$(".our-mandatory").shouldBe(visible);
@@ -317,15 +362,19 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("4131")
+    @AllureId("6394")
     @DisplayName("Проверка открытия возможности Инициация процесса начала переселения")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
+    @Tags({@Tag("predprod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void processInitiatingTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToActions();
-        ActionsPage.searchAction("Инициация процесса начала переселения");
+        navigatorPage
+                .goToActions();
+        actionsPage
+                .searchAction("Инициация процесса начала переселения", navigatorPage);
 
         step("В модальном окне нажать на кнопку Взять", () ->
                 $(".modal-content").$(byText("Взять")).click());
@@ -361,15 +410,19 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("4132")
+    @AllureId("6397")
     @DisplayName(" Проверка открытия возможности Инициировать обогащения данных отселяемых домов из ДГИ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void dgiPersonEnrichmentTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToActions();
-        ActionsPage.searchAction("Инициировать обогащения данных отселяемых домов из ДГИ");
+        navigatorPage
+                .goToActions();
+        actionsPage
+                .searchAction("Инициировать обогащения данных отселяемых домов из ДГИ", navigatorPage);
 
         step("Проверка  перехода в возможность 'Инициировать обогащения данных отселяемых домов из ДГИ'", () -> {
             $x("//h3[text()='Отселяемые дома']").shouldBe(visible);
@@ -407,16 +460,19 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("4266")
+    @AllureId("6431")
     @DisplayName("Проверка открытия дашборда 'Оперативный мониторинг за ходом переселения'")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
+    @Tags({@Tag("predprod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void ssrChessboardTest() {
         String address = "город Москва, улица Госпитальный Вал, дом 3 " +
                 "(УНОМ: 31354, Центральный административный округ, муниципальный округ Басманный)";
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.gotoChessboard();
+        navigatorPage
+                .gotoChessboard();
 
         step("Проверка  перехода в Единую витрину данных", () -> {
             $(".tag.res-tag").shouldHave(attribute("class", "tag res-tag active"));
@@ -436,15 +492,19 @@ public class UgdSsrTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("4627")
+    @AllureId("6376")
     @DisplayName("Проверка доступности реестра по заявлениям на комиссионный осмотр")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @AutoMember("soldatovks")
+    @ManualMember("croc")
     void commissionInspectionRegisterTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Реестр заявлений на устранение строительных дефектов");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Реестр заявлений на устранение строительных дефектов");
 
         step("Найти и открыть реестр Реестр заявлений на устранение строительных дефектов", () -> {
             $("h2").shouldHave(text("Реестр заявлений на устранение строительных дефектов"));

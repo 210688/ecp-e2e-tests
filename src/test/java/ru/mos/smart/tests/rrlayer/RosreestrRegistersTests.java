@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -27,7 +26,8 @@ public class RosreestrRegistersTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("rrlayer")})
     void openRosreestrZemUch() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
-        NavigatorPage.goToRegister();
+        navigatorPage
+                .goToRegister();
 
         step("В списке реестров найти и открыть Росреестр. Земельные участки", () -> {
             $(byName("candidateSearchValue")).setValue("Росреестр. Земельные участки").pressEnter();

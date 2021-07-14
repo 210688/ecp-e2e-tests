@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -39,7 +38,8 @@ public class EooRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("eoo")})
     void addCartEoo() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToEoo();
+        navigatorPage
+                .goToEoo();
         step("В открывшейся форме выбрать Добавить ЭОО", () ->
                 $(byText("Запрос на ЭОО")).click());
         step("В открывшейся форме заполнить обязательные поля:", () -> {
@@ -63,7 +63,8 @@ public class EooRegisterTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void searchingEooCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToEoo();
+        navigatorPage
+                .goToEoo();
         AtomicReference<String> card = new AtomicReference<>("");
 
         step("Получаем номер существующей карточки", () -> {
@@ -89,7 +90,8 @@ public class EooRegisterTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void openCardEooTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToEoo();
+        navigatorPage
+                .goToEoo();
 
         step("Открыть любую карточку", () ->
                 $("[uisref='app.eoo.eoo']").click());
@@ -122,7 +124,8 @@ public class EooRegisterTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void registerEooTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToEoo();
+        navigatorPage
+                .goToEoo();
 
         step("В реестре есть вкладки", () ->
                 $(".nav-tabs").$$(".nav-item").shouldHave(sizeGreaterThan(0)));

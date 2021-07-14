@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.pages.ActionsPage;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -32,7 +31,8 @@ public class SupportRequest extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("feedback")})
     void SupportRequestForward() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
-        ActionsPage.searchAction(feedback);
+        actionsPage
+                .searchAction(feedback, navigatorPage);
 
         step("Заполнение поля Тип обращения", () -> {
             $x("//input[@role='combobox']").click();

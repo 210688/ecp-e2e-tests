@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
@@ -32,7 +31,8 @@ public class SzzRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("szz")})
     void openingTheRegisterSzz() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToSzz();
+        navigatorPage
+                .goToSzz();
 
         step("Открыт раздел СЗЗ", () ->
                 $("h2").shouldHave(text("Реестр CЗЗ")));
@@ -52,7 +52,8 @@ public class SzzRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("szz")})
     void searchingSzzCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToSzz();
+        navigatorPage
+                .goToSzz();
 
         step("Открыт раздел СПРИТ", () ->
                 $("h2").shouldHave(text("Реестр CЗЗ")));

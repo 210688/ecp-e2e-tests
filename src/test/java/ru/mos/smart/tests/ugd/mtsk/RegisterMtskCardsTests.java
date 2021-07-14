@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -31,8 +29,10 @@ class RegisterMtskCardsTests extends TestBase {
     @DisplayName("Просмотр полной карточки реестра МТСК. Реестр организаций")
     void registerMtskCardsViewing() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("МТСК. Реестр организаций");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("МТСК. Реестр организаций");
 
         step("Открыть полную карточку организации \"Бийскхимстройматериалы\"", () -> {
             $(".form-control").setValue("ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ").pressEnter();

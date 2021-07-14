@@ -11,30 +11,41 @@ import static com.codeborne.selenide.Selenide.switchTo;
 public class ReestrPage {
 
     @Step("Открыть реестр {registerName}")
-    public static void open(String registerName) {
+    public ReestrPage open(String registerName) {
         $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
         $(byText(registerName)).click();
+
+        return this;
+
     }
 
-    public static void search(String registerName) {
+    public ReestrPage search(String registerName) {
         $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
+
+        return this;
     }
 
     @Step("Открыть карточку жителя, нажав на поле с ФИО жителя")
-    public static void gotoFirstCard() {
+    public ReestrPage gotoFirstCard() {
         $("showcase-builder-runtime a").click();
         switchTo().window(1);
+
+        return this;
     }
 
     @Step("Открыть первую карточку реестра")
-    public static void gotoFirstCardNoSwitchWindow() {
+    public ReestrPage gotoFirstCardNoSwitchWindow() {
         $("showcase-builder-runtime a").click();
+
+        return this;
     }
 
 
     @Step("Открытие раздела СД")
-    public static void goToSdCard() {
+    public ReestrPage goToSdCard() {
         $(byText("СД")).click();
         $(byText("СД")).shouldBe(visible);
+
+        return this;
     }
 }

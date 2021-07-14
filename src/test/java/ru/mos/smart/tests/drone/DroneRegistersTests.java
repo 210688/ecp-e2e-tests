@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -35,8 +33,10 @@ public class DroneRegistersTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void openReestrDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Данные аэрофотосъемки");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Данные аэрофотосъемки");
         step("Проверить, что открывается  реестр Данные аэрофотосъемки", () -> {
             $(byText("Данные аэрофотосъемки")).shouldBe(visible);
         });
@@ -48,8 +48,10 @@ public class DroneRegistersTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void openCardDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Данные аэрофотосъемки");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Данные аэрофотосъемки");
 
         step("Открыть карточку реестра", () -> {
             $((".form-control.input-lg")).setValue("2000000933_S").pressEnter();
@@ -70,7 +72,8 @@ public class DroneRegistersTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void addCartDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
-        NavigatorPage.goToActions();
+        navigatorPage
+                .goToActions();
         step("Выбрать Создать карточку аэросъемки", () ->
                 $(byText(" Создать карточку аэросъемки ")).click());
         $(byName("object")).click();
@@ -108,8 +111,10 @@ public class DroneRegistersTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void viewCartDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Данные аэрофотосъемки");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Данные аэрофотосъемки");
 
         AtomicReference<String> card = new AtomicReference<>("");
 
