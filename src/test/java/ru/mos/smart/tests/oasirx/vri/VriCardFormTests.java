@@ -9,11 +9,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.VriPage;
 import ru.mos.smart.tests.TestBase;
 
-import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 public class VriCardFormTests extends TestBase {
@@ -25,8 +22,6 @@ public class VriCardFormTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void changeHistoryTest() {
-        VriPage vriPage = new VriPage();
-
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
                 .goToVri();
@@ -45,8 +40,6 @@ public class VriCardFormTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void processTest() {
-        VriPage vriPage = new VriPage();
-
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
                 .goToVri();
@@ -65,8 +58,6 @@ public class VriCardFormTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void materialsTest() {
-        VriPage vriPage = new VriPage();
-
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
                 .goToVri();
