@@ -87,4 +87,9 @@ public class NavigatorPage {
         step("Из боковой панели перейти в раздел СЗЗ", () ->
                 $x("//span[text()='СЗЗ']").click());
     }
+
+    public static void goToVri() {
+        step("Из боковой панели перейти в раздел ВРИ", () ->
+                $x("//span[text()='ВРИ']").click());
+    }
 }

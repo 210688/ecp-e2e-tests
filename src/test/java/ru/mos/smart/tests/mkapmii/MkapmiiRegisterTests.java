@@ -34,7 +34,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @Epic("Автотесты")
     @Feature("Реестр и карточка заявления")
     void checkingTheAttributesOfTheRegistry() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         NavigatorPage.goToRegister();
         ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
         step("Проверить, что в форме содержится поле для поиска", () -> {
@@ -68,7 +68,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @Epic("Автотесты")
     @Feature("Реестр и карточка заявления")
     void uiCardTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         NavigatorPage.goToRegister();
         ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
         ReestrPage.gotoFirstCardNoSwitchWindow();
@@ -126,7 +126,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @Epic("Автотесты")
     @Feature("Реестр и карточка заявления")
     void mainControlsTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         NavigatorPage.goToRegister();
         ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
         ReestrPage.gotoFirstCardNoSwitchWindow();
@@ -172,7 +172,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @Epic("Автотесты")
     @Feature("Выдача заявления на руки")
     void handingOverTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         NavigatorPage.goToRegister();
         ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
 
@@ -206,7 +206,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @Epic("Автотесты")
     @Feature("Выдача заявления на руки")
     void handingOverPlusTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         NavigatorPage.goToRegister();
         ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
 

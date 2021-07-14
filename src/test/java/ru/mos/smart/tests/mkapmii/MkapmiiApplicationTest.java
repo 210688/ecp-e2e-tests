@@ -42,7 +42,7 @@ public class MkapmiiApplicationTest extends TestBase {
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -93,8 +93,7 @@ public class MkapmiiApplicationTest extends TestBase {
             mkapmiiPage.deleteRefuseReason();
             $$(byText("Причина отказа")).shouldHave(size(1));
         });
-        step("Добавить любую причину отказа", () ->
-                mkapmiiPage.selectReason());
+        step("Добавить любую причину отказа", mkapmiiPage::selectReason);
 
         step("Проверить, что в блоке отказа в приёме документов можно скачать/удалить файл решения", () -> {
             mkapmiiPage.createDecisionFile();
@@ -129,7 +128,7 @@ public class MkapmiiApplicationTest extends TestBase {
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -155,7 +154,7 @@ public class MkapmiiApplicationTest extends TestBase {
         Mkapmii mkapmii = new Mkapmii();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -176,7 +175,7 @@ public class MkapmiiApplicationTest extends TestBase {
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -201,7 +200,7 @@ public class MkapmiiApplicationTest extends TestBase {
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -222,7 +221,7 @@ public class MkapmiiApplicationTest extends TestBase {
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -265,7 +264,7 @@ public class MkapmiiApplicationTest extends TestBase {
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
