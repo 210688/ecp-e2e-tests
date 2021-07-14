@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -31,7 +30,8 @@ public class ViolationRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("violation")})
     void openingTheRegisterViolation() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToViolations();
+        navigatorPage
+                .goToViolations();
 
         step("Открыт раздел Административные правонарушения", () ->
                 $x("//div/h2[contains(text(),'Административные правонарушения')]").shouldBe(visible));
@@ -50,7 +50,8 @@ public class ViolationRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("violation")})
     void searchingViolationCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToViolations();
+        navigatorPage
+                .goToViolations();
 
         step("Открыт раздел Административные правонарушения", () ->
                 $x("//div/h2[contains(text(),'Административные правонарушения')]").shouldBe(visible));

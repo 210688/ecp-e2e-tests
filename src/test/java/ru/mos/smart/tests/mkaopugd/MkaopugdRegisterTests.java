@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -33,8 +31,10 @@ public class MkaopugdRegisterTests extends TestBase {
     void registerOfInstructionsUgd() {
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Реестр поручений УГД");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Реестр поручений УГД");
 
         step("Реестр содержит по умолчанию колонки:", () -> {
             $x("//th[contains(text(),'№ заседания')]").shouldBe(exist);
@@ -55,8 +55,10 @@ public class MkaopugdRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkaopugd")})
     void cardOfRegisterUgd() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Реестр поручений УГД");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Реестр поручений УГД");
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg").setValue("88").pressEnter();

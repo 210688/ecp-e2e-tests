@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -29,8 +27,10 @@ public class BlagoRegistersTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("blago")})
     void checkingBlagoRegisters() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToRegister();
-        ReestrPage.search("Проекты благоустройства");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .search("Проекты благоустройства");
 
         step("Должны быть найдены Проекты благоустройства", () ->
                 $(".search-result-table tbody").$$("tr").shouldHave(sizeGreaterThan(0)));

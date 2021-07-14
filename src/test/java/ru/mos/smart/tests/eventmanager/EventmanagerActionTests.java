@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -27,8 +25,10 @@ public class EventmanagerActionTests extends TestBase {
     @DisplayName("Проверка доступности реестра Подписки на уведомления о событиях")
     void checkingEventmanagerReestr() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Подписки на уведомления о событиях");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Подписки на уведомления о событиях");
         step("Проверить, что открывается  реестр Подписки на уведомления о событиях", () -> {
             $(byText("Подписки на уведомления о событиях")).shouldBe(visible);
         });

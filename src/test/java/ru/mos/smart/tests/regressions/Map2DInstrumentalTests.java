@@ -12,7 +12,6 @@ import org.openqa.selenium.By;
 import ru.mos.smart.annotations.AutoMember;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -35,7 +34,8 @@ public class Map2DInstrumentalTests extends TestBase {
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheMaps() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
-        NavigatorPage.goToMaps();
+        navigatorPage
+                .goToMaps();
         switchTo().window(1);
         step("Проверяем, что карта открылась в новой вкладке");
         $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(20));

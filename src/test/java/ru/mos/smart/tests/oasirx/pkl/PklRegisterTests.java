@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -33,7 +32,8 @@ public class PklRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pkl")})
     void openingTheRegisterPkl() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToPkl();
+        navigatorPage
+                .goToPkl();
 
         step("Открыт раздел ПКЛ", () ->
                 $x("//div/h2[contains(text(),'ПКЛ')]").shouldBe(visible));
@@ -54,7 +54,8 @@ public class PklRegisterTests extends TestBase {
     void searchingPklCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToPkl();
+        navigatorPage
+                .goToPkl();
 
         step("Открыт раздел ПКЛ", () ->
                 $x("//div/h2[contains(text(),'ПКЛ')]").shouldBe(visible));

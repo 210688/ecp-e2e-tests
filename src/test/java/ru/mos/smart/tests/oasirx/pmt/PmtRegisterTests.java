@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -33,7 +32,8 @@ class PmtRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pmt")})
     void openingTheRegisterPMT() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToPmt();
+        navigatorPage
+                .goToPmt();
 
         step("Открыт раздел Межевание территорий", () ->
                 $x("//div/h2[contains(text(),'Межевание территорий')]").shouldBe(visible));
@@ -50,7 +50,8 @@ class PmtRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("pmt")})
     void searchingPmtCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToPmt();
+        navigatorPage
+                .goToPmt();
 
         AtomicReference<String> card = new AtomicReference<>("");
 

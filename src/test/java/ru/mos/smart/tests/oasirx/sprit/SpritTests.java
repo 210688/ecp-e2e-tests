@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -35,7 +34,8 @@ public class SpritTests extends TestBase {
     @Owner("Amidosha")
     void cardViewSprit() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToSprit();
+        navigatorPage
+                .goToSprit();
 
         step("Открыть любую карточку", () ->
                 $(".viewtable").$("a").click());
@@ -61,7 +61,8 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void historyChangeCard() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToSprit();
+        navigatorPage
+                .goToSprit();
         step("Открыть любую карточку", () ->
                 $(".viewtable").$("a").click());
         step("Нажать на иконку шестеренка", () ->
@@ -81,7 +82,8 @@ public class SpritTests extends TestBase {
     @Feature("SPRIT (Выдача СПРИТ)")
     void newReglament() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToSprit();
+        navigatorPage
+                .goToSprit();
         step("Открыть любую карточку", () ->
                 $(".viewtable").$("a").click());
 
@@ -104,7 +106,8 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void process() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToSprit();
+        navigatorPage
+                .goToSprit();
         step("Открыть любую карточку", () ->
                 $(".viewtable").$("a").click());
         step("Нажать на иконку шестеренка", () ->
@@ -125,7 +128,8 @@ public class SpritTests extends TestBase {
     @Feature("SPRIT (Выдача СПРИТ)")
     void cardMaterialsTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        NavigatorPage.goToSprit();
+        navigatorPage
+                .goToSprit();
         step("Открыть любую катрочку", () ->
                 $("[heading='Запросы в работе']").$("a").click());
         step("Нажать на кнопку Материалы", () ->

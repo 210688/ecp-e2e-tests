@@ -5,14 +5,11 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -34,9 +31,11 @@ public class MkapmiiRegisterTests extends TestBase {
     @Epic("Автотесты")
     @Feature("Реестр и карточка заявления")
     void checkingTheAttributesOfTheRegistry() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Реестр оказания услуги по размещению инженерных изысканий");
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form input").shouldBe(visible);
         });
@@ -68,10 +67,12 @@ public class MkapmiiRegisterTests extends TestBase {
     @Epic("Автотесты")
     @Feature("Реестр и карточка заявления")
     void uiCardTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
-        ReestrPage.gotoFirstCardNoSwitchWindow();
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Реестр оказания услуги по размещению инженерных изысканий")
+                .gotoFirstCardNoSwitchWindow();
         step("Проверить, что форма озаглавлена Карточка заявления", () ->
                 $("h1").shouldHave(text("Карточка заявления")));
         step("Открытая вкладка озаглавлена Сведения о заявлении", () ->
@@ -126,10 +127,12 @@ public class MkapmiiRegisterTests extends TestBase {
     @Epic("Автотесты")
     @Feature("Реестр и карточка заявления")
     void mainControlsTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
-        ReestrPage.gotoFirstCardNoSwitchWindow();
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Реестр оказания услуги по размещению инженерных изысканий")
+                .gotoFirstCardNoSwitchWindow();
 
         ElementsCollection dataBlocks = $$(".tab-content .collapsible-title");
 
@@ -158,7 +161,8 @@ public class MkapmiiRegisterTests extends TestBase {
                 $(".buttons-container").$(byText("Назад")).click());
         step("Проверить, что форма успешно закрывается", () ->
                 $("h2").shouldHave(text("Реестр оказания услуги по размещению инженерных изысканий")));
-        ReestrPage.gotoFirstCardNoSwitchWindow();
+        reestrPage
+                .gotoFirstCardNoSwitchWindow();
         step("Нажать на кнопку В реестр", () ->
                 $(".buttons-container").$(byText("В реестр")).click());
         step("Проверить, что открывается реестр Реестр оказания услуг по размещению инженерных изысканий", () ->
@@ -172,9 +176,11 @@ public class MkapmiiRegisterTests extends TestBase {
     @Epic("Автотесты")
     @Feature("Выдача заявления на руки")
     void handingOverTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Реестр оказания услуги по размещению инженерных изысканий");
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
             $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();
@@ -206,9 +212,11 @@ public class MkapmiiRegisterTests extends TestBase {
     @Epic("Автотесты")
     @Feature("Выдача заявления на руки")
     void handingOverPlusTest() {
-        AuthorizationPage.openUrlWithAuthorization("", webConfig().loginMka(), webConfig().passwordMka());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Реестр оказания услуги по размещению инженерных изысканий");
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Реестр оказания услуги по размещению инженерных изысканий");
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
             $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();

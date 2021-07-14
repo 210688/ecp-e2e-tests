@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -33,7 +32,8 @@ public class CrdRegisterTests extends TestBase {
     void openingTheRegisterCRD() {
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        ReestrPage.goToSdCard();
+        reestrPage
+                .goToSdCard();
 
         step("Отображается список согласований. Присутствуют разделы:", () -> {
             $(byText("В работе")).shouldBe(visible);
@@ -50,7 +50,8 @@ public class CrdRegisterTests extends TestBase {
     void searchingCrdCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
-        ReestrPage.goToSdCard();
+        reestrPage
+                .goToSdCard();
 
         step("В строке поиска ввести номер карточки", () ->
                 $x("//input[@type='search']").setValue("СД-0061-2021").pressEnter());

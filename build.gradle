@@ -52,7 +52,7 @@ tasks.withType(Test) {
     if (System.getProperty("environment") == null)
         System.setProperty("environment", "predprod")
     if (System.getProperty("tag") == null)
-        System.setProperty("tag", "(ugd1 | regressions)")
+        System.setProperty("tag", "(ssr | lrp)")
 
     systemProperties(System.getProperties())
     useJUnitPlatform()

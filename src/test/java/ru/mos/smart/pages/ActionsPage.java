@@ -21,8 +21,9 @@ public class ActionsPage {
 
     // Поиск и выбор возможности по наименованию. Можно добавлять свои.
     @Step("Выбор возможности {action}")
-    public static void searchAction(String actionName) {
-        NavigatorPage.goToActions();
+    public ActionsPage searchAction(String actionName, NavigatorPage navigatorPage) {
+        navigatorPage
+                .goToActions();
 
         step("Ввод наименования возможности в поиске", () -> {
             $(byName("common"))
@@ -35,5 +36,7 @@ public class ActionsPage {
         step("Выбор найденной возможности в списке", () ->
                 $(withText(actionName))
                         .should(visible, Duration.ofSeconds(10)).click());
+
+        return this;
     }
 }

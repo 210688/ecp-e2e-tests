@@ -5,7 +5,6 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
 import ru.mos.smart.tests.TestBase;
 
 import static io.qameta.allure.Allure.step;
@@ -22,7 +21,8 @@ class RegistersUpsdTests extends TestBase {
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
     void registerUpsdViewing() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
-        NavigatorPage.goToRegister();
+        navigatorPage
+                .goToRegister();
 
         step("Найти реестр и перейти в него", () -> {
 

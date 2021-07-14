@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.ReestrPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -33,8 +31,10 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tags({@Tag("mkasdprv"), @Tag("predprod"), @Tag("prod")})
     void checkingTheAttributesOfTheRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Реестр оказания услуги Вывесок");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Реестр оказания услуги Вывесок");
 
         step("В реестре присутствуют поля:", () -> {
             $x("//th[contains(text(),'Номер заявления')]").shouldBe(exist);
@@ -55,8 +55,10 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkasdprv")})
     void openingRegistryCard() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
-        NavigatorPage.goToRegister();
-        ReestrPage.open("Реестр оказания услуги Вывесок");
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Реестр оказания услуги Вывесок");
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg").setValue("КВ-2021-1855").pressEnter();
