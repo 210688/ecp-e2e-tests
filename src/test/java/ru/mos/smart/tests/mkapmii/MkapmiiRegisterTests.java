@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.ManualMember;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -27,8 +28,9 @@ public class MkapmiiRegisterTests extends TestBase {
     @Test
     @AllureId("5189")
     @DisplayName("Проверка UI реестр оказания услуг по размещению инженерных изысканий")
-    @Tags({@Tag("stage"), @Tag("regress")})
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void checkingTheAttributesOfTheRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
@@ -63,8 +65,9 @@ public class MkapmiiRegisterTests extends TestBase {
     @Test
     @AllureId("5191")
     @DisplayName("Проверка UI карточки заявления")
-    @Tags({@Tag("stage"), @Tag("regress")})
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void uiCardTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
@@ -123,8 +126,9 @@ public class MkapmiiRegisterTests extends TestBase {
     @Test
     @AllureId("5190")
     @DisplayName("Проверка основных контролов карточки заявления")
-    @Tags({@Tag("stage"), @Tag("regress")})
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void mainControlsTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
@@ -172,8 +176,9 @@ public class MkapmiiRegisterTests extends TestBase {
     @Test
     @AllureId("6520")
     @DisplayName("Проверка UI вкладки Выдача на руки")
-    @Tags({@Tag("stage"), @Tag("regress")})
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Выдача заявления на руки")
     void handingOverTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
@@ -208,8 +213,9 @@ public class MkapmiiRegisterTests extends TestBase {
     @Test
     @AllureId("6519")
     @DisplayName("Проверка UI модальное окно Выдать на руки")
-    @Tags({@Tag("stage"), @Tag("regress")})
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Выдача заявления на руки")
     void handingOverPlusTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());

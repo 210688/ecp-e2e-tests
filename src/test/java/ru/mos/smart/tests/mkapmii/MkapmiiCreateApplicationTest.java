@@ -3,6 +3,8 @@ package ru.mos.smart.tests.mkapmii;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.api.mkapmii.Mkapmii;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -18,6 +20,7 @@ public class MkapmiiCreateApplicationTest extends TestBase {
     @AllureId("5179")
     @DisplayName("Создание заявки через сваггер")
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
     void createApplicationViaApiTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         Mkapmii mkapmii = new Mkapmii();

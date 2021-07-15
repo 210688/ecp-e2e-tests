@@ -26,7 +26,6 @@ public class TestBase {
     protected NavigatorPage navigatorPage = new NavigatorPage();
     protected ActionsPage actionsPage = new ActionsPage();
 
-
     @BeforeAll
     public static void beforeAll() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));

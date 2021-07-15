@@ -5,11 +5,11 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.ManualMember;
 import ru.mos.smart.api.mkapmii.Mkapmii;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MkapmiiPage;
@@ -32,14 +32,15 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @AllureId("5181")
     @DisplayName("01. Проверка основных контролов, закрытие задачи без сохранения")
-    @Tags({@Tag("stage"), @Tag("regress")})
     @Epic("Автотесты")
-    @Owner("innovault")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void mainControlsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         Mkapmii mkapmii = new Mkapmii();
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
+
 
         mkapmii.create(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
@@ -54,18 +55,25 @@ public class MkapmiiApplicationTest extends TestBase {
             for (SelenideElement dataBlock : dataBlocks) {
                 if (dataBlock.has(text("Иные документы"))) {
                     dataBlock.scrollIntoView(true);
-                    dataBlock.parent().$(".ng-trigger-expandInfoPanel").scrollIntoView(true).shouldNotBe(visible, Duration.ofSeconds(10));
+                    dataBlock
+                            .parent().$(".ng-trigger-expandInfoPanel").scrollIntoView(true).shouldNotBe(visible, Duration.ofSeconds(10));
                     dataBlock.scrollIntoView(true).click();
-                    dataBlock.parent().$(".ng-trigger-expandInfoPanel").shouldBe(visible, Duration.ofSeconds(10));
-                    dataBlock.scrollIntoView(true).click();
-                    dataBlock.parent().$(".ng-trigger-expandInfoPanel").scrollIntoView(true).shouldNotBe(visible, Duration.ofSeconds(10));
+                    dataBlock
+                            .parent().$(".ng-trigger-expandInfoPanel").shouldBe(visible, Duration.ofSeconds(10));
+                    dataBlock
+                            .scrollIntoView(true).click();
+                    dataBlock
+                            .parent().$(".ng-trigger-expandInfoPanel").scrollIntoView(true).shouldNotBe(visible, Duration.ofSeconds(10));
                 } else {
                     dataBlock.scrollIntoView(true);
-                    dataBlock.parent().$(".ng-trigger-expandInfoPanel").scrollIntoView(true).shouldBe(visible, Duration.ofSeconds(10));
+                    dataBlock
+                            .parent().$(".ng-trigger-expandInfoPanel").scrollIntoView(true).shouldBe(visible, Duration.ofSeconds(10));
                     dataBlock.scrollIntoView(true).click();
-                    dataBlock.parent().$(".ng-trigger-expandInfoPanel").shouldNotBe(visible, Duration.ofSeconds(10));
+                    dataBlock
+                            .parent().$(".ng-trigger-expandInfoPanel").shouldNotBe(visible, Duration.ofSeconds(10));
                     dataBlock.scrollIntoView(true).click();
-                    dataBlock.parent().$(".ng-trigger-expandInfoPanel").scrollIntoView(true).shouldBe(visible, Duration.ofSeconds(10));
+                    dataBlock
+                            .parent().$(".ng-trigger-expandInfoPanel").scrollIntoView(true).shouldBe(visible, Duration.ofSeconds(10));
                 }
             }
         });
@@ -122,6 +130,8 @@ public class MkapmiiApplicationTest extends TestBase {
     @AllureId("5182")
     @DisplayName("02. Сохранить без завершения")
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void saveAndNotFinishTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
@@ -149,6 +159,8 @@ public class MkapmiiApplicationTest extends TestBase {
     @AllureId("5188")
     @DisplayName("03. Проверка перехода в карточку заявления")
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void applicationCardTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
@@ -169,6 +181,8 @@ public class MkapmiiApplicationTest extends TestBase {
     @AllureId("5180")
     @DisplayName("07. Успешный прием документов")
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void positiveFinishTask() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
@@ -192,8 +206,9 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @AllureId("6513")
     @DisplayName("04. Неуспешный отказ в приёме документов (отсутствует причина отказа и файл заключения)")
-    @Tags({@Tag("stage"), @Tag("regress")})
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void unsuccessfulRefuseTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
@@ -213,8 +228,9 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @AllureId("6512")
     @DisplayName("05. Неуспешный отказ в приёме документов (отсутствует файл заключения)")
-    @Tags({@Tag("stage"), @Tag("regress")})
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void unsuccessfulRefuseNoFileTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
@@ -256,8 +272,9 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @AllureId("6514")
     @DisplayName("06. Неуспешный отказ в приёме документов (все поля не заполнены)")
-    @Tags({@Tag("stage"), @Tag("regress")})
     @Epic("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void unsuccessfulRefuseEmptyFieldsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
@@ -274,7 +291,7 @@ public class MkapmiiApplicationTest extends TestBase {
                 $$("button").findBy(text("Завершить задачу")).shouldNotHave(attribute("[disabled]")).click());
         step("Проверить, что всплывает алерт с ошибкой с указанием" +
                 " на отсутствие причины отказа и отсутствие файла решения" +
-                " (Причина отказа: значение не выбрано! Файл заключения: необходимо сформировать файл!)", () ->{
+                " (Причина отказа: значение не выбрано! Файл заключения: необходимо сформировать файл!)", () -> {
             $$(".toast-message").findBy(text("Причина отказа: значение не выбрано!")).shouldBe(visible);
             $$(".toast-message").findBy(text("Файл заключения: необходимо сформировать файл!")).shouldBe(visible);
         });
