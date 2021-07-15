@@ -24,7 +24,6 @@ public class TestBase {
     protected ActionsPage actionsPage = new ActionsPage();
     protected VriPage vriPage = new VriPage();
 
-
     @BeforeAll
     public static void beforeAll() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
