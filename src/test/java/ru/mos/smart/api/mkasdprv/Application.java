@@ -12,7 +12,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Application {
     public void create(String name) {
         step("Создаем заявление по API", () -> {
-            String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/pgu_mock_request.txt");
+            String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/mkasdprv/mkasdprv_request.txt");
             requestMessage = requestMessage.replace("{STREET}", name);
 
             PguMockRequest request = new PguMockRequest();

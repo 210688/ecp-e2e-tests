@@ -1,11 +1,13 @@
 
 package ru.mos.smart.tests;
 
+import com.github.javafaker.Faker;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
+import ru.mos.smart.api.mkapmii.Mkapmii;
 import ru.mos.smart.extensions.AllureAttachmentsAfterTestExecutionCallback;
 import ru.mos.smart.pages.*;
 
@@ -23,6 +25,9 @@ public class TestBase {
     protected NavigatorPage navigatorPage = new NavigatorPage();
     protected ActionsPage actionsPage = new ActionsPage();
     protected VriPage vriPage = new VriPage();
+    protected Faker faker = new Faker();
+    protected Mkapmii mkapmii = new Mkapmii();
+
 
     @BeforeAll
     public static void beforeAll() {
