@@ -468,7 +468,7 @@ public class UgdSsrTests extends TestBase {
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void ssrChessboardTest() {
-        String address = "город Москва, улица Госпитальный Вал, дом 3 " +
+        String address = "улица Госпитальный Вал, дом 3 " +
                 "(УНОМ: 31354, Центральный административный округ, муниципальный округ Басманный)";
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage

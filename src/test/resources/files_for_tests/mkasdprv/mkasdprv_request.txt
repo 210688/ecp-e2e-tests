@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PguRequest xmlns:ns2="http://asguf.mos.ru/rkis_gu/coordinate/v6_1/">
+<ns2:CoordinateMessage>
+<ns2:CoordinateDataMessage>
+<ns2:Service>
+<ns2:RegNum>156245713</ns2:RegNum>
+<ns2:RegDate>2021-12-04T13:02:56</ns2:RegDate>
+<ns2:ServiceNumber>0001-9300120-044301-00000663/20</ns2:ServiceNumber>
+<ns2:Responsible>
+<ns2:LastName>оператор Портала</ns2:LastName>
+<ns2:FirstName>оператор Портала</ns2:FirstName>
+<ns2:MiddleName>оператор Портала</ns2:MiddleName>
+<ns2:JobTitle>оператор Портала</ns2:JobTitle>
+<ns2:Phone>+7 (495) 539-55-55</ns2:Phone>
+<ns2:Email>cpgu@mos.ru</ns2:Email>
+</ns2:Responsible>
+<ns2:Department>
+<ns2:Name>Департамент информационных технологий города Москвы</ns2:Name>
+<ns2:Code>2043</ns2:Code>
+<ns2:Inn>7710878000</ns2:Inn>
+<ns2:Ogrn>1107746943347</ns2:Ogrn>
+<ns2:RegDate>2021-09-12T00:00:00</ns2:RegDate>
+<ns2:SystemCode>9300003</ns2:SystemCode>
+</ns2:Department>
+<ns2:CreatedByDepartment>
+<ns2:Name>ПГУ</ns2:Name>
+<ns2:Code>1</ns2:Code>
+<ns2:Inn>7710878000</ns2:Inn>
+<ns2:Ogrn>1107746943347</ns2:Ogrn>
+<ns2:RegDate>2019-09-12T00:00:00</ns2:RegDate>
+<ns2:SystemCode>1</ns2:SystemCode>
+</ns2:CreatedByDepartment>
+<ns2:PrepareFactDate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+<ns2:OutputKind>Portal</ns2:OutputKind>
+<ns2:PortalNum>156178271</ns2:PortalNum>
+</ns2:Service>
+<ns2:SignService Id="0001-9300120-044301-00000663/20">
+<ns2:ServiceType>
+<ns2:Code>044301</ns2:Code>
+<ns2:Name>Согласование дизайн-проекта размещения вывески в городе Москве</ns2:Name>
+</ns2:ServiceType>
+<ns2:Contacts>
+<ns2:BaseDeclarant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RequestAccount" Id="declarant">
+<ns2:Type>Declarant</ns2:Type>
+<ns2:Documents/>
+<ns2:FullName>Общество с ограниченной ответственностью "Пойнтлэйн"</ns2:FullName>
+<ns2:Name>ООО "ПОЙНТЛЭЙН" 555</ns2:Name>
+<ns2:Ogrn>1087746330583</ns2:Ogrn>
+<ns2:Inn>7710710304</ns2:Inn>
+<ns2:OrgContact>
+<ns2:Type>Contact</ns2:Type>
+<ns2:LastName>Корольков</ns2:LastName>
+<ns2:FirstName>Игорь</ns2:FirstName>
+<ns2:MiddleName>Юрьевич</ns2:MiddleName>
+<ns2:Gender xsi:nil="true"/>
+<ns2:BirthDate xsi:nil="true"/>
+<ns2:MobilePhone>9856800937</ns2:MobilePhone>
+<ns2:EMail>test4@test.ru</ns2:EMail>
+<ns2:CitizenshipType xsi:nil="true"/>
+</ns2:OrgContact>
+<ns2:Phone>8888888802</ns2:Phone>
+<ns2:EMail>sakha@moss.ru</ns2:EMail>
+<ns2:OrganizationType>UL</ns2:OrganizationType>
+<ns2:CorpId>FA561272-DC06-11E6-BC23-2C600C28EE9D</ns2:CorpId>
+<ns2:SsoId>6456cce4-794f-4929-8161-ebd1a02c1369</ns2:SsoId>
+</ns2:BaseDeclarant>
+</ns2:Contacts>
+<ns2:Documents>
+<ns2:ServiceDocument>
+<ns2:DocKind>
+<ns2:Code>572</ns2:Code>
+<ns2:Name>Договор аренды объекта недвижимости</ns2:Name>
+</ns2:DocKind>
+<ns2:DocNumber>номер аренды 123456</ns2:DocNumber>
+<ns2:DocDate>2021-01-01T00:00:00</ns2:DocDate>
+<ns2:DocFiles>
+<ns2:CoordinateFileReference>
+<ns2:Id>81279141-9b6f-4649-9962-142c757f5578</ns2:Id>
+<ns2:FileName>Договор аренды объекта недвижимости.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFileReference>
+</ns2:DocFiles>
+</ns2:ServiceDocument>
+<ns2:ServiceDocument>
+<ns2:DocKind>
+<ns2:Code>10603</ns2:Code>
+<ns2:Name>Договор бессрочного пользования</ns2:Name>
+</ns2:DocKind>
+<ns2:DocFiles>
+<ns2:CoordinateFileReference>
+<ns2:Id>4cf802fb-3d7a-4f49-9524-662d425956f9</ns2:Id>
+<ns2:FileName>Договор бессрочного пользования.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFileReference>
+</ns2:DocFiles>
+</ns2:ServiceDocument>
+<ns2:ServiceDocument>
+<ns2:DocKind>
+<ns2:Code>2076</ns2:Code>
+<ns2:Name>Договор долгосрочной аренды</ns2:Name>
+</ns2:DocKind>
+<ns2:DocFiles>
+<ns2:CoordinateFileReference>
+<ns2:Id>00905584-4855-420f-a0f8-62ff2b22d8b6</ns2:Id>
+<ns2:FileName>Договор долгосрочной аренды.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFileReference>
+</ns2:DocFiles>
+</ns2:ServiceDocument>
+<ns2:ServiceDocument>
+<ns2:DocKind>
+<ns2:Code>2075</ns2:Code>
+<ns2:Name>Договор краткосрочной аренды</ns2:Name>
+</ns2:DocKind>
+<ns2:DocFiles>
+<ns2:CoordinateFileReference>
+<ns2:Id>acfbc74e-5954-43d8-be30-0e8b67192cf6</ns2:Id>
+<ns2:FileName>Договор краткосрочной аренды.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFileReference>
+</ns2:DocFiles>
+</ns2:ServiceDocument>
+<ns2:ServiceDocument>
+<ns2:DocKind>
+<ns2:Code>7709</ns2:Code>
+<ns2:Name>Иной документ</ns2:Name>
+</ns2:DocKind>
+<ns2:DocFiles>
+<ns2:CoordinateFileReference>
+<ns2:Id>0aa0b084-9449-4fd4-9630-a8172bd9b14d</ns2:Id>
+<ns2:FileName>Иной документ.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFileReference>
+</ns2:DocFiles>
+</ns2:ServiceDocument>
+<ns2:ServiceDocument>
+<ns2:DocKind>
+<ns2:Code>10503</ns2:Code>
+<ns2:Name>Дизайн-проект размещения вывески</ns2:Name>
+</ns2:DocKind>
+<ns2:DocFiles>
+<ns2:CoordinateFileReference>
+<ns2:Id>fd2f04fd-b32a-4194-9d87-b6815b5c6b17</ns2:Id>
+<ns2:FileName>Дизайн-проект размещения вывески (большой).pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFileReference>
+</ns2:DocFiles>
+</ns2:ServiceDocument>
+<ns2:ServiceDocument>
+<ns2:DocKind>
+<ns2:Code>4020</ns2:Code>
+<ns2:Name>Выписка из ЕГРЮЛ (для юридических лиц)</ns2:Name>
+</ns2:DocKind>
+<ns2:DocFiles>
+<ns2:CoordinateFileReference>
+<ns2:Id>b251b083-20e7-4ff0-85e2-c75b5c3e386b</ns2:Id>
+<ns2:FileName>Выписка ЕГРЮЛ.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFileReference>
+</ns2:DocFiles>
+</ns2:ServiceDocument>
+</ns2:Documents>
+<ns2:CustomAttributes>
+<NS2:ServiceProperties xmlns:NS2="http://mos.ru/gu/service/044301/" xmlns:v61="http://asguf.mos.ru/rkis_gu/coordinate/v6_1/">
+<NS2:type>2</NS2:type>
+<NS2:zayv_pod>1</NS2:zayv_pod>
+<NS2:target_focus>1</NS2:target_focus>
+<NS2:dp_singboard>1</NS2:dp_singboard>
+<NS2:dp_singboard_azs>1</NS2:dp_singboard_azs>
+<NS2:dp_singboard_trademarks>1</NS2:dp_singboard_trademarks>
+<NS2:dp_singboard_apz>1</NS2:dp_singboard_apz>
+<NS2:reg_number>номер регистрации 123455</NS2:reg_number>
+<NS2:reg_date>12.12.2002</NS2:reg_date>
+<NS2:creator_yavl>1</NS2:creator_yavl>
+<NS2:creator_lastname>Кротов</NS2:creator_lastname>
+<NS2:creator_firstname>Иван</NS2:creator_firstname>
+<NS2:creator_middlename>Петрович</NS2:creator_middlename>
+<NS2:creator_inn>999998181023</NS2:creator_inn>
+<NS2:creator_ogrn>316999977981811</NS2:creator_ogrn>
+<NS2:kad_num_zu>50:27:0040211:314</NS2:kad_num_zu>
+<NS2:sved_object>1</NS2:sved_object>
+<NS2:address_type>0</NS2:address_type>
+<NS2:fias_no>true</NS2:fias_no>
+<NS2:address_street_PDF>{STREET}</NS2:address_street_PDF>
+<NS2:address_house></NS2:address_house>
+<NS2:address_vladenie></NS2:address_vladenie>
+<NS2:address_korpus></NS2:address_korpus>
+<NS2:address_stroenie></NS2:address_stroenie>
+<NS2:address_okrug></NS2:address_okrug>
+<NS2:address_rayon></NS2:address_rayon>
+<NS2:address_county>Адрес район</NS2:address_county>
+<NS2:address_stateorprovince>Регион г Москва</NS2:address_stateorprovince>
+<NS2:address_city>Город город</NS2:address_city>
+<NS2:right_zem>1</NS2:right_zem>
+<NS2:build_perm_number>разрешение 100</NS2:build_perm_number>
+<NS2:build_perm_date>10.12.2020</NS2:build_perm_date>
+<NS2:build_perm_org>1</NS2:build_perm_org>
+<NS2:result1>true</NS2:result1>
+<NS2:yavl>1</NS2:yavl>
+<NS2:objectlist>
+<NS2:object>
+<NS2:kad_num_obj>50:15:0020321:336</NS2:kad_num_obj>
+<NS2:sved_obj>2</NS2:sved_obj>
+<NS2:address_type>0</NS2:address_type>
+<NS2:address_postofficebox>Город Москва, Улица Московская Дом 1</NS2:address_postofficebox>
+<NS2:address_stateorprovince>г Москва</NS2:address_stateorprovince>
+<NS2:address_street_PDF>Московская</NS2:address_street_PDF>
+<NS2:address_house>1</NS2:address_house>
+<NS2:address_postalcode>119618</NS2:address_postalcode>
+<NS2:address_fiasguid>d5885197-75cf-4e75-a372-0d04435bfe8e</NS2:address_fiasguid>
+<NS2:address_kladr>7700000000019050001</NS2:address_kladr>
+<NS2:address_unom>81213</NS2:address_unom>
+<NS2:right_zem>0</NS2:right_zem>
+<NS2:sved_obj_PDF>В собственности заявителя</NS2:sved_obj_PDF>
+</NS2:object>
+<NS2:object>
+<NS2:kad_num_obj>47:14:1203001:814</NS2:kad_num_obj>
+<NS2:sved_obj>1</NS2:sved_obj>
+<NS2:address_type>1</NS2:address_type>
+<NS2:address_okrug>0400</NS2:address_okrug>
+<NS2:address_rayon>0404</NS2:address_rayon>
+<NS2:address_text>4</NS2:address_text>
+<NS2:right_zem>0</NS2:right_zem>
+<NS2:sved_obj_PDF>В собственности заявителя</NS2:sved_obj_PDF>
+<NS2:address_okrug_PDF>Восточный административный округ</NS2:address_okrug_PDF>
+<NS2:address_rayon_PDF>муниципальный округ Вешняки</NS2:address_rayon_PDF>
+</NS2:object>
+<NS2:object>
+<NS2:kad_num_obj>77:08:0008002:55</NS2:kad_num_obj>
+<NS2:sved_obj>2</NS2:sved_obj>
+<NS2:address_type>0</NS2:address_type>
+<NS2:address_postofficebox>Город Москва, Улица Фестивальная Дом 2А</NS2:address_postofficebox>
+<NS2:address_stateorprovince>г Москва</NS2:address_stateorprovince>
+<NS2:address_street_PDF>Фестивальная</NS2:address_street_PDF>
+<NS2:address_house>2А</NS2:address_house>
+<NS2:address_postalcode>125565</NS2:address_postalcode>
+<NS2:address_fiasguid>69b779e7-4fb1-4392-b90b-f832bd66270b</NS2:address_fiasguid>
+<NS2:address_kladr>7700000000003540088</NS2:address_kladr>
+<NS2:address_unom>3401951</NS2:address_unom>
+<NS2:right_zem>0</NS2:right_zem>
+<NS2:sved_obj_PDF>В собственности заявителя</NS2:sved_obj_PDF>
+</NS2:object>
+<NS2:object>
+<NS2:kad_num_obj>50:27:0040211:314</NS2:kad_num_obj>
+<NS2:sved_obj>3</NS2:sved_obj>
+<NS2:address_type>1</NS2:address_type>
+<NS2:address_okrug>0400</NS2:address_okrug>
+<NS2:address_rayon>0405</NS2:address_rayon>
+<NS2:address_text>ориентр 4</NS2:address_text>
+<NS2:right_zem>0</NS2:right_zem>
+<NS2:sved_obj_PDF>В собственности заявителя</NS2:sved_obj_PDF>
+<NS2:address_okrug_PDF>Восточный административный округ</NS2:address_okrug_PDF>
+<NS2:address_rayon_PDF>муниципальный округ Восточное Измайлово</NS2:address_rayon_PDF>
+</NS2:object>
+<NS2:object>
+<NS2:kad_num_obj>77:01:1234567:12312313</NS2:kad_num_obj>
+<NS2:sved_obj>3</NS2:sved_obj>
+<NS2:address_type>0</NS2:address_type>
+<NS2:fias_no>true</NS2:fias_no>
+<NS2:address_street_PDF>Улица 1</NS2:address_street_PDF>
+<NS2:address_house>Дом 1</NS2:address_house>
+<NS2:address_vladenie>Владение 1</NS2:address_vladenie>
+<NS2:address_korpus>Корпус 1</NS2:address_korpus>
+<NS2:address_stroenie>Строение 1</NS2:address_stroenie>
+<NS2:address_okrug>0400</NS2:address_okrug>
+<NS2:address_rayon>0404</NS2:address_rayon>
+<NS2:right_zem>2</NS2:right_zem>
+<NS2:sved_obj_PDF>В собственности заявителя</NS2:sved_obj_PDF>
+<NS2:address_okrug_PDF>Западный административный округ</NS2:address_okrug_PDF>
+<NS2:address_rayon_PDF>муниципальный округ Ново-Переделкино</NS2:address_rayon_PDF>
+</NS2:object>
+</NS2:objectlist>
+<NS2:target_focus_PDF>Согласование дизайн-проекта отдельно стоящей информационной конструкции</NS2:target_focus_PDF>
+<NS2:sved_object_PDF>В собственности заявителя</NS2:sved_object_PDF>
+<NS2:address_okrug_PDF>Восточный административный округ</NS2:address_okrug_PDF>
+<NS2:address_rayon_PDF>муниципальный округ Восточное Измайлово</NS2:address_rayon_PDF>
+</NS2:ServiceProperties>
+</ns2:CustomAttributes>
+</ns2:SignService>
+</ns2:CoordinateDataMessage>
+<ns2:Files>
+<ns2:CoordinateFile>
+<ns2:Id>acfbc74e-5954-43d8-be30-0e8b67192cf6</ns2:Id>
+<ns2:FileIdInStore>D7771D8A-D163-4FA3-8FAA-0887E36236AF</ns2:FileIdInStore>
+<ns2:StoreName>GU-DOCS</ns2:StoreName>
+<ns2:FileName>Договор краткосрочной аренды.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFile>
+<ns2:CoordinateFile>
+<ns2:Id>81279141-9b6f-4649-9962-142c757f5578</ns2:Id>
+<ns2:FileIdInStore>08D8A571-FA64-4438-9690-C9A9D110D045</ns2:FileIdInStore>
+<ns2:StoreName>GU-DOCS</ns2:StoreName>
+<ns2:FileName>Договор аренды объекта недвижимости.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFile>
+<ns2:CoordinateFile>
+<ns2:Id>4cf802fb-3d7a-4f49-9524-662d425956f9</ns2:Id>
+<ns2:FileIdInStore>9ADC834D-24B4-4B43-99EF-7666C29016AE</ns2:FileIdInStore>
+<ns2:StoreName>GU-DOCS</ns2:StoreName>
+<ns2:FileName>Договор бессрочного пользования.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFile>
+<ns2:CoordinateFile>
+<ns2:Id>00905584-4855-420f-a0f8-62ff2b22d8b6</ns2:Id>
+<ns2:FileIdInStore>4CA4ED32-0979-48E2-B793-50BC92432A66</ns2:FileIdInStore>
+<ns2:StoreName>GU-DOCS</ns2:StoreName>
+<ns2:FileName>Договор долгосрочной аренды.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFile>
+<ns2:CoordinateFile>
+<ns2:Id>fd2f04fd-b32a-4194-9d87-b6815b5c6b17</ns2:Id>
+<ns2:FileIdInStore>6BE2FAE2-DB2D-4093-99F5-0DE5A30C5E5F</ns2:FileIdInStore>
+<ns2:StoreName>GU-DOCS</ns2:StoreName>
+<ns2:FileName>Дизайн-проект размещения вывески (большой).pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFile>
+<ns2:CoordinateFile>
+<ns2:Id>0aa0b084-9449-4fd4-9630-a8172bd9b14d</ns2:Id>
+<ns2:FileIdInStore>1A095FED-BFC9-42E0-9CAE-4C71E29BB27A</ns2:FileIdInStore>
+<ns2:StoreName>GU-DOCS</ns2:StoreName>
+<ns2:FileName>Иной документ.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFile>
+<ns2:CoordinateFile>
+<ns2:Id>b251b083-20e7-4ff0-85e2-c75b5c3e386b</ns2:Id>
+<ns2:FileIdInStore>B3DD6DB7-345A-4395-ACA8-B92FEE6F7A6E</ns2:FileIdInStore>
+<ns2:StoreName>GU-DOCS</ns2:StoreName>
+<ns2:FileName>Выписка ЕГРЮЛ.pdf</ns2:FileName>
+<ns2:FileHash>B88D271A3A9011FD6AF6FB5534B868DCDDDA51FC1ACDB166C91DA825B7E86E86</ns2:FileHash>
+</ns2:CoordinateFile>
+</ns2:Files>
+</ns2:CoordinateMessage>
+<Ssoid>6456cce4-794f-4929-8161-ebd1a02c1369</Ssoid>
+</PguRequest>
