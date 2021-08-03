@@ -18,6 +18,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Epic("FT (Электронная приемка по ФТ)")
 @Feature("Подсистема неактивна, необходимости в автотестах нет")
 @Disabled
+// Подсистема неактивна, необходимости в автотестах нет."
 public class EaistTests extends TestBase {
 
     @Test
