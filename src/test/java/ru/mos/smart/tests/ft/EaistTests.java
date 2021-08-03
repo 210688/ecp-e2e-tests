@@ -2,10 +2,7 @@ package ru.mos.smart.tests.ft;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -19,7 +16,8 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("FT (Электронная приемка по ФТ)")
-@Feature("EAIST (ЕАИСТ)")
+@Feature("Подсистема неактивна, необходимости в автотестах нет")
+@Disabled
 public class EaistTests extends TestBase {
 
     @Test
