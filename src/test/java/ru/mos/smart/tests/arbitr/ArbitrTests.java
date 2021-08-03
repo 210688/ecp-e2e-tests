@@ -26,6 +26,7 @@ public class ArbitrTests extends TestBase {
     @DisplayName("Загрузка модуля Поиск дел")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("arbitr")})
     void loadingModulePoiskDel() {
+
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
 
         step("Перейти в раздел Поиск судебных дел", () -> $(byLinkText("Информация"))
