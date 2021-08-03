@@ -18,6 +18,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Epic("FR (Фонд реновации)")
 @Feature("Подсистема неактивна, необходимости в автотестах нет")
 @Disabled
+// Подсистема неактивна, необходимости в автотестах нет."
 public class CheckingDisplayOfProjectsTests extends TestBase {
 
     @Test
