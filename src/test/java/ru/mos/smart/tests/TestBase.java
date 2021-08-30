@@ -9,6 +9,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import ru.mos.smart.api.mkapmii.Mkapmii;
 import ru.mos.smart.extensions.AllureAttachmentsAfterTestExecutionCallback;
+import ru.mos.smart.helpers.ExtendedListener;
 import ru.mos.smart.pages.*;
 
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
@@ -31,7 +32,7 @@ public class TestBase {
 
     @BeforeAll
     public static void beforeAll() {
-        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+        addListener("AllureSelenide", new ExtendedListener());
         configureSelenide();
     }
 
