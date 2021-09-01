@@ -1,6 +1,5 @@
 package ru.mos.smart.pages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.Cookie;
 import ru.mos.smart.api.Authorization;
 
@@ -18,17 +17,16 @@ public class AuthorizationPage {
         cookiesMap.forEach((k, v) -> getWebDriver().manage().addCookie(new Cookie(k, v)));
     }
 
-    @Step("Авторизация {login}")
+
     public static void openUrlWithAuthorizationAPI(String url, String login, String password) {
-        step("Авторизация", (step) -> {
-            step.parameter("Login", login);
+        step("Авторизация", () -> {
             Authorization authorization = new Authorization();
             setCookies(authorization.getAuthCookie(login, password));
             open(url);
         });
     }
 
-    @Step("Авторизация {login}")
+
     public static void openUrlWithAuthorizationUI(String url, String login, String password) {
 
         step("Открытие ссылки " + url, () -> open(url));
