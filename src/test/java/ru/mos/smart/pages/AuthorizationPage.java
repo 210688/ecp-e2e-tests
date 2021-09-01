@@ -18,21 +18,21 @@ public class AuthorizationPage {
     }
 
 
-    public static void openUrlWithAuthorizationAPI(String url, String loginn, String password) {
+    public static void openUrlWithAuthorizationAPI(String url, String login, String password) {
         step("Авторизация", () -> {
             Authorization authorization = new Authorization();
-            setCookies(authorization.getAuthCookie(loginn, password));
+            setCookies(authorization.getAuthCookie(login, password));
             open(url);
         });
     }
 
 
-    public static void openUrlWithAuthorizationUI(String url, String loginn, String password) {
+    public static void openUrlWithAuthorizationUI(String url, String login, String password) {
 
         step("Открытие ссылки " + url, () -> open(url));
         step("Заполнение формы авторизации", () -> {
             $(byText("Войти по логину и паролю")).click();
-            $("#username").setValue(loginn);
+            $("#username").setValue(login);
             $("#password").setValue(password);
             $("#kc-login").click();
         });
