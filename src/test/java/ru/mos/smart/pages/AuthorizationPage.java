@@ -19,7 +19,6 @@ public class AuthorizationPage {
     }
 
     @Step("Авторизация {login}")
-
     public static void openUrlWithAuthorizationAPI(String url, String login, String password) {
         step("Авторизация", () -> {
             Authorization authorization = new Authorization();
