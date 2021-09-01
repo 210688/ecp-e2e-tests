@@ -57,7 +57,7 @@ public class ExtendedListener extends AllureSelenide {
         String element = event.getElement();
         String subject = event.getSubject();
 
-        if(element.equals("#password") && subject.contains("set value(")) {
+        if (element.equals("#password") && subject.contains("set value(")) {
             subject = "set value(******)";
         }
 
