@@ -6,7 +6,7 @@ import org.aeonbits.owner.Config;
 @Config.Sources({
         //"system.properties",
         "classpath:${environment}.properties",
-        "src/test/resources/config:${environment}.properties"
+        //"src/test/resources/config:${environment}.properties"
 })
 public interface WebConfig extends Config {
     @Key("web.url")
