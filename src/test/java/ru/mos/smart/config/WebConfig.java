@@ -5,7 +5,8 @@ import org.aeonbits.owner.Config;
 //@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         //"system.properties",
-        "classpath:${environment}.properties"
+        "classpath:${environment}.properties",
+        "src/test/resources/config:${environment}.properties"
 })
 public interface WebConfig extends Config {
     @Key("web.url")
