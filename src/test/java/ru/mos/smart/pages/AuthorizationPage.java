@@ -19,7 +19,8 @@ public class AuthorizationPage {
 
 
     public static void openUrlWithAuthorizationAPI(String url, String login, String password) {
-        step("Авторизация", () -> {
+        step("Авторизация", (step) -> {
+            step.parameter("Login", login);
             Authorization authorization = new Authorization();
             setCookies(authorization.getAuthCookie(login, password));
             open(url);
@@ -30,7 +31,8 @@ public class AuthorizationPage {
     public static void openUrlWithAuthorizationUI(String url, String login, String password) {
 
         step("Открытие ссылки " + url, () -> open(url));
-        step("Заполнение формы авторизации", () -> {
+        step("Авторизация", (step) -> {
+            step.parameter("Login", login);
             $(byText("Войти по логину и паролю")).click();
             $("#username").setValue(login);
             $("#password").setValue(password);
