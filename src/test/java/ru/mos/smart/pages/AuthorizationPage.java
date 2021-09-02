@@ -17,14 +17,15 @@ public class AuthorizationPage {
         cookiesMap.forEach((k, v) -> getWebDriver().manage().addCookie(new Cookie(k, v)));
     }
 
+
     public static void openUrlWithAuthorizationAPI(String url, String login, String password) {
-        step("Авторизация", (step) -> {
-            step.parameter("Login", login);
+        step("Авторизация", () -> {
             Authorization authorization = new Authorization();
             setCookies(authorization.getAuthCookie(login, password));
             open(url);
         });
     }
+
 
     public static void openUrlWithAuthorizationUI(String url, String login, String password) {
 
