@@ -6,6 +6,7 @@ import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.AutoMember;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -19,17 +20,16 @@ public class AuthorizationEcpViaUi extends TestBase {
 
 
     @Test
+    @AutoMember("soldatovks")
+    @Layer("web")
     @AllureId("6549")
     @DisplayName("Авторизация через UI")
     @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
     @Feature("Меню Госуслуги и функции")
-    @AutoMember("soldatovks")
     void authorizationEcpViaUi() {
 
         AuthorizationPage.openUrlWithAuthorizationUI("", webConfig().login_regress(), webConfig().password_regress());
         step("В навигаторе присутствует надпись  Правительство Москвы", () ->
-                // $(".m-t-xs m-b-xs").shouldHave(text("Правительство Москвы")).shouldBe(visible));
                 $("h3").shouldHave(text("Правительство Москвы")).shouldBe(visible));
-
     }
 }

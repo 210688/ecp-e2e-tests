@@ -18,15 +18,16 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 
-@AutoMember("soldatovks")
-@Layer("web")
+
 @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
 @Feature("СУДИР")
 @Story("Проверка авторизации через СУДИР")
 public class AuthorizationEcpViaSudir extends TestBase {
 
     @Test
-    @AllureId("4161")
+    @AutoMember("soldatovks")
+    @Layer("web")
+    @AllureId("6543")
     @DisplayName("Проверка авторизации через СУДИР")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void AuthorizationEcpSudir() {
