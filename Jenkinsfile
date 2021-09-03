@@ -6,7 +6,7 @@ pipeline {
         stage('checkout') {
             steps{
                 checkout scm [$class: 'GitSCM', branches: [[name: '*/regresing_tests']], userRemoteConfigs:
-                [[credentialsId: 'reinform-cdp-common-git', url: 'http://smart.mos.ru/git/autotest/ecp-e2e-tests.git']])
+                [[credentialsId: 'reinform-cdp-common-git', url: 'http://smart.mos.ru/git/autotest/ecp-e2e-tests.git']]
             }
         }
 
