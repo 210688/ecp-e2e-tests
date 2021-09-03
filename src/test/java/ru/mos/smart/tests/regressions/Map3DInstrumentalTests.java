@@ -22,14 +22,15 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
-@AutoMember("soldatovks")
-@Layer("web")
+
 @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
 @Feature("Базовый функционал Цифровой двойник")
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
-    @AllureId("3739")
+    @AutoMember("soldatovks")
+    @Layer("web")
+    @AllureId("6532")
     @DisplayName("Открытие приложения Цифровой двойник")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod"), @Tag("prod"), @Tag("prod")})
     void openTheTsifrovoyDvoynik() {
@@ -47,7 +48,9 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("3740")
+    @AutoMember("soldatovks")
+    @Layer("web")
+    @AllureId("6533")
     @DisplayName("Проверка отображения панели слоев")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingTheDisplayOfLayersPanel() {
@@ -90,8 +93,10 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("3749")
-    @Description("")
+    @AutoMember("soldatovks")
+    @Layer("web")
+    @AllureId("6536")
+    @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfAddressSearch() {
@@ -113,8 +118,10 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("3750")
-    @Description("")
+    @AutoMember("soldatovks")
+    @Layer("web")
+    @AllureId("6537")
+    @Description()
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfScalingTools() {
@@ -137,8 +144,10 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("3748")
-    @Description("")
+    @AutoMember("soldatovks")
+    @Layer("web")
+    @AllureId("6535")
+    @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfInitialPositionTool() {
@@ -160,8 +169,10 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("3747")
-    @Description("")
+    @AutoMember("soldatovks")
+    @Layer("web")
+    @AllureId("6534")
+    @Description()
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfInstruments() {

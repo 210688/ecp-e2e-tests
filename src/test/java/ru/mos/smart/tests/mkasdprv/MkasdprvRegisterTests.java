@@ -26,7 +26,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class MkasdprvRegisterTests extends TestBase {
 
     @Test
-    @AllureId("3017")
+    @AllureId("5597")
     @DisplayName("Проверка атрибутивного состава реестра")
     @Tags({@Tag("mkasdprv"), @Tag("predprod"), @Tag("prod")})
     void checkingTheAttributesOfTheRegistry() {
@@ -50,7 +50,7 @@ public class MkasdprvRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("3018")
+    @AllureId("6890")
     @DisplayName("Открытие карточки реестра")
     @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkasdprv")})
     void openingRegistryCard() {

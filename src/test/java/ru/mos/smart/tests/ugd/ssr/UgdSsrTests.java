@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -28,12 +29,13 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 public class UgdSsrTests extends TestBase {
     @Test
-    @Layer("web")
     @AllureId("6433")
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void ugdSsrRealEstateCatalogTest() {
@@ -60,12 +62,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6478")
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void ugdSsrPersonCatalogTest() {
@@ -89,12 +92,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6429")
     @DisplayName("Проверка доступности реестра ССР. Реестр центров информирования по переселению жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void ugdSsrCipCatalog() {
@@ -116,12 +120,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6434")
     @DisplayName("Проверка доступности реестра АРМ сотрудника Центра информирования по переселению жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void reestrArm() {
@@ -144,12 +149,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6430")
     @DisplayName("Проверка открытия карточки жителя через реестр ССР. Реестр жителей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void checkOpenReestrSsr() {
@@ -214,12 +220,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6423")
     @DisplayName("Проверка доступности реестра Администрирование рабочих дней помощи в переезде")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void administrationWorkingDaysTest() {
@@ -236,12 +243,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6432")
     @DisplayName("Проверка доступности реестра Реестр заявлений на помощь в переезде")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void shippingApplicationTest() {
@@ -258,12 +266,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6356")
     @DisplayName("Проверка возможности подписания договора и акта приема-передачи")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void reestrSigningTest() {
@@ -299,12 +308,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6421")
     @DisplayName("Проверка возможности выдачи ключей")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void keysIssuanceTest() {
@@ -331,12 +341,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6420")
     @DisplayName("Проверка возможности освобождения квартиры")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void apartmentsVacatingTest() {
@@ -361,12 +372,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6394")
     @DisplayName("Проверка открытия возможности Инициация процесса начала переселения")
     @Tags({@Tag("predprod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void processInitiatingTest() {
@@ -409,12 +421,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6397")
     @DisplayName(" Проверка открытия возможности Инициировать обогащения данных отселяемых домов из ДГИ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void dgiPersonEnrichmentTest() {
@@ -459,12 +472,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6431")
     @DisplayName("Проверка открытия дашборда 'Оперативный мониторинг за ходом переселения'")
     @Tags({@Tag("predprod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void ssrChessboardTest() {
@@ -491,12 +505,13 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6376")
     @DisplayName("Проверка доступности реестра по заявлениям на комиссионный осмотр")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @Epic("UGD (УГД)")
     @Feature("SSR (Суперсервис реновации ССР)")
+    @Story("Автотесты")
+    @Layer("web")
     @AutoMember("soldatovks")
     @ManualMember("croc")
     void commissionInspectionRegisterTest() {

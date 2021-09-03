@@ -36,7 +36,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class MkasdprvApplicantDetailsCheck extends TestBase {
 
     @Test
-    @AllureId("4805")
+    @AllureId("6886")
     @DisplayName("01. Проверка основных контролов на странице")
     @Tags({@Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
@@ -123,7 +123,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     }
 
     @Test
-    @AllureId("4806")
+    @AllureId("5656")
     @DisplayName("02. Проверка перехода в карточку заявления")
     @Tags({@Tag("prod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
@@ -144,7 +144,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     }
 
     @Test
-    @AllureId("4807")
+    @AllureId("5657")
     @DisplayName("03. Принять решение по заявлению - отказ. Причины отказа")
     @Tags({@Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
@@ -163,19 +163,19 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         step("В поле «Причина отказа» в выпадающем списке проверить наличие 3 причин отказа:", () -> {
             $("[placeholder=Причина]").click();
             $("ng-dropdown-panel").$(byText(
-                    "Представление заявителем запроса и документов," +
-                            " подписанных с использованием электронной подписи," +
-                            " не принадлежащей лицу, подавшему запрос"))
+                            "Представление заявителем запроса и документов," +
+                                    " подписанных с использованием электронной подписи," +
+                                    " не принадлежащей лицу, подавшему запрос"))
                     .shouldBe(visible);
             $("ng-dropdown-panel").$(byText(
-                    "Представление заявителем неполного комплекта документов," +
-                            " предусмотренных пунктом 2.5.1.1 Регламента в качестве документов," +
-                            " подлежащих обязательному представлению заявителем"))
+                            "Представление заявителем неполного комплекта документов," +
+                                    " предусмотренных пунктом 2.5.1.1 Регламента в качестве документов," +
+                                    " подлежащих обязательному представлению заявителем"))
                     .shouldBe(visible);
             $("ng-dropdown-panel").$(byText(
-                    "Электронные копии (электронные образы) документов," +
-                            " необходимых для предоставления государственной услуги," +
-                            " не поддаются прочтению и (или) не соответствуют требованиям к форматам их предоставления"))
+                            "Электронные копии (электронные образы) документов," +
+                                    " необходимых для предоставления государственной услуги," +
+                                    " не поддаются прочтению и (или) не соответствуют требованиям к форматам их предоставления"))
                     .shouldBe(visible);
         });
         step("Проверить добавление нового блока причин отказа, с помощью кнопки «+»", () -> {
@@ -218,7 +218,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     }
 
     @Test
-    @AllureId("4808")
+    @AllureId("6891")
     @DisplayName("04. Принять решение. Сформировать файл решения. Загрузка файлов")
     @Tags({@Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
@@ -255,7 +255,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     }
 
     @Test
-    @AllureId("4809")
+    @AllureId("5659")
     @DisplayName("05. Успешный отказ в приёме документов")
     @Tags({@Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
@@ -282,7 +282,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     }
 
     @Test
-    @AllureId("5178")
+    @AllureId("5655")
     @DisplayName("Завершение задачи (принять в работу)")
     @Tags({@Tag("predprod"), @Tag("mkasdprv")})
     @Story("02. Завершение задачи Проверить данные заявления (принять в работу)")
@@ -305,6 +305,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         });
 
         step("Проверка, что заявка отправлена на ознакомление", () ->
-                $$(".toast-message").findBy(text("Заявка отправлена на ознакомление!")).shouldBe(visible, Duration.ofSeconds(20)));
+                $$(".toast-message").findBy(text("Заявка отправлена на ознакомление!"))
+                        .shouldBe(visible, Duration.ofSeconds(20)));
     }
 }

@@ -21,14 +21,15 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
-@AutoMember("soldatovks")
-@Layer("web")
+
 @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
 @Feature("Меню Госуслуги и функции")
 public class OpenPageTests extends TestBase {
 
     @Test
-    @AllureId("3753")
+    @AutoMember("soldatovks")
+    @Layer("web")
+    @AllureId("6540")
     @DisplayName("Открытие меню возможности")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheActionsPage() {
@@ -41,7 +42,9 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @AllureId("3752")
+    @AutoMember("soldatovks")
+    @Layer("web")
+    @AllureId("6539")
     @DisplayName("Открытие меню Задачи")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheTasksPage() {
@@ -51,7 +54,9 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @AllureId("3751")
+    @AutoMember("soldatovks")
+    @Layer("web")
+    @AllureId("6538")
     @DisplayName("Открытие меню Реестр")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheReestrPage() {
@@ -68,7 +73,9 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @AllureId("3754")
+    @AutoMember("soldatovks")
+    @Layer("web")
+    @AllureId("6541")
     @DisplayName("Открытие меню справочник")
     @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheSpravochnikPage() {
