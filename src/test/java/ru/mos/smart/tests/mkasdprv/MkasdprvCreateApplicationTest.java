@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.AutoMember;
 import ru.mos.smart.api.mkasdprv.Application;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.TasksPage;
@@ -21,10 +20,9 @@ public class MkasdprvCreateApplicationTest extends TestBase {
     private Object number;
 
     @Test
-    @AllureId("4812")
+    @AllureId("5654")
     @DisplayName("Создание заявки через свагер + запрос")
     @Epic("MKASDPRV (МКА Вывески)")
-    @AutoMember("SoldatovKS")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkasdprv"), @Tag("documents")})
     @Feature("Автотесты")
     void createTaskMkasdprv() {
