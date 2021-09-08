@@ -43,7 +43,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(30)).click();
+            $("#city").should(visible, Duration.ofSeconds(30));
         });
     }
 
@@ -63,7 +63,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(30)).click();
+            $("#city").should(visible, Duration.ofSeconds(30));
         });
 
         step("В левой боковой панели открыть Дерево слоев 2D", () -> $((".fas.fa-layer-group"))
@@ -109,7 +109,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(20)).click();
+            $("#city").should(visible, Duration.ofSeconds(30));
         });
 
         step("Проверить наличие строки адресного поиска", () -> {
@@ -134,7 +134,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(20)).click();
+            $("#city").should(visible, Duration.ofSeconds(30));
         });
 
         step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
@@ -160,7 +160,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(20)).click();
+            $("#city").should(visible, Duration.ofSeconds(30));
         });
 
         step("Проверить наличия инструмента Первоначальная позиция", () -> {
@@ -185,7 +185,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(20)).click();
+            $("#city").should(visible, Duration.ofSeconds(30));
         });
 
         step("Проверить наличие инструментов: линейка, треугольник, выбор подложки", () -> {

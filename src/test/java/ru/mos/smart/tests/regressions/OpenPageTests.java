@@ -51,6 +51,8 @@ public class OpenPageTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
         navigatorPage
                 .goToTasks();
+        step("Проверяем, что присутствуют задачи в списке", () ->
+                $$("#my-task-showcase").size() > 0);
     }
 
     @Test
