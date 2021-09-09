@@ -1,161 +1,115 @@
+user_list = [
+        "stage":[ "devuser", "frolenkovda" ],
+        "predprod":[ "soldatovks" ],
+        "prod":[ "soldatovks" ]
+]
+
+telegram_json = '''
+{
+  "app": {
+    "bot": {
+      "token": "1778543476:AAFzJdZ8u6IdJz3l06HYBbhwEYA3VoggZxM",
+      "chat": "-1001433867611",
+      "replyTo": ""
+    },
+    "base": {
+      "lang": "ru",
+      "messenger": "telegram",
+      "allureFolder": "./allure-report/",
+      "mattermostUrl": "",
+      "chart": true,
+      "chartName": "",
+      "project": ""
+    },
+    "mail": {
+      "host": "",
+      "port": "",
+      "username": "",
+      "password": "",
+      "enableSSL": false,
+      "from": "",
+      "recipient": ""
+    },
+    "proxy": {
+      "host": "",
+      "port": 0,
+      "username": "",
+      "password": ""
+    },
+    "skype": {
+      "appId": "",
+      "appSecret": "",
+      "serviceUrl": "",
+      "conversationId": "",
+      "botId": "",
+      "botName": ""
+    }
+  }
+}
+'''
+
 pipeline {
     agent {
-        kubernetes {
-            label "jenkins-pods-${UUID.randomUUID().toString()}"
-            defaultContainer 'jnlp'
-            yamlFile '.ci/pod.yaml'
+        node {
+            label 'autotests-agent';
         }
     }
-
     parameters {
-        choice(name: 'ENVIRONMENT', choices: ['predprod', 'stage', 'prod'], description: 'smart-predprod, smart-stage, smart.mos')
-        choice(name: 'MODULES', choices: ['ugd', 'ssr', 'mkasdprv'], description: 'Modules')
-        string(name: 'WEB_MOBILE_DEVICE', defaultValue: 'iPhone X', description: 'Web mobile device')
-        string(name: 'WEB_THREADS', defaultValue: '6', description: 'Web threads count')
-        string(name: 'ANDROID_DEVICE', defaultValue: 'Samsung Galaxy Note 10', description: 'Android device')
-        string(name: 'ANDROID_VERSION', defaultValue: '9.0', description: 'Android version')
-        string(name: 'ANDROID_BS_APP', defaultValue: 'bs://772572969bb93fee52cedce59fd3ab9e587262de', description: 'Android browserstack app')
-        string(name: 'IOS_DEVICE', defaultValue: 'iPhone XS Max', description: 'iOS device')
-        string(name: 'IOS_VERSION', defaultValue: '12', description: 'iOS version')
-        string(name: 'IOS_BS_APP', defaultValue: 'bs://a82fb8c09da1445b5590be0b89d40b96fa193180', description: 'iOS browserstack app')
-        choice(name: 'DEBUG', choices: ['', '_smoke', "_failed"], description: 'debug, smoke - 1 test for platform / failed - 1 failed test')
-        string(name: 'UPSTREAM_BRANCH_NAME', defaultValue: '', description: 'debug, UPSTREAM_BRANCH_NAME')
-        string(name: 'UPSTREAM_BUILD_URL', defaultValue: '', description: 'debug, UPSTREAM_BUILD_URL')
-        string(name: 'UPSTREAM_BUILD_NUMBER', defaultValue: '', description: 'debug, UPSTREAM_BUILD_NUMBER')
+        choice(
+                name: 'ENVIRONMENT',
+                choices: ['predprod', 'prod', 'stage'],
+                description: 'smart-predprod.mos.ru - predprod\nsmart.mos.ru - prod\nsmart-stage.mos.ru - stage');
+        choice(
+                name: 'MODULES',
+                choices: ['ugd', 'ssr', 'mkasdprv'],
+                description: '');
+        string(
+                name: 'ALLURE_NOTIFICATIONS_VERSION',
+                defaultValue: '3.1.1',
+                description: '' );
     }
-
-    environment {
-        LABEL = "jenkins-pods-${UUID.randomUUID().toString()}"
-        MOON = "moon.moon"
-        WEB_DESKTOP_EMPLOYER_URL = "web.dev.jobtoday.com"
-        VIDEO_URL = "jobtoday-ui-tests-recordings.s3-eu-west-1.amazonaws.com"
-        ALLURE_RESULTS = 'build/allure-results/'
+    tools {
+        gradle 'gradle 6.6-rc-1'
     }
-
-
-    options {
-        timestamps()
-        buildDiscarder(logRotator(numToKeepStr: '10'))
-    }
-
     stages {
-        stage('Run web desktop tests 1') {
-            when {
-                environment name: 'PLATFORM', value: 'web_desktop'
-            }
+        stage('Build') {
             steps {
-                container('gradle') {
-                    sh "gradle web_desktop${params.DEBUG} -Dweb_url=${params.WEB_URL} -Dweb_mobile_device=\"\" -Pweb_threads=${params.WEB_THREADS} -Dselenoid=true -Dselenoid_url=${env.MOON} -Dvideo=true -Dvideo_url=${env.VIDEO_URL} -Pallure_results=\"${env.ALLURE_RESULTS}${env.PLATFORM}\""
-                }
-            }
-        }
-        stage('Run web mobile tests 2'){
-            when {
-                environment name: 'PLATFORM', value: 'web_mobile'
-            }
-            steps {
-                container('gradle') {
-                    sh "gradle web_mobile${params.DEBUG} -Dweb_url=${params.WEB_URL} -Dweb_mobile_device=\"${params.WEB_MOBILE_DEVICE}\" -Pweb_threads=${params.WEB_THREADS} -Dselenoid=true -Dselenoid_url=${env.MOON} -Dvideo=true -Dvideo_url=${env.VIDEO_URL} -Pallure_results=\"${env.ALLURE_RESULTS}${env.PLATFORM}\""
-                }
-            }
-        }
-        stage('Run web desktop employer tests') {
-            when {
-                environment name: 'PLATFORM', value: 'web_desktop_employer'
-            }
-            steps {
-                container('gradle') {
-                    sh "gradle web_desktop_employer${params.DEBUG} -Dweb_url=${env.WEB_DESKTOP_EMPLOYER_URL} -Dweb_mobile_device=\"\" -Pweb_threads=${params.WEB_THREADS} -Dselenoid=true -Dselenoid_url=${env.MOON} -Dvideo=true -Dvideo_url=${env.VIDEO_URL} -Pallure_results=\"${env.ALLURE_RESULTS}${env.PLATFORM}\""
-                }
-            }
-        }
-        stage('Run android tests'){
-            when {
-                environment name: 'PLATFORM', value: 'android'
-            }
-            steps {
-                container('gradle') {
-                    sh "gradle android${params.DEBUG} -Dmobile_device=\"${params.ANDROID_DEVICE}\" -Dmobile_version=\"${params.ANDROID_VERSION}\" -Dbs_app=\"${params.ANDROID_BS_APP}\" -Dbs_app=\"${params.ANDROID_BS_APP}\" -Dbuild_number=${BUILD_NUMBER} -Djob_base_name=${JOB_BASE_NAME} -Pallure_results=\"${env.ALLURE_RESULTS}${env.PLATFORM}\" -Dvideo=true"
-                }
-            }
-        }
-        stage('Run ios tests'){
-            when {
-                environment name: 'PLATFORM', value: 'ios'
-            }
-            steps {
-                container('gradle') {
-                    sh "gradle ios${params.DEBUG} -Dmobile_device=\"${params.IOS_DEVICE}\" -Dmobile_version=\"${params.IOS_VERSION}\" -Dbs_app=\"${params.IOS_BS_APP}\" -Dbuild_number=${BUILD_NUMBER} -Djob_base_name=${JOB_BASE_NAME} -Pallure_results=\"${env.ALLURE_RESULTS}${env.PLATFORM}\" -Dvideo=true"
-                }
-            }
-        }
-        stage('Run api tests'){
-            when {
-                environment name: 'PLATFORM', value: 'api'
-            }
-            steps {
-                container('gradle') {
-                    sh "gradle api -Dbuild_number=${BUILD_NUMBER} -Djob_base_name=${JOB_BASE_NAME} -Pallure_results=\"${env.ALLURE_RESULTS}${env.PLATFORM}\""
+                script {
+                    println "allure-notifications-${ALLURE_NOTIFICATIONS_VERSION.trim()}.jar"
+                    println  !fileExists("${WORKSPACE}/allure-notifications-${ALLURE_NOTIFICATIONS_VERSION.trim()}.jar")
+                    sh "ls -lah allure-notifications-${ALLURE_NOTIFICATIONS_VERSION.trim()}.jar"
+                    git branch: 'master', credentialsId: 'reinform-cdp-common-git', url: 'http://smart.mos.ru/git/autotest/ecp-e2e-tests.git'
+                    withAllureUpload(name: '${JOB_NAME} - #${BUILD_NUMBER}', projectId: '', results: [[path: 'build/allure-results']], serverId: 'allure', tags: '') {
+                        httpRequest responseHandle: 'NONE', url: 'http://10.15.58.218:4444/status', wrapAsMultipart: false
+                        writeFile file: 'config/telegram.json', text: telegram_json
+                        if(ALLURE_USERNAME in user_list[ENVIRONMENT]){
+                            println "Сборка автотестов запущена";
+                            sh 'gradle clean regressing -Dtag=${MODULES} -Denvironment=${ENVIRONMENT} -Dremote_driver_url=http://10.15.58.218:4444/wd/hub';
+                            allure includeProperties: false, jdk: '', results: [[path: 'build/allure-results']]
+
+                        } else {
+                            println "Вам, запрещено запускать сборку обратитесь пожалуйста к @amidosha или @iTerkin посредством телеграмма";
+                        }
+                    }
                 }
             }
         }
     }
-
     post {
-        always {
+        success {
             script {
-                allure([
-                        includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'build/allure-results/**']]
-                ])
-            }
-        }
-        failure {
-            script {
-                def summary = junit testResults: 'build/test-results/**/*.xml'
-                def upstream_line = ""
-                def bs_build_line = ""
-                def message_color = "#0000FF"
-                if(env.UPSTREAM_BRANCH_NAME != "") {
-                    message_color = "#FF0000"
-                    upstream_line = "\n*Upstream build* (${env.UPSTREAM_BRANCH_NAME}): <${env.UPSTREAM_BUILD_URL}|#${env.UPSTREAM_BUILD_NUMBER}>"
+                if ( !fileExists("allure-notifications-${ALLURE_NOTIFICATIONS_VERSION}.jar")){
+                    sh "wget https://github.com/qa-guru/allure-notifications/releases/download/${ALLURE_NOTIFICATIONS_VERSION}/allure-notifications-${ALLURE_NOTIFICATIONS_VERSION}.jar";
                 }
-                if(env.PLATFORM == "ios" || env.PLATFORM == "android") {
-                    sh "echo  ${env.PLATFORM}"
-                    def bs_build_url = getBSBuildUrl()
-                    bs_build_line = "\n*Browserstack build*: <${bs_build_url}|link>"
-                }
-
-                def slackCommand = "TITLE='Build failed' COLOR='${message_color}' slack-message '#test-notifications' " +
-                        "'*Platform:* ${env.PLATFORM} \n" +
-                        "<${env.BUILD_URL}allure|Allure report> " +
-                        "(*Passed:* ${summary.passCount} " +
-                        "*Failures:* ${summary.failCount} " +
-                        "*Skipped:* ${summary.skipCount}) \n" +
-                        "*Jenkins build* (${env.BRANCH_NAME}): <${env.BUILD_URL}|#${env.BUILD_NUMBER}> " +
-                        "${upstream_line}" +
-                        "${bs_build_line}'"
-
-                container("notifications") {
-                    sh slackCommand
-                }
+                sh """
+                java  \
+                "-DprojectName=тесты на платформе *mos.ru" \
+                "-Denv=${ENVIRONMENT}" \
+                "-DreportLink=${BUILD_URL}" \
+                "-Dconfig.file=src/test/resources/config/telegram.json" \
+                -jar ../allure-notifications-${ALLURE_NOTIFICATIONS_VERSION}.jar 
+                """;
             }
         }
     }
 }
-
-@NonCPS
-
-def getBSBuildUrl() {
-    def matcher = manager.getLogMatcher(".*bs_build_url: (\\w.+).*")
-    if (matcher.matches()) {
-        return (matcher.group(1))
-    }
-
-    return ""
-}
-
-
