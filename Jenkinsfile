@@ -1,5 +1,5 @@
 user_list = [
-        "stage":[ "devuser", "frolenkovda" ],
+        "stage":[ "soldatovks", "frolenkovda" ],
         "predprod":[ "soldatovks" ],
         "prod":[ "soldatovks" ]
 ]
