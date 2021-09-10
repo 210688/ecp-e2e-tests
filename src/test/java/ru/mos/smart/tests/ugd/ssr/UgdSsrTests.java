@@ -492,8 +492,8 @@ public class UgdSsrTests extends TestBase {
             $(".tag.res-tag").shouldHave(attribute("class", "tag res-tag active"));
             $(".tag.oks-tag").shouldBe(visible).shouldHave(attribute("class", "tag oks-tag"));
         });
-        step("В поисковой строке ввести 31354 и нажать на строку " + address, () -> {
-            $("#search").setValue("31354");
+        step("В поисковой строке ввести 21737 и нажать на строку " + address, () -> {
+            $("#search").setValue("21737");
             $(".search-dropdown").$(byText(address)).click();
         });
         step("Проверка, что отображаются данные по отселяемому дому", () -> {
