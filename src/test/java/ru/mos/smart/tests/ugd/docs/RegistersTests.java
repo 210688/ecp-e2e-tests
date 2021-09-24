@@ -29,7 +29,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6403")
     @DisplayName("Проверка доступности реестра РД. Акт проверки строительства")
     void actInspectionTest() {
-        List<String> columns = new ArrayList<>() {{
+        List<String> columns = new ArrayList<String>() {{
             add("Номер акта проверки");
             add("Дата акта проверки");
             add("Номер распоряжения");
@@ -55,7 +55,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6400")
     @DisplayName("Проверка доступности реестра РД. Извещения об окончании СМР")
     void noticeEndWorkSmrTest() {
-        List<String> columns = new ArrayList<>() {{
+        List<String> columns = new ArrayList<String>() {{
             add("Номер извещения");
             add("Дата извещения");
             add("Единый номер обращения");
@@ -81,7 +81,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6404")
     @DisplayName("Проверка доступности реестра РД. Извещения о начале СМР")
     void noticeBeginWorkSmrTest() {
-        List<String> columns = new ArrayList<>() {{
+        List<String> columns = new ArrayList<String>() {{
             add("Номер извещения");
             add("Дата извещения");
             add("Единый номер обращения");
@@ -104,7 +104,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6490")
     @DisplayName("Проверка доступности реестра РД. Свидетельства АГР")
     void agrTest() {
-        List<String> columns = new ArrayList<>() {{
+        List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
             add("Дата документа");
             add("Регистрационный номер документа");
@@ -131,7 +131,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6492")
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов. ГПЗУ")
     void gpzuTest() {
-        List<String> columns = new ArrayList<>() {{
+        List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
             add("Дата документа");
             add("Номер заявления");
@@ -157,7 +157,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6398")
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения Мосгоргеотреста")
     void mggtTest() {
-        List<String> columns = new ArrayList<>() {{
+        List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
             add("Дата документа");
             add("Адрес");
@@ -179,7 +179,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6463")
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения о соответствии")
     void equivalentConclusionTest() {
-        List<String> columns = new ArrayList<>() {{
+        List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
             add("Дата документа");
             add("Номер заявления");
@@ -205,7 +205,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6461")
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения экспертизы")
     void conclusionExpertiseTest() {
-        List<String> columns = new ArrayList<>() {{
+        List<String> columns = new ArrayList<String>() {{
             add("Номер регистрации в реестре");
             add("Дата регистрации в реестре");
             add("Номер обращения");
@@ -222,7 +222,7 @@ public class RegistersTests extends TestBase {
             add("Экспертная организация");
             add("Файл");
         }};
-        List<String> hiddenColumns = new ArrayList<>() {{
+        List<String> hiddenColumns = new ArrayList<String>() {{
             add("Удален");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -239,7 +239,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6481")
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на ввод")
     void startupPermissionTest() {
-        List<String> columns = new ArrayList<>() {{
+        List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
             add("Дата документа");
             add("Дата выдачи документа заявителю");
@@ -266,7 +266,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6448")
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на строительство")
     void constructionPermissionTest() {
-        List<String> columns = new ArrayList<>() {{
+        List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
             add("Дата документа");
             add("Срок действия");
@@ -293,7 +293,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6493")
     @DisplayName("Проверка доступности реестра Реестр оперативных данных.Исполнительные чертежи Мосгоргеотреста")
     void mggtExdrawingTest() {
-        List<String> columns = new ArrayList<>() {{
+        List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
             add("Дата документа");
             add("Адрес");
