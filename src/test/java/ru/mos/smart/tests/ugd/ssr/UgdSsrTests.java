@@ -33,9 +33,9 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Tags({@Tag("predprod"), @Tag("prod"), @Tag("stage"), @Tag("ugd"), @Tag("ssr")})
 @ManualMember("croc")
 @AutoMember("soldatovks")
-@Layer("web")
 public class UgdSsrTests extends TestBase {
     @Test
+    @Layer("web")
     @AllureId("6433")
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
     void ugdSsrRealEstateCatalogTest() {
@@ -60,6 +60,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("6478")
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
     void ugdSsrPersonCatalogTest() {
@@ -83,6 +84,7 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
+    @Layer("web")
     @AllureId("6429")
     @DisplayName("Проверка доступности реестра ССР. Реестр центров информирования по переселению жителей")
     void ugdSsrCipCatalog() {
