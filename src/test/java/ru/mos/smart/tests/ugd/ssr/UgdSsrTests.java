@@ -27,25 +27,23 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
+@Epic("UGD (УГД)")
+@Feature("SSR (Суперсервис реновации ССР)")
+@Story("Автотесты")
+@Tags({@Tag("predprod"), @Tag("prod"), @Tag("stage"), @Tag("ugd"), @Tag("ssr")})
+@ManualMember("croc")
+@AutoMember("soldatovks")
+@Layer("web")
 public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("6433")
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void ugdSsrRealEstateCatalogTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
                 .goToRegister();
         reestrPage
                 .open("ССР. Реестр отселяемых домов");
-
-
         step("Реестр содержит по умолчанию колонки:", () -> {
             $("table").$$("th").shouldHave(textsInAnyOrder(
                     "UNOM",
@@ -64,13 +62,6 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("6478")
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void ugdSsrPersonCatalogTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -94,13 +85,6 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("6429")
     @DisplayName("Проверка доступности реестра ССР. Реестр центров информирования по переселению жителей")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void ugdSsrCipCatalog() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -122,13 +106,6 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("6434")
     @DisplayName("Проверка доступности реестра АРМ сотрудника Центра информирования по переселению жителей")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void reestrArm() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -151,13 +128,6 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("6430")
     @DisplayName("Проверка открытия карточки жителя через реестр ССР. Реестр жителей")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void checkOpenReestrSsr() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -222,13 +192,6 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("6423")
     @DisplayName("Проверка доступности реестра Администрирование рабочих дней помощи в переезде")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void administrationWorkingDaysTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -245,13 +208,6 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("6432")
     @DisplayName("Проверка доступности реестра Реестр заявлений на помощь в переезде")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void shippingApplicationTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -269,12 +225,6 @@ public class UgdSsrTests extends TestBase {
     @AllureId("6356")
     @DisplayName("Проверка возможности подписания договора и акта приема-передачи")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void reestrSigningTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -310,13 +260,6 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("6421")
     @DisplayName("Проверка возможности выдачи ключей")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void keysIssuanceTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -343,13 +286,6 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("6420")
     @DisplayName("Проверка возможности освобождения квартиры")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void apartmentsVacatingTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -375,12 +311,7 @@ public class UgdSsrTests extends TestBase {
     @AllureId("6394")
     @DisplayName("Проверка открытия возможности Инициация процесса начала переселения")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
     @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void processInitiatingTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -423,13 +354,6 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("6397")
     @DisplayName(" Проверка открытия возможности Инициировать обогащения данных отселяемых домов из ДГИ")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void dgiPersonEnrichmentTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -475,12 +399,7 @@ public class UgdSsrTests extends TestBase {
     @AllureId("6431")
     @DisplayName("Проверка открытия дашборда 'Оперативный мониторинг за ходом переселения'")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
     @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void ssrChessboardTest() {
         String address = "улица Госпитальный Вал, дом 3 " +
                 "(УНОМ: 31354, Центральный административный округ, муниципальный округ Басманный)";
@@ -507,13 +426,6 @@ public class UgdSsrTests extends TestBase {
     @Test
     @AllureId("6376")
     @DisplayName("Проверка доступности реестра по заявлениям на комиссионный осмотр")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
-    @Epic("UGD (УГД)")
-    @Feature("SSR (Суперсервис реновации ССР)")
-    @Story("Автотесты")
-    @Layer("web")
-    @AutoMember("soldatovks")
-    @ManualMember("croc")
     void commissionInspectionRegisterTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
