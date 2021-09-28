@@ -29,7 +29,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6403")
     @DisplayName("Проверка доступности реестра РД. Акт проверки строительства")
     void actInspectionTest() {
-        List<String> columns = new ArrayList<String>() {{
+        List<String> columns = new ArrayList<>() {{
             add("Номер акта проверки");
             add("Дата акта проверки");
             add("Номер распоряжения");
