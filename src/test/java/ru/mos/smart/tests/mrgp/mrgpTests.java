@@ -22,7 +22,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class mrgpTests extends TestBase {
     @Test
     @DisplayName("Проверка открытия реестра")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mrgp")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mrgp")})
     void openReestr() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
         navigatorPage

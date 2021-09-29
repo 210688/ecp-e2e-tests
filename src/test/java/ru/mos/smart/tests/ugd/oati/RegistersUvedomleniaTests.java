@@ -23,8 +23,8 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 class RegistersUvedomleniaTests extends TestBase {
 
     @Test
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("oati")})
     @DisplayName("Проверка открытия реестров")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("oati")})
     void openRegisterUvedomlenia() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage

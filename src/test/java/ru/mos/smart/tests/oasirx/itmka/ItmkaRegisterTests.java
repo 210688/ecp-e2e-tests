@@ -28,7 +28,7 @@ public class ItmkaRegisterTests extends TestBase {
     @Test
     @AllureId("3698")
     @DisplayName("Просмотр реестра заявок Управление ИТ МКА")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("itmka")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("itmka")})
     void openingTheRegisterItmka() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
@@ -48,7 +48,7 @@ public class ItmkaRegisterTests extends TestBase {
     @Test
     @AllureId("3697")
     @DisplayName("Поиск карточки реестра заявок Управление ИТ МКА по номеру")
-    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("itmka")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("itmka")})
     void searchingItmkaCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage

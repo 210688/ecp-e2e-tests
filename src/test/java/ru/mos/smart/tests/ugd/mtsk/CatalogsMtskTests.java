@@ -23,8 +23,8 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 class CatalogsMtskTests extends TestBase {
 
     @Test
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("mtsk")})
     @DisplayName("Проверка наличия каталогов МТСК")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("mtsk")})
     void checkCatalogsMtsk() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
 

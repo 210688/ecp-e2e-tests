@@ -28,8 +28,8 @@ public class AuthorizationEcpViaSudir extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6543")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка авторизации через СУДИР")
-    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void AuthorizationEcpSudir() {
         AuthorizationPage.openUrlWithAuthorizationSudir("", webConfig().login_sudir(), webConfig().password_sudir());
         step("Ввод СМС кода");

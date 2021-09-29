@@ -30,7 +30,7 @@ public class DroneRegistersTests extends TestBase {
     @Test
     @AllureId("2075")
     @DisplayName("Открытие реестра Данные аэрофотосъемки")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void openReestrDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
         navigatorPage
@@ -45,7 +45,7 @@ public class DroneRegistersTests extends TestBase {
     @Test
     @AllureId("2076")
     @DisplayName("Переход в карточку из реестра")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void openCardDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
         navigatorPage
@@ -69,7 +69,7 @@ public class DroneRegistersTests extends TestBase {
     @DisplayName("Создать карточку аэросъемки")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Работа с карточкой аэросъёмки")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void addCartDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
         navigatorPage
@@ -108,7 +108,7 @@ public class DroneRegistersTests extends TestBase {
     @DisplayName("Просмотреть карточку аэросъемки")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Работа с карточкой аэросъёмки")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void viewCartDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginDrone(), webConfig().passwordDrone());
         navigatorPage

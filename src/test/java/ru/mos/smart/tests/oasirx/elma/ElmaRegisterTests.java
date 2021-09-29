@@ -26,7 +26,7 @@ public class ElmaRegisterTests extends TestBase {
     @Layer("web")
     @AllureId("3694")
     @DisplayName("Просмотр раздела Соответствие СП (МГГТ)")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("elma")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("elma")})
     void openingTheRegisterElma() {
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
@@ -53,7 +53,7 @@ public class ElmaRegisterTests extends TestBase {
     @Layer("web")
     @AllureId("3695")
     @DisplayName("Поиск карточки реестра Соответствие СП (МГГТ) по номеру")
-    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("elma")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("elma")})
     void searchingElmaCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());

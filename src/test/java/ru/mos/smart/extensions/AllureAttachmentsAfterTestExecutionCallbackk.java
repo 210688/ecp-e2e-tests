@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.extensions;
 
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
@@ -5,19 +6,20 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 
 import static ru.mos.smart.helpers.AttachmentsHelper.*;
 import static ru.mos.smart.helpers.AttachmentsHelper.attachVideo;
-import static ru.mos.smart.helpers.DriverHelper.getConsoleLogs;
-import static ru.mos.smart.helpers.DriverHelper.getSessionId;
+import static ru.mos.smart.helpers.DriverUtils.getConsoleLogs;
+import static ru.mos.smart.helpers.DriverUtils.getSessionId;
 import static ru.mos.smart.helpers.EnvironmentHelper.isVideoOn;
 
-public class AllureAttachmentsAfterTestExecutionCallback implements AfterTestExecutionCallback {
+public class AllureAttachmentsAfterTestExecutionCallbackk implements AfterTestExecutionCallback {
     @Override
     public void afterTestExecution(ExtensionContext context) {
         if (context.getExecutionException().isPresent()) {
             String sessionId = getSessionId();
-            attachScreenshot("Last screenshot");
+            addScreenshotAs("Last screenshot");
             attachPageSource();
-            attachAsText("Browser console logs", getConsoleLogs());
+            addBrowserConsoleLogs("Browser console logs", getConsoleLogs());
             if (isVideoOn) attachVideo(sessionId);
         }
     }
 }
+*/

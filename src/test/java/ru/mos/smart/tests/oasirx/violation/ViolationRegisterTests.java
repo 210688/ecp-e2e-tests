@@ -27,7 +27,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class ViolationRegisterTests extends TestBase {
     @Test
     @DisplayName("Просмотр раздела Нарушения ОГД")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("violation")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("violation")})
     void openingTheRegisterViolation() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
@@ -47,7 +47,7 @@ public class ViolationRegisterTests extends TestBase {
     @Test
     @AllureId("3707")
     @DisplayName("Поиск карточки реестра Нарушения ОГД по номеру")
-    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("violation")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("violation")})
     void searchingViolationCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage

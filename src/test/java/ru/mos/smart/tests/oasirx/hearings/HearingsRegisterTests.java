@@ -24,7 +24,7 @@ public class HearingsRegisterTests extends TestBase {
     @Test
     @AllureId("3696")
     @DisplayName("Просмотр раздела Публичные слушания")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("hearing")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("hearing")})
     void openingTheRegisterHearings() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 

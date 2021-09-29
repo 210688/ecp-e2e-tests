@@ -30,13 +30,13 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Epic("UGD (УГД)")
 @Feature("SSR (Суперсервис реновации ССР)")
 @Story("Автотесты")
-@Tags({@Tag("predprod"), @Tag("prod"), @Tag("stage"), @Tag("ugd"), @Tag("ssr")})
 @ManualMember("croc")
 @AutoMember("soldatovks")
 public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6433")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
     void ugdSsrRealEstateCatalogTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -62,6 +62,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6478")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
     void ugdSsrPersonCatalogTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -86,6 +87,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6429")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр центров информирования по переселению жителей")
     void ugdSsrCipCatalog() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -108,6 +110,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6434")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра АРМ сотрудника Центра информирования по переселению жителей")
     void reestrArm() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -131,6 +134,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6430")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка открытия карточки жителя через реестр ССР. Реестр жителей")
     void checkOpenReestrSsr() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -196,6 +200,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6423")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра Администрирование рабочих дней помощи в переезде")
     void administrationWorkingDaysTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -213,6 +218,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6432")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра Реестр заявлений на помощь в переезде")
     void shippingApplicationTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -230,8 +236,8 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6356")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка возможности подписания договора и акта приема-передачи")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     void reestrSigningTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -267,6 +273,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6421")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка возможности выдачи ключей")
     void keysIssuanceTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -294,6 +301,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6420")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка возможности освобождения квартиры")
     void apartmentsVacatingTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -319,8 +327,8 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6394")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка открытия возможности Инициация процесса начала переселения")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     void processInitiatingTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -363,6 +371,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6397")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName(" Проверка открытия возможности Инициировать обогащения данных отселяемых домов из ДГИ")
     void dgiPersonEnrichmentTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -408,8 +417,8 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6431")
-    @DisplayName("Проверка открытия дашборда 'Оперативный мониторинг за ходом переселения'")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
+    @DisplayName("Проверка открытия дашборда 'Оперативный мониторинг за ходом переселения'")
     void ssrChessboardTest() {
         String address = "улица Госпитальный Вал, дом 3 " +
                 "(УНОМ: 31354, Центральный административный округ, муниципальный округ Басманный)";
@@ -436,6 +445,7 @@ public class UgdSsrTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6376")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра по заявлениям на комиссионный осмотр")
     void commissionInspectionRegisterTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());

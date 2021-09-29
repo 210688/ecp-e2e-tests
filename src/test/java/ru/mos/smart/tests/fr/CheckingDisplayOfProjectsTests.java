@@ -23,7 +23,7 @@ public class CheckingDisplayOfProjectsTests extends TestBase {
 
     @Test
     @DisplayName("Проверка отображения проектов")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("fr")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("fr")})
     void checkingDisplayOfProjects() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
 

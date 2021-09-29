@@ -4,7 +4,6 @@ package ru.mos.smart.drivers;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverProvider;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,16 +14,16 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import java.util.logging.Level;
 
-import static javax.management.remote.JMXConnectionNotification.FAILED;
 import static ru.mos.smart.helpers.EnvironmentHelper.*;
 
 
 public class CustomWebDriver implements WebDriverProvider {
+    @Nonnull
     @Override
     public WebDriver createDriver(DesiredCapabilities capabilities) {
         LoggingPreferences logPrefs = new LoggingPreferences();

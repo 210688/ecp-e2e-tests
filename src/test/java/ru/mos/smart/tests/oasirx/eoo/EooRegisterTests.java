@@ -35,7 +35,7 @@ public class EooRegisterTests extends TestBase {
     @Story("PPT (modules)")
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("eoo")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("eoo")})
     void addCartEoo() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
@@ -57,7 +57,7 @@ public class EooRegisterTests extends TestBase {
     @Test
     @AllureId("3691")
     @DisplayName("Поиск карточки реестра ЭОО по номеру")
-    @Tags({@Tag("eoo"), @Tag("oasirx"), @Tag("predprod")})
+    @Tags({@Tag("stage"), @Tag("eoo"), @Tag("oasirx"), @Tag("predprod")})
     @Story("Реестр ЭОО")
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -85,6 +85,7 @@ public class EooRegisterTests extends TestBase {
     @Test
     @AllureId("3285")
     @DisplayName("Открытие карточки ЭОО")
+    @Tags({@Tag("stage"), @Tag("eoo"), @Tag("oasirx"), @Tag("predprod")})
     @Story("Реестр ЭОО")
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -118,7 +119,7 @@ public class EooRegisterTests extends TestBase {
     @Test
     @AllureId("3690")
     @DisplayName("Просмотр реестра ЭОО")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("allModules"), @Tag("regress")})
     @Story("Реестр ЭОО")
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")

@@ -26,7 +26,7 @@ public class SbRegisterTests extends TestBase {
     @Test
     @AllureId("3703")
     @DisplayName("Просмотр реестра Самострой")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sb")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sb")})
     void openingTheRegisterSb() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
@@ -48,7 +48,7 @@ public class SbRegisterTests extends TestBase {
     @Test
     @AllureId("3704")
     @DisplayName("Поиск карточки реестра Самострой по номеру")
-    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("sbr")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("sbr")})
     void searchingSbCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 

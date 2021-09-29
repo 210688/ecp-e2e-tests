@@ -21,7 +21,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class EventmanagerActionTests extends TestBase {
 
     @Test
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("eventmanager")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("eventmanager")})
     @DisplayName("Проверка доступности реестра Подписки на уведомления о событиях")
     void checkingEventmanagerReestr() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
