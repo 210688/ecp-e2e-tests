@@ -15,5 +15,4 @@ public class DriverSettings {
         RestAssured.baseURI = webConfig().webUrl();
         Configuration.timeout = 6000;
     }
-
 }

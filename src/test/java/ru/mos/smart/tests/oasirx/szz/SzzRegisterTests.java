@@ -28,7 +28,7 @@ public class SzzRegisterTests extends TestBase {
     @Test
     @AllureId("3705")
     @DisplayName("Просмотр реестра СЗЗ")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("szz")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("szz")})
     void openingTheRegisterSzz() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
@@ -49,7 +49,7 @@ public class SzzRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Поиск карточки реестра СЗЗ по номеру")
-    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("szz")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("szz")})
     void searchingSzzCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage

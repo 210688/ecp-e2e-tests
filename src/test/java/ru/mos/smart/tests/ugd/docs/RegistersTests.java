@@ -21,7 +21,6 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Epic("UGD (УГД)")
 @Feature("DOCS (Реестр документов)")
 @Story("Реестры")
-@Tags({@Tag("predprod"), @Tag("prod"), @Tag("stage"), @Tag("ugd"), @Tag("docs")})
 @ManualMember("croc")
 public class RegistersTests extends TestBase {
     @Test
@@ -53,9 +52,10 @@ public class RegistersTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6400")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Извещения об окончании СМР")
     void noticeEndWorkSmrTest() {
-        List<String> columns = new ArrayList<String>() {{
+        List<String> columns = new ArrayList<>() {{
             add("Номер извещения");
             add("Дата извещения");
             add("Единый номер обращения");
@@ -79,9 +79,10 @@ public class RegistersTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6404")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Извещения о начале СМР")
     void noticeBeginWorkSmrTest() {
-        List<String> columns = new ArrayList<String>() {{
+        List<String> columns = new ArrayList<>() {{
             add("Номер извещения");
             add("Дата извещения");
             add("Единый номер обращения");
@@ -102,9 +103,10 @@ public class RegistersTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6490")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Свидетельства АГР")
     void agrTest() {
-        List<String> columns = new ArrayList<String>() {{
+        List<String> columns = new ArrayList<>() {{
             add("Номер документа");
             add("Дата документа");
             add("Регистрационный номер документа");
@@ -129,9 +131,10 @@ public class RegistersTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6492")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов. ГПЗУ")
     void gpzuTest() {
-        List<String> columns = new ArrayList<String>() {{
+        List<String> columns = new ArrayList<>() {{
             add("Номер документа");
             add("Дата документа");
             add("Номер заявления");
@@ -155,9 +158,10 @@ public class RegistersTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6398")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения Мосгоргеотреста")
     void mggtTest() {
-        List<String> columns = new ArrayList<String>() {{
+        List<String> columns = new ArrayList<>() {{
             add("Номер документа");
             add("Дата документа");
             add("Адрес");
@@ -177,9 +181,10 @@ public class RegistersTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6463")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения о соответствии")
     void equivalentConclusionTest() {
-        List<String> columns = new ArrayList<String>() {{
+        List<String> columns = new ArrayList<>() {{
             add("Номер документа");
             add("Дата документа");
             add("Номер заявления");
@@ -203,9 +208,10 @@ public class RegistersTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6461")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения экспертизы")
     void conclusionExpertiseTest() {
-        List<String> columns = new ArrayList<String>() {{
+        List<String> columns = new ArrayList<>() {{
             add("Номер регистрации в реестре");
             add("Дата регистрации в реестре");
             add("Номер обращения");
@@ -222,7 +228,7 @@ public class RegistersTests extends TestBase {
             add("Экспертная организация");
             add("Файл");
         }};
-        List<String> hiddenColumns = new ArrayList<String>() {{
+        List<String> hiddenColumns = new ArrayList<>() {{
             add("Удален");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -237,9 +243,10 @@ public class RegistersTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6481")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на ввод")
     void startupPermissionTest() {
-        List<String> columns = new ArrayList<String>() {{
+        List<String> columns = new ArrayList<>() {{
             add("Номер документа");
             add("Дата документа");
             add("Дата выдачи документа заявителю");
@@ -264,9 +271,10 @@ public class RegistersTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6448")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на строительство")
     void constructionPermissionTest() {
-        List<String> columns = new ArrayList<String>() {{
+        List<String> columns = new ArrayList<>() {{
             add("Номер документа");
             add("Дата документа");
             add("Срок действия");
@@ -291,9 +299,10 @@ public class RegistersTests extends TestBase {
     @Test
     @Layer("web")
     @AllureId("6493")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных.Исполнительные чертежи Мосгоргеотреста")
     void mggtExdrawingTest() {
-        List<String> columns = new ArrayList<String>() {{
+        List<String> columns = new ArrayList<>() {{
             add("Номер документа");
             add("Дата документа");
             add("Адрес");

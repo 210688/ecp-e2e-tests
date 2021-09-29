@@ -13,6 +13,5 @@ public class EnvironmentHelper {
             isHeadless = parseBoolean(System.getProperty("headless", "false")),
             isRemoteDriver = remoteDriverUrl != null,
             isVideoOn = videoStorageUrl != null;
-
 }
 

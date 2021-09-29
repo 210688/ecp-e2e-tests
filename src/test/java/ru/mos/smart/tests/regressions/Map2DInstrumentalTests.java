@@ -30,8 +30,8 @@ public class Map2DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6542")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие приложения карта")
-    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheMaps() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
         navigatorPage
@@ -50,9 +50,9 @@ public class Map2DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6527")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструментов измерений")
-    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -77,9 +77,9 @@ public class Map2DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6529")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
-    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -102,9 +102,9 @@ public class Map2DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6530")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
-    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -128,9 +128,9 @@ public class Map2DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6531")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструмента Мое местоположение")
-    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfMyLocationTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -153,9 +153,9 @@ public class Map2DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6528")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
-    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 

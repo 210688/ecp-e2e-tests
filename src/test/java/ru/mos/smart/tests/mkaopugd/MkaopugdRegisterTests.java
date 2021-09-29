@@ -27,7 +27,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @Test
     @AllureId("3199")
     @DisplayName("Реестр поручений УГД")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkaopugd")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkaopugd")})
     void registerOfInstructionsUgd() {
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
@@ -52,7 +52,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @Test
     @AllureId("3198")
     @DisplayName("Карточка Реестра поручений УГД")
-    @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkaopugd")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkaopugd")})
     void cardOfRegisterUgd() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
         navigatorPage

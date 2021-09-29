@@ -38,7 +38,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Test
     @AllureId("6886")
     @DisplayName("01. Проверка основных контролов на странице")
-    @Tags({@Tag("predprod"), @Tag("mkasdprv")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void mainControlsTest() {
@@ -125,7 +125,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Test
     @AllureId("5656")
     @DisplayName("02. Проверка перехода в карточку заявления")
-    @Tags({@Tag("prod"), @Tag("mkasdprv")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void applicationCardTest() {
@@ -146,7 +146,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Test
     @AllureId("5657")
     @DisplayName("03. Принять решение по заявлению - отказ. Причины отказа")
-    @Tags({@Tag("predprod"), @Tag("mkasdprv")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void negativeDecisionTest() {
@@ -220,7 +220,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Test
     @AllureId("6891")
     @DisplayName("04. Принять решение. Сформировать файл решения. Загрузка файлов")
-    @Tags({@Tag("predprod"), @Tag("mkasdprv")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void negativeFilesTest() {
@@ -257,7 +257,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Test
     @AllureId("5659")
     @DisplayName("05. Успешный отказ в приёме документов")
-    @Tags({@Tag("predprod"), @Tag("mkasdprv")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void refuseDocsTest() {
@@ -284,7 +284,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Test
     @AllureId("5655")
     @DisplayName("Завершение задачи (принять в работу)")
-    @Tags({@Tag("predprod"), @Tag("mkasdprv")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Story("02. Завершение задачи Проверить данные заявления (принять в работу)")
     @Feature("Автотесты")
     @Epic("MKASDPRV (МКА Вывески)")

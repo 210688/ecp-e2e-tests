@@ -18,7 +18,7 @@ public class DriverUtils {
     public static final Logger LOGGER = LoggerFactory.getLogger(DriverUtils.class);
 
     public static String getSessionId() {
-        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();//.replace("selenoid", "");
+        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
 
     public static byte[] getScreenshotAsBytes() {
@@ -29,16 +29,6 @@ public class DriverUtils {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
-    /*    public static URL getVideoUrl(String sessionId) {
-            String videoUrl = webConfig.config.videoStorage() + sessionId + ".mp4";
-        try {
-            return new URL(videoUrl);
-        } catch (MalformedURLException e) {
-            LOGGER.warn("[ALLURE VIDEO ATTACHMENT ERROR] Wrong test video url, {}", videoUrl);
-            e.printStackTrace();
-        }
-            return null;
-    }*/
     public static String getConsoleLogs() {
         return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
     }

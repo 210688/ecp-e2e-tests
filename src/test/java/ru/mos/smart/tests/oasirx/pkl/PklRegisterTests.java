@@ -29,7 +29,7 @@ public class PklRegisterTests extends TestBase {
     @Test
     @AllureId("3699")
     @DisplayName("Просмотр реестра ПКЛ")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pkl")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pkl")})
     void openingTheRegisterPkl() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage

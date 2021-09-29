@@ -52,6 +52,4 @@ public interface WebConfig extends Config {
 
     @Key("user.password.oasirx")
     String passwordOasirx();
-
-
 }

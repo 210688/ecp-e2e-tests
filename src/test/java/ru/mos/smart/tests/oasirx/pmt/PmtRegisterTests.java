@@ -29,7 +29,7 @@ class PmtRegisterTests extends TestBase {
     @Test
     @AllureId("3701")
     @DisplayName("Просмотр реестра ПМТ")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pmt")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pmt")})
     void openingTheRegisterPMT() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
@@ -47,7 +47,7 @@ class PmtRegisterTests extends TestBase {
     @Test
     @AllureId("3702")
     @DisplayName("Поиск ПМТ по номеру")
-    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("pmt")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("pmt")})
     void searchingPmtCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage

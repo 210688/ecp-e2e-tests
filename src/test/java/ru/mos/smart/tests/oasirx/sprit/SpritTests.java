@@ -28,7 +28,7 @@ public class SpritTests extends TestBase {
     @Layer("web")
     @AllureId("1043")
     @DisplayName("Просмотр карточки СПРИТ")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sprit")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sprit")})
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Owner("Amidosha")
@@ -56,7 +56,7 @@ public class SpritTests extends TestBase {
     @Layer("web")
     @AllureId("3315")
     @DisplayName("Форма карточки: История изменений")
-    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void historyChangeCard() {
@@ -77,7 +77,7 @@ public class SpritTests extends TestBase {
     @Layer("web")
     @AllureId("4207")
     @DisplayName("Новая форма подачи заявления (новый регламент)")
-    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Feature("SPRIT (Выдача СПРИТ)")
     void newReglament() {
@@ -101,7 +101,7 @@ public class SpritTests extends TestBase {
     @Test
     @AllureId("3313")
     @DisplayName("Форма карточки: Процесс")
-    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void process() {
@@ -123,7 +123,7 @@ public class SpritTests extends TestBase {
     @Layer("web")
     @AllureId("3314")
     @DisplayName("Форма карточки: Материалы")
-    @Tags({@Tag("predprod"), @Tag("regress"), @Tag("sprit")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regress"), @Tag("sprit")})
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Feature("SPRIT (Выдача СПРИТ)")
     void cardMaterialsTest() {

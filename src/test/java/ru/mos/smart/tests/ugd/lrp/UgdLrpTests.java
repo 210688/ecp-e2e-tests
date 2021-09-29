@@ -27,8 +27,8 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @AllureId("1063")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openTheApplicationFormLrp() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -50,9 +50,9 @@ class UgdLrpTests extends TestBase {
 
     @Test
     @AllureId("1062")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     @DisplayName("Проверка открытия формы подачи " +
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openTheApplicationFormLrpOutsideOrg() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -75,8 +75,8 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openRegisterLrpZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
@@ -99,8 +99,8 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     void openRegisterLrpMoiZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage

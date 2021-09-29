@@ -23,7 +23,7 @@ public class EaistTests extends TestBase {
 
     @Test
     @DisplayName("Проверка реестров ЕАИСТ")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ft")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ft")})
     void reestrEaistCanBeOpened() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
         navigatorPage

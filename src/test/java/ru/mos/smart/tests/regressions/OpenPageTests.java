@@ -30,8 +30,8 @@ public class OpenPageTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6540")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню возможности")
-    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheActionsPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
         navigatorPage
@@ -45,8 +45,8 @@ public class OpenPageTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6539")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню Задачи")
-    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheTasksPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
         navigatorPage
@@ -59,8 +59,8 @@ public class OpenPageTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6538")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню Реестр")
-    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheReestrPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
         navigatorPage
@@ -78,8 +78,8 @@ public class OpenPageTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6541")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню справочник")
-    @Tags({@Tag("regressions"), @Tag("predprod"), @Tag("prod")})
     void openTheSpravochnikPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
         navigatorPage

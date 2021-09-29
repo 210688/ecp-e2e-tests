@@ -24,7 +24,7 @@ public class ArbitrTests extends TestBase {
 
     @Test
     @DisplayName("Загрузка модуля Поиск дел")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("arbitr")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("arbitr")})
     void loadingModulePoiskDel() {
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());

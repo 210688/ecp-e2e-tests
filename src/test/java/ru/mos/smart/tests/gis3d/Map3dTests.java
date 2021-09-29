@@ -23,7 +23,7 @@ public class Map3dTests extends TestBase {
 
     @Test
     @DisplayName("Открытие приложения Цифровой двойник")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis3d")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis3d")})
     void openTheTsifrovoyDvoynik() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
@@ -40,7 +40,7 @@ public class Map3dTests extends TestBase {
 
     @Test
     @DisplayName("Проверка отображения панели слоев")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis3d")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis3d")})
     void checkingTheDisplayOfLayersPanel() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
 
