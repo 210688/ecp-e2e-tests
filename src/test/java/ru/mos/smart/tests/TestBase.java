@@ -14,7 +14,6 @@ import ru.mos.smart.helpers.DriverUtils;
 import ru.mos.smart.pages.*;
 
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
-import static ru.mos.smart.helpers.AllureAttachments.attachVideo;
 import static ru.mos.smart.helpers.DriverSettings.configureSelenide;
 
 
@@ -43,8 +42,6 @@ public class TestBase {
         AllureAttachments.addScreenshotAs("Last screenshot");
         AllureAttachments.addPageSource();
         AllureAttachments.addBrowserConsoleLogs();
-        if (System.getProperty("video.storage") != null)
-            attachVideo();
         closeWebDriver();
     }
 }
