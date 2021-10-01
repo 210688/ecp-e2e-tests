@@ -5,8 +5,6 @@ import io.qameta.allure.Attachment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static ru.mos.smart.helpers.DriverUtils.getSessionId;
-
 
 public class AllureAttachments {
     public static final Logger LOGGER = LoggerFactory.getLogger(AllureAttachments.class);
@@ -30,10 +28,9 @@ public class AllureAttachments {
         return DriverUtils.getPageSourceAsBytes();
     }
 
-    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
+/*    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static String attachVideo() {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
                 + "http://10.15.58.218:4444/data/testEnv/selenoid/videoh/" + getSessionId() + ".mp4"
-                + "' type='video/mp4'></video></body></html>";
+                + "' type='video/mp4'></video></body></html>";*/
     }
-}
