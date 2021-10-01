@@ -9,8 +9,8 @@
       "lang": "ru",
       "messenger": "telegram",
       "allureFolder": "./allure-report/",
-      "mattermostUrl": "",
-      "chart": true,
+      "allureLinkPath": "allure",
+      "chart": false,
       "chartName": "",
       "project": ""
     },
@@ -22,6 +22,9 @@
       "enableSSL": false,
       "from": "",
       "recipient": ""
+    },
+    "mattermost": {
+      "url": ""
     },
     "proxy": {
       "host": "",
