@@ -30,8 +30,6 @@ public class CustomWebDriver implements WebDriverProvider {
         logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
 
         capabilities.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
-        capabilities.setCapability("browserName", "chrome"); //delete
-        capabilities.setCapability("browserVersion", "94.0");
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", isVideoOn);
         capabilities.setCapability("videoFrameRate", 24);
