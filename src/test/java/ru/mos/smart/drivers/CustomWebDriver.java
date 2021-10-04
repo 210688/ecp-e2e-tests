@@ -33,7 +33,7 @@ public class CustomWebDriver implements WebDriverProvider {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", isVideoOn);
         capabilities.setCapability("videoFrameRate", 24);
-        //capabilities.setVersion("94.0");
+        capabilities.setVersion("94.0");
 
         // todo implement for other drivers - opera, firefox, safari
         capabilities.setCapability(ChromeOptions.CAPABILITY, getChromeOptions());
