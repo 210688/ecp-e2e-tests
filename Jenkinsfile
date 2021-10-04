@@ -4,50 +4,6 @@ user_list = [
         "prod":[ "soldatovks" ]
 ]
 
-telegram_json = '''
-{
-  "app": {
-    "bot": {
-      "token": "1778543476:AAFzJdZ8u6IdJz3l06HYBbhwEYA3VoggZxM",
-      "chat": "-1001433867611",
-      "replyTo": ""
-    },
-    "base": {
-      "lang": "ru",
-      "messenger": "telegram",
-      "allureFolder": "./allure-report/",
-      "mattermostUrl": "",
-      "chart": true,
-      "chartName": "",
-      "project": ""
-    },
-    "mail": {
-      "host": "",
-      "port": "",
-      "username": "",
-      "password": "",
-      "enableSSL": false,
-      "from": "",
-      "recipient": ""
-    },
-    "proxy": {
-      "host": "",
-      "port": 0,
-      "username": "",
-      "password": ""
-    },
-    "skype": {
-      "appId": "",
-      "appSecret": "",
-      "serviceUrl": "",
-      "conversationId": "",
-      "botId": "",
-      "botName": ""
-    }
-  }
-}
-'''
-
 pipeline {
     agent {
         node {
@@ -81,7 +37,6 @@ pipeline {
                     git branch: 'master', credentialsId: 'reinform-cdp-common-git', url: 'http://smart.mos.ru/git/autotest/ecp-e2e-tests.git'
                     withAllureUpload(name: '${JOB_NAME} - #${BUILD_NUMBER}', projectId: '', results: [[path: 'build/allure-results']], serverId: 'allure', tags: '') {
                         httpRequest responseHandle: 'NONE', url: 'http://10.15.58.218:4444/status', wrapAsMultipart: false
-                        writeFile file: 'config/telegram.json', text: telegram_json
                         if(ALLURE_USERNAME in user_list[ENVIRONMENT]){
                             println "Сборка автотестов запущена";
                             sh 'gradle clean regressing -Dtag=${MODULES} -Denvironment=${ENVIRONMENT} -Dremote_driver_url=http://10.15.58.218:4444/wd/hub';
