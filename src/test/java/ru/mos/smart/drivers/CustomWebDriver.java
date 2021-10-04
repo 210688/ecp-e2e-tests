@@ -30,10 +30,12 @@ public class CustomWebDriver implements WebDriverProvider {
         logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
 
         capabilities.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
+        capabilities.setCapability("browserName", "chrome"); //delete
+        capabilities.setCapability("browserVersion", "94.0");
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", isVideoOn);
         capabilities.setCapability("videoFrameRate", 24);
-        capabilities.setVersion("94.0");
+        //capabilities.setVersion("94.0");
 
         // todo implement for other drivers - opera, firefox, safari
         capabilities.setCapability(ChromeOptions.CAPABILITY, getChromeOptions());
