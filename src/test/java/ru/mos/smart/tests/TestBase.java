@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import ru.mos.smart.api.mkapmii.Mkapmii;
 import ru.mos.smart.helpers.AllureAttachments;
 import ru.mos.smart.helpers.DriverUtils;
+import ru.mos.smart.helpers.ExtendedListener;
 import ru.mos.smart.pages.*;
 
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
@@ -32,7 +33,7 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        SelenideLogger.addListener("AllureSelenide", new ExtendedListener());
         configureSelenide();
     }
 
