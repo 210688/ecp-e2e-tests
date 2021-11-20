@@ -47,7 +47,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginSwagger(), webConfig().passwordSwagger());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -133,7 +133,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginSwagger(), webConfig().passwordSwagger());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -155,7 +155,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginSwagger(), webConfig().passwordSwagger());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
@@ -229,7 +229,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginSwagger(), webConfig().passwordSwagger());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -266,7 +266,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginSwagger(), webConfig().passwordSwagger());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
@@ -294,7 +294,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginSwagger(), webConfig().passwordSwagger());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
         mkasdprvPage.selectTakeToWorkRadioButton();

@@ -17,8 +17,8 @@ public class LogFilter {
     }
 
     public AllureRestAssured withCustomTemplates() {
-        FILTER.setRequestTemplate("request.ftl");
-        FILTER.setResponseTemplate("response.ftl");
+        FILTER.setRequestTemplate("1request.ftl");
+        FILTER.setResponseTemplate("1response.ftl");
         return FILTER;
     }
 }

@@ -34,7 +34,7 @@ public class MkasdprvCreateApplicationTest extends TestBase {
         application.create(randomTestId);
 
         step("Открыть мои задачи на портале, должна появиться заявка Проверить данные заявления", () -> {
-            AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMka(), webConfig().passwordMka());
+            AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginSwagger(), webConfig().passwordSwagger());
             TasksPage.openTaskByTestId(randomTestId);
         });
     }

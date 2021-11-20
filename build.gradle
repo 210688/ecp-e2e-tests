@@ -102,8 +102,4 @@ task launchTasks(type: Test) { //Запуск тестов из системно
     useJUnitPlatform {
         includeTags System.getProperty("environment") + ' & ' + System.getProperty("tag")
     }
-
-    tasks.withType(Test) {
-        systemProperties = System.properties
-    }
 }
