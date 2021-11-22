@@ -6,6 +6,9 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
+
 public class FileUtils {
 
     public static byte[] readBytesFromFile(String filePath) {
@@ -19,7 +22,16 @@ public class FileUtils {
     }
 
     public static String readStringFromFile(String filePath) {
-        return new String(readBytesFromFile(filePath));
+        return new String(readBytesFromFile(filePath), UTF_8);
+    }
+
+    public static void copyFile(String from, String to) {
+        if (new File(to).exists()) new File(to).delete();
+        try {
+            Files.copy(new File(from).toPath(), new File(to).toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void saveFile(String content, String filePath) {

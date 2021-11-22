@@ -23,7 +23,7 @@ public class Mkapmii {
             Authorization authorization = new Authorization();
 
             given()
-                    .cookies(authorization.getAuthCookie(webConfig().loginMka(), webConfig().passwordMka()))
+                    .cookies(authorization.getAuthCookie(webConfig().loginSwagger(), webConfig().passwordSwagger()))
                     .contentType(ContentType.JSON)
                     .body(request)
                     .when()

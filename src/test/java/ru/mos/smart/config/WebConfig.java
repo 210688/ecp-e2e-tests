@@ -41,11 +41,11 @@ public interface WebConfig extends Config {
     @Key("user.password.ugd")
     String passwordUgd();
 
-    @Key("user.login.mka")
-    String loginMka();
+    @Key("login.swagger")
+    String loginSwagger();
 
-    @Key("user.password.mka")
-    String passwordMka();
+    @Key("password.swagger")
+    String passwordSwagger();
 
     @Key("user.login.oasirx")
     String loginOasirx();
@@ -53,3 +53,5 @@ public interface WebConfig extends Config {
     @Key("user.password.oasirx")
     String passwordOasirx();
 }
+
+

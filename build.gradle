@@ -8,7 +8,6 @@ version '1.0'
 
 
 repositories {
-//    jcenter()
     mavenCentral()
 }
 
@@ -29,18 +28,22 @@ allure {
 dependencies {
     testImplementation(
             'org.aspectj:aspectjweaver:1.9.7',
+            'io.rest-assured:rest-assured:4.4.0',
+            'io.rest-assured:json-schema-validator:4.3.2',
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "com.fasterxml.jackson.core:jackson-databind:2.11.3",
+            "ch.qos.logback:logback-classic:1.2.3",
+            "org.aeonbits.owner:owner:1.0.12",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            'io.rest-assured:rest-assured:4.4.0',
             "io.qameta.allure:allure-rest-assured:$allureVersion",
-            "org.aeonbits.owner:owner:1.0.12",
             'org.assertj:assertj-core:3.21.0',
             'org.jsoup:jsoup:1.14.2',
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
-            'ch.qos.logback:logback-classic:1.2.6',
             "org.projectlombok:lombok:1.18.20",
             'org.slf4j:slf4j-api:1.7.32',
             "com.github.javafaker:javafaker:1.0.2")
+
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
