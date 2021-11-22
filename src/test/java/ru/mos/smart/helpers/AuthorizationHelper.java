@@ -1,9 +1,7 @@
 package ru.mos.smart.helpers;
 
 import io.restassured.http.ContentType;
-import org.junit.jupiter.api.BeforeAll;
 import ru.mos.smart.config.ConfigHelper;
-import ru.mos.smart.steps.ApiSteps;
 
 import static io.restassured.RestAssured.given;
 import static ru.mos.smart.LogFilter.LogFilter.filters;
@@ -11,13 +9,7 @@ import static ru.mos.smart.LogFilter.LogFilter.filters;
 public class AuthorizationHelper {
 
     public static String accessToken;
-    protected static ApiSteps apiSteps;
-
-    @BeforeAll
-    public static void init() {
-        apiSteps = new ApiSteps();
-        getAccessToken();
-    }
+    //public static ApiSteps apiSteps;
 
     //    @Step("Авторизация")
     public static String getAccessToken() {

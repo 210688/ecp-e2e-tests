@@ -12,6 +12,11 @@ public class ConfigHelper {
         return getConfig().applicationUrl();
     }
 
+    public static String getWebUrl() {
+        return getConfig().webUrl();
+    }
+
+
     public static String getUsername() {
         return getConfig().username();
     }

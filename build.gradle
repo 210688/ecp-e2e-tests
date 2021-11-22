@@ -11,9 +11,9 @@ repositories {
     mavenCentral()
 }
 
-def allureVersion = '2.15.0',
-    selenideVersion = '5.25.0',
-    junitVersion = '5.8.0'
+def allureVersion = '2.16.1',
+    selenideVersion = '6.0.3',
+    junitVersion = '5.8.1'
 
 allure {
     version = "${allureVersion}"
@@ -29,10 +29,10 @@ dependencies {
     testImplementation(
             'org.aspectj:aspectjweaver:1.9.7',
             'io.rest-assured:rest-assured:4.4.0',
-            'io.rest-assured:json-schema-validator:4.3.2',
+            'io.rest-assured:json-schema-validator:4.4.0',
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             "com.fasterxml.jackson.core:jackson-databind:2.11.3",
-            "ch.qos.logback:logback-classic:1.2.3",
+            "ch.qos.logback:logback-classic:1.2.7",
             "org.aeonbits.owner:owner:1.0.12",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
@@ -40,7 +40,7 @@ dependencies {
             'org.assertj:assertj-core:3.21.0',
             'org.jsoup:jsoup:1.14.2',
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
-            "org.projectlombok:lombok:1.18.20",
+            'org.projectlombok:lombok:1.18.22',
             'org.slf4j:slf4j-api:1.7.32',
             "com.github.javafaker:javafaker:1.0.2")
 
