@@ -11,7 +11,6 @@ import static ru.mos.smart.helpers.AuthorizationHelper.getAccessToken;
 
 public class ApiSteps {
 
-    //public static ApiSteps apiSteps;
     public RequestSpecification apiRequestBearer() {
 
         return

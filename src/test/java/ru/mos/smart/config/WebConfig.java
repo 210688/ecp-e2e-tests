@@ -17,10 +17,10 @@ public interface WebConfig extends Config {
     @Key("user.pass.process")
     String password();
 
-    @Key("user.login.regress")
+    @Key("login.regress")
     String login_regress();
 
-    @Key("user.password.regress")
+    @Key("password.regress")
     String password_regress();
 
     @Key("user.login.sudir")
@@ -52,6 +52,8 @@ public interface WebConfig extends Config {
 
     @Key("user.password.oasirx")
     String passwordOasirx();
+
+
 }
 
 

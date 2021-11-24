@@ -18,6 +18,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 @Epic("Api тесты проверки микросервисов")
 public class UgdTests extends ApiBearerTestBase {
 
+
     @Test
     @Layer("api")
     @Link(url = "https://smart-predprod.mos.ru/app/ugd/ssr/swagger-ui.htm")

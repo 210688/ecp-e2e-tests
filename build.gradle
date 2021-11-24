@@ -98,8 +98,8 @@ task regressing(type: Test) { //Запуск регрессионных тест
     }
 }
 
-task launchTasks(type: Test) { //Запуск тестов из системной переменной tests
+/*task launchTasks(type: Test) { //Запуск тестов из системной переменной tests
     useJUnitPlatform {
         includeTags System.getProperty("environment") + ' & ' + System.getProperty("tag")
-    }
-}
+    }*/
+
