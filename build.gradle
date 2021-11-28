@@ -62,44 +62,43 @@ tasks.withType(Test) {
     maxParallelForks = 1
 }
 
-
-tasks.withType(Test) {
-    testLogging {
-        events "started", "skipped", "passed", "failed", "standard_error", "standard_out"
-        exceptionFormat "short"
-    }
-}
-
-test {
-    useJUnitPlatform()
-}
-
-task preprod(type: Test) { //Запускает все модули на предпроде (исключительно предпрод)
-    useJUnitPlatform {
-        includeTags 'predprod'
-    }
-}
-
-task prodd(type: Test) { //запускает все модули на проде (исключительно прод)
-    useJUnitPlatform {
-        includeTags 'prod'
-    }
-}
-
-task stage(type: Test) { //запускает все модули на стейдже
-    useJUnitPlatform {
-        includeTags 'stage'
-    }
-}
-
-task regressing(type: Test) { //Запуск регрессионных тестов на 3-ёх платформах
-    useJUnitPlatform {
-        includeTags 'regressions'
-    }
-}
-
-/*task launchTasks(type: Test) { //Запуск тестов из системной переменной tests
+task launchTasks(type: Test) { //Запуск тестов из системной переменной tests
     useJUnitPlatform {
         includeTags System.getProperty("environment") + ' & ' + System.getProperty("tag")
-    }*/
+    }
 
+    tasks.withType(Test) {
+        testLogging {
+            events "started", "skipped", "passed", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    task preprod(type: Test) { //Запускает все модули на предпроде (исключительно предпрод)
+        useJUnitPlatform {
+            includeTags 'predprod'
+        }
+    }
+
+    task prodd(type: Test) { //запускает все модули на проде (исключительно прод)
+        useJUnitPlatform {
+            includeTags 'prod'
+        }
+    }
+
+    task stage(type: Test) { //запускает все модули на стейдже
+        useJUnitPlatform {
+            includeTags 'stage'
+        }
+    }
+
+    task regressing(type: Test) { //Запуск регрессионных тестов на 3-ёх платформах
+        useJUnitPlatform {
+            includeTags 'regressions'
+        }
+    }
+}
