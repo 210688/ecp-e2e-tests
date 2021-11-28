@@ -11,6 +11,8 @@ import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$$;
@@ -53,7 +55,8 @@ public class SbRegisterTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Самострой", () -> {
-            $x("//span[text()='Самострой']").waitUntil(visible, 10000);
+            $x("//span[text()='Самострой']").should(visible, Duration.ofSeconds(10));
+            ;
             $x("//span[text()='Самострой']").click();
         });
 

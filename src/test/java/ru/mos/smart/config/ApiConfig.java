@@ -14,6 +14,10 @@ public interface ApiConfig extends Config {
     @Key("application.url")
     String applicationUrl();
 
+    @Key("web.url")
+    String webUrl();
+
+
     @Key("username")
     String username();
 

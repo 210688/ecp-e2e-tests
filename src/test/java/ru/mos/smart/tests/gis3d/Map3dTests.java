@@ -10,6 +10,8 @@ import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
@@ -34,7 +36,7 @@ public class Map3dTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").waitUntil(visible, 15000);
+            $("#city").should(visible, Duration.ofSeconds(30));
         });
     }
 
@@ -51,7 +53,7 @@ public class Map3dTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").waitUntil(visible, 15000);
+            $("#city").should(visible, Duration.ofSeconds(30));
         });
 
         step("В левой боковой панели открыть Дерево слоев 2D", () -> $((".fas.fa-layer-group"))
