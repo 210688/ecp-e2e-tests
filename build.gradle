@@ -61,7 +61,6 @@ tasks.withType(Test) {
     maxParallelForks = 1
 }
 
-
 tasks.withType(Test) {
     testLogging {
         events "started", "skipped", "passed", "failed", "standard_error", "standard_out"
@@ -71,6 +70,12 @@ tasks.withType(Test) {
 
 test {
     useJUnitPlatform()
+}
+
+task launchTasks(type: Test) { //Запуск тестов из системной переменной tests
+    useJUnitPlatform {
+        includeTags System.getProperty("environment") + ' & ' + System.getProperty("tag")
+    }
 }
 
 task preprod(type: Test) { //Запускает все модули на предпроде
@@ -94,11 +99,5 @@ task stage(type: Test) { //запускает все модули на стей�
 task regressing(type: Test) { //Запуск регрессионных тестов на 3-ёх платформах
     useJUnitPlatform {
         includeTags 'regressions'
-    }
-}
-
-task launchTasks(type: Test) { //Запуск тестов из системной переменной tests
-    useJUnitPlatform {
-        includeTags System.getProperty("environment") + ' & ' + System.getProperty("tag")
     }
 }
