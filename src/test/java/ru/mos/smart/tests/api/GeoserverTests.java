@@ -2,10 +2,7 @@ package ru.mos.smart.tests.api;
 
 import io.qameta.allure.Epic;
 import io.restassured.response.ValidatableResponse;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.ApiBasicTestBase;
 
@@ -14,6 +11,7 @@ import static io.qameta.allure.Allure.parameter;
 @Epic("Api тесты проверки микросервисов")
 public class GeoserverTests extends ApiBasicTestBase {
 
+    @Disabled
     @Test()
     @Layer("api")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})

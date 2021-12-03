@@ -33,7 +33,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие приложения карта")
     void openTheMaps() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToMaps();
         switchTo().window(1);
@@ -54,7 +54,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия инструментов измерений")
     void checkingAvailabilityOfInstruments() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).click();
@@ -81,7 +81,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
     void checkingAvailabilityOfAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
@@ -106,7 +106,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     void checkingAvailabilityOfScalingTools() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
@@ -132,7 +132,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     void checkingAvailabilityOfMyLocationTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();
@@ -157,7 +157,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     void checkingAvailabilityOfInitialPositionTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Карта", () -> {
             $(byLinkText("Информация")).shouldBe(visible).click();

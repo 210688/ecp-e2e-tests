@@ -29,7 +29,7 @@ public class Map2DInstrumentTests extends TestBase {
     @DisplayName("Проверка наличия инструментов измерений")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis2d")})
     void checkingAvailabilityOfInstruments() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -52,7 +52,7 @@ public class Map2DInstrumentTests extends TestBase {
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis2d")})
     void checkingAvailabilityOfAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -73,7 +73,7 @@ public class Map2DInstrumentTests extends TestBase {
     @DisplayName("Проверка наличия инструментов масштабирования")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis2d")})
     void checkingAvailabilityOfScalingTools() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -95,7 +95,7 @@ public class Map2DInstrumentTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis2d")})
     void checkingAvailabilityOfMyLocationTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();
@@ -116,7 +116,7 @@ public class Map2DInstrumentTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("gis2d")})
     void checkingAvailabilityOfInitialPositionTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Открыть Информация - Карта", () -> {
             $x("//span[contains(text(),'Информация')]").click();

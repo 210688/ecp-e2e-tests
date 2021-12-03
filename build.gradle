@@ -6,12 +6,11 @@ plugins {
 group 'ru.mos.smart'
 version '1.0'
 
-
 repositories {
     mavenCentral()
 }
 
-def allureVersion = '2.16.1',
+def allureVersion = '2.16.0',
     selenideVersion = '6.0.3',
     junitVersion = '5.8.1'
 
@@ -62,43 +61,43 @@ tasks.withType(Test) {
     maxParallelForks = 1
 }
 
+tasks.withType(Test) {
+    testLogging {
+        events "started", "skipped", "passed", "failed", "standard_error", "standard_out"
+        exceptionFormat "short"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
 task launchTasks(type: Test) { //Запуск тестов из системной переменной tests
     useJUnitPlatform {
         includeTags System.getProperty("environment") + ' & ' + System.getProperty("tag")
     }
+}
 
-    tasks.withType(Test) {
-        testLogging {
-            events "started", "skipped", "passed", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
+task preprod(type: Test) { //Запускает все модули на предпроде
+    useJUnitPlatform {
+        includeTags 'predprod'
     }
+}
 
-    test {
-        useJUnitPlatform()
+task prodd(type: Test) { //запускает все модули на проде
+    useJUnitPlatform {
+        includeTags 'prod'
     }
+}
 
-    task preprod(type: Test) { //Запускает все модули на предпроде (исключительно предпрод)
-        useJUnitPlatform {
-            includeTags 'predprod'
-        }
+task stage(type: Test) { //запускает все модули на стейдже
+    useJUnitPlatform {
+        includeTags 'stage'
     }
+}
 
-    task prodd(type: Test) { //запускает все модули на проде (исключительно прод)
-        useJUnitPlatform {
-            includeTags 'prod'
-        }
-    }
-
-    task stage(type: Test) { //запускает все модули на стейдже
-        useJUnitPlatform {
-            includeTags 'stage'
-        }
-    }
-
-    task regressing(type: Test) { //Запуск регрессионных тестов на 3-ёх платформах
-        useJUnitPlatform {
-            includeTags 'regressions'
-        }
+task regressing(type: Test) { //Запуск регрессионных тестов на 3-ёх платформах
+    useJUnitPlatform {
+        includeTags 'regressions'
     }
 }

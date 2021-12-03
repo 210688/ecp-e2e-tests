@@ -30,7 +30,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkaopugd")})
     void registerOfInstructionsUgd() {
 
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginSwagger(), webConfig().passwordSwagger());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginApi(), webConfig().passwordApi());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -54,7 +54,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @DisplayName("Карточка Реестра поручений УГД")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkaopugd")})
     void cardOfRegisterUgd() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginSwagger(), webConfig().passwordSwagger());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginApi(), webConfig().passwordApi());
         navigatorPage
                 .goToRegister();
         reestrPage

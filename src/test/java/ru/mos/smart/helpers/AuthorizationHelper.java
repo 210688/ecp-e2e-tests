@@ -9,9 +9,8 @@ import static ru.mos.smart.LogFilter.LogFilter.filters;
 public class AuthorizationHelper {
 
     public static String accessToken;
-    //public static ApiSteps apiSteps;
 
-    //    @Step("Авторизация")
+    //Авторизация
     public static String getAccessToken() {
 
         if (accessToken == null) accessToken = authorization();
@@ -26,7 +25,6 @@ public class AuthorizationHelper {
                 "&client_id=app-cdp" +
                 "&client_secret=" + ConfigHelper.getClientSecret();
 
-//        Allure.addAttachment("Request body", "text/plain", data);
         return given()
                 .filter(filters().withCustomTemplates())
                 .contentType(ContentType.URLENC)

@@ -23,7 +23,7 @@ public class Application {
             Authorization authorization = new Authorization();
 
             given()
-                    .cookies(authorization.getAuthCookie(webConfig().loginSwagger(), webConfig().passwordSwagger()))
+                    .cookies(authorization.getAuthCookie(webConfig().loginApi(), webConfig().passwordApi()))
                     .contentType(ContentType.JSON)
                     .body(request)
                     .when()

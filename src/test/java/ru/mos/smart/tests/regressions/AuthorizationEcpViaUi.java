@@ -31,7 +31,7 @@ public class AuthorizationEcpViaUi extends TestBase {
     @Feature("Меню Госуслуги и функции")
     void authorizationEcpViaUi() {
 
-        AuthorizationPage.openUrlWithAuthorizationUI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationUI("", webConfig().loginRegress(), webConfig().passwordRegress());
         step("В навигаторе присутствует надпись  Правительство Москвы", () ->
                 $("h3").shouldHave(text("Правительство Москвы")).shouldBe(visible));
     }

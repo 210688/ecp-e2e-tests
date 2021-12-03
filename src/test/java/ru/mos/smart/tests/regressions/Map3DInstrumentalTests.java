@@ -34,7 +34,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие приложения Цифровой двойник")
     void openTheTsifrovoyDvoynik() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).should(visible).click();
@@ -54,7 +54,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка отображения панели слоев")
     void checkingTheDisplayOfLayersPanel() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).should(visible).click();
@@ -100,7 +100,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
     void checkingAvailabilityOfAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).should(visible).click();
@@ -125,7 +125,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     void checkingAvailabilityOfScalingTools() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).should(visible).click();
@@ -151,7 +151,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     void checkingAvailabilityOfInitialPositionTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).should(visible).click();
@@ -176,7 +176,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
     void checkingAvailabilityOfInstruments() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).should(visible).click();
