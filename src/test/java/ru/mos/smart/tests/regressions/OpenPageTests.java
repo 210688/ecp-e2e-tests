@@ -33,7 +33,7 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню возможности")
     void openTheActionsPage() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToActions();
         step("Проверяем, что строка поиска доступна", () -> {
@@ -48,7 +48,7 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню Задачи")
     void openTheTasksPage() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToTasks();
         step("Проверяем, что присутствуют задачи в списке", () ->
@@ -62,7 +62,7 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню Реестр")
     void openTheReestrPage() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         step("Проверка, что реестр доступен", () -> {
@@ -81,7 +81,7 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню справочник")
     void openTheSpravochnikPage() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().login_regress(), webConfig().password_regress());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToSpravochnik();
         step("Проверка, что справочник доступен", () -> {

@@ -32,7 +32,7 @@ public class ApiSteps {
                         .baseUri(ConfigHelper.getWebUrl())
                         .auth()
                         .preemptive()
-                        .basic(webConfig().loginSwagger(), webConfig().passwordSwagger())
+                        .basic(webConfig().loginApi(), webConfig().passwordApi())
                         .log().uri()
                         .when();
     }

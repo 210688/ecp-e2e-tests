@@ -6,12 +6,11 @@ plugins {
 group 'ru.mos.smart'
 version '1.0'
 
-
 repositories {
     mavenCentral()
 }
 
-def allureVersion = '2.16.1',
+def allureVersion = '2.16.0',
     selenideVersion = '6.0.3',
     junitVersion = '5.8.1'
 
@@ -74,13 +73,13 @@ test {
     useJUnitPlatform()
 }
 
-task preprod(type: Test) { //Запускает все модули на предпроде (исключительно предпрод)
+task preprod(type: Test) { //Запускает все модули на предпроде
     useJUnitPlatform {
         includeTags 'predprod'
     }
 }
 
-task prodd(type: Test) { //запускает все модули на проде (исключительно прод)
+task prodd(type: Test) { //запускает все модули на проде
     useJUnitPlatform {
         includeTags 'prod'
     }
@@ -98,8 +97,8 @@ task regressing(type: Test) { //Запуск регрессионных тест
     }
 }
 
-/*task launchTasks(type: Test) { //Запуск тестов из системной переменной tests
+task launchTasks(type: Test) { //Запуск тестов из системной переменной tests
     useJUnitPlatform {
         includeTags System.getProperty("environment") + ' & ' + System.getProperty("tag")
-    }*/
-
+    }
+}

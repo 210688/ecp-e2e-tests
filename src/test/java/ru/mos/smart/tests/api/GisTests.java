@@ -2,36 +2,34 @@ package ru.mos.smart.tests.api;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Link;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.config.ConfigHelper;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
-import static org.hamcrest.Matchers.equalTo;
 
 @Epic("Api тесты проверка доступности Swagger приложений и  микросервисов")
-public class AuthTests extends ApiBearerTestBase {
+public class GisTests extends ApiBearerTestBase {
 
     @Test
-    @Description("Данные о пользователе, из-под которого идет запрос")
-    @DisplayName("/auth/user [GET]")
+    @Layer("api")
+    @Link(url = "https://smart-predprod.mos.ru/app/gis/search/swagger-ui.html#/")
+    @Description("Получение описания всех типов документов")
+    @DisplayName("/app/gis/search/swagger-ui.html [GET]")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
-    void authUserTest() {
+    void gisSearchTests() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
-                .get("/auth/user")
-                .then()
-                .log().body();
-
+                .get("/app/gis/search/swagger-ui.html")
+                .then();
 
         parameter("Code", response.extract().statusCode());
 
-        response.statusCode(200)
-
-                .body("name", equalTo(ConfigHelper.getUsername()))
-                .body("principal.user.userLogin", equalTo(ConfigHelper.getUsername()));
+        response.statusCode(200);
     }
+
 }
