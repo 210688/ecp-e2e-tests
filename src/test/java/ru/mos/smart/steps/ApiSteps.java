@@ -1,6 +1,5 @@
 package ru.mos.smart.steps;
 
-
 import io.restassured.specification.RequestSpecification;
 import ru.mos.smart.config.ConfigHelper;
 
@@ -25,7 +24,6 @@ public class ApiSteps {
 
     public RequestSpecification apiRequestBasic() {
 
-
         return
                 given()
                         .filter(filters().withCustomTemplates())
@@ -33,6 +31,19 @@ public class ApiSteps {
                         .auth()
                         .preemptive()
                         .basic(webConfig().loginApi(), webConfig().passwordApi())
+                        .log().uri()
+                        .when();
+    }
+
+    public RequestSpecification apiRequestBasicGeoserver() {
+
+        return
+                given()
+                        .filter(filters().withCustomTemplates())
+                        .baseUri(ConfigHelper.getWebUrl())
+                        .auth()
+                        .preemptive()
+                        .basic(webConfig().loginGeoserver(), webConfig().passwordGeoserver())
                         .log().uri()
                         .when();
     }

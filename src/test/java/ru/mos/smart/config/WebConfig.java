@@ -52,6 +52,12 @@ public interface WebConfig extends Config {
 
     @Key("password.regress")
     String passwordRegress();
+
+    @Key("login.geoserver")
+    String loginGeoserver();
+
+    @Key("password.geoserver")
+    String passwordGeoserver();
 }
 
 

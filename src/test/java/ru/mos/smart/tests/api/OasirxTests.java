@@ -139,13 +139,13 @@ public class OasirxTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Feature("Oasirx swagger")
-    @Link(url = "https://smart-predprod.mos.ru/app/oasirx/pzz/swagger-ui.html#/")
+    @Link(url = "https://smart-predprod.mos.ru/app/oasi/pzz/swagger-ui.html#/")
     @Description("Получение описания всех типов документов")
-    @DisplayName("app/oasirx/pzz/documentTypes/all [GET]")
+    @DisplayName("app/oasi/pzz/documentTypes/all [GET]")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void oasirxPzzTests() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
-                .get("app/oasirx/pzz/documentTypes/all")
+                .get("app/oasi/pzz/documentTypes/all")
                 .then()
                 .log().status();
 
