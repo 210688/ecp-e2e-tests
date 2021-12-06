@@ -102,7 +102,7 @@ public class OasirxTests extends ApiBearerTestBase {
         response.statusCode(200);
     }
 
-    @Test
+/* @Test
     @Layer("api")
     @Feature("Oasirx")
     @Description("Получение описания всех типов документов")
@@ -117,7 +117,7 @@ public class OasirxTests extends ApiBearerTestBase {
         parameter("Code", response.extract().statusCode());
 
         response.statusCode(200);
-    }
+    }*/
 
     @Test
     @Layer("api")
