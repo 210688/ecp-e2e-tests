@@ -19,7 +19,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/crd/documentTypes/all [GET]")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
@@ -36,7 +36,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/elma/documentTypes/all [GET]")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
@@ -53,7 +53,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/eoo/documentTypes/all [GET]")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
@@ -70,7 +70,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/fii/documentTypes/all [GET]")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
@@ -87,7 +87,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/hearings/documentTypes/all [GET]")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
@@ -104,7 +104,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/pkl/documentTypes/all [GET]")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
@@ -121,7 +121,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/pmt/swagger-ui.html#/")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/pmt/documentTypes/all [GET]")
@@ -138,25 +138,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
-    @Link(url = "https://smart-predprod.mos.ru/app/oasi/pzz/swagger-ui.html#/")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("app/oasi/pzz/documentTypes/all [GET]")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
-    void oasirxPzzTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
-                .get("app/oasi/pzz/documentTypes/all")
-                .then()
-                .log().status();
-
-        parameter("Code", response.extract().statusCode());
-
-        response.statusCode(200);
-    }
-
-    @Test
-    @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/sb/swagger-ui.html#/")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/sb/documentTypes/all [GET]")
@@ -173,7 +155,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/sprit/swagger-ui.html#/")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/sprit/documentTypes/all [GET]")
@@ -190,7 +172,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/szz/swagger-ui.html#/")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/szz/documentTypes/all [GET]")
@@ -207,7 +189,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/violation/swagger-ui.html#/")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/violation/documentTypes/all [GET]")
@@ -224,7 +206,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Oasirx swagger")
+    @Feature("Oasirx")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/vri/swagger-ui.html#/")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasirx/vri/documentTypes/all [GET]")
@@ -232,6 +214,23 @@ public class OasirxTests extends ApiBearerTestBase {
     void oasirxVriTests() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
                 .get("app/oasirx/vri/documentTypes/all")
+                .then();
+
+        parameter("Code", response.extract().statusCode());
+
+        response.statusCode(200);
+    }
+
+    @Test
+    @Layer("api")
+    @Feature("Oasirx")
+    @Link(url = "https://smart-predprod.mos.ru/app/oasirx/szz/bus/isPsoIntegrationEnabled")
+    @Description("Проверка включена ли интеграция с ПСО в справочнике настройки")
+    @DisplayName("/app/oasirx/szz/bus/isPsoIntegrationEnabled [GET]")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    void oasirxSzzBusTests() {
+        ValidatableResponse response = apiSteps.apiRequestBearer()
+                .get("/app/oasirx/szz/bus/isPsoIntegrationEnabled")
                 .then();
 
         parameter("Code", response.extract().statusCode());
