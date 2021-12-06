@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.api;
+/*package ru.mos.smart.tests.api;
 
 import io.qameta.allure.Epic;
 import io.restassured.response.ValidatableResponse;
@@ -27,5 +27,5 @@ public class GeoserverTests extends ApiBasicTestBase {
         parameter("Code", response.extract().statusCode());
 
         response.statusCode(200);
-    }
-}
+    }*/
+
