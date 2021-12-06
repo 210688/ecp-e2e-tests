@@ -2,6 +2,7 @@ package ru.mos.smart.tests.api;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Link;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
@@ -14,6 +15,7 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 
 @Epic("Api тесты проверка доступности Swagger приложений и  микросервисов")
+@Feature("Mka")
 public class MkaTests extends ApiBearerTestBase {
 
     @Test

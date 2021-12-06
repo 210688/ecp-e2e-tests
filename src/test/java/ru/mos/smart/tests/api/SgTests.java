@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.ApiBasicTestBase;
 
-@Epic("Api тесты проверки микросервисов")
+@Epic("Api тесты проверка доступности Swagger приложений и  микросервисов")
 public class SgTests extends ApiBasicTestBase {
 
     @Test()
