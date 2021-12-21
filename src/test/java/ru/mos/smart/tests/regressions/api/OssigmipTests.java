@@ -1,11 +1,10 @@
-package ru.mos.smart.tests.api;
+package ru.mos.smart.tests.regressions.api;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Link;
+import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.tests.ApiBearerTestBase;
@@ -18,9 +17,14 @@ public class OssigmipTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Feature("Ossigmip")
+    @Owner("Soldatovks")
+    @AllureId("7443")
     @Link(url = "https://smart-predprod.mos.ru/app/ossigmip/permit/documentTypes/all")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ossigmip/permit/documentTypes/all [GET]")
+    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/ossigmip/permit/pzz/swagger-ui.html"),
+            @Link(name = "prod", url = "https://smart.mos.ru/app/ossigmip/permit/swagger-ui.html")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void ossigmipPermitTests() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
                 .get("/app/ossigmip/permit/documentTypes/all")

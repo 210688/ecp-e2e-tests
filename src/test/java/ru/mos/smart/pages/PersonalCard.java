@@ -12,8 +12,8 @@ import static com.codeborne.selenide.Selenide.$$;
 public class PersonalCard {
     @Step("Перейти на вкладку {tabName}")
     public PersonalCard gotoTab(String tabName) {
-        $("app-standard-header").shouldBe(visible, Duration.ofSeconds(10));
-        $$(".nav-link").findBy(text("Возможности")).click();
+        //$$(".nav-link").findBy(text("Возможности")).click();
+        $(".wrapper.wrapper-content").shouldBe(visible, Duration.ofSeconds(10));
 
         return this;
     }
@@ -21,7 +21,7 @@ public class PersonalCard {
     @Step("В модальном окне с предупреждением нажать на кнопку Ок")
     public PersonalCard clickOk() {
         $(".modal-content button").click();
-
+        //$x("//button[contains(text(),'Ок')]").click();
         return this;
     }
 

@@ -1,6 +1,11 @@
 package ru.mos.smart.pages;
 
+import org.openqa.selenium.By;
+
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -43,10 +48,22 @@ public class NavigatorPage {
         return this;
     }
 
-    public NavigatorPage goToMaps() {
+    public void goToMaps() {
         step("В навигаторе открыть раздел Информация -> карта", () -> {
             $(byText("Информация")).click();
             $(("a[href='/map/#/map;onMode3D=true']")).click();
+            switchTo().window(1);
+            $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(10));
+        });
+
+    }
+
+    public NavigatorPage goToMaps3D() {
+        step("Перейти Информация - Цифровой двойник", () -> {
+            $(byLinkText("Информация")).should(visible).click();
+            $(By.cssSelector("a[href='/map3d/#/map3d']")).click();
+            switchTo().window(1);
+            $("#city").should(visible, Duration.ofSeconds(20));
         });
 
         return this;

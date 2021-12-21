@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.regressions;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -43,7 +40,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(30));
+            $("#city").should(visible, Duration.ofSeconds(20));
         });
     }
 
@@ -63,33 +60,31 @@ public class Map3DInstrumentalTests extends TestBase {
 
         step("В новом окне запустилось приложение Цифровой Двойник", () -> {
             switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(30));
+            $("#city").should(visible, Duration.ofSeconds(20));
         });
 
-        step("В левой боковой панели открыть Дерево слоев 2D", () -> $((".fas.fa-layer-group"))
-                .click());
+        step("В левой боковой панели открыть Дерево слоев", () ->
+                $("span[title='Дерево слоёв']")).click();
+        step("Проверка, что в дереве слоев присустсвуют слои", () ->
+                Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
+                        $$(".layerspanel.scroller").size() > 0));
+    }
 
-        step("Разворачивается панель Дерево слоев 2D", () -> {
-            $((".main-left-panel")).shouldBe(visible);
-            $x("//div/span[contains(text(),'Дерево слоёв 2D')]").shouldBe(visible);
+    @Test
+    @Owner("soldatovks")
+    @Layer("web")
+    @AllureId("7525")
+    @Description()
+    @DisplayName("Проверка работы поиска в адресной строке")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    void checkingAddressSearch() {
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+
+
+        step("Проверка, что адрес находится", () -> {
+            $("input[placeholder='Найти адрес...']").setValue("Есенинский бульвар");
+            $(".resultspanel").shouldBe(visible, Duration.ofSeconds(10));
         });
-
-        step("Закрыть панель Дерево слоев 2D", () -> $((".fas.fa-layer-group"))
-                .click());
-
-        step("В левой боковой панели открыть Дерево слоев 3D", () -> $((".fas.fa-cube"))
-                .click());
-
-        step("Разворачивается панель Дерево слоев 3D", () -> {
-            $((".main-left-panel")).shouldBe(visible);
-            $x("//div/span[contains(text(),'Дерево слоёв 3D')]").shouldBe(visible);
-        });
-
-        step("Закрыть панель Дерево слоев 3D", () -> $((".fas.fa-cube"))
-                .click());
-
-        step("Проверить, что боковая панель закрыта", () -> $((".main-left-panel"))
-                .shouldNotBe(visible));
     }
 
     @Test

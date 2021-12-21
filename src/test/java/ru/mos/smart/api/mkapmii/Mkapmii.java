@@ -14,6 +14,7 @@ public class Mkapmii {
         step("Создаем заявление по API", () -> {
             String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/mkapmii/mkapmii_request.txt");
             requestMessage = requestMessage.replace("{STREET}", name);
+            requestMessage = requestMessage.replace("{STREET}", name);
 
             PguMockRequest request = new PguMockRequest();
             request.setId(0);
