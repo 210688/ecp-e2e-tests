@@ -1,14 +1,10 @@
 package ru.mos.smart.tests.regressions;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import ru.mos.smart.annotations.AutoMember;
 import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -17,7 +13,6 @@ import ru.mos.smart.tests.TestBase;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
@@ -27,21 +22,17 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Map2DInstrumentalTests extends TestBase {
 
     @Test
-    @AutoMember("soldatovks")
+    @Owner("soldatovks")
     @Layer("web")
     @AllureId("6542")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие приложения карта")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openTheMaps() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToMaps();
-        switchTo().window(1);
-        step("Проверяем, что карта открылась в новой вкладке");
-        $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(20));
-
-        step("Проверяем, что на карте присутсвуют слои", () -> {
-            Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
+        step("Проверка: На карте присутствуют слои", () -> {
+            Wait().withTimeout(Duration.ofSeconds(20)).until(driver ->
                     $$(".ng-star-inserted").size() > 0);
         });
     }
@@ -50,26 +41,16 @@ public class Map2DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6527")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @Description()
     @DisplayName("Проверка наличия инструментов измерений")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
-
-        step("Перейти Информация - Карта", () -> {
-            $(byLinkText("Информация")).click();
-            $(("a[href='/map/#/map;onMode3D=true']")).click();
-        });
-
-        step("Проверка: Карта открылась в новой вкладке", () -> {
-            switchTo().window(1);
-            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(20));
-        });
-
+        navigatorPage
+                .goToMaps();
         step("Проверить наличие инструментов измерений: линейка, квадрат, многоугольник", () -> {
-            $(("button[title='Измерение расстояния']")).shouldBe(visible, Duration.ofSeconds(20));
-            $(("button[title='Измерение площади']")).shouldBe(visible, Duration.ofSeconds(20));
-            $(("button[title='Измерение периметра']")).shouldBe(visible, Duration.ofSeconds(20));
+            $(("button[title='Измерение расстояния']")).shouldBe(visible, Duration.ofSeconds(10));
+            $(("button[title='Измерение площади']")).shouldBe(visible, Duration.ofSeconds(10));
+            $(("button[title='Измерение периметра']")).shouldBe(visible, Duration.ofSeconds(10));
         });
     }
 
@@ -77,24 +58,34 @@ public class Map2DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6529")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
-
-        step("Перейти Информация - Карта", () -> {
-            $(byLinkText("Информация")).shouldBe(visible).click();
-            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
+        navigatorPage
+                .goToMaps();
+        step("Проверить наличие строки адресного поиска и найти слой", () -> {
+            $("input[placeholder='Найти слой']").should(visible);
+            $("input[placeholder='Найти адрес...']").shouldBe(visible);
         });
+    }
 
-        step("Проверка: Карта открылась в новой вкладке", () -> {
-            switchTo().window(1);
-            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(20));
-        });
+    @Test
+    @Owner("soldatovks")
+    @Layer("web")
+    @AllureId("7525")
+    @Description()
+    @DisplayName("Проверка работы поиска в адресной строке")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    void checkingAddressSearch() {
+        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        navigatorPage
+                .goToMaps();
 
-        step("Проверить наличие строк адресного поиска и найти слой", () -> {
-            $(".form-control").shouldBe(visible);
+        step("Проверка, что адрес находится", () -> {
+            $("input[placeholder='Найти адрес...']").setValue("Есенинский бульвар");
+            $(".global-search-results").shouldBe(visible, Duration.ofSeconds(10));
         });
     }
 
@@ -102,21 +93,13 @@ public class Map2DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6530")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
-
-        step("Перейти Информация - Карта", () -> {
-            $(byLinkText("Информация")).shouldBe(visible).click();
-            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
-        });
-
-        step("Проверка: Карта открылась в новой вкладке", () -> {
-            switchTo().window(1);
-            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(20));
-        });
+        navigatorPage
+                .goToMaps();
 
         step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
             $((".fal.fa-plus")).shouldBe(visible);
@@ -128,21 +111,13 @@ public class Map2DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6531")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструмента Мое местоположение")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfMyLocationTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
-
-        step("Перейти Информация - Карта", () -> {
-            $(byLinkText("Информация")).shouldBe(visible).click();
-            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
-        });
-
-        step("Проверка: Карта открылась в новой вкладке", () -> {
-            switchTo().window(1);
-            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(20));
-        });
+        navigatorPage
+                .goToMaps();
 
         step("Проверить наличия инструмента Мое местоположение", () -> {
             $((".fas.fa-location-arrow")).shouldBe(visible);
@@ -153,21 +128,13 @@ public class Map2DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6528")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
-
-        step("Перейти Информация - Карта", () -> {
-            $(byLinkText("Информация")).shouldBe(visible).click();
-            $(By.cssSelector("a[href='/map/#/map;onMode3D=true']")).click();
-        });
-
-        step("Проверка: Карта открылась в новой вкладке", () -> {
-            switchTo().window(1);
-            $(".mapboxgl-canvas").should(visible, Duration.ofSeconds(10));
-        });
+        navigatorPage
+                .goToMaps();
 
         step("Проверить наличия инструмента Первоначальная позиция", () -> {
             $((".fas.fa-home-alt")).shouldBe(visible);

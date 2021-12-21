@@ -1,8 +1,6 @@
-package ru.mos.smart.tests.api;
+package ru.mos.smart.tests.regressions.api;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Link;
+import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -13,18 +11,21 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
 
-@Epic("Api тесты проверка доступности Swagger приложений и  микросервисов")
+@Epic("Проверка доступности Swagger приложений")
 public class DroneTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Link(url = "https://smart-predprod.mos.ru/app/oasirx/vri/swagger-ui.html#/")
+    @AllureId("7429")
     @Description("Получение описания всех типов документов")
-    @DisplayName("app/oasirx/vri/documentTypes/all [GET]")
+    @DisplayName("/app/drone/drone/documentTypes/all [GET]")
+    @Feature("Drone")
+    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/drone/drone/swagger-ui.html#/"),
+            @Link(name = "prod", url = "https://smart.mos.ru/app/drone/drone/swagger-ui.html#/")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
-    void oasirxVriTests() {
+    void DroneTests() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
-                .get("app/oasirx/vri/documentTypes/all")
+                .get("/app/drone/drone//documentTypes/all")
                 .then();
 
         parameter("Code", response.extract().statusCode());

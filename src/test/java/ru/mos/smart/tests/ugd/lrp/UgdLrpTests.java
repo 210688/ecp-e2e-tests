@@ -3,6 +3,7 @@ package ru.mos.smart.tests.ugd.lrp;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -20,14 +21,14 @@ import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
-@Layer("web")
 @Epic("UGD (УГД)")
 @Feature("LRP (Конкурс \"Лучший реализованный проект\")")
+@Story("Автотесты")
 class UgdLrpTests extends TestBase {
 
     @Test
-    @AllureId("1063")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
+    @Layer("web")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("lrp")})
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());

@@ -26,7 +26,7 @@ public class MkapmiiCreateApplicationTest extends TestBase {
     void createApplicationViaApiTest() {
 
         number = faker.number().digits(4);
-        String randomTestId = "Тестовая заявка MKAPMII №:" + "KB-" + number;
+        String randomTestId = "Тестовая заявка MKAPMII №:" + "KL-" + number;
         mkapmii.create(randomTestId);
 
         step("Открыть мои задачи на портале, должна появиться заявка Проверить данные заявления", () -> {

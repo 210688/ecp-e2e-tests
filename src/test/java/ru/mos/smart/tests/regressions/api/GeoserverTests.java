@@ -1,6 +1,6 @@
-/*package ru.mos.smart.tests.api;
+package ru.mos.smart.tests.regressions.api;
 
-import io.qameta.allure.Epic;
+import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -11,14 +11,19 @@ import ru.mos.smart.tests.ApiBasicTestBase;
 
 import static io.qameta.allure.Allure.parameter;
 
-@Epic("Api тесты проверки микросервисов")
+@Epic("Проверка микросервисов")
 public class GeoserverTests extends ApiBasicTestBase {
 
-    @Test()
+    @Test
     @Layer("api")
+    @Owner("Soldatovks")
+    @AllureId("7433")
+    @Description("Проверка доступности Geoserver")
+    @DisplayName("/geoserver/rest/about/system-status [GET]")
+    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/geoserver/rest/about/system-status"),
+            @Link(name = "prod", url = "https://smart.mos.ru/geoserver/rest/about/system-status")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
-    @DisplayName("Проверка сервиса geoserver")
-    void Geoserver() {
+    void GeoserverTests() {
         ValidatableResponse response = apiSteps.apiRequestBasicGeoserver()
                 .get("/geoserver/rest/about/system-status")
                 .then()
@@ -27,5 +32,7 @@ public class GeoserverTests extends ApiBasicTestBase {
         parameter("Code", response.extract().statusCode());
 
         response.statusCode(200);
-    }*/
+    }
+}
+
 

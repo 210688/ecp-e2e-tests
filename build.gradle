@@ -50,7 +50,7 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     if (System.getProperty("environment") == null)
-        System.setProperty("environment", "predprod")
+        System.setProperty("environment", "stage")
     if (System.getProperty("tag") == null)
         System.setProperty("tag", "(ssr | lrp)")
 

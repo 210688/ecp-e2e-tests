@@ -1,31 +1,35 @@
-package ru.mos.smart.tests.api;
+package ru.mos.smart.tests.regressions.api;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
+import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
 import static org.hamcrest.Matchers.equalTo;
 
-@Epic("Api тесты проверка доступности Swagger приложений и  микросервисов")
+@Epic("Проверка микросервисов")
 public class AuthTests extends ApiBearerTestBase {
 
     @Test
+    @Layer("api")
+    @Owner("SoldatovKS")
+    @AllureId("7271")
     @Description("Данные о пользователе, из-под которого идет запрос")
     @DisplayName("/auth/user [GET]")
+    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/auth/user"),
+            @Link(name = "prod", url = "https://smart.mos.ru/auth/user")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void authUserTest() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
                 .get("/auth/user")
                 .then()
                 .log().body();
-
 
         parameter("Code", response.extract().statusCode());
 
