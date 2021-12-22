@@ -18,7 +18,6 @@ public class MkaTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7340")
     @Feature("Mka")
     @DisplayName("/app/mkapmii/order/documentTypes/all [GET]")
     @Description("Получение описания всех типов документов")
@@ -38,7 +37,6 @@ public class MkaTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7335")
     @Feature("Mka")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/mkasdprv/order/documentTypes/all [GET]")
@@ -58,7 +56,6 @@ public class MkaTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7334")
     @Feature("Mka")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/mkaugdint/order/documentTypes/all [GET]")
@@ -78,7 +75,6 @@ public class MkaTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7343")
     @Feature("Mka")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/mkaopugd/order/documentTypes/all [GET]")

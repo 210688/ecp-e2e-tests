@@ -18,7 +18,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7315")
     @Feature("UGD")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ugd/ssr/documentTypes/all [GET]")
@@ -40,7 +39,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7316")
     @Feature("UGD")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ugd/docs/documentTypes/all [GET]")
@@ -61,7 +59,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7317")
     @Feature("UGD")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ugd/lrp/documentTypes/all [GET]")
@@ -83,7 +80,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7318")
     @Feature("UGD")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ugd/gzk/documentTypes/all [GET]")
@@ -103,7 +99,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7319")
     @Feature("UGD")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ugd/nsi/documentTypes/all [GET]")
@@ -123,7 +118,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7320")
     @Feature("UGD")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ugd/mtsk/documentTypes/all [GET]")
@@ -143,7 +137,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7321")
     @Feature("UGD")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ugd/oati/documentTypes/all [GET]")
@@ -163,7 +156,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7322")
     @Feature("UGD")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ugd/ps/documentTypes/all [GET]")
@@ -183,7 +175,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7323")
     @Feature("UGD")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ugd/upsd/documentTypes/all [GET]")
@@ -203,7 +194,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7326")
     @Feature("UGD")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ugd/cp/documentTypes/all [GET]")

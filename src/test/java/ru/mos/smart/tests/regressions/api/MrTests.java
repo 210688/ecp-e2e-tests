@@ -17,7 +17,6 @@ public class MrTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7435")
     @Feature("Mr")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/mr/camera/documentTypes/all [GET]")
@@ -38,7 +37,6 @@ public class MrTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7436")
     @Feature("Mr")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/mr/link/documentTypes/all [GET]")
@@ -59,7 +57,6 @@ public class MrTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7437")
     @Feature("Mr")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/mr/meeting/documentTypes/all [GET]")
@@ -80,7 +77,6 @@ public class MrTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7438")
     @Feature("Mr")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/mr/program/documentTypes/all [GET]")

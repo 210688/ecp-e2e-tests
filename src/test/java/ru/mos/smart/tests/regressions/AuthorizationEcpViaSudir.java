@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.regressions;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -21,7 +20,6 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class AuthorizationEcpViaSudir extends TestBase {
 
     @Test
-    @AllureId("7566")
     @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Проверка авторизации через СУДИР")
