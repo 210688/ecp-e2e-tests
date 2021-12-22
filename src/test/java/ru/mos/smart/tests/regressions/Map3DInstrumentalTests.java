@@ -83,7 +83,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("6536")
+    @AllureId("7535")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
@@ -138,7 +138,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("6534")
+    @AllureId("7536")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")

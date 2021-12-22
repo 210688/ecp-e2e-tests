@@ -74,7 +74,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @Owner("soldatovks")
     @Layer("web")
-    @AllureId("7525")
+    @AllureId("7534")
     @Description()
     @DisplayName("Проверка работы поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
