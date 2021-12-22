@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.regressions;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -29,7 +28,6 @@ public class OpenPageTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("6540")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню возможности")
     void openTheActionsPage() {
@@ -44,7 +42,6 @@ public class OpenPageTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("6539")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню Задачи")
     void openTheTasksPage() {
@@ -58,7 +55,6 @@ public class OpenPageTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("6538")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню Реестр")
     void openTheReestrPage() {
@@ -77,7 +73,6 @@ public class OpenPageTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("6541")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню справочник")
     void openTheSpravochnikPage() {

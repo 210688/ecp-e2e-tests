@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.regressions.api;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Owner;
@@ -18,7 +17,6 @@ public class SgTests extends ApiBasicTestBase {
     @Test()
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7291")
     @Description("Проверка сервиса Sg")
     @DisplayName("Проверка сервиса gateway")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})

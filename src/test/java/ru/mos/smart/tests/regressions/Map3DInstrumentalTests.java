@@ -1,6 +1,9 @@
 package ru.mos.smart.tests.regressions;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -27,7 +30,6 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("6532")
     @DisplayName("Открытие приложения Цифровой двойник")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openTheTsifrovoyDvoynik() {
@@ -47,7 +49,6 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("6533")
     @DisplayName("Проверка отображения панели слоев")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheDisplayOfLayersPanel() {
@@ -65,7 +66,6 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @Owner("soldatovks")
     @Layer("web")
-    @AllureId("7525")
     @Description()
     @DisplayName("Проверка работы поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -83,7 +83,6 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("7535")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
@@ -101,7 +100,6 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("6537")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
@@ -120,7 +118,6 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("6535")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
@@ -138,7 +135,6 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
-    @AllureId("7536")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")

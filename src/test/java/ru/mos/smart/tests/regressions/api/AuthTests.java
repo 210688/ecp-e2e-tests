@@ -19,7 +19,6 @@ public class AuthTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("SoldatovKS")
-    @AllureId("7271")
     @Description("Данные о пользователе, из-под которого идет запрос")
     @DisplayName("/auth/user [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/auth/user"),

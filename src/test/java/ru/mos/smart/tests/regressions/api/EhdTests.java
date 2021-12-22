@@ -1,6 +1,9 @@
 package ru.mos.smart.tests.regressions.api;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Link;
+import io.qameta.allure.Links;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +18,6 @@ public class EhdTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @AllureId("7347")
     @Description("Запрос на получение информации о справочниках ЕХД")
     @DisplayName("/ehd/dictsInfo [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/ehd/dictsInfo"),
