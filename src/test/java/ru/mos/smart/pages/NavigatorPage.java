@@ -58,7 +58,7 @@ public class NavigatorPage {
 
     }
 
-    public NavigatorPage goToMaps3D() {
+    public void goToMaps3D() {
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).should(visible).click();
             $(By.cssSelector("a[href='/map3d/#/map3d']")).click();
@@ -66,7 +66,6 @@ public class NavigatorPage {
             $("#city").should(visible, Duration.ofSeconds(20));
         });
 
-        return this;
     }
 
     public NavigatorPage gotoChessboard() {

@@ -52,16 +52,8 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Проверка отображения панели слоев")
     void checkingTheDisplayOfLayersPanel() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
-
-        step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).should(visible).click();
-            $(By.cssSelector("a[href='/map3d/#/map3d']")).click();
-        });
-
-        step("В новом окне запустилось приложение Цифровой Двойник", () -> {
-            switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(20));
-        });
+        navigatorPage
+                .goToMaps3D();
 
         step("В левой боковой панели открыть Дерево слоев", () ->
                 $("span[title='Дерево слоёв']")).click();
@@ -79,7 +71,8 @@ public class Map3DInstrumentalTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
-
+        navigatorPage
+                .goToMaps3D();
 
         step("Проверка, что адрес находится", () -> {
             $("input[placeholder='Найти адрес...']").setValue("Есенинский бульвар");
@@ -97,18 +90,11 @@ public class Map3DInstrumentalTests extends TestBase {
     void checkingAvailabilityOfAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
-        step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).should(visible).click();
-            $(By.cssSelector("a[href='/map3d/#/map3d']")).click();
-        });
-
-        step("В новом окне запустилось приложение Цифровой Двойник", () -> {
-            switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(30));
-        });
+        navigatorPage
+                .goToMaps3D();
 
         step("Проверить наличие строки адресного поиска", () -> {
-            //$x("//div/input[contains(@class,'form-control')]").shouldBe(visible);
+            $(".search").shouldBe(visible);
         });
     }
 
@@ -122,15 +108,8 @@ public class Map3DInstrumentalTests extends TestBase {
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
-        step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).should(visible).click();
-            $(By.cssSelector("a[href='/map3d/#/map3d']")).click();
-        });
-
-        step("В новом окне запустилось приложение Цифровой Двойник", () -> {
-            switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(30));
-        });
+        navigatorPage
+                .goToMaps3D();
 
         step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
             $((".far.fa-plus")).shouldBe(visible);
@@ -148,15 +127,8 @@ public class Map3DInstrumentalTests extends TestBase {
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
-        step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).should(visible).click();
-            $(By.cssSelector("a[href='/map3d/#/map3d']")).click();
-        });
-
-        step("В новом окне запустилось приложение Цифровой Двойник", () -> {
-            switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(30));
-        });
+        navigatorPage
+                .goToMaps3D();
 
         step("Проверить наличия инструмента Первоначальная позиция", () -> {
             $((".fas.fa-home-alt")).shouldBe(visible);
@@ -173,15 +145,8 @@ public class Map3DInstrumentalTests extends TestBase {
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
-        step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).should(visible).click();
-            $(By.cssSelector("a[href='/map3d/#/map3d']")).click();
-        });
-
-        step("В новом окне запустилось приложение Цифровой Двойник", () -> {
-            switchTo().window(1);
-            $("#city").should(visible, Duration.ofSeconds(30));
-        });
+        navigatorPage
+                .goToMaps3D();
 
         step("Проверить наличие инструментов: линейка, треугольник, выбор подложки", () -> {
             $((".fas.fa-ruler")).shouldBe(visible);
