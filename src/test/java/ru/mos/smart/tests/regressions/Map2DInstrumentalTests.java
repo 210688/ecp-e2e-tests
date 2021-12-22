@@ -1,6 +1,9 @@
 package ru.mos.smart.tests.regressions;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -22,7 +25,6 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Map2DInstrumentalTests extends TestBase {
 
     @Test
-    @AllureId("7561")
     @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Открытие приложения карта")
@@ -38,7 +40,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("7562")
     @AutoMember("soldatovks")
     @Layer("web")
     @DisplayName("Проверка наличия инструментов измерений")
@@ -55,7 +56,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("7556")
     @AutoMember("soldatovks")
     @Layer("web")
     @Description()
@@ -72,7 +72,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("7554")
     @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Проверка работы поиска в адресной строке")
@@ -89,7 +88,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("7553")
     @AutoMember("soldatovks")
     @Layer("web")
     @Description()
@@ -107,7 +105,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("7550")
     @AutoMember("soldatovks")
     @Layer("web")
     @Description()
@@ -124,7 +121,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("7558")
     @AutoMember("soldatovks")
     @Layer("web")
     @Description()

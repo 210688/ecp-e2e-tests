@@ -18,7 +18,6 @@ public class OssigmipTests extends ApiBearerTestBase {
     @Layer("api")
     @Feature("Ossigmip")
     @Owner("Soldatovks")
-    @AllureId("7443")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ossigmip/permit/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/ossigmip/permit/pzz/swagger-ui.html"),

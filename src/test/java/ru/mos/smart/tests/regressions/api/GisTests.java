@@ -17,7 +17,6 @@ public class GisTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7434")
     @Feature("Gis")
     @DisplayName("/app/gis/search/swagger-ui.html [GET]")
     @Description("Получение описания всех типов документов")

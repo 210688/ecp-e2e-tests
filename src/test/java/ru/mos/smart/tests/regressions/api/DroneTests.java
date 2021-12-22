@@ -16,7 +16,6 @@ public class DroneTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @AllureId("7429")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/drone/drone/documentTypes/all [GET]")
     @Feature("Drone")

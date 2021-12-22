@@ -1,6 +1,9 @@
 package ru.mos.smart.tests.regressions;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -25,7 +28,6 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
-    @AllureId("7557")
     @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Открытие приложения Цифровой двойник")
@@ -45,7 +47,6 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("7552")
     @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Проверка отображения панели слоев")
@@ -63,7 +64,6 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("7559")
     @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Проверка работы поиска в адресной строке")
@@ -80,7 +80,6 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("7564")
     @DisplayName("Cтрока адресного поиска отображается на карте")
     @Owner("soldatovks")
     @Layer("web")
@@ -99,7 +98,6 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("7560")
     @AutoMember("soldatovks")
     @Owner("web")
     @Description()
@@ -117,7 +115,6 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("7555")
     @Owner("soldatovks")
     @Layer("web")
     @Description()

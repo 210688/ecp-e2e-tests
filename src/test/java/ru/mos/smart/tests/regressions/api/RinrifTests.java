@@ -18,7 +18,6 @@ public class RinrifTests extends ApiBearerTestBase {
     @Layer("api")
     @Feature("Rinrif")
     @Owner("Soldatovks")
-    @AllureId("7508")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/rinrif/nadzor/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/nadzor/swagger-ui.html"),
@@ -38,7 +37,6 @@ public class RinrifTests extends ApiBearerTestBase {
     @Layer("api")
     @Feature("Rinrif")
     @Owner("Soldatovks")
-    @AllureId("7509")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/rinrif/matcap/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/matcap/swagger-ui.html"),
@@ -58,7 +56,6 @@ public class RinrifTests extends ApiBearerTestBase {
     @Layer("api")
     @Feature("Rinrif")
     @Owner("Soldatovks")
-    @AllureId("7510")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/rinrif/snos/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/snos/swagger-ui.html"),
