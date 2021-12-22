@@ -28,8 +28,8 @@ public class Map3DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6532")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие приложения Цифровой двойник")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openTheTsifrovoyDvoynik() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
@@ -48,8 +48,8 @@ public class Map3DInstrumentalTests extends TestBase {
     @AutoMember("soldatovks")
     @Layer("web")
     @AllureId("6533")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка отображения панели слоев")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheDisplayOfLayersPanel() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
