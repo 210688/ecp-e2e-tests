@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.regressions;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -26,6 +27,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class OpenPageTests extends TestBase {
 
     @Test
+    @AllureId("7548")
     @AutoMember("soldatovks")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -40,6 +42,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @AllureId("7549")
     @AutoMember("soldatovks")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -71,6 +74,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @AllureId("7546")
     @AutoMember("soldatovks")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.regressions;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -21,10 +22,11 @@ public class AuthorizationEcpViaUi extends TestBase {
 
 
     @Test
-    @Owner("soldatovks")
-    @Layer("web")
+    @AllureId("7565")
     @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
     @Feature("Меню Госуслуги и функции")
+    @Owner("soldatovks")
+    @Layer("web")
     @DisplayName("Проверка авторизации через UI")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void authorizationEcpViaUi() {
