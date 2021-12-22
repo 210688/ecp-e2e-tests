@@ -24,11 +24,11 @@ public class AuthorizationEcpViaUi extends TestBase {
     @Test
     @Owner("soldatovks")
     @Layer("web")
-    @AllureId("7532")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @DisplayName("Авторизация через UI")
+    @AllureId("7539")
     @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
     @Feature("Меню Госуслуги и функции")
+    @DisplayName("Авторизация через Sudir")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void authorizationEcpViaUi() {
 
         AuthorizationPage.openUrlWithAuthorizationUI("", webConfig().loginRegress(), webConfig().passwordRegress());
