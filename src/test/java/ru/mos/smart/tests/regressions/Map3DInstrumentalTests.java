@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.regressions;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -28,7 +25,8 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
-    @AutoMember("soldatovks")
+    @AllureId("7557")
+    @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Открытие приложения Цифровой двойник")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -47,7 +45,8 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AutoMember("soldatovks")
+    @AllureId("7552")
+    @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Проверка отображения панели слоев")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -64,9 +63,9 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("7559")
     @Owner("soldatovks")
     @Layer("web")
-    @Description()
     @DisplayName("Проверка работы поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
@@ -81,46 +80,31 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AutoMember("soldatovks")
+    @AllureId("7564")
+    @DisplayName("Cтрока адресного поиска отображается на карте")
+    @Owner("soldatovks")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @Description()
-    @DisplayName("Проверка наличия строки адресного поиска")
-    void checkingAvailabilityOfAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
-
-        navigatorPage
-                .goToMaps3D();
-
-        step("Проверить наличие строки адресного поиска", () -> {
-            $(".search").shouldBe(visible);
-        });
-    }
-
-    @Test
-    @AutoMember("soldatovks")
-    @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @Description()
-    @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        step("Проверить наличие строки адресного поиска");
 
         navigatorPage
                 .goToMaps3D();
 
-        step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
+        step("Проверить наличие кнопок масштабирования на карте", () -> {
             $((".far.fa-plus")).shouldBe(visible);
             $((".far.fa-minus")).shouldBe(visible);
         });
     }
 
     @Test
+    @AllureId("7560")
     @AutoMember("soldatovks")
-    @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Owner("web")
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
@@ -133,11 +117,12 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AutoMember("soldatovks")
+    @AllureId("7555")
+    @Owner("soldatovks")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
