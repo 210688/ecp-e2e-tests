@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.regressions;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -25,7 +24,6 @@ public class AuthorizationEcpViaSudir extends TestBase {
     @Test
     @Owner("soldatovks")
     @Layer("web")
-    @AllureId("7533")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка авторизации через СУДИР")
     void AuthorizationEcpSudir() {

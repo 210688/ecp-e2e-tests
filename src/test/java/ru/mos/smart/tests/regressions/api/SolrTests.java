@@ -17,7 +17,6 @@ public class SolrTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7355")
     @Description("Получение списка ошибок конфигурации")
     @DisplayName("/search/v1/solr/admin/errors  [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/search/v1/solr/admin/errors"),

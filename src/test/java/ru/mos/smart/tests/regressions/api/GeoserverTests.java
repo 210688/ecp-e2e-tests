@@ -17,7 +17,6 @@ public class GeoserverTests extends ApiBasicTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @AllureId("7433")
     @Description("Проверка доступности Geoserver")
     @DisplayName("/geoserver/rest/about/system-status [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/geoserver/rest/about/system-status"),

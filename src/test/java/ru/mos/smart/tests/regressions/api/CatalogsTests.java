@@ -19,7 +19,6 @@ public class CatalogsTests extends ApiBearerTestBase {
     @Test
     @Owner("SoldatovKS")
     @Layer("api")
-    @AllureId("7333")
     @Description("Запрос реестров информации")
     @DisplayName("/catalogs/source/codes [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/catalogs/source/codes"),
@@ -41,7 +40,6 @@ public class CatalogsTests extends ApiBearerTestBase {
     @Test
     @Owner("SoldatovKS")
     @Layer("api")
-    @AllureId("7346")
     @Description("Поиск по реестрам информации")
     @DisplayName("/catalogs-search/v1/solr/cores/count [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/catalogs-search/v1/solr/cores/count"),
