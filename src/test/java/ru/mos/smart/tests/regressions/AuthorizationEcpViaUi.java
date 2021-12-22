@@ -25,7 +25,7 @@ public class AuthorizationEcpViaUi extends TestBase {
     @Layer("web")
     @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
     @Feature("Меню Госуслуги и функции")
-    @DisplayName("Авторизация через Sudir")
+    @DisplayName("Проверка авторизации через UI")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void authorizationEcpViaUi() {
 

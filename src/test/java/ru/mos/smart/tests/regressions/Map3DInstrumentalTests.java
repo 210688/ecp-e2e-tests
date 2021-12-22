@@ -28,7 +28,7 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
-    @AutoMember("soldatovks")
+    @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Открытие приложения Цифровой двойник")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -47,7 +47,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AutoMember("soldatovks")
+    @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Проверка отображения панели слоев")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -66,7 +66,6 @@ public class Map3DInstrumentalTests extends TestBase {
     @Test
     @Owner("soldatovks")
     @Layer("web")
-    @Description()
     @DisplayName("Проверка работы поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
@@ -81,11 +80,10 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AutoMember("soldatovks")
+    @Owner("soldatovks")
     @Layer("web")
+    @DisplayName("Cтрока адресного поиска отображается на карте")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @Description()
-    @DisplayName("Проверка наличия строки адресного поиска")
     void checkingAvailabilityOfAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
@@ -98,18 +96,17 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AutoMember("soldatovks")
+    @Owner("soldatovks")
     @Layer("web")
+    @DisplayName("Кнопки масштабирования отображаются на карте")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @Description()
-    @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         navigatorPage
                 .goToMaps3D();
 
-        step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
+        step("Проверить наличие кнопок масштабирования на карте", () -> {
             $((".far.fa-plus")).shouldBe(visible);
             $((".far.fa-minus")).shouldBe(visible);
         });
@@ -117,10 +114,10 @@ public class Map3DInstrumentalTests extends TestBase {
 
     @Test
     @AutoMember("soldatovks")
-    @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Owner("web")
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
@@ -133,11 +130,11 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AutoMember("soldatovks")
+    @Owner("soldatovks")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description()
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 

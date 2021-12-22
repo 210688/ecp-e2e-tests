@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.regressions;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -27,6 +24,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @Owner("soldatovks")
     @Layer("web")
+    @AllureId("7550")
     @DisplayName("Открытие приложения карта")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openTheMaps() {
@@ -42,6 +40,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
+    @AllureId("7553")
     @DisplayName("Проверка наличия инструментов измерений")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInstruments() {
@@ -58,6 +57,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
+    @AllureId("7554")
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -74,6 +74,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @Owner("soldatovks")
     @Layer("web")
+    @AllureId("7556")
     @DisplayName("Проверка работы поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
@@ -90,6 +91,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
+    @AllureId("7558")
     @Description()
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -107,6 +109,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
+    @AllureId("7561")
     @Description()
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -123,6 +126,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @AutoMember("soldatovks")
     @Layer("web")
+    @AllureId("7562")
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
