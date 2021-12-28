@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.annotations.ManualMember;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -20,11 +21,11 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Epic("UGD (УГД)")
 @Feature("DOCS (Реестр документов)")
 @Story("Автотесты")
-@Owner("Soldatovks")
+@ManualMember("croc")
+@Owner("soldatovks")
 public class RegistersTests extends TestBase {
     @Test
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Акт проверки строительства")
     void actInspectionTest() {
         List<String> columns = new ArrayList<String>() {{
@@ -76,7 +77,7 @@ public class RegistersTests extends TestBase {
 
     @Test
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("docs")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Извещения о начале СМР")
     void noticeBeginWorkSmrTest() {
         List<String> columns = new ArrayList<String>() {{
@@ -99,7 +100,7 @@ public class RegistersTests extends TestBase {
 
     @Test
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("docs")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Свидетельства АГР")
     void agrTest() {
         List<String> columns = new ArrayList<String>() {{
@@ -126,7 +127,7 @@ public class RegistersTests extends TestBase {
 
     @Test
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("docs")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов. ГПЗУ")
     void gpzuTest() {
         List<String> columns = new ArrayList<String>() {{
@@ -152,7 +153,7 @@ public class RegistersTests extends TestBase {
 
     @Test
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("docs")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения Мосгоргеотреста")
     void mggtTest() {
         List<String> columns = new ArrayList<String>() {{
@@ -174,7 +175,7 @@ public class RegistersTests extends TestBase {
 
     @Test
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("docs")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения о соответствии")
     void equivalentConclusionTest() {
         List<String> columns = new ArrayList<String>() {{
@@ -200,7 +201,7 @@ public class RegistersTests extends TestBase {
 
     @Test
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("docs")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения экспертизы")
     void conclusionExpertiseTest() {
         List<String> columns = new ArrayList<String>() {{
@@ -234,7 +235,7 @@ public class RegistersTests extends TestBase {
 
     @Test
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("docs")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на ввод")
     void startupPermissionTest() {
         List<String> columns = new ArrayList<String>() {{
@@ -261,7 +262,7 @@ public class RegistersTests extends TestBase {
 
     @Test
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("docs")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на строительство")
     void constructionPermissionTest() {
         List<String> columns = new ArrayList<String>() {{
@@ -288,7 +289,7 @@ public class RegistersTests extends TestBase {
 
     @Test
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("docs")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных.Исполнительные чертежи Мосгоргеотреста")
     void mggtExdrawingTest() {
         List<String> columns = new ArrayList<String>() {{

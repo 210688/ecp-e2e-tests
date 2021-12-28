@@ -1,14 +1,13 @@
 package ru.mos.smart.tests.ugd.lrp;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.annotations.ManualMember;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -21,14 +20,15 @@ import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
+@Layer("web")
 @Epic("UGD (УГД)")
 @Feature("LRP (Конкурс \"Лучший реализованный проект\")")
 @Story("Автотесты")
+@ManualMember("croc")
+@Owner("soldatovks")
 class UgdLrpTests extends TestBase {
 
     @Test
-    @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("lrp")})
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -50,8 +50,6 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
-    @AllureId("1062")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     @DisplayName("Проверка открытия формы подачи " +
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
     void openTheApplicationFormLrpOutsideOrg() {
@@ -76,7 +74,6 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     void openRegisterLrpZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -100,7 +97,6 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("lrp")})
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
     void openRegisterLrpMoiZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());

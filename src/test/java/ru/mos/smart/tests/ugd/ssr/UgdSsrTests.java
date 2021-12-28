@@ -34,8 +34,8 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @AutoMember("soldatovks")
 public class UgdSsrTests extends TestBase {
     @Test
-    @Layer("web")
     @AllureId("6433")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
     void ugdSsrRealEstateCatalogTest() {
@@ -60,8 +60,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6478")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
     void ugdSsrPersonCatalogTest() {
@@ -85,8 +85,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6429")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр центров информирования по переселению жителей")
     void ugdSsrCipCatalog() {
@@ -108,8 +108,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6434")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра АРМ сотрудника Центра информирования по переселению жителей")
     void reestrArm() {
@@ -132,8 +132,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6430")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка открытия карточки жителя через реестр ССР. Реестр жителей")
     void checkOpenReestrSsr() {
@@ -198,8 +198,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6423")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра Администрирование рабочих дней помощи в переезде")
     void administrationWorkingDaysTest() {
@@ -216,8 +216,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6432")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра Реестр заявлений на помощь в переезде")
     void shippingApplicationTest() {
@@ -234,9 +234,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6356")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
+    @Layer("web")
     @DisplayName("Проверка возможности подписания договора и акта приема-передачи")
     void reestrSigningTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -271,9 +270,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6421")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
+    @Layer("web")
     @DisplayName("Проверка возможности выдачи ключей")
     void keysIssuanceTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
@@ -299,8 +297,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6420")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка возможности освобождения квартиры")
     void apartmentsVacatingTest() {
@@ -325,8 +323,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6394")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка открытия возможности Инициация процесса начала переселения")
     void processInitiatingTest() {
@@ -369,8 +367,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6397")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName(" Проверка открытия возможности Инициировать обогащения данных отселяемых домов из ДГИ")
     void dgiPersonEnrichmentTest() {
@@ -415,9 +413,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6431")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
+    @Layer("web")
     @DisplayName("Проверка открытия дашборда 'Оперативный мониторинг за ходом переселения'")
     void ssrChessboardTest() {
         String address = "улица Госпитальный Вал, дом 3 " +
@@ -443,8 +440,8 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @AllureId("6376")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра по заявлениям на комиссионный осмотр")
     void commissionInspectionRegisterTest() {

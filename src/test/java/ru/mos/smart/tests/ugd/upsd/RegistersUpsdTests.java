@@ -3,7 +3,9 @@ package ru.mos.smart.tests.ugd.upsd;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -13,7 +15,6 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Epic("Платформа ЕЦП")
 @Feature("UGD (УГД)")
 @Story("Проверка доступности реестров УПСД")
-@Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("upsd")})
 class RegistersUpsdTests extends TestBase {
 
     @Test
