@@ -2,10 +2,12 @@ package ru.mos.smart.tests.mr;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -21,10 +23,12 @@ import static com.codeborne.selenide.Selenide.switchTo;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
+@Epic("RAYON (Мой район)")
 public class MrTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия реестра Поручения Мэра по программе \"Мой район\"")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("mr")})
     void checkAttributesOfMrProgramInstructionRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
@@ -47,6 +51,7 @@ public class MrTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия реестра Объекты по программе \"Мой район\"")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("mr")})
     void checkAttributesOfMrProgramObjRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
@@ -68,6 +73,7 @@ public class MrTests extends TestBase {
     }
 
     @DisplayName("Проверка открытия карточки реестра Объекты по программе \"Мой район\"")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mr")})
     @Test
     void checkAttributesOfMrProgramObjCard() {
@@ -98,6 +104,7 @@ public class MrTests extends TestBase {
     }
 
     @DisplayName("Переход с мини-карты на карточке объекта на Карту")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mr")})
     @Test
     void checkSwitchToMapOnMrProgramObjCard() {
@@ -126,6 +133,7 @@ public class MrTests extends TestBase {
 
     @Test
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("mr")})
+    @Layer("web")
     @DisplayName("Проверка открытия возможности Запустить процесс создания объекта")
     void checkStartingObjectCreationProcess() {
         String createdObjectName = "Объект бытового обслуживания №" + faker.number().numberBetween(1, 100);
