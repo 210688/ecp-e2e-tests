@@ -45,10 +45,10 @@ public class RinRifMatCapTests extends TestBase {
         });
     }
 
+    @Test
     @DisplayName("Проверка карточки реестра Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rinrif")})
-    @Test
     void checkAttributesOfRinRifMatCapObjCard() {
         String statementNumber = "09-МК-179/21-(0)-0";
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
