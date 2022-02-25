@@ -17,6 +17,7 @@ public class ReestrPage {
 
     @Step("Открыть реестр {registerName}")
     public ReestrPage open(String registerName) {
+        step("В поиске ввести название реестра и открыть его");
         $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
         $(byText(registerName)).click();
 
