@@ -17,7 +17,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.WEB_CONFIG;
 
 @Epic("Автотесты")
 public class RinRifMatCapTests extends TestBase {
@@ -27,7 +27,7 @@ public class RinRifMatCapTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkAttributesOfRinRifMatCapRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", WEB_CONFIG.loginMr(), WEB_CONFIG.passwordMr());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -51,7 +51,7 @@ public class RinRifMatCapTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rinrif")})
     void checkAttributesOfRinRifMatCapObjCard() {
         String statementNumber = "09-МК-179/21-(0)-0";
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI("", WEB_CONFIG.loginMr(), WEB_CONFIG.passwordMr());
         navigatorPage
                 .goToRegister();
         reestrPage

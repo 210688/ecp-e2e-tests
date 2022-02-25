@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.regressions.api;
+package ru.mos.smart.tests.regressions.app;
 
 import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
@@ -36,5 +36,17 @@ public class AuthTests extends ApiBearerTestBase {
 
                 .body("name", equalTo(ConfigHelper.getUsername()))
                 .body("principal.user.userLogin", equalTo(ConfigHelper.getUsername()));
+    }
+
+    @Test
+    void UsersGroupTest() {
+        ValidatableResponse response = apiSteps.apiRequestBearer()
+                .post("/mdm/api/v1/users/userGroups/map")
+                .then()
+                .log().body();
+
+        parameter("Code", response.extract().statusCode());
+
+        response.statusCode(200);
     }
 }

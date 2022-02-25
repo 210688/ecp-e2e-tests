@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.regressions.api;
+package ru.mos.smart.tests.regressions.swagger;
 
 import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
@@ -12,25 +12,25 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 
 @Epic("Проверка доступности Swagger приложений")
-public class OssigmipTests extends ApiBearerTestBase {
+public class GisTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Feature("Ossigmip")
     @Owner("Soldatovks")
+    @Feature("Gis")
+    @DisplayName("/app/gis/search/swagger-ui.html [GET]")
     @Description("Получение описания всех типов документов")
-    @DisplayName("/app/ossigmip/permit/documentTypes/all [GET]")
-    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/ossigmip/permit/pzz/swagger-ui.html"),
-            @Link(name = "prod", url = "https://smart.mos.ru/app/ossigmip/permit/swagger-ui.html")})
+    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/gis/search/swagger-ui.html#/"),
+            @Link(name = "prod", url = "https://smart.mos.ru/app/gis/search/swagger-ui.html#/")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
-    void ossigmipPermitTests() {
+    void gisSearchTests() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
-                .get("/app/ossigmip/permit/documentTypes/all")
-                .then()
-                .log().body();
+                .get("/app/gis/search/swagger-ui.html")
+                .then();
 
         parameter("Code", response.extract().statusCode());
 
         response.statusCode(200);
     }
+
 }
