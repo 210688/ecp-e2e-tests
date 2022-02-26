@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.regressions.api;
+package ru.mos.smart.tests.regressions.app;
 
 import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;

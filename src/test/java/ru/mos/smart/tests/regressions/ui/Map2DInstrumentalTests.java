@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.regressions;
+package ru.mos.smart.tests.regressions.ui;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
