@@ -31,7 +31,7 @@ public class MrTests extends TestBase {
     @AllureId("7998")
     @DisplayName("Проверка открытия реестра Поручения Мэра по программе \"Мой район\"")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("mr")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramInstructionRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
@@ -55,7 +55,7 @@ public class MrTests extends TestBase {
     @AllureId("7997")
     @DisplayName("Проверка открытия реестра Объекты по программе \"Мой район\"")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("mr")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramObjRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
@@ -77,7 +77,7 @@ public class MrTests extends TestBase {
 
     @DisplayName("Проверка открытия карточки реестра Объекты по программе \"Мой район\"")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mr")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rayon")})
     @Test
     @AllureId("8000")
     void checkAttributesOfMrProgramObjCard() {
@@ -109,7 +109,7 @@ public class MrTests extends TestBase {
 
     @DisplayName("Переход с мини-карты на карточке объекта на Карту")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mr")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rayon")})
     @Test
     @AllureId("7999")
     void checkSwitchToMapOnMrProgramObjCard() {
@@ -138,7 +138,7 @@ public class MrTests extends TestBase {
 
     @Test
     @AllureId("8001")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("mr")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     @Layer("web")
     @DisplayName("Проверка открытия возможности Запустить процесс создания объекта")
     void checkStartingObjectCreationProcess() {

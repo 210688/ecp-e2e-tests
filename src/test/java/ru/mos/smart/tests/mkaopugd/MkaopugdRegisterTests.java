@@ -21,11 +21,11 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("MKAOPUGD (МКА ОП УГД)")
-@Feature("Работа с реестром УГД")
+@Feature("Автотесты")
 public class MkaopugdRegisterTests extends TestBase {
 
     @Test
-    @AllureId("3199")
+    @AllureId("5595")
     @DisplayName("Реестр поручений УГД")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkaopugd")})
     void registerOfInstructionsUgd() {
@@ -50,7 +50,7 @@ public class MkaopugdRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("3198")
+    @AllureId("5594")
     @DisplayName("Карточка Реестра поручений УГД")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkaopugd")})
     void cardOfRegisterUgd() {
