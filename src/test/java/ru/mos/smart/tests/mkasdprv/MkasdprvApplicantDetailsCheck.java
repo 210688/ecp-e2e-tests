@@ -125,7 +125,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Test
     @AllureId("5656")
     @DisplayName("02. Проверка перехода в карточку заявления")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("mkasdprv")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
     void applicationCardTest() {

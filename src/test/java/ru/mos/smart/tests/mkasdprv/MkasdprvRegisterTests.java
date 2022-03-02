@@ -28,7 +28,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Test
     @AllureId("5597")
     @DisplayName("Проверка атрибутивного состава реестра")
-    @Tags({@Tag("stage"), @Tag("mkasdprv"), @Tag("predprod"), @Tag("prod")})
+    @Tags({@Tag("stage"), @Tag("mkasdprv"), @Tag("predprod")})
     void checkingTheAttributesOfTheRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginApi(), webConfig().passwordApi());
         navigatorPage

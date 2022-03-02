@@ -44,7 +44,7 @@
 <ns2:Type>Declarant</ns2:Type>
 <ns2:Documents/>
 <ns2:FullName>Общество с ограниченной ответственностью "Пойнтлэйн"</ns2:FullName>
-<ns2:Name>ООО "ПОЙНТЛЭЙН" 555</ns2:Name>
+<ns2:Name>ООО "Тестовая заявка" 555</ns2:Name>
 <ns2:Ogrn>1087746330583</ns2:Ogrn>
 <ns2:Inn>7710710304</ns2:Inn>
 <ns2:OrgContact>

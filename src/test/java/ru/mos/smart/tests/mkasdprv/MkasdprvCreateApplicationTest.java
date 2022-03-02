@@ -23,7 +23,7 @@ public class MkasdprvCreateApplicationTest extends TestBase {
     @AllureId("5654")
     @DisplayName("Создание заявки через свагер + запрос")
     @Epic("MKASDPRV (МКА Вывески)")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkasdprv"), @Tag("documents")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkasdprv"), @Tag("documents")})
     @Feature("Автотесты")
     void createTaskMkasdprv() {
 

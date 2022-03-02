@@ -33,7 +33,7 @@ public class MkapmiiApplicationTest extends TestBase {
     @AllureId("5181")
     @DisplayName("01. Проверка основных контролов, закрытие задачи без сохранения")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void mainControlsTest() {
@@ -129,7 +129,7 @@ public class MkapmiiApplicationTest extends TestBase {
     @AllureId("5182")
     @DisplayName("02. Сохранить без завершения")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void saveAndNotFinishTest() {
@@ -158,7 +158,7 @@ public class MkapmiiApplicationTest extends TestBase {
     @AllureId("5188")
     @DisplayName("03. Проверка перехода в карточку заявления")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void applicationCardTest() {
@@ -180,7 +180,7 @@ public class MkapmiiApplicationTest extends TestBase {
     @AllureId("5180")
     @DisplayName("07. Успешный прием документов")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void positiveFinishTask() {
@@ -206,7 +206,7 @@ public class MkapmiiApplicationTest extends TestBase {
     @AllureId("6513")
     @DisplayName("04. Неуспешный отказ в приёме документов (отсутствует причина отказа и файл заключения)")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void unsuccessfulRefuseTest() {
@@ -228,7 +228,7 @@ public class MkapmiiApplicationTest extends TestBase {
     @AllureId("6512")
     @DisplayName("05. Неуспешный отказ в приёме документов (отсутствует файл заключения)")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void unsuccessfulRefuseNoFileTest() {
@@ -272,7 +272,7 @@ public class MkapmiiApplicationTest extends TestBase {
     @AllureId("6514")
     @DisplayName("06. Неуспешный отказ в приёме документов (все поля не заполнены)")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void unsuccessfulRefuseEmptyFieldsTest() {

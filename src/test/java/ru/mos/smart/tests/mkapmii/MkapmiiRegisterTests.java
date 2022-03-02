@@ -29,7 +29,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @AllureId("5189")
     @DisplayName("Проверка UI реестр оказания услуг по размещению инженерных изысканий")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void checkingTheAttributesOfTheRegistry() {
@@ -66,7 +66,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @AllureId("5191")
     @DisplayName("Проверка UI карточки заявления")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void uiCardTest() {
@@ -127,7 +127,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @AllureId("5190")
     @DisplayName("Проверка основных контролов карточки заявления")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void mainControlsTest() {
@@ -177,7 +177,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @AllureId("6520")
     @DisplayName("Проверка UI вкладки Выдача на руки")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Выдача заявления на руки")
     void handingOverTest() {
@@ -214,7 +214,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @AllureId("6519")
     @DisplayName("Проверка UI модальное окно Выдать на руки")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Выдача заявления на руки")
     void handingOverPlusTest() {

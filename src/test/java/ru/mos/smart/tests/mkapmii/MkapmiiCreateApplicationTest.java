@@ -22,7 +22,7 @@ public class MkapmiiCreateApplicationTest extends TestBase {
     @DisplayName("Создание заявки через сваггер")
     @Epic("Автотесты")
     @AutoMember("SoldatovKS")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkapmii"), @Tag("documents")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii"), @Tag("documents")})
     void createApplicationViaApiTest() {
 
         number = faker.number().digits(4);

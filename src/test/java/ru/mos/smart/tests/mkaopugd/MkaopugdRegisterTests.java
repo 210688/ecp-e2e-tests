@@ -27,7 +27,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @Test
     @AllureId("5595")
     @DisplayName("Реестр поручений УГД")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mkaopugd")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkaopugd")})
     void registerOfInstructionsUgd() {
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginApi(), webConfig().passwordApi());
