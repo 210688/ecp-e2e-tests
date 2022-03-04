@@ -18,9 +18,9 @@ import static io.restassured.RestAssured.given;
 public class BlockUsersFromCsv {
 
     public static void main(String[] args) throws IOException {
-        RestAssured.baseURI = "https://smart-predprod.mos.ru/"; //Окружение
-        String login = "soldatovks"; //Логин
-        String password = "5H8aHlkqH"; //Пароль
+        RestAssured.baseURI = ""; //Окружение
+        String login = ""; //Логин
+        String password = ""; //Пароль
 
         Authorization authorization = new Authorization();
         Map<String, String> cookies = authorization.getAuthCookie(login, password);
