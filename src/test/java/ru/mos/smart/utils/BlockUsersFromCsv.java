@@ -18,9 +18,9 @@ import static io.restassured.RestAssured.given;
 public class BlockUsersFromCsv {
 
     public static void main(String[] args) throws IOException {
-        RestAssured.baseURI = ""; //Окружение
-        String login = ""; //Логин
-        String password = ""; //Пароль
+        RestAssured.baseURI = "https://smart-predprod.mos.ru/"; //Окружение
+        String login = "soldatovks"; //Логин
+        String password = "5H8aHlkqH"; //Пароль
 
         Authorization authorization = new Authorization();
         Map<String, String> cookies = authorization.getAuthCookie(login, password);
@@ -70,11 +70,12 @@ public class BlockUsersFromCsv {
 
         if (response.statusCode() != 200)
             return "User " + user + " not found!";
-
+        String str = "{\"dn\":\"" + response.jsonPath().getString("dn") + "\" , \"lockCode\":\"BLOCK_DIT\"}";
+        System.out.println(str);
         response = given()
                 .cookies(cookies)
                 .contentType(ContentType.JSON)
-                .body("{\"dn\":\"" + response.jsonPath().getString("dn") + "\"}")
+                .body(str)
                 .when()
                 .post("/mdm/api/v1/openldap/blockAccount")
                 .then()
