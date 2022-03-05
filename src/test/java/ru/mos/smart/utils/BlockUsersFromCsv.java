@@ -6,6 +6,7 @@ import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
 import ru.mos.smart.api.Authorization;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -14,23 +15,30 @@ import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static java.lang.String.format;
 
 public class BlockUsersFromCsv {
 
     public static void main(String[] args) throws IOException {
-        RestAssured.baseURI = ""; //Окружение
-        String login = ""; //Логин
-        String password = ""; //Пароль
+        RestAssured.baseURI = "https://smart-predprod.mos.ru/"; //Окружение
+        String login = "soldatovks"; //Логин
+        String password = "5H8aHlkqH"; //Пароль
 
         Authorization authorization = new Authorization();
         Map<String, String> cookies = authorization.getAuthCookie(login, password);
         List<String> usersList = getUsersList("src/test/resources/files_for_tests/list_users_blocking.csv");
 
-        for (String user : usersList) {
-            System.out.println(blockUser(cookies, user));
+        try (FileWriter writer = new FileWriter("src/test/resources/files_for_tests/block-list.log", false)) {
+            for (String user : usersList) {
+                String response = blockUser(cookies, user) + "\n";
+                writer.write(response);
+                System.out.println(response);
+            }
+            writer.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
     }
-
 
     private static List<String[]> parseCsv(String filePath) throws IOException {
         List<String[]> result = new ArrayList<>();
@@ -70,8 +78,8 @@ public class BlockUsersFromCsv {
 
         if (response.statusCode() != 200)
             return "User " + user + " not found!";
+
         String str = "{\"dn\":\"" + response.jsonPath().getString("dn") + "\" , \"lockCode\":\"BLOCK_DIT\"}";
-        System.out.println(str);
         response = given()
                 .cookies(cookies)
                 .contentType(ContentType.JSON)
@@ -84,7 +92,6 @@ public class BlockUsersFromCsv {
         if (response.statusCode() != 200)
             return "Ошибка блокировки пользователя " + user;
 
-        return "Пользователь " + user + " Заблокирован!";
-
+        return format("Пользователь %s Заблокирован!", user);
     }
 }
