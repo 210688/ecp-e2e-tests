@@ -4,8 +4,9 @@ import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-        //"system:properties",
-        "classpath:config/${environment}.properties"
+        "classpath:/opt/platform/config/${environment}.properties"
+        //"file:f:\\Java_prj\\prs\\config"
+
 })
 public interface ApiConfig extends Config {
     @Key("authorization.url")
