@@ -4,8 +4,8 @@ import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-        "file:/opt/platform/config/${environment}.properties"
-        //"file:f:/Java_prj/prs/config/${environment}.properties"
+        "file:/opt/platform/config/${environment}.properties",
+        "file:f:/Java_prj/prs/config/${environment}.properties"
 
 })
 public interface WebConfig extends Config {

@@ -20,9 +20,9 @@ import static java.lang.String.format;
 public class BlockUsersFromCsv {
 
     public static void main(String[] args) throws IOException {
-        RestAssured.baseURI = "https://smart-predprod.mos.ru/"; //Окружение
-        String login = "soldatovks"; //Логин
-        String password = "5H8aHlkqH"; //Пароль
+        RestAssured.baseURI = ""; //Окружение
+        String login = ""; //Логин
+        String password = ""; //Пароль
 
         Authorization authorization = new Authorization();
         Map<String, String> cookies = authorization.getAuthCookie(login, password);
@@ -77,7 +77,7 @@ public class BlockUsersFromCsv {
                 .extract();
 
         if (response.statusCode() != 200)
-            return "User " + user + " not found!";
+            return "Пользователь " + user + " Не найден!";
 
         String str = "{\"dn\":\"" + response.jsonPath().getString("dn") + "\" , \"lockCode\":\"BLOCK_DIT\"}";
         response = given()

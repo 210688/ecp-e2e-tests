@@ -83,7 +83,7 @@ public class Authorization {
             loginStatus.put(login, "Done");
         }
         int i = 0;
-        while(loginStatus.get(login).equals("Started") && i < 150) {
+        while (loginStatus.get(login).equals("Started") && i < 150) {
             i++;
             sleep(200);
         }
