@@ -25,7 +25,6 @@ public class SgTests extends ApiBasicTestBase {
                 .get("sg/app/ugd/ps/api/qr/getCcoByUgdId/5B686000CBA6116FC32576000038F8F5")
                 .then()
                 .log().body();
-
         response.statusCode(200);
 
     }

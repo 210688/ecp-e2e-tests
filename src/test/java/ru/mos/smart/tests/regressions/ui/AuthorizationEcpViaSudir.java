@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.regressions.ui;
 
 import io.qameta.allure.Epic;
@@ -31,3 +32,4 @@ public class AuthorizationEcpViaSudir extends TestBase {
         step("Проверка, что авторизация в ЕЦП успешна");
     }
 }
+*/

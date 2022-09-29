@@ -56,7 +56,7 @@ tasks.withType(Test) {
 
     systemProperties(System.getProperties())
     useJUnitPlatform()
-    maxParallelForks = 1
+    //maxParallelForks = 1
 }
 
 task launchTasks(type: Test) { //Запуск тестов из системной переменной tests
@@ -98,5 +98,11 @@ task stage(type: Test) { //запускает все модули на стей�
 task regressing(type: Test) { //Запуск регрессионных тестов на 3-ёх платформах
     useJUnitPlatform {
         includeTags 'regressions'
+    }
+}
+
+task pgu(type: Test) { //Запуск регрессионных тестов на 3-ёх платформах
+    useJUnitPlatform {
+        includeTags 'pgu'
     }
 }

@@ -2,6 +2,7 @@ package ru.mos.smart.tests.mr;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.github.javafaker.Faker;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
@@ -26,6 +27,8 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Epic("RAYON (Мой район)")
 public class MrTests extends TestBase {
+
+    private final Faker faker = new Faker();
 
     @Test
     @AllureId("7998")
@@ -142,6 +145,7 @@ public class MrTests extends TestBase {
     @Layer("web")
     @DisplayName("Проверка открытия возможности Запустить процесс создания объекта")
     void checkStartingObjectCreationProcess() {
+
         String createdObjectName = "Объект бытового обслуживания №" + faker.number().numberBetween(1, 100);
 
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());

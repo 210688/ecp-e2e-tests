@@ -19,9 +19,11 @@ public class AuthorizationHelper {
     }
 
     public static String authorization() {
+        System.out.println(ConfigHelper.getLogin_services());
+        System.out.println(ConfigHelper.getPassword_services());
         String data = "grant_type=password" +
-                "&username=" + ConfigHelper.getUsername() +
-                "&password=" + ConfigHelper.getPassword() +
+                "&username=" + ConfigHelper.getLogin_services() +
+                "&password=" + ConfigHelper.getPassword_services() +
                 "&client_id=app-cdp" +
                 "&client_secret=" + ConfigHelper.getClientSecret();
 

@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.regressions.ui;
 
 import io.qameta.allure.Epic;
@@ -34,3 +35,4 @@ public class AuthorizationEcpViaUi extends TestBase {
                 $("h3").shouldHave(text("Правительство Москвы")).shouldBe(visible));
     }
 }
+*/

@@ -16,26 +16,24 @@ import static io.qameta.allure.Allure.step;
 
 public class NavigatorPage {
 
-    public NavigatorPage goToActions() {
+    String url2D = "/map/#/map;onMode3D=true";
+    String urlCD = "/map3d/#/map3d";
+    String reestrPage = "/main/#/app/catalogs/catalog-registers";
+    public final void goToActions() {
         step("В навигаторе открыть раздел Госуслуги и функции -> Возможности", () ->
                 $(("a[href='/main/#/app/actions']")).click());
-
-        return this;
     }
 
     public NavigatorPage goToTasks() {
         step("В навигаторе открыть раздел Госуслуги и функции -> Задачи", () ->
                 $(("a[href='/main/#/app/tasks']")).click());
-
         return this;
     }
 
     public NavigatorPage goToRegister() {
-        step("В навигаторе открыть раздел Информация -> Реестр", () -> {
-            $(byText("Информация")).click();
-            $(("a[href='/main/#/app/catalog-registers']")).click();
+        step("Открытие рестра", () -> {
+            open(reestrPage);
         });
-
         return this;
     }
 
@@ -49,23 +47,18 @@ public class NavigatorPage {
     }
 
     public void goToMaps() {
-        step("В навигаторе открыть раздел Информация -> карта", () -> {
-            $(byText("Информация")).click();
-            $(("a[href='/map/#/map;onMode3D=true']")).click();
-            switchTo().window(1);
+        step("Открытие 2D карты", () -> {
+            open(url2D);
             $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(10));
         });
-
     }
 
-    public void goToMaps3D() {
-        step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).should(visible).click();
-            $(By.cssSelector("a[href='/map3d/#/map3d']")).click();
-            switchTo().window(1);
+
+    public void goToMapsCD() {
+        step("Открытие карты Цифровой двойник", () -> {
+            open(urlCD);
             $("#city").should(visible, Duration.ofSeconds(20));
         });
-
     }
 
     public NavigatorPage gotoChessboard() {

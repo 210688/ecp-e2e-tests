@@ -13,6 +13,6 @@ public class DriverSettings {
         Configuration.browser = CustomWebDriver.class.getName();
         Configuration.baseUrl = webConfig().webUrl();
         RestAssured.baseURI = webConfig().webUrl();
-        Configuration.timeout = 6000;
+        Configuration.timeout = 10000;
     }
 }

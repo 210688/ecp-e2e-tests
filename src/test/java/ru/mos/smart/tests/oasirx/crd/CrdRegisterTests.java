@@ -31,6 +31,7 @@ public class CrdRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("crd")})
     void openingTheRegisterCRD() {
 
+
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
         reestrPage
                 .goToSdCard();

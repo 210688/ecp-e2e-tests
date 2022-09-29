@@ -54,7 +54,7 @@ public class Map3DInstrumentalTests extends TestBase {
     void checkingTheDisplayOfLayersPanel() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
-                .goToMaps3D();
+                .goToMapsCD();
 
         step("В левой боковой панели открыть Дерево слоев", () ->
                 $("span[title='Дерево слоёв']")).click();
@@ -71,7 +71,7 @@ public class Map3DInstrumentalTests extends TestBase {
     void checkingAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
-                .goToMaps3D();
+                .goToMapsCD();
 
         step("Проверка, что адрес находится", () -> {
             $("input[placeholder='Найти адрес...']").setValue("Есенинский бульвар");
@@ -87,14 +87,12 @@ public class Map3DInstrumentalTests extends TestBase {
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
         step("Проверить наличие строки адресного поиска");
-
         navigatorPage
-                .goToMaps3D();
-
-        step("Проверить наличие кнопок масштабирования на карте", () -> {
+                .goToMapsCD();
+        step("Проверить наличие кнопок масштабирования на карте");
             $((".far.fa-plus")).shouldBe(visible);
             $((".far.fa-minus")).shouldBe(visible);
-        });
+
     }
 
     @Test
@@ -107,7 +105,7 @@ public class Map3DInstrumentalTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         navigatorPage
-                .goToMaps3D();
+                .goToMapsCD();
 
         step("Проверить наличия инструмента Первоначальная позиция", () -> {
             $((".fas.fa-home-alt")).shouldBe(visible);
@@ -124,7 +122,7 @@ public class Map3DInstrumentalTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
 
         navigatorPage
-                .goToMaps3D();
+                .goToMapsCD();
 
         step("Проверить наличие инструментов: линейка, треугольник, выбор подложки", () -> {
             $((".fas.fa-ruler")).shouldBe(visible);

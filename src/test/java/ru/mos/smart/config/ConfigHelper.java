@@ -4,6 +4,17 @@ import org.aeonbits.owner.ConfigFactory;
 
 public class ConfigHelper {
 
+    private static ApiConfig getConfig() {
+        return ConfigFactory.newInstance().create(ApiConfig.class, System.getProperties());
+    }
+
+    public static WebConfig webConfig() {
+        return ConfigFactory.newInstance().create(WebConfig.class, System.getProperties());
+    }
+
+    public static final WebConfig WEB_CONFIG = ConfigFactory.newInstance()
+            .create(WebConfig.class, System.getProperties());
+
     public static String getAuthorizationURL() {
         return getConfig().authorizationUrl();
     }
@@ -29,17 +40,29 @@ public class ConfigHelper {
         return getConfig().clientSecret();
     }
 
-    private static ApiConfig getConfig() {
-        return ConfigFactory.newInstance().create(ApiConfig.class, System.getProperties());
+    public static String getLogin_services() {
+        return getConfig().login_services();
     }
 
-    public static WebConfig webConfig() {
-        return ConfigFactory.newInstance().create(WebConfig.class, System.getProperties());
+    public static String getPassword_services() {
+        return getConfig().password_services();
     }
 
-    public static final WebConfig WEB_CONFIG = ConfigFactory.newInstance()
-            .create(WebConfig.class, System.getProperties());
+    public static String getEnoList() {
+        return getConfig().enoList();
+    }
 
+    public static String getDateList() {
+        return getConfig().dateList();
+    }
+
+    public static String getPguSystem() {
+        return getConfig().pguSystem();
+    }
+
+    public static String getPguForText() {
+        return getConfig().PguForText();
+    }
 }
 
 

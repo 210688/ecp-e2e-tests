@@ -13,6 +13,10 @@ public class PguMockRequest {
         this.message = message;
     }
 
+    public void setSystemId(String message) {
+        this.message = message;
+    }
+
     public void setMessageType(String messageType) {
         this.messageType = messageType;
     }
@@ -21,7 +25,7 @@ public class PguMockRequest {
         return id;
     }
 
-    public String getMessage() {
+    public String getMessage(String requestMessage) {
         return message;
     }
 
