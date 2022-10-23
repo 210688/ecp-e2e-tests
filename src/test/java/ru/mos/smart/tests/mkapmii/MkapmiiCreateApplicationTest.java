@@ -31,7 +31,7 @@ public class MkapmiiCreateApplicationTest extends ApplicationTestBase {
         String randomTestId = "Тестовая заявка MKAPMII №:" + "KL-" + number;
         mkapmii.create(randomTestId);
 /*       step("Открыть мои задачи на портале, должна появиться заявка Проверить данные заявления", () -> {
-            AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginApi(), webConfig().passwordApi());
+            AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
             TasksPage.openTaskByTestId(randomTestId);
         });*/
     }

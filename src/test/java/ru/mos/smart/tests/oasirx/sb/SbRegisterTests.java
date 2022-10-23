@@ -30,7 +30,7 @@ public class SbRegisterTests extends TestBase {
     @DisplayName("Просмотр реестра Самострой")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sb")})
     void openingTheRegisterSb() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Самострой", () ->
                 $x("//span[text()='Самострой']").click());
@@ -52,7 +52,7 @@ public class SbRegisterTests extends TestBase {
     @DisplayName("Поиск карточки реестра Самострой по номеру")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("sbr")})
     void searchingSbCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Самострой", () -> {
             $x("//span[text()='Самострой']").should(visible, Duration.ofSeconds(10));

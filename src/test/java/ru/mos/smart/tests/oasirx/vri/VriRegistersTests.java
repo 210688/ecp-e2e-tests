@@ -43,7 +43,7 @@ public class VriRegistersTests extends TestBase {
             add("Отчеты");
         }};
 
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
                 .goToVri();
 
@@ -56,7 +56,7 @@ public class VriRegistersTests extends TestBase {
     @DisplayName("Поиск карточки реестра ВРИ по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("vri")})
     void searchingVriCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().logins(), webConfig().password());
 
         step("Из боковой панели перейти в раздел ВРИ", () -> {
             $x("//span[text()='ВРИ']").shouldBe(visible, Duration.ofSeconds(10));

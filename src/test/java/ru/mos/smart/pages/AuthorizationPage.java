@@ -18,12 +18,11 @@ public class AuthorizationPage {
     }
 
 
-    public static void openUrlWithAuthorizationAPI(String url, String login, String password) {
+    public static void openUrlWithAuthorizationAPI(String login, String password) {
         step("Авторизация", (step) -> {
             step.parameter("Login", login);
             Authorization authorization = new Authorization();
             setCookies(authorization.getAuthCookie(login, password));
-            open(url);
         });
     }
 

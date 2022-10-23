@@ -30,7 +30,7 @@ public class SupportRequest extends TestBase {
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("feedback")})
     void SupportRequestForward() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().logins(), webConfig().password());
         actionsPage
                 .searchAction(feedback, navigatorPage);
 

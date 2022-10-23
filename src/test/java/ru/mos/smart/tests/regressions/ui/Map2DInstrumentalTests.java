@@ -30,7 +30,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Открытие приложения карта")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openTheMaps() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage.goToMaps();
         step("Проверка: На карте присутствуют слои", () -> {
             Wait().withTimeout(Duration.ofSeconds(20)).until(driver ->
@@ -44,7 +44,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов измерений")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInstruments() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage.goToMaps();
         step("Проверить наличие инструментов измерений: линейка, квадрат, многоугольник", () -> {
             $(("button[title='Измерение расстояния']")).shouldBe(visible, Duration.ofSeconds(10));
@@ -60,7 +60,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage.goToMaps();
         step("Проверить наличие строки адресного поиска и найти слой", () -> {
             $("input[placeholder='Найти слой']").shouldBe(visible, Duration.ofSeconds(20));
@@ -74,7 +74,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка работы поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage.goToMaps();
         step("Проверка, что адрес находится", () -> {
             $("input[placeholder='Поиск']").setValue("Есенинский бульвар").pressEnter();
@@ -89,7 +89,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfScalingTools() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage.goToMaps();
         step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
             $((".fal.fa-plus")).shouldBe(visible);
@@ -104,7 +104,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfMyLocationTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage.goToMaps();
         step("Проверить наличия инструмента Мое местоположение", () -> {
             $((".fas.fa-location-arrow")).shouldBe(visible);
@@ -118,7 +118,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage.goToMaps();
         step("Проверить наличия инструмента Первоначальная позиция", () -> {
             $((".fas.fa-home-alt")).shouldBe(visible);

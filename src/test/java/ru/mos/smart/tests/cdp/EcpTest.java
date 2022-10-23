@@ -28,7 +28,7 @@ public class EcpTest extends TestBase {
     @DisplayName("Проверка открытия реестра")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ecp")})
     void openReestr() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().logins(), webConfig().password());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().logins(), webConfig().password());
         navigatorPage
                 .goToRegister();
 

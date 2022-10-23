@@ -30,7 +30,7 @@ public class AuthorizationEcpViaUi extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void authorizationEcpViaUi() {
 
-        AuthorizationPage.openUrlWithAuthorizationUI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationUI(webConfig().loginRegress(), webConfig().passwordRegress());
         step("В навигаторе присутствует надпись  Правительство Москвы", () ->
                 $("h3").shouldHave(text("Правительство Москвы")).shouldBe(visible));
     }

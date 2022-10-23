@@ -14,7 +14,6 @@ public class PersonalCard {
     public PersonalCard gotoTab(String tabName) {
         //$$(".nav-link").findBy(text("Возможности")).click();
         $(".wrapper.wrapper-content").shouldBe(visible, Duration.ofSeconds(10));
-
         return this;
     }
 
@@ -28,7 +27,6 @@ public class PersonalCard {
     @Step("Открыть возможность {capabilityName}")
     public PersonalCard openCapability(String capabilityName) {
         $$("td").findBy(text(capabilityName)).click();
-
         return this;
     }
 }

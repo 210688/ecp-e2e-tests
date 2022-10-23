@@ -32,7 +32,7 @@ public class CrdRegisterTests extends TestBase {
     void openingTheRegisterCRD() {
 
 
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
         reestrPage
                 .goToSdCard();
 
@@ -50,7 +50,7 @@ public class CrdRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("crd")})
     void searchingCrdCardByNumber() {
 
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
         reestrPage
                 .goToSdCard();
 

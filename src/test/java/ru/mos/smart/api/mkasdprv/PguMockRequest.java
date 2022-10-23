@@ -1,4 +1,4 @@
-package ru.mos.smart.api.models.mkasdprv;
+package ru.mos.smart.api.mkasdprv;
 
 public class PguMockRequest {
     private Integer id;

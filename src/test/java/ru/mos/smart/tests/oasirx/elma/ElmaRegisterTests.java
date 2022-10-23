@@ -29,7 +29,7 @@ public class ElmaRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("elma")})
     void openingTheRegisterElma() {
 
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () ->
                 $x("//span[text()='Соответствие СП (МГГТ)']").click());
@@ -56,7 +56,7 @@ public class ElmaRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("elma")})
     void searchingElmaCardByNumber() {
 
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
 
         step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () ->
                 $x("//span[text()='Соответствие СП (МГГТ)']").click());

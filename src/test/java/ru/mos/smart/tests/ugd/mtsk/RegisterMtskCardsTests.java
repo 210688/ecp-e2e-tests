@@ -19,24 +19,25 @@ import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
-@Layer("web")
+/*@Layer("web")
 @Epic("UGD (УГД)")
 @Owner("Soldatovks")
 @Feature("MTSK (Московский территориальный строительный каталог)")
 @Story("Автотесты")
-class RegisterMtskCardsTests extends TestBase {
+class RegisterMtskCardsTests extends TestBase {*/
 
+/*
     @Test
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("mtsk")})
     @DisplayName("Просмотр полной карточки реестра МТСК. Реестр организаций")
     void registerMtskCardsViewing() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
         navigatorPage
                 .goToRegister();
         reestrPage
                 .open("МТСК. Реестр организаций");
 
-        step("Открыть полную карточку организации \"Бийскхимстройматериалы\"", () -> {
+        step("Открыть полную карточку организации \"Бийскхимстройматериалы\() -> {
             $(".form-control").setValue("ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ").pressEnter();
             $(byLinkText("Общество с ограниченной ответственностью \"Бийскхимстройматериалы\"")).click();
         });
@@ -45,4 +46,4 @@ class RegisterMtskCardsTests extends TestBase {
             $(byText("Общество с ограниченной ответственностью \"Бийскхимстройматериалы\"")).shouldBe(visible);
         });
     }
-}
+}*/

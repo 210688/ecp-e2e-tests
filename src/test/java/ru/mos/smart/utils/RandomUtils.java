@@ -10,9 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
 
-    private static Logger logger = LoggerFactory.getLogger(RandomUtils.class);
-
-    private static String emailDomain = "@jbtd.no";
+    private static final Logger logger = LoggerFactory.getLogger(RandomUtils.class);
 
     public static String getRandomString(int length) {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -21,6 +19,18 @@ public class RandomUtils {
         while (result.length() < length) {
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
             result.append(SALTCHARS.charAt(index));
+        }
+
+        return result.toString();
+    }
+
+    public static String getRandomInt(int length) {
+        String numbers = "1234567890";
+        StringBuilder result = new StringBuilder();
+        Random rnd = new Random();
+        while (result.length() < length) {
+            int index = (int) (rnd.nextFloat() * numbers.length());
+            result.append(numbers.charAt(index));
         }
 
         return result.toString();
@@ -68,6 +78,7 @@ public class RandomUtils {
 
     public static String getRandomEmail() {
         long timestamp = new Timestamp(System.currentTimeMillis()).getTime();
+        String emailDomain = "@jbtd.no";
         return getRandomString(5) + timestamp + emailDomain;
     }
 

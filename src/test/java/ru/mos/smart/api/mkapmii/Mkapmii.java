@@ -1,7 +1,6 @@
 package ru.mos.smart.api.mkapmii;
 
 import io.restassured.http.ContentType;
-import ru.mos.smart.api.models.mkasdprv.PguMockRequest;
 import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.utils.FileUtils;
 

@@ -36,7 +36,7 @@ public class MrTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramInstructionRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -60,7 +60,7 @@ public class MrTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramObjRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -84,7 +84,7 @@ public class MrTests extends TestBase {
     @Test
     @AllureId("8000")
     void checkAttributesOfMrProgramObjCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -116,7 +116,7 @@ public class MrTests extends TestBase {
     @Test
     @AllureId("7999")
     void checkSwitchToMapOnMrProgramObjCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
 
         navigatorPage
                 .goToRegister();
@@ -148,7 +148,7 @@ public class MrTests extends TestBase {
 
         String createdObjectName = "Объект бытового обслуживания №" + faker.number().numberBetween(1, 100);
 
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         actionsPage
                 .searchAction("Запустить процесс создания объекта", navigatorPage);
 

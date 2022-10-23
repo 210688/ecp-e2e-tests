@@ -1,11 +1,8 @@
 package ru.mos.smart.pages;
 
-import org.openqa.selenium.By;
-
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -16,18 +13,15 @@ import static io.qameta.allure.Allure.step;
 
 public class NavigatorPage {
 
+    private final String reestrPage = "/main/#/app/catalogs/catalog-registers";
+    private final String actionPage = "/main/#/app/actions";
     String url2D = "/map/#/map;onMode3D=true";
     String urlCD = "/map3d/#/map3d";
-    String reestrPage = "/main/#/app/catalogs/catalog-registers";
-    public final void goToActions() {
-        step("В навигаторе открыть раздел Госуслуги и функции -> Возможности", () ->
-                $(("a[href='/main/#/app/actions']")).click());
-    }
 
-    public NavigatorPage goToTasks() {
-        step("В навигаторе открыть раздел Госуслуги и функции -> Задачи", () ->
-                $(("a[href='/main/#/app/tasks']")).click());
-        return this;
+    public void goToActions() {
+        step("Открытие рестра", () -> {
+            open(actionPage);
+        });
     }
 
     public NavigatorPage goToRegister() {
@@ -35,6 +29,11 @@ public class NavigatorPage {
             open(reestrPage);
         });
         return this;
+    }
+
+    public void goToTasks() {
+        step("В навигаторе открыть раздел Госуслуги и функции -> Задачи", () ->
+                $(("a[href='/main/#/app/tasks']")).click());
     }
 
     public NavigatorPage goToSpravochnik() {
