@@ -7,7 +7,9 @@ group 'ru.mos.smart'
 version '1.0'
 
 repositories {
-    mavenCentral()
+    maven {
+        url "https://repo-mirror.mos.ru/repository/maven-central/"
+    }
 }
 
 def allureVersion = '2.16.0',
