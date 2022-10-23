@@ -1,11 +1,8 @@
 package ru.mos.smart.pages;
 
-import org.openqa.selenium.By;
-
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -16,27 +13,27 @@ import static io.qameta.allure.Allure.step;
 
 public class NavigatorPage {
 
-    public NavigatorPage goToActions() {
-        step("В навигаторе открыть раздел Госуслуги и функции -> Возможности", () ->
-                $(("a[href='/main/#/app/actions']")).click());
+    private final String reestrPage = "/main/#/app/catalogs/catalog-registers";
+    private final String actionPage = "/main/#/app/actions";
+    String url2D = "/map/#/map;onMode3D=true";
+    String urlCD = "/map3d/#/map3d";
 
-        return this;
-    }
-
-    public NavigatorPage goToTasks() {
-        step("В навигаторе открыть раздел Госуслуги и функции -> Задачи", () ->
-                $(("a[href='/main/#/app/tasks']")).click());
-
-        return this;
+    public void goToActions() {
+        step("Открытие рестра", () -> {
+            open(actionPage);
+        });
     }
 
     public NavigatorPage goToRegister() {
-        step("В навигаторе открыть раздел Информация -> Реестр", () -> {
-            $(byText("Информация")).click();
-            $(("a[href='/main/#/app/catalog-registers']")).click();
+        step("Открытие рестра", () -> {
+            open(reestrPage);
         });
-
         return this;
+    }
+
+    public void goToTasks() {
+        step("В навигаторе открыть раздел Госуслуги и функции -> Задачи", () ->
+                $(("a[href='/main/#/app/tasks']")).click());
     }
 
     public NavigatorPage goToSpravochnik() {
@@ -49,23 +46,18 @@ public class NavigatorPage {
     }
 
     public void goToMaps() {
-        step("В навигаторе открыть раздел Информация -> карта", () -> {
-            $(byText("Информация")).click();
-            $(("a[href='/map/#/map;onMode3D=true']")).click();
-            switchTo().window(1);
+        step("Открытие 2D карты", () -> {
+            open(url2D);
             $(".mapboxgl-canvas").shouldBe(visible, Duration.ofSeconds(10));
         });
-
     }
 
-    public void goToMaps3D() {
-        step("Перейти Информация - Цифровой двойник", () -> {
-            $(byLinkText("Информация")).should(visible).click();
-            $(By.cssSelector("a[href='/map3d/#/map3d']")).click();
-            switchTo().window(1);
+
+    public void goToMapsCD() {
+        step("Открытие карты Цифровой двойник", () -> {
+            open(urlCD);
             $("#city").should(visible, Duration.ofSeconds(20));
         });
-
     }
 
     public NavigatorPage gotoChessboard() {

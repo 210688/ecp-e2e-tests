@@ -2,7 +2,6 @@ package ru.mos.smart.api.mkasdprv;
 
 import io.restassured.http.ContentType;
 import ru.mos.smart.api.Authorization;
-import ru.mos.smart.api.models.mkasdprv.PguMockRequest;
 import ru.mos.smart.utils.FileUtils;
 
 import static io.qameta.allure.Allure.step;

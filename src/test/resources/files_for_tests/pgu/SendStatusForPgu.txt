@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:StatusForPGUV6_1 xmlns:ns2="http://asguf.mos.ru/rkis_gu/coordinate/v6_1/" xmlns:ns3="http://pgu.reinform/status/v6.1">
+<ns3:docHeader>
+<ns3:SERVICE>000056</ns3:SERVICE>
+<ns3:DOC_ID>9b9b1bc6-2dd1-4b61-b954-dd18d114276d</ns3:DOC_ID>
+<ns3:PSO_DATE>2022-04-14T09:00:00.529</ns3:PSO_DATE>
+<ns3:ssoId>cddb48ed-c597-404f-b02a-5806e6a27d62</ns3:ssoId>
+<ns3:SYSTEM>OASI</ns3:SYSTEM>
+</ns3:docHeader>
+<ns2:CoordinateStatusMessage>
+<ns2:CoordinateStatusDataMessage>
+<ns2:ResponseDate>2022-04-14T09:00:00.529</ns2:ResponseDate>
+<ns2:PlanDate>2022-04-15T00:00:00</ns2:PlanDate>
+<ns2:Status>
+<ns2:StatusCode>103099</ns2:StatusCode>
+<ns2:StatusTitle>Технический сбой</ns2:StatusTitle>
+<ns2:StatusDate>{DATE}</ns2:StatusDate>
+</ns2:Status>
+<ns2:Responsible>
+<ns2:LastName>Автоматически</ns2:LastName>
+<ns2:FirstName>Автоматически</ns2:FirstName>
+<ns2:MiddleName>Автоматически</ns2:MiddleName>
+<ns2:JobTitle>Автоматически</ns2:JobTitle>
+</ns2:Responsible>
+<ns2:Note>К сожалению, произошел технический сбой и уведомление не может быть доставлено в {PGUFORTEXT}. Просим Вас отправить заявление  повторно.</ns2:Note>
+<ns2:ServiceNumber>{ENO}</ns2:ServiceNumber>
+<ns2:Department xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+</ns2:CoordinateStatusDataMessage>
+</ns2:CoordinateStatusMessage>
+</ns3:StatusForPGUV6_1>

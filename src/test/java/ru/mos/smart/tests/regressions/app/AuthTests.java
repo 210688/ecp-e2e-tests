@@ -16,11 +16,11 @@ import static org.hamcrest.Matchers.equalTo;
 @Epic("Проверка микросервисов")
 public class AuthTests extends ApiBearerTestBase {
 
-    @Test
+/*    @Test
     @Layer("api")
     @Owner("SoldatovKS")
     @Description("Данные о пользователе, из-под которого идет запрос")
-    @DisplayName("/auth/user [GET]")
+    @DisplayName("/auth/user/testovyi_us [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/auth/user"),
             @Link(name = "prod", url = "https://smart.mos.ru/auth/user")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
@@ -36,7 +36,7 @@ public class AuthTests extends ApiBearerTestBase {
 
                 .body("name", equalTo(ConfigHelper.getUsername()))
                 .body("principal.user.userLogin", equalTo(ConfigHelper.getUsername()));
-    }
+    }*/
 
     @Test
     void UsersGroupTest() {

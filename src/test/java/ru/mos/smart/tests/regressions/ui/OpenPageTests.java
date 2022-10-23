@@ -10,14 +10,18 @@ import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.annotations.Owner;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
+import static org.hamcrest.core.IsNot.not;
 
 import java.time.Duration;
+import java.util.Objects;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 
@@ -25,16 +29,15 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Feature("Меню Госуслуги и функции")
 public class OpenPageTests extends TestBase {
 
+
     @Test
     @Owner("soldatovks")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню возможности")
     void openTheActionsPage() {
-
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
-        navigatorPage
-                .goToActions();
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        navigatorPage.goToActions();
         step("Проверяем, что строка поиска доступна", () -> {
             $(byName("common")).shouldBe(visible);
         });
@@ -46,9 +49,8 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню Задачи")
     void openTheTasksPage() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
-        navigatorPage
-                .goToTasks();
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        navigatorPage.goToTasks();
         step("Проверяем, что присутствуют задачи в списке", () ->
                 $$("#my-task-showcase").size() > 0);
     }
@@ -59,16 +61,17 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню Реестр")
     void openTheReestrPage() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
-        navigatorPage
-                .goToRegister();
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        navigatorPage.goToRegister();
         step("Проверка, что реестр доступен", () -> {
             $(byName("candidateSearchValue")).shouldBe(visible);
             $(byText("Название реестра")).shouldBe(visible);
+
         });
         step("Проверка, что в реестре присутствуют записи", () ->
                 Wait().withTimeout(Duration.ofSeconds(10)).until(driver ->
                         $$(".table-striped").size() > 0));
+
     }
 
     @Test
@@ -77,7 +80,7 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Открытие меню справочник")
     void openTheSpravochnikPage() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToSpravochnik();
         step("Проверка, что справочник доступен", () -> {

@@ -2,6 +2,7 @@ package ru.mos.smart.tests.mr;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.github.javafaker.Faker;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
@@ -27,13 +28,15 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 @Epic("RAYON (Мой район)")
 public class MrTests extends TestBase {
 
+    private final Faker faker = new Faker();
+
     @Test
     @AllureId("7998")
     @DisplayName("Проверка открытия реестра Поручения Мэра по программе \"Мой район\"")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramInstructionRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -57,7 +60,7 @@ public class MrTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramObjRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -81,7 +84,7 @@ public class MrTests extends TestBase {
     @Test
     @AllureId("8000")
     void checkAttributesOfMrProgramObjCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -113,7 +116,7 @@ public class MrTests extends TestBase {
     @Test
     @AllureId("7999")
     void checkSwitchToMapOnMrProgramObjCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
 
         navigatorPage
                 .goToRegister();
@@ -142,9 +145,10 @@ public class MrTests extends TestBase {
     @Layer("web")
     @DisplayName("Проверка открытия возможности Запустить процесс создания объекта")
     void checkStartingObjectCreationProcess() {
+
         String createdObjectName = "Объект бытового обслуживания №" + faker.number().numberBetween(1, 100);
 
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         actionsPage
                 .searchAction("Запустить процесс создания объекта", navigatorPage);
 

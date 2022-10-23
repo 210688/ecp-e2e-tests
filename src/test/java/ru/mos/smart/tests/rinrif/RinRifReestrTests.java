@@ -30,7 +30,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра \"Акты проверок\" ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrAktsProverok() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
 
@@ -67,7 +67,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра \"Все объекты\" ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseObjects() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
 
@@ -107,14 +107,14 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра \"Все объекты сноса\" ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseObjectsSnos() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
 
         reestrPage
                 .open("Все объекты сноса");
         step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
+            $(".search-form").shouldBe(visible);
         });
         step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
             $(".container-btn").$("button.btn-default").shouldBe(visible);
@@ -142,7 +142,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра \"Все организации\" ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseOrganization() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
 
@@ -178,7 +178,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра \"Все решения о проверке\" ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseResheniyaOproverke() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
 
@@ -211,41 +211,6 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @AllureId("8079")
-    @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"Заявления в прокуратуру\" ")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
-    void checkReestrZayavleniyaVprokuraturu() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
-        navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("Заявления в прокуратуру");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Номер заявления в прокуратуру",
-                    "Дата заявления в прокуратуру",
-                    "Номер решения прокуратуры",
-                    "Дата решения прокуратуры"
-            ));
-        });
-        step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
-    }
-
-    @Test
     @AllureId("8080")
     @Owner("soldatovks")
     @ManualMember("reinform")
@@ -254,7 +219,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра \"Нарушения\" ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrNarusheniya() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
 
@@ -289,7 +254,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра \"Постановления\" ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrPostanovleniya() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
 
@@ -324,7 +289,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра \"Протоколы\" ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrProtokoli() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
 
@@ -360,7 +325,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра \"ТЗ лаборатории\" ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrTzLabaratorii() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
 
@@ -395,7 +360,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра \"Уведомления о завершении сноса\" ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrUvedomleniyaOzaversheniiSnosa() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
 
@@ -433,7 +398,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра \"Уведомления о планируемом сносе\" ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrUvedomleniyaOplaniruemomSnose() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginMr(), webConfig().passwordMr());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
         navigatorPage
                 .goToRegister();
 

@@ -1,6 +1,7 @@
 package ru.mos.smart.pages;
 
 import com.codeborne.selenide.Selenide;
+import com.github.javafaker.Faker;
 import io.qameta.allure.Step;
 
 import java.util.List;
@@ -13,6 +14,8 @@ import static io.qameta.allure.Allure.step;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class VriPage {
+
+    Faker faker = new Faker();
     public VriPage checkIsOpened() {
         step("Открыт раздел ВРИ", () ->
                 $x("//div/h2[contains(text(),'ВРИ')]").shouldBe(visible));

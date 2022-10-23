@@ -20,14 +20,12 @@ public class ReestrPage {
         step("В поиске ввести название реестра и открыть его");
         $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
         $(byText(registerName)).click();
-
         return this;
 
     }
 
     public ReestrPage search(String registerName) {
         $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
-
         return this;
     }
 
@@ -35,7 +33,6 @@ public class ReestrPage {
     public ReestrPage gotoFirstCard() {
         $("showcase-builder-runtime a").click();
         switchTo().window(1);
-
         return this;
     }
 

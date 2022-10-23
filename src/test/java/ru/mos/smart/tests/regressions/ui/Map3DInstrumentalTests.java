@@ -33,7 +33,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Открытие приложения Цифровой двойник")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openTheTsifrovoyDvoynik() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Перейти Информация - Цифровой двойник", () -> {
             $(byLinkText("Информация")).should(visible).click();
@@ -52,9 +52,9 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Проверка отображения панели слоев")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheDisplayOfLayersPanel() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
-                .goToMaps3D();
+                .goToMapsCD();
 
         step("В левой боковой панели открыть Дерево слоев", () ->
                 $("span[title='Дерево слоёв']")).click();
@@ -69,9 +69,9 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Проверка работы поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
-                .goToMaps3D();
+                .goToMapsCD();
 
         step("Проверка, что адрес находится", () -> {
             $("input[placeholder='Найти адрес...']").setValue("Есенинский бульвар");
@@ -85,16 +85,14 @@ public class Map3DInstrumentalTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfScalingTools() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         step("Проверить наличие строки адресного поиска");
-
         navigatorPage
-                .goToMaps3D();
-
-        step("Проверить наличие кнопок масштабирования на карте", () -> {
+                .goToMapsCD();
+        step("Проверить наличие кнопок масштабирования на карте");
             $((".far.fa-plus")).shouldBe(visible);
             $((".far.fa-minus")).shouldBe(visible);
-        });
+
     }
 
     @Test
@@ -104,10 +102,10 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
 
         navigatorPage
-                .goToMaps3D();
+                .goToMapsCD();
 
         step("Проверить наличия инструмента Первоначальная позиция", () -> {
             $((".fas.fa-home-alt")).shouldBe(visible);
@@ -121,10 +119,10 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInstruments() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
 
         navigatorPage
-                .goToMaps3D();
+                .goToMapsCD();
 
         step("Проверить наличие инструментов: линейка, треугольник, выбор подложки", () -> {
             $((".fas.fa-ruler")).shouldBe(visible);

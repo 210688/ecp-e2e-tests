@@ -56,7 +56,7 @@ tasks.withType(Test) {
 
     systemProperties(System.getProperties())
     useJUnitPlatform()
-    maxParallelForks = 1
+    //maxParallelForks = 1
 }
 
 task launchTasks(type: Test) { //Запуск тестов из системной переменной tests
@@ -83,20 +83,32 @@ task preprod(type: Test) { //Запускает все модули на пре�
     }
 }
 
-task prodd(type: Test) { //запускает все модули на проде
+task prod(type: Test) {
     useJUnitPlatform {
         includeTags 'prod'
     }
 }
 
-task stage(type: Test) { //запускает все модули на стейдже
+task stage(type: Test) {
     useJUnitPlatform {
         includeTags 'stage'
     }
 }
 
-task regressing(type: Test) { //Запуск регрессионных тестов на 3-ёх платформах
+task regressing(type: Test) {
     useJUnitPlatform {
         includeTags 'regressions'
+    }
+}
+
+task drone(type: Test) {
+    useJUnitPlatform {
+        includeTags 'drone'
+    }
+}
+
+task createCartDrone(type: Test) {
+    useJUnitPlatform {
+        includeTags 'createCartDrone'
     }
 }

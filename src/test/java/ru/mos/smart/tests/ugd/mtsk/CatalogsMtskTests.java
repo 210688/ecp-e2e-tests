@@ -30,7 +30,7 @@ class CatalogsMtskTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("mtsk")})
     @DisplayName("Проверка наличия каталогов МТСК")
     void checkCatalogsMtsk() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginUgd(), webConfig().passwordUgd());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
 
         step("Развернуть в навигаторе блок МТСК", () -> $(byLinkText("МТСК"))
                 .click());

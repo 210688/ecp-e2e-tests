@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.regressions.ui;
 
 import io.qameta.allure.Epic;
@@ -25,9 +26,10 @@ public class AuthorizationEcpViaSudir extends TestBase {
     @DisplayName("Проверка авторизации через СУДИР")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void AuthorizationEcpSudir() {
-        AuthorizationPage.openUrlWithAuthorizationSudir("", webConfig().login_sudir(), webConfig().password_sudir());
+        AuthorizationPage.openUrlWithAuthorizationSudir(webConfig().login_sudir(), webConfig().password_sudir());
         step("Ввод СМС кода");
         new SmsVerificationPage().verifyBySms("79449440001");
         step("Проверка, что авторизация в ЕЦП успешна");
     }
 }
+*/

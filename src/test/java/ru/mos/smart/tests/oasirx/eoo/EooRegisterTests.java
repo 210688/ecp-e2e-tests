@@ -37,7 +37,7 @@ public class EooRegisterTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("eoo")})
     void addCartEoo() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
                 .goToEoo();
         step("В открывшейся форме выбрать Добавить ЭОО", () ->
@@ -62,7 +62,7 @@ public class EooRegisterTests extends TestBase {
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void searchingEooCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
                 .goToEoo();
         AtomicReference<String> card = new AtomicReference<>("");
@@ -90,7 +90,7 @@ public class EooRegisterTests extends TestBase {
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void openCardEooTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
                 .goToEoo();
 
@@ -124,7 +124,7 @@ public class EooRegisterTests extends TestBase {
     @Feature("EOO (Электронные общественные обсуждения)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void registerEooTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
         navigatorPage
                 .goToEoo();
 

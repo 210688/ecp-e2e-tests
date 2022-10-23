@@ -30,7 +30,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @DisplayName("Проверка атрибутивного состава реестра")
     @Tags({@Tag("stage"), @Tag("mkasdprv"), @Tag("predprod")})
     void checkingTheAttributesOfTheRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -54,7 +54,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @DisplayName("Открытие карточки реестра")
     @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkasdprv")})
     void openingRegistryCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI("", webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
         navigatorPage
                 .goToRegister();
         reestrPage
