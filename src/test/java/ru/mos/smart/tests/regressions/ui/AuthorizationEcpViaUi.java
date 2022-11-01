@@ -1,4 +1,3 @@
-/*
 package ru.mos.smart.tests.regressions.ui;
 
 import io.qameta.allure.Epic;
@@ -12,7 +11,6 @@ import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
@@ -30,9 +28,9 @@ public class AuthorizationEcpViaUi extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void authorizationEcpViaUi() {
 
-        AuthorizationPage.openUrlWithAuthorizationUI(webConfig().loginRegress(), webConfig().passwordRegress());
-        step("В навигаторе присутствует надпись  Правительство Москвы", () ->
-                $("h3").shouldHave(text("Правительство Москвы")).shouldBe(visible));
+        AuthorizationPage.openUrlWithAuthorizationUI(webConfig().webSecureUrl(), webConfig().loginRegress(), webConfig().passwordRegress());
+        step("В навигаторе присутствует список Задач", () ->
+                $("#sidebar_header").should(visible));
     }
 }
-*/
+

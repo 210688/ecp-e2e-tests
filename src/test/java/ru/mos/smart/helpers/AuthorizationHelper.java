@@ -19,8 +19,6 @@ public class AuthorizationHelper {
     }
 
     public static String authorization() {
-        System.out.println(ConfigHelper.getLogin_services());
-        System.out.println(ConfigHelper.getPassword_services());
         String data = "grant_type=password" +
                 "&username=" + ConfigHelper.getLogin_services() +
                 "&password=" + ConfigHelper.getPassword_services() +

@@ -30,7 +30,6 @@ public class MrTests extends ApiBearerTestBase {
                 .log().body();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -50,7 +49,6 @@ public class MrTests extends ApiBearerTestBase {
                 .log().body();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -70,7 +68,6 @@ public class MrTests extends ApiBearerTestBase {
                 .log().body();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -90,7 +87,6 @@ public class MrTests extends ApiBearerTestBase {
                 .log().body();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 }

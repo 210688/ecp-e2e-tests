@@ -12,6 +12,9 @@ public interface WebConfig extends Config {
     @Key("web.url")
     String webUrl();
 
+    @Key("web.secure.url")
+    String webSecureUrl();
+
     @Key("user.login.process")
     String logins();
 

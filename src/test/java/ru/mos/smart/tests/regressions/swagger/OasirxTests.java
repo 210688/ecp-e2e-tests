@@ -29,7 +29,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -48,7 +47,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -67,7 +65,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -86,7 +83,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -105,7 +101,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -124,7 +119,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -144,7 +138,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -164,7 +157,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -184,7 +176,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -204,7 +195,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -224,7 +214,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -244,7 +233,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -264,7 +252,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -284,7 +271,6 @@ public class OasirxTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 }

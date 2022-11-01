@@ -28,32 +28,25 @@ public class CatalogsTests extends ApiBearerTestBase {
         ValidatableResponse response = apiSteps.apiRequestBearer()
                 .get("/catalogs/source/codes")
                 .then()
-                .body("$", hasItems("EHD", "ECHD"))
-                .log().body();
+                .body("$", hasItems("EHD", "ECHD"));
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
-
 
     @Test
     @Owner("SoldatovKS")
     @Layer("api")
     @Description("Поиск по реестрам информации")
     @DisplayName("/catalogs-search/v1/solr/cores/count [GET]")
-    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/catalogs-search/v1/solr/cores/count"),
-            @Link(name = "prod", url = "https://smart.mos.ru/catalogs-search/v1/solr/cores/count")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void catalogsSearchSolrCoresCountTest() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
                 .get("/catalogs-search/v1/solr/cores/count")
                 .then()
-                .body("apgrcore", equalTo(0))
-                .log().body();
+                .body("apgrcore", equalTo(0));
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 }

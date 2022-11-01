@@ -17,6 +17,8 @@ public class NavigatorPage {
     private final String actionPage = "/main/#/app/actions";
     String url2D = "/map/#/map;onMode3D=true";
     String urlCD = "/map3d/#/map3d";
+    String spravochnik = "/main/#/app/dicts/system";
+    String task = "/main/#/app/tasks";
 
     public void goToActions() {
         step("Открытие рестра", () -> {
@@ -33,16 +35,13 @@ public class NavigatorPage {
 
     public void goToTasks() {
         step("В навигаторе открыть раздел Госуслуги и функции -> Задачи", () ->
-                $(("a[href='/main/#/app/tasks']")).click());
+                open(task));
     }
 
-    public NavigatorPage goToSpravochnik() {
+    public void goToSpravochnik() {
         step("В навигаторе открыть раздел Настройки -> Справочники", () -> {
-            $(byText("Настройки")).click();
-            $(("a[href='/main/#/app/dicts/system']")).click();
+            open(spravochnik);
         });
-
-        return this;
     }
 
     public void goToMaps() {
@@ -56,7 +55,7 @@ public class NavigatorPage {
     public void goToMapsCD() {
         step("Открытие карты Цифровой двойник", () -> {
             open(urlCD);
-            $("#city").should(visible, Duration.ofSeconds(20));
+            $("#city").should(visible, Duration.ofSeconds(40));
         });
     }
 

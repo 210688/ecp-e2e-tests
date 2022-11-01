@@ -25,11 +25,9 @@ public class GeoserverTests extends ApiBasicTestBase {
     void GeoserverTests() {
         ValidatableResponse response = apiSteps.apiRequestBasicGeoserver()
                 .get("/geoserver/rest/about/system-status")
-                .then()
-                .log().body();
+                .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 }

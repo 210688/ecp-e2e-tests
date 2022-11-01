@@ -30,7 +30,6 @@ public class MkaTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -49,7 +48,6 @@ public class MkaTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -68,7 +66,6 @@ public class MkaTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -87,7 +84,6 @@ public class MkaTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 }

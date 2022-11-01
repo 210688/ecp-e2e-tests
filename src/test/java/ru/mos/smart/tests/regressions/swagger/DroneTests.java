@@ -24,11 +24,10 @@ public class DroneTests extends ApiBearerTestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void DroneTests() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
-                .get("/app/drone/drone//documentTypes/all")
+                .get("/app/drone/drone/documentTypes/all")
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 }

@@ -10,18 +10,14 @@ import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.annotations.Owner;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
-import static org.hamcrest.core.IsNot.not;
 
 import java.time.Duration;
-import java.util.Objects;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 
@@ -50,7 +46,8 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Открытие меню Задачи")
     void openTheTasksPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
-        navigatorPage.goToTasks();
+        navigatorPage
+                .goToTasks();
         step("Проверяем, что присутствуют задачи в списке", () ->
                 $$("#my-task-showcase").size() > 0);
     }

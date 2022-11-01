@@ -29,7 +29,6 @@ public class OasiTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 
@@ -48,7 +47,6 @@ public class OasiTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 

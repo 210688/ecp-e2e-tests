@@ -29,7 +29,6 @@ public class GisTests extends ApiBearerTestBase {
                 .then();
 
         parameter("Code", response.extract().statusCode());
-
         response.statusCode(200);
     }
 

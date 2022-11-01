@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.regressions.app;
 
 import io.qameta.allure.Description;
@@ -28,4 +29,4 @@ public class SgTests extends ApiBasicTestBase {
         response.statusCode(200);
 
     }
-}
+}*/
