@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 import ru.mos.smart.utils.RandomUtils;
@@ -33,9 +32,9 @@ public class DroneTests extends TestBase {
     @DisplayName("Создать карточку аэросъемки")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("createCartDrone")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("drone"), @Tag("createCartDrone")})
     void createCartDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginDrone(), webConfig().passwordDrone());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         ElementsCollection calendars = $$("div.input-group.date.ng-scope > input");
         ElementsCollection materials = $$(".ng-option-label");
         ElementsCollection shooting = $$(".ng-option-label");
@@ -80,7 +79,7 @@ public class DroneTests extends TestBase {
         step("Загрузить материалы аэрофотосъемки", () ->
                 $(byName("file")).uploadFile(new File("src/test/resources/drone/video.mp4")));
         step("Загрузить лог файла полета дрона", () ->
-                $(byName("logFile")).uploadFile(new File("src/test/resources/log.txt")));
+                $(byName("logFile")).uploadFile(new File("src/test/resources/drone/log.txt")));
         step("Нажать на кнопку Внести данные", () ->
                 $("button[type='submit']").click());
         $("#sidebar_system-name").shouldBe(visible);
@@ -91,9 +90,9 @@ public class DroneTests extends TestBase {
     @DisplayName("В реестре данные аэрофотосъемки присутствуют данные")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("drone")})
     void openReestrDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginDrone(), webConfig().passwordDrone());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -109,9 +108,9 @@ public class DroneTests extends TestBase {
     @DisplayName("Просмотреть карточку аэросъемки")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("drone")})
     void viewCartDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginDrone(), webConfig().passwordDrone());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage

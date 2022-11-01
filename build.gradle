@@ -114,3 +114,9 @@ task createCartDrone(type: Test) {
         includeTags 'createCartDrone'
     }
 }
+
+task rinrif(type: Test) {
+    useJUnitPlatform {
+        includeTags 'rinrif'
+    }
+}

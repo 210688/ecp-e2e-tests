@@ -22,7 +22,7 @@ public class Application {
             Authorization authorization = new Authorization();
 
             given()
-                    .cookies(authorization.getAuthCookie(webConfig().loginApi(), webConfig().passwordApi()))
+                    .cookies(authorization.getAuthCookie(webConfig().loginRegress(), webConfig().passwordRegress()))
                     .contentType(ContentType.JSON)
                     .body(request)
                     .when()

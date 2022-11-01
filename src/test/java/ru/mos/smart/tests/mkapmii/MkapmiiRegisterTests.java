@@ -33,7 +33,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void checkingTheAttributesOfTheRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -70,7 +70,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void uiCardTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -131,7 +131,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void mainControlsTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -181,7 +181,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @ManualMember("innovault")
     @Feature("Выдача заявления на руки")
     void handingOverTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -218,7 +218,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @ManualMember("innovault")
     @Feature("Выдача заявления на руки")
     void handingOverPlusTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage

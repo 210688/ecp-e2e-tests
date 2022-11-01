@@ -27,15 +27,6 @@ public class ConfigHelper {
         return getConfig().webUrl();
     }
 
-
-    public static String getUsername() {
-        return getConfig().username();
-    }
-
-    public static String getPassword() {
-        return getConfig().password();
-    }
-
     public static String getClientSecret() {
         return getConfig().clientSecret();
     }

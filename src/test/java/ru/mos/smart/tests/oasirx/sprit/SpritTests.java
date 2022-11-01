@@ -33,7 +33,7 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Owner("Amidosha")
     void cardViewSprit() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToSprit();
 
@@ -60,7 +60,7 @@ public class SpritTests extends TestBase {
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void historyChangeCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
@@ -81,7 +81,7 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Feature("SPRIT (Выдача СПРИТ)")
     void newReglament() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
@@ -105,7 +105,7 @@ public class SpritTests extends TestBase {
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void process() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
@@ -127,7 +127,7 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Feature("SPRIT (Выдача СПРИТ)")
     void cardMaterialsTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToSprit();
         step("Открыть любую катрочку", () ->

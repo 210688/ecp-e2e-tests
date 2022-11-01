@@ -31,7 +31,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToActions();
 
@@ -53,7 +53,7 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Проверка открытия формы подачи " +
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
     void openTheApplicationFormLrpOutsideOrg() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToActions();
 
@@ -76,7 +76,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     void openRegisterLrpZayavki() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -99,7 +99,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
     void openRegisterLrpMoiZayavki() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 

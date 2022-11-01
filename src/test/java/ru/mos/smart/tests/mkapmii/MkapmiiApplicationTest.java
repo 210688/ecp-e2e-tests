@@ -41,7 +41,7 @@ public class MkapmiiApplicationTest extends TestBase {
         Mkapmii mkapmii = new Mkapmii();
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -136,7 +136,7 @@ public class MkapmiiApplicationTest extends TestBase {
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -164,7 +164,7 @@ public class MkapmiiApplicationTest extends TestBase {
         Mkapmii mkapmii = new Mkapmii();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -187,7 +187,7 @@ public class MkapmiiApplicationTest extends TestBase {
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -213,7 +213,7 @@ public class MkapmiiApplicationTest extends TestBase {
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -235,7 +235,7 @@ public class MkapmiiApplicationTest extends TestBase {
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -279,7 +279,7 @@ public class MkapmiiApplicationTest extends TestBase {
         MkapmiiPage mkapmiiPage = new MkapmiiPage();
 
         mkapmii.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginApi(), webConfig().passwordApi());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 

@@ -22,8 +22,7 @@ class OasiPptTests extends TestBase {
     @DisplayName("Проверка наличия в витрине поля для поиска")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("ppt")})
     void searchFieldShouldExist() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
-
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Открытие в навигаторе Настройки > Конструктор витрин", () -> {
             $(byText("Настройки")).click();

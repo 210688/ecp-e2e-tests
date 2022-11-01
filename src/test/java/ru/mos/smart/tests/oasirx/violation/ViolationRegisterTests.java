@@ -29,7 +29,7 @@ public class ViolationRegisterTests extends TestBase {
     @DisplayName("Просмотр раздела Нарушения ОГД")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("violation")})
     void openingTheRegisterViolation() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToViolations();
 
@@ -49,7 +49,7 @@ public class ViolationRegisterTests extends TestBase {
     @DisplayName("Поиск карточки реестра Нарушения ОГД по номеру")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("violation")})
     void searchingViolationCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToViolations();
 

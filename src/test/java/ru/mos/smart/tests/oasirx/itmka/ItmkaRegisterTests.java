@@ -30,7 +30,7 @@ public class ItmkaRegisterTests extends TestBase {
     @DisplayName("Просмотр реестра заявок Управление ИТ МКА")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("itmka")})
     void openingTheRegisterItmka() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToItmka();
 
@@ -50,7 +50,7 @@ public class ItmkaRegisterTests extends TestBase {
     @DisplayName("Поиск карточки реестра заявок Управление ИТ МКА по номеру")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("itmka")})
     void searchingItmkaCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToItmka();
 

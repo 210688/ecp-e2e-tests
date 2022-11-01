@@ -11,19 +11,10 @@ import org.aeonbits.owner.Config;
 public interface ApiConfig extends Config {
     @Key("authorization.url")
     String authorizationUrl();
-
     @Key("application.url")
     String applicationUrl();
-
     @Key("web.url")
     String webUrl();
-
-    @Key("username")
-    String username();
-
-    @Key("password")
-    String password();
-
     @Key("client.secret")
     String clientSecret();
 

@@ -27,7 +27,7 @@ public class RinRifMatCapTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkAttributesOfRinRifMatCapRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -51,7 +51,7 @@ public class RinRifMatCapTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rinrif")})
     void checkAttributesOfRinRifMatCapObjCard() {
         String statementNumber = "09-МК-179/21-(0)-0";
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginMr(), webConfig().passwordMr());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage

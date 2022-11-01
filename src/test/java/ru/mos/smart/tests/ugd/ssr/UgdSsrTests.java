@@ -39,7 +39,7 @@ public class UgdSsrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
     void ugdSsrRealEstateCatalogTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -65,7 +65,7 @@ public class UgdSsrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
     void ugdSsrPersonCatalogTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -90,7 +90,7 @@ public class UgdSsrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр центров информирования по переселению жителей")
     void ugdSsrCipCatalog() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -113,7 +113,7 @@ public class UgdSsrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра АРМ сотрудника Центра информирования по переселению жителей")
     void reestrArm() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         step("Найти и открыть реестр АРМ сотрудника Центра информирования по переселению жителей", () ->
@@ -137,7 +137,7 @@ public class UgdSsrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка открытия карточки жителя через реестр ССР. Реестр жителей")
     void checkOpenReestrSsr() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -203,7 +203,7 @@ public class UgdSsrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра Администрирование рабочих дней помощи в переезде")
     void administrationWorkingDaysTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -221,7 +221,7 @@ public class UgdSsrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра Реестр заявлений на помощь в переезде")
     void shippingApplicationTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -238,7 +238,7 @@ public class UgdSsrTests extends TestBase {
     @Layer("web")
     @DisplayName("Проверка возможности подписания договора и акта приема-передачи")
     void reestrSigningTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -274,7 +274,7 @@ public class UgdSsrTests extends TestBase {
     @Layer("web")
     @DisplayName("Проверка возможности выдачи ключей")
     void keysIssuanceTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -302,7 +302,7 @@ public class UgdSsrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка возможности освобождения квартиры")
     void apartmentsVacatingTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -328,7 +328,7 @@ public class UgdSsrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка открытия возможности Инициация процесса начала переселения")
     void processInitiatingTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToActions();
         actionsPage
@@ -372,7 +372,7 @@ public class UgdSsrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName(" Проверка открытия возможности Инициировать обогащения данных отселяемых домов из ДГИ")
     void dgiPersonEnrichmentTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToActions();
         actionsPage
@@ -419,7 +419,7 @@ public class UgdSsrTests extends TestBase {
     void ssrChessboardTest() {
         String address = "улица Госпитальный Вал, дом 3 " +
                 "(УНОМ: 31354, Центральный административный округ, муниципальный округ Басманный)";
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .gotoChessboard();
 
@@ -445,7 +445,7 @@ public class UgdSsrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра по заявлениям на комиссионный осмотр")
     void commissionInspectionRegisterTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginUgd(), webConfig().passwordUgd());
+         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage

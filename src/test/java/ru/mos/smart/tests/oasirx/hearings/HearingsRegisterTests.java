@@ -26,7 +26,7 @@ public class HearingsRegisterTests extends TestBase {
     @DisplayName("Просмотр раздела Публичные слушания")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("hearing")})
     void openingTheRegisterHearings() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginOasirx(), webConfig().passwordOasirx());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
 
         step("Из боковой панели перейти в раздел Публичные слушания", () ->
                 $x("//span[text()='Публичные слушания']").click());
