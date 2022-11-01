@@ -22,15 +22,14 @@ import static ru.mos.smart.config.ConfigHelper.webConfig;
 public class RinRifReestrTests extends TestBase {
 
     @Test
-    @AllureId("8074")
     @Owner("soldatovks")
     @ManualMember("reinform")
     @Layer("web")
     @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"Акты проверок\" ")
+    @DisplayName("Проверка  реестра Акты проверок")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrAktsProverok() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -59,15 +58,14 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @AllureId("8075")
     @Owner("soldatovks")
     @ManualMember("reinform")
     @Layer("web")
     @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"Все объекты\" ")
+    @DisplayName("Проверка  реестра Все объекты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseObjects() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -98,16 +96,36 @@ public class RinRifReestrTests extends TestBase {
         });
     }
 
-    @Test
-    @AllureId("8076")
+/*    @Test
     @Owner("soldatovks")
     @ManualMember("reinform")
     @Layer("web")
     @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"Все объекты сноса\" ")
+    @DisplayName("Проверка  реестра Все объекты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    void predosterezheniya() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        navigatorPage
+                .goToRegister();
+        reestrPage
+                .open("Все объекты");
+        open("/rinrif/nadzor/#/app/nadzor/objectPassport/000c934a-be81-4bc3-9cfc-f850d37d1d19/common");
+        $("#button-basic").click();
+        $("#dropdown-basic").click();
+        $("button[class='btn btn-warning']").click();
+        $(".dl-horizontal").should(visible);
+    }*/
+
+
+    @Test
+    @Owner("soldatovks")
+    @ManualMember("reinform")
+    @Layer("web")
+    @Epic("Автотесты")
+    @DisplayName("Проверка  реестра Все объекты сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseObjectsSnos() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -134,15 +152,14 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @AllureId("8077")
     @Owner("soldatovks")
     @ManualMember("reinform")
     @Layer("web")
     @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"Все организации\" ")
+    @DisplayName("Проверка  реестра Все организации")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseOrganization() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -175,10 +192,10 @@ public class RinRifReestrTests extends TestBase {
     @ManualMember("reinform")
     @Layer("web")
     @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"Все решения о проверке\" ")
+    @DisplayName("Проверка  реестра Все решения о проверке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseResheniyaOproverke() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -211,15 +228,14 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @AllureId("8080")
     @Owner("soldatovks")
     @ManualMember("reinform")
     @Layer("web")
     @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"Нарушения\" ")
+    @DisplayName("Проверка  реестра Нарушения")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrNarusheniya() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -246,15 +262,14 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @AllureId("8081")
     @Owner("soldatovks")
     @ManualMember("reinform")
     @Layer("web")
     @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"Постановления\" ")
+    @DisplayName("Проверка  реестра Постановления")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrPostanovleniya() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -281,15 +296,14 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @AllureId("8082")
     @Owner("soldatovks")
     @ManualMember("reinform")
     @Layer("web")
     @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"Протоколы\" ")
+    @DisplayName("Проверка  реестра Протоколы")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrProtokoli() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -317,15 +331,14 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @AllureId("8083")
     @Owner("soldatovks")
     @ManualMember("reinform")
     @Layer("web")
     @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"ТЗ лаборатории\" ")
+    @DisplayName("Проверка  реестра ТЗ лаборатории")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrTzLabaratorii() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -357,10 +370,10 @@ public class RinRifReestrTests extends TestBase {
     @ManualMember("reinform")
     @Layer("web")
     @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"Уведомления о завершении сноса\" ")
+    @DisplayName("Проверка  реестра Уведомления о завершении сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrUvedomleniyaOzaversheniiSnosa() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -390,15 +403,14 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @AllureId("8085")
     @Owner("soldatovks")
     @ManualMember("reinform")
     @Layer("web")
     @Epic("Автотесты")
-    @DisplayName("Проверка  реестра \"Уведомления о планируемом сносе\" ")
+    @DisplayName("Проверка  реестра Уведомления о планируемом сносе")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrUvedomleniyaOplaniruemomSnose() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
 
