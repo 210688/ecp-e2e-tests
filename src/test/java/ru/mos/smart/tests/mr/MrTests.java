@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -23,7 +23,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Epic("RAYON (Мой район)")
 public class MrTests extends TestBase {
@@ -36,7 +37,7 @@ public class MrTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramInstructionRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -60,7 +61,7 @@ public class MrTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramObjRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -84,7 +85,7 @@ public class MrTests extends TestBase {
     @Test
     @AllureId("8000")
     void checkAttributesOfMrProgramObjCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -116,7 +117,7 @@ public class MrTests extends TestBase {
     @Test
     @AllureId("7999")
     void checkSwitchToMapOnMrProgramObjCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
 
         navigatorPage
                 .goToRegister();
@@ -148,7 +149,7 @@ public class MrTests extends TestBase {
 
         String createdObjectName = "Объект бытового обслуживания №" + faker.number().numberBetween(1, 100);
 
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
                 .searchAction("Запустить процесс создания объекта", navigatorPage);
 

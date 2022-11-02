@@ -8,15 +8,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.annotations.ManualMember;
+import ru.mos.smart.helpers.annotations.Layer;
+import ru.mos.smart.helpers.annotations.ManualMember;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Epic("UGD (УГД)")
 @Feature("DOCS (Реестр документов)")
@@ -40,7 +41,7 @@ public class RegistersTests extends TestBase {
             add("Результат проверки");
             add("Признак удаления");
         }};
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -66,7 +67,7 @@ public class RegistersTests extends TestBase {
             add("Дата окончания строительства");
             add("Признак удаления");
         }};
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -89,7 +90,7 @@ public class RegistersTests extends TestBase {
             add("Объект");
             add("Признак удаления");
         }};
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -116,7 +117,7 @@ public class RegistersTests extends TestBase {
             add("Статус документа");
             add("Признак удаления");
         }};
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -142,7 +143,7 @@ public class RegistersTests extends TestBase {
             add("Удален");
             add("Файл");
         }};
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -164,7 +165,7 @@ public class RegistersTests extends TestBase {
             add("Признак удаления");
             add("Файл");
         }};
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -190,7 +191,7 @@ public class RegistersTests extends TestBase {
             add("Удален");
             add("Файл");
         }};
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -224,7 +225,7 @@ public class RegistersTests extends TestBase {
         List<String> hiddenColumns = new ArrayList<String>() {{
             add("Удален");
         }};
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -251,7 +252,7 @@ public class RegistersTests extends TestBase {
             add("Удален");
             add("Файл");
         }};
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -278,7 +279,7 @@ public class RegistersTests extends TestBase {
             add("Удален");
             add("Файл");
         }};
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -300,7 +301,7 @@ public class RegistersTests extends TestBase {
             add("Признак удаления");
             add("Файл");
         }};
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage

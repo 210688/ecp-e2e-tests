@@ -8,10 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.NavigatorPage;
-import ru.mos.smart.pages.VriPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -20,9 +18,11 @@ import java.util.List;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -43,7 +43,7 @@ public class VriRegistersTests extends TestBase {
             add("Отчеты");
         }};
 
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToVri();
 
@@ -56,7 +56,7 @@ public class VriRegistersTests extends TestBase {
     @DisplayName("Поиск карточки реестра ВРИ по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("vri")})
     void searchingVriCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         step("Из боковой панели перейти в раздел ВРИ", () -> {
             $x("//span[text()='ВРИ']").shouldBe(visible, Duration.ofSeconds(10));
             $x("//span[text()='ВРИ']").click();

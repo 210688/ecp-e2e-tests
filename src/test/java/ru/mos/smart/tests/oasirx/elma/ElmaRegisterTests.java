@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -15,7 +15,8 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -29,7 +30,7 @@ public class ElmaRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("elma")})
     void openingTheRegisterElma() {
 
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
 
         step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () ->
                 $x("//span[text()='Соответствие СП (МГГТ)']").click());
@@ -56,7 +57,7 @@ public class ElmaRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("elma")})
     void searchingElmaCardByNumber() {
 
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
 
         step("Из боковой панели перейти в раздел Соответствие СП (МГГТ)", () ->
                 $x("//span[text()='Соответствие СП (МГГТ)']").click());

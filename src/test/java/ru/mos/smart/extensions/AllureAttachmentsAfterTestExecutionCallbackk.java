@@ -17,7 +17,7 @@ public class AllureAttachmentsAfterTestExecutionCallbackk implements AfterTestEx
             String sessionId = getSessionId();
             addScreenshotAs("Last screenshot");
             attachPageSource();
-            addBrowserConsoleLogs("Browser console logs", getConsoleLogs());
+            BrowserLog("Browser console logs", getConsoleLogs());
             if (isVideoOn) attachVideo(sessionId);
         }
     }

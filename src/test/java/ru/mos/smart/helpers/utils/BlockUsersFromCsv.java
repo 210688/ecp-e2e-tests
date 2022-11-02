@@ -1,4 +1,4 @@
-package ru.mos.smart.utils;
+package ru.mos.smart.helpers.utils;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

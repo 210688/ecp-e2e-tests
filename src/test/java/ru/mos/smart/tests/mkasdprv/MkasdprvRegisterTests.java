@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -18,7 +18,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
 @Epic("MKASDPRV (МКА Вывески)")
@@ -30,7 +31,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @DisplayName("Проверка атрибутивного состава реестра")
     @Tags({@Tag("stage"), @Tag("mkasdprv"), @Tag("predprod")})
     void checkingTheAttributesOfTheRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -54,7 +55,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @DisplayName("Открытие карточки реестра")
     @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkasdprv")})
     void openingRegistryCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage

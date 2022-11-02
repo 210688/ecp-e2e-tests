@@ -3,7 +3,7 @@ package ru.mos.smart.tests.ft;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
-import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -12,7 +12,8 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
 @Epic("FT (Электронная приемка по ФТ)")
@@ -25,7 +26,7 @@ public class EaistTests extends TestBase {
     @DisplayName("Проверка реестров ЕАИСТ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ft")})
     void reestrEaistCanBeOpened() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 

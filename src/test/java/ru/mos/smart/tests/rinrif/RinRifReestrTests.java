@@ -7,8 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.annotations.ManualMember;
+import ru.mos.smart.helpers.annotations.Layer;
+import ru.mos.smart.helpers.annotations.ManualMember;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -17,7 +17,8 @@ import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 public class RinRifReestrTests extends TestBase {
 
@@ -29,7 +30,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Акты проверок")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrAktsProverok() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -65,7 +66,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Все объекты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseObjects() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -104,7 +105,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Все объекты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void predosterezheniya() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().getLoginRegress(), webConfig().getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -125,7 +126,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Все объекты сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseObjectsSnos() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -159,7 +160,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Все организации")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseOrganization() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -195,7 +196,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Все решения о проверке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrVseResheniyaOproverke() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -235,7 +236,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Нарушения")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrNarusheniya() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -269,7 +270,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Постановления")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrPostanovleniya() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -303,7 +304,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Протоколы")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrProtokoli() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -338,7 +339,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра ТЗ лаборатории")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrTzLabaratorii() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -373,7 +374,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Уведомления о завершении сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrUvedomleniyaOzaversheniiSnosa() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -410,7 +411,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Уведомления о планируемом сносе")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkReestrUvedomleniyaOplaniruemomSnose() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 

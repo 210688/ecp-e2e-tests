@@ -1,12 +1,11 @@
 package ru.mos.smart.steps;
 
 import io.restassured.specification.RequestSpecification;
-import ru.mos.smart.config.ConfigHelper;
 
 import static io.restassured.RestAssured.given;
-import static ru.mos.smart.LogFilter.LogFilter.filters;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.*;
 import static ru.mos.smart.helpers.AuthorizationHelper.getAccessToken;
+import static ru.mos.smart.helpers.filter.LogFilter.filters;
 
 public class ApiSteps {
 
@@ -15,19 +14,18 @@ public class ApiSteps {
         return
                 given()
                         .filter(filters().withCustomTemplates())
-                        .baseUri(ConfigHelper.getApplicationUrl())
+                        .baseUri(getApplicationUrl())
                         .header("Authorization", "Bearer " + getAccessToken())
                         .log().uri()
                         .when();
     }
-
 
     public RequestSpecification apiRequestBasic() {
 
         return
                 given()
                         .filter(filters().withCustomTemplates())
-                        .baseUri(ConfigHelper.getWebUrl())
+                        .baseUri(getWebUrl())
                         .auth()
                         .preemptive()
                         .basic(webConfig().loginRegress(), webConfig().passwordRegress())
@@ -40,7 +38,7 @@ public class ApiSteps {
         return
                 given()
                         .filter(filters().withCustomTemplates())
-                        .baseUri(ConfigHelper.getWebUrl())
+                        .baseUri(getWebUrl())
                         .auth()
                         .preemptive()
                         .basic(webConfig().loginGeoserver(), webConfig().passwordGeoserver())

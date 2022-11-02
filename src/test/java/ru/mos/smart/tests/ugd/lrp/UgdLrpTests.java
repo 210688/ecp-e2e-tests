@@ -6,8 +6,8 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
-import ru.mos.smart.annotations.ManualMember;
+import ru.mos.smart.helpers.annotations.Layer;
+import ru.mos.smart.helpers.annotations.ManualMember;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -18,7 +18,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
 @Epic("UGD (УГД)")
@@ -31,7 +32,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToActions();
 
@@ -53,7 +54,7 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Проверка открытия формы подачи " +
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
     void openTheApplicationFormLrpOutsideOrg() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToActions();
 
@@ -76,7 +77,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     void openRegisterLrpZayavki() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 
@@ -99,7 +100,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
     void openRegisterLrpMoiZayavki() {
-         AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
 

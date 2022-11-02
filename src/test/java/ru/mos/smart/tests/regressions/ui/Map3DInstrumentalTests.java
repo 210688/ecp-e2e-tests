@@ -8,8 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.AutoMember;
-import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.helpers.annotations.AutoMember;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -18,7 +18,8 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 
 @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
@@ -31,7 +32,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Открытие приложения Цифровой двойник")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openTheTsifrovoyDvoynik() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         step("Перейти Информация - Цифровой двойник", () -> {
             navigatorPage
                     .goToMapsCD();
@@ -48,7 +49,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Проверка отображения панели слоев")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheDisplayOfLayersPanel() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToMapsCD();
 
@@ -65,7 +66,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Проверка работы поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToMapsCD();
 
@@ -81,7 +82,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfScalingTools() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         step("Проверить наличие строки адресного поиска");
         navigatorPage
                 .goToMapsCD();
@@ -98,7 +99,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToMapsCD();
 
@@ -114,7 +115,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInstruments() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToMapsCD();
 

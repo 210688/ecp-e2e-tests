@@ -1,10 +1,10 @@
 package ru.mos.smart.helpers;
 
 import io.restassured.http.ContentType;
-import ru.mos.smart.config.ConfigHelper;
 
 import static io.restassured.RestAssured.given;
-import static ru.mos.smart.LogFilter.LogFilter.filters;
+import static ru.mos.smart.config.ConfigHelper.*;
+import static ru.mos.smart.helpers.filter.LogFilter.filters;
 
 public class AuthorizationHelper {
 
@@ -20,17 +20,17 @@ public class AuthorizationHelper {
 
     public static String authorization() {
         String data = "grant_type=password" +
-                "&username=" + ConfigHelper.getLogin_services() +
-                "&password=" + ConfigHelper.getPassword_services() +
+                "&username=" + getLoginServices() +
+                "&password=" + getPasswordServices() +
                 "&client_id=app-cdp" +
-                "&client_secret=" + ConfigHelper.getClientSecret();
+                "&client_secret=" + getClientSecret();
 
         return given()
                 .filter(filters().withCustomTemplates())
                 .contentType(ContentType.URLENC)
                 .body(data)
                 .when()
-                .post(ConfigHelper.getAuthorizationURL() + "/iam/auth/realms/smart/protocol/openid-connect/token")
+                .post(getAuthorizationURL() + "/iam/auth/realms/smart/protocol/openid-connect/token")
                 .then()
                 .statusCode(200)
                 .extract().path("access_token");

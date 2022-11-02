@@ -8,9 +8,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
-import ru.mos.smart.utils.RandomUtils;
 
 import java.io.File;
 import java.util.concurrent.atomic.AtomicReference;
@@ -22,7 +22,8 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 public class DroneTests extends TestBase {
     private final String createCard = "/drone/#/app/drone/videoUpload";
@@ -34,7 +35,7 @@ public class DroneTests extends TestBase {
     @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("drone"), @Tag("createCartDrone")})
     void createCartDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         ElementsCollection calendars = $$("div.input-group.date.ng-scope > input");
         ElementsCollection materials = $$(".ng-option-label");
         ElementsCollection shooting = $$(".ng-option-label");
@@ -92,7 +93,7 @@ public class DroneTests extends TestBase {
     @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("drone")})
     void openReestrDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -110,7 +111,7 @@ public class DroneTests extends TestBase {
     @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("drone")})
     void viewCartDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage

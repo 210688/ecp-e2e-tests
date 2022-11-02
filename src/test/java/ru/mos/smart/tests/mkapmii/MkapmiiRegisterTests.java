@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.ManualMember;
+import ru.mos.smart.helpers.annotations.ManualMember;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -22,7 +22,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 public class MkapmiiRegisterTests extends TestBase {
     @Test
@@ -33,7 +34,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void checkingTheAttributesOfTheRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -70,7 +71,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void uiCardTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -131,7 +132,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void mainControlsTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -181,7 +182,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @ManualMember("innovault")
     @Feature("Выдача заявления на руки")
     void handingOverTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -218,7 +219,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @ManualMember("innovault")
     @Feature("Выдача заявления на руки")
     void handingOverPlusTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage

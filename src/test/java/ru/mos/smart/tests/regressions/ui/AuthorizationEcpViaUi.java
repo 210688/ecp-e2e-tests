@@ -7,14 +7,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.*;
 
 public class AuthorizationEcpViaUi extends TestBase {
 
@@ -28,9 +28,9 @@ public class AuthorizationEcpViaUi extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void authorizationEcpViaUi() {
 
-        AuthorizationPage.openUrlWithAuthorizationUI(webConfig().webSecureUrl(), webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationUI(getWebSecureUrl(), getLoginRegress(), getPasswordRegress());
         step("В навигаторе присутствует список Задач", () ->
-                $("#sidebar_header").should(visible));
+                $("#sidebar_heade").should(visible));
     }
 }
 

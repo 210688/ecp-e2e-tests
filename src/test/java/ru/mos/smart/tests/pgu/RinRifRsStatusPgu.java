@@ -1,19 +1,16 @@
 package ru.mos.smart.tests.pgu;
 
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.config.ConfigHelper;
+import ru.mos.smart.helpers.utils.FileUtils;
 import ru.mos.smart.tests.ApplicationTestBase;
-import ru.mos.smart.utils.FileUtils;
-
 
 import java.io.IOException;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
-import static org.assertj.core.api.Assertions.assertThat;
 import static ru.mos.smart.config.ConfigHelper.*;
 import static ru.mos.smart.helpers.AuthorizationHelper.getAccessToken;
 

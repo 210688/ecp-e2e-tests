@@ -1,5 +1,4 @@
-
-package ru.mos.smart.helpers;
+/*package ru.mos.smart.helpers;
 
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.OutputType;
@@ -32,20 +31,5 @@ public class DriverUtils {
     public static String getConsoleLogs() {
         return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}*/
+//TODO DELETE

@@ -2,7 +2,7 @@ package ru.mos.smart.api.mkapmii;
 
 import io.restassured.http.ContentType;
 import ru.mos.smart.config.ConfigHelper;
-import ru.mos.smart.utils.FileUtils;
+import ru.mos.smart.helpers.utils.FileUtils;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;

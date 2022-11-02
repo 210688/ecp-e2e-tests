@@ -1,4 +1,4 @@
-package ru.mos.smart.LogFilter;
+package ru.mos.smart.helpers.filter;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 

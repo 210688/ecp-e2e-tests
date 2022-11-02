@@ -1,4 +1,4 @@
-package ru.mos.smart.utils;
+package ru.mos.smart.helpers.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,3 +1,4 @@
+/*
 
 package ru.mos.smart.helpers;
 
@@ -15,3 +16,7 @@ public class EnvironmentHelper {
             isVideoOn = videoStorageUrl != null;
 }
 
+*/
+
+
+// TODO: DELETE

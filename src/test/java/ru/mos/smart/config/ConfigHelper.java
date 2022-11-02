@@ -4,56 +4,80 @@ import org.aeonbits.owner.ConfigFactory;
 
 public class ConfigHelper {
 
-    private static ApiConfig getConfig() {
-        return ConfigFactory.newInstance().create(ApiConfig.class, System.getProperties());
+    private static AppConfig appConfig() {
+        return ConfigFactory.newInstance().create(AppConfig.class, System.getProperties());
     }
 
     public static WebConfig webConfig() {
         return ConfigFactory.newInstance().create(WebConfig.class, System.getProperties());
     }
 
-    public static final WebConfig WEB_CONFIG = ConfigFactory.newInstance()
-            .create(WebConfig.class, System.getProperties());
+    public static String getWebUrl() {
+        return webConfig().webUrl();
+    }
+
+    public static String getWebSecureUrl() {
+        return webConfig().webSecureUrl();
+    }
 
     public static String getAuthorizationURL() {
-        return getConfig().authorizationUrl();
+        return appConfig().authorizationUrl();
     }
 
     public static String getApplicationUrl() {
-        return getConfig().applicationUrl();
-    }
-
-    public static String getWebUrl() {
-        return getConfig().webUrl();
+        return appConfig().applicationUrl();
     }
 
     public static String getClientSecret() {
-        return getConfig().clientSecret();
+        return appConfig().clientSecret();
     }
 
-    public static String getLogin_services() {
-        return getConfig().login_services();
+    public static String getLoginRegress() {
+        return webConfig().loginRegress();
     }
 
-    public static String getPassword_services() {
-        return getConfig().password_services();
+    public static String getPasswordRegress() {
+        return webConfig().passwordRegress();
     }
+
+    public static String getLoginGeoserver() {
+        return webConfig().loginGeoserver();
+    }
+
+    public static String getPasswordGeoserver() {
+        return webConfig().passwordGeoserver();
+    }
+
+    public static String getLoginServices() {
+        return appConfig().login_services();
+    }
+
+    public static String getPasswordServices() {
+        return appConfig().password_services();
+    }
+
 
     public static String getEnoList() {
-        return getConfig().enoList();
+        return appConfig().enoList();
     }
 
     public static String getDateList() {
-        return getConfig().dateList();
+        return appConfig().dateList();
     }
 
     public static String getPguSystem() {
-        return getConfig().pguSystem();
+        return appConfig().pguSystem();
     }
 
     public static String getPguForText() {
-        return getConfig().PguForText();
+        return appConfig().PguForText();
     }
+
+    public static ProjectConfig projectConfig() {
+        return ConfigFactory.newInstance()
+                .create(ProjectConfig.class, System.getProperties());
+    }
+
 }
 
 

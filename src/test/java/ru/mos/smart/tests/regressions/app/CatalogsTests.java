@@ -1,12 +1,14 @@
 package ru.mos.smart.tests.regressions.app;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Owner;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
@@ -21,8 +23,6 @@ public class CatalogsTests extends ApiBearerTestBase {
     @Layer("api")
     @Description("Запрос реестров информации")
     @DisplayName("/catalogs/source/codes [GET]")
-    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/catalogs/source/codes"),
-            @Link(name = "prod", url = "https://smart.mos.ru/catalogs/source/codes")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void catalogsSourceCodesTest() {
         ValidatableResponse response = apiSteps.apiRequestBearer()

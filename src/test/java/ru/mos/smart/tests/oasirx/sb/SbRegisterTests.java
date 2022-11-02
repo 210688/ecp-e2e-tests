@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -18,7 +18,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -30,7 +31,7 @@ public class SbRegisterTests extends TestBase {
     @DisplayName("Просмотр реестра Самострой")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sb")})
     void openingTheRegisterSb() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
 
         step("Из боковой панели перейти в раздел Самострой", () ->
                 $x("//span[text()='Самострой']").click());
@@ -52,7 +53,7 @@ public class SbRegisterTests extends TestBase {
     @DisplayName("Поиск карточки реестра Самострой по номеру")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("sbr")})
     void searchingSbCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
 
         step("Из боковой панели перейти в раздел Самострой", () -> {
             $x("//span[text()='Самострой']").should(visible, Duration.ofSeconds(10));

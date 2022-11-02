@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -20,7 +20,8 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 public class SpritTests extends TestBase {
 
@@ -33,7 +34,7 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Owner("Amidosha")
     void cardViewSprit() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToSprit();
 
@@ -60,7 +61,7 @@ public class SpritTests extends TestBase {
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void historyChangeCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
@@ -81,7 +82,7 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Feature("SPRIT (Выдача СПРИТ)")
     void newReglament() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
@@ -105,7 +106,7 @@ public class SpritTests extends TestBase {
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void process() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
@@ -127,7 +128,7 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Feature("SPRIT (Выдача СПРИТ)")
     void cardMaterialsTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToSprit();
         step("Открыть любую катрочку", () ->

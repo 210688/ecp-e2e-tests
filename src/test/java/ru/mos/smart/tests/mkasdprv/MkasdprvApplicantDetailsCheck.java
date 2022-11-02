@@ -10,13 +10,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.annotations.Layer;
 import ru.mos.smart.api.mkasdprv.Application;
+import ru.mos.smart.helpers.annotations.Layer;
+import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.pages.MkasdprvPage;
 import ru.mos.smart.pages.TasksPage;
 import ru.mos.smart.tests.TestBase;
-import ru.mos.smart.utils.RandomUtils;
 
 import java.time.Duration;
 
@@ -28,7 +28,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
 @Epic("MKASDPRV (МКА Вывески)")
@@ -47,7 +48,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -133,7 +134,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -155,7 +156,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
@@ -229,7 +230,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
 
@@ -266,7 +267,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
@@ -294,7 +295,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         Application application = new Application();
 
         application.create(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         TasksPage.openTaskByTestId(randomTestId);
         TasksPage.takeUnusedTask();
         mkasdprvPage.selectTakeToWorkRadioButton();
