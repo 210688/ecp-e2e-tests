@@ -51,7 +51,6 @@ public class NavigatorPage {
         });
     }
 
-
     public void goToMapsCD() {
         step("Открытие карты Цифровой двойник", () -> {
             open(urlCD);
@@ -66,7 +65,6 @@ public class NavigatorPage {
             $(("a[href='/ssr/chessboard/']")).click();
             switchTo().window(1);
         });
-
         return this;
     }
 

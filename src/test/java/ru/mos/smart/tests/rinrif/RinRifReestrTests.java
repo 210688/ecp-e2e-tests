@@ -9,13 +9,17 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.annotations.ManualMember;
+import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
+
+import java.util.concurrent.atomic.AtomicReference;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
@@ -97,7 +101,7 @@ public class RinRifReestrTests extends TestBase {
         });
     }
 
-/*    @Test
+    @Test
     @Owner("soldatovks")
     @ManualMember("reinform")
     @Layer("web")
@@ -105,7 +109,7 @@ public class RinRifReestrTests extends TestBase {
     @DisplayName("Проверка  реестра Все объекты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void predosterezheniya() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().getLoginRegress(), webConfig().getPasswordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -113,9 +117,11 @@ public class RinRifReestrTests extends TestBase {
         open("/rinrif/nadzor/#/app/nadzor/objectPassport/000c934a-be81-4bc3-9cfc-f850d37d1d19/common");
         $("#button-basic").click();
         $("#dropdown-basic").click();
-        $("button[class='btn btn-warning']").click();
-        $(".dl-horizontal").should(visible);
-    }*/
+        switchTo().window(1);
+        $(byText("Взять")).click();
+        //$(".modal-content").should(visible, Duration.ofSeconds(10)).
+        //$x("//button[contains(text(),'Взять')]").should(visible, Duration.ofSeconds(10)).click();
+    }
 
 
     @Test
@@ -222,12 +228,34 @@ public class RinRifReestrTests extends TestBase {
                     "Статус",
                     "ЕРКНМ"
             ));
+            //$(".search-result-table.table").$$("tr").get(RandomUtils.getRandomInt(3,11)).$$("td").get(1).$("a").click();
+            //$(".search-result-table.table").shouldBe(visible);
         });
+
         step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
+            $(".search-result-table tbody").$$("tr").shouldHave(sizeGreaterThan(0));
+            AtomicReference<String> card = new AtomicReference<>("");
+
+            step("Получаем номер существующей карточки", () -> {
+                card.set($(".search-result-table.table").$$("tr").get(RandomUtils.getRandomInt(3, 11))
+                        .$$("td").get(1).$("a").getText());
+            });
+            step("Открыть карточку Все решения о проверке", () ->
+                    $(byText(card.get())).click());
+            step("Проверить, что карточка окрывается", () ->
+                    $(byText("Решение о проверке" + card.get())).should(visible));
         });
+     /*       open("https://smart-predprod.mos.ru/rinrif/nadzor/#/app/nadzor/inspectionDecision/3be68750-6ba9-4c27-b62a-a0a6f079aaca/common");
+            $(".tab-container").$("ul").$$("li").filter(visible).shouldHave(textsInAnyOrder(
+                    "Общая информация",
+                    "Документы по итогам КНМ",
+                    "ЕРКНМ",
+                    "Профилактические мероприятия",
+                    ","*/
     }
 
+    //TODO $(".table_hover").$$("tr").get(4).$$("td").get(1).$("mdm-runtime.ng-star-inserted")
+//+ card.get())
     @Test
     @Owner("soldatovks")
     @ManualMember("reinform")

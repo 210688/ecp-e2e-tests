@@ -43,7 +43,6 @@ public class ReestrPage {
         return this;
     }
 
-
     @Step("Открытие раздела СД")
     public ReestrPage goToSdCard() {
         $(byText("СД")).click();

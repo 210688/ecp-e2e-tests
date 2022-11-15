@@ -1,7 +1,5 @@
 package ru.mos.smart.tests.cdp;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -11,10 +9,10 @@ import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
@@ -35,8 +33,7 @@ public class EcpTest extends TestBase {
 
         step("Проверить переход на страницу реестры" + reestrPage + ";", () -> {
             $(byText("Реестры"))
-                    .shouldBe(Condition.visible);
-            assertEquals(reestrPage, WebDriverRunner.url());
+                    .should(visible);
         });
     }
 }

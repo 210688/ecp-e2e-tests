@@ -47,12 +47,14 @@ public class MrTests extends TestBase {
             $(".search-form").$("button.btn-search").shouldBe(visible);
         });
         step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$(".fa.fa-bars").shouldBe(visible);
+            $("#dropdown-columns-btn").shouldBe(visible);
             $(".container-btn").$(".fa.fa-filter").shouldBe(visible);
         });
         step("Доступен список объектов", () -> {
             $("table").$$("th").shouldHave(sizeGreaterThan(1));
         });
+
+
     }
 
     @Test

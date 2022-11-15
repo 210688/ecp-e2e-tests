@@ -29,6 +29,8 @@ public class AuthorizationEcpViaUi extends TestBase {
     void authorizationEcpViaUi() {
 
         AuthorizationPage.openUrlWithAuthorizationUI(getWebSecureUrl(), getLoginRegress(), getPasswordRegress());
+        AuthorizationPage.openUrlWithAuthorizationUI(webConfig().webSecureUrl(), webConfig().loginRegress(), webConfig().passwordRegress());
+
         step("В навигаторе присутствует список Задач", () ->
                 $("#sidebar_heade").should(visible));
     }
