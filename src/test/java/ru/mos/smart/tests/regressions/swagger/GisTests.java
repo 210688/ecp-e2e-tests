@@ -17,9 +17,9 @@ public class GisTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
+    @DisplayName("Получение описания всех типов документов")
+    @Description("gis/documentTypes [GET]")
     @Feature("Gis")
-    @DisplayName("/app/gis/search/swagger-ui.html [GET]")
-    @Description("Получение описания всех типов документов")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/gis/search/swagger-ui.html#/"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/gis/search/swagger-ui.html#/")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})

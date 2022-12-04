@@ -19,8 +19,8 @@ public class MkaTests extends ApiBearerTestBase {
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Mka")
-    @DisplayName("/app/mkapmii/order/documentTypes/all [GET]")
-    @Description("Получение описания всех типов документов")
+    @DisplayName("Получение описания всех типов документов [GET]")
+    @Description("mkapmii/documentTypes [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkapmii/order/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mkapmii/order/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
@@ -37,8 +37,8 @@ public class MkaTests extends ApiBearerTestBase {
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Mka")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/mkasdprv/order/documentTypes/all [GET]")
+    @Description("/app/mkasdprv/order/documentTypes/all [GET]")
+    @DisplayName("Получение описания всех типов документов")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkasdprv/order/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mkapsdprv/order/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
@@ -55,8 +55,8 @@ public class MkaTests extends ApiBearerTestBase {
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Mka")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/mkaugdint/order/documentTypes/all [GET]")
+    @Description("/app/mkaugdint/order/documentTypes/all [GET]")
+    @DisplayName("Получение описания всех типов документов")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkaugdint/order/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mkaugdint/order/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
@@ -73,8 +73,8 @@ public class MkaTests extends ApiBearerTestBase {
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Mka")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/mkaopugd/order/documentTypes/all [GET]")
+    @Description("/app/mkaopugd/order/documentTypes/all [GET]")
+    @DisplayName("Получение описания всех типов документов")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkaopugd/order/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mkaopugd/order/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})

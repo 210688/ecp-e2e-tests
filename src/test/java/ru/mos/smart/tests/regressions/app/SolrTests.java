@@ -1,6 +1,9 @@
 package ru.mos.smart.tests.regressions.app;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Link;
+import io.qameta.allure.Links;
+import io.qameta.allure.Owner;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -17,16 +20,14 @@ public class SolrTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @Description("Получение списка ошибок конфигурации")
-    @DisplayName("/search/v1/solr/admin/errors  [GET]")
+    @DisplayName("Получение списка ошибок конфигурации")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/search/v1/solr/admin/errors"),
             @Link(name = "prod", url = "https://smart.mos.ru/search/v1/solr/admin/errors")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void ehdDictsInfoTest() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
                 .get("/search/v1/solr/admin/errors ")
-                .then()
-                .log().body();
+                .then();
 
         parameter("Code", response.extract().statusCode());
         response.statusCode(200);

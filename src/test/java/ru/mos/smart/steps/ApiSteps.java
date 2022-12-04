@@ -41,7 +41,7 @@ public class ApiSteps {
                         .baseUri(getWebUrl())
                         .auth()
                         .preemptive()
-                        .basic(webConfig().loginGeoserver(), webConfig().passwordGeoserver())
+                        .basic(getLoginGeoserver(), getPasswordGeoserver())
                         .log().uri()
                         .when();
     }

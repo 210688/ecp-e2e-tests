@@ -228,6 +228,14 @@ public class RinRifReestrTests extends TestBase {
                     "Статус",
                     "ЕРКНМ"
             ));
+            open("https://smart-predprod.mos.ru/rinrif/nadzor/#/app/nadzor/inspectionDecision/3be68750-6ba9-4c27-b62a-a0a6f079aaca/common");
+            $(".tab-container").$("ul").$$("li").filter(visible).shouldHave(textsInAnyOrder(
+                    "Общая информация",
+                    "Документы по итогам КНМ",
+                    "ЕРКНМ",
+                    "Профилактические мероприятия",
+                    " ",
+                    " "));
             //$(".search-result-table.table").$$("tr").get(RandomUtils.getRandomInt(3,11)).$$("td").get(1).$("a").click();
             //$(".search-result-table.table").shouldBe(visible);
         });

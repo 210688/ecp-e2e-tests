@@ -1,6 +1,9 @@
 package ru.mos.smart.tests.regressions.app;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Link;
+import io.qameta.allure.Links;
+import io.qameta.allure.Owner;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -17,8 +20,7 @@ public class GeoserverTests extends ApiBasicTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
-    @Description("Проверка доступности Geoserver")
-    @DisplayName("/geoserver/rest/about/system-status [GET]")
+    @DisplayName("Проверка доступности Geoserver")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/geoserver/rest/about/system-status"),
             @Link(name = "prod", url = "https://smart.mos.ru/geoserver/rest/about/system-status")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})

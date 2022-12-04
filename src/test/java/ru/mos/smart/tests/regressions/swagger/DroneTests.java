@@ -16,8 +16,8 @@ public class DroneTests extends ApiBearerTestBase {
 
     @Test
     @Layer("api")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/drone/drone/documentTypes/all [GET]")
+    @Description("drone/documentTypes [GET]")
+    @DisplayName("Получение описания всех типов документов")
     @Feature("Drone")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/drone/drone/swagger-ui.html#/"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/drone/drone/swagger-ui.html#/")})

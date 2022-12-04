@@ -18,8 +18,8 @@ public class MrTests extends ApiBearerTestBase {
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Mr")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/mr/camera/documentTypes/all [GET]")
+    @Description("mr/documentTypes [GET]")
+    @DisplayName("Получение описания всех типов документов")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/camera/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/camera/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})

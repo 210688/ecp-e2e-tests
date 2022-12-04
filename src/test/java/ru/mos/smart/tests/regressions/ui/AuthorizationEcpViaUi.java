@@ -18,7 +18,6 @@ import static ru.mos.smart.config.ConfigHelper.*;
 
 public class AuthorizationEcpViaUi extends TestBase {
 
-
     @Test
     @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
     @Feature("Меню Госуслуги и функции")
@@ -29,10 +28,8 @@ public class AuthorizationEcpViaUi extends TestBase {
     void authorizationEcpViaUi() {
 
         AuthorizationPage.openUrlWithAuthorizationUI(getWebSecureUrl(), getLoginRegress(), getPasswordRegress());
-        AuthorizationPage.openUrlWithAuthorizationUI(webConfig().webSecureUrl(), webConfig().loginRegress(), webConfig().passwordRegress());
-
         step("В навигаторе присутствует список Задач", () ->
-                $("#sidebar_heade").should(visible));
+                $("#sidebar_header").should(visible));
     }
 }
 

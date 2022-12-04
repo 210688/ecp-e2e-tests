@@ -21,15 +21,13 @@ public class CatalogsTests extends ApiBearerTestBase {
     @Test
     @Owner("SoldatovKS")
     @Layer("api")
-    @Description("Запрос реестров информации")
-    @DisplayName("/catalogs/source/codes [GET]")
+    @DisplayName("Запрос реестров информации")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void catalogsSourceCodesTest() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
                 .get("/catalogs/source/codes")
                 .then()
                 .body("$", hasItems("EHD", "ECHD"));
-
         parameter("Code", response.extract().statusCode());
         response.statusCode(200);
     }

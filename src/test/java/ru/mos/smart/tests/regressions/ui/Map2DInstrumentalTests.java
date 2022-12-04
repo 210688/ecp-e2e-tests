@@ -15,6 +15,7 @@ import ru.mos.smart.tests.TestBase;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
@@ -46,10 +47,10 @@ public class Map2DInstrumentalTests extends TestBase {
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToMaps();
-        step("Проверить наличие инструментов измерений: линейка, квадрат, многоугольник", () -> {
-            $(("button[title='Измерение расстояния']")).shouldBe(visible, Duration.ofSeconds(10));
-            $(("button[title='Измерение площади']")).shouldBe(visible, Duration.ofSeconds(10));
-            $(("button[title='Измерение периметра']")).shouldBe(visible, Duration.ofSeconds(10));
+        step("Проверить наличие инструментов измерений: Измерение расстояния, Измерение площади, Измерение периметра", () -> {
+            $(("button[tooltip-right='Измерение расстояния']")).shouldBe(visible, Duration.ofSeconds(20));
+            $(("button[tooltip-right='Измерение площади']")).shouldBe(visible, Duration.ofSeconds(20));
+            $(("button[tooltip-right='Измерение периметра']")).shouldBe(visible, Duration.ofSeconds(20));
         });
     }
 
@@ -59,12 +60,27 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description()
     @DisplayName("Проверка наличия строки адресного поиска")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    void checkingAvailabilityOfAddressSearch() {
+    void checkAvailabilityOfAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToMaps();
         step("Проверить наличие строки адресного поиска и найти слой", () -> {
             $("input[placeholder='Найти слой']").shouldBe(visible, Duration.ofSeconds(20));
-            $("input[placeholder='Поиск']").shouldBe(visible, Duration.ofSeconds(20));
+        });
+    }
+
+    @Test
+    @Owner("soldatov")
+    @Layer("web")
+    @Description()
+    @DisplayName("Проверка наличия строки поиска слоя")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    void checkAvailabilityOfLayerSearch() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToMaps();
+        step("Проверить наличие строки  поиска слоя", () -> {
+            $("input[placeholder='Найти слой']").shouldBe(visible, Duration.ofSeconds(20));
+            $("input[placeholder='Найти слой']").setValue("Аэрофотосъемка");
+            $(byText("Ортофотопланы, аэрофотосъемка")).shouldBe(visible);
         });
     }
 
@@ -77,8 +93,8 @@ public class Map2DInstrumentalTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToMaps();
         step("Проверка, что адрес находится", () -> {
-            $("input[placeholder='Поиск']").setValue("Есенинский бульвар").pressEnter();
-            //$(".global-search-results").shouldBe(visible, Duration.ofSeconds(30));
+            $("input[placeholder='Поиск']").setValue("Есенинский");
+            //$(".result.ng-star").shouldBe(visible, Duration.ofSeconds(30));
         });
     }
 
@@ -92,8 +108,10 @@ public class Map2DInstrumentalTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToMaps();
         step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
-            $((".fal.fa-plus")).shouldBe(visible);
-            $((".fal.fa-minus")).shouldBe(visible);
+            $(("button[tooltip-right='Приблизить']")).shouldBe(visible);
+            $(("button[tooltip-right='Отдалить']")).shouldBe(visible);
+/*            $(("button[tooltip-right='Приблизить']")).click();
+            $(".alt-zoom-value").shouldHave(type("10.5"));*/
         });
     }
 
@@ -107,7 +125,7 @@ public class Map2DInstrumentalTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToMaps();
         step("Проверить наличия инструмента Мое местоположение", () -> {
-            $((".fas.fa-location-arrow")).shouldBe(visible);
+            $(("button[tooltip-right='Мое местоположение']")).shouldBe(visible);
         });
     }
 
@@ -121,7 +139,7 @@ public class Map2DInstrumentalTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToMaps();
         step("Проверить наличия инструмента Первоначальная позиция", () -> {
-            $((".fas.fa-home-alt")).shouldBe(visible);
+            $(("button[tooltip-right='Первоначальная позиция']")).shouldBe(visible);
         });
     }
 }
