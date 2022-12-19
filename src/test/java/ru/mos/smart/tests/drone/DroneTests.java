@@ -22,7 +22,8 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 public class DroneTests extends TestBase {
     private final String createCard = "/drone/#/app/drone/videoUpload";
@@ -34,7 +35,7 @@ public class DroneTests extends TestBase {
     @Feature("Автотесты")
     @Tags({@Tag("drone"), @Tag("predprod"), @Tag("regres"), @Tag("createCartDrone")})
     void createCartDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         ElementsCollection calendars = $$("div.input-group.date.ng-scope > input");
         ElementsCollection materials = $$(".ng-option-label");
         ElementsCollection shooting = $$(".ng-option-label");
@@ -92,7 +93,7 @@ public class DroneTests extends TestBase {
     @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void openReestrDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -110,7 +111,7 @@ public class DroneTests extends TestBase {
     @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void viewCartDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
