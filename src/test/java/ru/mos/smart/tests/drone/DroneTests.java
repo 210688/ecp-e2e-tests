@@ -22,8 +22,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 public class DroneTests extends TestBase {
     private final String createCard = "/drone/#/app/drone/videoUpload";
@@ -33,9 +32,9 @@ public class DroneTests extends TestBase {
     @DisplayName("Создать карточку аэросъемки")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("drone"), @Tag("createCartDrone")})
+    @Tags({@Tag("drone"), @Tag("predprod"), @Tag("regres"), @Tag("createCartDrone")})
     void createCartDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         ElementsCollection calendars = $$("div.input-group.date.ng-scope > input");
         ElementsCollection materials = $$(".ng-option-label");
         ElementsCollection shooting = $$(".ng-option-label");
@@ -91,9 +90,9 @@ public class DroneTests extends TestBase {
     @DisplayName("В реестре данные аэрофотосъемки присутствуют данные")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("drone")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void openReestrDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
@@ -109,9 +108,9 @@ public class DroneTests extends TestBase {
     @DisplayName("Просмотреть карточку аэросъемки")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("drone")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
     void viewCartDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        AuthorizationPage.openUrlWithAuthorizationAPI(webConfig().loginRegress(), webConfig().passwordRegress());
         navigatorPage
                 .goToRegister();
         reestrPage
