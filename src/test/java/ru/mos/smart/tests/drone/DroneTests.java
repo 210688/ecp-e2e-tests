@@ -87,11 +87,10 @@ public class DroneTests extends TestBase {
     }
 
     @Test
-    @AllureId("7680")
     @DisplayName("В реестре данные аэрофотосъемки присутствуют данные")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("drone")})
     void openReestrDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -105,11 +104,10 @@ public class DroneTests extends TestBase {
     }
 
     @Test
-    @AllureId("7680")
     @DisplayName("Просмотреть карточку аэросъемки")
     @Epic("DRONE (Аэрофотосъемка)")
     @Feature("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("drone")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("drone")})
     void viewCartDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage

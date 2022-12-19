@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.mkapmii;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -12,7 +11,6 @@ import ru.mos.smart.tests.ApplicationTestBase;
 public class MkapmiiCreateApplicationTest extends ApplicationTestBase {
 
     @Test
-    @AllureId("5179")
     @DisplayName("Создание заявки через сваггер")
     @Epic("Автотесты")
     @AutoMember("SoldatovKS")

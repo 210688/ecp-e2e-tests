@@ -11,7 +11,7 @@ import static ru.mos.smart.helpers.AuthorizationHelper.getAccessToken;
 public class Mkapmii {
     public void create(String name) {
         step("Создаем заявление по API", () -> {
-            String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/mkapmii/mkapmii_request.txt");
+            String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/mkapmii/mkapmii_request.xml");
             //requestMessage = requestMessage.replace("{STREET}", name);
             //requestMessage = requestMessage.replace("{STREET}", name);
 
@@ -22,12 +22,11 @@ public class Mkapmii {
             given()
                     .baseUri(ConfigHelper.getApplicationUrl())
                     .header("Authorization", "Bearer " + getAccessToken())
-                    .header("Authorization", "Bearer " + getAccessToken())
                     .log().uri()
                     .contentType(ContentType.JSON)
                     .body(requestMessage)
                     .when()
-                    .post("/app/mkapmii/order/pgu/pgu_mock_request")
+                    .post("app/mkapmii/order/pgu/pgu_mock_request")
                     .then()
                     .statusCode(200);
         });

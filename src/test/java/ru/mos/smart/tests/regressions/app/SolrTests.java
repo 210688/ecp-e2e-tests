@@ -26,7 +26,7 @@ public class SolrTests extends ApiBearerTestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void ehdDictsInfoTest() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
-                .get("/search/v1/solr/admin/errors ")
+                .get("search/v1/solr/admin/errors")
                 .then();
 
         parameter("Code", response.extract().statusCode());

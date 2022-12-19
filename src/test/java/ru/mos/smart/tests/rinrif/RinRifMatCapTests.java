@@ -26,7 +26,7 @@ public class RinRifMatCapTests extends TestBase {
     @Test
     @DisplayName("Проверка реестра Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkAttributesOfRinRifMatCapRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage

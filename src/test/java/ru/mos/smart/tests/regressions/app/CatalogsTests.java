@@ -40,7 +40,7 @@ public class CatalogsTests extends ApiBearerTestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void catalogsSearchSolrCoresCountTest() {
         ValidatableResponse response = apiSteps.apiRequestBearer()
-                .get("/catalogs-search/v1/solr/cores/count")
+                .get("catalogs-search/v1/solr/cores/count")
                 .then()
                 .body("apgrcore", equalTo(0));
 

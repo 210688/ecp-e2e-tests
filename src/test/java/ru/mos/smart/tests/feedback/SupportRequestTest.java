@@ -21,14 +21,14 @@ import static ru.mos.smart.pages.ActionsPage.feedback;
 
 @Layer("web")
 @Epic("FEEDBACK (Форма обратной связи)")
-public class SupportRequest extends TestBase {
+public class SupportRequestTest extends TestBase {
 
     @Test
     @AllureId("1145")
     @Description("Данная проверка отправляет письмо в тех поддержку, " +
             "запускать на определеных средах.")
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("feedback")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regressions"), @Tag("feedback")})
     void SupportRequestForward() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage

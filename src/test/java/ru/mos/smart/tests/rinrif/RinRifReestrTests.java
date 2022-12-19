@@ -32,7 +32,7 @@ public class RinRifReestrTests extends TestBase {
     @Layer("web")
     @Epic("Автотесты")
     @DisplayName("Проверка  реестра Акты проверок")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrAktsProverok() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -68,7 +68,7 @@ public class RinRifReestrTests extends TestBase {
     @Layer("web")
     @Epic("Автотесты")
     @DisplayName("Проверка  реестра Все объекты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrVseObjects() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -130,7 +130,7 @@ public class RinRifReestrTests extends TestBase {
     @Layer("web")
     @Epic("Автотесты")
     @DisplayName("Проверка  реестра Все объекты сноса")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrVseObjectsSnos() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -164,7 +164,7 @@ public class RinRifReestrTests extends TestBase {
     @Layer("web")
     @Epic("Автотесты")
     @DisplayName("Проверка  реестра Все организации")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrVseOrganization() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -228,16 +228,6 @@ public class RinRifReestrTests extends TestBase {
                     "Статус",
                     "ЕРКНМ"
             ));
-            open("https://smart-predprod.mos.ru/rinrif/nadzor/#/app/nadzor/inspectionDecision/3be68750-6ba9-4c27-b62a-a0a6f079aaca/common");
-            $(".tab-container").$("ul").$$("li").filter(visible).shouldHave(textsInAnyOrder(
-                    "Общая информация",
-                    "Документы по итогам КНМ",
-                    "ЕРКНМ",
-                    "Профилактические мероприятия",
-                    " ",
-                    " "));
-            //$(".search-result-table.table").$$("tr").get(RandomUtils.getRandomInt(3,11)).$$("td").get(1).$("a").click();
-            //$(".search-result-table.table").shouldBe(visible);
         });
 
         step("Доступен список объектов", () -> {
@@ -253,15 +243,7 @@ public class RinRifReestrTests extends TestBase {
             step("Проверить, что карточка окрывается", () ->
                     $(byText("Решение о проверке" + card.get())).should(visible));
         });
-     /*       open("https://smart-predprod.mos.ru/rinrif/nadzor/#/app/nadzor/inspectionDecision/3be68750-6ba9-4c27-b62a-a0a6f079aaca/common");
-            $(".tab-container").$("ul").$$("li").filter(visible).shouldHave(textsInAnyOrder(
-                    "Общая информация",
-                    "Документы по итогам КНМ",
-                    "ЕРКНМ",
-                    "Профилактические мероприятия",
-                    ","*/
     }
-
     //TODO $(".table_hover").$$("tr").get(4).$$("td").get(1).$("mdm-runtime.ng-star-inserted")
 //+ card.get())
     @Test
@@ -270,7 +252,7 @@ public class RinRifReestrTests extends TestBase {
     @Layer("web")
     @Epic("Автотесты")
     @DisplayName("Проверка  реестра Нарушения")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrNarusheniya() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -304,7 +286,7 @@ public class RinRifReestrTests extends TestBase {
     @Layer("web")
     @Epic("Автотесты")
     @DisplayName("Проверка  реестра Постановления")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrPostanovleniya() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -338,7 +320,7 @@ public class RinRifReestrTests extends TestBase {
     @Layer("web")
     @Epic("Автотесты")
     @DisplayName("Проверка  реестра Протоколы")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrProtokoli() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -373,7 +355,7 @@ public class RinRifReestrTests extends TestBase {
     @Layer("web")
     @Epic("Автотесты")
     @DisplayName("Проверка  реестра ТЗ лаборатории")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrTzLabaratorii() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -408,7 +390,7 @@ public class RinRifReestrTests extends TestBase {
     @Layer("web")
     @Epic("Автотесты")
     @DisplayName("Проверка  реестра Уведомления о завершении сноса")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrUvedomleniyaOzaversheniiSnosa() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -445,7 +427,7 @@ public class RinRifReestrTests extends TestBase {
     @Layer("web")
     @Epic("Автотесты")
     @DisplayName("Проверка  реестра Уведомления о планируемом сносе")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrUvedomleniyaOplaniruemomSnose() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage

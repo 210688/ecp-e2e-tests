@@ -26,7 +26,7 @@ public class GeoserverTests extends ApiBasicTestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void GeoserverTests() {
         ValidatableResponse response = apiSteps.apiRequestBasicGeoserver()
-                .get("/geoserver/rest/about/system-status")
+                .get("geoserver/rest/about/system-status")
                 .then();
 
         parameter("Code", response.extract().statusCode());
