@@ -28,7 +28,7 @@ public class SupportRequestTest extends TestBase {
     @Description("Данная проверка отправляет письмо в тех поддержку, " +
             "запускать на определеных средах.")
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regressions"), @Tag("feedback")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("feedback")})
     void SupportRequestForward() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
