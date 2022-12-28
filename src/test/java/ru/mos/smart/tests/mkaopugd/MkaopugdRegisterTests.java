@@ -33,9 +33,8 @@ public class MkaopugdRegisterTests extends TestBase {
 
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр поручений УГД");
+                .goToRegister("Реестр поручений УГД");
+
 
         step("Реестр содержит по умолчанию колонки:", () -> {
             $x("//th[contains(text(),'№ заседания')]").shouldBe(exist);
@@ -57,9 +56,7 @@ public class MkaopugdRegisterTests extends TestBase {
     void cardOfRegisterUgd() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр поручений УГД");
+                .goToRegister("Реестр поручений УГД");
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg").setValue("88").pressEnter();

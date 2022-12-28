@@ -10,12 +10,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.api.mkasdprv.Application;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MkasdprvPage;
-import ru.mos.smart.pages.TasksPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -44,14 +41,10 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Feature("Автотесты")
     void mainControlsTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
-        MkasdprvPage mkasdprvPage = new MkasdprvPage();
-        Application application = new Application();
-
-        application.create(randomTestId);
+        mkasdprvPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
-
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         ElementsCollection dataBlocks = $$(".main-container .title");
 
         step("Проверка наличия блоков данных", () ->
@@ -131,12 +124,10 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Feature("Автотесты")
     void applicationCardTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
-        Application application = new Application();
-
-        application.create(randomTestId);
+        mkasdprvPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
 
         step("В шапке задачи нажать на номер заявления", () -> {
             $(byName("docNumber")).click();
@@ -152,13 +143,10 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Feature("Автотесты")
     void negativeDecisionTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
-        MkasdprvPage mkasdprvPage = new MkasdprvPage();
-        Application application = new Application();
-
-        application.create(randomTestId);
+        mkasdprvPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
 
         step("В поле «Причина отказа» в выпадающем списке проверить наличие 3 причин отказа:", () -> {
@@ -226,14 +214,10 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Feature("Автотесты")
     void negativeFilesTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
-        MkasdprvPage mkasdprvPage = new MkasdprvPage();
-        Application application = new Application();
-
-        application.create(randomTestId);
+        mkasdprvPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
-
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
         mkasdprvPage.selectReason();
         mkasdprvPage.addComment("ТЕСТ");
@@ -263,13 +247,10 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Feature("Автотесты")
     void refuseDocsTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
-        MkasdprvPage mkasdprvPage = new MkasdprvPage();
-        Application application = new Application();
-
-        application.create(randomTestId);
+        mkasdprvPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
         mkasdprvPage.selectReason();
         mkasdprvPage.addComment("ТЕСТ");
@@ -291,13 +272,10 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     @Epic("MKASDPRV (МКА Вывески)")
     void finishTaskTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
-        MkasdprvPage mkasdprvPage = new MkasdprvPage();
-        Application application = new Application();
-
-        application.create(randomTestId);
+        mkasdprvPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         mkasdprvPage.selectTakeToWorkRadioButton();
 
         step("Нажать Завершить задачу", () -> {

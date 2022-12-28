@@ -1,8 +1,11 @@
 package ru.mos.smart.pages;
 
+import io.qameta.allure.Step;
+
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -15,10 +18,10 @@ public class NavigatorPage {
 
     private final String reestrPage = "/main/#/app/catalogs/catalog-registers";
     private final String actionPage = "/main/#/app/actions";
-    String url2D = "/map/#/map;onMode3D=true";
-    String urlCD = "/map3d/#/map3d";
-    String spravochnik = "/main/#/app/dicts/system";
-    String task = "/main/#/app/tasks";
+    private final String eoo = "/oasirx/eoo/#/app/eoo/list";
+    private final String url2D = "/map/#/map;onMode3D=true";
+    private final String urlCD = "/map3d/#/map3d";
+    private final String spravochnik = "/main/#/app/dicts/system";
 
     public void goToActions() {
         step("Открытие рестра", () -> {
@@ -26,16 +29,24 @@ public class NavigatorPage {
         });
     }
 
-    public NavigatorPage goToRegister() {
-        step("Открытие рестра", () -> {
-            open(reestrPage);
-        });
-        return this;
+    @Step("Открытие реестра через навигатор")
+    public void goToRegister() {
+        String reestrPage = "/main/#/app/catalogs/catalog-registers";
+        open(reestrPage);
     }
 
+    @Step("Перейти в реестр {registerName}")
+    public void goToRegister(String registerName) {
+        String reestrPage = "/main/#/app/catalogs/catalog-registers";
+        open(reestrPage);
+        $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
+        $(byText(registerName)).click();
+    }
+
+    @Step("Перейти в задачи пользователя")
     public void goToTasks() {
-        step("В навигаторе открыть раздел Госуслуги и функции -> Задачи", () ->
-                open(task));
+        String task = "/main/#/app/tasks";
+        open(task);
     }
 
     public void goToSpravochnik() {
@@ -75,14 +86,12 @@ public class NavigatorPage {
         return this;
     }
 
-    public NavigatorPage goToEoo() {
-        step("В Навигаторе открыть раздел ЭОО", () ->
-                $(("a[href='/oasirx/eoo/#/app/eoo/list']")).click());
-        step("Открыт раздел Общественные обсуждения", () ->
-                $x("//div/h2[contains(text(),'Общеcтвенные обcуждения')]").shouldBe(visible));
-
-        return this;
+    @Step("В Навигаторе открыть раздел ЭОО")
+    public void goToEoo() {
+        open(eoo);
+        $(".ng-binding").shouldBe(visible);
     }
+
 
     public NavigatorPage goToItmka() {
         step("Из боковой панели перейти в раздел Управление ИТ МКА", () ->

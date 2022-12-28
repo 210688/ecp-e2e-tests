@@ -16,7 +16,7 @@ class RegisterMtskCardsTests extends TestBase {*/
         navigatorPage
                 .goToRegister();
         reestrPage
-                .open("МТСК. Реестр организаций");
+                .OpenRegister("МТСК. Реестр организаций");
 
         step("Открыть полную карточку организации \"Бийскхимстройматериалы\() -> {
             $(".form-control").setValue("ООО БИЙСКХИМСТРОЙМАТЕРИАЛЫ").pressEnter();

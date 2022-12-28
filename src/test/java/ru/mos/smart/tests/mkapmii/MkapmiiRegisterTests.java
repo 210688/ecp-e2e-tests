@@ -36,9 +36,7 @@ public class MkapmiiRegisterTests extends TestBase {
     void checkingTheAttributesOfTheRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оказания услуги по размещению инженерных изысканий");
+                .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form input").shouldBe(visible);
         });
@@ -73,10 +71,8 @@ public class MkapmiiRegisterTests extends TestBase {
     void uiCardTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оказания услуги по размещению инженерных изысканий")
-                .gotoFirstCardNoSwitchWindow();
+                .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
+        reestrPage.gotoFirstCardNoSwitchWindow();
         step("Проверить, что форма озаглавлена Карточка заявления", () ->
                 $("h1").shouldHave(text("Карточка заявления")));
         step("Открытая вкладка озаглавлена Сведения о заявлении", () ->
@@ -134,10 +130,8 @@ public class MkapmiiRegisterTests extends TestBase {
     void mainControlsTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оказания услуги по размещению инженерных изысканий")
-                .gotoFirstCardNoSwitchWindow();
+                .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
+        reestrPage.gotoFirstCardNoSwitchWindow();
 
         ElementsCollection dataBlocks = $$(".tab-content .collapsible-title");
 
@@ -184,9 +178,7 @@ public class MkapmiiRegisterTests extends TestBase {
     void handingOverTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оказания услуги по размещению инженерных изысканий");
+                .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
             $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();
@@ -221,9 +213,7 @@ public class MkapmiiRegisterTests extends TestBase {
     void handingOverPlusTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оказания услуги по размещению инженерных изысканий");
+                .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
             $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();

@@ -27,9 +27,7 @@ public class EventmanagerActionTests extends TestBase {
     void checkingEventmanagerReestr() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Подписки на уведомления о событиях");
+                .goToRegister("Подписки на уведомления о событиях");
         step("Проверить, что открывается  реестр Подписки на уведомления о событиях", () -> {
             $(byText("Подписки на уведомления о событиях")).shouldBe(visible);
         });

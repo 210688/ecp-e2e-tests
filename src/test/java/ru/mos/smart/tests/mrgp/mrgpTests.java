@@ -27,9 +27,7 @@ public class mrgpTests extends TestBase {
     void openReestr() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Перечень программ");
+                .goToRegister("Перечень программ");
 
         step("Открытие реестра Перечень программ", () -> {
             $(byText("Перечень программ")).shouldBe(visible);

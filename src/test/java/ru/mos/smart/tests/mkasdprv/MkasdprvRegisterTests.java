@@ -33,9 +33,7 @@ public class MkasdprvRegisterTests extends TestBase {
     void checkingTheAttributesOfTheRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оказания услуги Вывесок");
+                .goToRegister("Реестр оказания услуги Вывесок");
 
         step("В реестре присутствуют поля:", () -> {
             $x("//th[contains(text(),'Номер заявления')]").shouldBe(exist);
@@ -57,9 +55,7 @@ public class MkasdprvRegisterTests extends TestBase {
     void openingRegistryCard() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оказания услуги Вывесок");
+                .goToRegister("Реестр оказания услуги Вывесок");
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg").setValue("КВ-2021-1855").pressEnter();

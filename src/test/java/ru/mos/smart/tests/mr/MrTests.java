@@ -39,9 +39,7 @@ public class MrTests extends TestBase {
     void checkAttributesOfMrProgramInstructionRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Поручения Мэра по программе \"Мой район\"");
+                .goToRegister("Поручения Мэра по программе Мой район");
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form").$("input").shouldBe(visible);
             $(".search-form").$("button.btn-search").shouldBe(visible);
@@ -65,9 +63,7 @@ public class MrTests extends TestBase {
     void checkAttributesOfMrProgramObjRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Объекты по программе \"Мой район\"");
+                .goToRegister("Объекты по программе Мой район");
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form input").shouldBe(visible);
             $(".search-form").$("button.btn-search").shouldBe(visible);
@@ -89,9 +85,7 @@ public class MrTests extends TestBase {
     void checkAttributesOfMrProgramObjCard() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Объекты по программе \"Мой район\"");
+                .goToRegister("Объекты по программе \"Мой район\"");
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg").setValue("город Москва, Сиреневый бульвар, дом 30, строение 1").pressEnter();
@@ -122,9 +116,7 @@ public class MrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
 
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Объекты по программе \"Мой район\"");
+                .goToRegister("Объекты по программе \"Мой район\"");
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg")
@@ -184,9 +176,7 @@ public class MrTests extends TestBase {
 
         $(".mail-box-header").$(byText("Все задачи")).should(visible, Duration.ofSeconds(20));
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Объекты по программе \"Мой район\"");
+                .goToRegister("Объекты по программе \"Мой район\"");
 
         step("Проверить объект в реестре", () -> {
             $(".input-lg").setValue(createdObjectName).pressEnter();

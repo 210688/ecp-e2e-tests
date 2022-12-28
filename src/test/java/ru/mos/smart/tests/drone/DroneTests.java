@@ -94,9 +94,7 @@ public class DroneTests extends TestBase {
     void openReestrDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Данные аэрофотосъемки");
+                .goToRegister("Данные аэрофотосъемки");
         step("Проверить, что в реестре Данные аэрофотосъемки есть карточки", () -> {
             $(byText("Данные аэрофотосъемки")).shouldBe(visible);
             $(".search-result-table tbody").$$("tr").shouldHave(sizeGreaterThan(0));
@@ -111,10 +109,7 @@ public class DroneTests extends TestBase {
     void viewCartDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Данные аэрофотосъемки");
-
+                .goToRegister("Данные аэрофотосъемки");
         AtomicReference<String> card = new AtomicReference<>("");
 
         step("Получаем номер существующей карточки", () -> {

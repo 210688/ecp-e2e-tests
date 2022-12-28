@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -24,34 +23,37 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
-@Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("EOO (Электронные общественные обсуждения)")
 @Story("Реестр ЭОО")
 public class EooRegisterTests extends TestBase {
 
     @Test
-    @AllureId("920")
-    @DisplayName("01. Добавление ЭОО")
-    @Story("PPT (modules)")
-    @Feature("EOO (Электронные общественные обсуждения)")
-    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("eoo")})
-    void addCartEoo() {
+    @DisplayName("Просмотр реестра")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("oasirx"), @Tag("eoo")})
+    void eooRegister() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToEoo();
-        step("В открывшейся форме выбрать Добавить ЭОО", () ->
-                $(byText("Запрос на ЭОО")).click());
-        step("В открывшейся форме заполнить обязательные поля:", () -> {
-            step("Описание проекта – ввести текстовое описание, например, Проект планировки территории.");
-            $("#description-ctr").setValue("тестовая заявка");
-            step("Округ – выбрать и справочника Округов, может быть выбрано несколько вариантов, например, СЗАО, ЦАО.");
-            $("#prefect-ctr").click();
-            $(byText("САО")).click();
-            step("Район – выбрать из справочника районов, может быть выбрано несколько вариантов, например, Капотня, Замоскворечье.");
-            $("#district-ctr").click();
-            $(byText("Аэропорт")).click();
+        step("Проверить, что в форме содержится поле для поиска", () -> {
+            $(".search-form").$("input").shouldBe(visible);
+        });
+        step("Содержатся колонки: 'ЭОО в работе', 'Вcе ЭОО', 'Мои ЭОО', 'Предложения'", () -> {
+            $(".nav-tabs").shouldBe(visible);
+        });
+        step("Содержится таблица с озаглавленными столбцами", () -> {
+            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
+                    "Дата",
+                    "Номер",
+                    "Округ",
+                    "Районы",
+                    "Адрес",
+                    "Исполнитель",
+                    "Статус"
+            ));
+        });
+        step("Доступен список объектов", () -> {
+            $("table").$$("th").shouldHave(sizeGreaterThan(1));
         });
     }
 
@@ -80,7 +82,7 @@ public class EooRegisterTests extends TestBase {
                 $$(byText(card.get())).find(visible).click());
 
         step("Проверить, что карточка открылась", () ->
-                $x("//div/h2[contains(text(),'" + card.get() +  "')]").shouldBe(visible));
+                $x("//div/h2[contains(text(),'" + card.get() + "')]").shouldBe(visible));
     }
 
     @Test

@@ -9,12 +9,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.api.mkapmii.Mkapmii;
 import ru.mos.smart.helpers.annotations.ManualMember;
 import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.pages.AuthorizationPage;
-import ru.mos.smart.pages.MkapmiiPage;
-import ru.mos.smart.pages.TasksPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -39,13 +36,10 @@ public class MkapmiiApplicationTest extends TestBase {
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void mainControlsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
-        Mkapmii mkapmii = new Mkapmii();
-        MkapmiiPage mkapmiiPage = new MkapmiiPage();
-        mkapmii.create(randomTestId);
+        mkapmiiPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
-
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         ElementsCollection dataBlocks = $$(".tab-content .collapsible-title");
 
         step("Проверка наличия блоков данных", () ->
@@ -76,24 +70,11 @@ public class MkapmiiApplicationTest extends TestBase {
                 }
             }
         });
-
-        step("Проверить скачивание файлов во всех блоках", () -> {
-            ElementsCollection files = $$("cdp-ex-file");
-            for (SelenideElement file : files) {
-                file.$(byText("Скачать"))
-                        .shouldHave(attributeMatching("href", "(.*)/filestore/v1/files/(.*)?systemCode=mkapmii"));
-            }
-        });
-        step("Проверить скачивание электронной подписи во всех блоках (если есть)");
-        step("Проверить работу радиобаттонов", () -> {
-            mkapmiiPage.selectRefuseDocsRadioButton();
-            mkapmiiPage.selectTakeToWorkRadioButton();
-        });
-        step("Выставить радиобаттон Отказать в приёме документов, проверить выпадающий список причин отказа", () -> {
-            mkapmiiPage.selectRefuseDocsRadioButton();
-            $("[placeholder=Причина]").click();
-            $$(".ng-dropdown-panel-items").shouldHave(sizeGreaterThan(0));
-        });
+        taskPage.downloadCard();
+        mkapmiiPage.selectRefuseDocsRadioButton();
+        mkapmiiPage.selectTakeToWorkRadioButton();
+        mkapmiiPage.selectRefuseDocsRadioButton();
+        mkapmiiPage.otkaz();
         step("Проверить кнопку добавления/удаления причины отказа", () -> {
             mkapmiiPage.addRefuseReason();
             $$(byText("Причина отказа")).shouldHave(size(2));
@@ -119,7 +100,7 @@ public class MkapmiiApplicationTest extends TestBase {
             $(".modal-content").$$("button").findBy(text("Да")).click();
         });
         step("В списке задач открыть ту же задачу, которая была закрыта на шаге 1", () ->
-                TasksPage.openTaskByTestId(randomTestId));
+                taskPage.openTaskByTestId(randomTestId));
         step("Проверить, что внесенные данные НЕ сохранились", () ->
                 $$(".ex-small-file-box").last().shouldNotHave(text("Отказ в приеме документов")));
     }
@@ -133,22 +114,17 @@ public class MkapmiiApplicationTest extends TestBase {
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void saveAndNotFinishTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
-        Mkapmii mkapmii = new Mkapmii();
-        MkapmiiPage mkapmiiPage = new MkapmiiPage();
-
-        mkapmii.create(randomTestId);
+        mkapmiiPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
-
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         mkapmiiPage.selectRefuseDocsRadioButton();
         mkapmiiPage.selectReason();
         mkapmiiPage.createDecisionFile();
-
         step("Нажать на кнопку Сохранить без завершения задачи", () ->
                 $$("button").findBy(text("Сохранить без завершения задачи")).shouldNotHave(attribute("[disabled]")).click());
         step("Отрыть задачу, которая была закрыта на шаге 5", () ->
-                TasksPage.openTaskByTestId(randomTestId));
+                taskPage.openTaskByTestId(randomTestId));
         step("Проверить, что внесенные данные сохранены и отображаются", () ->
                 $$(".ex-small-file-box").last().shouldHave(text("Отказ в приеме документов")));
     }
@@ -162,13 +138,10 @@ public class MkapmiiApplicationTest extends TestBase {
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void applicationCardTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
-        Mkapmii mkapmii = new Mkapmii();
-
-        mkapmii.create(randomTestId);
+        mkapmiiPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
-
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         step("В шапке задачи нажать на номер заявления", () ->
                 $("[uisref='app.card']").click());
         step("Проверить что происходит переход в карточку заявления", () ->
@@ -184,16 +157,11 @@ public class MkapmiiApplicationTest extends TestBase {
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void positiveFinishTask() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
-        Mkapmii mkapmii = new Mkapmii();
-        MkapmiiPage mkapmiiPage = new MkapmiiPage();
-
-        mkapmii.create(randomTestId);
+        mkapmiiPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
-
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         mkapmiiPage.selectTakeToWorkRadioButton();
-
         step("Нажать Завершить задачу", () -> {
             $$("button").findBy(text("Завершить задачу")).shouldNotHave(attribute("[disabled]")).click();
             $$(".toast-message").findBy(text("Заявка принята в работу!")).shouldBe(visible);
@@ -210,14 +178,10 @@ public class MkapmiiApplicationTest extends TestBase {
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void unsuccessfulRefuseTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
-        Mkapmii mkapmii = new Mkapmii();
-        MkapmiiPage mkapmiiPage = new MkapmiiPage();
-
-        mkapmii.create(randomTestId);
+        mkapmiiPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
-
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         mkapmiiPage.selectRefuseDocsRadioButton();
         mkapmiiPage.addRefuseComment("Тестовый комментарий");
         mkapmiiPage.createDecisionFile("Причина отказа: значение не выбрано!");
@@ -232,14 +196,10 @@ public class MkapmiiApplicationTest extends TestBase {
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void unsuccessfulRefuseNoFileTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
-        Mkapmii mkapmii = new Mkapmii();
-        MkapmiiPage mkapmiiPage = new MkapmiiPage();
-
-        mkapmii.create(randomTestId);
+        mkapmiiPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
-
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         mkapmiiPage.selectRefuseDocsRadioButton();
         mkapmiiPage.selectReason();
         mkapmiiPage.addRefuseComment("Тестовый комментарий");
@@ -276,14 +236,10 @@ public class MkapmiiApplicationTest extends TestBase {
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void unsuccessfulRefuseEmptyFieldsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
-        Mkapmii mkapmii = new Mkapmii();
-        MkapmiiPage mkapmiiPage = new MkapmiiPage();
-
-        mkapmii.create(randomTestId);
+        mkapmiiPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        TasksPage.openTaskByTestId(randomTestId);
-        TasksPage.takeUnusedTask();
-
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
         mkapmiiPage.selectRefuseDocsRadioButton();
         step("Нажать на кнопку Завершить задачу", () ->
                 $$("button").findBy(text("Завершить задачу")).shouldNotHave(attribute("[disabled]")).click());
