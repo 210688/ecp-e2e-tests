@@ -28,9 +28,7 @@ public class FasadesRegistersTests extends TestBase {
     void openRegisterFasadesZhil() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Проекты изменений фасадов зданий (жилые)");
+                .goToRegister("Проекты изменений фасадов зданий (жилые)");
         step("Реестр открывается, присутствует список", () -> {
             $(byText("Проекты изменений фасадов зданий (жилые)")).shouldBe(visible);
         });

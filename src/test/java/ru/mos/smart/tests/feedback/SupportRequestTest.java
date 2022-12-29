@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.feedback;
 
-
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;

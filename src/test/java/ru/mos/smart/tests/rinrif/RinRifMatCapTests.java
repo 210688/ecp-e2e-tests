@@ -30,9 +30,7 @@ public class RinRifMatCapTests extends TestBase {
     void checkAttributesOfRinRifMatCapRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Заявления о выдаче акта по материнскому капиталу");
+                .goToRegister("Заявления о выдаче акта по материнскому капиталу");
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form").$("input").shouldBe(visible);
             $(".search-form").$("button.btn-search").shouldBe(visible);
@@ -54,9 +52,7 @@ public class RinRifMatCapTests extends TestBase {
         String statementNumber = "09-МК-179/21-(0)-0";
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Заявления о выдаче акта по материнскому капиталу");
+                .goToRegister("Заявления о выдаче акта по материнскому капиталу");
 
         step("Открыть любую карточку реестра", () -> {
             $("input.input-lg").setValue(statementNumber).pressEnter();

@@ -5,38 +5,39 @@ import io.qameta.allure.Step;
 
 import java.util.List;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class ReestrPage {
 
-    @Step("Открыть реестр {registerName}")
-    public ReestrPage open(String registerName) {
-        step("В поиске ввести название реестра и открыть его");
-        $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
-        $(byText(registerName)).click();
-        return this;
-
+    @Step("Проверить, что в реестре {registerName} содержится поле для поиска")
+            public void searchField(String registerName) {
+        $(".search-form").$("input").shouldBe(visible);
     }
 
-    public ReestrPage search(String registerName) {
-        $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
-        return this;
+    @Step("Проверить, что в реестре {registerName} отображаются кнопки колонки и фильтр")
+            public void columnsAndFilterButton(String registerName) {
+        $("#dropdown-columns-btn").shouldBe(visible);
+        $(".container-btn").$("button.btn-white").shouldBe(visible);
     }
 
-    @Step("Открыть карточку жителя, нажав на поле с ФИО жителя")
+    @Step("Проверить, что таблица заполненна данными")
+            public void presentDataInTable() {
+        $$(".table-striped").shouldHave(sizeGreaterThan(0));
+    }
+
+    @Step("Перейти в  карточку жителя, нажав на поле с ФИО жителя")
     public ReestrPage gotoFirstCard() {
         $("showcase-builder-runtime a").click();
         switchTo().window(1);
         return this;
     }
 
-    @Step("Открыть первую карточку реестра")
+    @Step("Перейти в первую карточку реестра")
     public ReestrPage gotoFirstCardNoSwitchWindow() {
         $("showcase-builder-runtime a").click();
 
@@ -78,14 +79,12 @@ public class ReestrPage {
     public ReestrPage checkColumns(List<String> columns, List<String> hiddenColumns) {
         SelenideElement catalog = $(".catalog-showcase-wrapper");
         checkColumns(columns);
-
         hiddenColumns.forEach(column ->
                 step("Проверка скрытой колонки " + column, () -> {
                     catalog.$(".reinform-cdp-columns-switcher #dropdown-columns-basic").$(byText(column))
                             .closest("tr").$(".cdp-checkbox").shouldNotHave(cssClass("checked"));
                     catalog.$(".search-result-table thead").$(byText(column)).shouldNotBe(visible);
                 }));
-
         return this;
     }
 }

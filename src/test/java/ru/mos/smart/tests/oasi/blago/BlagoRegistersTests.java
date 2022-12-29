@@ -29,9 +29,7 @@ public class BlagoRegistersTests extends TestBase {
     void checkingBlagoRegisters() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .search("Проекты благоустройства");
+                .goToRegister("Проекты благоустройства");
 
         step("Должны быть найдены Проекты благоустройства", () ->
                 $(".search-result-table tbody").$$("tr").shouldHave(sizeGreaterThan(0)));

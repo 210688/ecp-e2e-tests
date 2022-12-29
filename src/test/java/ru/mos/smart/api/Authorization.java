@@ -19,7 +19,10 @@ public class Authorization {
         return
                 given()
                         .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0")
+                        .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36")
                         .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+                        .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
+                        .header("Accept-Language", "ru-RU,ru;q=0.9")
                         .header("Accept-Language", "en-US,en;q=0.5")
                         .header("Connection", "close")
                         .header("DNT", "1")
@@ -72,7 +75,6 @@ public class Authorization {
                 .get(response.header("Location"))
                 .then()
                 .extract().cookies());
-
         return cookies;
     }
 

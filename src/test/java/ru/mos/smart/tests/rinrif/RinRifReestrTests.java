@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.rinrif;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
@@ -8,453 +7,354 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.helpers.annotations.ManualMember;
-import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.Arrays;
+import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.step;
+import static com.codeborne.selenide.Selenide.$;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.RegisterObjectType.*;
 
+@Layer("web")
+@Epic("Автотесты")
 public class RinRifReestrTests extends TestBase {
 
     @Test
     @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра Акты проверок")
+    @DisplayName("Проверить переход в реестр Акты проверок")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
-    void checkReestrAktsProverok() {
+    void goToRegisterAktsProverok() {
+        List<String> tableColumnList = Arrays.asList("Номер акта", "Дата акта", "Место проведения проверки", "Результат проверки", "Специалист УН", "ЕРКНМ");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("Акты проверок");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $(".search-result-table tr").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Номер акта",
-                    "Дата акта",
-                    "Место проведения проверки",
-                    "Результат проверки",
-                    "Специалист УН",
-                    "ЕРКНМ"
-            ));
-        });
-        step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
+        navigatorPage.goToRegister(AKTS_PROVEROK);
+        reestrPage.searchField(AKTS_PROVEROK);
+        reestrPage.columnsAndFilterButton(AKTS_PROVEROK);
+        rinrifPage.checkFilter(AKTS_PROVEROK, tableColumnList);
+        //rinrifPage.tableActFilter();
+        reestrPage.presentDataInTable();
     }
 
     @Test
     @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра Все объекты")
+    @DisplayName("Проверить переход в реестр Все объекты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrVseObjects() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("Все объекты");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Источник финансирования",
-                    "Номер дела",
-                    "Объект",
-                    "Застройщик ",
-                    "Почтовый адрес",
-                    "Дата начала строительства",
-                    "Дата окончания строительства",
-                    "Состояние",
-                    "Строительный надзор"
-            ));
-        });
-        step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
+        navigatorPage.goToRegister("Все объекты");
+        reestrPage.searchField("Все объекты");
+        reestrPage.columnsAndFilterButton("Все объекты");
+        rinrifPage.tableFilterAllObjects();
+        reestrPage.presentDataInTable();
     }
 
     @Test
     @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра Все объекты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
-    void predosterezheniya() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Все объекты");
-        open("/rinrif/nadzor/#/app/nadzor/objectPassport/000c934a-be81-4bc3-9cfc-f850d37d1d19/common");
-        $("#button-basic").click();
-        $("#dropdown-basic").click();
-        switchTo().window(1);
-        $(byText("Взять")).click();
-        //$(".modal-content").should(visible, Duration.ofSeconds(10)).
-        //$x("//button[contains(text(),'Взять')]").should(visible, Duration.ofSeconds(10)).click();
-    }
-
-
-    @Test
-    @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра Все объекты сноса")
+    @DisplayName("Проверить переход в карточку из реестра Все объекты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
-    void checkReestrVseObjectsSnos() {
+    void checkCardAllObjects() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("Все объекты сноса");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Дело",
-                    "Объект",
-                    "Кадастровый номер ЗУ",
-                    "Кадастровый номер здания"
-            ));
-        });
-        step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
+        navigatorPage.goToRegister("Все объекты");
+        rinrifPage.goToCard();
+        rinrifPage.checkTableHeaders("Паспорт");
     }
 
     @Test
     @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра Все организации")
+    @DisplayName("Проверить переход в реестр Все объекты сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
-    void checkReestrVseOrganization() {
+    void checkReestrAllObjectsSnos() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("Все организации");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Полное наименование организации / Руководитель",
-                    "ИНН ",
-                    "ОГРН /СНИЛС / Паспорт",
-                    "Юр. адрес / Факт. адрес",
-                    "Почтовый адрес"
-            ));
-        });
-        step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
+        navigatorPage.goToRegister("Все объекты сноса");
+        reestrPage.searchField("Все объекты сноса");
+        reestrPage.columnsAndFilterButton("Все объекты сноса");
+        rinrifPage.filterTableAllObjectsSnos();
+        reestrPage.presentDataInTable();
     }
 
     @Test
-    @AllureId("8078")
     @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра Все решения о проверке")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
-    void checkReestrVseResheniyaOproverke() {
+    @DisplayName("Проверить переход в карточку из реестра Все объекты сноса")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void checkCardAllObjectsSnos() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("Все решения о проверке");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Номер ",
-                    "Дата  ",
-                    "Объект",
-                    "Проверяемая организация",
-                    "Вид проверки",
-                    "Основание для проверки",
-                    "Период проведения",
-                    "Ответственный",
-                    "Статус",
-                    "ЕРКНМ"
-            ));
-        });
-
-        step("Доступен список объектов", () -> {
-            $(".search-result-table tbody").$$("tr").shouldHave(sizeGreaterThan(0));
-            AtomicReference<String> card = new AtomicReference<>("");
-
-            step("Получаем номер существующей карточки", () -> {
-                card.set($(".search-result-table.table").$$("tr").get(RandomUtils.getRandomInt(3, 11))
-                        .$$("td").get(1).$("a").getText());
-            });
-            step("Открыть карточку Все решения о проверке", () ->
-                    $(byText(card.get())).click());
-            step("Проверить, что карточка окрывается", () ->
-                    $(byText("Решение о проверке" + card.get())).should(visible));
-        });
+        navigatorPage.goToRegister("Все объекты");
+        rinrifPage.goToCard();
+        rinrifPage.checkTableHeaders("Паспорт");
     }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в реестр Все организации")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void checkReestrAllOrganizations() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister("Все организации");
+        reestrPage.searchField("Все организации");
+        reestrPage.columnsAndFilterButton("Все организации");
+        rinrifPage.filterTableAllOrganizations();
+        reestrPage.presentDataInTable();
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в карточку из реестра Все организации")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void checkCardAllOrganizations() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister("Все организации");
+        rinrifPage.goToCard();
+        rinrifPage.checkTableHeaders("Общая информация");
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в реестр Все решения о проверке")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void goToRegisterAllInspectionDecisions() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister("Все решения о проверке");
+        reestrPage.searchField("Все решения о проверке");
+        reestrPage.columnsAndFilterButton("Все решения о проверке");
+        rinrifPage.checkFilterCardAllInspectionDecisions();
+        reestrPage.presentDataInTable();
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в карточку из реестра Все решения о проверке")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void checkCardReestrAllInspectionDecisions() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister("Все решения о проверке");
+        rinrifPage.goToCard();
+        rinrifPage.checkTableHeaders("Общая информация");
+        //infoZu
+    }
+
     //TODO $(".table_hover").$$("tr").get(4).$$("td").get(1).$("mdm-runtime.ng-star-inserted")
 //+ card.get())
     @Test
     @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра Нарушения")
+    @DisplayName("Проверить переход в реестр Нарушения")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
-    void checkReestrNarusheniya() {
+    void goToRegisterViolations() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("Нарушения");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Номер нарушения",
-                    "Дата нарушения",
-                    "Наименование работ",
-                    "Специалист УН. ФИО"
-            ));
-        });
-        step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
+        navigatorPage.goToRegister("Нарушения");
+        reestrPage.searchField("Нарушения");
+        reestrPage.columnsAndFilterButton("Нарушения");
+        rinrifPage.checkFilterCardViolations();
+        reestrPage.presentDataInTable();
     }
 
     @Test
     @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра Постановления")
+    @DisplayName("Проверить переход в реестр Постановления")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
-    void checkReestrPostanovleniya() {
+    void goToRegisterPostanovleniya() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("Постановления");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Основание для возбуждения дела",
-                    "Организация-нарушитель",
-                    "Специалист УН. ФИО",
-                    "Статья КОАП РФ"
-            ));
-        });
-        step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
+        navigatorPage.goToRegister("Постановления");
+        reestrPage.searchField("Постановления");
+        reestrPage.columnsAndFilterButton("Постановления");
+        rinrifPage.checkFilterCardResolutions();
+        reestrPage.presentDataInTable();
     }
 
     @Test
     @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра Протоколы")
+    @DisplayName("Проверить переход в реестр Протоколы")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrProtokoli() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("Протоколы");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Дата протокола",
-                    "Место совершения нарушения",
-                    "Статья КОАП РФ",
-                    "Проверяемая организация",
-                    "Специалист УН. ФИО"
-            ));
-        });
-        step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
+        navigatorPage.goToRegister("Протоколы");
+        reestrPage.searchField("Протоколы");
+        reestrPage.columnsAndFilterButton("Протоколы");
+        $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
+                "Дата протокола",
+                "Место совершения нарушения",
+                "Статья КОАП РФ",
+                "Проверяемая организация",
+                "Специалист УН. ФИО"
+        ));
+        reestrPage.presentDataInTable();
     }
 
     @Test
     @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра ТЗ лаборатории")
+    @DisplayName("Проверить переход в реестр ТЗ лаборатории")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrTzLabaratorii() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("ТЗ лаборатории");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Дата проверки ЦЭИИС",
-                    "Срок исполнения ТЗ",
-                    "Состав работ",
-                    "Состав работ утвержден ГБУ"
-            ));
-        });
-        step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
+        navigatorPage.goToRegister("ТЗ лаборатории");
+        reestrPage.searchField("ТЗ лаборатории");
+        reestrPage.columnsAndFilterButton("ТЗ лаборатории");
+        $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
+                "Дата проверки ЦЭИИС",
+                "Срок исполнения ТЗ",
+                "Состав работ",
+                "Состав работ утвержден ГБУ"
+        ));
+        reestrPage.presentDataInTable();
     }
 
     @Test
-    @AllureId("8084")
     @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра Уведомления о завершении сноса")
+    @DisplayName("Проверить переход в реестр Уведомления о завершении сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrUvedomleniyaOzaversheniiSnosa() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("Уведомления о завершении сноса");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Статус",
-                    "Номер уведомления",
-                    "Дата уведомления",
-                    "Плановая дата",
-                    "Заявитель",
-                    "Исполнитель",
-                    "Данные ПГУ"
-            ));
-        });
-        step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
+        navigatorPage.goToRegister("Уведомления о завершении сноса");
+        reestrPage.searchField("Уведомления о завершении сноса");
+        reestrPage.columnsAndFilterButton("Уведомления о завершении сноса");
+        rinrifPage.checkFilterCardUvedomleniyaOzaversheniiSnosa();
+        reestrPage.presentDataInTable();
     }
 
     @Test
     @Owner("soldatovks")
-    @ManualMember("reinform")
-    @Layer("web")
-    @Epic("Автотесты")
-    @DisplayName("Проверка  реестра Уведомления о планируемом сносе")
+    @DisplayName("Проверить переход в карточку из реестра Уведомления о завершении сноса")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister("Уведомления о завершении сноса");
+        rinrifPage.goToCard();
+        rinrifPage.checkTableHeaders("Общая информация");
+        $("#commoninfo").shouldHave(text("Уведомление о планируемом сносе"));
+        //infoZu
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в реестр Уведомления о планируемом сносе")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
     void checkReestrUvedomleniyaOplaniruemomSnose() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
+        navigatorPage.goToRegister("Уведомления о планируемом сносе");
+        reestrPage.searchField("Уведомления о планируемом сносе");
+        reestrPage.columnsAndFilterButton("Уведомления о планируемом сносе");
+        rinrifPage.checkFilterCardUvedomleniyaOzaversheniiSnosa();
+        reestrPage.presentDataInTable();
+    }
 
-        reestrPage
-                .open("Уведомления о планируемом сносе");
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form").$("input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".container-btn").$("button.btn-default").shouldBe(visible);
-            $(".container-btn").$("button.btn-white").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $("table").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Статус",
-                    "Номер уведомления",
-                    "Дата уведомления",
-                    "Плановая дата",
-                    "Заявитель",
-                    "Исполнитель",
-                    "Данные ПГУ"
-            ));
-        });
-        step("Доступен список объектов", () -> {
-            $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в карточку из реестра Уведомления о планируемом сносе")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void checkCardReestrUvedomleniyaOplaniruemomSnose() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister("Уведомления о планируемом сносе");
+        rinrifPage.goToCard();
+        rinrifPage.checkTableHeaders("Общая информация");
+        $("#commoninfo").shouldHave(text("Прием уведомления о планируемом сносе объекта капитального строительства"));
+        //infoZu
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в реестр Внесение изменений в разрешения ввод объекта в эксплуатацию")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void goToRegisterEnteringObjects() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister("Внесение изменений в разрешения ввод объекта в эксплуатацию");
+        reestrPage.searchField("Внесение изменений в разрешения ввод объекта в эксплуатацию");
+        reestrPage.columnsAndFilterButton("Внесение изменений в разрешения ввод объекта в эксплуатацию");
+        rinrifPage.checkFilterCardUVneseniyaa();
+        reestrPage.presentDataInTable();
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void checkCardRegisterEnteringObject() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister("Внесение изменений в разрешения ввод объекта в эксплуатацию");
+        rinrifPage.goToCard();
+        rinrifPage.checkTableHeaders("Общая информация");
+        $("#commoninfo").shouldHave(text("Внесение изменений в разрешение на ввод объекта в эксплуатацию"));
+        //infoZu
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в реестр Внесение изменений в разрешения на строительство")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void goToRegisterChangeConstructionBuilding() {
+        List<String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
+                "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
+        reestrPage.searchField(CHANGE_CONSTRUCTION_BUILDING);
+        reestrPage.columnsAndFilterButton(CHANGE_CONSTRUCTION_BUILDING);
+        rinrifPage.checkFilter(CHANGE_CONSTRUCTION_BUILDING, tableColumnList);
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в карточку из реестра Внесение изменений в разрешения на строительство")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void checkCardRegisterConstructionLicense() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
+        rinrifPage.goToCard();
+        rinrifPage.checkTableHeaders("Общая информация");
+        $("#commoninfo").shouldHave(text("Внесение изменений в разрешение на строительство"));
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в реестр Разрешения на ввод объекта в эксплуатацию")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void goToRegisterObjectOperation() {
+        List<String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
+                "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister(OBJECT_OPERATION);
+        reestrPage.searchField(OBJECT_OPERATION);
+        reestrPage.columnsAndFilterButton(OBJECT_OPERATION);
+        rinrifPage.checkFilter(OBJECT_OPERATION, tableColumnList);
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в карточку из реестра Разрешения на ввод объекта в эксплуатацию")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void checkCardRegisterObjectOperation() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister(OBJECT_OPERATION);
+        rinrifPage.goToCard();
+        rinrifPage.checkTableHeaders("Общая информация");
+        $("#commoninfo").shouldHave(text("Выдача разрешения на ввод объекта в эксплуатацию"));
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в реестр Разрешения на строительство")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void goToBuildingPermitRegister() {
+        List<String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
+                "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister(BUILDING_PERMIT_REGISTER);
+        reestrPage.searchField(BUILDING_PERMIT_REGISTER);
+        reestrPage.columnsAndFilterButton(BUILDING_PERMIT_REGISTER);
+        rinrifPage.checkFilter(BUILDING_PERMIT_REGISTER, tableColumnList);
+    }
+
+    @Test
+    @Owner("soldatovks")
+    @DisplayName("Проверить переход в карточку из реестра Разрешения на строительство")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif"), @Tag("regressions")})
+    void checkCardBuildingPermitRegister() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        navigatorPage.goToRegister(BUILDING_PERMIT_REGISTER);
+        rinrifPage.goToCard();
+        rinrifPage.checkTableHeaders("Общая информация");
+        $("#commoninfo").shouldHave(text("Выдача разрешения на строительство для объектов капитального строительства"));
     }
 }

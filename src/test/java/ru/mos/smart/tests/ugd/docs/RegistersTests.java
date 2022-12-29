@@ -43,9 +43,7 @@ public class RegistersTests extends TestBase {
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("РД. Акт проверки строительства");
+                .goToRegister("РД. Акт проверки строительства");
         reestrPage
                 .checkColumns(columns);
     }
@@ -69,9 +67,7 @@ public class RegistersTests extends TestBase {
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("РД. Извещения об окончании СМР");
+                .goToRegister("РД. Извещения об окончании СМР");
         reestrPage
                 .checkColumns(columns);
     }
@@ -92,9 +88,7 @@ public class RegistersTests extends TestBase {
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("РД. Извещения о начале СМР");
+                .goToRegister("РД. Извещения о начале СМР");
         reestrPage
                 .checkColumns(columns);
     }
@@ -119,9 +113,7 @@ public class RegistersTests extends TestBase {
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("РД. Свидетельства АГР");
+                .goToRegister("РД. Свидетельства АГР");
         reestrPage
                 .checkColumns(columns);
     }
@@ -145,9 +137,7 @@ public class RegistersTests extends TestBase {
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оперативных данных документов. ГПЗУ");
+                .goToRegister("Реестр оперативных данных документов. ГПЗУ");
         reestrPage
                 .checkColumns(columns);
     }
@@ -167,9 +157,8 @@ public class RegistersTests extends TestBase {
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оперативных данных документов. Заключения Мосгоргеотреста");
+                .goToRegister("Реестр оперативных данных документов. Заключения Мосгоргеотреста");
+
         reestrPage
                 .checkColumns(columns);
     }
@@ -193,9 +182,7 @@ public class RegistersTests extends TestBase {
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оперативных данных документов. Заключения о соответствии");
+                .goToRegister("Реестр оперативных данных документов. Заключения о соответствии");
         reestrPage
                 .checkColumns(columns);
     }
@@ -227,9 +214,8 @@ public class RegistersTests extends TestBase {
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оперативных данных документов. Заключения экспертизы");
+                .goToRegister("Реестр оперативных данных документов. Заключения экспертизы");
+
         reestrPage
                 .checkColumns(columns, hiddenColumns);
     }
@@ -254,9 +240,8 @@ public class RegistersTests extends TestBase {
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оперативных данных документов. Разрешения на ввод");
+                .goToRegister("Реестр оперативных данных документов. Разрешения на ввод");
+
         reestrPage
                 .checkColumns(columns);
     }
@@ -281,9 +266,7 @@ public class RegistersTests extends TestBase {
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оперативных данных документов. Разрешения на строительство");
+                .goToRegister("Реестр оперативных данных документов. Разрешения на строительство");
         reestrPage
                 .checkColumns(columns);
     }
@@ -303,9 +286,7 @@ public class RegistersTests extends TestBase {
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр оперативных данных. Исполнительные чертежи Мосгоргеотреста");
+                .goToRegister("Реестр оперативных данных. Исполнительные чертежи Мосгоргеотреста");
         reestrPage
                 .checkColumns(columns);
     }

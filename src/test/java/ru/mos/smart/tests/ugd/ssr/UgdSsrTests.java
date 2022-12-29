@@ -42,9 +42,7 @@ public class UgdSsrTests extends TestBase {
     void ugdSsrRealEstateCatalogTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("ССР. Реестр отселяемых домов");
+                .goToRegister("ССР. Реестр отселяемых домов");
         step("Реестр содержит по умолчанию колонки:", () -> {
             $("table").$$("th").shouldHave(textsInAnyOrder(
                     "UNOM",
@@ -68,9 +66,7 @@ public class UgdSsrTests extends TestBase {
     void ugdSsrPersonCatalogTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("ССР. Реестр жителей");
+                .goToRegister("ССР. Реестр жителей");
 
         step("Реестр содержит по умолчанию колонки:", () -> {
             $("table").$$("th").shouldHave(textsInAnyOrder(
@@ -93,9 +89,8 @@ public class UgdSsrTests extends TestBase {
     void ugdSsrCipCatalog() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("ССР. Реестр центров информирования по переселению жителей");
+                .goToRegister("ССР. Реестр центров информирования по переселению жителей");
+
 
         step("Реестр содержит по умолчанию колонки:", () -> {
             $("table").$$("th").shouldHave(textsInAnyOrder(
@@ -140,10 +135,8 @@ public class UgdSsrTests extends TestBase {
     void checkOpenReestrSsr() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("ССР. Реестр жителей")
-                .gotoFirstCard();
+                .goToRegister("ССР. Реестр жителей");
+        reestrPage.gotoFirstCard();
 
         step("Отображается просмотровая форма карточки жителя со следующими вкладками: ", () -> {
             step("Общая информация, в которую входят вкладки:", () -> {
@@ -206,9 +199,7 @@ public class UgdSsrTests extends TestBase {
     void administrationWorkingDaysTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Администрирование рабочих дней помощи в переезде");
+                .goToRegister("Администрирование рабочих дней помощи в переезде");
 
         step("Отображается реестр Администрирование рабочих дней помощи в переезде", () -> {
             $("h2[_ngcontent-c4]").shouldHave(text("Администрирование рабочих дней помощи в переезде"));
@@ -224,9 +215,7 @@ public class UgdSsrTests extends TestBase {
     void shippingApplicationTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр заявлений на помощь в переезде");
+                .goToRegister("Реестр заявлений на помощь в переезде");
 
         step("Отображается реестр Реестр заявлений на помощь в переезде", () -> {
             $("h2[_ngcontent-c4]").shouldHave(text("Реестр заявлений на помощь в переезде"));
@@ -241,11 +230,8 @@ public class UgdSsrTests extends TestBase {
     void reestrSigningTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-
-        reestrPage
-                .open("ССР. Реестр жителей")
-                .gotoFirstCard();
+                .goToRegister("ССР. Реестр жителей");
+        reestrPage.gotoFirstCard();
         personalCard
                 .gotoTab("Возможности")
                 .openCapability("Внести сведения о подписании договора")
@@ -277,10 +263,8 @@ public class UgdSsrTests extends TestBase {
     void keysIssuanceTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("ССР. Реестр жителей")
-                .gotoFirstCard();
+                .goToRegister("ССР. Реестр жителей");
+        reestrPage.gotoFirstCard();
         personalCard
                 .gotoTab("Возможности")
                 .openCapability("Внести сведения о выдаче ключей от новой квартиры")
@@ -305,10 +289,8 @@ public class UgdSsrTests extends TestBase {
     void apartmentsVacatingTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("ССР. Реестр жителей")
-                .gotoFirstCard();
+                .goToRegister("ССР. Реестр жителей");
+        reestrPage.gotoFirstCard();
         personalCard
                 .gotoTab("Возможности")
                 .openCapability("Внести сведения об освобождении квартиры");
@@ -448,9 +430,7 @@ public class UgdSsrTests extends TestBase {
     void commissionInspectionRegisterTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        reestrPage
-                .open("Реестр заявлений на устранение строительных дефектов");
+                .goToRegister("Реестр заявлений на устранение строительных дефектов");
 
         step("Найти и открыть реестр Реестр заявлений на устранение строительных дефектов", () -> {
             $("h2").shouldHave(text("Реестр заявлений на устранение строительных дефектов"));
