@@ -10,6 +10,7 @@ import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
+import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("Проверка доступности Swagger приложений")
 public class MrTests extends ApiBearerTestBase {
@@ -22,9 +23,9 @@ public class MrTests extends ApiBearerTestBase {
     @DisplayName("Получение описания всех типов документов")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/camera/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/camera/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void mrCameraTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("/app/mr/camera/documentTypes/all")
                 .then()
                 .log().body();
@@ -41,9 +42,9 @@ public class MrTests extends ApiBearerTestBase {
     @DisplayName("/app/mr/link/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/link/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/link/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void mrLinkTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("/app/mr/link/documentTypes/all")
                 .then()
                 .log().body();
@@ -60,9 +61,9 @@ public class MrTests extends ApiBearerTestBase {
     @DisplayName("/app/mr/meeting/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/meeting/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/meeting/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void mrMeetingTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("/app/mr/meeting/documentTypes/all")
                 .then()
                 .log().body();
@@ -79,9 +80,9 @@ public class MrTests extends ApiBearerTestBase {
     @DisplayName("/app/mr/program/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/program/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/program/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void mrProgramTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("/app/mr/program/documentTypes/all")
                 .then()
                 .log().body();

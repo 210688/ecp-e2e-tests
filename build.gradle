@@ -10,10 +10,11 @@ repositories {
     maven {
         url "https://repo-mirror.mos.ru/repository/maven-central/"
     }
+    mavenCentral()
 }
 
 def allureVersion = '2.16.0',
-    selenideVersion = '5.25.0',
+    selenideVersion = '5.25.0', //5.25.0
     junitVersion = '5.8.1'
 
 allure {
@@ -43,7 +44,8 @@ dependencies {
             'org.slf4j:slf4j-api:1.7.32',
             'org.jsoup:jsoup:1.14.2',
             'com.fasterxml.jackson.core:jackson-databind:2.11.3',
-            'com.github.javafaker:javafaker:1.0.2')
+            'com.github.javafaker:javafaker:1.0.2',
+            'com.approvaltests:approvaltests-util:18.5.0')
 }
 
 tasks.withType(JavaCompile) {
@@ -51,9 +53,9 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
-    if (System.getProperty("environment") == null){
+    if (System.getProperty("environment") == null) {
         System.setProperty("environment", "predprod")
-}
+    }
     systemProperties(System.getProperties())
     useJUnitPlatform()
 
@@ -95,6 +97,12 @@ task stage(type: Test) {
 task regressing(type: Test) {
     useJUnitPlatform {
         includeTags 'regressions'
+    }
+}
+
+task regressionsProd(type: Test) {
+    useJUnitPlatform {
+        includeTags 'regressionsProd'
     }
 }
 

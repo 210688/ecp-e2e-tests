@@ -28,7 +28,7 @@ public class EaistTests extends TestBase {
     void reestrEaistCanBeOpened() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
+                .goToRegister("ЕАИСТ");
 
         step("В поисковой строке ввести ЕАИСТ", () -> {
             $(byName("candidateSearchValue")).setValue("ЕАИСТ").pressEnter();

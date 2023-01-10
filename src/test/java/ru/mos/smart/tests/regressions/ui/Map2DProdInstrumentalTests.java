@@ -23,13 +23,13 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Epic("Регрессионные тесты для проверки базового функционала")
 @Feature("Базовый функционал 2D")
-public class Map2DInstrumentalTests extends TestBase {
+public class Map2DProdInstrumentalTests extends TestBase {
 
     @Test
     @Owner("Soldatov")
     @Layer("web")
     @DisplayName("Переход на карту")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionsProd")})
     void goToMaps() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();
@@ -40,11 +40,13 @@ public class Map2DInstrumentalTests extends TestBase {
     @Owner("Soldatov")
     @Layer("web")
     @DisplayName("Наличие инструментов измерений на карте 2D")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionsProd")})
     void checkAvailabilityInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();
-        mapsPage.checkInstruments();
+        $("button[title='Измерение расстояния']").shouldBe(visible, Duration.ofSeconds(20));
+        $("button[title='Измерение площади']").shouldBe(visible, Duration.ofSeconds(20));
+        $("button[title='Измерение периметра']").shouldBe(visible, Duration.ofSeconds(20));
     }
 
     @Test
@@ -52,11 +54,11 @@ public class Map2DInstrumentalTests extends TestBase {
     @Layer("web")
     @Description()
     @DisplayName("Наличие строки адресного поиска на карте 2D")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionsProd")})
     void checkAvailabilityAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();
-        mapsPage.checkAddressSearch();
+        $("input[placeholder='Поиск']").shouldBe(visible);
     }
 
     @Test
@@ -64,7 +66,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Layer("web")
     @Description()
     @DisplayName("Проверка наличия строки поиска слоя")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionsProd")})
     void checkAvailabilityOfLayerSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();
@@ -76,10 +78,10 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @Owner("Soldatovks")
+    @Owner("Soldatov")
     @Layer("web")
     @DisplayName("Проверка работы поиска в адресной строке")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionsProd")})
     void checkingAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();
@@ -93,41 +95,41 @@ public class Map2DInstrumentalTests extends TestBase {
     @Layer("web")
     @Description()
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionsProd")})
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();
         step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
-            $(("button[tooltip-right='Приблизить']")).shouldBe(visible);
-            $(("button[tooltip-right='Отдалить']")).shouldBe(visible);
+            $("div[title='Приблизить']").shouldBe(visible);
+            $("div[title='Отдалить']").shouldBe(visible);
         });
     }
 
     @Test
-    @Owner("Soldatov")
+    @Owner("soldatov")
     @Layer("web")
     @Description()
     @DisplayName("Проверка наличия инструмента Мое местоположение")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionsProd")})
     void checkingAvailabilityOfMyLocationTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();
         step("Проверить наличия инструмента Мое местоположение", () -> {
-            $(("button[tooltip-right='Мое местоположение']")).shouldBe(visible);
+            $((".fa-location-arrow")).shouldBe(visible);
         });
     }
 
     @Test
-    @Owner("Soldatov")
+    @Owner("soldatov")
     @Layer("web")
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionsProd")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();
         step("Проверить наличия инструмента Первоначальная позиция", () -> {
-            $(("button[tooltip-right='Первоначальная позиция']")).shouldBe(visible);
+            $((".fa-home-alt")).shouldBe(visible);
         });
     }
 }

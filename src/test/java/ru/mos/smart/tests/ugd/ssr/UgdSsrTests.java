@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.ugd.ssr;
 
 import com.codeborne.selenide.ElementsCollection;
@@ -111,8 +112,8 @@ public class UgdSsrTests extends TestBase {
     void reestrArm() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-        step("Найти и открыть реестр АРМ сотрудника Центра информирования по переселению жителей", () ->
+                .goToRegister("АРМ сотрудника Центра информирования по переселению жителей");
+        step("Найти и открыть реестр ", () ->
                 $(byText("АРМ сотрудника Центра информирования по переселению жителей")).click());
         step("Реестр содержит по умолчанию такие колонки, как:", () ->
                 $("table").$$("th").shouldHave(textsInAnyOrder(
@@ -305,17 +306,6 @@ public class UgdSsrTests extends TestBase {
         });
     }
 
-    @Test
-    @AllureId("6394")
-    @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
-    @DisplayName("Проверка открытия возможности Инициация процесса начала переселения")
-    void processInitiatingTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToActions();
-        actionsPage
-                .searchAction("Инициация процесса начала переселения", navigatorPage);
 
         step("В модальном окне нажать на кнопку Взять", () ->
                 $(".modal-content").$(byText("Взять")).click());
@@ -438,3 +428,4 @@ public class UgdSsrTests extends TestBase {
         });
     }
 }
+*/

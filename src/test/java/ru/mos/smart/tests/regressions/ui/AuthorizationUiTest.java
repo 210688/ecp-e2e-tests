@@ -3,6 +3,7 @@ package ru.mos.smart.tests.regressions.ui;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -11,25 +12,20 @@ import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.*;
 
-public class AuthorizationEcpViaUi extends TestBase {
+public class AuthorizationUiTest extends TestBase {
 
     @Test
-    @Epic("Регрессионные тесты для проверки базового функционала после обновления релизов")
+    @Epic("Регрессионные тесты для проверки базового функционала")
     @Feature("Меню Госуслуги и функции")
     @Owner("soldatovks")
     @Layer("web")
-    @DisplayName("Проверка авторизации через UI")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @DisplayName("Проверить авторизацию через UI")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regressionsProd")})
+    @Step("Проверить авторизацию через UI")
     void authorizationEcpViaUi() {
-
         AuthorizationPage.openUrlWithAuthorizationUI(getWebSecureUrl(), getLoginRegress(), getPasswordRegress());
-        step("В навигаторе присутствует список Задач", () ->
-                $("#sidebar_header").should(visible));
+        navigatorPage.checkPageTask();
     }
 }
-

@@ -30,8 +30,8 @@ class CreateNotificationProjectTests extends TestBase {
     @DisplayName("Проверка доступности формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
     void checkingNotificationSubmissionForm() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToActions();
+        actionsPage
+                .goToActions("Направить новое уведомление ОАТИ о проведении работ");
 
         step("Выбрать операцию Направить новое уведомление ОАТИ о проведении работ", () -> {
             $(byName("common")).setValue("Направить новое уведомление ОАТИ о проведении работ");

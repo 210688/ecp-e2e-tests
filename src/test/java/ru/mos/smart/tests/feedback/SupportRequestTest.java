@@ -16,7 +16,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.*;
-import static ru.mos.smart.pages.ActionsPage.feedback;
 
 @Layer("web")
 @Epic("FEEDBACK (Форма обратной связи)")
@@ -31,7 +30,7 @@ public class SupportRequestTest extends TestBase {
     void SupportRequestForward() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
-                .searchAction(feedback, navigatorPage);
+                .goToActions("Инициировать обращение в техническую поддержку");
 
         step("Заполнение поля Тип обращения", () -> {
             $x("//input[@role='combobox']").click();

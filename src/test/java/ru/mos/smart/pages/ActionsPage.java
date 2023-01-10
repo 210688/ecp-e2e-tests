@@ -2,13 +2,11 @@ package ru.mos.smart.pages;
 
 import io.qameta.allure.Step;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
-import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static io.qameta.allure.Allure.step;
+import static com.codeborne.selenide.Selenide.open;
+import static ru.mos.smart.data.UrlObjectType.ACTIONS_URL;
 
 /**
  * Страница Возможности
@@ -19,24 +17,10 @@ public class ActionsPage {
             actionName = "Создать ЭОО",
             feedback = "Инициировать обращение в техническую поддержку";
 
-    // Поиск и выбор возможности по наименованию. Можно добавлять свои.
-    @Step("Выбор возможности {action}")
-    public ActionsPage searchAction(String actionName, NavigatorPage navigatorPage) {
-        navigatorPage
-                .goToActions();
-
-        step("Ввод наименования возможности в поиске", () -> {
-            $(byName("common"))
-                    .should(visible, Duration.ofSeconds(10)).setValue(actionName);
-        });
-
-        step("Найти", () ->
-                $(withText("Найти")).click());
-
-        step("Выбор найденной возможности в списке", () ->
-                $(withText(actionName))
-                        .should(visible, Duration.ofSeconds(10)).click());
-
-        return this;
+    @Step("Переход в меню Возможности {actionName}")
+    public void goToActions(String actionName) {
+        open(ACTIONS_URL);
+        $(byName("common")).setValue(actionName);
+        $(byText(actionName)).click();
     }
 }

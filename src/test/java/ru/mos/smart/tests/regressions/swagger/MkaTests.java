@@ -10,6 +10,7 @@ import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
+import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("Проверка доступности Swagger приложений")
 @Feature("Mka")
@@ -23,9 +24,9 @@ public class MkaTests extends ApiBearerTestBase {
     @Description("mkapmii/documentTypes [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkapmii/order/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mkapmii/order/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void mkapmiiOrderTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("/app/mkapmii/order/documentTypes/all")
                 .then();
 
@@ -41,9 +42,9 @@ public class MkaTests extends ApiBearerTestBase {
     @DisplayName("Получение описания всех типов документов")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkasdprv/order/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mkapsdprv/order/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void mkasdprvOrderTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("/app/mkasdprv/order/documentTypes/all")
                 .then();
 
@@ -59,9 +60,9 @@ public class MkaTests extends ApiBearerTestBase {
     @DisplayName("Получение описания всех типов документов")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkaugdint/order/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mkaugdint/order/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void mkaugdintOrderTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("/app/mkaugdint/order/documentTypes/all")
                 .then();
 
@@ -77,9 +78,9 @@ public class MkaTests extends ApiBearerTestBase {
     @DisplayName("Получение описания всех типов документов")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkaopugd/order/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mkaopugd/order/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void mkaopugdOrderTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("/app/mkaopugd/order/documentTypes/all")
                 .then();
 

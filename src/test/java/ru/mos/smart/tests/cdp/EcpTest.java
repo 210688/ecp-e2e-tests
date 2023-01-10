@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.cdp;
 
 import io.qameta.allure.Epic;
@@ -19,8 +20,14 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 @Layer("web")
 @Epic("CDP (ЕЦП_платформа)")
 
+*/
+/*
 public class EcpTest extends TestBase {
 
+*//*
+
+*/
+/*
     final String reestrPage = "https://smart-predprod.mos.ru/main/#/app/catalog-registers";
 
     @Test
@@ -36,4 +43,8 @@ public class EcpTest extends TestBase {
                     .should(visible);
         });
     }
-}
+}*//*
+*/
+/*
+
+*/

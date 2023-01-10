@@ -94,7 +94,7 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         });
         step("Проверить, что после удаления файла отображается область с возможностью загрузки нового файла, добавить новый файл", () -> {
             $("cdp-ex-file-manager.to-check-File").shouldBe(visible);
-            mkasdprvPage.uploadDecisionFile("files_for_tests/doc.docx");
+            mkasdprvPage.uploadDecisionFile("data/doc.docx");
             $("[title='doc.docx']").shouldBe(visible);
             $$("button").findBy(text("Подписать и завершить задачу")).shouldBe(visible);
             mkasdprvPage.deleteDecisionFile();
@@ -187,19 +187,19 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         step("После удаления файла проверить, что можно загрузить файл решения в расширении pdf, doc(x)", () -> {
             mkasdprvPage.deleteDecisionFile();
             $("cdp-ex-file-manager.to-check-File").shouldHave(text("Загрузить файл"));
-            mkasdprvPage.uploadDecisionFile("files_for_tests/doc.docx");
+            mkasdprvPage.uploadDecisionFile("data/doc.docx");
             $("[title='doc.docx']").shouldBe(visible);
             mkasdprvPage.deleteDecisionFile();
             $("[title='doc.docx']").shouldNotBe(visible);
 
             $("cdp-ex-file-manager.to-check-File").shouldHave(text("Загрузить файл"));
-            mkasdprvPage.uploadDecisionFile("files_for_tests/pdf.pdf");
+            mkasdprvPage.uploadDecisionFile("data/pdf.pdf");
             $("[title='pdf.pdf']").shouldBe(visible);
             mkasdprvPage.deleteDecisionFile();
             $("[title='pdf.pdf']").shouldNotBe(visible);
 
             $("cdp-ex-file-manager.to-check-File").shouldHave(text("Загрузить файл"));
-            mkasdprvPage.uploadDecisionFile("files_for_tests/doc.doc");
+            mkasdprvPage.uploadDecisionFile("data/doc.doc");
             $("[title='doc.doc']").shouldBe(visible);
             mkasdprvPage.deleteDecisionFile();
             $("[title='doc.doc']").shouldNotBe(visible);
@@ -227,14 +227,14 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
         step("Проверить, что после удаления файла отображается область с возможностью загрузки нового файла, добавить новый файл", () ->
                 $("cdp-ex-file-manager.to-check-File").shouldHave(text("Загрузить файл")));
         step("Загрузить файл с расширением pdf, doc(x)", () -> {
-            mkasdprvPage.uploadDecisionFile("files_for_tests/pdf.pdf");
+            mkasdprvPage.uploadDecisionFile("data/pdf.pdf");
             $("[title='pdf.pdf']").shouldBe(visible);
             mkasdprvPage.deleteDecisionFile();
             $("[title='pdf.pdf']").shouldNotBe(visible);
 
         });
         step("Загрузить файл с расширением не pdf, doc(x)", () -> {
-            mkasdprvPage.uploadDecisionFile("files_for_tests/bad.file");
+            mkasdprvPage.uploadDecisionFile("data/bad.file");
             $$(".toast-message").findBy(text("не загружен!")).shouldBe(visible);
         });
     }

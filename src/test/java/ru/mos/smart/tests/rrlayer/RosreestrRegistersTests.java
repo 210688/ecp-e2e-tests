@@ -28,9 +28,9 @@ public class RosreestrRegistersTests extends TestBase {
     void openRosreestrZemUch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
+                .goToRegister("Росреестр. Земельные участки");
 
-        step("В списке реестров найти и открыть Росреестр. Земельные участки", () -> {
+        step("В списке реестров найти и открыть ", () -> {
             $(byName("candidateSearchValue")).setValue("Росреестр. Земельные участки").pressEnter();
             $(byLinkText("Росреестр. Земельные участки")).click();
         });
