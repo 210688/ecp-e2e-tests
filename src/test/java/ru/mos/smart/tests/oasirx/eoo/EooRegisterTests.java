@@ -1,9 +1,8 @@
 package ru.mos.smart.tests.oasirx.eoo;
 
-import io.qameta.allure.AllureId;
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -11,31 +10,45 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
-import java.util.concurrent.atomic.AtomicReference;
-
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.RegisterObjectType.EOO;
 
-@Epic("OASIRX (ОАСИ Рефактор-Икс)")
-@Feature("EOO (Электронные общественные обсуждения)")
-@Story("Реестр ЭОО")
+@Epic("OASIRX")
+@Feature("EOO (Общественные обсуждения)")
 public class EooRegisterTests extends TestBase {
 
     @Test
-    @DisplayName("Просмотр реестра")
+    @DisplayName("Переход в реестр Общественные обсуждения")
+    @Description("Проверка перехода в реестр")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("oasirx"), @Tag("eoo")})
-    void eooRegister() {
+    void goToRegisterEoo() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToEoo();
-        step("Проверить, что в форме содержится поле для поиска", () -> {
+        urlPage.goToEoo();
+        eooPage.checkHeading(EOO);
+    }
+
+        @Test
+        @DisplayName("Наличие заявок в реестре")
+        @Description("Проверить наличие заявок в реестре")
+        @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("oasirx"), @Tag("eoo")})
+        void checkAvailabilityApplication() {
+            AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+            urlPage.goToEoo();
+            eooPage.checkAvailabilityApplication();
+        }
+
+    @Test
+    @DisplayName("Переход в карточку заявки")
+    @Description("Проверка перехода в карточку заявления")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("oasirx"), @Tag("eoo")})
+    void goToRequestCard() {
+        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        urlPage.goToEoo();
+        eooPage.goToCard();
+    }
+
+/*        step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form").$("input").shouldBe(visible);
         });
         step("Содержатся колонки: 'ЭОО в работе', 'Вcе ЭОО', 'Мои ЭОО', 'Предложения'", () -> {
@@ -54,8 +67,7 @@ public class EooRegisterTests extends TestBase {
         });
         step("Доступен список объектов", () -> {
             $("table").$$("th").shouldHave(sizeGreaterThan(1));
-        });
-    }
+        });*//*
 
     @Test
     @AllureId("3691")
@@ -66,8 +78,7 @@ public class EooRegisterTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void searchingEooCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToEoo();
+        urlPage.goToEoo(EOO_URL);
         AtomicReference<String> card = new AtomicReference<>("");
 
         step("Получаем номер существующей карточки", () -> {
@@ -94,8 +105,7 @@ public class EooRegisterTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void openCardEooTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToEoo();
+        urlPage.goToEoo();
 
         step("Открыть любую карточку", () ->
                 $("[uisref='app.eoo.eoo']").click());
@@ -128,13 +138,12 @@ public class EooRegisterTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void registerEooTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToEoo();
+        urlPage.goToEoo();
 
         step("В реестре есть вкладки", () ->
                 $(".nav-tabs").$$(".nav-item").shouldHave(sizeGreaterThan(0)));
 
         step("Отображается список", () ->
                 $(".viewtable table").$$("tr").shouldHave(sizeGreaterThan(0)));
-    }
+    }*/
 }

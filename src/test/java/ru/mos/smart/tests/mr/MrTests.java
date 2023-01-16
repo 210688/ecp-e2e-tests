@@ -145,7 +145,7 @@ public class MrTests extends TestBase {
 
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
-                .searchAction("Запустить процесс создания объекта", navigatorPage);
+                .goToActions("Запустить процесс создания объекта");
 
         step("В открывшемся окне (Вы действительно хотите запустить процесс по созданию объекта?) выбрать ОК", () ->
                 $(".form-group").$(".btn-primary").should(visible, Duration.ofSeconds(10)).click());

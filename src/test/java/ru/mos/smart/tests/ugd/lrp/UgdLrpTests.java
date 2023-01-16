@@ -33,14 +33,10 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToActions();
-
-        step("Найти и выбрать операцию Подать заявку на участие в конкурсе ЛРП", () -> {
+        actionsPage
+                .goToActions("Подать заявку на участие в конкурсе ЛРП");
             $(".form-control").setValue("Подать заявку на участие в конкурсе ЛРП").pressEnter();
             $x("//span[contains(text(),'Подать заявку на участие в конкурсе ЛРП')]").click();
-        });
-
         step("Проверка наличия вкладок", () -> {
             $(byText("Выбор участника конкурса")).shouldBe(visible);
             $(byText("Сведения об участнике конкурса")).shouldBe(visible);
@@ -55,8 +51,8 @@ class UgdLrpTests extends TestBase {
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
     void openTheApplicationFormLrpOutsideOrg() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToActions();
+        actionsPage
+                .goToActions("Подать заявку на участие в конкурсе ЛРП");
 
         step("Найти и выбрать операцию Подать заявку на участие в конкурсе ЛРП за стороннюю организацию", () -> {
             $(".form-control").setValue("Подать заявку на участие в конкурсе ЛРП за стороннюю организацию")
@@ -78,8 +74,8 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     void openRegisterLrpZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister();
+        actionsPage
+                .goToActions("Подать заявку на участие в конкурсе ЛРП");
 
         step("Найти и открыть реестр Заявки на участие в конкурсе ЛРП", () -> {
             $(byName("candidateSearchValue")).setValue("Заявки на участие в конкурсе ЛРП").pressEnter();
@@ -102,13 +98,9 @@ class UgdLrpTests extends TestBase {
     void openRegisterLrpMoiZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
-
-        step("Найти и открыть реестр Мои заявки на участие в конкурсе ЛРП", () -> {
+                .goToRegister("Мои заявки на участие в конкурсе ЛРП");
             $(byName("candidateSearchValue")).setValue("Мои заявки на участие в конкурсе ЛРП").pressEnter();
             $x("//span[contains(text(),'Мои заявки на участие в конкурсе ЛРП')]").click();
-        });
-
         step("Открыт реестр Мои заявки на участие в конкурсе ЛРП", () -> {
             $x("//h2[contains(text(),'Мои заявки на участие в конкурсе ЛРП')]").click();
             //TODO добавить проверку

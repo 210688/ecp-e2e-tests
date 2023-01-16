@@ -1,6 +1,7 @@
 package ru.mos.smart.pages;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import ru.mos.smart.helpers.utils.RandomUtils;
@@ -8,28 +9,94 @@ import ru.mos.smart.helpers.utils.RandomUtils;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.*;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 /**
- * Описание реестров RinRif.
+ * Описание EOO (Общественные обсуждения).
  */
 
-public class RinrifPage {
+public class EooPage {
 
-    ElementsCollection tableFieldData = $$(".table-striped");
-    ElementsCollection cardHeaders = $$("tabset.tab-container  li");
+    private final ElementsCollection requisitionsInTables = $$(".documents-table tr");
+    private final SelenideElement headings = $(".ng-binding").as("Заголовок");
+    private final SelenideElement viewForm = $(".viewform");
     ElementsCollection tableHeaders = $$("table th");
-    ElementsCollection searchResultTable = $$("table.search-result-table tr");
+    //String linkName = requisitionsInTables.get(RandomUtils.getRandomInt(3, 6)).$$("td").get(1).$("a").getAttribute("href");
+
+    private SelenideElement getLinkElement() {
+        return requisitionsInTables.get(RandomUtils.getRandomInt(3, 5)).$$("td").get(1).$("a");
+    }
+
+    @Step("Проверить открытие реестра {registerName}")
+    public void checkHeading(String registerName) {
+        headings.shouldHave(text("Общеcтвенные обcуждения"));
+    }
+
+    @Step("Проверить наличие заявок в реестре Общеcтвенные обcуждения")
+    public void checkAvailabilityApplication() {
+        requisitionsInTables.shouldHave(sizeGreaterThan(0));
+    }
+
+    @Step("Переход по ссылке в карточку документа")
+    public void goToCard() {
+        Allure.parameter("Ссылка на карточку", getLinkElement().getAttribute("href"));
+        requisitionsInTables.shouldHave(sizeGreaterThan(0));
+        getLinkElement().click();
+        viewForm.shouldBe(visible);
+    }
+
+/*    @Step("Переход по ссылке в карточку документа")
+    public void goToCard() {
+        //String linkName = requisitionsInTables.get(RandomUtils.getRandomInt(3, 6)).$$("td").get(1).$("a").getAttribute("href");
+        Allure.parameter("Ссылка на карточку", getLinkElement().getAttribute("href"));
+
+        requisitionsInTables.shouldHave(sizeGreaterThan(0));
+        requisitionsInTables.get(RandomUtils.getRandomInt(3, 5))
+                .$$("td").get(1).$("a").click();
+        viewForm.shouldBe(visible);
+    }*/
 
     @Step("Проверить, что в реестре {registerName} есть данные и присутствуют колонки таблицы {list}")
     public void checkFilter(String registerName, List<String> list) {
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*        @Step("Переход по ссылке {linkName} в карточку")
+        public void goToCard() {
+            String link = searchResultTable.get(RandomUtils.getRandomInt(3, 6)).$$("td").get(1).$("a").getAttribute("href");
+            searchResultTable.shouldHave(sizeGreaterThan(0));
+            searchResultTable.get(RandomUtils.getRandomInt(3, 6))
+                    .$$("td").get(1).$("a").click();
+            Allure.parameter("Ссылка на карточку", link);
+            System.out.println("-----------------------");
+            System.out.println(link);
+            System.out.println("-----------------------");
+        }
         String table = String.join(", ", list);
         tableHeaders.filter(visible).shouldHave(textsInAnyOrder(list));
         tableFieldData.shouldHave(sizeGreaterThan(0));
-    }
+    }*/
 
     @Step("В реестре содержится таблица с колонками Номер акта, Дата акта, Место проведения проверки, Результат проверки, Специалист УН, ЕРКНМ ")
     public void tableActFilter() {
@@ -150,19 +217,8 @@ public class RinrifPage {
     }
     //TODO посмотреть на будущее
 
-    @Step("Переход по ссылке {linkName} в карточку")
-    public void goToCard() {
-        String link = searchResultTable.get(RandomUtils.getRandomInt(3, 6)).$$("td").get(1).$("a").getAttribute("href");
-        searchResultTable.shouldHave(sizeGreaterThan(0));
-        searchResultTable.get(RandomUtils.getRandomInt(3, 6))
-                .$$("td").get(1).$("a").click();
-        Allure.parameter("Ссылка на карточку", link);
-        System.out.println("-----------------------");
-        System.out.println(link);
-        System.out.println("-----------------------");
-    }
 
-    @Step("Проверить заголовки таблицы")
+/*    @Step("Проверить заголовки таблицы")
     public void checkTableHeaders(String tableHeader) {
         this.cardHeaders.shouldHave(sizeLessThanOrEqual(5));
         this.cardHeaders.get(0).shouldHave(text(tableHeader)).shouldBe(visible);
@@ -171,7 +227,7 @@ public class RinrifPage {
     @Step("Перейти в карточку заявления")
     public void gotoCard() {
         $("div.description a").shouldHave((attributeMatching("href", "(.*)/app/rs/card(.*)/common"))).click();
-    }
+    }*/
 }
 
 

@@ -30,7 +30,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Открытие приложения Цифровой двойник")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regressionsProd")})
     void openTheTsifrovoyDvoynik() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         step("Перейти Информация - Цифровой двойник", () -> {
@@ -47,7 +47,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Проверка отображения панели слоев")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regressionsProd")})
     void checkingTheDisplayOfLayersPanel() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -64,7 +64,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Проверка работы поиска в адресной строке")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regressionsProd")})
     void checkingAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -80,7 +80,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @DisplayName("Cтрока адресного поиска отображается на карте")
     @Owner("soldatovks")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regressionsProd")})
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         step("Проверить наличие строки адресного поиска");
@@ -97,7 +97,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Owner("web")
     @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regressionsProd")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
@@ -113,7 +113,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Layer("web")
     @Description()
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regressionsProd")})
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage

@@ -29,7 +29,7 @@ class RegistersUvedomleniaTests extends TestBase {
     void openRegisterUvedomlenia() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
+                .goToRegister(" ОАТИ. Уведомления");
 
         step("Открыть реестр ОАТИ. Уведомления", () -> {
             $(byName("candidateSearchValue")).setValue("ОАТИ. Уведомления").pressEnter();

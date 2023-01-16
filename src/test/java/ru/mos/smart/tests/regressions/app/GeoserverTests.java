@@ -23,9 +23,9 @@ public class GeoserverTests extends ApiBasicTestBase {
     @DisplayName("Проверка доступности Geoserver")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/geoserver/rest/about/system-status"),
             @Link(name = "prod", url = "https://smart.mos.ru/geoserver/rest/about/system-status")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void GeoserverTests() {
-        ValidatableResponse response = apiSteps.apiRequestBasicGeoserver()
+        ValidatableResponse response = authorization.apiRequestBasicGeoserver()
                 .get("geoserver/rest/about/system-status")
                 .then();
 

@@ -21,6 +21,9 @@ public class TestBase {
     public MkapmiiPage mkapmiiPage = new MkapmiiPage();
     public MkasdprvPage mkasdprvPage = new MkasdprvPage();
     public RinrifPage rinrifPage = new RinrifPage();
+    public MapsPage mapsPage = new MapsPage();
+    public UrlPage urlPage = new UrlPage();
+    public EooPage eooPage = new EooPage();
 
     @BeforeAll
     static void beforeAll() {

@@ -24,7 +24,7 @@ class RegistersUpsdTests extends TestBase {
     void registerUpsdViewing() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
-                .goToRegister();
+                .goToRegister("УПСД");
 
         step("Найти реестр и перейти в него", () -> {
 

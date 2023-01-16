@@ -10,6 +10,7 @@ import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
+import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("Проверка доступности Swagger приложений")
 public class OasiTests extends ApiBearerTestBase {
@@ -22,9 +23,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/pzz/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/pzz/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/pzz/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiPzzTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/pzz/documentTypes/all")
                 .then();
 
@@ -40,9 +41,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/ag/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/ag/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/ag/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiAgTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/ag/documentTypes/all")
                 .then();
 
@@ -58,9 +59,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/blago/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/blago/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/blago/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiBlagoTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/blago/documentTypes/all")
                 .then();
 
@@ -77,9 +78,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/cafe/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/cafe/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/cafe/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiCafeTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/cafe/documentTypes/all")
                 .then();
 
@@ -96,9 +97,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/citydevelopment/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/citydevelopment/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/citydevelopment/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiCitydevelopmentTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/citydevelopment/documentTypes/all")
                 .then();
 
@@ -115,9 +116,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/pkr/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/pkr/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/pkr/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiPkrTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/pkr/documentTypes/all")
                 .then();
 
@@ -134,9 +135,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/pmt/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/pmt/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/pmt/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiPmtTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/pmt/documentTypes/all")
                 .then();
 
@@ -153,9 +154,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/ppt/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/ppt/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/ppt/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiPptTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/ppt/documentTypes/all")
                 .then();
 
@@ -172,9 +173,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/facades/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/facades/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/facades/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiFacadesTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/facades/documentTypes/all")
                 .then();
 
@@ -191,9 +192,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/signboard/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/signboard/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/signboard/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiSignboardTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/signboard/documentTypes/all")
                 .then();
 
@@ -210,9 +211,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/gin/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/gin/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/gin/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiGinTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/gin/documentTypes/all")
                 .then();
 
@@ -229,9 +230,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/lighting/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/lighting/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/lighting/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiLightingTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/lighting/documentTypes/all")
                 .then();
 
@@ -248,9 +249,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/monuments/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/monuments/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/monuments/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiMonumentsTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/monuments/documentTypes/all")
                 .then();
 
@@ -267,9 +268,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/mrgp/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/mrgp/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/mrgp/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiMrgpTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/mrgp/documentTypes/all")
                 .then();
 
@@ -286,9 +287,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/nto/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/nto/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/nto/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiNtoTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/nto/documentTypes/all")
                 .then();
 
@@ -305,9 +306,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/oo/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/oo/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/oo/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiOoTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/oo/documentTypes/all")
                 .then();
 
@@ -324,9 +325,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/advertise/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/advertise/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/advertise/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiAdvertiseTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/oo/documentTypes/all")
                 .then();
 
@@ -343,9 +344,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/agr/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/agr/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/agr/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiAgrTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/agr/documentTypes/all")
                 .then();
 
@@ -362,9 +363,9 @@ public class OasiTests extends ApiBearerTestBase {
     @DisplayName("app/oasi/ddh/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/ddh/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/ddh/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void oasiDdhTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/ddh/documentTypes/all")
                 .then();
 

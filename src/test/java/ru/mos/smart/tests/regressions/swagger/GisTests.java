@@ -22,9 +22,9 @@ public class GisTests extends ApiBearerTestBase {
     @Feature("Gis")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/gis/search/swagger-ui.html#/"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/gis/search/swagger-ui.html#/")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void gisSearchTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = authorization.apiRequestBearer()
                 .get("/app/gis/search/swagger-ui.html")
                 .then();
 

@@ -10,6 +10,7 @@ import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
+import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("Проверка доступности Swagger приложений")
 public class RinrifTests extends ApiBearerTestBase {
@@ -22,9 +23,9 @@ public class RinrifTests extends ApiBearerTestBase {
     @DisplayName("app/rinrif/nadzor/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/nadzor/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/rinrif/nadzor/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void rinrifNadzorTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/rinrif/nadzor/documentTypes/all")
                 .then();
 
@@ -41,9 +42,9 @@ public class RinrifTests extends ApiBearerTestBase {
     @DisplayName("app/rinrif/matcap/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/matcap/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/rinrif/matcap/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void rinrifMatcapTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/rinrif/matcap/documentTypes/all")
                 .then();
 
@@ -60,9 +61,9 @@ public class RinrifTests extends ApiBearerTestBase {
     @DisplayName("app/rinrif/snos/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/snos/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/rinrif/snos/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
     void rinrifSnosTests() {
-        ValidatableResponse response = apiSteps.apiRequestBearer()
+        ValidatableResponse response = apiRequestBearer()
                 .get("app/rinrif/snos/documentTypes/all")
                 .then();
 
