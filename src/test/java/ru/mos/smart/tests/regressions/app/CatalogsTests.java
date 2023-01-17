@@ -22,7 +22,7 @@ public class CatalogsTests extends ApiBearerTestBase {
     @Owner("SoldatovKS")
     @Layer("api")
     @DisplayName("Запрос реестров информации")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void catalogsSourceCodesTest() {
         ValidatableResponse response = apiRequestBearer()
                 .get("catalogs/catalog/EHD/54385")
@@ -35,7 +35,7 @@ public class CatalogsTests extends ApiBearerTestBase {
     @Owner("SoldatovKS")
     @Layer("api")
     @DisplayName("Получить список имен ядер")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void catalogsSearchSolrCoresCountTest() {
         ValidatableResponse response = apiRequestBearer()
                 .get("catalogs-search/v1/solr/cores/names")

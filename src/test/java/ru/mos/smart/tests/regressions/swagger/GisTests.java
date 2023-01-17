@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
+import ru.mos.smart.requests.Authorization;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
@@ -22,9 +23,9 @@ public class GisTests extends ApiBearerTestBase {
     @Feature("Gis")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/gis/search/swagger-ui.html#/"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/gis/search/swagger-ui.html#/")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void gisSearchTests() {
-        ValidatableResponse response = authorization.apiRequestBearer()
+        ValidatableResponse response = Authorization.apiRequestBearer()
                 .get("/app/gis/search/swagger-ui.html")
                 .then();
 

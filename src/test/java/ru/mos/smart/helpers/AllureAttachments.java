@@ -36,4 +36,9 @@ public class AllureAttachments {
     public static byte[] attachPageSource() {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
+
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public static byte[] saveAllureScreenshot() {
+        return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    }
 }

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import ru.mos.smart.helpers.CustomListener;
+import ru.mos.smart.helpers.ScreenshotHelper;
 import ru.mos.smart.pages.*;
 
 import static ru.mos.smart.helpers.DriverSettings.configureSelenide;
@@ -24,6 +25,7 @@ public class TestBase {
     public MapsPage mapsPage = new MapsPage();
     public UrlPage urlPage = new UrlPage();
     public EooPage eooPage = new EooPage();
+    public ScreenshotHelper screenshotHelper = new ScreenshotHelper();
 
     @BeforeAll
     static void beforeAll() {

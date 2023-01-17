@@ -22,7 +22,7 @@ public class AuthorizationUiTest extends TestBase {
     @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Проверить авторизацию через UI")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regressionsProd")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Step("Проверить авторизацию через UI")
     void authorizationEcpViaUi() {
         AuthorizationPage.openUrlWithAuthorizationUI(getWebSecureUrl(), getLoginRegress(), getPasswordRegress());

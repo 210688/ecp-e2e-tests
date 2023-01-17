@@ -24,13 +24,12 @@ public class DriverSettings {
         LOG.info("Browser version: {}", projectConfig().browserVersion());
         LOG.info("Browser size: {}", projectConfig().browserSize());
 
-        //System.out.println(System.getProperty("tag"));
         Configuration.baseUrl = getWebUrl();
         Configuration.browser = projectConfig().browserName();
         Configuration.browserVersion = projectConfig().browserVersion();
         Configuration.browserSize = projectConfig().browserSize();
-        Configuration.pageLoadTimeout = 120000;
-        Configuration.timeout = 10000;
+        Configuration.pageLoadTimeout = 40000;
+        Configuration.timeout = 40000;
         RestAssured.baseURI = getWebUrl();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

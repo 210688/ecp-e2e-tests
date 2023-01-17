@@ -1,8 +1,8 @@
 package ru.mos.smart.pages;
 
 import com.codeborne.selenide.ElementsCollection;
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
+import ru.mos.smart.helpers.AllureAttachments;
 import ru.mos.smart.helpers.utils.RandomUtils;
 
 import java.util.Arrays;
@@ -29,6 +29,12 @@ public class RinrifPage {
         String table = String.join(", ", list);
         tableHeaders.filter(visible).shouldHave(textsInAnyOrder(list));
         tableFieldData.shouldHave(sizeGreaterThan(0));
+    }
+
+    @Step("Карточка реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
+    public void card() {
+        $("#commoninfo").shouldHave(text("Внесение изменений в разрешение на ввод объекта в эксплуатацию"));
+        AllureAttachments.attachScreenshot("Карточка реестра");
     }
 
     @Step("В реестре содержится таблица с колонками Номер акта, Дата акта, Место проведения проверки, Результат проверки, Специалист УН, ЕРКНМ ")
@@ -152,14 +158,32 @@ public class RinrifPage {
 
     @Step("Переход по ссылке {linkName} в карточку")
     public void goToCard() {
+
         String link = searchResultTable.get(RandomUtils.getRandomInt(3, 6)).$$("td").get(1).$("a").getAttribute("href");
         searchResultTable.shouldHave(sizeGreaterThan(0));
         searchResultTable.get(RandomUtils.getRandomInt(3, 6))
                 .$$("td").get(1).$("a").click();
-        Allure.parameter("Ссылка на карточку", link);
+        //File screenshotAs = ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.FILE);
+        //Allure.addAttachment("Screenshot", FileUtils.getInputStream("resources/screen/MapsTests/"));
+        //sleep(30000);
+        //Allure.addAttachment("Ссылка на карточку", link);
+       /* Screenshot actualImage = new ScreenshotHelper()
+                .getActualScreenshot();
+        ScreenshotHelper screenshotHelper = new ScreenshotHelper();
+        screenshotHelper.cardList(actualImage);*/
+        //allureAttachments.attachScreenshot("card");
+        /*Allure.parameter("Ссылка на карточку", link);
+
+        Allure.addAttachment("Ссылка на карточку", link);
         System.out.println("-----------------------");
         System.out.println(link);
-        System.out.println("-----------------------");
+        System.out.println("-----------------------");*/
+    }
+
+    @Step("Ссылка на карточку в реестре {registerName}")
+    public void cardList(String registerName) {
+
+
     }
 
     @Step("Проверить заголовки таблицы")

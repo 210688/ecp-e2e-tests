@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.regressions.ui;
 
+import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -12,11 +13,10 @@ import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
-import java.time.Duration;
-
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
@@ -24,6 +24,8 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 @Epic("Регрессионные тесты для проверки базового функционала")
 @Feature("Базовый функционал 2D")
 public class Map2DInstrumentalTests extends TestBase {
+
+    ElementsCollection checkLayerField = $$("gis-plugin-layers-tree div");
 
     @Test
     @Owner("Soldatov")
@@ -44,14 +46,14 @@ public class Map2DInstrumentalTests extends TestBase {
     void checkAvailabilityInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();
-        mapsPage.checkInstruments();
+        mapsPage.checkInstrumentsMaps();
     }
 
     @Test
     @Owner("Soldatov")
     @Layer("web")
     @Description()
-    @DisplayName("Наличие строки адресного поиска на карте 2D")
+    @DisplayName("адресный поиск на карте 2D")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAvailabilityAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -63,16 +65,13 @@ public class Map2DInstrumentalTests extends TestBase {
     @Owner("Soldatov")
     @Layer("web")
     @Description()
-    @DisplayName("Проверка наличия строки поиска слоя")
+    @DisplayName("поиск слоя на карте 2D")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAvailabilityOfLayerSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();
-        step("Проверить наличие строки  поиска слоя", () -> {
-            $("input[placeholder='Найти слой']").shouldBe(visible, Duration.ofSeconds(20));
-            $("input[placeholder='Найти слой']").setValue("Аэрофотосъемка");
-            $(byText("Ортофотопланы, аэрофотосъемка")).shouldBe(visible);
-        });
+        mapsPage.checkLayerSearch();
+        checkLayerField.shouldHave(sizeGreaterThan(0));
     }
 
     @Test
@@ -83,9 +82,7 @@ public class Map2DInstrumentalTests extends TestBase {
     void checkingAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();
-        step("Проверка, что адрес находится", () -> {
-            $("input[placeholder='Поиск']").setValue("Есенинский").shouldBe(visible);
-        });
+        mapsPage.checkSearch();
     }
 
     @Test
