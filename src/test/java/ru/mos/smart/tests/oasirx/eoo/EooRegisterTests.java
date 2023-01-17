@@ -21,7 +21,7 @@ public class EooRegisterTests extends TestBase {
     @Test
     @DisplayName("Переход в реестр Общественные обсуждения")
     @Description("Проверка перехода в реестр")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("oasirx"), @Tag("eoo")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("eoo")})
     void goToRegisterEoo() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToEoo();
@@ -31,7 +31,7 @@ public class EooRegisterTests extends TestBase {
         @Test
         @DisplayName("Наличие заявок в реестре")
         @Description("Проверить наличие заявок в реестре")
-        @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("oasirx"), @Tag("eoo")})
+        @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("eoo")})
         void checkAvailabilityApplication() {
             AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
             urlPage.goToEoo();
@@ -41,7 +41,7 @@ public class EooRegisterTests extends TestBase {
     @Test
     @DisplayName("Переход в карточку заявки")
     @Description("Проверка перехода в карточку заявления")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("oasirx"), @Tag("eoo")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("eoo")}) //TODO EOO
     void goToRequestCard() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToEoo();

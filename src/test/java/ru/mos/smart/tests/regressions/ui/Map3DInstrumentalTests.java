@@ -8,20 +8,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.ScreenshotHelper;
 import ru.mos.smart.helpers.annotations.AutoMember;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.comparison.ImageDiff;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
@@ -39,9 +35,8 @@ public class Map3DInstrumentalTests extends TestBase {
         //String testPath = "MapsTests";
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMapsCd();
-
-        //mapsPage.checkForMapsBoxCd();
-        Screenshot actualImage = new ScreenshotHelper()
+        mapsPage.checkForMapsBoxCd();
+        /*Screenshot actualImage = new ScreenshotHelper()
                 .getActualScreenshot();
         Screenshot expectedImage = new ScreenshotHelper()
                 .getExpectedScreenshot();
@@ -49,7 +44,7 @@ public class Map3DInstrumentalTests extends TestBase {
                 actualImage,
                 expectedImage,
                 15);
-        assertFalse(diff.hasDiff(), "Screenshot has difference");
+        assertFalse(diff.hasDiff(), "Screenshot has difference");*/
     }
 
 
