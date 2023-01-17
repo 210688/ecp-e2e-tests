@@ -11,12 +11,13 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static java.time.Duration.ofSeconds;
 
 public class ReestrPage {
 
     @Step("Проверить, что в реестре {registerName} содержится поле для поиска")
             public void searchField(String registerName) {
-        $(".search-form").$("input").shouldBe(visible);
+        $(".search-form").$("input").shouldBe(visible, ofSeconds(15));
     }
 
     @Step("Проверить, что в реестре {registerName} отображаются кнопки колонки и фильтр")

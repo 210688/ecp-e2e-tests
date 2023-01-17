@@ -24,7 +24,7 @@ public class SolrTests extends ApiBearerTestBase {
     @DisplayName("Получение списка ошибок конфигурации")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/search/v1/solr/admin/errors"),
             @Link(name = "prod", url = "https://smart.mos.ru/search/v1/solr/admin/errors")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("regressionsProd")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void ehdDictsInfoTest() {
         ValidatableResponse response = apiRequestBearer()
                 .get("search/v1/solr/admin/errors")

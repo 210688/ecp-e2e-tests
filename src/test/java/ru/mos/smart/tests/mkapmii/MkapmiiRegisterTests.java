@@ -30,7 +30,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @AllureId("5189")
     @DisplayName("Проверка UI реестр оказания услуг по размещению инженерных изысканий")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regressions"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
     void checkingTheAttributesOfTheRegistry() {

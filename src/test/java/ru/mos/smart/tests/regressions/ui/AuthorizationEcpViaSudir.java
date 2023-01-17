@@ -24,7 +24,7 @@ public class AuthorizationEcpViaSudir extends TestBase {
     @Owner("soldatovks")
     @Layer("web")
     @DisplayName("Проверка авторизации через СУДИР")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+   @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})})
     void AuthorizationEcpSudir() {
         AuthorizationPage.openUrlWithAuthorizationSudir(webConfig().login_sudir(), webConfig().password_sudir());
         step("Ввод СМС кода");
