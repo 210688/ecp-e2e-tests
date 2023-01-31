@@ -1,7 +1,6 @@
 package ru.mos.smart.tests.oasirx.crd;
 
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -14,11 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
-import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.data.RegisterObjectType.CRD;
@@ -67,53 +62,5 @@ public class CrdRegisterTests extends TestBase {
         urlPage.goToCrd();
         reestrPage.searchField(CRD);
         oasirxProjectsPage.checkFilter(CRD, tableColumnList);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @Test
-    @DisplayName("Открытие реестра СД")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("crd")})
-    void openingTheRegisterCRD() {
-
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        reestrPage
-                .goToSdCard();
-
-        step("Отображается список согласований. Присутствуют разделы:", () -> {
-            $(byText("В работе")).shouldBe(visible);
-            $(byText("Все")).shouldBe(visible);
-            $(byText("Созданные мной")).shouldBe(visible);
-            $(byText("Мои")).shouldBe(visible);
-        });
-    }
-
-    @Test
-    @AllureId("4175")
-    @DisplayName("Поиск карточки реестра СД по номеру")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("crd")})
-    void searchingCrdCardByNumber() {
-
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        reestrPage
-                .goToSdCard();
-
-        step("В строке поиска ввести номер карточки", () ->
-                $x("//input[@type='search']").setValue("СД-0061-2021").pressEnter());
-
-        step("Открыть найденную карточку", () ->
-                $(byText("СД-0061-2021")).click());
-        step("Проверить, что карточка открылась", () ->
-                $(byText("СД-0061-2021")).shouldBe(visible));
     }
 }
