@@ -26,7 +26,7 @@ public class ReestrPage {
         $(".container-btn").$("button.btn-white").shouldBe(visible);
     }
 
-    @Step("Проверить, что таблица заполненна данными")
+    @Step("Проверить, что таблица заполнена данными")
             public void presentDataInTable() {
         $$(".table-striped").shouldHave(sizeGreaterThan(0));
     }

@@ -36,21 +36,8 @@ public class RinRifReestrTests extends TestBase {
         reestrPage.searchField(AKTS_PROVEROK);
         reestrPage.columnsAndFilterButton(AKTS_PROVEROK);
         rinrifPage.checkFilter(AKTS_PROVEROK, tableColumnList);
-        //rinrifPage.tableActFilter();
         reestrPage.presentDataInTable();
     }
-
-/*    @Test
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("rinrif")})
-    void checkRes() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        //ElementsCollection st = (ElementsCollection) $$(".jsoneditor-values tr").get(13);
-        open("/rinrif/rv/#/app/rv/card/6f88fd83-fa15-4f39-b920-fbc427061393/json");
-        $$(".jsoneditor-values tr").get(13).setValue("Проверяю");
-        $x("//button[contains(text(),'Сохранить измененный документ')]").click();*/
-
-
-        //System.out.println("statusCode:" + statusCode);
 
     @Test
     @Owner("Soldatov")
@@ -351,10 +338,10 @@ public class RinRifReestrTests extends TestBase {
         List<String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(BUILDING_PERMIT_REGISTER);
-        reestrPage.searchField(BUILDING_PERMIT_REGISTER);
-        reestrPage.columnsAndFilterButton(BUILDING_PERMIT_REGISTER);
-        rinrifPage.checkFilter(BUILDING_PERMIT_REGISTER, tableColumnList);
+        navigatorPage.goToRegister(BUILDING_PERMIT);
+        reestrPage.searchField(BUILDING_PERMIT);
+        reestrPage.columnsAndFilterButton(BUILDING_PERMIT);
+        rinrifPage.checkFilter(BUILDING_PERMIT, tableColumnList);
     }
 
     @Test
@@ -363,7 +350,7 @@ public class RinRifReestrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api"), @Tag("rinrif")})
     void checkCardBuildingPermitRegister() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(BUILDING_PERMIT_REGISTER);
+        navigatorPage.goToRegister(BUILDING_PERMIT);
         rinrifPage.goToCard();
         rinrifPage.checkTableHeaders("Общая информация");
         $("#commoninfo").shouldHave(text("Выдача разрешения на строительство для объектов капитального строительства"));

@@ -66,7 +66,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Layer("web")
     @Description()
     @DisplayName("поиск слоя на карте 2D")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tag("sendStatusForPgu")
     void checkAvailabilityOfLayerSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMaps();

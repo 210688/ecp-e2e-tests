@@ -74,7 +74,7 @@ public class MkapmiiPage {
         $$(".ng-dropdown-panel-items").shouldHave(sizeGreaterThan(0));
     }
 
-    @Step("Создть заявление по API")
+    @Step("Создать заявление по API")
     public void createTask(String name) {
             String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/mkapmii/mkapmii_request.xml");
             //requestMessage = requestMessage.replace("{STREET}", name);

@@ -28,8 +28,8 @@ public class DriverSettings {
         Configuration.browser = projectConfig().browserName();
         Configuration.browserVersion = projectConfig().browserVersion();
         Configuration.browserSize = projectConfig().browserSize();
-        Configuration.pageLoadTimeout = 40000;
-        Configuration.timeout = 40000;
+        Configuration.pageLoadTimeout = 15000;
+        Configuration.timeout = 15000;
         RestAssured.baseURI = getWebUrl();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

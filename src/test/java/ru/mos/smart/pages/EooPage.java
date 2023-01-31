@@ -9,7 +9,6 @@ import ru.mos.smart.helpers.utils.RandomUtils;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -22,14 +21,13 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class EooPage {
 
-    private final ElementsCollection requisitionsInTables = $$(".documents-table tr");
-    private final SelenideElement headings = $(".ng-binding").as("Заголовок");
-    private final SelenideElement viewForm = $(".viewform");
-    ElementsCollection tableHeaders = $$("table th");
-    //String linkName = requisitionsInTables.get(RandomUtils.getRandomInt(3, 6)).$$("td").get(1).$("a").getAttribute("href");
+    private final ElementsCollection tables = $$(".documents-table tr");
+    private final ElementsCollection tableHeaders = $$("table th");
+    private final SelenideElement headings = $(".ng-binding");
+    private final SelenideElement viewForm = $("#collapseBody");
 
     private SelenideElement getLinkElement() {
-        return requisitionsInTables.get(RandomUtils.getRandomInt(3, 5)).$$("td").get(1).$("a");
+        return tables.get(RandomUtils.getRandomInt(3, 5)).$$("td").get(1).$("a");
     }
 
     @Step("Проверить открытие реестра {registerName}")
@@ -37,29 +35,16 @@ public class EooPage {
         headings.shouldHave(text("Общеcтвенные обcуждения"));
     }
 
-    @Step("Проверить наличие заявок в реестре Общеcтвенные обcуждения")
-    public void checkAvailabilityApplication() {
-        requisitionsInTables.shouldHave(sizeGreaterThan(0));
-    }
-
     @Step("Переход по ссылке в карточку документа")
     public void goToCard() {
         Allure.parameter("Ссылка на карточку", getLinkElement().getAttribute("href"));
-        requisitionsInTables.shouldHave(sizeGreaterThan(0));
         getLinkElement().click();
-        viewForm.shouldBe(visible);
     }
 
-/*    @Step("Переход по ссылке в карточку документа")
-    public void goToCard() {
-        //String linkName = requisitionsInTables.get(RandomUtils.getRandomInt(3, 6)).$$("td").get(1).$("a").getAttribute("href");
-        Allure.parameter("Ссылка на карточку", getLinkElement().getAttribute("href"));
-
-        requisitionsInTables.shouldHave(sizeGreaterThan(0));
-        requisitionsInTables.get(RandomUtils.getRandomInt(3, 5))
-                .$$("td").get(1).$("a").click();
+    @Step("Проверить, что в карточке есть данные")
+    public void checkCard() {
         viewForm.shouldBe(visible);
-    }*/
+    }
 
     @Step("Проверить, что в реестре {registerName} есть данные и присутствуют колонки таблицы {list}")
     public void checkFilter(String registerName, List<String> list) {

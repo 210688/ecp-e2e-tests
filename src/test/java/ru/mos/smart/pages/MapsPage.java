@@ -38,7 +38,7 @@ public class MapsPage {
     public void checkSearch() {
         addressSearch.setValue("Новокузнецкая улица").shouldBe(visible);
 /*        $(".results").shouldBe(visible,ofSeconds(20));
-        AllureAttachments.attachScreenshot("Maps");*/
+        AllureAttachments.screenshotAs("Maps");*/
     }
 
 
