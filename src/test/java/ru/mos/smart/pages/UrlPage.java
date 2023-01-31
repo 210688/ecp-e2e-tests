@@ -15,11 +15,24 @@ public class UrlPage {
     @Step("Переход на карту Цифровой Двойник")
     public void goToMapsCd() {
         open(MAP_CD);
-
     }
 
     @Step("В Навигаторе открыть раздел ЭОО")
     public void goToEoo() {
         open(EOO_URL);
+    }
+    @Step("В Навигаторе открыть раздел Публичные слушания")
+    public void goToHearings() {
+        open(HEARINGS_URL);
+    }
+
+    @Step("В Навигаторе открыть раздел Согласование документов")
+    public void goToCrd() {
+        open(CRD_URL);
+    }
+
+    @Step("В Навигаторе открыть раздел Фасады нежильё")
+    public void goToFacades() {
+        open(FCD_URL);
     }
 }

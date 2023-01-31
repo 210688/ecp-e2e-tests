@@ -34,7 +34,7 @@ public class RinrifPage {
     @Step("Карточка реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
     public void card() {
         $("#commoninfo").shouldHave(text("Внесение изменений в разрешение на ввод объекта в эксплуатацию"));
-        AllureAttachments.attachScreenshot("Карточка реестра");
+        AllureAttachments.screenshotAs("Карточка реестра");
     }
 
     @Step("В реестре содержится таблица с колонками Номер акта, Дата акта, Место проведения проверки, Результат проверки, Специалист УН, ЕРКНМ ")
@@ -159,7 +159,7 @@ public class RinrifPage {
     @Step("Переход по ссылке {linkName} в карточку")
     public void goToCard() {
 
-        String link = searchResultTable.get(RandomUtils.getRandomInt(3, 6)).$$("td").get(1).$("a").getAttribute("href");
+        String linkName = searchResultTable.get(RandomUtils.getRandomInt(3, 6)).$$("td").get(1).$("a").getAttribute("href");
         searchResultTable.shouldHave(sizeGreaterThan(0));
         searchResultTable.get(RandomUtils.getRandomInt(3, 6))
                 .$$("td").get(1).$("a").click();
@@ -171,7 +171,7 @@ public class RinrifPage {
                 .getActualScreenshot();
         ScreenshotHelper screenshotHelper = new ScreenshotHelper();
         screenshotHelper.cardList(actualImage);*/
-        //allureAttachments.attachScreenshot("card");
+        //allureAttachments.screenshotAs("card");
         /*Allure.parameter("Ссылка на карточку", link);
 
         Allure.addAttachment("Ссылка на карточку", link);

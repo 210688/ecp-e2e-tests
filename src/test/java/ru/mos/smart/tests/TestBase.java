@@ -25,6 +25,8 @@ public class TestBase {
     public MapsPage mapsPage = new MapsPage();
     public UrlPage urlPage = new UrlPage();
     public EooPage eooPage = new EooPage();
+    public HearingPage hearingPage = new HearingPage();
+    public OasirxProjectsPage oasirxProjectsPage = new OasirxProjectsPage();
     public ScreenshotHelper screenshotHelper = new ScreenshotHelper();
 
     @BeforeAll
