@@ -8,12 +8,13 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static ru.mos.smart.helpers.AuthorizationHelper.getAccessToken;
 
-public class Mkapmii {
-    public void create(String name) {
+public class MkapmiiCreatingTestStatement {
+    public void create(String name, String serviceNumber) {
         step("Создаем заявление по API", () -> {
-            String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/mkapmii/mkapmii_request.xml");
-            //requestMessage = requestMessage.replace("{STREET}", name);
-            //requestMessage = requestMessage.replace("{STREET}", name);
+            //String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/mkapmii/mkapmii_request.xml");
+            String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/mkapmii/pgu_mock_request.json");
+            requestMessage = requestMessage.replace("{STREET}", name)
+            .replace("{SERVICENUMBER}", serviceNumber);
 
         /*    PguMockRequest request = new PguMockRequest();
             request.setId(0);

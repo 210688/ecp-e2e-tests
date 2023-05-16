@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.regressions.ui;
 
-import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -8,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.AutoMember;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -21,15 +19,14 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
-
 @Epic("Регрессионные тесты для проверки базового функционала")
 @Feature("Базовый функционал Цифровой двойник")
+@Owner("Soldatov")
+@Layer("web")
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
-    @Owner("soldatovks")
-    @Layer("web")
-    @DisplayName("Переход на карту Цифровой двойник")
+    @DisplayName("Проверка перехода на карту Цифровой двойник")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToMapsCd() {
         //String testPath = "MapsTests";
@@ -49,15 +46,12 @@ public class Map3DInstrumentalTests extends TestBase {
 
 
     @Test
-    @Owner("soldatovks")
-    @Layer("web")
     @DisplayName("Проверка отображения панели слоев")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheDisplayOfLayersPanel() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToMapsCD();
-
         step("В левой боковой панели открыть Дерево слоев", () ->
                 $("span[title='Дерево слоёв']")).click();
         step("Проверка, что в дереве слоев присустсвуют слои", () ->
@@ -66,8 +60,6 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @Owner("soldatovks")
-    @Layer("web")
     @DisplayName("Проверка работы поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
@@ -82,25 +74,20 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Cтрока адресного поиска отображается на карте")
-    @Owner("soldatovks")
-    @Layer("web")
+    @DisplayName("Проверка отображения строки адресного поиска")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        step("Проверить наличие строки адресного поиска");
+        step("Проверка наличия строки адресного поиска");
         navigatorPage
                 .goToMapsCD();
-        step("Проверить наличие кнопок масштабирования на карте");
+        step("Проверка наличия кнопок масштабирования на карте");
         $((".far.fa-plus")).shouldBe(visible);
         $((".far.fa-minus")).shouldBe(visible);
 
     }
 
     @Test
-    @AutoMember("soldatovks")
-    @Owner("web")
-    @Description()
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
@@ -108,23 +95,19 @@ public class Map3DInstrumentalTests extends TestBase {
         navigatorPage
                 .goToMapsCD();
 
-        step("Проверить наличия инструмента Первоначальная позиция", () -> {
+        step("Проверка наличия инструмента первоначальная позиция", () -> {
             $((".fas.fa-home-alt")).shouldBe(visible);
         });
     }
 
     @Test
-    @Owner("soldatovks")
-    @Layer("web")
-    @Description()
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToMapsCD();
-
-        step("Проверить наличие инструментов: линейка, треугольник, выбор подложки", () -> {
+        step("Проверка наличия инструментов: линейка, треугольник, выбор подложки", () -> {
             $((".fas.fa-ruler")).shouldBe(visible);
             $((".fas.fa-ruler-triangle")).shouldBe(visible);
             $((".fas.fa-map")).shouldBe(visible);

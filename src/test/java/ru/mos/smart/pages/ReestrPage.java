@@ -1,11 +1,13 @@
 package ru.mos.smart.pages;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import java.util.List;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
@@ -15,13 +17,23 @@ import static java.time.Duration.ofSeconds;
 
 public class ReestrPage {
 
-    @Step("Проверить, что в реестре {registerName} содержится поле для поиска")
-            public void searchField(String registerName) {
-        $(".search-form").$("input").shouldBe(visible, ofSeconds(15));
+    private final ElementsCollection tableHeaders = $$("table th");
+    private final ElementsCollection registryFilledWithData  = $$(".search-result-table");
+
+    @Step("Проверить, что реестр наполнен данными и присутствуют заголовки {list}")
+    public void checkRegistryHeader(List<String> list) {
+        String table = String.join(", ", list);
+        tableHeaders.filter(visible).shouldHave(textsInAnyOrder(list));
+        registryFilledWithData.shouldHave(sizeGreaterThan(0));
     }
 
-    @Step("Проверить, что в реестре {registerName} отображаются кнопки колонки и фильтр")
-            public void columnsAndFilterButton(String registerName) {
+    @Step("Проверить, что в реестре содержится поле для поиска")
+            public void searchField() {
+        $(".search-form").$("input").shouldBe(visible, ofSeconds(10));
+    }
+
+    @Step("Проверить, что в реестре отображаются кнопки колонки и фильтр")
+            public void columnsAndFilterButton() {
         $("#dropdown-columns-btn").shouldBe(visible);
         $(".container-btn").$("button.btn-white").shouldBe(visible);
     }

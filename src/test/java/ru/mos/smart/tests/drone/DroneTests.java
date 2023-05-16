@@ -4,10 +4,12 @@ import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -25,14 +27,15 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
+@Epic("Регрессионные тесты для проверки базового функционала")
+@Feature("Drone (Аэрофотосъемка)")
+@Owner("Soldatov")
+@Layer("web")
 public class DroneTests extends TestBase {
     private final String createCard = "/drone/#/app/drone/videoUpload";
 
     @Test
-    @AllureId("7683")
     @DisplayName("Создать карточку аэросъемки")
-    @Epic("DRONE (Аэрофотосъемка)")
-    @Feature("Автотесты")
     @Tags({@Tag("drone"), @Tag("predprod"), @Tag("regres"), @Tag("createCartDrone")})
     void createCartDrone() {
         ElementsCollection calendars = $$("div.input-group.date.ng-scope > input");
@@ -87,9 +90,8 @@ public class DroneTests extends TestBase {
     }
 
     @Test
+    @AllureId("12348")
     @DisplayName("В реестре данные аэрофотосъемки присутствуют данные")
-    @Epic("DRONE (Аэрофотосъемка)")
-    @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openReestrDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -102,9 +104,8 @@ public class DroneTests extends TestBase {
     }
 
     @Test
+    @AllureId("12350")
     @DisplayName("Просмотреть карточку аэросъемки")
-    @Epic("DRONE (Аэрофотосъемка)")
-    @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void viewCartDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());

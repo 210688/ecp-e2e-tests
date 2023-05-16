@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests;
 
 import com.github.javafaker.Faker;
@@ -11,3 +12,4 @@ public class ApplicationTestBase {
 
     protected ApiSteps apiSteps = new ApiSteps();
 }
+*/

@@ -1,8 +1,8 @@
 package ru.mos.smart.tests.oasirx.hearings;
 
-import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -19,30 +19,30 @@ import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.data.RegisterObjectType.HEARINGS;
 
-@Epic("OASIRX")
-@Feature("HEARINGS (Публичные слушания)")
+@Epic("Регрессионные тесты для проверки базового функционала")
+@Feature("Oasirx")
+@Story("HEARINGS (Публичные слушания)")
+@Owner("Soldatov")
 @Layer("web")
-@Owner("SoldatovKS")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("hearings"), @Tag("regressions")})
 public class HearingsRegisterTests extends TestBase {
 
     @Test
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("hearings"), @Tag("regressions")})
     @DisplayName("Переход в реестр Публичные слушания")
-    @Description("Проверить переход в реестр")
     void goToRegisterHearing() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToHearings();
-        reestrPage.searchField(HEARINGS);
+        reestrPage.searchField();
     }
 
     @Test
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("hearings"), @Tag("regressions")})
     @DisplayName("Заголовки колонок в реестре Публичные слушания")
-    @Description("Проверить заголовки колонок")
     void checkHeadersTables() {
         List<String> tableColumnList = Arrays.asList("ПС в работе", "Все ПС", "Мои ПС", "Отчеты", "Заседания комиссий");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToHearings();
-        reestrPage.searchField(HEARINGS);
+        reestrPage.searchField();
         oasirxProjectsPage.checkFilter(HEARINGS, tableColumnList);
     }
 }
