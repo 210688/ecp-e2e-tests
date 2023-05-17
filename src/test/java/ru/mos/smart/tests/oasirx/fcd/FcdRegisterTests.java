@@ -1,9 +1,10 @@
 package ru.mos.smart.tests.oasirx.fcd;
 
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -21,17 +22,18 @@ import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.data.RegisterObjectType.FCD;
 
+@Epic("Регрессионные тесты для проверки базового функционала")
+@Feature("Oasirx")
+@Story("Fcd")
+@Owner("Soldatov")
 @Layer("web")
-@Epic("OASIRX")
-@Feature("CRD (Согласование документов)")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("fcd"), @Tag("regressions")})
 public class FcdRegisterTests extends TestBase {
 
     private final SelenideElement heading = $(".ng-binding");
 
     @Test
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("regressions")})
     @DisplayName("Переход в реестр Фасады")
-    @Description("Проверить переход в реестр")
     void goToFacades() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToFacades();
@@ -39,8 +41,8 @@ public class FcdRegisterTests extends TestBase {
     }
 
     @Test
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("regressions")})
     @DisplayName("Заголовки колонок в реестре Фасады")
-    @Description("Проверить заголовки колонок")
     void checkHeadersTables() {
         List<String> tableColumnList = Arrays.asList("В работе", "Все", "Мои", "Статистика");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());

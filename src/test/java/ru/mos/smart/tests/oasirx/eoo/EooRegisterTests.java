@@ -21,7 +21,7 @@ import static ru.mos.smart.data.RegisterObjectType.EOO;
 
 @Epic("Регрессионные тесты для проверки базового функционала")
 @Feature("Oasirx")
-@Story("EOO (Общественные обсуждения)")
+@Story("Eoo (Общественные обсуждения)")
 @Owner("Soldatov")
 @Layer("web")
 public class EooRegisterTests extends TestBase {
