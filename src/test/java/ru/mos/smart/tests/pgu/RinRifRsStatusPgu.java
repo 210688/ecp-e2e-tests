@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.config.ConfigHelper;
 import ru.mos.smart.helpers.utils.FileUtils;
-import ru.mos.smart.tests.ApplicationTestBase;
 
 import java.io.IOException;
 
@@ -14,7 +13,7 @@ import static io.restassured.RestAssured.given;
 import static ru.mos.smart.config.ConfigHelper.*;
 import static ru.mos.smart.helpers.AuthorizationHelper.getAccessToken;
 
-public class RinRifRsStatusPgu extends ApplicationTestBase {
+public class RinRifRsStatusPgu {
 
     @Test
     @Tag("pgu")

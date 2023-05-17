@@ -45,7 +45,7 @@ public class FcdRegisterTests extends TestBase {
         List<String> tableColumnList = Arrays.asList("В работе", "Все", "Мои", "Статистика");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToFacades();
-        reestrPage.searchField(FCD);
+        reestrPage.searchField();
         oasirxProjectsPage.checkFilter(FCD, tableColumnList);
     }
 }

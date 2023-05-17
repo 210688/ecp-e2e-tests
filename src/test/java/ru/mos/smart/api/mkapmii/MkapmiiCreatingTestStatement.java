@@ -9,14 +9,15 @@ import static io.restassured.RestAssured.given;
 import static ru.mos.smart.helpers.AuthorizationHelper.getAccessToken;
 
 public class MkapmiiCreatingTestStatement {
-    public void create(String name, String serviceNumber) {
+    public void create(String name) {
         step("Создаем заявление по API", () -> {
-            //String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/mkapmii/mkapmii_request.xml");
             String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/mkapmii/pgu_mock_request.json");
+ /*           String requestMessage = FileUtils.readStringFromFile("src/test/resources/files_for_tests/mkapmii/mkapmii_request.xml");
+
             requestMessage = requestMessage.replace("{STREET}", name)
             .replace("{SERVICENUMBER}", serviceNumber);
 
-        /*    PguMockRequest request = new PguMockRequest();
+           PguMockRequest request = new PguMockRequest();
             request.setId(0);
             request.setMessage(requestMessage);
             request.setMessageType("string");*/
