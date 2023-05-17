@@ -46,7 +46,8 @@ dependencies {
             'org.jsoup:jsoup:1.14.2',
             'com.fasterxml.jackson.core:jackson-databind:2.11.3',
             'com.github.javafaker:javafaker:1.0.2',
-            'ru.yandex.qatools.ashot:ashot:1.5.4')
+            'ru.yandex.qatools.ashot:ashot:1.5.4',
+            'io.github.artsok:rerunner-jupiter:2.1.6')
 }
 
 tasks.withType(JavaCompile) {

@@ -1,10 +1,14 @@
 package ru.mos.smart.pages;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import ru.mos.smart.helpers.AllureAttachments;
 import ru.mos.smart.helpers.utils.RandomUtils;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,6 +27,21 @@ public class RinrifPage {
     ElementsCollection cardHeaders = $$("tabset.tab-container  li");
     ElementsCollection tableHeaders = $$("table th");
     ElementsCollection searchResultTable = $$("table.search-result-table tr");
+    //SelenideElement link = searchResultTable.get(RandomUtils.getRandomInt(3, 6)).$$("td").get(1).$("a");
+    SelenideElement row = searchResultTable.first();
+    SelenideElement cell = row.$$("td").get(1);
+    SelenideElement link = cell.$("a");
+
+    @Step("Перейти в карточку реестра и проверить наполненность карточки")
+    public void goToRegistryCardAndCheck() {
+        searchResultTable.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
+        String linkName = link.getAttribute("href");
+        link.click();
+        $(".card-header").shouldBe(visible);
+        assert linkName != null;
+        Allure.addAttachment("Ссылка на карточку", linkName);
+        AllureAttachments.screenshotAs("Карточка реестра");
+    }
 
     @Step("Проверить, что в реестре {registerName} есть данные и присутствуют колонки таблицы {list}")
     public void checkFilter(String registerName, List<String> list) {
