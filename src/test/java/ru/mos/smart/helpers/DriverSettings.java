@@ -23,6 +23,7 @@ public class DriverSettings {
         LOG.info("Browser name: {}", projectConfig().browserName());
         LOG.info("Browser version: {}", projectConfig().browserVersion());
         LOG.info("Browser size: {}", projectConfig().browserSize());
+        LOG.info("User name: {}", System.getProperty("user.name"));
 
         Configuration.baseUrl = getWebUrl();
         Configuration.browser = projectConfig().browserName();
@@ -41,6 +42,7 @@ public class DriverSettings {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+                chromeOptions.addArguments("name", System.getProperty("user.name"));
                 capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                 break;
             case "firefox":
