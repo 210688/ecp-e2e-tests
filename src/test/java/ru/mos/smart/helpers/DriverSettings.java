@@ -41,7 +41,7 @@ public class DriverSettings {
         switch (projectConfig().browserName()) {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+                chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
                 chromeOptions.addArguments("name", System.getProperty("user.name"));
                 capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                 break;

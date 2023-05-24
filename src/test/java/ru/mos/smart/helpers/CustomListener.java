@@ -1,6 +1,5 @@
 package ru.mos.smart.helpers;
 
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.slf4j.Logger;
@@ -18,12 +17,12 @@ public class CustomListener implements TestWatcher {
         AllureAttachments.screenshotAs("Failed screenshot");
         AllureAttachments.pageSource();
         AllureAttachments.browserConsoleLogs();
-        Selenide.closeWebDriver();
+        //Selenide.closeWebDriver();
     }
 
     @Override
     public void testSuccessful(ExtensionContext context) {
-        Selenide.closeWebDriver();
+        //Selenide.closeWebDriver();
     }
 }
 
