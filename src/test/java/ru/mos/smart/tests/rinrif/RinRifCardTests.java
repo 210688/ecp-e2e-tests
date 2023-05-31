@@ -26,7 +26,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода в карточку из реестра Акты проверок")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrifCards")})
     void checkCardRegisterActsProverok() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToRegister(AKTS_PROVEROK);
@@ -35,7 +35,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrifCards")})
     void checkCardRegisterEnteringObject() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
@@ -44,7 +44,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода в карточку из реестра Все объекты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrifCards")})
     void checkCardAllObjects() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToRegister(ALL_OBJECTS);
@@ -53,7 +53,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода в карточку из реестра Все объекты сноса")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrifCards")})
     void checkCardAllObjectsSnos() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToRegister(ALL_OBJECTS_SNOS);
@@ -62,7 +62,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода в карточку из реестра Все организации")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrifCards")})
     void checkCardAllOrganizations() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToRegister(All_ORGANIZATION);
@@ -71,7 +71,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода в карточку из реестра Все решения о проверке")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrifCards")})
     void checkCardReestrAllInspectionDecisions() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToRegister(All_INSPECTION_DECISIONS);
@@ -80,7 +80,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о завершении сноса")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToRegister(DEMOLITIONS);
@@ -89,7 +89,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о планируемом сносе")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
@@ -98,7 +98,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения на строительство")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrifCards")})
     void checkCardRegisterConstructionLicense() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
@@ -107,7 +107,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на ввод объекта в эксплуатацию")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("rinrifCards")})
     void checkCardRegisterObjectOperation() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
@@ -116,7 +116,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на строительство")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("api"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressionss"), @Tag("api"), @Tag("rinrifCards")})
     void checkCardBuildingPermitRegister() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToRegister(BUILDING_PERMIT);

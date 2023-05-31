@@ -125,3 +125,8 @@ task rinrif(type: Test) {
         includeTags 'rinrif'
     }
 }
+    task rinrifCards(type: Test) {
+        useJUnitPlatform {
+            includeTags 'rinrifCards'
+        }
+    }
