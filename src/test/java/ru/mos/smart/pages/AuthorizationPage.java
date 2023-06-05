@@ -22,6 +22,7 @@ public class AuthorizationPage {
             step.parameter("Login", login);
             Authorization authorization = new Authorization();
             setCookies(authorization.getAuthCookie(login, password));
+            open("/main/#/app/main");
         });
     }
 

@@ -36,6 +36,8 @@ public class NavigatorPage {
     @Step("Переход в реестр {registerName}")
     public void goToRegister(String registerName) {
         open(REGISTER_URL);
+        //$(".item-template ng-tns-c186-2").click();
+        //$(".item-template.ng-tns-c186-23").click();
         $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
         $(byText(registerName)).click();
     }
