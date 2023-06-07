@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static ru.mos.smart.data.UrlObjectType.ACTIONS_URL;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeMain.ACTIONS_URL;
 
 /**
  * Страница Возможности

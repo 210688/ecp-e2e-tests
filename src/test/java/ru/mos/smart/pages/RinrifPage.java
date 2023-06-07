@@ -14,12 +14,21 @@ import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static ru.mos.smart.helpers.AllureAttachments.screenshotAs;
 
 /**
  * Описание реестров RinRif.
  */
 
 public class RinrifPage {
+
+    private void attachScreenshot(String name) {
+        AllureAttachments.screenshotAs(name);
+    }
+
+    private void attachLink(String name, String link) {
+        Allure.addAttachment(name, link);
+    }
 
     ElementsCollection tableFieldData = $$(".table-striped");
     ElementsCollection cardHeaders = $$("tabset.tab-container  li");
@@ -34,20 +43,13 @@ public class RinrifPage {
         $(".card-header").shouldBe(visible);
         assert linkName != null;
         Allure.addAttachment("Ссылка на карточку", linkName);
-        AllureAttachments.screenshotAs("Карточка реестра");
-    }
-
-    @Step("Проверить, что в реестре {registerName} есть данные и присутствуют колонки таблицы {list}")
-    public void checkFilter(String registerName, List<String> list) {
-        String table = String.join(", ", list);
-        tableHeaders.filter(visible).shouldHave(textsInAnyOrder(list));
-        tableFieldData.shouldHave(sizeGreaterThan(0));
+        screenshotAs("Карточка реестра");
     }
 
     @Step("Карточка реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
     public void card() {
         $("#commoninfo").shouldHave(text("Внесение изменений в разрешение на ввод объекта в эксплуатацию"));
-        AllureAttachments.screenshotAs("Карточка реестра");
+        screenshotAs("Карточка реестра");
     }
 
     @Step("В реестре содержится таблица с колонками Номер акта, Дата акта, Место проведения проверки, Результат проверки, Специалист УН, ЕРКНМ ")

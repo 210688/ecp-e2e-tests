@@ -31,7 +31,7 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        //SelenideLogger.addListener("AllureSelenide", new ExtendedListener());
+        //openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         configureSelenide();
     }
 }

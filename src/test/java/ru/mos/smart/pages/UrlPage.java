@@ -3,7 +3,9 @@ package ru.mos.smart.pages;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.open;
-import static ru.mos.smart.data.UrlObjectType.*;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeMain.MAP_CD;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeMain.MAP_URL;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasirx.*;
 
 public class UrlPage {
 

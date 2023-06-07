@@ -17,35 +17,39 @@ import java.util.List;
 
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
-import static ru.mos.smart.data.RegisterObjectType.EOO;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasirx.EOO_URL;
+import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
 
-@Epic("Регрессионные тесты для проверки базового функционала")
-@Feature("Oasirx")
-@Story("Eoo (Общественные обсуждения)")
-@Owner("Soldatov")
+
+@Epic("Проверки реестров по подсистемам")
+@Feature("ОАСИРХ")
+@Story("Реестр")
 @Layer("web")
+@Owner("Soldatov")
 public class EooRegisterTests extends TestBase {
 
-    @Test
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("eoo"), @Tag("regressions")})
-    @DisplayName("Переход в реестр Общественные обсуждения")
-    void goToRegisterEoo() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToEoo();
-        eooPage.checkHeading(EOO);
-    }
+        @Test
+        @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("oasirxReestr")})
+        @DisplayName("Проверка наличия данных и перехода в раздел Общеcтвенные обcуждения")
+        void goToRegisterEoo() {
+            List<String> columnNames = Arrays.asList("Дата", "Номер", "Округ", "Районы", "Адрес","Исполнитель", "Статус");
+            openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+            navigatorPage.goToSection(EOO_URL);
+            reestrPage.searchField();
+            reestrPage.checkFieldData(EOO_URL, columnNames);
+        }
 
     @Test
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("eoo"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("eoo"), @Tag("oasirxCards")})
     @DisplayName("Наличие заявок в реестре")
     void checkAvailabilityApplication() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToEoo();
-        oasirxProjectsPage.checkAvailabilityApplication(EOO);
+        oasirxProjectsPage.checkAvailabilityApplication(EOO_URL);
     }
 
     @Test
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("eoo"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("eoo"), @Tag("oasirxCards")})
     @DisplayName("Переход в карточку заявки")
     void goToRequestCard() {
         List<String> tableColumnList = Arrays.asList("Этап", "Результаты", "Сроки");

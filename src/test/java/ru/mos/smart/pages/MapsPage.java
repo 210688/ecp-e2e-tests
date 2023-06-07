@@ -6,8 +6,8 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static java.time.Duration.ofSeconds;
-import static ru.mos.smart.data.UrlObjectType.EOO_URL;
-import static ru.mos.smart.data.UrlObjectType.MAP_CD;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeMain.MAP_CD;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasirx.EOO_URL;
 
 
 /**

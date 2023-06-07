@@ -22,11 +22,10 @@ public class AuthorizationPage {
             step.parameter("Login", login);
             Authorization authorization = new Authorization();
             setCookies(authorization.getAuthCookie(login, password));
-            open("/main/#/app/main");
         });
     }
 
-    public static void openUrlWithAuthorizationUI(String url, String login, String password) {
+    public static AuthorizationPage openUrlWithAuthorizationUI(String url, String login, String password) {
         open(url);
         step("Авторизация", (step) -> {
             step.parameter("Login", login);
@@ -35,6 +34,7 @@ public class AuthorizationPage {
             $("#password").setValue(password);
             $("#kc-login").click();
         });
+        return null;
     }
 
     public static void openUrlWithAuthorizationSudir(String url, String login, String password) {

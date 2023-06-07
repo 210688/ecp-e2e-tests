@@ -25,8 +25,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
-import static ru.mos.smart.data.UrlObjectType.ACTIONS_URL;
-import static ru.mos.smart.data.UrlObjectType.REGISTER_URL;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeMain.ACTIONS_URL;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeMain.REGISTER_URL;
 
 @Owner("Soldatov")
 @Layer("web")

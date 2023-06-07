@@ -14,7 +14,7 @@ import ru.mos.smart.tests.TestBase;
 
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
-import static ru.mos.smart.data.RegisterObjectType.*;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeRinRif.*;
 
 @Owner("Soldatov")
 @Layer("web")

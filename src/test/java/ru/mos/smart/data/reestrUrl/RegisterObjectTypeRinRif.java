@@ -1,6 +1,6 @@
-package ru.mos.smart.data;
+package ru.mos.smart.data.reestrUrl;
 
-public class RegisterObjectType {
+public class RegisterObjectTypeRinRif {
 
     public static final String AKTS_PROVEROK = "Акты проверок";
     public static final String CHANGE_CONSTRUCTION_BUILDING = "Внесение изменений в разрешения на строительство";
@@ -17,18 +17,5 @@ public class RegisterObjectType {
     public static final String PLANNED_DEMOLITION_NOTICES = "Уведомления о планируемом сносе"; //TODO: придумать название
     public static final String MODIFICATION_OBJECT_OPERATION = "Внесение изменений в разрешения ввод объекта в эксплуатацию"; //TODO: придумать название
     public static final String TZ_LABORATORIES = "ТЗ лаборатории";
-    public static final String EOO = "Общеcтвенные обcуждения";
-    public static final String FCD = "Фасады";
-    public static final String ISOGD = "ИСОГД";
-    public static final String SPRIT = "СПРИТ";
-    public static final String ITMKA = "Управление информатизацией МКА";
-    public static final String HEARINGS = "Публичные слушания";
-    public static final String VIOLATION = "Административные правонарушения";
-    public static final String PZZ = "ПЗЗ";
-    public static final String CRD = "Согласование Документов";
-    public static final String SB = "Самострой";
-    public static final String PKL = "ПКЛ";
-    public static final String VRI = "Виды разрешенного использования";
-    public static final String ELMA = "Соответствие проектной документации СППК";
 
 }

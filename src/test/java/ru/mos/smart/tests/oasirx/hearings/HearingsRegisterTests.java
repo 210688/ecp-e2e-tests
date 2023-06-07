@@ -17,7 +17,7 @@ import java.util.List;
 
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
-import static ru.mos.smart.data.RegisterObjectType.HEARINGS;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasirx.HEARINGS_URL;
 
 @Epic("Регрессионные тесты для проверки базового функционала")
 @Feature("Oasirx")
@@ -43,6 +43,6 @@ public class HearingsRegisterTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToHearings();
         reestrPage.searchField();
-        oasirxProjectsPage.checkFilter(HEARINGS, tableColumnList);
+        oasirxProjectsPage.checkFilter(HEARINGS_URL, tableColumnList);
     }
 }

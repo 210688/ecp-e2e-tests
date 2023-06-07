@@ -2,7 +2,9 @@ package ru.mos.smart.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
+import ru.mos.smart.helpers.AllureAttachments;
 
 import java.util.List;
 
@@ -14,11 +16,38 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static java.time.Duration.ofSeconds;
+import static ru.mos.smart.helpers.AllureAttachments.screenshotAs;
 
 public class ReestrPage {
 
+    private void attachScreenshot(String name) {
+        AllureAttachments.screenshotAs(name);
+    }
+
+    private void attachLink(String name, String link) {
+        Allure.addAttachment(name, link);
+    }
+
     private final ElementsCollection tableHeaders = $$("table th");
     private final ElementsCollection registryFilledWithData  = $$(".search-result-table");
+    private final ElementsCollection tableFieldData = $$(".table-striped");
+    private final ElementsCollection tableFieldDataOasirx = $$(".viewtable");
+
+    @Step("Проверить, что в реестре {registerName} есть данные и присутствуют колонки таблицы {list}")
+    public void checkFilter(String registerName, List<String> list) {
+        String table = String.join(", ", list);
+        tableHeaders.filter(visible).shouldHave(textsInAnyOrder(list));
+        screenshotAs("Скриншот реестра" + " " + registerName);
+        tableFieldData.shouldHave(sizeGreaterThan(0));
+    }
+
+    @Step("Проверить, что в реестре {registerName} есть данные и присутствуют колонки таблицы {list}")
+    public void checkFieldData(String registerName, List<String> list) {
+        String table = String.join(", ", list);
+        tableHeaders.filter(visible).shouldHave(textsInAnyOrder(list));
+        screenshotAs("Скриншот реестра" + " " + registerName);
+        tableFieldDataOasirx.shouldHave(sizeGreaterThan(0));
+    }
 
     @Step("Проверить, что реестр наполнен данными и присутствуют заголовки {list}")
     public void checkRegistryHeader(List<String> list) {
@@ -32,7 +61,7 @@ public class ReestrPage {
         $(".search-form").$("input").shouldBe(visible, ofSeconds(10));
     }
 
-    @Step("Проверить, что в реестре отображаются кнопки колонки и фильтр")
+    @Step("Проверить, что в реестре отображаются кнопки сортировки и фильтр")
             public void columnsAndFilterButton() {
         $("#dropdown-columns-btn").shouldBe(visible);
         $(".container-btn").$("button.btn-white").shouldBe(visible);
@@ -51,10 +80,9 @@ public class ReestrPage {
     }
 
     @Step("Перейти в первую карточку реестра")
-    public ReestrPage gotoFirstCardNoSwitchWindow() {
+    public void gotoFirstCardNoSwitchWindow() {
         $("showcase-builder-runtime a").click();
 
-        return this;
     }
 
     @Step("Открытие раздела СД")

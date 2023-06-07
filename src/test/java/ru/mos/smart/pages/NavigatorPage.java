@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.data.UrlObjectType.*;
+import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeMain.*;
 
 /**
  * Описание навигатора.
@@ -36,10 +36,13 @@ public class NavigatorPage {
     @Step("Переход в реестр {registerName}")
     public void goToRegister(String registerName) {
         open(REGISTER_URL);
-        //$(".item-template ng-tns-c186-2").click();
-        //$(".item-template.ng-tns-c186-23").click();
         $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
         $(byText(registerName)).click();
+    }
+
+    @Step("В Навигаторе открыть раздел {sectionName}")
+    public void goToSection(String sectionName) {
+        open(sectionName);
     }
 
     @Step("Переход в задачи пользователя")
