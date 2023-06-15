@@ -14,7 +14,10 @@ import static ru.mos.smart.config.ConfigHelper.projectConfig;
 
 public class DriverSettings {
 
+
     private static final Logger LOG = LoggerFactory.getLogger("Config properties");
+    static String userAgentValue = "SFT1T";
+
 
     public static void configureSelenide() {
         LOG.info("Threads: {}", projectConfig().threads());
@@ -23,7 +26,8 @@ public class DriverSettings {
         LOG.info("Browser name: {}", projectConfig().browserName());
         LOG.info("Browser version: {}", projectConfig().browserVersion());
         LOG.info("Browser size: {}", projectConfig().browserSize());
-        LOG.info("User name: {}", System.getProperty("user.name"));
+        //LOG.info("User name: {}", System.getProperty("user.name"));
+        LOG.info("User-Agent: {}", userAgentValue);
 
         Configuration.baseUrl = getWebUrl();
         Configuration.browser = projectConfig().browserName();
@@ -42,7 +46,9 @@ public class DriverSettings {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
-                chromeOptions.addArguments("name", System.getProperty("user.name"));
+                //chromeOptions.addArguments("name", System.getProperty("user.name"));
+                chromeOptions.addArguments("--user-agent=" + userAgentValue);
+
                 capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                 break;
             case "firefox":
