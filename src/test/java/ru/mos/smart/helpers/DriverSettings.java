@@ -16,7 +16,7 @@ public class DriverSettings {
 
 
     private static final Logger LOG = LoggerFactory.getLogger("Config properties");
-    static String userAgentValue = "SFT1T";
+    static String userAgentValue = "selenoid-SFT1T";
 
 
     public static void configureSelenide() {
