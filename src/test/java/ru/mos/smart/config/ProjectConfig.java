@@ -6,6 +6,9 @@ import org.aeonbits.owner.Config;
 @Config.Sources({"system:properties"})
 public interface ProjectConfig extends Config {
 
+    @Config.Key("environment")
+    String environment();
+
     @Config.Key("remote.driver.url")
     @Config.DefaultValue("")
     String remoteDriverUrl();
