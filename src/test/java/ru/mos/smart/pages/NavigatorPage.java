@@ -7,8 +7,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byName;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeMain.*;
@@ -30,7 +29,6 @@ public class NavigatorPage {
         open(TASK_URL);
         myTask.shouldHave(text("Мои задачи"));
         searchTask.shouldBe(visible);
-
     }
 
     @Step("Переход в реестр {registerName}")
@@ -40,29 +38,58 @@ public class NavigatorPage {
         $(byText(registerName)).click();
     }
 
-    @Step("В Навигаторе открыть раздел {sectionName}")
+/*    @Step("В Навигаторе открыть раздел {sectionName}")
     public void goToSection(String sectionName) {
         open(sectionName);
+    }*/
+
+    @Step("В Навигаторе открыть раздел {sectionName}")
+    public void goToSection(String sectionName) {
+        $$("cdp-sidebar div").get(8).click();
+        $(byText(sectionName)).click();
+    }
+
+
+    @Step("Проверить, что в реестрах  присутствует список задач")
+    public void checkRegisterTask() {
+        $(withText("Реестры")).should(visible);
     }
 
     @Step("Переход в задачи пользователя")
     public void goToTasks() {
-        open(TASK_URL);
+        $$("cdp-sidebar div").get(4).click();
+        $(byText("Задачи")).click();
     }
 
+    @Step("Проверка, что в задачах пользователя присутствует список задач")
+    public void checkUserTask() {
+        $(withText("Проверить данные заявления")).should(visible);
+    }
 
-    @Step("Переход в справочник")
+    @Step("В Навигаторе открыть раздел справочник")
     public void goToSpravochnik() {
-        open(DICTS_URL);
+        $$("cdp-sidebar div").get(49).click();
+        $(byText("Справочники")).click();
     }
 
+    @Step("Переход в Возможности")
+    public void goToOpportunities() {
+        $$("cdp-sidebar div").get(4).click();
+        $(byText("Возможности")).click();
+    }
 
+    @Step("Проверка, что в Возможностях присутствует список задач")
+    public void checkOpportunitiesTask() {
+        $(withText("Возможности")).should(visible);
+    }
 
     @Step("Переход в карту Цифровой двойник")
     public void goToMapsCD() {
         open(MAP_CD);
         city.should(visible, Duration.ofSeconds(40));
     }
+
+
 
     public NavigatorPage gotoChessboard() {
         step("В навигаторе открыть раздел Информация -> Дашборды -> Оперативный мониторинг за ходом переселения", () -> {
