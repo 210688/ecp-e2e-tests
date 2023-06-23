@@ -31,7 +31,6 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        //openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         configureSelenide();
     }
 }

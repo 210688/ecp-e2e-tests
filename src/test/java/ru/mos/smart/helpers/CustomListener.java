@@ -15,9 +15,9 @@ public class CustomListener implements TestWatcher {
         LOGGER.info("==============");
         LOGGER.info("Test {} - failed", context.getTestMethod().get().getName());
         LOGGER.info("==============");
-        AllureAttachments.screenshotAs("Failed screenshot");
-        AllureAttachments.pageSource();
-        AllureAttachments.browserConsoleLogs();
+        AllureAttachments.attachScreenshot("Failed screenshot");
+        AllureAttachments.attachPageSource();
+        AllureAttachments.BrowserLog();
         Selenide.closeWebDriver();
     }
 
