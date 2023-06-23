@@ -16,12 +16,11 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static java.time.Duration.ofSeconds;
-import static ru.mos.smart.helpers.AllureAttachments.screenshotAs;
 
 public class ReestrPage {
 
     private void attachScreenshot(String name) {
-        AllureAttachments.screenshotAs(name);
+        AllureAttachments.attachScreenshot(name);
     }
 
     private void attachLink(String name, String link) {
@@ -37,7 +36,7 @@ public class ReestrPage {
     public void checkFilter(String registerName, List<String> list) {
         String table = String.join(", ", list);
         tableHeaders.filter(visible).shouldHave(textsInAnyOrder(list));
-        screenshotAs("Скриншот реестра" + " " + registerName);
+        AllureAttachments.attachScreenshot("Скриншот реестра" + " " + registerName);
         tableFieldData.shouldHave(sizeGreaterThan(0));
     }
 
@@ -45,7 +44,7 @@ public class ReestrPage {
     public void checkFieldData(String registerName, List<String> list) {
         String table = String.join(", ", list);
         tableHeaders.filter(visible).shouldHave(textsInAnyOrder(list));
-        screenshotAs("Скриншот реестра" + " " + registerName);
+        AllureAttachments.attachScreenshot("Скриншот реестра" + " " + registerName);
         tableFieldDataOasirx.shouldHave(sizeGreaterThan(0));
     }
 
