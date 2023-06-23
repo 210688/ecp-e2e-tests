@@ -14,7 +14,6 @@ import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static ru.mos.smart.helpers.AllureAttachments.screenshotAs;
 
 /**
  * Описание реестров RinRif.
@@ -23,7 +22,7 @@ import static ru.mos.smart.helpers.AllureAttachments.screenshotAs;
 public class RinrifPage {
 
     private void attachScreenshot(String name) {
-        AllureAttachments.screenshotAs(name);
+        AllureAttachments.attachScreenshot(name);
     }
 
     private void attachLink(String name, String link) {
@@ -43,13 +42,13 @@ public class RinrifPage {
         $(".card-header").shouldBe(visible);
         assert linkName != null;
         Allure.addAttachment("Ссылка на карточку", linkName);
-        screenshotAs("Карточка реестра");
+        AllureAttachments.attachScreenshot("Карточка реестра");
     }
 
     @Step("Карточка реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
     public void card() {
         $("#commoninfo").shouldHave(text("Внесение изменений в разрешение на ввод объекта в эксплуатацию"));
-        screenshotAs("Карточка реестра");
+        AllureAttachments.attachScreenshot("Карточка реестра");
     }
 
     @Step("В реестре содержится таблица с колонками Номер акта, Дата акта, Место проведения проверки, Результат проверки, Специалист УН, ЕРКНМ ")
