@@ -36,7 +36,7 @@ public class OasirxProjectsPage {
     @Step("Проверить наличие заявок в реестре {registerName}")
     public void checkAvailabilityApplication(String registerName) {
         tables.shouldHave(sizeGreaterThanOrEqual(0));
-        AllureAttachments.screenshotAs("Список заявок");
+        AllureAttachments.attachScreenshot("Список заявок");
     }
 
     @Step("Переход по ссылке в карточку документа СД")
@@ -51,7 +51,7 @@ public class OasirxProjectsPage {
         getLinkElementEoo().click();
         String table = String.join(", ", list);
         cardHeaders.filter(visible).shouldHave(textsInAnyOrder(list));
-        AllureAttachments.screenshotAs("Карточка");
+        AllureAttachments.attachScreenshot("Карточка");
     }
 
     @Step("Проверить, что в реестре {registerName} есть данные и присутствуют колонки таблицы {list}")

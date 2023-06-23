@@ -50,10 +50,7 @@ public class NavigatorPage {
     }
 
 
-    @Step("Проверить, что в реестрах  присутствует список задач")
-    public void checkRegisterTask() {
-        $(withText("Реестры")).should(visible);
-    }
+
 
     @Step("Переход в задачи пользователя")
     public void goToTasks() {
@@ -61,10 +58,7 @@ public class NavigatorPage {
         $(byText("Задачи")).click();
     }
 
-    @Step("Проверка, что в задачах пользователя присутствует список задач")
-    public void checkUserTask() {
-        $(withText("Проверить данные заявления")).should(visible);
-    }
+
 
     @Step("В Навигаторе открыть раздел справочник")
     public void goToSpravochnik() {
@@ -78,16 +72,31 @@ public class NavigatorPage {
         $(byText("Возможности")).click();
     }
 
-    @Step("Проверка, что в Возможностях присутствует список задач")
-    public void checkOpportunitiesTask() {
-        $(withText("Возможности")).should(visible);
-    }
 
     @Step("Переход в карту Цифровой двойник")
     public void goToMapsCD() {
         open(MAP_CD);
         city.should(visible, Duration.ofSeconds(40));
     }
+
+    @Step("Проверить, что в реестрах  присутствует список задач")
+    public void checkRegisterTask() {
+        $(withText("Реестры")).should(visible);
+    }
+
+    @Step("Проверить, что в Возможностях присутствует список задач")
+    public void checkOpportunitiesTask() {
+        $(withText("Возможности")).should(visible);
+    }
+
+    @Step("Проверить, что в задачах пользователя присутствует список задач")
+    public void checkUserTask() {
+        $(withText("Проверить данные заявления")).should(visible);
+    }
+
+
+
+
 
 
 
@@ -150,4 +159,6 @@ public class NavigatorPage {
                 $x("//span[text()='ВРИ']").click());
 
     }
+
+
 }
