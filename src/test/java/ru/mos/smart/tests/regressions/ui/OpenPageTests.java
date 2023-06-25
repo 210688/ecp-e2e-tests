@@ -28,7 +28,7 @@ public class OpenPageTests extends TestBase {
     @DisplayName("Проверка перехода в меню возможности")
     void goToActionsPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        open("/app/lcs/constructor/main/#/app/forms/FORM_MAIN_PAGE");
+        //open("/app/lcs/constructor/main/#/app/forms/FORM_MAIN_PAGE");
         navigatorPage.goToOpportunities();
         navigatorPage.checkOpportunitiesTask();
     }

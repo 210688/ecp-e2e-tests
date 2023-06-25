@@ -5,7 +5,6 @@ import io.restassured.RestAssured;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,13 +19,16 @@ public class DriverSettings {
 
 
     public static void configureSelenide() {
+        //LoggingPreferences logging = new LoggingPreferences();
+        //logging.enable(String.valueOf(BROWSER), Level.ALL);
+        //logging.enable(String.valueOf(LogType.PERFORMANCE), Level.ALL);  // Включаем логирование сетевых запросов
+        LOG.info("Environment: {}", projectConfig().environment());
         LOG.info("Threads: {}", projectConfig().threads());
-        LOG.info("Tag: {}", System.getProperty("tag"));
         LOG.info("Remote driver url: {}", projectConfig().remoteDriverUrl());
+        LOG.info("Base url: {}", getWebUrl());
         LOG.info("Browser name: {}", projectConfig().browserName());
         LOG.info("Browser version: {}", projectConfig().browserVersion());
         LOG.info("Browser size: {}", projectConfig().browserSize());
-        //LOG.info("User name: {}", System.getProperty("user.name"));
         LOG.info("User-Agent: {}", userAgentValue);
 
         Configuration.baseUrl = getWebUrl();
@@ -34,29 +36,26 @@ public class DriverSettings {
         Configuration.browserVersion = projectConfig().browserVersion();
         Configuration.browserSize = projectConfig().browserSize();
         Configuration.pageLoadTimeout = 120000;
-        Configuration.timeout = 20000;
+        Configuration.timeout = 10000;
         RestAssured.baseURI = getWebUrl();
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+        //DesiredCapabilities capabilities = new DesiredCapabilities();
         if (!projectConfig().remoteDriverUrl().equals("")) {
-            capabilities.setCapability("enableVNC", true);
             Configuration.remote = projectConfig().remoteDriverUrl();
+            Configuration.browserCapabilities.setCapability("enableVNC", true);
         }
+
         switch (projectConfig().browserName()) {
             case "chrome":
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
-                //chromeOptions.addArguments("name", System.getProperty("user.name"));
-                chromeOptions.addArguments("--user-agent=" + userAgentValue);
-
-                capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+                Configuration.browserCapabilities.setCapability(ChromeOptions.CAPABILITY, new ChromeOptions()
+                        .addArguments("--user-agent=" + userAgentValue)
+                        .setPageLoadStrategy(PageLoadStrategy.EAGER));
+                //Configuration.browserCapabilities.setCapability("goog:loggingPrefs", logging);
                 break;
             case "firefox":
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, firefoxOptions);
+                Configuration.browserCapabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, new FirefoxOptions());
                 break;
         }
-        LOG.info("Browser capabilities: {}", capabilities);
-        Configuration.browserCapabilities = capabilities;
     }
 }
+
