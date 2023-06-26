@@ -5,6 +5,7 @@ import io.restassured.RestAssured;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,23 +40,25 @@ public class DriverSettings {
         Configuration.timeout = 10000;
         RestAssured.baseURI = getWebUrl();
 
-        //DesiredCapabilities capabilities = new DesiredCapabilities();
+        DesiredCapabilities capabilities = new DesiredCapabilities();
         if (!projectConfig().remoteDriverUrl().equals("")) {
+            capabilities.setCapability("enableVNC", true);
             Configuration.remote = projectConfig().remoteDriverUrl();
-            Configuration.browserCapabilities.setCapability("enableVNC", true);
         }
 
         switch (projectConfig().browserName()) {
             case "chrome":
-                Configuration.browserCapabilities.setCapability(ChromeOptions.CAPABILITY, new ChromeOptions()
-                        .addArguments("--user-agent=" + userAgentValue)
-                        .setPageLoadStrategy(PageLoadStrategy.EAGER));
-                //Configuration.browserCapabilities.setCapability("goog:loggingPrefs", logging);
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
+                capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                 break;
             case "firefox":
-                Configuration.browserCapabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, new FirefoxOptions());
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, firefoxOptions);
                 break;
         }
+        LOG.info("Browser capabilities: {}", capabilities);
+        Configuration.browserCapabilities = capabilities;
     }
 }
 
