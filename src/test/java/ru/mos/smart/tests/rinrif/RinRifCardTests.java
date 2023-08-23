@@ -29,7 +29,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterActsProverok() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(AKTS_PROVEROK);
+        sidebarPage.goToRegister(AKTS_PROVEROK);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -38,7 +38,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterEnteringObject() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
+        sidebarPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -47,7 +47,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjects() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(ALL_OBJECTS);
+        sidebarPage.goToRegister(ALL_OBJECTS);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -56,7 +56,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjectsSnos() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(ALL_OBJECTS_SNOS);
+        sidebarPage.goToRegister(ALL_OBJECTS_SNOS);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -65,7 +65,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllOrganizations() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(All_ORGANIZATION);
+        sidebarPage.goToRegister(All_ORGANIZATION);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -74,7 +74,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrAllInspectionDecisions() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(All_INSPECTION_DECISIONS);
+        sidebarPage.goToRegister(All_INSPECTION_DECISIONS);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -83,7 +83,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(DEMOLITIONS);
+        sidebarPage.goToRegister(DEMOLITIONS);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -92,7 +92,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
+        sidebarPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -101,7 +101,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterConstructionLicense() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
+        sidebarPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -110,7 +110,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterObjectOperation() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
+        sidebarPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -119,7 +119,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardBuildingPermitRegister() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(BUILDING_PERMIT);
+        sidebarPage.goToRegister(BUILDING_PERMIT);
         rinrifPage.goToRegistryCardAndCheck();
     }
 }

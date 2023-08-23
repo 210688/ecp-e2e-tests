@@ -13,7 +13,7 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 public class AuthorizationPage {
-    private static final String redirectUrl = webConfig().webUrl();
+    private static final String redirectUrl = "https://smart.mos.ru";
     private static void setCookies(Map<String, String> cookiesMap) {
         open("/reg/favicon.ico");
         cookiesMap.forEach((k, v) -> getWebDriver().manage().addCookie(new Cookie(k, v)));
@@ -27,15 +27,6 @@ public class AuthorizationPage {
             setCookies(authorization.getAuthCookie(login, password));
         });
     }
-
-    public static void openUrlWithAuthorizationApi(String url, String login, String password) {
-        step("Авторизация", (step) -> {
-            step.parameter("Login", login);
-            Authorization authorization = new Authorization();
-            setCookies(authorization.getAuthCookie(login, password));
-        });
-    }
-
 
     public static void openUrlWithAuthorizationUI(String url, String login, String password) {
         open(url);

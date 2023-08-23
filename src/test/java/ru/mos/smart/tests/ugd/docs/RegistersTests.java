@@ -42,7 +42,7 @@ public class RegistersTests extends TestBase {
             add("Признак удаления");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("РД. Акт проверки строительства");
         reestrPage
                 .checkColumns(columns);
@@ -66,7 +66,7 @@ public class RegistersTests extends TestBase {
             add("Признак удаления");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("РД. Извещения об окончании СМР");
         reestrPage
                 .checkColumns(columns);
@@ -87,7 +87,7 @@ public class RegistersTests extends TestBase {
             add("Признак удаления");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("РД. Извещения о начале СМР");
         reestrPage
                 .checkColumns(columns);
@@ -112,7 +112,7 @@ public class RegistersTests extends TestBase {
             add("Признак удаления");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("РД. Свидетельства АГР");
         reestrPage
                 .checkColumns(columns);
@@ -136,7 +136,7 @@ public class RegistersTests extends TestBase {
             add("Файл");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оперативных данных документов. ГПЗУ");
         reestrPage
                 .checkColumns(columns);
@@ -156,7 +156,7 @@ public class RegistersTests extends TestBase {
             add("Файл");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оперативных данных документов. Заключения Мосгоргеотреста");
 
         reestrPage
@@ -181,7 +181,7 @@ public class RegistersTests extends TestBase {
             add("Файл");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оперативных данных документов. Заключения о соответствии");
         reestrPage
                 .checkColumns(columns);
@@ -213,7 +213,7 @@ public class RegistersTests extends TestBase {
             add("Удален");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оперативных данных документов. Заключения экспертизы");
 
         reestrPage
@@ -239,7 +239,7 @@ public class RegistersTests extends TestBase {
             add("Файл");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оперативных данных документов. Разрешения на ввод");
 
         reestrPage
@@ -265,7 +265,7 @@ public class RegistersTests extends TestBase {
             add("Файл");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оперативных данных документов. Разрешения на строительство");
         reestrPage
                 .checkColumns(columns);
@@ -285,7 +285,7 @@ public class RegistersTests extends TestBase {
             add("Файл");
         }};
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оперативных данных. Исполнительные чертежи Мосгоргеотреста");
         reestrPage
                 .checkColumns(columns);

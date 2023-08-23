@@ -32,7 +32,7 @@ public class OasiReestrTests extends TestBase {
         List<String> columnNames = Arrays.asList("Рег. номер", "Дата регистрации", "Адрес объекта", "Статус", "Заявитель",
                 "Плановая дата", "Исполнитель", "Номер МПГУ", "Дата подготовки решения", "Получен ответ из БР");
         openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(PKR);
+        sidebarPage.goToRegister(PKR);
         reestrPage.searchField();
         reestrPage.columnsAndFilterButton();
         reestrPage.checkFilter(PKR, columnNames);
@@ -47,7 +47,7 @@ public class OasiReestrTests extends TestBase {
                 "Статус", "Заявитель", "Дата оказания ГУ", "Номер МПГУ", "Эксперт ", "Значение объекта", "Кол-во дней в МКА", "Номер и дата комиссии",
                 "срок");
         openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(AGR);
+        sidebarPage.goToRegister(AGR);
         reestrPage.searchField();
         reestrPage.columnsAndFilterButton();
         reestrPage.checkFilter(AGR, columnNames);

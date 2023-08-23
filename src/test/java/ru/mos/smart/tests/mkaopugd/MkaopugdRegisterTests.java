@@ -32,7 +32,7 @@ public class MkaopugdRegisterTests extends TestBase {
     void registerOfInstructionsUgd() {
 
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр поручений УГД");
 
 
@@ -55,7 +55,7 @@ public class MkaopugdRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkaopugd")})
     void cardOfRegisterUgd() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр поручений УГД");
 
         step("Открыть любую карточку реестра", () -> {

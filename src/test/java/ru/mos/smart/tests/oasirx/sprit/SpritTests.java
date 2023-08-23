@@ -35,7 +35,7 @@ public class SpritTests extends TestBase {
     @Owner("Amidosha")
     void cardViewSprit() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToSprit();
 
         step("Открыть любую карточку", () ->
@@ -62,7 +62,7 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void historyChangeCard() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
                 $(".viewtable").$("a").click());
@@ -83,7 +83,7 @@ public class SpritTests extends TestBase {
     @Feature("SPRIT (Выдача СПРИТ)")
     void newReglament() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
                 $(".viewtable").$("a").click());
@@ -107,7 +107,7 @@ public class SpritTests extends TestBase {
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     void process() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
                 $(".viewtable").$("a").click());
@@ -129,7 +129,7 @@ public class SpritTests extends TestBase {
     @Feature("SPRIT (Выдача СПРИТ)")
     void cardMaterialsTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToSprit();
         step("Открыть любую катрочку", () ->
                 $("[heading='Запросы в работе']").$("a").click());

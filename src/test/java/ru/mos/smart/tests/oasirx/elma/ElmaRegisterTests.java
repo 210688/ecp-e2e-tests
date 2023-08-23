@@ -32,7 +32,7 @@ public class ElmaRegisterTests extends TestBase {
     void goToRegisterElma() {
         List<String> columnNames = Arrays.asList("Дата", "Номер", "Номер МГГТ", "Название", "Статус");
         openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToSection(ELMA_URL);
+        sidebarPage.goToSection(ELMA_URL);
         reestrPage.searchField();
         reestrPage.checkFieldData(ELMA_URL, columnNames);
     }

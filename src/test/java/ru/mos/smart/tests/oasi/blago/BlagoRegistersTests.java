@@ -28,7 +28,7 @@ public class BlagoRegistersTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("blago")})
     void checkingBlagoRegisters() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Проекты благоустройства");
 
         step("Должны быть найдены Проекты благоустройства", () ->

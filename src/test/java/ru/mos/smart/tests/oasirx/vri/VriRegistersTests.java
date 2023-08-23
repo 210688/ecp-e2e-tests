@@ -44,7 +44,7 @@ public class VriRegistersTests extends TestBase {
         }};
 
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToVri();
 
         vriPage

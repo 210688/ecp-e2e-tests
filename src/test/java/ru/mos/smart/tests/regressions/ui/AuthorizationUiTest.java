@@ -26,6 +26,6 @@ public class AuthorizationUiTest extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void authorizationEcpViaUi() {
         AuthorizationPage.openUrlWithAuthorizationUI(getWebSecureUrl(), getLoginRegress(), getPasswordRegress());
-        navigatorPage.checkPageTask();
+        sidebarPage.checkPageTask();
     }
 }

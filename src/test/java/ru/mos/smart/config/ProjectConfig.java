@@ -11,6 +11,7 @@ public interface ProjectConfig extends Config {
 
     @Config.Key("remote.driver.url")
     @Config.DefaultValue("")
+    //@Config.DefaultValue("http://10.15.58.218:8888/wd/hub")
     String remoteDriverUrl();
 
     @Config.Key("browser.name")
@@ -18,7 +19,7 @@ public interface ProjectConfig extends Config {
     String browserName();
 
     @Config.Key("browser.version")
-    @Config.DefaultValue("96.0")
+    @Config.DefaultValue("112.0")
     String browserVersion();
 
     @Config.Key("browser.size")
@@ -26,5 +27,6 @@ public interface ProjectConfig extends Config {
     String browserSize();
 
     @Config.Key("threads")
-    String threads();
+    @DefaultValue("1")
+    Integer threads();
 }

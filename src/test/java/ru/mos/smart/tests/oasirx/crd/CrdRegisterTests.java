@@ -31,7 +31,7 @@ public class CrdRegisterTests extends TestBase {
     void goToRegisterCrd() {
         List<String> columnNames = Arrays.asList("Номер", "Дата", "Название", "Инициатор", "Статус");
         openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToSection(CRD_URL);
+        sidebarPage.goToSection(CRD_URL);
         reestrPage.searchField();
         reestrPage.checkFieldData(CRD_URL, columnNames);
     }

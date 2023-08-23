@@ -29,7 +29,7 @@ public class RinRifMatCapTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkAttributesOfRinRifMatCapRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Заявления о выдаче акта по материнскому капиталу");
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form").$("input").shouldBe(visible);
@@ -51,7 +51,7 @@ public class RinRifMatCapTests extends TestBase {
     void checkAttributesOfRinRifMatCapObjCard() {
         String statementNumber = "09-МК-179/21-(0)-0";
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Заявления о выдаче акта по материнскому капиталу");
 
         step("Открыть любую карточку реестра", () -> {

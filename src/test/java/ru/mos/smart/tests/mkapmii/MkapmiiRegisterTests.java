@@ -35,7 +35,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @Feature("Реестр и карточка заявления")
     void checkingTheAttributesOfTheRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form input").shouldBe(visible);
@@ -70,7 +70,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @Feature("Реестр и карточка заявления")
     void uiCardTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
         reestrPage.gotoFirstCardNoSwitchWindow();
         step("Проверить, что форма озаглавлена Карточка заявления", () ->
@@ -129,7 +129,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @Feature("Реестр и карточка заявления")
     void mainControlsTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
         reestrPage.gotoFirstCardNoSwitchWindow();
 
@@ -177,7 +177,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @Feature("Выдача заявления на руки")
     void handingOverTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
@@ -212,7 +212,7 @@ public class MkapmiiRegisterTests extends TestBase {
     @Feature("Выдача заявления на руки")
     void handingOverPlusTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {

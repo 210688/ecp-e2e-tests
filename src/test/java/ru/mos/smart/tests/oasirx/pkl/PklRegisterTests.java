@@ -33,7 +33,7 @@ public class PklRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pkl")})
     void openingTheRegisterPkl() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToPkl();
 
         step("Открыт раздел ПКЛ", () ->
@@ -55,7 +55,7 @@ public class PklRegisterTests extends TestBase {
     void searchingPklCardByNumber() {
 
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToPkl();
 
         step("Открыт раздел ПКЛ", () ->

@@ -34,7 +34,7 @@ public class EooRegisterTests extends TestBase {
         void goToRegisterEoo() {
             List<String> columnNames = Arrays.asList("Дата", "Номер", "Округ", "Районы", "Адрес","Исполнитель", "Статус");
             openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-            navigatorPage.goToSection(EOO_URL);
+            sidebarPage.goToSection(EOO_URL);
             reestrPage.searchField();
             reestrPage.checkFieldData(EOO_URL, columnNames);
         }

@@ -36,7 +36,7 @@ public class FcdRegisterTests extends TestBase {
         void goToRegisterEoo() {
             List<String> columnNames = Arrays.asList("Дата", "Номер", "Номер ПГУ", "Адрес", "Исполнитель", "Тип запроса", "Статус");
             openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-            navigatorPage.goToSection(FCD_URL);
+            sidebarPage.goToSection(FCD_URL);
             reestrPage.searchField();
             reestrPage.checkFieldData(FCD_URL, columnNames);
         }

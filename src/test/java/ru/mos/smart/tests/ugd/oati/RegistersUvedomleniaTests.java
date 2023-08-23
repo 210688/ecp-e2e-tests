@@ -28,7 +28,7 @@ class RegistersUvedomleniaTests extends TestBase {
     @DisplayName("Проверка открытия реестров")
     void openRegisterUvedomlenia() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister(" ОАТИ. Уведомления");
 
         step("Открыть реестр ОАТИ. Уведомления", () -> {

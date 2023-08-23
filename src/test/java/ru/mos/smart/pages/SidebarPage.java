@@ -1,5 +1,7 @@
 package ru.mos.smart.pages;
 
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -16,13 +18,51 @@ import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeMain.*;
  * Описание навигатора.
  */
 
-public class NavigatorPage {
+public class SidebarPage {
 
     private final SelenideElement canvas = $(".mapboxgl-canvas");
     private final SelenideElement city = $("#city");
     private final SelenideElement task = $("#sidebar_header");
     private final SelenideElement myTask = $(".font-bold.hidden-xs");
     private final SelenideElement searchTask = $(byName("search"));
+
+    @Step("Проверить, что в раскрывшемся меню присутствует список {expectedTexts}")
+    public void checkSubMenuList(String menuName, String[] expectedTexts) {
+        ElementsCollection subMenuItems = $(byText(menuName))
+                .parent().parent()
+                .sibling(0)
+                .$$("div.name");
+
+        subMenuItems.shouldHave(CollectionCondition.texts(expectedTexts));
+    }
+
+    @Step("Нажать на меню {sidebarMenu}")
+    public void clickSidebarMenu(String sidebarMenu) {
+        $$("#sidebar_menu>div").find(text(sidebarMenu)).click();
+    }
+
+    @Step("В раскрывшемся меню {menuName} нажать {subMenuName}")
+    public void clickSubMenuList(String menuName, String subMenuName) {
+        $(byText(menuName))
+                .parent().parent()
+                .sibling(0)
+                .$$("div.name").find(text(subMenuName)).click();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Step("Проверить наличие задач в списке")
     public void checkPageTask() {
@@ -100,7 +140,7 @@ public class NavigatorPage {
 
 
 
-    public NavigatorPage gotoChessboard() {
+    public SidebarPage gotoChessboard() {
         step("В навигаторе открыть раздел Информация -> Дашборды -> Оперативный мониторинг за ходом переселения", () -> {
             $(byText("Информация")).click();
             $(byText("Дашборды")).click();
@@ -110,7 +150,7 @@ public class NavigatorPage {
         return this;
     }
 
-    public NavigatorPage goToSprit() {
+    public SidebarPage goToSprit() {
         step("В навигаторе открыть раздел Выдача СПРИТ", () ->
                 $(("a[href='/oasirx/sprit/#/app/sprit/list']")).click());
 
@@ -120,34 +160,34 @@ public class NavigatorPage {
 
 
 
-    public NavigatorPage goToItmka() {
+    public SidebarPage goToItmka() {
         step("Из боковой панели перейти в раздел Управление ИТ МКА", () ->
                 $x("//span[text()='Управление ИТ МКА']").click());
         return this;
     }
 
-    public NavigatorPage goToViolations() {
+    public SidebarPage goToViolations() {
         step("Из боковой панели перейти в раздел Нарушения ОГД", () ->
                 $x("//span[text()='Нарушения ОГД']").click());
 
         return this;
     }
 
-    public NavigatorPage goToPkl() {
+    public SidebarPage goToPkl() {
         step("Из боковой панели перейти в раздел ПКЛ", () ->
                 $x("//span[text()='ПКЛ']").click());
 
         return this;
     }
 
-    public NavigatorPage goToPmt() {
+    public SidebarPage goToPmt() {
         step("Из боковой панели перейти в раздел ПМТ", () ->
                 $x("//span[text()='ПМТ']").click());
 
         return this;
     }
 
-    public NavigatorPage goToSzz() {
+    public SidebarPage goToSzz() {
         step("Из боковой панели перейти в раздел СЗЗ", () ->
                 $x("//span[text()='СЗЗ']").click());
 

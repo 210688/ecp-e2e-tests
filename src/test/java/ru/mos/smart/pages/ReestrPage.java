@@ -19,18 +19,19 @@ import static java.time.Duration.ofSeconds;
 
 public class ReestrPage {
 
-    private void attachScreenshot(String name) {
-        AllureAttachments.attachScreenshot(name);
-    }
-
-    private void attachLink(String name, String link) {
-        Allure.addAttachment(name, link);
-    }
+    private final ElementsCollection elements =  $$("[title]");
 
     private final ElementsCollection tableHeaders = $$("table th");
     private final ElementsCollection registryFilledWithData  = $$(".search-result-table");
     private final ElementsCollection tableFieldData = $$(".table-striped");
     private final ElementsCollection tableFieldDataOasirx = $$(".viewtable");
+
+    @Step("Проверка, что в реестре  присутствует список реестров доступных пользователю")
+    public void checkReestrTask() {
+        assert elements.size() > 0 : "Коллекция не содержит элементов";
+        AllureAttachments.attachScreenshot("Список реестров пользователя");
+    }
+
 
     @Step("Проверить, что в реестре {registerName} есть данные и присутствуют колонки таблицы {list}")
     public void checkFilter(String registerName, List<String> list) {

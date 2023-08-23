@@ -3,11 +3,11 @@ package ru.mos.smart.pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static java.time.Duration.ofSeconds;
-import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeMain.MAP_CD;
-import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasirx.EOO_URL;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 /**
@@ -17,62 +17,81 @@ import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasirx.EOO_URL;
 
 public class MapsPage {
 
-    private final SelenideElement
-            distance = $x("//button[contains(text(),'Измерение расстояния')]"),
-            area = $x("//button[contains(text(),'Измерение площади')]"),
-            perimeter = $x("//button[contains(text(),'Измерение периметра')]");
-
     private final SelenideElement addressSearch = $("input[placeholder='Поиск']");
     private final SelenideElement layerSearch = $("input[placeholder='Найти слой']");
-    private final SelenideElement mapsBox = $("canvas[aria-label='Map']");
-    private final SelenideElement mapsBoxCd = $("#city");
+    private final SelenideElement canvas = $("canvas[aria-label='Map']");
+    private final SelenideElement icon = $(("button[tooltip-right='3D режим']"));
+    private final SelenideElement traffic = $(("button[tooltip-right='Пробки']"));
+    private final SelenideElement pedestrian = $(("button[tooltip-right='Панорамы']"));
+    private final SelenideElement painting = $(("button[tooltip-right='Рисование']"));
     private final SelenideElement instruments = $(("button[tooltip-right='Измерение']"));
-    private final SelenideElement myTask = $(".font-bold.hidden-xs");
+    private final SelenideElement legend = $(("button[tooltip-right='Условные обозначения']"));
+    private final SelenideElement info = $(("button[tooltip-right='Информация']"));
+    private final SelenideElement plus = $(("button[tooltip-right='Приблизить']"));
+    private final SelenideElement minus = $(("button[tooltip-right='Отдалить']"));
+    private final SelenideElement location = $(("button[tooltip-right='Мое местоположение']"));
+
+
+    private void switchToWindow(int windowIndex) {
+        switchTo().window(windowIndex);
+    }
 
     @Step("Проверить наличие подложки")
     public void checkForMapsBox() {
-        mapsBox.shouldBe(visible, ofSeconds(10));
+        switchToWindow(1);
+        canvas.shouldBe(visible, ofSeconds(20));
     }
 
-    @Step("Проверить наличие адреса в поиске")
-    public void checkSearch() {
-        addressSearch.setValue("Новокузнецкая улица").shouldBe(visible);
-/*        $(".results").shouldBe(visible,ofSeconds(20));
-        AllureAttachments.screenshotAs("Maps");*/
-    }
-
-
-    @Step("Проверить наличие подложки")
-    public void checkForMapsBoxCd() {
-        mapsBoxCd.should(visible, ofSeconds(30));
-    }
-
-    @Step("Проверить наличие инструментов измерений: Измерение расстояния, Измерение площади, Измерение периметра")
-    public void checkInstrumentsMaps() {
-        instruments.click();
-        distance.shouldBe(visible, ofSeconds(20));
-        area.shouldBe(visible, ofSeconds(20));
-        perimeter.shouldBe(visible, ofSeconds(20));
+    @Step("Проверить наличие кнопок  {expectedTexts} 3D режим, Пробки, Панорамы, Рисование, Измерение, Условные обозначения, Информация")
+    public void checkInstrumentsMaps(String[] expectedTexts) {
+        switchToWindow(1);
+        /*$$(".map-buttons top").shouldHave(texts("3D режим", "Пробки", "Панорамы", "Рисование",
+                "Измерение", "Условные обозначения", "Информация"));*/
+        icon.should(visible, ofSeconds(10));
+        traffic.should(visible, ofSeconds(10));
+        pedestrian.should(visible, ofSeconds(10));
+        painting.should(visible, ofSeconds(10));
+        instruments.should(visible, ofSeconds(10));
+        legend.should(visible, ofSeconds(10));
+        info.should(visible, ofSeconds(10));
     }
 
     @Step("Проверить наличие поля адресного поиска")
     public void checkAddressSearch() {
-        addressSearch.shouldBe(visible, ofSeconds(20));
+        switchToWindow(1);
+        addressSearch.shouldBe(visible, ofSeconds(10));
     }
 
     @Step("Проверить наличие поля поиска слоя")
     public void checkLayerSearch() {
-        layerSearch.shouldBe(visible, ofSeconds(20));
+        switchToWindow(1);
+        layerSearch.shouldBe(visible, ofSeconds(10));
     }
 
-    @Step("Переход в карту Цифровой двойник")
-    public void goToMapsCD() {
-        open(MAP_CD);
+    @Step("Проверить поиск адреса")
+    public void checkSearchAddresses() {
+        switchToWindow(1);
+        addressSearch.setValue("улица Кузнецкий Мост").shouldBe(visible, ofSeconds(20));
+/*        $(".results").shouldBe(visible,ofSeconds(20));
+        AllureAttachments.screenshotAs("Maps");*/
     }
 
-    @Step("В Навигаторе открыть раздел ЭОО")
-    public void goToEoo() {
-        open(EOO_URL);
-        $(".ng-binding").shouldBe(visible);
+    @Step("Проверить наличие инструментов масштабирования: кнопок + и -")
+    public void checkScalingTools() {
+        switchToWindow(1);
+        plus.should(visible, ofSeconds(10));
+        minus.should(visible, ofSeconds(10));
+    }
+
+    @Step("Проверить наличие инструмента Мое местоположение")
+    public void checkMyLocationTool() {
+        switchToWindow(1);
+        location.should(visible, ofSeconds(10));
+    }
+
+    @Step("Проверить наличие инструмента Первоначальная позиция")
+    public void checkInitialPositionTool() {
+        switchToWindow(1);
+        $(("button[tooltip-right='Первоначальная позиция']")).should(visible, ofSeconds(10));
     }
 }

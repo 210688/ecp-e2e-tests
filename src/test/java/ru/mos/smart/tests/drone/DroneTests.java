@@ -95,7 +95,7 @@ public class DroneTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openReestrDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Данные аэрофотосъемки");
         step("Проверить, что в реестре Данные аэрофотосъемки есть карточки", () -> {
             $(byText("Данные аэрофотосъемки")).shouldBe(visible);
@@ -109,7 +109,7 @@ public class DroneTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void viewCartDrone() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Данные аэрофотосъемки");
         AtomicReference<String> card = new AtomicReference<>("");
 

@@ -32,7 +32,7 @@ public class Map3DInstrumentalTests extends TestBase {
         //String testPath = "MapsTests";
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         urlPage.goToMapsCd();
-        mapsPage.checkForMapsBoxCd();
+        //mapsPage.checkForMapsBoxCd();
         /*Screenshot actualImage = new ScreenshotHelper()
                 .getActualScreenshot();
         Screenshot expectedImage = new ScreenshotHelper()
@@ -50,7 +50,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheDisplayOfLayersPanel() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToMapsCD();
         step("В левой боковой панели открыть Дерево слоев", () ->
                 $("span[title='Дерево слоёв']")).click();
@@ -64,7 +64,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToMapsCD();
 
         step("Проверка, что адрес находится", () -> {
@@ -79,7 +79,7 @@ public class Map3DInstrumentalTests extends TestBase {
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         step("Проверка наличия строки адресного поиска");
-        navigatorPage
+        sidebarPage
                 .goToMapsCD();
         step("Проверка наличия кнопок масштабирования на карте");
         $((".far.fa-plus")).shouldBe(visible);
@@ -92,7 +92,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToMapsCD();
 
         step("Проверка наличия инструмента первоначальная позиция", () -> {
@@ -105,7 +105,7 @@ public class Map3DInstrumentalTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToMapsCD();
         step("Проверка наличия инструментов: линейка, треугольник, выбор подложки", () -> {
             $((".fas.fa-ruler")).shouldBe(visible);

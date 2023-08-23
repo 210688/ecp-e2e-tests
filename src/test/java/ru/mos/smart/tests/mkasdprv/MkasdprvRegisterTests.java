@@ -32,7 +32,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("mkasdprv"), @Tag("predprod")})
     void checkingTheAttributesOfTheRegistry() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оказания услуги Вывесок");
 
         step("В реестре присутствуют поля:", () -> {
@@ -54,7 +54,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkasdprv")})
     void openingRegistryCard() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToRegister("Реестр оказания услуги Вывесок");
 
         step("Открыть любую карточку реестра", () -> {
