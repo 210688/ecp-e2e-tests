@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.mrgp;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -22,6 +23,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 @Feature("MRGP")
 public class mrgpTests extends TestBase {
     @Test
+    @AllureId("6003")
     @DisplayName("Проверка открытия реестра")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mrgp")})
     void openReestr() {

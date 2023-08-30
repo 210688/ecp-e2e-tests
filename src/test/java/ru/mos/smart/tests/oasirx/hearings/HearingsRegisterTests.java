@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasirx.hearings;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -27,6 +28,7 @@ import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasirx.HEARINGS_URL;
 public class HearingsRegisterTests extends TestBase {
 
     @Test
+    @AllureId("12534")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("hearings"), @Tag("regressions")})
     @DisplayName("Переход в реестр Публичные слушания")
     void goToRegisterHearing() {
@@ -36,6 +38,7 @@ public class HearingsRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("12535")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("hearings"), @Tag("regressions")})
     @DisplayName("Заголовки колонок в реестре Публичные слушания")
     void checkHeadersTables() {

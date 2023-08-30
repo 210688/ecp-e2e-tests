@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.ugd.oati;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -26,6 +27,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 class CreateNotificationProjectTests extends TestBase {
 
     @Test
+    @AllureId("7055")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("oati")})
     @DisplayName("Проверка доступности формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
     void checkingNotificationSubmissionForm() {

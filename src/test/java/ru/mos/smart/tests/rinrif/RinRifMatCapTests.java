@@ -1,6 +1,7 @@
 package ru.mos.smart.tests.rinrif;
 
 import com.codeborne.selenide.ElementsCollection;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -24,6 +25,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 public class RinRifMatCapTests extends TestBase {
 
     @Test
+    @AllureId("7996")
     @DisplayName("Проверка реестра Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
@@ -45,18 +47,19 @@ public class RinRifMatCapTests extends TestBase {
     }
 
     @Test
+    @AllureId("7995")
     @DisplayName("Проверка карточки реестра Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rinrif")})
     void checkAttributesOfRinRifMatCapObjCard() {
-        String statementNumber = "09-МК-179/21-(0)-0";
+        java.lang.String statementNumber = "09-МК-179/21-(0)-0";
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage
                 .goToRegister("Заявления о выдаче акта по материнскому капиталу");
 
         step("Открыть любую карточку реестра", () -> {
-            $("input.input-lg").setValue(statementNumber).pressEnter();
-            $("table").$("tbody").$(byText(statementNumber)).click();
+            $("input.input-lg").setValue(statementNumber.toString()).pressEnter();
+            $("table").$("tbody").$(byText(statementNumber.toString())).click();
         });
 
         ElementsCollection fieldNames = $$(".col-lg-6.col-md-6.col-sm-12");

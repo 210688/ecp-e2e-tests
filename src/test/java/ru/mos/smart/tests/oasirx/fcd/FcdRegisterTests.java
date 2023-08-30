@@ -1,10 +1,7 @@
 package ru.mos.smart.tests.oasirx.fcd;
 
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -44,6 +41,7 @@ public class FcdRegisterTests extends TestBase {
     private final SelenideElement heading = $(".ng-binding");
 
     @Test
+    @AllureId("12537")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("oasirxCard")})
     @DisplayName("Переход в реестр Фасады")
     void goToFacades() {
@@ -53,6 +51,7 @@ public class FcdRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("12536")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("oasirxCard")})
     @DisplayName("Заголовки колонок в реестре Фасады")
     void checkHeadersTables() {

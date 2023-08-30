@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.rinrif;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -25,6 +22,7 @@ import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeRinRif.*;
 public class RinRifCardTests extends TestBase {
 
     @Test
+    @AllureId("14049")
     @DisplayName("Проверка перехода в карточку из реестра Акты проверок")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterActsProverok() {
@@ -34,6 +32,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("14045")
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterEnteringObject() {
@@ -43,6 +42,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("14046")
     @DisplayName("Проверка перехода в карточку из реестра Все объекты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjects() {
@@ -52,6 +52,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("14046")
     @DisplayName("Проверка перехода в карточку из реестра Все объекты сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjectsSnos() {
@@ -61,6 +62,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("14051")
     @DisplayName("Проверка перехода в карточку из реестра Все организации")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllOrganizations() {
@@ -70,6 +72,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("14053")
     @DisplayName("Проверка перехода в карточку из реестра Все решения о проверке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrAllInspectionDecisions() {
@@ -79,6 +82,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("14047")
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о завершении сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
@@ -88,6 +92,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("14048")
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о планируемом сносе")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
@@ -97,6 +102,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("14054")
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения на строительство")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterConstructionLicense() {
@@ -106,6 +112,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("14052")
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на ввод объекта в эксплуатацию")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterObjectOperation() {
@@ -115,6 +122,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("14050")
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на строительство")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardBuildingPermitRegister() {

@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.eventmanager;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -25,6 +26,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 public class EventmanagerActionTests extends TestBase {
 
     @Test
+    @AllureId("5259")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod")})
     @DisplayName("Проверка доступности реестра Подписки на уведомления о событиях")
     void checkingEventmanagerReestr() {

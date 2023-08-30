@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.regressions.ui;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -26,6 +27,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
+    @AllureId("12365")
     @DisplayName("Проверка перехода на карту Цифровой двойник")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToMapsCd() {
@@ -46,6 +48,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
 
     @Test
+    @AllureId("8268")
     @DisplayName("Проверка отображения панели слоев")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheDisplayOfLayersPanel() {
@@ -60,6 +63,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("8274")
     @DisplayName("Проверка работы поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
@@ -74,6 +78,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("8270")
     @DisplayName("Проверка отображения строки адресного поиска")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfScalingTools() {
@@ -88,6 +93,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("8275")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
@@ -101,6 +107,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("8271")
     @DisplayName("Проверка наличия инструментов  линейка, треугольник, выбор подложки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInstruments() {

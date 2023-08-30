@@ -39,7 +39,7 @@ public class Map2DInstrumentalTests extends TestBase {
         mapsPage.checkForMapsBox();
     }
 
-    @Test
+    @org.testng.annotations.Test
     @AllureId("12364")
     @DisplayName("Проверка наличия инструментов измерений на карте 2D")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

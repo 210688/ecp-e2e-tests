@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.ugd.upsd;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -19,6 +20,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 class RegistersUpsdTests extends TestBase {
 
     @Test
+    @AllureId("1735")
     @Disabled()
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
     void registerUpsdViewing() {

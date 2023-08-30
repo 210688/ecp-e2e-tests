@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasi.fasades;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -23,6 +24,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 public class FasadesRegistersTests extends TestBase {
 
     @Test
+    @AllureId("6047")
     @DisplayName("Проверка перехода к реестру Проекты изменений фасадов зданий (жилые)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("fasades")})
     void openRegisterFasadesZhil() {

@@ -27,7 +27,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 @Story("Автотесты")
 class CatalogsMtskTests extends TestBase {
 
-    @Test
+    @Test // не нашёл id
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("mtsk")})
     @DisplayName("Проверка наличия каталогов МТСК")
     void checkCatalogsMtsk() {

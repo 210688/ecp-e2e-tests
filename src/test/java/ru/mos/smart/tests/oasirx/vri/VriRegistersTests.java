@@ -31,7 +31,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 public class VriRegistersTests extends TestBase {
 
     @Test
-    @AllureId("2717")
+    @AllureId("7687")
     @DisplayName("Проверка вкладок в реестре ВРИ")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void openRegisterVri() {
@@ -53,6 +53,7 @@ public class VriRegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("7686")
     @DisplayName("Поиск карточки реестра ВРИ по номеру")
     @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("vri")})
     void searchingVriCardByNumber() {

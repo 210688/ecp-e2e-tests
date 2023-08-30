@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.arbitr;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -20,10 +21,11 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 
 @Layer("web")
-@Epic("ARBITR (Арбитраж)")
+@Epic("ARBITR (Арбитраж)") // система под вопросом
 public class ArbitrTests extends TestBase {
 
     @Test
+    @AllureId("5197")
     @DisplayName("Загрузка модуля Поиск дел")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("arbitr")})
     void loadingModulePoiskDel() {

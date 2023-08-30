@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.rinrif;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -16,11 +17,12 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 public class RinRifApplicationTest extends TestBase {
 
     @Test
+    @AllureId("14211")
     @DisplayName("Проверка перехода в карточку заявления")
     @Epic("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rinrif")})
     void applicationCard() {
-        String randomTestId = "Заявление о выдаче разрешения на строительство № 09-З-748/22-(0)-0 от 26.12.2022  Плановая дата: 30.12.2022 ";
+        java.lang.String randomTestId = "Заявление о выдаче разрешения на строительство № 09-З-748/22-(0)-0 от 26.12.2022  Плановая дата: 30.12.2022 ";
         //mkapmiiPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage.goToTasks();

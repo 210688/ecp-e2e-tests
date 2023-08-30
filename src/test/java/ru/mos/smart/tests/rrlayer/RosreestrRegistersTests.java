@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.rrlayer;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -18,11 +19,12 @@ import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
-@Epic("RRLAYER (Росреестр)")
+@Epic("RRLAYER (Росреестр)") // система не понятна
 @Feature("Поиск записи в реестре Росреестр. Земельные участки")
 public class RosreestrRegistersTests extends TestBase {
 
     @Test
+    @AllureId("6328")
     @DisplayName("02.Поиск Росреестр. Земельные участки")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("rrlayer")})
     void openRosreestrZemUch() {

@@ -48,6 +48,7 @@ dependencies {
             'com.github.javafaker:javafaker:1.0.2',
             'ru.yandex.qatools.ashot:ashot:1.5.4',
             'io.github.artsok:rerunner-jupiter:2.1.6')
+    testImplementation 'org.testng:testng:7.1.0'
 }
 
 tasks.withType(JavaCompile) {
@@ -125,8 +126,8 @@ task rinrif(type: Test) {
         includeTags 'rinrif'
     }
 }
-    task rinrifCards(type: Test) {
-        useJUnitPlatform {
-            includeTags 'rinrifCards'
-        }
+task rinrifCards(type: Test) {
+    useJUnitPlatform {
+        includeTags 'rinrifCards'
     }
+}
