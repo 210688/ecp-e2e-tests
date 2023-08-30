@@ -1,6 +1,7 @@
 package ru.mos.smart.tests.rinrif;
 
 import com.codeborne.selenide.ElementsCollection;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -24,6 +25,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 public class RinRifMatCapTests extends TestBase {
 
     @Test
+    @AllureId("7996")
     @DisplayName("Проверка реестра Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
@@ -45,6 +47,7 @@ public class RinRifMatCapTests extends TestBase {
     }
 
     @Test
+    @AllureId("7995")
     @DisplayName("Проверка карточки реестра Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rinrif")})
