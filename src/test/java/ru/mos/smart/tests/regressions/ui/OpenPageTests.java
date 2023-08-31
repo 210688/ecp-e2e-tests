@@ -1,7 +1,5 @@
 package ru.mos.smart.tests.regressions.ui;
 
-import com.codeborne.selenide.Configuration;
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -9,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.ExpectedResult;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.annotations.Owner;
 import ru.mos.smart.tests.TestBase;
@@ -38,7 +35,6 @@ public class OpenPageTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("reg")})
     @Description("Раскрытие списка Информация")
     @DisplayName("Проверка наличия элементов в меню Информация")
-    @ExpectedResult("В меню информация присутствуют элементы")
     void checkMenuInformationPage() {
         sidebarPage.clickSidebarMenu("Информация");
     }
