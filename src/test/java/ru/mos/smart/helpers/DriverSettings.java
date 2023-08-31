@@ -26,8 +26,8 @@ public class DriverSettings {
         LOGGER.info("Environment: {}", projectConfig().environment());
         LOGGER.info("Threads: {}", projectConfig().threads());
         LOGGER.info("Remote driver url: {}", projectConfig().remoteDriverUrl());
-        //LOGGER.info("Base url: {}", getWebUrl());
-        LOGGER.info("Web url: {}", getWebSecureUrl());
+        LOGGER.info("Base url: {}", getWebUrl());
+        //LOGGER.info("Web url: {}", getWebSecureUrl());
         LOGGER.info("Browser name: {}", projectConfig().browserName());
         LOGGER.info("Browser version: {}", projectConfig().browserVersion());
         LOGGER.info("Browser size: {}", projectConfig().browserSize());
@@ -66,4 +66,6 @@ public class DriverSettings {
         }
     }
 }
+
+
 

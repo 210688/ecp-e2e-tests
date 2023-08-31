@@ -16,8 +16,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
-@Epic("Регрессионные тесты для проверки базового функционала")
-@Feature("Базовый функционал 2D")
+@Epic("OASI")
+@Feature("GIS")
 @Owner("Soldatov")
 @Layer("web")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("maps")})

@@ -28,8 +28,7 @@ public class AuthorizationPage {
         });
     }
 
-    public static void openUrlWithAuthorizationUI(String url, String login, String password) {
-        open(url);
+    public static void openUrlWithAuthorizationUI(String url, String login, String password) { //,
         step("Авторизация", (step) -> {
             step.parameter("Login", login);
             $(byText("Войти по логину и паролю")).click();

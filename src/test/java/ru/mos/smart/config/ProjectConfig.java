@@ -19,7 +19,7 @@ public interface ProjectConfig extends Config {
     String browserName();
 
     @Config.Key("browser.version")
-    @Config.DefaultValue("112.0")
+    //@Config.DefaultValue("")
     String browserVersion();
 
     @Config.Key("browser.size")
