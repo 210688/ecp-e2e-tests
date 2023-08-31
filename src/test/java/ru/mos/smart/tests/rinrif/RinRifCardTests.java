@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -18,6 +19,7 @@ import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeRinRif.*;
 @Epic("Регрессионные тесты для проверки базового функционала")
 @Feature("РинРиф")
 @Story("Карточки")
+
 
 public class RinRifCardTests extends TestBase {
 
