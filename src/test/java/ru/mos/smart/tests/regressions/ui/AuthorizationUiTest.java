@@ -29,3 +29,4 @@ public class AuthorizationUiTest extends TestBase {
         navigatorPage.checkPageTask();
     }
 }
+// todo требует доработку

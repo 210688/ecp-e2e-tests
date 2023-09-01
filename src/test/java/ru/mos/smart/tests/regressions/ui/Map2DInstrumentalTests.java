@@ -21,8 +21,8 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
-@Epic("Регрессионные тесты для проверки базового функционала")
-@Feature("Базовый функционал 2D")
+@Epic("OASI")
+@Feature("GIS")
 @Owner("Soldatov")
 @Layer("web")
 public class Map2DInstrumentalTests extends TestBase {
@@ -31,7 +31,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12361")
-    @DisplayName("Проверка перехода на карту")
+    @DisplayName("Перехода на карту")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToMaps() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -41,7 +41,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12364")
-    @DisplayName("Проверка наличия инструментов измерений на карте 2D")
+    @DisplayName("Наличие инструментов измерений на карте 2D")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAvailabilityInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -51,7 +51,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12360")
-    @DisplayName("Проверка адресного поиска на карте 2D")
+    @DisplayName("Адресный поиск на карте 2D")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAvailabilityAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -61,7 +61,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12362")
-    @DisplayName("Проверка поиска слоя на карте 2D")
+    @DisplayName("Поиск слоя на карте 2D")
     @Tag("sendStatusForPgu")
     void checkAvailabilityOfLayerSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -72,7 +72,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("8298")
-    @DisplayName("Проверка работы поиска в адресной строке")
+    @DisplayName("Работа поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -82,7 +82,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("8269")
-    @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
+    @DisplayName("Наличие инструментов масштабирования: кнопок + и -")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -95,7 +95,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("8266")
-    @DisplayName("Проверка наличия инструмента Мое местоположение")
+    @DisplayName("Наличие инструмента Мое местоположение")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfMyLocationTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -107,7 +107,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("8276")
-    @DisplayName("Проверка наличия инструмента Первоначальная позиция")
+    @DisplayName("Наличие инструмента Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
