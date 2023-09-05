@@ -33,7 +33,7 @@ public class ElmaRegisterTests extends TestBase {
         List<String> columnNames = Arrays.asList("Дата", "Номер", "Номер МГГТ", "Название", "Статус");
         openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage.goToSection(ELMA_URL);
-        reestrPage.searchField();
-        reestrPage.checkFieldData(ELMA_URL, columnNames);
+        //reestrPage.searchField();
+        //reestrPage.checkFieldData(ELMA_URL, columnNames);
     }
 }

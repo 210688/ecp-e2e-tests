@@ -2,6 +2,7 @@ package ru.mos.smart.pages;
 
 import org.openqa.selenium.Cookie;
 import ru.mos.smart.api.Authorization;
+import ru.mos.smart.config.ConfigHelper;
 
 import java.util.Map;
 
@@ -10,10 +11,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 public class AuthorizationPage {
-    private static final String redirectUrl = "https://smart.mos.ru";
+    private static final String redirectUrl = ConfigHelper.getWebUrl();
     private static void setCookies(Map<String, String> cookiesMap) {
         open("/reg/favicon.ico");
         cookiesMap.forEach((k, v) -> getWebDriver().manage().addCookie(new Cookie(k, v)));

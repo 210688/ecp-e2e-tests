@@ -98,7 +98,7 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
     void openRegisterLrpMoiZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        sidebarPage
+        reestrPage
                 .goToRegister("Мои заявки на участие в конкурсе ЛРП");
             $(byName("candidateSearchValue")).setValue("Мои заявки на участие в конкурсе ЛРП").pressEnter();
             $x("//span[contains(text(),'Мои заявки на участие в конкурсе ЛРП')]").click();

@@ -6,15 +6,10 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.step;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.REGISTER;
 
 @Epic("OASI")
 @Feature("GIS")
@@ -29,8 +24,8 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description("Переход на карту")
     @DisplayName("Проверить наличия подложки на карте")
     void goToMaps() {
-        sidebarPage.clickSidebarMenu("Информация");
-        sidebarPage.clickSubMenuList("Информация", "Карта");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
         mapsPage.checkForMapsBox();
     }
 
@@ -48,8 +43,8 @@ public class Map2DInstrumentalTests extends TestBase {
                 "Условные обозначения",
                 "Информация"
         };
-        sidebarPage.clickSidebarMenu("Информация");
-        sidebarPage.clickSubMenuList("Информация", "Карта");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
         mapsPage.checkInstrumentsMaps(expectedTexts);
     }
 
@@ -58,8 +53,8 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description("Отображение адресного поиска на карте 2D")
     @DisplayName("Проверить наличие адресного поиска на карте 2D")
     void checkAvailabilityAddressSearch() {
-        sidebarPage.clickSidebarMenu("Информация");
-        sidebarPage.clickSubMenuList("Информация", "Карта");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
         mapsPage.checkAddressSearch();
     }
 
@@ -68,8 +63,8 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description("Отображение поиска слоя на карте 2D")
     @DisplayName("Проверить наличие поиска слоя на карте 2D")
     void checkAvailabilityOfLayerSearch() {
-        sidebarPage.clickSidebarMenu("Информация");
-        sidebarPage.clickSubMenuList("Информация", "Карта");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
         mapsPage.checkLayerSearch();
     }
 
@@ -78,8 +73,8 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description("Поиск адреса в адресной строке")
     @DisplayName("Проверить работу поиска в адресной строке")
     void checkingAddressSearch() {
-        sidebarPage.clickSidebarMenu("Информация");
-        sidebarPage.clickSubMenuList("Информация", "Карта");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
         mapsPage.checkSearchAddresses();
     }
 
@@ -88,8 +83,8 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description("Инструменты масштабирования")
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     void checkingAvailabilityOfScalingTools() {
-        sidebarPage.clickSidebarMenu("Информация");
-        sidebarPage.clickSubMenuList("Информация", "Карта");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
         mapsPage.checkScalingTools();
     }
 
@@ -98,8 +93,8 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description("Инструменты Мое местоположение")
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     void checkingAvailabilityOfMyLocationTool() {
-        sidebarPage.clickSidebarMenu("Информация");
-        sidebarPage.clickSubMenuList("Информация", "Карта");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
         mapsPage.checkMyLocationTool();
     }
 
@@ -107,8 +102,8 @@ public class Map2DInstrumentalTests extends TestBase {
     @AllureId("8276")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     void checkingAvailabilityOfInitialPositionTool() {
-        sidebarPage.clickSidebarMenu("Информация");
-        sidebarPage.clickSubMenuList("Информация", "Карта");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
         mapsPage.checkInitialPositionTool();
     }
 }

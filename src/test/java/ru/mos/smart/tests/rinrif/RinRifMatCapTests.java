@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -17,8 +16,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.REGISTER;
 
 @Epic("Автотесты")
 public class RinRifMatCapTests extends TestBase {
@@ -28,9 +27,9 @@ public class RinRifMatCapTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkAttributesOfRinRifMatCapRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        sidebarPage
-                .goToRegister("Заявления о выдаче акта по материнскому капиталу");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        reestrPage.goToRegister("Заявления о выдаче акта по материнскому капиталу");
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form").$("input").shouldBe(visible);
             $(".search-form").$("button.btn-search").shouldBe(visible);
@@ -50,9 +49,9 @@ public class RinRifMatCapTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rinrif")})
     void checkAttributesOfRinRifMatCapObjCard() {
         String statementNumber = "09-МК-179/21-(0)-0";
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        sidebarPage
-                .goToRegister("Заявления о выдаче акта по материнскому капиталу");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        reestrPage.goToRegister("Заявления о выдаче акта по материнскому капиталу");
 
         step("Открыть любую карточку реестра", () -> {
             $("input.input-lg").setValue(statementNumber).pressEnter();

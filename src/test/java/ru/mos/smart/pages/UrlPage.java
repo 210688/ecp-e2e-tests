@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.pages;
 
 import io.qameta.allure.Step;
@@ -38,3 +39,4 @@ public class UrlPage {
         open(FCD_URL);
     }
 }
+*/

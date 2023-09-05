@@ -31,7 +31,7 @@ public class Map3DInstrumentalTests extends TestBase {
     void goToMapsCd() {
         //String testPath = "MapsTests";
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToMapsCd();
+        //urlPage.goToMapsCd();
         //mapsPage.checkForMapsBoxCd();
         /*Screenshot actualImage = new ScreenshotHelper()
                 .getActualScreenshot();

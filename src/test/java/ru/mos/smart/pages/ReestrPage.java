@@ -2,7 +2,6 @@ package ru.mos.smart.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import ru.mos.smart.helpers.AllureAttachments;
 
@@ -18,20 +17,26 @@ import static io.qameta.allure.Allure.step;
 import static java.time.Duration.ofSeconds;
 
 public class ReestrPage {
-
-    private final ElementsCollection elements =  $$("[title]");
-
+    private final ElementsCollection registryName = $$("trv-input");
+    private final SelenideElement filter = $x("//button[contains(text(),'Фильтр')]");
+    private final ElementsCollection elements = $$("[title]");
     private final ElementsCollection tableHeaders = $$("table th");
-    private final ElementsCollection registryFilledWithData  = $$(".search-result-table");
+    private final ElementsCollection registryFilledWithData = $$(".search-result-table");
     private final ElementsCollection tableFieldData = $$(".table-striped");
     private final ElementsCollection tableFieldDataOasirx = $$(".viewtable");
 
-    @Step("Проверка, что в реестре  присутствует список реестров доступных пользователю")
-    public void checkReestrTask() {
-        assert elements.size() > 0 : "Коллекция не содержит элементов";
-        AllureAttachments.attachScreenshot("Список реестров пользователя");
+    @Step("Переход в реестр {registerName}")
+    public void goToRegister(String registerName) {
+        filter.click();
+        registryName.get(1).$("input").val(registerName);
+        $(byText(registerName)).click();
     }
 
+    @Step("Проверка, что в реестре  присутствует список реестров доступных пользователю")
+    public void checkReestrTask() {
+        $("div.ag-center-cols-viewport").$$("div.ag-row").should(sizeGreaterThan(0));
+        AllureAttachments.attachScreenshot("Список реестров пользователя");
+    }
 
     @Step("Проверить, что в реестре {registerName} есть данные и присутствуют колонки таблицы {list}")
     public void checkFilter(String registerName, List<String> list) {
@@ -57,18 +62,18 @@ public class ReestrPage {
     }
 
     @Step("Проверить, что в реестре содержится поле для поиска")
-            public void searchField() {
+    public void searchField() {
         $(".search-form").$("input").shouldBe(visible, ofSeconds(10));
     }
 
     @Step("Проверить, что в реестре отображаются кнопки сортировки и фильтр")
-            public void columnsAndFilterButton() {
+    public void columnsAndFilterButton() {
         $("#dropdown-columns-btn").shouldBe(visible);
         $(".container-btn").$("button.btn-white").shouldBe(visible);
     }
 
     @Step("Проверить, что таблица заполнена данными")
-            public void presentDataInTable() {
+    public void presentDataInTable() {
         $$(".table-striped").shouldHave(sizeGreaterThan(0));
     }
 
@@ -128,4 +133,5 @@ public class ReestrPage {
                 }));
         return this;
     }
+
 }

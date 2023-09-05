@@ -7,7 +7,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import ru.mos.smart.helpers.CustomListener;
 import ru.mos.smart.pages.*;
 
-import static ru.mos.smart.config.ConfigHelper.*;
+import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
+import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.helpers.DriverSettings.configureSelenide;
 
 @ExtendWith(CustomListener.class)
@@ -23,9 +24,9 @@ public class TestBase {
     public MkasdprvPage mkasdprvPage = new MkasdprvPage();
     public RinrifPage rinrifPage = new RinrifPage();
     public MapsPage mapsPage = new MapsPage();
-    public UrlPage urlPage = new UrlPage();
     public OasirxProjectsPage oasirxProjectsPage = new OasirxProjectsPage();
     public DictsPage dictsPage = new DictsPage();
+    public DronePage dronePage = new DronePage();
 
     @BeforeAll
     static void beforeAll() {
@@ -37,7 +38,3 @@ public class TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
     }
 }
-//AuthorizationPage.openUrlWithAuthorizationUI(getWebSecureUrl(), getLoginRegress(), getPasswordRegress());
-//* String login = getLoginRegress();
-//String password = getPasswordRegress();
-//AuthorizationPage.openUrlWithAuthorizationAPI(login, password);*//*

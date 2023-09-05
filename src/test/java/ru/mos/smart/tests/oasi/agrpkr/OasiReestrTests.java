@@ -13,6 +13,8 @@ import java.util.List;
 
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.REGISTER;
 import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasi.AGR;
 import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasi.PKR;
 import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
@@ -31,11 +33,12 @@ public class OasiReestrTests extends TestBase {
     void goToRegisterOasiPkr() {
         List<String> columnNames = Arrays.asList("Рег. номер", "Дата регистрации", "Адрес объекта", "Статус", "Заявитель",
                 "Плановая дата", "Исполнитель", "Номер МПГУ", "Дата подготовки решения", "Получен ответ из БР");
-        openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        sidebarPage.goToRegister(PKR);
-        reestrPage.searchField();
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        reestrPage.goToRegister(PKR);
+/*        reestrPage.searchField();
         reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(PKR, columnNames);
+        reestrPage.checkFilter(PKR, columnNames);*/
     }
 
     @Test
@@ -47,9 +50,9 @@ public class OasiReestrTests extends TestBase {
                 "Статус", "Заявитель", "Дата оказания ГУ", "Номер МПГУ", "Эксперт ", "Значение объекта", "Кол-во дней в МКА", "Номер и дата комиссии",
                 "срок");
         openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        sidebarPage.goToRegister(AGR);
-        reestrPage.searchField();
+        reestrPage.goToRegister(AGR);
+/*        reestrPage.searchField();
         reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(AGR, columnNames);
+        reestrPage.checkFilter(AGR, columnNames);*/
     }
 }

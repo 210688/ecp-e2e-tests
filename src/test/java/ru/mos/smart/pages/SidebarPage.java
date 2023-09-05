@@ -4,6 +4,7 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import ru.mos.smart.data.Sidebar;
 
 import java.time.Duration;
 
@@ -12,7 +13,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeMain.*;
 
 /**
  * Описание навигатора.
@@ -27,29 +27,33 @@ public class SidebarPage {
     private final SelenideElement searchTask = $(byName("search"));
 
     @Step("Проверить, что в раскрывшемся меню присутствует список {expectedTexts}")
-    public void checkSubMenuList(String menuName, String[] expectedTexts) {
-        ElementsCollection subMenuItems = $(byText(menuName))
+    public void checkSubMenuList(Sidebar menuName, String[] expectedTexts) {
+        ElementsCollection subMenuItems = $(byText(menuName.value()))
                 .parent().parent()
                 .sibling(0)
                 .$$("div.name");
-
         subMenuItems.shouldHave(CollectionCondition.texts(expectedTexts));
     }
 
     @Step("Нажать на меню {sidebarMenu}")
-    public void clickSidebarMenu(String sidebarMenu) {
-        $$("#sidebar_menu>div").find(text(sidebarMenu)).click();
+    public void clickSidebarMenu(Sidebar sidebarMenu) {
+        $$("#sidebar_menu>div").find(text(sidebarMenu.value())).click();
     }
 
     @Step("В раскрывшемся меню {menuName} нажать {subMenuName}")
-    public void clickSubMenuList(String menuName, String subMenuName) {
-        $(byText(menuName))
+    public void clickSubMenuList(Sidebar menuName, Sidebar subMenuName) {
+        $(byText(menuName.value()))
                 .parent().parent()
                 .sibling(0)
-                .$$("div.name").find(text(subMenuName)).click();
+                .$$("div.name")
+                .find(text(subMenuName.value()))
+                .click();
     }
 
-
+    @Step("В боковой панели присутствует список элементов")
+    public void checkFillingSidebarMenu() {
+        $$("#sidebar_menu").shouldBe();
+    }
 
 
 
@@ -66,17 +70,10 @@ public class SidebarPage {
 
     @Step("Проверить наличие задач в списке")
     public void checkPageTask() {
-        open(TASK_URL);
         myTask.shouldHave(text("Мои задачи"));
         searchTask.shouldBe(visible);
     }
 
-    @Step("Переход в реестр {registerName}")
-    public void goToRegister(String registerName) {
-        open(REGISTER_URL);
-        $(byName("candidateSearchValue")).setValue(registerName).pressEnter();
-        $(byText(registerName)).click();
-    }
 
 /*    @Step("В Навигаторе открыть раздел {sectionName}")
     public void goToSection(String sectionName) {
@@ -115,7 +112,6 @@ public class SidebarPage {
 
     @Step("Переход в карту Цифровой двойник")
     public void goToMapsCD() {
-        open(MAP_CD);
         city.should(visible, Duration.ofSeconds(40));
     }
 

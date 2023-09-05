@@ -23,7 +23,7 @@ class RegistersUpsdTests extends TestBase {
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
     void registerUpsdViewing() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        sidebarPage
+        reestrPage
                 .goToRegister("УПСД");
 
         step("Найти реестр и перейти в него", () -> {

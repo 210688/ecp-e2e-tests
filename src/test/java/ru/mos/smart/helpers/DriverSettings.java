@@ -5,15 +5,13 @@ import io.restassured.RestAssured;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.mos.smart.config.ConfigHelper;
 
 import java.util.Map;
 
-import static ru.mos.smart.config.ConfigHelper.*;
-import static ru.mos.smart.config.ConfigHelper.getWebSecureUrl;
+import static ru.mos.smart.config.ConfigHelper.getWebUrl;
+import static ru.mos.smart.config.ConfigHelper.projectConfig;
 
 public class DriverSettings {
 
@@ -27,14 +25,12 @@ public class DriverSettings {
         LOGGER.info("Threads: {}", projectConfig().threads());
         LOGGER.info("Remote driver url: {}", projectConfig().remoteDriverUrl());
         LOGGER.info("Base url: {}", getWebUrl());
-        //LOGGER.info("Web url: {}", getWebSecureUrl());
         LOGGER.info("Browser name: {}", projectConfig().browserName());
         LOGGER.info("Browser version: {}", projectConfig().browserVersion());
         LOGGER.info("Browser size: {}", projectConfig().browserSize());
         LOGGER.info("User-Agent: {}", DEFAULT_USER_AGENT);
 
         Configuration.baseUrl = getWebUrl();
-        //Configuration.baseUrl = getWebSecureUrl();
         Configuration.browser = projectConfig().browserName();
         Configuration.browserVersion = projectConfig().browserVersion();
         Configuration.browserSize = projectConfig().browserSize();
