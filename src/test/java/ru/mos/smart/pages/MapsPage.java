@@ -3,11 +3,10 @@ package ru.mos.smart.pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.switchTo;
 import static java.time.Duration.ofSeconds;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 
 /**
@@ -20,7 +19,7 @@ public class MapsPage {
     private final SelenideElement addressSearch = $("input[placeholder='Поиск']");
     private final SelenideElement layerSearch = $("input[placeholder='Найти слой']");
     private final SelenideElement canvas = $("canvas[aria-label='Map']");
-    private final SelenideElement icon = $(("button[tooltip-right='3D режим']"));
+    private final SelenideElement icon =  $(("button[tooltip-right='3D режим']")); //$(".icon-alt-3d");
     private final SelenideElement traffic = $(("button[tooltip-right='Пробки']"));
     private final SelenideElement pedestrian = $(("button[tooltip-right='Панорамы']"));
     private final SelenideElement painting = $(("button[tooltip-right='Рисование']"));
@@ -32,66 +31,62 @@ public class MapsPage {
     private final SelenideElement location = $(("button[tooltip-right='Мое местоположение']"));
 
 
-    private void switchToWindow(int windowIndex) {
-        switchTo().window(windowIndex);
+    private void switchToWindow() {
+        switchTo().window(1);
     }
 
     @Step("Проверить наличие подложки")
     public void checkForMapsBox() {
-        switchToWindow(1);
+        switchToWindow();
         canvas.shouldBe(visible, ofSeconds(20));
     }
 
-    @Step("Проверить наличие кнопок  {expectedTexts} 3D режим, Пробки, Панорамы, Рисование, Измерение, Условные обозначения, Информация")
+    @Step("На карте присутствуют кнопки {expectedTexts}")
     public void checkInstrumentsMaps(String[] expectedTexts) {
-        switchToWindow(1);
-        /*$$(".map-buttons top").shouldHave(texts("3D режим", "Пробки", "Панорамы", "Рисование",
-                "Измерение", "Условные обозначения", "Информация"));*/
-        icon.should(visible, ofSeconds(10));
-        traffic.should(visible, ofSeconds(10));
-        pedestrian.should(visible, ofSeconds(10));
-        painting.should(visible, ofSeconds(10));
-        instruments.should(visible, ofSeconds(10));
-        legend.should(visible, ofSeconds(10));
-        info.should(visible, ofSeconds(10));
+        switchToWindow();
+        icon.should(visible, ofSeconds(15));
+        traffic.should(visible, ofSeconds(15));
+        pedestrian.should(visible, ofSeconds(15));
+        painting.should(visible, ofSeconds(15));
+        instruments.should(visible, ofSeconds(15));
+        legend.should(visible, ofSeconds(15));
+        info.should(visible, ofSeconds(15));
     }
 
-    @Step("Проверить наличие поля адресного поиска")
+    @Step("На карте присутствует поле адресного поиска")
     public void checkAddressSearch() {
-        switchToWindow(1);
-        addressSearch.shouldBe(visible, ofSeconds(10));
+        switchToWindow();
+        addressSearch.shouldBe(visible, ofSeconds(15));
     }
 
-    @Step("Проверить наличие поля поиска слоя")
+    @Step("На карте присутствует поле поиска слоя")
     public void checkLayerSearch() {
-        switchToWindow(1);
+        switchToWindow();
         layerSearch.shouldBe(visible, ofSeconds(10));
     }
 
     @Step("Проверить поиск адреса")
     public void checkSearchAddresses() {
-        switchToWindow(1);
+        switchToWindow();
         addressSearch.setValue("улица Кузнецкий Мост").shouldBe(visible, ofSeconds(20));
-/*        $(".results").shouldBe(visible,ofSeconds(20));
-        AllureAttachments.screenshotAs("Maps");*/
     }
 
     @Step("Проверить наличие инструментов масштабирования: кнопок + и -")
     public void checkScalingTools() {
-        switchToWindow(1);
+        switchToWindow();
         plus.should(visible, ofSeconds(10));
         minus.should(visible, ofSeconds(10));
     }
 
     @Step("Проверить наличие инструмента Мое местоположение")
     public void checkMyLocationTool() {
-        switchToWindow(1);
+        switchToWindow();
         location.should(visible, ofSeconds(10));
     }
 
     @Step("Проверить наличие инструмента Первоначальная позиция")
     public void checkInitialPositionTool() {
-        switchToWindow(1);
-        $(("button[tooltip-right='Первоначальная позиция']")).should(visible, ofSeconds(10));
+        switchToWindow();
+        $(("button[tooltip-right='Первоначальная позиция']")).should(visible, ofSeconds(15));
     }
 }

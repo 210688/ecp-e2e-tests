@@ -8,7 +8,9 @@ public enum Sidebar {
     INFORMATION("Информация"),
     REGISTER("Реестры"),
     SETTINGS("Настройки"),
-    REFERENCEBOOKS("Справочники");
+    REFERENCEBOOKS("Справочники"),
+    MAPS3D("Цифровой двойник"),
+    MAPS("Карта");
 
     private final String value;
 

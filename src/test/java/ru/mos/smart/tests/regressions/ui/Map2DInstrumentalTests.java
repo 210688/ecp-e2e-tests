@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
-import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTER;
+import static ru.mos.smart.data.Sidebar.*;
 
 @Epic("OASI")
 @Feature("GIS")
@@ -19,20 +18,19 @@ import static ru.mos.smart.data.Sidebar.REGISTER;
 public class Map2DInstrumentalTests extends TestBase {
 
     @Test
-    @Story("Что-то из функционала")
     @AllureId("12361")
     @Description("Переход на карту")
-    @DisplayName("Проверить наличия подложки на карте")
+    @DisplayName("Наличие подложки на карте")
     void goToMaps() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
         mapsPage.checkForMapsBox();
     }
 
     @Test
     @AllureId("12364")
     @Description("Отображение инструментов  на 2D карте")
-    @DisplayName("Проверить наличие инструментов  на 2D карте")
+    @DisplayName("Наличие инструментов  на 2D карте")
     void checkAvailabilityInstruments() {
         String[] expectedTexts = {
                 "3D режим",
@@ -44,37 +42,37 @@ public class Map2DInstrumentalTests extends TestBase {
                 "Информация"
         };
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
         mapsPage.checkInstrumentsMaps(expectedTexts);
     }
 
     @Test
     @AllureId("12360")
-    @Description("Отображение адресного поиска на карте 2D")
-    @DisplayName("Проверить наличие адресного поиска на карте 2D")
+    @Description("Адресный поиск на карте 2D")
+    @DisplayName("Наличие поля ввода адресного поиска на карте 2D")
     void checkAvailabilityAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
         mapsPage.checkAddressSearch();
     }
 
     @Test
     @AllureId("12362")
-    @Description("Отображение поиска слоя на карте 2D")
-    @DisplayName("Проверить наличие поиска слоя на карте 2D")
+    @Description("Поиск слоя на карте 2D")
+    @DisplayName("Наличие поля ввода поиска слоя на карте 2D")
     void checkAvailabilityOfLayerSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
         mapsPage.checkLayerSearch();
     }
 
     @Test
     @AllureId("8298")
     @Description("Поиск адреса в адресной строке")
-    @DisplayName("Проверить работу поиска в адресной строке")
+    @DisplayName("Поиск адреса на карте 2D")
     void checkingAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
         mapsPage.checkSearchAddresses();
     }
 
@@ -84,7 +82,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     void checkingAvailabilityOfScalingTools() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
         mapsPage.checkScalingTools();
     }
 

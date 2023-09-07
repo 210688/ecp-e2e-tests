@@ -6,11 +6,10 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.mos.smart.data.Sidebar;
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byName;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
@@ -26,7 +25,7 @@ public class SidebarPage {
     private final SelenideElement myTask = $(".font-bold.hidden-xs");
     private final SelenideElement searchTask = $(byName("search"));
 
-    @Step("Проверить, что в раскрывшемся меню присутствует список {expectedTexts}")
+    @Step("В раскрывшемся меню присутствует список {expectedTexts}")
     public void checkSubMenuList(Sidebar menuName, String[] expectedTexts) {
         ElementsCollection subMenuItems = $(byText(menuName.value()))
                 .parent().parent()
@@ -35,7 +34,7 @@ public class SidebarPage {
         subMenuItems.shouldHave(CollectionCondition.texts(expectedTexts));
     }
 
-    @Step("Нажать на меню {sidebarMenu}")
+    @Step("В боковой панели нажать на {sidebarMenu}")
     public void clickSidebarMenu(Sidebar sidebarMenu) {
         $$("#sidebar_menu>div").find(text(sidebarMenu.value())).click();
     }
@@ -50,41 +49,20 @@ public class SidebarPage {
                 .click();
     }
 
-    @Step("В боковой панели присутствует список элементов")
-    public void checkFillingSidebarMenu() {
-        $$("#sidebar_menu").shouldBe();
+    @Step("Проверить наличие списка в меню 'Информация'")
+    public void checkInformationMenuContainsRegistries() {
+        $(byText("Реестры")).should(visible);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @Step("Проверить наличие задач в списке")
-    public void checkPageTask() {
-        myTask.shouldHave(text("Мои задачи"));
-        searchTask.shouldBe(visible);
-    }
-
-
-/*    @Step("В Навигаторе открыть раздел {sectionName}")
-    public void goToSection(String sectionName) {
-        open(sectionName);
-    }*/
 
     @Step("В Навигаторе открыть раздел {sectionName}")
     public void goToSection(String sectionName) {
         $$("cdp-sidebar div").get(8).click();
         $(byText(sectionName)).click();
     }
+
+
+
+
 
 
 
@@ -97,54 +75,7 @@ public class SidebarPage {
 
 
 
-    @Step("В Навигаторе открыть раздел справочник")
-    public void goToSpravochnik() {
-        $$("cdp-sidebar div").get(49).click();
-        $(byText("Справочники")).click();
-    }
 
-    @Step("Переход в Возможности")
-    public void goToOpportunities() {
-        $$("cdp-sidebar div").get(4).click();
-        $(byText("Возможности")).click();
-    }
-
-
-    @Step("Переход в карту Цифровой двойник")
-    public void goToMapsCD() {
-        city.should(visible, Duration.ofSeconds(40));
-    }
-
-    @Step("Проверить, что в реестрах  присутствует список задач")
-    public void checkRegisterTask() {
-        $(withText("Реестры")).should(visible);
-    }
-
-    @Step("Проверить, что в Возможностях присутствует список задач")
-    public void checkOpportunitiesTask() {
-        $(withText("Возможности")).should(visible);
-    }
-
-    @Step("Проверить, что в задачах пользователя присутствует список задач")
-    public void checkUserTask() {
-        $(withText("Проверить данные заявления")).should(visible);
-    }
-
-
-
-
-
-
-
-    public SidebarPage gotoChessboard() {
-        step("В навигаторе открыть раздел Информация -> Дашборды -> Оперативный мониторинг за ходом переселения", () -> {
-            $(byText("Информация")).click();
-            $(byText("Дашборды")).click();
-            $(("a[href='/ssr/chessboard/']")).click();
-            switchTo().window(1);
-        });
-        return this;
-    }
 
     public SidebarPage goToSprit() {
         step("В навигаторе открыть раздел Выдача СПРИТ", () ->

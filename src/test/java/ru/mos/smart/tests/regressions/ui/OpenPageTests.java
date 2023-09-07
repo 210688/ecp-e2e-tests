@@ -23,9 +23,9 @@ public class OpenPageTests extends TestBase {
 
     @Test
     @AllureId("15149")
-    @Description("Раскрытие списка Госуслуги и функции")
-    @DisplayName("Проверка наличия элементов в меню Госуслуги и функции")
-    void checkMenuServicesAndFunctions() {
+    @Description("Раскрывающийся список Госуслуги и функции")
+    @DisplayName("Наличие элементов в раскрывающемся списке Госуслуги и функции")
+    void checkServicesAndFunctionsDropdownListItems() {
         String[] expectedTexts = {
                 "Задачи",
                 "Задачи v2",
@@ -37,17 +37,18 @@ public class OpenPageTests extends TestBase {
 
     @Test
     @AllureId("15150")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("reg")})
-    @Description("Раскрытие списка Информация")
-    @DisplayName("Проверка наличия элементов в меню Информация")
-    void checkMenuInformationPage() {
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Description("Раскрывающийся список информация")
+    @DisplayName("Наличие элементов в раскрывающемся списке Информация")
+    void checkInformationDropdownListItems() {
         sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.checkInformationMenuContainsRegistries();
     }
 
     @Test
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @Description("Открытие страницы Задачи")
-    @DisplayName("Проверка перехода на страницу Задачи")
+    @DisplayName("Переход на страницу Задачи")
     void openTheTasksPage() {
         sidebarPage.clickSidebarMenu(SERVICESANDFUNCTION);
         sidebarPage.clickSubMenuList(SERVICESANDFUNCTION, TASK);
@@ -56,8 +57,8 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("8265")
     @Description("Наличие списка задач пользователя на странице Задачи")
-    @DisplayName("Проверка, что в задачах пользователя присутствует список задач")
-    void goToTasksPage() {
+    @DisplayName("В задачах пользователя присутствует список задач")
+    void checkListTasksPage() {
         sidebarPage.clickSidebarMenu(SERVICESANDFUNCTION);
         sidebarPage.clickSubMenuList(SERVICESANDFUNCTION, TASK);
         taskPage.checkUserTask();
@@ -66,7 +67,7 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("12322")
     @Description("Наличие списка возможностей на странице Возможности")
-    @DisplayName("Проверка, что присутствует список возможностей")
+    @DisplayName("В возможностях пользователя присутствует список возможностей")
     void goToActionsPage() {
         sidebarPage.clickSidebarMenu(SERVICESANDFUNCTION);
         sidebarPage.clickSubMenuList(SERVICESANDFUNCTION, ACTIONS);
@@ -85,8 +86,8 @@ public class OpenPageTests extends TestBase {
 
     @Test
     @AllureId("8262")
-    @Description("Открытие меню справочника")
-    @DisplayName("Проверка открытия меню справочника")
+    @Description("Список справочника")
+    @DisplayName("В справочнике присутствует список элементов")
     void goToOpenSpravochnik() {
         sidebarPage.clickSidebarMenu(SETTINGS);
         sidebarPage.clickSubMenuList(SETTINGS, REFERENCEBOOKS);

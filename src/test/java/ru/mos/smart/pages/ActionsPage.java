@@ -26,7 +26,7 @@ public class ActionsPage {
     }
 
 
-    @Step("В возможностях пользователя присутствует список возможностей")
+    @Step("Список возможностей")
     public void checkActionsTask() {
         $("div[title='Провести консультирование']").should(visible);
         AllureAttachments.attachScreenshot("Список возможностей пользователя");

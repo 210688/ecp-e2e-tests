@@ -11,7 +11,7 @@ public class DictsPage {
 
     ElementsCollection dicts = $$(".table-responsive tr");
 
-    @Step("Проверка, что присутствуют справочники")
+    @Step("Наличие справочников")
     public void checkDicts() {
         dicts.shouldHave(sizeGreaterThan(0));
         AllureAttachments.attachScreenshot("Список справочников");
