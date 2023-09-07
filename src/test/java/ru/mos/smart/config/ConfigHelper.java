@@ -77,7 +77,6 @@ public class ConfigHelper {
         return ConfigFactory.newInstance()
                 .create(ProjectConfig.class, System.getProperties());
     }
-
 }
 
 

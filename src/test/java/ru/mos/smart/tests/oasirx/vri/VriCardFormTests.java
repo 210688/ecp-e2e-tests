@@ -24,7 +24,7 @@ public class VriCardFormTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void changeHistoryTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToVri();
 
         vriPage
@@ -42,7 +42,7 @@ public class VriCardFormTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void processTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToVri();
 
         vriPage
@@ -60,7 +60,7 @@ public class VriCardFormTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
     void materialsTest() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToVri();
 
         vriPage

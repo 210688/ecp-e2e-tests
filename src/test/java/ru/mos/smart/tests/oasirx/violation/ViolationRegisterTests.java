@@ -32,7 +32,7 @@ public class ViolationRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("violation")})
     void openingTheRegisterViolation() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToViolations();
 
         step("Открыт раздел Административные правонарушения", () ->
@@ -52,7 +52,7 @@ public class ViolationRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("violation")})
     void searchingViolationCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToViolations();
 
         step("Открыт раздел Административные правонарушения", () ->

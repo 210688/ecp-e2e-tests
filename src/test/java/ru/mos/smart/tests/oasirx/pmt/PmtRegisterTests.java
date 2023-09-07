@@ -33,7 +33,7 @@ class PmtRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pmt")})
     void openingTheRegisterPMT() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToPmt();
 
         step("Открыт раздел Межевание территорий", () ->
@@ -51,7 +51,7 @@ class PmtRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("pmt")})
     void searchingPmtCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToPmt();
 
         AtomicReference<String> card = new AtomicReference<>("");
