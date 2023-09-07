@@ -1,5 +1,6 @@
 package ru.mos.smart.pages;
 
+import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.Cookie;
 import ru.mos.smart.api.Authorization;
 
@@ -38,7 +39,7 @@ public class AuthorizationPage {
 
 
     public static void openUrlWithAuthorizationUI(String url, String login, String password) {
-        open(url);
+        Selenide.open(url);
         step("Авторизация", (step) -> {
             step.parameter("Login", login);
             $(byText("Войти по логину и паролю")).click();

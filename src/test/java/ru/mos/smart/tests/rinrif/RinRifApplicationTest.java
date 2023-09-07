@@ -2,6 +2,7 @@ package ru.mos.smart.tests.rinrif;
 
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -17,6 +18,8 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 public class RinRifApplicationTest extends TestBase {
 
     @Test
+    @Epic("ИФИС РИН")
+    @Feature("RINRIF")
     @AllureId("14211")
     @DisplayName("Проверка перехода в карточку заявления")
     @Epic("Автотесты")

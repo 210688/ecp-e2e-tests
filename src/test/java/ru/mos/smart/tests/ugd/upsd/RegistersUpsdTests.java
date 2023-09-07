@@ -4,9 +4,11 @@ import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -14,9 +16,10 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
-@Epic("Платформа ЕЦП")
-@Feature("UGD (УГД)")
-@Story("Проверка доступности реестров УПСД")
+@Epic("UGD")
+@Feature("UPSD")
+@Story("Информация")
+@Component("Реестры")
 class RegistersUpsdTests extends TestBase {
 
     @Test

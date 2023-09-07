@@ -29,8 +29,8 @@ import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
-@Epic("MKASDPRV (МКА Вывески)")
-@Feature("Проверить данные заявления")
+@Epic("OASI")
+@Feature("MKASDPRV")
 public class MkasdprvApplicantDetailsCheck extends TestBase {
 
     @Test

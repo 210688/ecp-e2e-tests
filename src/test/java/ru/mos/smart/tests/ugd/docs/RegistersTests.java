@@ -1,10 +1,12 @@
 package ru.mos.smart.tests.ugd.docs;
 
 import io.qameta.allure.*;
+import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.annotations.ManualMember;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -18,7 +20,8 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Epic("UGD (УГД)")
 @Feature("DOCS (Реестр документов)")
-@Story("Автотесты")
+@Story("Информация")
+@Component("Реестры")
 @ManualMember("croc")
 @Owner("soldatovks")
 public class RegistersTests extends TestBase {

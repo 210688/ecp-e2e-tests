@@ -3,6 +3,8 @@ package ru.mos.smart.tests.mkapmii;
 import com.github.javafaker.Faker;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -15,7 +17,9 @@ public class MkapmiiCreateApplicationTest {
     @Test
     @AllureId("5179")
     @DisplayName("Создание заявки через сваггер")
-    @Epic("Автотесты")
+    @Epic("OASI")
+    @Feature("MKAPMII")
+    @Story("MKAPMII")
     @AutoMember("SoldatovKS")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii"), @Tag("documents")})
     void createApplicationViaApiTest() {

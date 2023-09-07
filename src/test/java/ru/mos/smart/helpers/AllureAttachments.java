@@ -1,4 +1,5 @@
 
+
 package ru.mos.smart.helpers;
 
 import com.codeborne.selenide.Selenide;
@@ -8,6 +9,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.charset.StandardCharsets;
+
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
@@ -16,17 +19,18 @@ public class AllureAttachments {
     public static final Logger LOGGER = LoggerFactory.getLogger(AllureAttachments.class);
 
     @Attachment(value = "{attachName}", type = "image/png", fileExtension = "png")
-    public static void attachScreenshot(String ignoredAttachName) {
-        ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    public static byte[] attachScreenshot(String attachName) {
+        return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
     @Attachment(value = "Page source", type = "text/plain", fileExtension = "json")
-    public static void attachPageSource() {
-        getWebDriver().getPageSource();
+    public static  byte[] attachPageSource() {
+        return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
     @Attachment(value = "{attachName}", type = "text/plain")
-    public static void attachAsText(String ignoredAttachName, String ignoredMessage) {
+    public static String attachAsText(String attachName, String message) {
+        return message;
     }
 
     public static void BrowserLog() {
@@ -36,3 +40,4 @@ public class AllureAttachments {
         );
     }
 }
+

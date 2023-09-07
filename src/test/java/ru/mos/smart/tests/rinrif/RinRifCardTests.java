@@ -16,14 +16,15 @@ import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeRinRif.*;
 
 @Owner("Soldatov")
 @Layer("web")
-@Epic("Регрессионные тесты для проверки базового функционала")
-@Feature("РинРиф")
-@Story("Карточки")
+@Epic("ИФИС РИН")
+@Feature("RINRIF")
+
 
 
 public class RinRifCardTests extends TestBase {
 
     @Test
+    @Story("nadzor")
     @AllureId("14049")
     @DisplayName("Проверка перехода в карточку из реестра Акты проверок")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
@@ -34,6 +35,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @Story("rv")
     @AllureId("14045")
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
@@ -44,6 +46,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("14046")
     @DisplayName("Проверка перехода в карточку из реестра Все объекты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
@@ -54,6 +57,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("14046")
     @DisplayName("Проверка перехода в карточку из реестра Все объекты сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
@@ -64,6 +68,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("14051")
     @DisplayName("Проверка перехода в карточку из реестра Все организации")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
@@ -74,6 +79,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("14053")
     @DisplayName("Проверка перехода в карточку из реестра Все решения о проверке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
@@ -84,6 +90,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @Story("snos")
     @AllureId("14047")
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о завершении сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
@@ -94,6 +101,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @Story("snos")
     @AllureId("14048")
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о планируемом сносе")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
@@ -104,6 +112,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @Story("rs")
     @AllureId("14054")
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения на строительство")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
@@ -114,6 +123,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @Story("rv")
     @AllureId("14052")
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на ввод объекта в эксплуатацию")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
@@ -124,6 +134,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @Story("rs")
     @AllureId("14050")
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на строительство")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})

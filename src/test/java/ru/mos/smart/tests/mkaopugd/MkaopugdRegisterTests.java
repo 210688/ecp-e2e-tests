@@ -3,10 +3,13 @@ package ru.mos.smart.tests.mkaopugd;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -21,8 +24,10 @@ import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
-@Epic("MKAOPUGD (МКА ОП УГД)")
-@Feature("Автотесты")
+@Epic("UGD")
+@Feature("ugd mkaopugd")
+@Story("mkaopugd-order")
+@Component("Информация")
 public class MkaopugdRegisterTests extends TestBase {
 
     @Test

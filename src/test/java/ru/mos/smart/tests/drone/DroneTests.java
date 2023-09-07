@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -33,6 +34,7 @@ public class DroneTests extends TestBase {
     private final String createCard = "/drone/#/app/drone/videoUpload";
 
     @Test
+    @Component("Госуслуги и функции")
     @AllureId("9890")
     @DisplayName("Создать карточку аэросъемки")
     @Tags({@Tag("drone"), @Tag("predprod"), @Tag("regres"), @Tag("createCartDrone")})
@@ -89,6 +91,7 @@ public class DroneTests extends TestBase {
     }
 
     @Test
+    @Component("Информация")
     @AllureId("12348")
     @DisplayName("В реестре данные аэрофотосъемки присутствуют данные")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -103,6 +106,7 @@ public class DroneTests extends TestBase {
     }
 
     @Test
+    @Component("Информация")
     @AllureId("12350")
     @DisplayName("Просмотреть карточку аэросъемки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

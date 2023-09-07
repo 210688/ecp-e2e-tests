@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -30,10 +31,11 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @AllureId("5181")
     @DisplayName("01. Проверка основных контролов, закрытие задачи без сохранения")
-    @Epic("Автотесты")
+    @Epic("OASI")
+    @Feature("MKAPMII")
+    @Story("MKAPMII")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
-    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     void mainControlsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);

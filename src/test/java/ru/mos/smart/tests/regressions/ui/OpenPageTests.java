@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Component;
+
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.annotations.Owner;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -19,12 +19,14 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Owner("Soldatov")
 @Layer("web")
-@Epic("Регрессионные тесты для проверки базового функционала")
-@Feature("Меню Госуслуги и функции")
-@Component("Инфо")
+@Epic("OASI")
+
+
+
 public class OpenPageTests extends TestBase {
 
     @Test
+    @Feature("LCS")
     @AllureId("12322")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка перехода в меню возможности")
@@ -36,6 +38,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @Feature("CDP")
     @AllureId("8265")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка открытия меню Задачи")
@@ -47,6 +50,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @Feature("CDP")
     @AllureId("12325")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка перехода в меню Реестр")
@@ -59,6 +63,7 @@ public class OpenPageTests extends TestBase {
 
 
     @Test
+    @Feature("CDP")
     @AllureId("8262")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка открытия меню справочник")

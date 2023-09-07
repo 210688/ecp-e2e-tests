@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -18,12 +19,13 @@ import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeRinRif.*;
 
 @Owner("Soldatov")
 @Layer("web")
-@Epic("Регрессионные тесты для проверки базового функционала")
-@Feature("РинРиф")
-@Story("Реестр")
+@Epic("ИФИС РИН")
+@Feature("RINRIF")
+
 public class RinRifReestrTests extends TestBase {
 
     @Test
+    @Story("nadzor")
     @AllureId("12316")
     @DisplayName("Проверка наличия данных и перехода в реестр Акты проверок")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -38,6 +40,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("14038")
     //@RepeatedIfExceptionsTest(repeats = 3, exceptions = NoSuchElementException.class)
     @DisplayName("Проверка наличия данных и перехода в реестр Все объекты")
@@ -53,6 +56,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("14037")
     @DisplayName("Проверка наличия данных и перехода в реестр Все объекты сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -66,6 +70,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("14039")
     @DisplayName("Проверка наличия данных и перехода в реестр Все организации")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -80,6 +85,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("12315")
     @DisplayName("Проверка наличия данных и перехода в реестр Все решения о проверке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -94,6 +100,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("12330")
     @DisplayName("Проверка наличия данных и перехода в реестр  Нарушения")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -108,6 +115,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("12332")
     @DisplayName("Проверка наличия данных и перехода в реестр Постановления")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -122,6 +130,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("14040")
     @DisplayName("Проверка наличия данных и перехода в реестр Протоколы")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -136,6 +145,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("nadzor")
     @AllureId("14041")
     @DisplayName("Проверка наличия данных и перехода в реестр ТЗ лаборатории")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -150,6 +160,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("snos")
     @AllureId("14042")
     @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о завершении сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -164,6 +175,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("snos")
     @AllureId("14043")
     @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о планируемом сносе")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -178,6 +190,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("rv")
     @AllureId("12328")
     @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -192,6 +205,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("rs")
     @AllureId("12319")
     @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения на строительство")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -206,6 +220,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("rv")
     @AllureId("12320")
     @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на ввод объекта в эксплуатацию")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
@@ -220,6 +235,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @Story("rs")
     @AllureId("12352")
     @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на строительство")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifReestr")})

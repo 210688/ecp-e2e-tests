@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -29,7 +30,9 @@ public class MkapmiiRegisterTests extends TestBase {
     @Test
     @AllureId("5189")
     @DisplayName("Проверка UI реестр оказания услуг по размещению инженерных изысканий")
-    @Epic("Автотесты")
+    @Epic("OASI")
+    @Feature("MKAPMII")
+    @Story("MKAPMII")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")

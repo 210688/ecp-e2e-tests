@@ -21,8 +21,8 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
-@Epic("Регрессионные тесты для проверки базового функционала")
-@Feature("Базовый функционал 2D")
+@Epic("OASI")
+@Feature("GIS")
 @Owner("Soldatov")
 @Layer("web")
 public class Map2DInstrumentalTests extends TestBase {
@@ -30,6 +30,7 @@ public class Map2DInstrumentalTests extends TestBase {
     ElementsCollection checkLayerField = $$("gis-plugin-layers-tree div");
 
     @Test
+    @Feature("GIS")
     @AllureId("12361")
     @DisplayName("Проверка перехода на карту")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -40,6 +41,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @org.testng.annotations.Test
+    @Feature("GIS")
     @AllureId("12364")
     @DisplayName("Проверка наличия инструментов измерений на карте 2D")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -50,6 +52,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @Feature("GIS")
     @AllureId("12360")
     @DisplayName("Проверка адресного поиска на карте 2D")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -60,6 +63,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @Feature("GIS")
     @AllureId("12362")
     @DisplayName("Проверка поиска слоя на карте 2D")
     @Tag("sendStatusForPgu")
@@ -71,6 +75,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @Feature("GIS")
     @AllureId("8298")
     @DisplayName("Проверка работы поиска в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -81,6 +86,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @Feature("GIS")
     @AllureId("8269")
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -94,6 +100,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @Feature("GIS")
     @AllureId("8266")
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -106,6 +113,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @Feature("GIS")
     @AllureId("8276")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

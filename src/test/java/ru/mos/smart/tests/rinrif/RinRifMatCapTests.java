@@ -3,10 +3,13 @@ package ru.mos.smart.tests.rinrif;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -21,10 +24,15 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
-@Epic("Автотесты")
+@Epic("ИФИС РИН")
+@Feature("RINRIF")
+@Story("matcap")
+
+
 public class RinRifMatCapTests extends TestBase {
 
     @Test
+    @Story("matcap")
     @AllureId("7996")
     @DisplayName("Проверка реестра Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")
@@ -47,6 +55,7 @@ public class RinRifMatCapTests extends TestBase {
     }
 
     @Test
+    @Story("matcap")
     @AllureId("7995")
     @DisplayName("Проверка карточки реестра Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")

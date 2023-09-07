@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -22,12 +23,13 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
 @Epic("UGD (УГД)")
-@Owner("Soldatovks")
 @Feature("MTSK (Московский территориальный строительный каталог)")
-@Story("Автотесты")
+@Story("Информация")
+@Component("Реестры")
+@Owner("Soldatovks")
 class CatalogsMtskTests extends TestBase {
 
-    @Test // не нашёл id
+    @Test
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("mtsk")})
     @DisplayName("Проверка наличия каталогов МТСК")
     void checkCatalogsMtsk() {
