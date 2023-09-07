@@ -26,7 +26,7 @@ public class Maps3DPage {
     private final ElementsCollection layerList = $$(".layerspanel.scroller");
     private final SelenideElement plus = $((".far.fa-plus"));
     private final SelenideElement minus = $((".far.fa-minus"));
-    private final SelenideElement location = $((".fas.fa-home-alt"));
+    private final SelenideElement location = $("span[title='Первоначальная позиция']");
 
 
     private void switchToWindow() {
@@ -59,7 +59,6 @@ public class Maps3DPage {
         plus.should(visible, ofSeconds(20));
         minus.should(visible, ofSeconds(20));
     }
-
 
     @Step("Проверить наличие инструмента Первоначальная позиция")
     public void checkInitialPositionTool() {
