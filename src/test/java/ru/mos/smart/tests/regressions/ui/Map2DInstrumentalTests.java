@@ -31,7 +31,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12361")
-    @DisplayName("Перехода на карту")
+    @DisplayName("Переход на карту")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToMaps() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
