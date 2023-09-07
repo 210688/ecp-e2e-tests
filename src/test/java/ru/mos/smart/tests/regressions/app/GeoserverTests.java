@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.regressions.app;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Link;
-import io.qameta.allure.Links;
-import io.qameta.allure.Owner;
+import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -18,6 +15,7 @@ import static io.qameta.allure.Allure.parameter;
 public class GeoserverTests extends ApiBasicTestBase {
 
     @Test
+    @AllureId("12356")
     @Layer("api")
     @Owner("Soldatovks")
     @DisplayName("Проверка доступности Geoserver")

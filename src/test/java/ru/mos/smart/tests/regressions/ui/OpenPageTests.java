@@ -18,14 +18,14 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Owner("Soldatov")
 @Layer("web")
-@Epic("Регрессионные тесты для проверки базового функционала")
-@Feature("Меню Госуслуги и функции")
+@Epic("OASI")
+@Feature("lcs")
 public class OpenPageTests extends TestBase {
 
     @Test
     @AllureId("12322")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @DisplayName("Проверка перехода в меню возможности")
+    @DisplayName("Переход в меню возможности")
     void goToActionsPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         //open("/app/lcs/constructor/main/#/app/forms/FORM_MAIN_PAGE");
@@ -36,7 +36,7 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("8265")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @DisplayName("Проверка открытия меню Задачи")
+    @DisplayName("Открытие меню Задачи")
     void openTheTasksPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         open("/app/lcs/constructor/main/#/app/forms/FORM_MAIN_PAGE");
@@ -47,7 +47,7 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("12325")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @DisplayName("Проверка перехода в меню Реестр")
+    @DisplayName("Переход в меню Реестр")
     void goToRegister() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         open("/app/lcs/constructor/main/#/app/forms/FORM_MAIN_PAGE");
@@ -59,7 +59,7 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("8262")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @DisplayName("Проверка открытия меню справочник")
+    @DisplayName("Открытие меню справочник")
     void openTheSpravochnikPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         open("/app/lcs/constructor/main/#/app/forms/FORM_MAIN_PAGE");
