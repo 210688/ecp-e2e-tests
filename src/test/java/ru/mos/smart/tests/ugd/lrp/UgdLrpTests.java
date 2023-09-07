@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.ugd.lrp;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
@@ -30,6 +27,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 class UgdLrpTests extends TestBase {
 
     @Test
+    @AllureId("6390")
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -47,6 +45,7 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
+    @AllureId("6391")
     @DisplayName("Проверка открытия формы подачи " +
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
     void openTheApplicationFormLrpOutsideOrg() {
@@ -71,6 +70,7 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
+    @AllureId("6366")
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     void openRegisterLrpZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -94,10 +94,11 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
+    @AllureId("6446")
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
     void openRegisterLrpMoiZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        reestrPage
                 .goToRegister("Мои заявки на участие в конкурсе ЛРП");
             $(byName("candidateSearchValue")).setValue("Мои заявки на участие в конкурсе ЛРП").pressEnter();
             $x("//span[contains(text(),'Мои заявки на участие в конкурсе ЛРП')]").click();

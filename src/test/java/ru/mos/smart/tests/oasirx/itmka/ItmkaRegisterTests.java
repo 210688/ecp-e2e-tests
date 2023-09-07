@@ -32,7 +32,7 @@ public class ItmkaRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("itmka")})
     void openingTheRegisterItmka() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToItmka();
 
         step("Открыт раздел Управление ИТ МКА", () ->
@@ -52,7 +52,7 @@ public class ItmkaRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("itmka")})
     void searchingItmkaCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage
                 .goToItmka();
 
         step("Открыт раздел Управление ИТ МКА", () ->

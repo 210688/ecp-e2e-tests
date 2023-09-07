@@ -8,15 +8,14 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.annotations.Owner;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.REGISTER;
 
 @Epic("Регрессионные тесты для проверки базового функционала")
 @Feature("Eventmanager (Менеджер событий)")
@@ -28,8 +27,9 @@ public class EventmanagerActionTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod")})
     @DisplayName("Проверка доступности реестра Подписки на уведомления о событиях")
     void checkingEventmanagerReestr() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        reestrPage
                 .goToRegister("Подписки на уведомления о событиях");
         step("Проверить, что открывается  реестр Подписки на уведомления о событиях", () -> {
             $(byText("Подписки на уведомления о событиях")).shouldBe(visible);

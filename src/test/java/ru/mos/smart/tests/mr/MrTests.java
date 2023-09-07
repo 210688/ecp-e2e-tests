@@ -25,6 +25,8 @@ import static com.codeborne.selenide.Selenide.switchTo;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.REGISTER;
 
 @Epic("RAYON (Мой район)")
 public class MrTests extends TestBase {
@@ -37,8 +39,9 @@ public class MrTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramInstructionRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        reestrPage
                 .goToRegister("Поручения Мэра по программе Мой район");
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form").$("input").shouldBe(visible);
@@ -61,8 +64,9 @@ public class MrTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramObjRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        reestrPage
                 .goToRegister("Объекты по программе Мой район");
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form input").shouldBe(visible);
@@ -83,8 +87,9 @@ public class MrTests extends TestBase {
     @Test
     @AllureId("8000")
     void checkAttributesOfMrProgramObjCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        reestrPage
                 .goToRegister("Объекты по программе \"Мой район\"");
 
         step("Открыть любую карточку реестра", () -> {
@@ -113,9 +118,9 @@ public class MrTests extends TestBase {
     @Test
     @AllureId("7999")
     void checkSwitchToMapOnMrProgramObjCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-
-        navigatorPage
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        reestrPage
                 .goToRegister("Объекты по программе \"Мой район\"");
 
         step("Открыть любую карточку реестра", () -> {
@@ -175,7 +180,7 @@ public class MrTests extends TestBase {
                 $(".row.form-group").$("button.btn-primary").scrollTo().click());
 
         $(".mail-box-header").$(byText("Все задачи")).should(visible, Duration.ofSeconds(20));
-        navigatorPage
+        reestrPage
                 .goToRegister("Объекты по программе \"Мой район\"");
 
         step("Проверить объект в реестре", () -> {

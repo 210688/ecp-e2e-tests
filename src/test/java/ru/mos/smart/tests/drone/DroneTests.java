@@ -1,31 +1,29 @@
 package ru.mos.smart.tests.drone;
 
 import com.codeborne.selenide.ElementsCollection;
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.utils.RandomUtils;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.io.File;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.Arrays;
+import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.RegisterObjectTypeDrone.AEROFOTO;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.REGISTER;
 
 @Epic("Регрессионные тесты для проверки базового функционала")
 @Feature("Drone (Аэрофотосъемка)")
@@ -33,30 +31,26 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 @Layer("web")
 public class DroneTests extends TestBase {
     private final String createCard = "/drone/#/app/drone/videoUpload";
+    private final ElementsCollection calendars = $$("div.input-group.date.ng-scope > input");
+    private final String aerofoto = AEROFOTO.getDroneDescription();
 
     @Test
     @DisplayName("Создать карточку аэросъемки")
-    @Tags({@Tag("drone"), @Tag("predprod"), @Tag("regres"), @Tag("createCartDrone")})
-    void createCartDrone() {
-        ElementsCollection calendars = $$("div.input-group.date.ng-scope > input");
-        ElementsCollection materials = $$(".ng-option-label");
-        ElementsCollection shooting = $$(".ng-option-label");
-
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        actionsPage
-                .goToActions("Создать карточку аэросъемки");
-        step("Выбрать Создать карточку аэросъемки", () ->
-                open(createCard));
+    @Tags({@Tag("drone"), @Tag("predprod"), @Tag("createCardDrone")})
+    void createCardDrone() {
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        actionsPage.openToBusinessProcess("Создать карточку аэросъемки");
         step("Наименование объекта", () ->
                 $(byName("object")).click());
         $(byText("ст. «Стахановская»")).click();
         step("Желаемая дата съемки", () ->
-                calendars.get(0).setValue("21.12.2022"));
+                calendars.get(0).setValue("21.12.2023"));
         step("Тип съемки", () ->
                 $(byName("shooting_afs")).click());
         $$(".ng-option-label").findBy(text("Фото")).click();
         step("Требования к съемке", () ->
-                $(byName("requirements")).setValue("Тестовый обЬект"));
+                $(byName("requirements")).setValue("Тестовый объект"));
         step("Приоритет", () ->
                 $(byName("shooting_type")).click());
         $$(".ng-option-label").findBy(text("Средний")).click();
@@ -91,35 +85,27 @@ public class DroneTests extends TestBase {
 
     @Test
     @AllureId("12348")
-    @DisplayName("В реестре данные аэрофотосъемки присутствуют данные")
+    @Description("Наличие карточек в реестре данные аэрофотосъемки")
+    @DisplayName("В реестре данные аэрофотосъемки присутствуют карточки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    void openReestrDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister("Данные аэрофотосъемки");
-        step("Проверить, что в реестре Данные аэрофотосъемки есть карточки", () -> {
-            $(byText("Данные аэрофотосъемки")).shouldBe(visible);
-            $(".search-result-table tbody").$$("tr").shouldHave(sizeGreaterThan(0));
-        });
+    void checkCardsInReestrDrone() {
+        List<String> tableColumnList = Arrays.asList("Номер заявки", "Дата заявки", "Объект", "Адрес", "Инициатор заявки",
+                "Дата съемки", "Номер контракта", "Дата контракта", "Подрядчик", "Категория", "Тип съемки", "Статус");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        reestrPage.goToRegister(aerofoto);
+        dronePage.checkFilter(aerofoto, tableColumnList );
     }
 
     @Test
     @AllureId("12350")
-    @DisplayName("Просмотреть карточку аэросъемки")
+    @Description("Просмотреть карточку аэросъемки")
+    @DisplayName("В карточке присутствуют данные")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void viewCartDrone() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister("Данные аэрофотосъемки");
-        AtomicReference<String> card = new AtomicReference<>("");
-
-        step("Получаем номер существующей карточки", () -> {
-            $(".search-result-table tbody").$$("tr").shouldHave(sizeGreaterThan(0));
-            card.set($(".search-result-table").$("a").getText());
-        });
-        step("Открыть карточку аэрофотосъемки", () ->
-                $(byText(card.get())).click());
-        step("Проверить, что карточка окрывается", () ->
-                $(byText("Технический номер заявки " + card.get())).should(visible));
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        reestrPage.goToRegister(aerofoto);
+        dronePage.goToCardDrone();
     }
 }

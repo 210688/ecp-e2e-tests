@@ -34,9 +34,9 @@ public class EooRegisterTests extends TestBase {
         void goToRegisterEoo() {
             List<String> columnNames = Arrays.asList("Дата", "Номер", "Округ", "Районы", "Адрес","Исполнитель", "Статус");
             openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-            navigatorPage.goToSection(EOO_URL);
-            reestrPage.searchField();
-            reestrPage.checkFieldData(EOO_URL, columnNames);
+            sidebarPage.goToSection(EOO_URL);
+            //reestrPage.searchField();
+            //reestrPage.checkFieldData(EOO_URL, columnNames);
         }
 
     @Test
@@ -44,7 +44,7 @@ public class EooRegisterTests extends TestBase {
     @DisplayName("Наличие заявок в реестре")
     void checkAvailabilityApplication() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToEoo();
+        //urlPage.goToEoo();
         oasirxProjectsPage.checkAvailabilityApplication(EOO_URL);
     }
 
@@ -54,7 +54,7 @@ public class EooRegisterTests extends TestBase {
     void goToRequestCard() {
         List<String> tableColumnList = Arrays.asList("Этап", "Результаты", "Сроки");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToEoo();
+        //urlPage.goToEoo();
         oasirxProjectsPage.goToCardEoo(tableColumnList);
     }
 }

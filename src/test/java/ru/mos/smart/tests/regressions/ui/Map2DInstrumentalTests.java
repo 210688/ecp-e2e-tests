@@ -1,119 +1,107 @@
 package ru.mos.smart.tests.regressions.ui;
 
-import com.codeborne.selenide.ElementsCollection;
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Sidebar.*;
 
 @Epic("OASI")
 @Feature("GIS")
 @Owner("Soldatov")
 @Layer("web")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("maps")})
 public class Map2DInstrumentalTests extends TestBase {
-
-    ElementsCollection checkLayerField = $$("gis-plugin-layers-tree div");
 
     @Test
     @AllureId("12361")
-    @DisplayName("Переход на карту")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Description("Переход на карту")
+    @DisplayName("Наличие подложки на карте")
     void goToMaps() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToMaps();
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
         mapsPage.checkForMapsBox();
     }
 
     @Test
     @AllureId("12364")
-    @DisplayName("Наличие инструментов измерений на карте 2D")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Description("Отображение инструментов  на 2D карте")
+    @DisplayName("Наличие инструментов  на 2D карте")
     void checkAvailabilityInstruments() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToMaps();
-        mapsPage.checkInstrumentsMaps();
+        String[] expectedTexts = {
+                "3D режим",
+                "Пробки",
+                "Панорамы",
+                "Рисование",
+                "Измерение",
+                "Условные обозначения",
+                "Информация"
+        };
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        mapsPage.checkInstrumentsMaps(expectedTexts);
     }
 
     @Test
     @AllureId("12360")
-    @DisplayName("Адресный поиск на карте 2D")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Description("Адресный поиск на карте 2D")
+    @DisplayName("Наличие поля ввода адресного поиска на карте 2D")
     void checkAvailabilityAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToMaps();
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
         mapsPage.checkAddressSearch();
     }
 
     @Test
     @AllureId("12362")
-    @DisplayName("Поиск слоя на карте 2D")
-    @Tag("sendStatusForPgu")
+    @Description("Поиск слоя на карте 2D")
+    @DisplayName("Наличие поля ввода поиска слоя на карте 2D")
     void checkAvailabilityOfLayerSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToMaps();
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
         mapsPage.checkLayerSearch();
-        checkLayerField.shouldHave(sizeGreaterThan(0));
     }
 
     @Test
     @AllureId("8298")
-    @DisplayName("Работа поиска в адресной строке")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Description("Поиск адреса в адресной строке")
+    @DisplayName("Поиск адреса на карте 2D")
     void checkingAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToMaps();
-        mapsPage.checkSearch();
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        mapsPage.checkSearchAddresses();
     }
 
     @Test
     @AllureId("8269")
-    @DisplayName("Наличие инструментов масштабирования: кнопок + и -")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Description("Инструменты масштабирования")
+    @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     void checkingAvailabilityOfScalingTools() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToMaps();
-        step("Проверить наличие инструментов масштабирования: кнопок + и -", () -> {
-            $(("button[tooltip-right='Приблизить']")).shouldBe(visible);
-            $(("button[tooltip-right='Отдалить']")).shouldBe(visible);
-        });
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        mapsPage.checkScalingTools();
     }
 
     @Test
     @AllureId("8266")
-    @DisplayName("Наличие инструмента Мое местоположение")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Description("Инструменты Мое местоположение")
+    @DisplayName("Проверка наличия инструмента Мое местоположение")
     void checkingAvailabilityOfMyLocationTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToMaps();
-        step("Проверить наличия инструмента Мое местоположение", () -> {
-            $(("button[tooltip-right='Мое местоположение']")).shouldBe(visible);
-        });
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        mapsPage.checkMyLocationTool();
     }
 
     @Test
     @AllureId("8276")
-    @DisplayName("Наличие инструмента Первоначальная позиция")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     void checkingAvailabilityOfInitialPositionTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToMaps();
-        step("Проверить наличия инструмента Первоначальная позиция", () -> {
-            $(("button[tooltip-right='Первоначальная позиция']")).shouldBe(visible);
-        });
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        mapsPage.checkInitialPositionTool();
     }
 }
