@@ -52,7 +52,15 @@ public class OpenPageTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.checkReestrTask();
+    }
 
+    @Test
+    @Feature("CDP")
+    @Description("Список реестров пользователя")
+    @DisplayName("Наличие списка реестров на странице Реестр")
+    void checkListInformation() {
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.checkInformationMenuContainsRegistries();
     }
 
     @Test

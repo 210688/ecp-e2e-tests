@@ -2,13 +2,11 @@ package ru.mos.smart.pages;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.mos.smart.data.Sidebar;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -18,12 +16,6 @@ import static io.qameta.allure.Allure.step;
  */
 
 public class SidebarPage {
-
-    private final SelenideElement canvas = $(".mapboxgl-canvas");
-    private final SelenideElement city = $("#city");
-    private final SelenideElement task = $("#sidebar_header");
-    private final SelenideElement myTask = $(".font-bold.hidden-xs");
-    private final SelenideElement searchTask = $(byName("search"));
 
     @Step("В раскрывшемся меню присутствует список {expectedTexts}")
     public void checkSubMenuList(Sidebar menuName, String[] expectedTexts) {
@@ -36,7 +28,7 @@ public class SidebarPage {
 
     @Step("В боковой панели нажать на {sidebarMenu}")
     public void clickSidebarMenu(Sidebar sidebarMenu) {
-        $$("#sidebar_menu>div").find(text(sidebarMenu.value())).click();
+        $$("#sidebar_menu>div").find(text(sidebarMenu.ruName())).click();
     }
 
     @Step("В раскрывшемся меню {menuName} нажать {subMenuName}")
