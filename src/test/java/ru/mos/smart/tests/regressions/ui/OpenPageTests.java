@@ -16,90 +16,55 @@ import static ru.mos.smart.data.Sidebar.*;
 
 @Owner("Soldatov")
 @Layer("web")
-@Epic("Регрессионные тесты для проверки базового функционала")
-@Feature("Меню Госуслуги и функции")
+@Epic("OASI")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class OpenPageTests extends TestBase {
 
     @Test
-    @AllureId("15149")
-    @Description("Раскрывающийся список Госуслуги и функции")
-    @DisplayName("Наличие элементов в раскрывающемся списке Госуслуги и функции")
-    void checkServicesAndFunctionsDropdownListItems() {
-        String[] expectedTexts = {
-                "Задачи",
-                "Задачи v2",
-                "Возможности",
-        };
-        sidebarPage.clickSidebarMenu(SERVICESANDFUNCTION);
-        sidebarPage.checkSubMenuList(SERVICESANDFUNCTION, expectedTexts);
-    }
-
-    @Test
-    @AllureId("15150")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @Description("Раскрывающийся список информация")
-    @DisplayName("Наличие элементов в раскрывающемся списке Информация")
-    void checkInformationDropdownListItems() {
-        sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.checkInformationMenuContainsRegistries();
-    }
-
-    @Test
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    @Description("Открытие страницы Задачи")
-    @DisplayName("Переход на страницу Задачи")
-    void openTheTasksPage() {
-        sidebarPage.clickSidebarMenu(SERVICESANDFUNCTION);
-        sidebarPage.clickSubMenuList(SERVICESANDFUNCTION, TASK);
-    }
-
-    @Test
-    @AllureId("8265")
-    @Description("Наличие списка задач пользователя на странице Задачи")
-    @DisplayName("В задачах пользователя присутствует список задач")
-    void checkListTasksPage() {
-        sidebarPage.clickSidebarMenu(SERVICESANDFUNCTION);
-        sidebarPage.clickSubMenuList(SERVICESANDFUNCTION, TASK);
-        taskPage.checkUserTask();
-    }
-
-    @Test
     @AllureId("12322")
+    @Feature("LCS")
     @Description("Наличие списка возможностей на странице Возможности")
     @DisplayName("В возможностях пользователя присутствует список возможностей")
     void goToActionsPage() {
-        sidebarPage.clickSidebarMenu(SERVICESANDFUNCTION);
-        sidebarPage.clickSubMenuList(SERVICESANDFUNCTION, ACTIONS);
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, ACTIONS);
         actionsPage.checkActionsTask();
     }
 
+
+    @Test
+    @AllureId("8265")
+    @Feature("CDP")
+    @Description("Наличие списка задач пользователя на странице Задачи")
+    @DisplayName("В задачах пользователя присутствует список задач")
+    void checkListTasksPage() {
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, TASK);
+        taskPage.checkUserTask();
+    }
+
+
     @Test
     @AllureId("12325")
+    @Feature("CDP")
     @Description("Список реестров пользователя")
     @DisplayName("Наличие списка реестров на странице Реестр")
     void goToRegister() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.checkReestrTask();
+
     }
+
 
     @Test
     @AllureId("8262")
+    @Feature("CDP")
     @Description("Список справочника")
     @DisplayName("В справочнике присутствует список элементов")
     void goToOpenSpravochnik() {
         sidebarPage.clickSidebarMenu(SETTINGS);
-        sidebarPage.clickSubMenuList(SETTINGS, REFERENCEBOOKS);
+        sidebarPage.clickSubMenuList(SETTINGS, REFERENCE_BOOKS);
         dictsPage.checkDicts();
-    }
-
-    @Test
-    @Description("Наличие списка элементов на странице Реестр")
-    @DisplayName("Проверка, что в реестре присутствует список")
-    public void goToOpenRegister() {
-        sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
-        reestrPage.goToRegister("Данные аэрофотосъемки");
     }
 }

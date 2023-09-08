@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.ft;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
@@ -12,7 +13,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTER;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 
 @Layer("web")
 @Epic("FT (Электронная приемка по ФТ)")
@@ -22,11 +23,12 @@ import static ru.mos.smart.data.Sidebar.REGISTER;
 public class EaistTests extends TestBase {
 
     @Test
+    @AllureId("5265")
     @DisplayName("Проверка реестров ЕАИСТ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ft")})
     void reestrEaistCanBeOpened() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
                 .goToRegister("ЕАИСТ");
 

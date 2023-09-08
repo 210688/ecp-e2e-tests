@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.oasirx.eoo;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -29,6 +26,7 @@ import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
 public class EooRegisterTests extends TestBase {
 
         @Test
+        @AllureId("12357")
         @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("oasirxReestr")})
         @DisplayName("Проверка наличия данных и перехода в раздел Общеcтвенные обcуждения")
         void goToRegisterEoo() {
@@ -40,6 +38,7 @@ public class EooRegisterTests extends TestBase {
         }
 
     @Test
+    @AllureId("12355")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("eoo"), @Tag("oasirxCards")})
     @DisplayName("Наличие заявок в реестре")
     void checkAvailabilityApplication() {
@@ -49,6 +48,7 @@ public class EooRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("12533")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("eoo"), @Tag("oasirxCards")})
     @DisplayName("Переход в карточку заявки")
     void goToRequestCard() {

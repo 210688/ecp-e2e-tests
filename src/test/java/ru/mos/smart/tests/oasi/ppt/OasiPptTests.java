@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasi.ppt;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
@@ -19,6 +20,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 class OasiPptTests extends TestBase {
 
     @Test
+    @AllureId("6014")
     @Disabled("тест не работает - надо разобраться с правами, не работает регистрация")
     @DisplayName("Проверка наличия в витрине поля для поиска")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("ppt")})

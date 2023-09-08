@@ -49,6 +49,7 @@ public class SzzRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("7703")
     @DisplayName("Поиск карточки реестра СЗЗ по номеру")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("szz")})
     void searchingSzzCardByNumber() {

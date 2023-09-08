@@ -3,6 +3,7 @@ package ru.mos.smart.tests.ugd.lrp;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.annotations.ManualMember;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -21,13 +22,14 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 @Layer("web")
 @Epic("UGD (УГД)")
 @Feature("LRP (Конкурс \"Лучший реализованный проект\")")
-@Story("Автотесты")
 @ManualMember("croc")
 @Owner("soldatovks")
 class UgdLrpTests extends TestBase {
 
     @Test
-    @AllureId("6390")
+    @Story("Госуслуги и функции")
+    @Component("Возможности")
+    @AllureId("6500")
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -45,7 +47,9 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
-    @AllureId("6391")
+    @Story("Госуслуги и функции")
+    @Component("Возможности")
+    @AllureId("6390")
     @DisplayName("Проверка открытия формы подачи " +
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
     void openTheApplicationFormLrpOutsideOrg() {
@@ -70,6 +74,8 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
+    @Story("Информация")
+    @Component("Реестры")
     @AllureId("6366")
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     void openRegisterLrpZayavki() {
@@ -94,11 +100,13 @@ class UgdLrpTests extends TestBase {
     }
 
     @Test
+    @Story("Информация")
+    @Component("Реестры")
     @AllureId("6446")
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
     void openRegisterLrpMoiZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        reestrPage
+        navigatorPage
                 .goToRegister("Мои заявки на участие в конкурсе ЛРП");
             $(byName("candidateSearchValue")).setValue("Мои заявки на участие в конкурсе ЛРП").pressEnter();
             $x("//span[contains(text(),'Мои заявки на участие в конкурсе ЛРП')]").click();

@@ -1,4 +1,5 @@
 
+
 package ru.mos.smart.helpers;
 
 import com.codeborne.selenide.Selenide;
@@ -39,3 +40,4 @@ public class AllureAttachments {
         );
     }
 }
+

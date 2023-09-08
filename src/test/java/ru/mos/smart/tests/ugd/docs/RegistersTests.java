@@ -1,13 +1,12 @@
 package ru.mos.smart.tests.ugd.docs;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
+import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.annotations.ManualMember;
 import ru.mos.smart.pages.AuthorizationPage;
@@ -21,11 +20,13 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Epic("UGD (УГД)")
 @Feature("DOCS (Реестр документов)")
-@Story("Автотесты")
+@Story("Информация")
+@Component("Реестры")
 @ManualMember("croc")
 @Owner("soldatovks")
 public class RegistersTests extends TestBase {
     @Test
+    @AllureId("6403")
     @Layer("web")
     @DisplayName("Проверка доступности реестра РД. Акт проверки строительства")
     void actInspectionTest() {
@@ -49,6 +50,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("6400")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Извещения об окончании СМР")
@@ -73,6 +75,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("6404")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Извещения о начале СМР")
@@ -94,6 +97,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("6490")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Свидетельства АГР")
@@ -119,6 +123,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("6492")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов. ГПЗУ")
@@ -143,6 +148,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("6398")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения Мосгоргеотреста")
@@ -164,6 +170,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("6463")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения о соответствии")
@@ -188,6 +195,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("6461")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения экспертизы")
@@ -221,6 +229,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("6481")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на ввод")
@@ -247,6 +256,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("6448")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на строительство")
@@ -272,6 +282,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("6493")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных.Исполнительные чертежи Мосгоргеотреста")

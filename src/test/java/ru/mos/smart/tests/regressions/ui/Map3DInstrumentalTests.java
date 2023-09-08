@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.regressions.ui;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -13,23 +14,25 @@ import ru.mos.smart.tests.TestBase;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.MAPS3D;
 
-@Epic("Регрессионные тесты для проверки базового функционала")
-@Feature("Базовый функционал Цифровой двойник")
 @Owner("Soldatov")
 @Layer("web")
+@Epic("Цифровой двойник")
+@Feature("Map3D")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("maps")})
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
+    @AllureId("12365")
     @DisplayName("Проверка перехода на карту Цифровой двойник")
     void goToMapsCd() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);
         maps3DPage.checkForMapsBox();
+
     }
 
-
     @Test
+    @AllureId("8268")
     @DisplayName("Проверка отображения панели слоев")
     void checkingTheDisplayOfLayersPanel() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -38,6 +41,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("8274")
     @DisplayName("Проверка работы поиска в адресной строке")
     void checkingAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -46,18 +50,21 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка наличия кнопок масштабирования на карте")
-    void checkingAvailabilityOfScalingTools() {
-        sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);
-        maps3DPage.checkScalingTools();
-    }
-
-    @Test
+    @AllureId("8275")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
-        sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);
+            sidebarPage.clickSidebarMenu(INFORMATION);
+            sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);
+            maps3DPage.checkInitialPositionTool();
 
     }
-}
+        @Test
+        @DisplayName("Проверка наличия кнопок масштабирования на карте")
+        void checkingAvailabilityOfScalingTools() {
+            sidebarPage.clickSidebarMenu(INFORMATION);
+            sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);
+            maps3DPage.checkScalingTools();
+        }
+
+    }

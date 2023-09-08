@@ -27,6 +27,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 public class ViolationRegisterTests extends TestBase {
     @Test
+    @AllureId("7697")
     @DisplayName("Просмотр раздела Нарушения ОГД")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("violation")})
     void openingTheRegisterViolation() {

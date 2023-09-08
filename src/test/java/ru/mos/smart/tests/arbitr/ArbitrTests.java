@@ -21,7 +21,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 
 @Layer("web")
-@Epic("ARBITR (Арбитраж)")
+@Epic("ARBITR (Арбитраж)") // система под вопросом
 public class ArbitrTests extends TestBase {
 
     @Test

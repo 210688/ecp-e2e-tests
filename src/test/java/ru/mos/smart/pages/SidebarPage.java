@@ -41,11 +41,11 @@ public class SidebarPage {
 
     @Step("В раскрывшемся меню {menuName} нажать {subMenuName}")
     public void clickSubMenuList(Sidebar menuName, Sidebar subMenuName) {
-        $(byText(menuName.value()))
+        $(byText(menuName.ruName()))
                 .parent().parent()
                 .sibling(0)
                 .$$("div.name")
-                .find(text(subMenuName.value()))
+                .find(text(subMenuName.ruName()))
                 .click();
     }
 

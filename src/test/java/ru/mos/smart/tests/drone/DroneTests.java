@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.tests.TestBase;
@@ -23,10 +24,11 @@ import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.RegisterObjectTypeDrone.AEROFOTO;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTER;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 
-@Epic("Регрессионные тесты для проверки базового функционала")
+@Epic("OASI")
 @Feature("Drone (Аэрофотосъемка)")
+@Story("drone")
 @Owner("Soldatov")
 @Layer("web")
 public class DroneTests extends TestBase {
@@ -35,11 +37,13 @@ public class DroneTests extends TestBase {
     private final String aerofoto = AEROFOTO.getDroneDescription();
 
     @Test
+    @Component("Госуслуги и функции")
+    @AllureId("9890")
     @DisplayName("Создать карточку аэросъемки")
     @Tags({@Tag("drone"), @Tag("predprod"), @Tag("createCardDrone")})
     void createCardDrone() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         actionsPage.openToBusinessProcess("Создать карточку аэросъемки");
         step("Наименование объекта", () ->
                 $(byName("object")).click());
@@ -84,6 +88,7 @@ public class DroneTests extends TestBase {
     }
 
     @Test
+    @Component("Информация")
     @AllureId("12348")
     @Description("Наличие карточек в реестре данные аэрофотосъемки")
     @DisplayName("В реестре данные аэрофотосъемки присутствуют карточки")
@@ -92,19 +97,20 @@ public class DroneTests extends TestBase {
         List<String> tableColumnList = Arrays.asList("Номер заявки", "Дата заявки", "Объект", "Адрес", "Инициатор заявки",
                 "Дата съемки", "Номер контракта", "Дата контракта", "Подрядчик", "Категория", "Тип съемки", "Статус");
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(aerofoto);
         dronePage.checkFilter(aerofoto, tableColumnList );
     }
 
     @Test
+    @Component("Информация")
     @AllureId("12350")
     @Description("Просмотреть карточку аэросъемки")
     @DisplayName("В карточке присутствуют данные")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void viewCartDrone() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(aerofoto);
         dronePage.goToCardDrone();
     }

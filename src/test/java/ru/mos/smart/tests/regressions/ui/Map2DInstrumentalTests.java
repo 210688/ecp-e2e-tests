@@ -10,10 +10,10 @@ import ru.mos.smart.tests.TestBase;
 
 import static ru.mos.smart.data.Sidebar.*;
 
-@Epic("OASI")
-@Feature("GIS")
 @Owner("Soldatov")
 @Layer("web")
+@Epic("OASI")
+@Feature("GIS")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("maps")})
 public class Map2DInstrumentalTests extends TestBase {
 
@@ -23,7 +23,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Наличие подложки на карте")
     void goToMaps() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkForMapsBox();
     }
 
@@ -42,7 +42,7 @@ public class Map2DInstrumentalTests extends TestBase {
                 "Информация"
         };
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkInstrumentsMaps(expectedTexts);
     }
 
@@ -52,7 +52,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Наличие поля ввода адресного поиска на карте 2D")
     void checkAvailabilityAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkAddressSearch();
     }
 
@@ -62,7 +62,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Наличие поля ввода поиска слоя на карте 2D")
     void checkAvailabilityOfLayerSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkLayerSearch();
     }
 
@@ -72,7 +72,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Поиск адреса на карте 2D")
     void checkingAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkSearchAddresses();
     }
 
@@ -82,7 +82,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     void checkingAvailabilityOfScalingTools() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkScalingTools();
     }
 
@@ -92,7 +92,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     void checkingAvailabilityOfMyLocationTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         mapsPage.checkMyLocationTool();
     }
 
@@ -101,7 +101,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     void checkingAvailabilityOfInitialPositionTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         mapsPage.checkInitialPositionTool();
     }
 }

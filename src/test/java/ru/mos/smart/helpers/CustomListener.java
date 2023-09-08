@@ -6,6 +6,8 @@ import org.junit.jupiter.api.extension.TestWatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static ru.mos.smart.helpers.AllureAttachments.attachScreenshot;
+
 public class CustomListener implements TestWatcher {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomListener.class);
@@ -15,7 +17,7 @@ public class CustomListener implements TestWatcher {
         LOGGER.info("==============");
         LOGGER.info("Test {} - failed", context.getTestMethod().get().getName());
         LOGGER.info("==============");
-        AllureAttachments.attachScreenshot("Failed screenshot");
+        attachScreenshot("Failed screenshot");
         AllureAttachments.attachPageSource();
         AllureAttachments.BrowserLog();
         Selenide.closeWebDriver();

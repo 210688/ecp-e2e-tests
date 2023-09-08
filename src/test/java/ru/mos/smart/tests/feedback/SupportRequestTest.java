@@ -3,6 +3,7 @@ package ru.mos.smart.tests.feedback;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -18,7 +19,8 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.*;
 
 @Layer("web")
-@Epic("FEEDBACK (Форма обратной связи)")
+@Epic("OASI")
+@Feature("FEEDBACK")
 public class SupportRequestTest extends TestBase {
 
     @Test

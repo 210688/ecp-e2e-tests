@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.oasi.fasades;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +15,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTER;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 
 @Layer("web")
 @Epic("OASI (ОАСИ)")
@@ -22,11 +23,12 @@ import static ru.mos.smart.data.Sidebar.REGISTER;
 public class FasadesRegistersTests extends TestBase {
 
     @Test
+    @AllureId("6047")
     @DisplayName("Проверка перехода к реестру Проекты изменений фасадов зданий (жилые)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasi"), @Tag("fasades")})
     void openRegisterFasadesZhil() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
                 .goToRegister("Проекты изменений фасадов зданий (жилые)");
         step("Реестр открывается, присутствует список", () -> {
