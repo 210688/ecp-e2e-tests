@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTER;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasirx.CRD_URL;
 import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
 
@@ -33,7 +33,7 @@ public class CrdRegisterTests extends TestBase {
     void goToRegisterCrd() {
         List<String> columnNames = Arrays.asList("Номер", "Дата", "Название", "Инициатор", "Статус");
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         sidebarPage.goToSection(CRD_URL);
 /*        reestrPage.searchField();
         reestrPage.checkFieldData(CRD_URL, columnNames);*/

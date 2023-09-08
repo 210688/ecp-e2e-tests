@@ -11,11 +11,9 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static java.time.Duration.ofSeconds;
 
-
 /**
  * Описание Maps.
  */
-
 
 public class Maps3DPage {
 

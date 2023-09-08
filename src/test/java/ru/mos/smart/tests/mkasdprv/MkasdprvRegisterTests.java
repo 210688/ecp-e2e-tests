@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTER;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 
 @Layer("web")
 @Epic("OASI")
@@ -31,7 +31,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("mkasdprv"), @Tag("predprod")})
     void checkingTheAttributesOfTheRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
                 .goToRegister("Реестр оказания услуги Вывесок");
 
@@ -54,7 +54,7 @@ public class MkasdprvRegisterTests extends TestBase {
     @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkasdprv")})
     void openingRegistryCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
                 .goToRegister("Реестр оказания услуги Вывесок");
 

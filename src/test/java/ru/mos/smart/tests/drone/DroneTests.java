@@ -24,7 +24,7 @@ import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.RegisterObjectTypeDrone.AEROFOTO;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTER;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 
 @Epic("OASI")
 @Feature("Drone (Аэрофотосъемка)")
@@ -43,7 +43,7 @@ public class DroneTests extends TestBase {
     @Tags({@Tag("drone"), @Tag("predprod"), @Tag("createCardDrone")})
     void createCardDrone() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         actionsPage.openToBusinessProcess("Создать карточку аэросъемки");
         step("Наименование объекта", () ->
                 $(byName("object")).click());
@@ -97,7 +97,7 @@ public class DroneTests extends TestBase {
         List<String> tableColumnList = Arrays.asList("Номер заявки", "Дата заявки", "Объект", "Адрес", "Инициатор заявки",
                 "Дата съемки", "Номер контракта", "Дата контракта", "Подрядчик", "Категория", "Тип съемки", "Статус");
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(aerofoto);
         dronePage.checkFilter(aerofoto, tableColumnList );
     }
@@ -110,7 +110,7 @@ public class DroneTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void viewCartDrone() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(aerofoto);
         dronePage.goToCardDrone();
     }

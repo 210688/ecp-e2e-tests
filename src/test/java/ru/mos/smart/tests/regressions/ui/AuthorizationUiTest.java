@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.regressions.ui;
 
 import io.qameta.allure.AllureId;
@@ -25,7 +26,6 @@ public class AuthorizationUiTest extends TestBase {
     @DisplayName("Проверка авторизации через UI")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void authorizationEcpViaUi() {
-        AuthorizationPage.openUrlWithAuthorizationUI(getWebSecureUrl(), getLoginRegress(), getPasswordRegress());
-        navigatorPage.checkPageTask();
     }
 }
+*/

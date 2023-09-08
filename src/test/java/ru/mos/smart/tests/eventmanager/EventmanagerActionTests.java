@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTER;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 
 @Epic("UGD")
 @Feature("CDP")
@@ -34,7 +34,7 @@ public class EventmanagerActionTests extends TestBase {
     @DisplayName("Проверка доступности реестра Подписки на уведомления о событиях")
     void checkingEventmanagerReestr() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
                 .goToRegister("Подписки на уведомления о событиях");
         step("Проверить, что открывается  реестр Подписки на уведомления о событиях", () -> {

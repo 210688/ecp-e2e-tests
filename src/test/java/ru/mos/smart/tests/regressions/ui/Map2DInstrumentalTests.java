@@ -10,26 +10,24 @@ import ru.mos.smart.tests.TestBase;
 
 import static ru.mos.smart.data.Sidebar.*;
 
-@Epic("OASI")
-@Feature("GIS")
 @Owner("Soldatov")
 @Layer("web")
+@Epic("OASI")
+@Feature("GIS")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("maps")})
 public class Map2DInstrumentalTests extends TestBase {
 
     @Test
-    @Feature("GIS")
     @AllureId("12361")
     @Description("Переход на карту")
     @DisplayName("Наличие подложки на карте")
     void goToMaps() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkForMapsBox();
     }
 
-    @org.testng.annotations.Test
-    @Feature("GIS")
+    @Test
     @AllureId("12364")
     @Description("Отображение инструментов  на 2D карте")
     @DisplayName("Наличие инструментов  на 2D карте")
@@ -44,72 +42,66 @@ public class Map2DInstrumentalTests extends TestBase {
                 "Информация"
         };
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkInstrumentsMaps(expectedTexts);
     }
 
     @Test
-    @Feature("GIS")
     @AllureId("12360")
     @Description("Адресный поиск на карте 2D")
     @DisplayName("Наличие поля ввода адресного поиска на карте 2D")
     void checkAvailabilityAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkAddressSearch();
     }
 
     @Test
-    @Feature("GIS")
     @AllureId("12362")
     @Description("Поиск слоя на карте 2D")
     @DisplayName("Наличие поля ввода поиска слоя на карте 2D")
     void checkAvailabilityOfLayerSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkLayerSearch();
     }
 
     @Test
-    @Feature("GIS")
     @AllureId("8298")
     @Description("Поиск адреса в адресной строке")
     @DisplayName("Поиск адреса на карте 2D")
     void checkingAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkSearchAddresses();
     }
 
     @Test
-    @Feature("GIS")
     @AllureId("8269")
     @Description("Инструменты масштабирования")
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     void checkingAvailabilityOfScalingTools() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, MAPS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkScalingTools();
     }
 
     @Test
-    @Feature("GIS")
     @AllureId("8266")
     @Description("Инструменты Мое местоположение")
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     void checkingAvailabilityOfMyLocationTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         mapsPage.checkMyLocationTool();
     }
 
     @Test
-    @Feature("GIS")
     @AllureId("8276")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     void checkingAvailabilityOfInitialPositionTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         mapsPage.checkInitialPositionTool();
     }
 }

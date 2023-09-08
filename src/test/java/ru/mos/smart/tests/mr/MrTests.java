@@ -26,7 +26,7 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTER;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 
 @Epic("RAYON (Мой район)")
 public class MrTests extends TestBase {
@@ -40,7 +40,7 @@ public class MrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramInstructionRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
                 .goToRegister("Поручения Мэра по программе Мой район");
         step("Проверить, что в форме содержится поле для поиска", () -> {
@@ -65,7 +65,7 @@ public class MrTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
     void checkAttributesOfMrProgramObjRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
                 .goToRegister("Объекты по программе Мой район");
         step("Проверить, что в форме содержится поле для поиска", () -> {
@@ -88,7 +88,7 @@ public class MrTests extends TestBase {
     @AllureId("8000")
     void checkAttributesOfMrProgramObjCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
                 .goToRegister("Объекты по программе \"Мой район\"");
 
@@ -119,7 +119,7 @@ public class MrTests extends TestBase {
     @AllureId("7999")
     void checkSwitchToMapOnMrProgramObjCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
                 .goToRegister("Объекты по программе \"Мой район\"");
 

@@ -5,12 +5,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTER;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeRinRif.*;
 
 @Owner("Soldatov")
@@ -29,7 +28,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterActsProverok() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AKTS_PROVEROK);
         rinrifPage.goToRegistryCardAndCheck();
     }
@@ -41,7 +40,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterEnteringObject() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
         rinrifPage.goToRegistryCardAndCheck();
     }
@@ -53,7 +52,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjects() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS);
         rinrifPage.goToRegistryCardAndCheck();
     }
@@ -65,7 +64,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjectsSnos() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS_SNOS);
         rinrifPage.goToRegistryCardAndCheck();
     }
@@ -77,7 +76,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllOrganizations() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_ORGANIZATION);
         rinrifPage.goToRegistryCardAndCheck();
     }
@@ -89,7 +88,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrAllInspectionDecisions() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_INSPECTION_DECISIONS);
         rinrifPage.goToRegistryCardAndCheck();
     }
@@ -101,7 +100,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(DEMOLITIONS);
         rinrifPage.goToRegistryCardAndCheck();
     }
@@ -113,7 +112,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
         rinrifPage.goToRegistryCardAndCheck();
     }
@@ -125,7 +124,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterConstructionLicense() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
         rinrifPage.goToRegistryCardAndCheck();
     }
@@ -137,7 +136,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterObjectOperation() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
         rinrifPage.goToRegistryCardAndCheck();
     }
@@ -149,7 +148,7 @@ public class RinRifCardTests extends TestBase {
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardBuildingPermitRegister() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(BUILDING_PERMIT);
         rinrifPage.goToRegistryCardAndCheck();
     }

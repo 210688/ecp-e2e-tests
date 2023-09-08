@@ -14,7 +14,7 @@ import java.util.List;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTER;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasi.AGR;
 import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasi.PKR;
 import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
@@ -34,7 +34,7 @@ public class OasiReestrTests extends TestBase {
         List<String> columnNames = Arrays.asList("Рег. номер", "Дата регистрации", "Адрес объекта", "Статус", "Заявитель",
                 "Плановая дата", "Исполнитель", "Номер МПГУ", "Дата подготовки решения", "Получен ответ из БР");
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTER);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PKR);
 /*        reestrPage.searchField();
         reestrPage.columnsAndFilterButton();
