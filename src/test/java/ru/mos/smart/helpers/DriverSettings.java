@@ -40,12 +40,10 @@ public class DriverSettings {
         RestAssured.baseURI = getWebUrl();
 
         if (!projectConfig().remoteDriverUrl().equals("")) {
-            //System.setProperty("webdriver.http.factory", "jdk");
             Configuration.remote = projectConfig().remoteDriverUrl();
         }
         switch (projectConfig().browserName()) {
             case "chrome":
-                //ChromeOptions options = new ChromeOptions();
                 var capabilities = new ChromeOptions();
                 var selenoidOptions = Map.<String, Object>of("enableVNC", true);
                 capabilities.setCapability("selenoid:options", selenoidOptions);

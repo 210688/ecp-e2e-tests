@@ -31,7 +31,6 @@ public class OpenPageTests extends TestBase {
         actionsPage.checkActionsTask();
     }
 
-
     @Test
     @AllureId("8265")
     @Feature("CDP")
@@ -55,7 +54,6 @@ public class OpenPageTests extends TestBase {
         reestrPage.checkReestrTask();
 
     }
-
 
     @Test
     @AllureId("8262")

@@ -10,8 +10,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.ManualMember;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -23,23 +21,21 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 
+@Epic("OASI")
 public class MkapmiiRegisterTests extends TestBase {
     @Test
     @AllureId("5189")
-    @DisplayName("Проверка UI реестр оказания услуг по размещению инженерных изысканий")
-    @Epic("OASI")
-    @Feature("MKAPMII")
-    @Story("MKAPMII")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkapmii")})
-    @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
+    @Story("MKAPMII")
+    @DisplayName("Проверка UI реестр оказания услуг по размещению инженерных изысканий")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkapmii")})
     void checkingTheAttributesOfTheRegistry() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form input").shouldBe(visible);
         });
@@ -66,15 +62,12 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("5191")
-    @DisplayName("Проверка UI карточки заявления")
-    @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
-    @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
+    @DisplayName("Проверка UI карточки заявления")
     void uiCardTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
         reestrPage.gotoFirstCardNoSwitchWindow();
         step("Проверить, что форма озаглавлена Карточка заявления", () ->
                 $("h1").shouldHave(text("Карточка заявления")));
@@ -125,15 +118,12 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("5190")
-    @DisplayName("Проверка основных контролов карточки заявления")
-    @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
-    @ManualMember("innovault")
     @Feature("Реестр и карточка заявления")
+    @DisplayName("Проверка основных контролов карточки заявления")
     void mainControlsTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
         reestrPage.gotoFirstCardNoSwitchWindow();
 
         ElementsCollection dataBlocks = $$(".tab-content .collapsible-title");
@@ -173,15 +163,12 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("6520")
-    @DisplayName("Проверка UI вкладки Выдача на руки")
-    @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
-    @ManualMember("innovault")
     @Feature("Выдача заявления на руки")
+    @DisplayName("Проверка UI вкладки Выдача на руки")
     void handingOverTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
             $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();
@@ -208,15 +195,12 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("6519")
-    @DisplayName("Проверка UI модальное окно Выдать на руки")
-    @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
-    @ManualMember("innovault")
     @Feature("Выдача заявления на руки")
+    @DisplayName("Проверка UI модальное окно Выдать на руки")
     void handingOverPlusTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
             $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();
