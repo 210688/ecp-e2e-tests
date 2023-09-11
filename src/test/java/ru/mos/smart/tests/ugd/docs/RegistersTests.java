@@ -29,6 +29,7 @@ public class RegistersTests extends TestBase {
     @AllureId("6403")
     @Layer("web")
     @DisplayName("Проверка доступности реестра РД. Акт проверки строительства")
+    @Description("Проверить, что реестр РД. Акт проверки строительства - открывается")
     void actInspectionTest() {
         List<String> columns = new ArrayList<String>() {{
             add("Номер акта проверки");
@@ -54,6 +55,7 @@ public class RegistersTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Извещения об окончании СМР")
+    @Description("Проверить, что реестр РД. Извещения об окончании СМР - открывается")
     void noticeEndWorkSmrTest() {
         List<String> columns = new ArrayList<String>() {{
             add("Номер извещения");
@@ -79,6 +81,7 @@ public class RegistersTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Извещения о начале СМР")
+    @Description("Проверить, что реестр РД. Извещения о начале СМР  - открывается")
     void noticeBeginWorkSmrTest() {
         List<String> columns = new ArrayList<String>() {{
             add("Номер извещения");
@@ -101,6 +104,7 @@ public class RegistersTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Свидетельства АГР")
+    @Description("Проверить, что реестр РД. Свидетельства АГР - открывается")
     void agrTest() {
         List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
@@ -127,6 +131,7 @@ public class RegistersTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов. ГПЗУ")
+    @Description("Проверить, что реестр оперативных данных документов. ГПЗУ  - открывается")
     void gpzuTest() {
         List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
@@ -152,6 +157,7 @@ public class RegistersTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения Мосгоргеотреста")
+    @Description("Проверить, что реестр оперативных данных документов.Заключения Мосгоргеотреста  - открывается")
     void mggtTest() {
         List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
@@ -174,6 +180,7 @@ public class RegistersTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения о соответствии")
+    @Description("Проверить, что реестр оперативных данных документов.Заключения о соответствии - открывается")
     void equivalentConclusionTest() {
         List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
@@ -199,6 +206,7 @@ public class RegistersTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения экспертизы")
+    @Description("Проверить, что реестр оперативных данных документов.Заключения экспертизы - открывается")
     void conclusionExpertiseTest() {
         List<String> columns = new ArrayList<String>() {{
             add("Номер регистрации в реестре");
@@ -233,6 +241,7 @@ public class RegistersTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на ввод")
+    @Description("Проверить, что реестр оперативных данных документов.Разрешения на ввод  - открывается")
     void startupPermissionTest() {
         List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
@@ -260,6 +269,7 @@ public class RegistersTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на строительство")
+    @Description("Проверить, что реестр оперативных данных документов.Разрешения на строительство - открывается")
     void constructionPermissionTest() {
         List<String> columns = new ArrayList<String>() {{
             add("Номер документа");
@@ -286,6 +296,7 @@ public class RegistersTests extends TestBase {
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных.Исполнительные чертежи Мосгоргеотреста")
+    @Description("Проверить, что реестр оперативных данных.Исполнительные чертежи Мосгоргеотреста - открывается")
     void mggtExdrawingTest() {
         List<String> columns = new ArrayList<String>() {{
             add("Номер документа");

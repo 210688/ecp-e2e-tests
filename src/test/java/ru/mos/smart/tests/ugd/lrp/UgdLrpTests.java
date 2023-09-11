@@ -31,6 +31,7 @@ class UgdLrpTests extends TestBase {
     @Component("Возможности")
     @AllureId("6500")
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
+    @Description("Проверить, что форма - Подать заявку на участие в конкурсе ЛРП открывается")
     void openTheApplicationFormLrp() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
@@ -52,6 +53,7 @@ class UgdLrpTests extends TestBase {
     @AllureId("6390")
     @DisplayName("Проверка открытия формы подачи " +
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
+    @Description("Проверить, что форма  открывается и подаётся заявка")
     void openTheApplicationFormLrpOutsideOrg() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
@@ -78,6 +80,7 @@ class UgdLrpTests extends TestBase {
     @Component("Реестры")
     @AllureId("6366")
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
+    @Description("Проверить, что форма реестр открывается")
     void openRegisterLrpZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
@@ -104,6 +107,7 @@ class UgdLrpTests extends TestBase {
     @Component("Реестры")
     @AllureId("6446")
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
+    @Description("Проверить, что реестр открывается")
     void openRegisterLrpMoiZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage

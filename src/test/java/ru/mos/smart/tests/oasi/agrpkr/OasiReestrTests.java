@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
@@ -19,12 +20,14 @@ import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
 
 @Owner("Soldatov")
 @Layer("web")
-@Epic("Проверки реестров по подсистемам")
-@Feature("ОАСИ")
-@Story("Реестр")
+@Epic("OASI")
+
 public class OasiReestrTests extends TestBase {
 
     @Test
+    @Feature("PKR")
+    @Story("Информация")
+    @Component("Реестры")
     @AllureId("14335")
     @DisplayName("Проверка наличия данных и перехода в реестр Оаси Пкр")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasiReestr")})
@@ -39,6 +42,9 @@ public class OasiReestrTests extends TestBase {
     }
 
     @Test
+    @Feature("AGR")
+    @Story("Информация")
+    @Component("Реестры")
     @AllureId("14336")
     @DisplayName("Проверка наличия данных и перехода в реестр Оаси АГР")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasiReestr")})

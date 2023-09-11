@@ -1,10 +1,7 @@
 package ru.mos.smart.tests.regressions.ui;
 
 import com.codeborne.selenide.ElementsCollection;
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -33,6 +30,8 @@ public class Map2DInstrumentalTests extends TestBase {
     @Feature("GIS")
     @AllureId("12361")
     @DisplayName("Проверка перехода на карту")
+    @Description("Проверить, что происходит переход на карту")
+
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToMaps() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -44,6 +43,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Feature("GIS")
     @AllureId("12364")
     @DisplayName("Проверка наличия инструментов измерений на карте 2D")
+    @Description("Проверить, что инструменты измерения отображаются на карте 2D")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAvailabilityInstruments() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -55,6 +55,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Feature("GIS")
     @AllureId("12360")
     @DisplayName("Проверка адресного поиска на карте 2D")
+    @Description("Проверить, что поиск есть на карте 2D")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAvailabilityAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -66,6 +67,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Feature("GIS")
     @AllureId("12362")
     @DisplayName("Проверка поиска слоя на карте 2D")
+    @Description("Проверить, что поиск слоя происходит на карте 2D")
     @Tag("sendStatusForPgu")
     void checkAvailabilityOfLayerSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -78,6 +80,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Feature("GIS")
     @AllureId("8298")
     @DisplayName("Проверка работы поиска в адресной строке")
+    @Description("Проверить, что работает поиск в адресной строке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAddressSearch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -89,6 +92,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Feature("GIS")
     @AllureId("8269")
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
+    @Description("Проверить, что отображаются кнопки + и -")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfScalingTools() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -103,6 +107,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Feature("GIS")
     @AllureId("8266")
     @DisplayName("Проверка наличия инструмента Мое местоположение")
+    @Description("Проверить, что отображается инструмент - Моё местоположение")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfMyLocationTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -116,6 +121,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Feature("GIS")
     @AllureId("8276")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
+    @Description("Проверить, что отображается инструмент - Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());

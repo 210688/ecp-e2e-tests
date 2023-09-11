@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -16,7 +15,7 @@ import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeRinRif.*;
 
 @Owner("Soldatov")
 @Layer("web")
-@Epic("ИФИС РИН")
+@Epic("ИАИС РИН")
 @Feature("RINRIF")
 
 
@@ -27,6 +26,7 @@ public class RinRifCardTests extends TestBase {
     @Story("nadzor")
     @AllureId("14049")
     @DisplayName("Проверка перехода в карточку из реестра Акты проверок")
+    @Description("Проверить, что открывается из реестра - Акты проверок")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterActsProverok() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -38,6 +38,7 @@ public class RinRifCardTests extends TestBase {
     @Story("rv")
     @AllureId("14045")
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
+    @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterEnteringObject() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -49,6 +50,7 @@ public class RinRifCardTests extends TestBase {
     @Story("nadzor")
     @AllureId("14046")
     @DisplayName("Проверка перехода в карточку из реестра Все объекты")
+    @Description("Проверить, что открывается карточка из реестра - Все объекты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjects() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -60,6 +62,7 @@ public class RinRifCardTests extends TestBase {
     @Story("nadzor")
     @AllureId("14046")
     @DisplayName("Проверка перехода в карточку из реестра Все объекты сноса")
+    @Description("Проверить, что открывается карочка из реестра - Все объекты сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjectsSnos() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -71,6 +74,7 @@ public class RinRifCardTests extends TestBase {
     @Story("nadzor")
     @AllureId("14051")
     @DisplayName("Проверка перехода в карточку из реестра Все организации")
+    @Description("Проверить, что открывается карточка из реестра - Все организации")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllOrganizations() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -82,6 +86,7 @@ public class RinRifCardTests extends TestBase {
     @Story("nadzor")
     @AllureId("14053")
     @DisplayName("Проверка перехода в карточку из реестра Все решения о проверке")
+    @Description("Проверить, что открывается карточка из реестра - Все решения о проверке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrAllInspectionDecisions() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -93,6 +98,7 @@ public class RinRifCardTests extends TestBase {
     @Story("snos")
     @AllureId("14047")
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о завершении сноса")
+    @Description("Проверить, что открывается карточка из реестра - Уведомления о завершении сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -104,6 +110,7 @@ public class RinRifCardTests extends TestBase {
     @Story("snos")
     @AllureId("14048")
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о планируемом сносе")
+    @Description("Проверить, что открывается карточка из реестра - Уведомления о планируемом сносе")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -115,6 +122,7 @@ public class RinRifCardTests extends TestBase {
     @Story("rs")
     @AllureId("14054")
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения на строительство")
+    @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения на строительство")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterConstructionLicense() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -126,6 +134,7 @@ public class RinRifCardTests extends TestBase {
     @Story("rv")
     @AllureId("14052")
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на ввод объекта в эксплуатацию")
+    @Description("Проверить, что открывается карточка из реестра - Разрешения на ввод объекта в эксплуатацию")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterObjectOperation() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -137,6 +146,7 @@ public class RinRifCardTests extends TestBase {
     @Story("rs")
     @AllureId("14050")
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на строительство")
+    @Description("Проверить, что открывается карточка из реестра - Разрешения на строительство")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardBuildingPermitRegister() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());

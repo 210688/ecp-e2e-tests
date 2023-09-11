@@ -1,6 +1,7 @@
 package ru.mos.smart.tests.regressions.ui;
 
 import io.qameta.allure.AllureId;
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -30,6 +31,7 @@ public class OpenPageTests extends TestBase {
     @AllureId("12322")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка перехода в меню возможности")
+    @Description("Проверить, что открывается меню возможности")
     void goToActionsPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         //open("/app/lcs/constructor/main/#/app/forms/FORM_MAIN_PAGE");
@@ -42,6 +44,7 @@ public class OpenPageTests extends TestBase {
     @AllureId("8265")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка открытия меню Задачи")
+    @Description("Проверить, что открывается меню - Задачи")
     void openTheTasksPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         open("/app/lcs/constructor/main/#/app/forms/FORM_MAIN_PAGE");
@@ -50,10 +53,11 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @Feature("CDP")
+    @Feature("LCS")
     @AllureId("12325")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка перехода в меню Реестр")
+    @Description("Проверить, что открывается меню Реестр")
     void goToRegister() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         open("/app/lcs/constructor/main/#/app/forms/FORM_MAIN_PAGE");
@@ -67,6 +71,7 @@ public class OpenPageTests extends TestBase {
     @AllureId("8262")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка открытия меню справочник")
+    @Description("Проверить, что открывается меню справочник")
     void openTheSpravochnikPage() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         open("/app/lcs/constructor/main/#/app/forms/FORM_MAIN_PAGE");

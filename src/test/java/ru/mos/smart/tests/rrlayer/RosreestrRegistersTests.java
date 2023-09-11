@@ -1,6 +1,7 @@
 package ru.mos.smart.tests.rrlayer;
 
 import io.qameta.allure.AllureId;
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -26,6 +27,7 @@ public class RosreestrRegistersTests extends TestBase {
     @Test
     @AllureId("6328")
     @DisplayName("02.Поиск Росреестр. Земельные участки")
+    @Description("Проверить, что происходит поиск реестра")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("rrlayer")})
     void openRosreestrZemUch() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());

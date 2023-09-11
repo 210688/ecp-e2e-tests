@@ -19,7 +19,7 @@ import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeRinRif.*;
 
 @Owner("Soldatov")
 @Layer("web")
-@Epic("ИФИС РИН")
+@Epic("ИАИС РИН")
 @Feature("RINRIF")
 
 public class RinRifReestrTests extends TestBase {
@@ -28,6 +28,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @AllureId("12316")
     @DisplayName("Проверка наличия данных и перехода в реестр Акты проверок")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterAktsProverok() {
         List<java.lang.String> columnNames = Arrays.asList("Номер акта", "Дата акта", "Место проведения проверки",
@@ -44,6 +45,7 @@ public class RinRifReestrTests extends TestBase {
     @AllureId("14038")
     //@RepeatedIfExceptionsTest(repeats = 3, exceptions = NoSuchElementException.class)
     @DisplayName("Проверка наличия данных и перехода в реестр Все объекты")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterVseObjects() {
         List<java.lang.String> columnNames = Arrays.asList("Источник финансирования", "Номер дела", "Объект", "Застройщик ", "Почтовый адрес",
@@ -59,6 +61,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @AllureId("14037")
     @DisplayName("Проверка наличия данных и перехода в реестр Все объекты сноса")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterAllObjectsSnos() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Объект", "Кадастровый номер ЗУ", "Кадастровый номер здания");
@@ -73,6 +76,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @AllureId("14039")
     @DisplayName("Проверка наличия данных и перехода в реестр Все организации")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterAllOrganizations() {
         List<java.lang.String> columnNames = Arrays.asList("Полное наименование организации / Руководитель", "ИНН", "ОГРН /СНИЛС / Паспорт",
@@ -88,6 +92,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @AllureId("12315")
     @DisplayName("Проверка наличия данных и перехода в реестр Все решения о проверке")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterAllInspectionDecisions() {
         List<java.lang.String> columnNames = Arrays.asList("Номер", "Дата", "Объект", "Проверяемая организация", "Вид проверки", "Основание для проверки",
@@ -103,6 +108,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @AllureId("12330")
     @DisplayName("Проверка наличия данных и перехода в реестр  Нарушения")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterViolations() {
         List<java.lang.String> columnNames = Arrays.asList("Номер нарушения", "Дата нарушения", "Наименование работ", "Специалист УН. ФИО");
@@ -118,6 +124,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @AllureId("12332")
     @DisplayName("Проверка наличия данных и перехода в реестр Постановления")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterPostanovleniya() {
         List<java.lang.String> columnNames = Arrays.asList("Постановление", "Нарушитель", "Штраф", "Срок оплаты", "УН", "Подписал", "Оплачено (руб.)",
@@ -133,6 +140,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @AllureId("14040")
     @DisplayName("Проверка наличия данных и перехода в реестр Протоколы")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterProtokols() {
         List<java.lang.String> columnNames = Arrays.asList("Дата протокола", "Место совершения нарушения", "Статья КОАП РФ", "Проверяемая организация",
@@ -148,6 +156,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @AllureId("14041")
     @DisplayName("Проверка наличия данных и перехода в реестр ТЗ лаборатории")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterTzLabaratorii() {
         List<java.lang.String> columnNames = Arrays.asList("Дата проверки ЦЭИИС", "Срок исполнения ТЗ", "Состав работ", "Состав работ утвержден ГБУ");
@@ -163,6 +172,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("snos")
     @AllureId("14042")
     @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о завершении сноса")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterUvedomleniyaOzaversheniiSnosa() {
         List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата", "Заявитель",
@@ -178,6 +188,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("snos")
     @AllureId("14043")
     @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о планируемом сносе")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterUvedomleniyaOplaniruemomSnose() {
         List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата",
@@ -193,6 +204,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("rv")
     @AllureId("12328")
     @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения ввод объекта в эксплуатацию")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterEnteringObjects() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Заявление", "Рег. дата", "Плановая дата",
@@ -208,6 +220,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("rs")
     @AllureId("12319")
     @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения на строительство")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterChangeConstructionBuilding() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Вид изменений", "Заявление", "Рег. дата", "Плановая дата", "Объект",
@@ -223,6 +236,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("rv")
     @AllureId("12320")
     @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на ввод объекта в эксплуатацию")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterObjectOperation() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
@@ -238,6 +252,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("rs")
     @AllureId("12352")
     @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на строительство")
+    @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifReestr")})
     void goToBuildingPermitRegister() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",

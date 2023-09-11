@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.ugd.upsd;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -26,6 +23,7 @@ class RegistersUpsdTests extends TestBase {
     @AllureId("1735")
     @Disabled()
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
+    @Description("Проверить, что реестр открывается")
     void registerUpsdViewing() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         navigatorPage

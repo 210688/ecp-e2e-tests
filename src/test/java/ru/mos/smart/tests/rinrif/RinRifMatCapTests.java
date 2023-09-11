@@ -1,10 +1,7 @@
 package ru.mos.smart.tests.rinrif;
 
 import com.codeborne.selenide.ElementsCollection;
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -35,6 +32,7 @@ public class RinRifMatCapTests extends TestBase {
     @Story("matcap")
     @AllureId("7996")
     @DisplayName("Проверка реестра Заявления о выдаче акта по материнскому капиталу")
+    @Description("Проверить, что открывается реестр - Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkAttributesOfRinRifMatCapRegistry() {
@@ -58,6 +56,7 @@ public class RinRifMatCapTests extends TestBase {
     @Story("matcap")
     @AllureId("7995")
     @DisplayName("Проверка карточки реестра Заявления о выдаче акта по материнскому капиталу")
+    @Description("Проверить, что открывается карточка из реестра - Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rinrif")})
     void checkAttributesOfRinRifMatCapObjCard() {
