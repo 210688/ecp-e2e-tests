@@ -30,7 +30,7 @@ public class RinRifApplicationTest extends TestBase {
         java.lang.String randomTestId = "Заявление о выдаче разрешения на строительство № 09-З-748/22-(0)-0 от 26.12.2022  Плановая дата: 30.12.2022 ";
         //mkapmiiPage.createTask(randomTestId);
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToTasks();
+        sidebarPage.goToTasks();
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         //rinrifPage.gotoCard();

@@ -3,6 +3,7 @@ package ru.mos.smart.pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import ru.mos.smart.helpers.AllureAttachments;
 import ru.mos.smart.helpers.utils.RandomUtils;
 
 import java.time.Duration;
@@ -16,6 +17,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class TaskPage {
+
+    ElementsCollection elements = $$("#my-task-showcase tr");
     public static final ElementsCollection nameElement = $$("td a");
     public static String
             task1 = "Определение разработчика материалов",
@@ -28,17 +31,13 @@ public class TaskPage {
             task8 = "Согласование материалов для ЭОО зам. председателя УППТ",
             task9 = "Согласование материалов зам. председателя ЭОО";
 
-/*    @Step("Открыть карточку в реестре")
-    public static void wda() {
-        $(".search-result-table tbody").$$("tr").shouldHave(sizeGreaterThan(0));
-        AtomicReference<String> card = new AtomicReference<>("");
-        card.set(String.valueOf($(".search-result-table.table").$$("tr").get(RandomUtils.getRandomInt(3, 11))));
-                nameElement.get(1).getText();
-                //.$$("td").get(1).$("a").getAttribute("href"));//getText());
-        $(byText(card.get())).click();
-        step("Проверить, что карточка окрывается", () ->
-                $(".card-header").shouldHave(text("Решение о проверке"),text(card.get())).should(visible));
-    }*/
+    @Step("Проверка, что в задачах пользователя присутствует список задач")
+    public void checkUserTask() {
+        $(".list-group-item").should(visible,Duration.ofSeconds(10));
+        assert elements.size() > 0 : "Коллекция не содержит элементов";
+        AllureAttachments.attachScreenshot("Список задач пользователя");
+    }
+
 
     @Step("Перейти к задаче")
     public static void clickTask(String task) {

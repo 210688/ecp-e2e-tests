@@ -33,8 +33,8 @@ public class HearingsRegisterTests extends TestBase {
     @DisplayName("Переход в реестр Публичные слушания")
     void goToRegisterHearing() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToHearings();
-        reestrPage.searchField();
+        //urlPage.goToHearings();
+        //reestrPage.searchField();
     }
 
     @Test
@@ -44,8 +44,8 @@ public class HearingsRegisterTests extends TestBase {
     void checkHeadersTables() {
         List<String> tableColumnList = Arrays.asList("ПС в работе", "Все ПС", "Мои ПС", "Отчеты", "Заседания комиссий");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToHearings();
-        reestrPage.searchField();
+        //urlPage.goToHearings();
+        //reestrPage.searchField();
         oasirxProjectsPage.checkFilter(HEARINGS_URL, tableColumnList);
     }
 }

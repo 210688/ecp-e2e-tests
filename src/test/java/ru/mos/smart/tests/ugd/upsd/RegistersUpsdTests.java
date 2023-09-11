@@ -26,7 +26,7 @@ class RegistersUpsdTests extends TestBase {
     @Description("Проверить, что реестр открывается")
     void registerUpsdViewing() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
+        reestrPage
                 .goToRegister("УПСД");
 
         step("Найти реестр и перейти в него", () -> {

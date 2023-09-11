@@ -18,6 +18,8 @@ import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 
 @Layer("web")
 @Epic("UGD (УГД)")
@@ -109,9 +111,9 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
     @Description("Проверить, что реестр открывается")
     void openRegisterLrpMoiZayavki() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister("Мои заявки на участие в конкурсе ЛРП");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister("Мои заявки на участие в конкурсе ЛРП");
             $(byName("candidateSearchValue")).setValue("Мои заявки на участие в конкурсе ЛРП").pressEnter();
             $x("//span[contains(text(),'Мои заявки на участие в конкурсе ЛРП')]").click();
         step("Открыт реестр Мои заявки на участие в конкурсе ЛРП", () -> {

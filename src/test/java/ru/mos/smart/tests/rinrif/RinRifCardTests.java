@@ -6,11 +6,10 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeRinRif.*;
 
 @Owner("Soldatov")
@@ -29,8 +28,9 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается из реестра - Акты проверок")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterActsProverok() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(AKTS_PROVEROK);
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(AKTS_PROVEROK);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -41,8 +41,9 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterEnteringObject() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -53,8 +54,9 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карточка из реестра - Все объекты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjects() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(ALL_OBJECTS);
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(ALL_OBJECTS);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -65,8 +67,9 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карочка из реестра - Все объекты сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjectsSnos() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(ALL_OBJECTS_SNOS);
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(ALL_OBJECTS_SNOS);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -77,8 +80,9 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карточка из реестра - Все организации")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllOrganizations() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(All_ORGANIZATION);
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(All_ORGANIZATION);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -89,8 +93,9 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карточка из реестра - Все решения о проверке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrAllInspectionDecisions() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(All_INSPECTION_DECISIONS);
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(All_INSPECTION_DECISIONS);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -101,8 +106,9 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карточка из реестра - Уведомления о завершении сноса")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(DEMOLITIONS);
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(DEMOLITIONS);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -113,8 +119,9 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карточка из реестра - Уведомления о планируемом сносе")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -125,8 +132,9 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения на строительство")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterConstructionLicense() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -137,8 +145,9 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карточка из реестра - Разрешения на ввод объекта в эксплуатацию")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterObjectOperation() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
         rinrifPage.goToRegistryCardAndCheck();
     }
 
@@ -149,8 +158,9 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карточка из реестра - Разрешения на строительство")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardBuildingPermitRegister() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage.goToRegister(BUILDING_PERMIT);
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(BUILDING_PERMIT);
         rinrifPage.goToRegistryCardAndCheck();
     }
 }

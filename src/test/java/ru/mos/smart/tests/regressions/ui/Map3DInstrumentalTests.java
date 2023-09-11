@@ -6,80 +6,63 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
-import java.time.Duration;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.MAPS3D;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
-
-@Epic("Цифровой двойник")
-@Feature("Map3D")
 @Owner("Soldatov")
 @Layer("web")
+@Epic("Цифровой двойник")
+@Feature("Map3D")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("maps")})
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
-    @Feature("Map3D")
     @AllureId("12365")
     @DisplayName("Проверка перехода на карту Цифровой двойник")
+<<<<<<< HEAD
     @Description("Проверить, что открывается карта - Цифровой двойник")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+=======
+>>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
     void goToMapsCd() {
-        //String testPath = "MapsTests";
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToMapsCd();
-        mapsPage.checkForMapsBoxCd();
-        /*Screenshot actualImage = new ScreenshotHelper()
-                .getActualScreenshot();
-        Screenshot expectedImage = new ScreenshotHelper()
-                .getExpectedScreenshot();
-        ImageDiff diff = new ScreenshotHelper().compareScreenshots(
-                actualImage,
-                expectedImage,
-                15);
-        assertFalse(diff.hasDiff(), "Screenshot has difference");*/
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);
+        maps3DPage.checkForMapsBox();
+
     }
 
-
     @Test
-    @Feature("Map3D")
     @AllureId("8268")
     @DisplayName("Проверка отображения панели слоев")
+<<<<<<< HEAD
     @Description("Проверить, что отображается панели слоев")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+=======
+>>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
     void checkingTheDisplayOfLayersPanel() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToMapsCD();
-        step("В левой боковой панели открыть Дерево слоев", () ->
-                $("span[title='Дерево слоёв']")).click();
-        step("Проверка, что в дереве слоев присустсвуют слои", () ->
-                Wait().withTimeout(Duration.ofSeconds(30)).until(driver ->
-                        $$(".layerspanel.scroller").size() > 0));
-    }
-
-    @Test@Feature("Map3D")
-    @AllureId("8274")
-    @DisplayName("Проверка работы поиска в адресной строке")
-    @Description("Проверить, что раотает поиск в адресной строке")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    void checkingAddressSearch() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToMapsCD();
-
-        step("Проверка, что адрес находится", () -> {
-            $("input[placeholder='Найти адрес...']").setValue("Есенинский бульвар");
-            $(".resultspanel").shouldBe(visible, Duration.ofSeconds(30));
-        });
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);
+        maps3DPage.checkLayerSearch();
     }
 
     @Test
+    @AllureId("8274")
+    @DisplayName("Проверка работы поиска в адресной строке")
+<<<<<<< HEAD
+    @Description("Проверить, что раотает поиск в адресной строке")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+=======
+>>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
+    void checkingAddressSearch() {
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);
+        maps3DPage.checkSearchAddresses();
+    }
+
+    @Test
+<<<<<<< HEAD
     @Feature("Map3D")
     @AllureId("8270")
     @DisplayName("Проверка отображения строки адресного поиска")
@@ -98,20 +81,27 @@ public class Map3DInstrumentalTests extends TestBase {
 
     @Test
     @Feature("Map3D")
+=======
+>>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
     @AllureId("8275")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Description("Проверить, что отображается инструмент - Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToMapsCD();
+            sidebarPage.clickSidebarMenu(INFORMATION);
+            sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);
+            maps3DPage.checkInitialPositionTool();
 
-        step("Проверка наличия инструмента первоначальная позиция", () -> {
-            $((".fas.fa-home-alt")).shouldBe(visible);
-        });
     }
+        @Test
+        @DisplayName("Проверка наличия кнопок масштабирования на карте")
+        void checkingAvailabilityOfScalingTools() {
+            sidebarPage.clickSidebarMenu(INFORMATION);
+            sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);
+            maps3DPage.checkScalingTools();
+        }
 
+<<<<<<< HEAD
     @Test
     @Feature("Map3D")
     @AllureId("8271")
@@ -129,3 +119,6 @@ public class Map3DInstrumentalTests extends TestBase {
         });
     }
 }
+=======
+    }
+>>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86

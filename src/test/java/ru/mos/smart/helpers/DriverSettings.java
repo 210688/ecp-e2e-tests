@@ -5,9 +5,10 @@ import io.restassured.RestAssured;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Map;
 
 import static ru.mos.smart.config.ConfigHelper.getWebUrl;
 import static ru.mos.smart.config.ConfigHelper.projectConfig;
@@ -15,50 +16,50 @@ import static ru.mos.smart.config.ConfigHelper.projectConfig;
 public class DriverSettings {
 
 
-    private static final Logger LOG = LoggerFactory.getLogger("Config properties");
-    static String userAgentValue = "selenoid-SFT1T";
+    private static final Logger LOGGER = LoggerFactory.getLogger(DriverSettings.class);
+    private static final String DEFAULT_USER_AGENT = "selenoid-SFT1T";
 
 
     public static void configureSelenide() {
-        //LoggingPreferences logging = new LoggingPreferences();
-        //logging.enable(String.valueOf(BROWSER), Level.ALL);
-        //logging.enable(String.valueOf(LogType.PERFORMANCE), Level.ALL);  // Включаем логирование сетевых запросов
-        LOG.info("Environment: {}", projectConfig().environment());
-        LOG.info("Threads: {}", projectConfig().threads());
-        LOG.info("Remote driver url: {}", projectConfig().remoteDriverUrl());
-        LOG.info("Base url: {}", getWebUrl());
-        LOG.info("Browser name: {}", projectConfig().browserName());
-        LOG.info("Browser version: {}", projectConfig().browserVersion());
-        LOG.info("Browser size: {}", projectConfig().browserSize());
-        LOG.info("User-Agent: {}", userAgentValue);
+        LOGGER.info("Environment: {}", projectConfig().environment());
+        LOGGER.info("Threads: {}", projectConfig().threads());
+        LOGGER.info("Remote driver url: {}", projectConfig().remoteDriverUrl());
+        LOGGER.info("Base url: {}", getWebUrl());
+        LOGGER.info("Browser name: {}", projectConfig().browserName());
+        LOGGER.info("Browser version: {}", projectConfig().browserVersion());
+        LOGGER.info("Browser size: {}", projectConfig().browserSize());
+        LOGGER.info("User-Agent: {}", DEFAULT_USER_AGENT);
 
         Configuration.baseUrl = getWebUrl();
         Configuration.browser = projectConfig().browserName();
         Configuration.browserVersion = projectConfig().browserVersion();
         Configuration.browserSize = projectConfig().browserSize();
         Configuration.pageLoadTimeout = 120000;
+        Configuration.remoteReadTimeout = 120000;
         Configuration.timeout = 10000;
         RestAssured.baseURI = getWebUrl();
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
         if (!projectConfig().remoteDriverUrl().equals("")) {
-            capabilities.setCapability("enableVNC", true);
             Configuration.remote = projectConfig().remoteDriverUrl();
         }
-
         switch (projectConfig().browserName()) {
             case "chrome":
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
-                capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+                var capabilities = new ChromeOptions();
+                var selenoidOptions = Map.<String, Object>of("enableVNC", true);
+                capabilities.setCapability("selenoid:options", selenoidOptions);
+                capabilities
+                        //.addArguments("--user-agent=" + DEFAULT_USER_AGENT);
+                .setPageLoadStrategy(PageLoadStrategy.EAGER);
+                Configuration.browserCapabilities = capabilities;
+
                 break;
             case "firefox":
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, firefoxOptions);
+                var firefoxOptions = new FirefoxOptions();
+                Configuration.browserCapabilities = firefoxOptions;
                 break;
         }
-        LOG.info("Browser capabilities: {}", capabilities);
-        Configuration.browserCapabilities = capabilities;
     }
 }
+
+
 

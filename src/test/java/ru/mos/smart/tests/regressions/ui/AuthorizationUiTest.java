@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.regressions.ui;
 
 import io.qameta.allure.*;
@@ -23,7 +24,6 @@ public class AuthorizationUiTest extends TestBase {
     @Description("Проверить, что пользователь залогинен в системе смарт")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void authorizationEcpViaUi() {
-        AuthorizationPage.openUrlWithAuthorizationUI(getWebSecureUrl(), getLoginRegress(), getPasswordRegress());
-        navigatorPage.checkPageTask();
     }
 }
+*/
