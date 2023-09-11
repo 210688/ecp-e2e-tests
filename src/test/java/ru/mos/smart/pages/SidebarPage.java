@@ -28,16 +28,16 @@ public class SidebarPage {
 
     @Step("В боковой панели нажать на {sidebarMenu}")
     public void clickSidebarMenu(Sidebar sidebarMenu) {
-        $$("#sidebar_menu>div").find(text(sidebarMenu.ruName())).click();
+        $$("#sidebar_menu>div").find(text(sidebarMenu.value())).click();
     }
 
     @Step("В раскрывшемся меню {menuName} нажать {subMenuName}")
     public void clickSubMenuList(Sidebar menuName, Sidebar subMenuName) {
-        $(byText(menuName.ruName()))
+        $(byText(menuName.value()))
                 .parent().parent()
                 .sibling(0)
                 .$$("div.name")
-                .find(text(subMenuName.ruName()))
+                .find(text(subMenuName.value()))
                 .click();
     }
 
