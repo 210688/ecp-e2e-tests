@@ -1,9 +1,5 @@
 package ru.mos.smart.tests.regressions.ui;
 
-<<<<<<< HEAD
-import com.codeborne.selenide.ElementsCollection;
-=======
->>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -23,15 +19,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12361")
-<<<<<<< HEAD
-    @DisplayName("Проверка перехода на карту")
-    @Description("Проверить, что происходит переход на карту")
-
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-=======
-    @Description("Переход на карту")
     @DisplayName("Наличие подложки на карте")
->>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
+    @Description("Проверить, что отображается подложка на карте")
     void goToMaps() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAP);
@@ -40,14 +29,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12364")
-<<<<<<< HEAD
-    @DisplayName("Проверка наличия инструментов измерений на карте 2D")
-    @Description("Проверить, что инструменты измерения отображаются на карте 2D")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-=======
-    @Description("Отображение инструментов  на 2D карте")
     @DisplayName("Наличие инструментов  на 2D карте")
->>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
+    @Description("Проверить, что присутствуют инструменты на карте 2D")
     void checkAvailabilityInstruments() {
         String[] expectedTexts = {
                 "3D режим",
@@ -65,14 +48,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12360")
-<<<<<<< HEAD
-    @DisplayName("Проверка адресного поиска на карте 2D")
-    @Description("Проверить, что поиск есть на карте 2D")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-=======
-    @Description("Адресный поиск на карте 2D")
     @DisplayName("Наличие поля ввода адресного поиска на карте 2D")
->>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
+    @Description("Проверить, что отображается поле ввода адресного поиска на карте 2D")
     void checkAvailabilityAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAP);
@@ -81,14 +58,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12362")
-<<<<<<< HEAD
-    @DisplayName("Проверка поиска слоя на карте 2D")
-    @Description("Проверить, что поиск слоя происходит на карте 2D")
-    @Tag("sendStatusForPgu")
-=======
-    @Description("Поиск слоя на карте 2D")
     @DisplayName("Наличие поля ввода поиска слоя на карте 2D")
->>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
+    @Description("Проверить, что отображается поле ввода поиска слоя на карте 2D")
     void checkAvailabilityOfLayerSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAP);
@@ -97,14 +68,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("8298")
-<<<<<<< HEAD
-    @DisplayName("Проверка работы поиска в адресной строке")
-    @Description("Проверить, что работает поиск в адресной строке")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-=======
-    @Description("Поиск адреса в адресной строке")
     @DisplayName("Поиск адреса на карте 2D")
->>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
+    @Description("Проверить, что есть возиожность поиска адреса на карте 2D")
     void checkingAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAP);
@@ -113,13 +78,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("8269")
-    @Description("Инструменты масштабирования")
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
-<<<<<<< HEAD
-    @Description("Проверить, что отображаются кнопки + и -")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-=======
->>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
+    @Description("Проверить, что отображается инструменты масштабирования")
     void checkingAvailabilityOfScalingTools() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAP);
@@ -128,13 +88,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("8266")
-    @Description("Инструменты Мое местоположение")
     @DisplayName("Проверка наличия инструмента Мое местоположение")
-<<<<<<< HEAD
     @Description("Проверить, что отображается инструмент - Моё местоположение")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-=======
->>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
     void checkingAvailabilityOfMyLocationTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -144,11 +99,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @AllureId("8276")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
-<<<<<<< HEAD
     @Description("Проверить, что отображается инструмент - Первоначальная позиция")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-=======
->>>>>>> b493f22c52f64fc74f5618d1ad4492c56b694f86
     void checkingAvailabilityOfInitialPositionTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
