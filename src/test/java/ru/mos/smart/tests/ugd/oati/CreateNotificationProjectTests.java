@@ -1,12 +1,15 @@
 package ru.mos.smart.tests.ugd.oati;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
-import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -15,8 +18,6 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 
 @Epic("UGD (УГД)")
@@ -26,12 +27,11 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 class CreateNotificationProjectTests extends TestBase {
 
     @Test
-    @AllureId("7055")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("oati")})
+    @OnPreprodOnly
     @DisplayName("Проверка доступности формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
     @Description("Проверить, что форма открывается")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingNotificationSubmissionForm() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
                 .goToActions("Направить новое уведомление ОАТИ о проведении работ");
 

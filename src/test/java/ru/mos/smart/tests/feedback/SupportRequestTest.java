@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.*;
+import static ru.mos.smart.config.ConfigHelper.webConfig;
 
 @Layer("web")
 @Epic("OASI")
@@ -23,12 +23,12 @@ import static ru.mos.smart.config.ConfigHelper.*;
 public class SupportRequestTest extends TestBase {
 
     @Test
+    @OnPreprodOnly
     @Description("Данная проверка отправляет письмо в тех поддержку, " +
             "запускать на определеных средах.")
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("feedback")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void SupportRequestForward() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
                 .goToActions("Инициировать обращение в техническую поддержку");
 

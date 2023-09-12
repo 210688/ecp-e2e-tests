@@ -30,8 +30,8 @@ import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.FCD_URL;
 public class FcdRegisterTests extends TestBase {
 
         @Test
-        @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("oasirxReestr")})
         @DisplayName("Проверка наличия данных и перехода в раздел Фасады нежильё")
+        @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
         void goToRegisterEoo() {
             List<String> columnNames = Arrays.asList("Дата", "Номер", "Номер ПГУ", "Адрес", "Исполнитель", "Тип запроса", "Статус");
             sidebarPage.goToSection(FCD_URL);
@@ -43,8 +43,6 @@ public class FcdRegisterTests extends TestBase {
     @DisplayName("Переход в реестр Фасады")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToFacades() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        //urlPage.goToFacades();
         heading.shouldHave(text("Фасады нежильё"));
     }
 
@@ -54,8 +52,6 @@ public class FcdRegisterTests extends TestBase {
     void checkHeadersTables() {
         List<String> tableColumnList = Arrays.asList("В работе", "Все", "Мои", "Статистика");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-       //urlPage.goToFacades();
-        //reestrPage.searchField();
         oasirxProjectsPage.checkFilter(FCD_URL, tableColumnList);
     }
 }

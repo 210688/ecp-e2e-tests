@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -15,8 +14,6 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
 @Epic("UGD (УГД)")
@@ -27,12 +24,10 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 class CatalogsMtskTests extends TestBase {
 
     @Test
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("mtsk")})
     @DisplayName("Проверка наличия каталогов МТСК")
     @Description("Проверить, что каталог открывается")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkCatalogsMtsk() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-
         step("Развернуть в навигаторе блок МТСК", () -> $(byLinkText("МТСК"))
                 .click());
 

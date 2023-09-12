@@ -36,7 +36,6 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     @Description("Проверить, что форма - Подать заявку на участие в конкурсе ЛРП открывается")
     void openTheApplicationFormLrp() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
                 .goToActions("Подать заявку на участие в конкурсе ЛРП");
             $(".form-control").setValue("Подать заявку на участие в конкурсе ЛРП").pressEnter();
@@ -58,7 +57,6 @@ class UgdLrpTests extends TestBase {
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
     @Description("Проверить, что форма  открывается и подаётся заявка")
     void openTheApplicationFormLrpOutsideOrg() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
                 .goToActions("Подать заявку на участие в конкурсе ЛРП");
 
@@ -85,7 +83,6 @@ class UgdLrpTests extends TestBase {
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     @Description("Проверить, что форма реестр открывается")
     void openRegisterLrpZayavki() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         actionsPage
                 .goToActions("Подать заявку на участие в конкурсе ЛРП");
 

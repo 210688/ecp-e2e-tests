@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -17,8 +16,6 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.data.Registers.RINRIF_MATCAP;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
@@ -31,11 +28,10 @@ public class RinRifMatCapTests extends TestBase {
 
     @Test
     @Owner("soldatov")
-    @AllureId("7996")
     @DisplayName("Проверка реестра Заявления о выдаче акта по материнскому капиталу")
     @Description("Проверить, что открывается реестр - Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfRinRifMatCapRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -55,15 +51,12 @@ public class RinRifMatCapTests extends TestBase {
 
     @Test
     @Owner("soldatov")
-    @AllureId("7995")
     @DisplayName("Проверка карточки реестра Заявления о выдаче акта по материнскому капиталу")
     @Description("Проверить, что открывается карточка из реестра - Заявления о выдаче акта по материнскому капиталу")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rinrif")})
-
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfRinRifMatCapObjCard() {
         java.lang.String statementNumber = "09-МК-179/21-(0)-0";
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(RINRIF_MATCAP);

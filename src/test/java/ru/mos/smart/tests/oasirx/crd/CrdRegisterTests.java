@@ -37,8 +37,6 @@ public class CrdRegisterTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         sidebarPage.goToSection(CRD_URL);
-/*        reestrPage.searchField();
-        reestrPage.checkFieldData(CRD_URL, columnNames);*/
     }
 
     @Test

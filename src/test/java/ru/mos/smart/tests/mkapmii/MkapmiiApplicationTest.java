@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.ManualMember;
 import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.helpers.utils.RandomUtils;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -24,9 +23,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
-import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.SERVICES_AND_FUNCTION;
 import static ru.mos.smart.data.Sidebar.TASK;
 
 
@@ -43,8 +40,8 @@ public class MkapmiiApplicationTest extends TestBase {
     void mainControlsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
-        sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, TASK);
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         ElementsCollection dataBlocks = $$(".tab-content .collapsible-title");
@@ -122,7 +119,8 @@ public class MkapmiiApplicationTest extends TestBase {
     void saveAndNotFinishTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkapmiiPage.selectRefuseDocsRadioButton();
@@ -146,7 +144,8 @@ public class MkapmiiApplicationTest extends TestBase {
     void applicationCardTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         step("В шапке задачи нажать на номер заявления", () ->
@@ -165,6 +164,8 @@ public class MkapmiiApplicationTest extends TestBase {
     void positiveFinishTask() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkapmiiPage.selectTakeToWorkRadioButton();
@@ -185,6 +186,8 @@ public class MkapmiiApplicationTest extends TestBase {
     void unsuccessfulRefuseTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkapmiiPage.selectRefuseDocsRadioButton();
@@ -202,6 +205,8 @@ public class MkapmiiApplicationTest extends TestBase {
     void unsuccessfulRefuseNoFileTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkapmiiPage.selectRefuseDocsRadioButton();
@@ -241,7 +246,8 @@ public class MkapmiiApplicationTest extends TestBase {
     void unsuccessfulRefuseEmptyFieldsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkapmiiPage.selectRefuseDocsRadioButton();

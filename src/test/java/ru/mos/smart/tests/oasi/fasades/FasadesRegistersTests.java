@@ -12,7 +12,6 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.Registers.OASI_FACADES_PFD;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
@@ -29,8 +28,7 @@ public class FasadesRegistersTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(OASI_FACADES_PFD);
-        step("Реестр открывается, присутствует список", () -> {
-            $(byText("Проекты изменений фасадов зданий (жилые)")).shouldBe(visible);
-        });
+        $(byText("Проекты изменений фасадов зданий (жилые)")).shouldBe(visible);
+
     }
 }

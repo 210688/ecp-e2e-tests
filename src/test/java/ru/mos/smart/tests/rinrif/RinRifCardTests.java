@@ -16,15 +16,13 @@ import static ru.mos.smart.data.Sidebar.REGISTERS;
 @Layer("web")
 @Epic("ИАИС РИН")
 @Feature("RINRIF")
-
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("14049")
     @DisplayName("Проверка перехода в карточку из реестра Акты проверок")
     @Description("Проверить, что открывается из реестра - Акты проверок")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterActsProverok() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -34,10 +32,8 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("rv")
-    @AllureId("14045")
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения ввод объекта в эксплуатацию")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterEnteringObject() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -47,10 +43,8 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("14046")
     @DisplayName("Проверка перехода в карточку из реестра Все объекты")
     @Description("Проверить, что открывается карточка из реестра - Все объекты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjects() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -60,10 +54,8 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("14046")
     @DisplayName("Проверка перехода в карточку из реестра Все объекты сноса")
     @Description("Проверить, что открывается карочка из реестра - Все объекты сноса")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllObjectsSnos() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -73,10 +65,8 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("14051")
     @DisplayName("Проверка перехода в карточку из реестра Все организации")
     @Description("Проверить, что открывается карточка из реестра - Все организации")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardAllOrganizations() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -86,10 +76,8 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("14053")
     @DisplayName("Проверка перехода в карточку из реестра Все решения о проверке")
     @Description("Проверить, что открывается карточка из реестра - Все решения о проверке")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrAllInspectionDecisions() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -99,10 +87,8 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("snos")
-    @AllureId("14047")
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о завершении сноса")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о завершении сноса")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -112,10 +98,8 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("snos")
-    @AllureId("14048")
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о планируемом сносе")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о планируемом сносе")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -125,10 +109,8 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("rs")
-    @AllureId("14054")
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения на строительство")
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения на строительство")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterConstructionLicense() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -138,10 +120,8 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("rv")
-    @AllureId("14052")
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на ввод объекта в эксплуатацию")
     @Description("Проверить, что открывается карточка из реестра - Разрешения на ввод объекта в эксплуатацию")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardRegisterObjectOperation() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -151,10 +131,8 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("rs")
-    @AllureId("14050")
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на строительство")
     @Description("Проверить, что открывается карточка из реестра - Разрешения на строительство")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifCards")})
     void checkCardBuildingPermitRegister() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

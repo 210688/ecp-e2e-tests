@@ -124,8 +124,6 @@ public class MkapmiiRegisterTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MKAPMII_ORDER);
-        //reestrPage.gotoFirstCardNoSwitchWindow();
-
         ElementsCollection dataBlocks = $$(".tab-content .collapsible-title");
 
         step("Проверка наличия блоков данных", () ->

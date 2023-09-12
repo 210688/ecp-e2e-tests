@@ -52,6 +52,7 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @DisplayName("Карточка Реестра поручений УГД")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void cardOfRegisterUgd() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

@@ -82,7 +82,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6429")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр центров информирования по переселению жителей")
@@ -104,7 +103,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6434")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра АРМ сотрудника Центра информирования по переселению жителей")
@@ -128,7 +126,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6430")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка открытия карточки жителя через реестр ССР. Реестр жителей")
@@ -192,7 +189,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6423")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра Администрирование рабочих дней помощи в переезде")
@@ -208,7 +204,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6432")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра Реестр заявлений на помощь в переезде")
@@ -224,7 +219,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6356")
     @Layer("web")
     @DisplayName("Проверка возможности подписания договора и акта приема-передачи")
     void reestrSigningTest() {
@@ -257,7 +251,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6421")
     @Layer("web")
     @DisplayName("Проверка возможности выдачи ключей")
     void keysIssuanceTest() {
@@ -282,7 +275,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6420")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка возможности освобождения квартиры")
@@ -339,7 +331,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6397")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName(" Проверка открытия возможности Инициировать обогащения данных отселяемых домов из ДГИ")
@@ -385,7 +376,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6431")
     @Layer("web")
     @DisplayName("Проверка открытия дашборда 'Оперативный мониторинг за ходом переселения'")
     void ssrChessboardTest() {
@@ -412,7 +402,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6376")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра по заявлениям на комиссионный осмотр")

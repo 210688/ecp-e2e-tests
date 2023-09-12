@@ -20,15 +20,13 @@ import static ru.mos.smart.data.Registers.*;
 @Layer("web")
 @Epic("ИАИС РИН")
 @Feature("RINRIF")
-
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("12316")
     @DisplayName("Проверка наличия данных и перехода в реестр Акты проверок")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterAktsProverok() {
         List<java.lang.String> columnNames = Arrays.asList("Номер акта", "Дата акта", "Место проведения проверки",
                 "Результат проверки", "Специалист УН", "ЕРКНМ");
@@ -40,11 +38,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("14038")
-    //@RepeatedIfExceptionsTest(repeats = 3, exceptions = NoSuchElementException.class)
     @DisplayName("Проверка наличия данных и перехода в реестр Все объекты")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterVseObjects() {
         List<java.lang.String> columnNames = Arrays.asList("Источник финансирования", "Номер дела", "Объект", "Застройщик ", "Почтовый адрес",
                 "Дата начала строительства", "Дата окончания строительства", "Состояние", "Строительный надзор");
@@ -56,10 +51,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("14037")
     @DisplayName("Проверка наличия данных и перехода в реестр Все объекты сноса")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterAllObjectsSnos() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Объект", "Кадастровый номер ЗУ", "Кадастровый номер здания");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -70,10 +63,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("14039")
     @DisplayName("Проверка наличия данных и перехода в реестр Все организации")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterAllOrganizations() {
         List<java.lang.String> columnNames = Arrays.asList("Полное наименование организации / Руководитель", "ИНН", "ОГРН /СНИЛС / Паспорт",
                 "Юр. адрес / Факт. адрес", "Почтовый адрес");
@@ -85,10 +76,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("12315")
     @DisplayName("Проверка наличия данных и перехода в реестр Все решения о проверке")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterAllInspectionDecisions() {
         List<java.lang.String> columnNames = Arrays.asList("Номер", "Дата", "Объект", "Проверяемая организация", "Вид проверки", "Основание для проверки",
                 "Период проведения", "Ответственный", "Статус", "ЕРКНМ");
@@ -100,10 +89,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("12330")
     @DisplayName("Проверка наличия данных и перехода в реестр  Нарушения")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterViolations() {
         List<java.lang.String> columnNames = Arrays.asList("Номер нарушения", "Дата нарушения", "Наименование работ", "Специалист УН. ФИО");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -115,10 +102,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("12332")
     @DisplayName("Проверка наличия данных и перехода в реестр Постановления")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterPostanovleniya() {
         List<java.lang.String> columnNames = Arrays.asList("Постановление", "Нарушитель", "Штраф", "Срок оплаты", "УН", "Подписал", "Оплачено (руб.)",
                 "Долг по оплате (руб.)");
@@ -130,10 +115,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("14040")
     @DisplayName("Проверка наличия данных и перехода в реестр Протоколы")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterProtokols() {
         List<java.lang.String> columnNames = Arrays.asList("Дата протокола", "Место совершения нарушения", "Статья КОАП РФ", "Проверяемая организация",
                 "Специалист УН. ФИО");
@@ -145,10 +128,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("nadzor")
-    @AllureId("14041")
     @DisplayName("Проверка наличия данных и перехода в реестр ТЗ лаборатории")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterTzLabaratorii() {
         List<java.lang.String> columnNames = Arrays.asList("Дата проверки ЦЭИИС", "Срок исполнения ТЗ", "Состав работ", "Состав работ утвержден ГБУ");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -160,10 +141,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("snos")
-    @AllureId("14042")
     @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о завершении сноса")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterUvedomleniyaOzaversheniiSnosa() {
         List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата", "Заявитель",
                 "Исполнитель", "Данные ПГУ");
@@ -175,10 +154,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("snos")
-    @AllureId("14043")
     @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о планируемом сносе")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterUvedomleniyaOplaniruemomSnose() {
         List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата",
                 "Заявитель", "Исполнитель", "Данные ПГУ");
@@ -190,10 +167,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("rv")
-    @AllureId("12328")
     @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterEnteringObjects() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Заявление", "Рег. дата", "Плановая дата",
                 "Объект", "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
@@ -205,10 +180,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("rs")
-    @AllureId("12319")
     @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения на строительство")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterChangeConstructionBuilding() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Вид изменений", "Заявление", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
@@ -220,10 +193,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("rv")
-    @AllureId("12320")
     @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на ввод объекта в эксплуатацию")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("api"), @Tag("rinrifReestr")})
     void goToRegisterObjectOperation() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
@@ -235,10 +206,8 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @Story("rs")
-    @AllureId("12352")
     @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на строительство")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrifReestr")})
     void goToBuildingPermitRegister() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
