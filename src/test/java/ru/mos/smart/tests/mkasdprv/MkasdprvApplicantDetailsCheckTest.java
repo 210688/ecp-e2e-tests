@@ -2,7 +2,6 @@ package ru.mos.smart.tests.mkasdprv;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -11,8 +10,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
+import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.helpers.utils.RandomUtils;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -25,24 +24,25 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.TASK;
 
 @Layer("web")
 @Epic("OASI")
 @Feature("MKASDPRV")
-public class MkasdprvApplicantDetailsCheck extends TestBase {
+public class MkasdprvApplicantDetailsCheckTest extends TestBase {
 
     @Test
-    @AllureId("6886")
+    @OnPreprodOnly
     @DisplayName("01. Проверка основных контролов на странице")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mainControlsTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         ElementsCollection dataBlocks = $$(".main-container .title");
@@ -117,15 +117,16 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     }
 
     @Test
-    @AllureId("5656")
+    @OnPreprodOnly
     @DisplayName("02. Проверка перехода в карточку заявления")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void applicationCardTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
 
@@ -136,15 +137,16 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     }
 
     @Test
-    @AllureId("5657")
+    @OnPreprodOnly
     @DisplayName("03. Принять решение по заявлению - отказ. Причины отказа")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void negativeDecisionTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
@@ -207,15 +209,16 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     }
 
     @Test
-    @AllureId("6891")
+    @OnPreprodOnly
     @DisplayName("04. Принять решение. Сформировать файл решения. Загрузка файлов")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void negativeFilesTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
@@ -240,15 +243,16 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     }
 
     @Test
-    @AllureId("5659")
+    @OnPreprodOnly
     @DisplayName("05. Успешный отказ в приёме документов")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Epic("MKASDPRV (МКА Вывески)")
     @Feature("Автотесты")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void refuseDocsTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkasdprvPage.selectRefuseDocsRadioButton();
@@ -264,16 +268,17 @@ public class MkasdprvApplicantDetailsCheck extends TestBase {
     }
 
     @Test
-    @AllureId("5655")
+    @OnPreprodOnly
     @DisplayName("Завершение задачи (принять в работу)")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkasdprv")})
     @Story("02. Завершение задачи Проверить данные заявления (принять в работу)")
     @Feature("Автотесты")
     @Epic("MKASDPRV (МКА Вывески)")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void finishTaskTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkasdprvPage.selectTakeToWorkRadioButton();

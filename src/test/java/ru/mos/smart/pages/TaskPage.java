@@ -83,7 +83,7 @@ public class TaskPage {
 
     @Step("Открыть задачу по имени документа «{testId}»")
     public void openTaskByTestId(String testId) {
-        $("#my-task-showcase").shouldBe(visible, Duration.ofSeconds(30));
+        $(".table-responsive").shouldBe(visible, Duration.ofSeconds(20));
         $x("//*[@id='my-task-showcase']//*[contains(text(), '" + testId + "')]").click();
     }
 

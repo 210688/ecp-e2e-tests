@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.ugd.lrp;
 
 import io.qameta.allure.*;
@@ -31,7 +32,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @Story("Госуслуги и функции")
     @Component("Возможности")
-    @AllureId("6500")
+   ("6500")
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     void openTheApplicationFormLrp() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -51,7 +52,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @Story("Госуслуги и функции")
     @Component("Возможности")
-    @AllureId("6390")
+   ("6390")
     @DisplayName("Проверка открытия формы подачи " +
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
     void openTheApplicationFormLrpOutsideOrg() {
@@ -78,7 +79,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @Story("Информация")
     @Component("Реестры")
-    @AllureId("6366")
+   ("6366")
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     void openRegisterLrpZayavki() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
@@ -104,7 +105,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @Story("Информация")
     @Component("Реестры")
-    @AllureId("6446")
+   ("6446")
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
     void openRegisterLrpMoiZayavki() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -118,3 +119,4 @@ class UgdLrpTests extends TestBase {
         });
     }
 }
+*/

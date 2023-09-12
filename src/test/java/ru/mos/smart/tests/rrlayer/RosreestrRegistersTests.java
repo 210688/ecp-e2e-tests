@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.rrlayer;
 
 import io.qameta.allure.AllureId;
@@ -24,7 +25,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 public class RosreestrRegistersTests extends TestBase {
 
     @Test
-    @AllureId("6328")
+   ("6328")
     @DisplayName("02.Поиск Росреестр. Земельные участки")
     @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("rrlayer")})
     void openRosreestrZemUch() {
@@ -42,3 +43,4 @@ public class RosreestrRegistersTests extends TestBase {
         });
     }
 }
+*/

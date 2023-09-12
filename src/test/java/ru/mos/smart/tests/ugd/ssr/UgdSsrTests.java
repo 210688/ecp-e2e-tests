@@ -36,7 +36,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 @AutoMember("soldatovks")
 public class UgdSsrTests extends TestBase {
     @Test
-    @AllureId("6433")
+   ("6433")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
@@ -60,7 +60,6 @@ public class UgdSsrTests extends TestBase {
     }
 
     @Test
-    @AllureId("6478")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")

@@ -1,6 +1,9 @@
 package ru.mos.smart.tests.regressions.ui;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -18,7 +21,6 @@ import static ru.mos.smart.data.Sidebar.*;
 public class Map2DInstrumentalTests extends TestBase {
 
     @Test
-    @AllureId("12361")
     @Description("Переход на карту")
     @DisplayName("Наличие подложки на карте")
     void goToMaps() {
@@ -28,7 +30,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("12364")
     @Description("Отображение инструментов  на 2D карте")
     @DisplayName("Наличие инструментов  на 2D карте")
     void checkAvailabilityInstruments() {
@@ -47,7 +48,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("12360")
     @Description("Адресный поиск на карте 2D")
     @DisplayName("Наличие поля ввода адресного поиска на карте 2D")
     void checkAvailabilityAddressSearch() {
@@ -57,7 +57,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("12362")
     @Description("Поиск слоя на карте 2D")
     @DisplayName("Наличие поля ввода поиска слоя на карте 2D")
     void checkAvailabilityOfLayerSearch() {
@@ -67,7 +66,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("8298")
     @Description("Поиск адреса в адресной строке")
     @DisplayName("Поиск адреса на карте 2D")
     void checkingAddressSearch() {
@@ -77,7 +75,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("8269")
     @Description("Инструменты масштабирования")
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
     void checkingAvailabilityOfScalingTools() {
@@ -87,7 +84,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("8266")
     @Description("Инструменты Мое местоположение")
     @DisplayName("Проверка наличия инструмента Мое местоположение")
     void checkingAvailabilityOfMyLocationTool() {
@@ -97,7 +93,6 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("8276")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     void checkingAvailabilityOfInitialPositionTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);

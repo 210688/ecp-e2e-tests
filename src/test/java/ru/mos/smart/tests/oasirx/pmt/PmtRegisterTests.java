@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.oasirx.pmt;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -8,7 +7,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -19,8 +17,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -28,11 +24,9 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 class PmtRegisterTests extends TestBase {
 
     @Test
-    @AllureId("3701")
     @DisplayName("Просмотр реестра ПМТ")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("pmt")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openingTheRegisterPMT() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToPmt();
 
@@ -46,11 +40,9 @@ class PmtRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("3702")
     @DisplayName("Поиск ПМТ по номеру")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("pmt")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void searchingPmtCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToPmt();
 

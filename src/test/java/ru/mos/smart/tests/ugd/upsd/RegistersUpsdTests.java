@@ -1,10 +1,8 @@
 package ru.mos.smart.tests.ugd.upsd;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,6 +13,7 @@ import ru.mos.smart.tests.TestBase;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Registers.UGD_UPSD;
 
 @Epic("UGD")
 @Feature("UPSD")
@@ -23,13 +22,12 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 class RegistersUpsdTests extends TestBase {
 
     @Test
-    @AllureId("1735")
     @Disabled()
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
     void registerUpsdViewing() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage
-                .goToRegister("УПСД");
+                .goToRegister(UGD_UPSD);
 
         step("Найти реестр и перейти в него", () -> {
 

@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.oasirx.szz;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -27,9 +26,8 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 public class SzzRegisterTests extends TestBase {
     @Test
-    @AllureId("3705")
     @DisplayName("Просмотр реестра СЗЗ")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("szz")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openingTheRegisterSzz() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
@@ -49,11 +47,9 @@ public class SzzRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("7703")
     @DisplayName("Поиск карточки реестра СЗЗ по номеру")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("szz")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void searchingSzzCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToSzz();
 

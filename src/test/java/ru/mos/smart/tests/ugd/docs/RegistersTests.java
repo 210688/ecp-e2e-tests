@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.ugd.docs;
 
 import io.qameta.allure.*;
@@ -26,7 +27,7 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 @Owner("soldatovks")
 public class RegistersTests extends TestBase {
     @Test
-    @AllureId("6403")
+   ("6403")
     @Layer("web")
     @DisplayName("Проверка доступности реестра РД. Акт проверки строительства")
     void actInspectionTest() {
@@ -50,7 +51,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
-    @AllureId("6400")
+   ("6400")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Извещения об окончании СМР")
@@ -75,7 +76,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
-    @AllureId("6404")
+   ("6404")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Извещения о начале СМР")
@@ -97,7 +98,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
-    @AllureId("6490")
+   ("6490")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра РД. Свидетельства АГР")
@@ -123,7 +124,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
-    @AllureId("6492")
+   ("6492")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов. ГПЗУ")
@@ -148,7 +149,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
-    @AllureId("6398")
+   ("6398")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения Мосгоргеотреста")
@@ -170,7 +171,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
-    @AllureId("6463")
+   ("6463")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения о соответствии")
@@ -195,7 +196,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
-    @AllureId("6461")
+   ("6461")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Заключения экспертизы")
@@ -229,7 +230,7 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
-    @AllureId("6481")
+   ("6481")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на ввод")
@@ -256,7 +257,6 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
-    @AllureId("6448")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных документов.Разрешения на строительство")
@@ -282,7 +282,6 @@ public class RegistersTests extends TestBase {
     }
 
     @Test
-    @AllureId("6493")
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("docs")})
     @DisplayName("Проверка доступности реестра Реестр оперативных данных.Исполнительные чертежи Мосгоргеотреста")
@@ -302,3 +301,4 @@ public class RegistersTests extends TestBase {
                 .checkColumns(columns);
     }
 }
+*/

@@ -1,4 +1,4 @@
-package ru.mos.smart.data.reestrUrl;
+package ru.mos.smart.data.registry;
 
 public class RegisterObjectTypeOasirx {
 

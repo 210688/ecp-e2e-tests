@@ -14,10 +14,7 @@ import ru.mos.smart.tests.TestBase;
 import java.util.Arrays;
 import java.util.List;
 
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
-import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasirx.ELMA_URL;
-import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
+import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.ELMA_URL;
 
 @Owner("Soldatov")
 @Layer("web")
@@ -27,13 +24,10 @@ import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
 public class ElmaRegisterTests extends TestBase {
 
     @Test
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("oasirxReestr")})
     @DisplayName("Проверка наличия данных и перехода в раздел Соответствие проектной документации СППК")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToRegisterElma() {
         List<String> columnNames = Arrays.asList("Дата", "Номер", "Номер МГГТ", "Название", "Статус");
-        openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage.goToSection(ELMA_URL);
-        //reestrPage.searchField();
-        //reestrPage.checkFieldData(ELMA_URL, columnNames);
     }
 }

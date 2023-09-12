@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.regressions.ui;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -22,7 +21,6 @@ import static ru.mos.smart.data.Sidebar.MAPS3D;
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
-    @AllureId("12365")
     @DisplayName("Проверка перехода на карту Цифровой двойник")
     void goToMapsCd() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -32,7 +30,6 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("8268")
     @DisplayName("Проверка отображения панели слоев")
     void checkingTheDisplayOfLayersPanel() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -41,7 +38,6 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("8274")
     @DisplayName("Проверка работы поиска в адресной строке")
     void checkingAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -50,7 +46,6 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @AllureId("8275")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {

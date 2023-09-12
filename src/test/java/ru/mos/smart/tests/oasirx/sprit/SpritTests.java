@@ -1,15 +1,12 @@
 package ru.mos.smart.tests.oasirx.sprit;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -20,21 +17,16 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 public class SpritTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("1043")
     @DisplayName("Просмотр карточки СПРИТ")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("sprit")})
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
-    @Owner("Amidosha")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void cardViewSprit() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToSprit();
 
@@ -55,13 +47,11 @@ public class SpritTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("3315")
     @DisplayName("Форма карточки: История изменений")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void historyChangeCard() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
@@ -76,13 +66,11 @@ public class SpritTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("4207")
     @DisplayName("Новая форма подачи заявления (новый регламент)")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Feature("SPRIT (Выдача СПРИТ)")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void newReglament() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
@@ -100,13 +88,11 @@ public class SpritTests extends TestBase {
     }
 
     @Test
-    @AllureId("3313")
     @DisplayName("Форма карточки: Процесс")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("sprit")})
     @Feature("SPRIT (Выдача СПРИТ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void process() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToSprit();
         step("Открыть любую карточку", () ->
@@ -122,13 +108,11 @@ public class SpritTests extends TestBase {
 
     @Test
     @Layer("web")
-    @AllureId("3314")
     @DisplayName("Форма карточки: Материалы")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regress"), @Tag("sprit")})
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Feature("SPRIT (Выдача СПРИТ)")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void cardMaterialsTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToSprit();
         step("Открыть любую катрочку", () ->

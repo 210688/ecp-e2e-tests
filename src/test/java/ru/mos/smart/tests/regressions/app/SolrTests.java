@@ -1,6 +1,9 @@
 package ru.mos.smart.tests.regressions.app;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Link;
+import io.qameta.allure.Links;
+import io.qameta.allure.Owner;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -16,7 +19,6 @@ import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 public class SolrTests extends ApiBearerTestBase {
 
     @Test
-    @AllureId("8203")
     @Layer("api")
     @Owner("Soldatovks")
     @DisplayName("Получение списка ошибок конфигурации")

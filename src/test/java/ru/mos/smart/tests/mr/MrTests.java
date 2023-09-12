@@ -3,14 +3,13 @@ package ru.mos.smart.tests.mr;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
+import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -23,10 +22,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
-import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTERS;
+import static ru.mos.smart.data.Registers.MR_PROGRAM_OBJ;
+import static ru.mos.smart.data.Registers.MR_PROGRAM_ORDER;
+import static ru.mos.smart.data.Sidebar.*;
 
 @Epic("RAYON (Мой район)")
 public class MrTests extends TestBase {
@@ -34,15 +32,14 @@ public class MrTests extends TestBase {
     private final Faker faker = new Faker();
 
     @Test
-    @AllureId("7998")
     @DisplayName("Проверка открытия реестра Поручения Мэра по программе \"Мой район\"")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramInstructionRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
-                .goToRegister("Поручения Мэра по программе Мой район");
+                .goToRegister(MR_PROGRAM_ORDER);
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form").$("input").shouldBe(visible);
             $(".search-form").$("button.btn-search").shouldBe(visible);
@@ -59,15 +56,13 @@ public class MrTests extends TestBase {
     }
 
     @Test
-    @AllureId("7997")
     @DisplayName("Проверка открытия реестра Объекты по программе \"Мой район\"")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramObjRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage
-                .goToRegister("Объекты по программе Мой район");
+        reestrPage.goToRegister(MR_PROGRAM_OBJ);
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form input").shouldBe(visible);
             $(".search-form").$("button.btn-search").shouldBe(visible);
@@ -83,14 +78,12 @@ public class MrTests extends TestBase {
 
     @DisplayName("Проверка открытия карточки реестра Объекты по программе \"Мой район\"")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rayon")})
     @Test
-    @AllureId("8000")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramObjCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage
-                .goToRegister("Объекты по программе \"Мой район\"");
+        reestrPage.goToRegister(MR_PROGRAM_OBJ);
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg").setValue("город Москва, Сиреневый бульвар, дом 30, строение 1").pressEnter();
@@ -112,16 +105,15 @@ public class MrTests extends TestBase {
         });
     }
 
+    @Test
     @DisplayName("Переход с мини-карты на карточке объекта на Карту")
     @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rayon")})
-    @Test
-    @AllureId("7999")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkSwitchToMapOnMrProgramObjCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
-                .goToRegister("Объекты по программе \"Мой район\"");
+                .goToRegister(MR_PROGRAM_OBJ);
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg")
@@ -140,17 +132,17 @@ public class MrTests extends TestBase {
     }
 
     @Test
-    @AllureId("8001")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rayon")})
+    @OnPreprodOnly
     @Layer("web")
     @DisplayName("Проверка открытия возможности Запустить процесс создания объекта")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkStartingObjectCreationProcess() {
 
         String createdObjectName = "Объект бытового обслуживания №" + faker.number().numberBetween(1, 100);
 
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        actionsPage
-                .goToActions("Запустить процесс создания объекта");
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, ACTIONS);
+        actionsPage.goToActions("Запустить процесс создания объекта");
 
         step("В открывшемся окне (Вы действительно хотите запустить процесс по созданию объекта?) выбрать ОК", () ->
                 $(".form-group").$(".btn-primary").should(visible, Duration.ofSeconds(10)).click());
@@ -181,7 +173,7 @@ public class MrTests extends TestBase {
 
         $(".mail-box-header").$(byText("Все задачи")).should(visible, Duration.ofSeconds(20));
         reestrPage
-                .goToRegister("Объекты по программе \"Мой район\"");
+                .goToRegister(MR_PROGRAM_OBJ);
 
         step("Проверить объект в реестре", () -> {
             $(".input-lg").setValue(createdObjectName).pressEnter();

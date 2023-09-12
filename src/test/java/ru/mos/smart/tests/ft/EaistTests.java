@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.ft;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.*;
@@ -12,6 +11,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.data.Registers.EAIST;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
 
@@ -23,14 +23,12 @@ import static ru.mos.smart.data.Sidebar.REGISTERS;
 public class EaistTests extends TestBase {
 
     @Test
-    @AllureId("5265")
     @DisplayName("Проверка реестров ЕАИСТ")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ft")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void reestrEaistCanBeOpened() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage
-                .goToRegister("ЕАИСТ");
+        reestrPage.goToRegister(EAIST);
 
         step("В поисковой строке ввести ЕАИСТ", () -> {
             $(byName("candidateSearchValue")).setValue("ЕАИСТ").pressEnter();

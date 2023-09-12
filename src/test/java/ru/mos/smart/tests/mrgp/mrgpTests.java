@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.mrgp;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -14,6 +13,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.data.Registers.MRGP;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
 
@@ -22,14 +22,12 @@ import static ru.mos.smart.data.Sidebar.REGISTERS;
 @Feature("MRGP")
 public class mrgpTests extends TestBase {
     @Test
-    @AllureId("6003")
     @DisplayName("Проверка открытия реестра")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("mrgp")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openReestr() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage
-                .goToRegister("Перечень программ");
+        reestrPage.goToRegister(MRGP);
 
         step("Открытие реестра Перечень программ", () -> {
             $(byText("Перечень программ")).shouldBe(visible);

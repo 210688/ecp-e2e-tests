@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.ugd.oati;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -19,6 +18,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Registers.UGD_OATI;
 
 @Layer("web")
 @Epic("UGD (УГД)")
@@ -27,13 +27,12 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 class RegistersUvedomleniaTests extends TestBase {
 
     @Test
-    @AllureId("7056")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("oati")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка открытия реестров")
     void openRegisterUvedomlenia() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage
-                .goToRegister(" ОАТИ. Уведомления");
+                .goToRegister(UGD_OATI);
 
         step("Открыть реестр ОАТИ. Уведомления", () -> {
             $(byName("candidateSearchValue")).setValue("ОАТИ. Уведомления").pressEnter();

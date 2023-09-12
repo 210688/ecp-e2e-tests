@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.eventmanager;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -17,6 +16,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.data.Registers.EVENTMANAGER;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
 
@@ -29,14 +29,12 @@ import static ru.mos.smart.data.Sidebar.REGISTERS;
 public class EventmanagerActionTests extends TestBase {
 
     @Test
-    @AllureId("5259")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod")})
     @DisplayName("Проверка доступности реестра Подписки на уведомления о событиях")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingEventmanagerReestr() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage
-                .goToRegister("Подписки на уведомления о событиях");
+        reestrPage.goToRegister(EVENTMANAGER);
         step("Проверить, что открывается  реестр Подписки на уведомления о событиях", () -> {
             $(byText("Подписки на уведомления о событиях")).shouldBe(visible);
         });

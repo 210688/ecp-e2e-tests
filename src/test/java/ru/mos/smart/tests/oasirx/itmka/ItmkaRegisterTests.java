@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.oasirx.itmka;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -27,13 +26,10 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 public class ItmkaRegisterTests extends TestBase {
 
     @Test
-    @AllureId("3698")
     @DisplayName("Просмотр реестра заявок Управление ИТ МКА")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("itmka")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openingTheRegisterItmka() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        sidebarPage
-                .goToItmka();
+        sidebarPage.goToItmka();
 
         step("Открыт раздел Управление ИТ МКА", () ->
                 $x("//div/h2[contains(text(),'Управление информатизацией МКА')]").shouldBe(visible));
@@ -47,9 +43,8 @@ public class ItmkaRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("3697")
     @DisplayName("Поиск карточки реестра заявок Управление ИТ МКА по номеру")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("oasirx"), @Tag("itmka")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void searchingItmkaCardByNumber() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage

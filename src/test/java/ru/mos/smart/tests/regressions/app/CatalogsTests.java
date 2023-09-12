@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.regressions.app;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Owner;
 import io.restassured.response.ValidatableResponse;
@@ -20,7 +19,6 @@ import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 public class CatalogsTests extends ApiBearerTestBase {
 
     @Test
-    @AllureId("9854")
     @Owner("SoldatovKS")
     @Layer("api")
     @DisplayName("Запрос реестров информации")
@@ -34,7 +32,6 @@ public class CatalogsTests extends ApiBearerTestBase {
     }
 
     @Test
-    @AllureId("9243")
     @Owner("SoldatovKS")
     @Layer("api")
     @DisplayName("Получить список имен ядер")

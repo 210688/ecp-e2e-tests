@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.oasirx.vri;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -9,7 +8,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -21,8 +19,6 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
@@ -31,9 +27,8 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 public class VriRegistersTests extends TestBase {
 
     @Test
-    @AllureId("7687")
     @DisplayName("Проверка вкладок в реестре ВРИ")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openRegisterVri() {
         List<String> tabs = new ArrayList<String>() {{
             add("ВРИ в работе");
@@ -42,8 +37,6 @@ public class VriRegistersTests extends TestBase {
             add("Срок истекает");
             add("Отчеты");
         }};
-
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToVri();
 
@@ -53,11 +46,9 @@ public class VriRegistersTests extends TestBase {
     }
 
     @Test
-    @AllureId("7686")
     @DisplayName("Поиск карточки реестра ВРИ по номеру")
-    @Tags({@Tag("predprod"), @Tag("oasirx"), @Tag("vri")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void searchingVriCardByNumber() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         step("Из боковой панели перейти в раздел ВРИ", () -> {
             $x("//span[text()='ВРИ']").shouldBe(visible, Duration.ofSeconds(10));
             $x("//span[text()='ВРИ']").click();

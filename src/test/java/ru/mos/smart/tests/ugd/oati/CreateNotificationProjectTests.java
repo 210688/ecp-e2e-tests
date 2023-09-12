@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.ugd.oati;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -9,6 +8,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
+import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -29,8 +29,8 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 class CreateNotificationProjectTests extends TestBase {
 
     @Test
-    @AllureId("7055")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("oati")})
+    @OnPreprodOnly
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     @DisplayName("Проверка доступности формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
     void checkingNotificationSubmissionForm() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());

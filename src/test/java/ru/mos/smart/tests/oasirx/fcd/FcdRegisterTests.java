@@ -1,7 +1,10 @@
 package ru.mos.smart.tests.oasirx.fcd;
 
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.*;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -17,8 +20,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
-import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasirx.FCD_URL;
-import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
+import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.FCD_URL;
 
 @Epic("Проверки реестров по подсистемам")
 @Feature("ОАСИРХ")
@@ -32,18 +34,14 @@ public class FcdRegisterTests extends TestBase {
         @DisplayName("Проверка наличия данных и перехода в раздел Фасады нежильё")
         void goToRegisterEoo() {
             List<String> columnNames = Arrays.asList("Дата", "Номер", "Номер ПГУ", "Адрес", "Исполнитель", "Тип запроса", "Статус");
-            openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
             sidebarPage.goToSection(FCD_URL);
-            //reestrPage.searchField();
-            //reestrPage.checkFieldData(FCD_URL, columnNames);
         }
 
     private final SelenideElement heading = $(".ng-binding");
 
     @Test
-    @AllureId("12537")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("oasirxCard")})
     @DisplayName("Переход в реестр Фасады")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToFacades() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         //urlPage.goToFacades();
@@ -51,9 +49,8 @@ public class FcdRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("12536")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("oasirxCard")})
     @DisplayName("Заголовки колонок в реестре Фасады")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkHeadersTables() {
         List<String> tableColumnList = Arrays.asList("В работе", "Все", "Мои", "Статистика");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());

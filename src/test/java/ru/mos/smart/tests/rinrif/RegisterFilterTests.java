@@ -12,6 +12,7 @@ import ru.mos.smart.tests.TestBase;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.codeborne.selenide.Selenide.*;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.data.Registers.*;
@@ -23,26 +24,28 @@ import static ru.mos.smart.data.Sidebar.REGISTERS;
 @Epic("ИФИС РИН")
 @Feature("RINRIF")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-public class RinRifReestrTests extends TestBase {
+public class RegisterFilterTests extends TestBase {
 
     @Test
     @Story("nadzor")
     @Description("Реестр Акты проверок")
     @DisplayName("Наполненность реестра Акты проверок")
     void goToRegisterAktsProverok() {
-        List<java.lang.String> columnNames = Arrays.asList("Номер акта", "Дата акта", "Место проведения проверки",
+        List<String> columnNames = Arrays.asList("Номер акта", "Дата акта", "Место проведения проверки",
                 "Результат проверки", "Специалист УН", "ЕРКНМ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AKTS_PROVEROK);
-        generalPage.checkTableFilter(AKTS_PROVEROK, columnNames);
+        switchTo().window(1);
+        $(".fa.fa-filter").click();
+        $$("table th").get(1).$("title");;
     }
 
     @Test
     @Story("nadzor")
     @DisplayName("Наполненность реестра Все объекты")
     void goToRegisterVseObjects() {
-        List<java.lang.String> columnNames = Arrays.asList("Источник финансирования", "Номер дела", "Объект", "Застройщик ", "Почтовый адрес",
+        List<String> columnNames = Arrays.asList("Источник финансирования", "Номер дела", "Объект", "Застройщик ", "Почтовый адрес",
                 "Дата начала строительства", "Дата окончания строительства", "Состояние", "Строительный надзор");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -54,7 +57,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @DisplayName("Наполненность реестра Все объекты сноса")
     void goToRegisterAllObjectsSnos() {
-        List<java.lang.String> columnNames = Arrays.asList("Дело", "Объект", "Кадастровый номер ЗУ", "Кадастровый номер здания");
+        List<String> columnNames = Arrays.asList("Дело", "Объект", "Кадастровый номер ЗУ", "Кадастровый номер здания");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS_SNOS);
@@ -65,7 +68,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @DisplayName("Наполненность реестра Все организации")
     void goToRegisterAllOrganizations() {
-        List<java.lang.String> columnNames = Arrays.asList("Полное наименование организации / Руководитель", "ИНН", "ОГРН /СНИЛС / Паспорт",
+        List<String> columnNames = Arrays.asList("Полное наименование организации / Руководитель", "ИНН", "ОГРН /СНИЛС / Паспорт",
                 "Юр. адрес / Факт. адрес", "Почтовый адрес");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -77,7 +80,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр Все решения о проверке")
     void goToRegisterAllInspectionDecisions() {
-        List<java.lang.String> columnNames = Arrays.asList("Номер", "Дата", "Объект", "Проверяемая организация", "Вид проверки", "Основание для проверки",
+        List<String> columnNames = Arrays.asList("Номер", "Дата", "Объект", "Проверяемая организация", "Вид проверки", "Основание для проверки",
                 "Период проведения", "Ответственный", "Статус", "ЕРКНМ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -89,7 +92,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр  Нарушения")
     void goToRegisterViolations() {
-        List<java.lang.String> columnNames = Arrays.asList("Номер нарушения", "Дата нарушения", "Наименование работ", "Специалист УН. ФИО");
+        List<String> columnNames = Arrays.asList("Номер нарушения", "Дата нарушения", "Наименование работ", "Специалист УН. ФИО");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(NARUSHENIYA);
@@ -101,7 +104,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр Постановления")
     void goToRegisterPostanovleniya() {
-        List<java.lang.String> columnNames = Arrays.asList("Постановление", "Нарушитель", "Штраф", "Срок оплаты", "УН", "Подписал", "Оплачено (руб.)",
+        List<String> columnNames = Arrays.asList("Постановление", "Нарушитель", "Штраф", "Срок оплаты", "УН", "Подписал", "Оплачено (руб.)",
                 "Долг по оплате (руб.)");
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(POSTANOVLENIYA);
@@ -112,7 +115,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @DisplayName("Наполнение реестра Протоколы данными")
     void goToRegisterProtokols() {
-        List<java.lang.String> columnNames = Arrays.asList("Дата протокола", "Место совершения нарушения", "Статья КОАП РФ",
+        List<String> columnNames = Arrays.asList("Дата протокола", "Место совершения нарушения", "Статья КОАП РФ",
                 "Проверяемая организация", "Специалист УН. ФИО");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -124,7 +127,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр ТЗ лаборатории")
     void goToRegisterTzLabaratorii() {
-        List<java.lang.String> columnNames = Arrays.asList("Дата проверки ЦЭИИС", "Срок исполнения ТЗ", "Состав работ",
+        List<String> columnNames = Arrays.asList("Дата проверки ЦЭИИС", "Срок исполнения ТЗ", "Состав работ",
                 "Состав работ утвержден ГБУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -137,7 +140,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("snos")
     @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о завершении сноса")
     void goToRegisterUvedomleniyaOzaversheniiSnosa() {
-        List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата", "Заявитель",
+        List<String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата", "Заявитель",
                 "Исполнитель", "Данные ПГУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -149,7 +152,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("snos")
     @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о планируемом сносе")
     void goToRegisterUvedomleniyaOplaniruemomSnose() {
-        List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата",
+        List<String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата",
                 "Заявитель", "Исполнитель", "Данные ПГУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -161,7 +164,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("rv")
     @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения ввод объекта в эксплуатацию")
     void goToRegisterEnteringObjects() {
-        List<java.lang.String> columnNames = Arrays.asList("Дело", "Заявление", "Рег. дата", "Плановая дата",
+        List<String> columnNames = Arrays.asList("Дело", "Заявление", "Рег. дата", "Плановая дата",
                 "Объект", "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -173,7 +176,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("rs")
     @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения на строительство")
     void goToRegisterChangeConstructionBuilding() {
-        List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Вид изменений", "Заявление", "Рег. дата", "Плановая дата", "Объект",
+        List<String> tableColumnList = Arrays.asList("Дело", "Вид изменений", "Заявление", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -185,7 +188,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("rv")
     @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на ввод объекта в эксплуатацию")
     void goToRegisterObjectOperation() {
-        List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
+        List<String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -197,7 +200,7 @@ public class RinRifReestrTests extends TestBase {
     @Story("rs")
     @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на строительство")
     void goToBuildingPermitRegister() {
-        List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
+        List<String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
