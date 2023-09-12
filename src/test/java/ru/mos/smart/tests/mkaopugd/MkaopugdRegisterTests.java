@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.mkaopugd;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -18,6 +17,7 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.data.Registers.MKAOPUGD_ORDER;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
 
@@ -29,14 +29,12 @@ import static ru.mos.smart.data.Sidebar.REGISTERS;
 public class MkaopugdRegisterTests extends TestBase {
 
     @Test
-    @AllureId("5595")
     @DisplayName("Реестр поручений УГД")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void registerOfInstructionsUgd() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage
-                .goToRegister("Реестр поручений УГД");
+        reestrPage.goToRegister(MKAOPUGD_ORDER);
 
 
         step("Реестр содержит по умолчанию колонки:", () -> {
@@ -53,14 +51,12 @@ public class MkaopugdRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("5594")
     @DisplayName("Карточка Реестра поручений УГД")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkaopugd")})
     void cardOfRegisterUgd() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
-                .goToRegister("Реестр поручений УГД");
+                .goToRegister(MKAOPUGD_ORDER);
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg").setValue("88").pressEnter();

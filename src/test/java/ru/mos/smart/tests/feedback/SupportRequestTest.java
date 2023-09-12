@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.feedback;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -24,7 +23,6 @@ import static ru.mos.smart.config.ConfigHelper.*;
 public class SupportRequestTest extends TestBase {
 
     @Test
-    @AllureId("1145")
     @Description("Данная проверка отправляет письмо в тех поддержку, " +
             "запускать на определеных средах.")
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")

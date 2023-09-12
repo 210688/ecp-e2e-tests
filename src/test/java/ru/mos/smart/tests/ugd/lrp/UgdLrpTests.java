@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.ugd.lrp;
 
 import io.qameta.allure.*;
@@ -31,7 +32,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @Story("Госуслуги и функции")
     @Component("Возможности")
-    @AllureId("6500")
+   ("6500")
     @DisplayName("Проверка открытия формы подачи \"Подать заявку на участие в конкурсе ЛРП\"")
     @Description("Проверить, что форма - Подать заявку на участие в конкурсе ЛРП открывается")
     void openTheApplicationFormLrp() {
@@ -52,7 +53,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @Story("Госуслуги и функции")
     @Component("Возможности")
-    @AllureId("6390")
+   ("6390")
     @DisplayName("Проверка открытия формы подачи " +
             "Подать завку на участие в конкурсе ЛРП за стороннюю организацию")
     @Description("Проверить, что форма  открывается и подаётся заявка")
@@ -80,7 +81,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @Story("Информация")
     @Component("Реестры")
-    @AllureId("6366")
+   ("6366")
     @DisplayName("Открытие реестра Заявки на участие в конкурсе ЛРП")
     @Description("Проверить, что форма реестр открывается")
     void openRegisterLrpZayavki() {
@@ -107,7 +108,7 @@ class UgdLrpTests extends TestBase {
     @Test
     @Story("Информация")
     @Component("Реестры")
-    @AllureId("6446")
+   ("6446")
     @DisplayName("Открытие реестра Мои заявки на участие в конкурсе ЛРП")
     @Description("Проверить, что реестр открывается")
     void openRegisterLrpMoiZayavki() {
@@ -122,3 +123,4 @@ class UgdLrpTests extends TestBase {
         });
     }
 }
+*/

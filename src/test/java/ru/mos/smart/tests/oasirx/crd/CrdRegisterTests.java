@@ -1,8 +1,14 @@
 package ru.mos.smart.tests.oasirx.crd;
 
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.*;
-import org.junit.jupiter.api.*;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
+import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
@@ -10,12 +16,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
-import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasirx.CRD_URL;
-import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
+import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.CRD_URL;
 
 @Owner("Soldatov")
 @Layer("web")
@@ -27,9 +30,8 @@ public class CrdRegisterTests extends TestBase {
     private final SelenideElement heading = $(".ng-binding");
 
     @Test
-    @AllureId("12532")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("oasirxReestr")})
     @DisplayName("Проверка наличия данных и перехода в реестр Согласование документов")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToRegisterCrd() {
         List<String> columnNames = Arrays.asList("Номер", "Дата", "Название", "Инициатор", "Статус");
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -40,34 +42,22 @@ public class CrdRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("12531")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("oasirxCard")})
     @DisplayName("Наличие заявок в реестре СД")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAvailabilityApplication() {
-        openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        //urlPage.goToCrd();
         oasirxProjectsPage.checkAvailabilityApplication(CRD_URL);
     }
 
     @Test
-    @AllureId("12529")
-    @Disabled
     @DisplayName("Переход в карточку заявления")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToRequestCardCd() {
-        openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        //urlPage.goToCrd();
         oasirxProjectsPage.goToCard();
     }
 
     @Test
-    @AllureId("12530")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("oasirx"), @Tag("crd"), @Tag("oasirxCard")})
     @DisplayName("Заголовки в реестре СД")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkHeadersTables() {
-/*        List<String> tableColumnList = Arrays.asList("В работе", "Все", "Созданные мной", "Мои");
-        openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        urlPage.goToCrd();
-        reestrPage.searchField();
-        oasirxProjectsPage.checkFilter(CRD_URL, tableColumnList);*/
     }
 }

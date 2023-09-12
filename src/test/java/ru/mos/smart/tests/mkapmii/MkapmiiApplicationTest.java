@@ -2,7 +2,6 @@ package ru.mos.smart.tests.mkapmii;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -11,6 +10,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.ManualMember;
+import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -26,20 +26,25 @@ import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.TASK;
 
+
+@Epic("OASI")
+@Feature("MKAPMII")
+@Story("MKAPMII")
+@ManualMember("innovault")
 public class MkapmiiApplicationTest extends TestBase {
+
     @Test
-    @AllureId("5181")
+    @OnPreprodOnly
     @DisplayName("01. Проверка основных контролов, закрытие задачи без сохранения")
-    @Epic("OASI")
-    @Feature("MKAPMII")
-    @Story("MKAPMII")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
-    @ManualMember("innovault")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mainControlsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, TASK);
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         ElementsCollection dataBlocks = $$(".tab-content .collapsible-title");
@@ -108,12 +113,12 @@ public class MkapmiiApplicationTest extends TestBase {
     }
 
     @Test
-    @AllureId("5182")
+    @OnPreprodOnly
     @DisplayName("02. Сохранить без завершения")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void saveAndNotFinishTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -132,12 +137,12 @@ public class MkapmiiApplicationTest extends TestBase {
     }
 
     @Test
-    @AllureId("5188")
+    @OnPreprodOnly
     @DisplayName("03. Проверка перехода в карточку заявления")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void applicationCardTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -151,16 +156,15 @@ public class MkapmiiApplicationTest extends TestBase {
     }
 
     @Test
-    @AllureId("5180")
+    @OnPreprodOnly
     @DisplayName("07. Успешный прием документов")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void positiveFinishTask() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkapmiiPage.selectTakeToWorkRadioButton();
@@ -172,16 +176,15 @@ public class MkapmiiApplicationTest extends TestBase {
     }
 
     @Test
-    @AllureId("6513")
+    @OnPreprodOnly
     @DisplayName("04. Неуспешный отказ в приёме документов (отсутствует причина отказа и файл заключения)")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void unsuccessfulRefuseTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkapmiiPage.selectRefuseDocsRadioButton();
@@ -190,16 +193,15 @@ public class MkapmiiApplicationTest extends TestBase {
     }
 
     @Test
-    @AllureId("6512")
+    @OnPreprodOnly
     @DisplayName("05. Неуспешный отказ в приёме документов (отсутствует файл заключения)")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void unsuccessfulRefuseNoFileTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         taskPage.openTaskByTestId(randomTestId);
         taskPage.takeUnusedTask();
         mkapmiiPage.selectRefuseDocsRadioButton();
@@ -230,12 +232,12 @@ public class MkapmiiApplicationTest extends TestBase {
     }
 
     @Test
-    @AllureId("6514")
+    @OnPreprodOnly
     @DisplayName("06. Неуспешный отказ в приёме документов (все поля не заполнены)")
     @Epic("Автотесты")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("mkapmii")})
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void unsuccessfulRefuseEmptyFieldsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);

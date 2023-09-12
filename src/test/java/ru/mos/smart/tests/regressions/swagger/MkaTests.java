@@ -22,8 +22,6 @@ public class MkaTests extends ApiBearerTestBase {
     @Feature("Mka")
     @DisplayName("Получение описания всех типов документов [GET]")
     @Description("mkapmii/documentTypes [GET]")
-    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkapmii/order/swagger-ui.html"),
-            @Link(name = "prod", url = "https://smart.mos.ru/app/mkapmii/order/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mkapmiiOrderTests() {
         ValidatableResponse response = apiRequestBearer()

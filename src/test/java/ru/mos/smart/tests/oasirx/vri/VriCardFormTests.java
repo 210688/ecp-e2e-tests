@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.oasirx.vri;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -8,22 +7,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
-
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 
 public class VriCardFormTests extends TestBase {
     @Test
-    @AllureId("3312")
     @DisplayName("Форма карточки: История изменений")
     @Story("Работа с реестром и карточкой ВРИ")
     @Feature("VRI (ВРИ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void changeHistoryTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToVri();
 
@@ -34,14 +27,12 @@ public class VriCardFormTests extends TestBase {
     }
 
     @Test
-    @AllureId("3311")
     @DisplayName("Форма карточки: Процесс")
     @Story("Работа с реестром и карточкой ВРИ")
     @Feature("VRI (ВРИ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void processTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToVri();
 
@@ -52,14 +43,12 @@ public class VriCardFormTests extends TestBase {
     }
 
     @Test
-    @AllureId("3326")
     @DisplayName("Форма карточки: Материалы")
     @Story("Работа с реестром и карточкой ВРИ")
     @Feature("VRI (ВРИ)")
     @Epic("OASIRX (ОАСИ Рефактор-Икс)")
-    @Tags({@Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("oasirx"), @Tag("vri")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void materialsTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage
                 .goToVri();
 

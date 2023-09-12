@@ -29,15 +29,6 @@ public class AuthorizationPage {
         });
     }
 
-    public static void openUrlWithAuthorizationApi(String url, String login, String password) {
-        step("Авторизация", (step) -> {
-            step.parameter("Login", login);
-            Authorization authorization = new Authorization();
-            setCookies(authorization.getAuthCookie(login, password));
-        });
-    }
-
-
     public static void openUrlWithAuthorizationUI(String url, String login, String password) {
         Selenide.open(url);
         step("Авторизация", (step) -> {

@@ -8,16 +8,14 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
+import static ru.mos.smart.data.Registers.*;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
-import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeRinRif.*;
 
 @Owner("Soldatov")
 @Layer("web")
 @Epic("ИАИС РИН")
 @Feature("RINRIF")
-
-
 
 public class RinRifCardTests extends TestBase {
 

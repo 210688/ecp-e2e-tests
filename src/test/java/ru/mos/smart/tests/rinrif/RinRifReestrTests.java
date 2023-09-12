@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
@@ -15,7 +14,7 @@ import java.util.List;
 
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
-import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeRinRif.*;
+import static ru.mos.smart.data.Registers.*;
 
 @Owner("Soldatov")
 @Layer("web")
@@ -36,8 +35,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(AKTS_PROVEROK);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(AKTS_PROVEROK, columnNames);
+        generalPage.checkTableFilter(AKTS_PROVEROK, columnNames);
     }
 
     @Test
@@ -53,8 +51,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(ALL_OBJECTS);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(ALL_OBJECTS, columnNames);
+        generalPage.checkTableFilter(ALL_OBJECTS, columnNames);
     }
 
     @Test
@@ -68,8 +65,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(ALL_OBJECTS_SNOS);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(ALL_OBJECTS_SNOS, columnNames);
+        generalPage.checkTableFilter(ALL_OBJECTS_SNOS, columnNames);
     }
 
     @Test
@@ -84,8 +80,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(All_ORGANIZATION);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(ALL_OBJECTS_SNOS, columnNames);
+        generalPage.checkTableFilter(ALL_OBJECTS_SNOS, columnNames);
     }
 
     @Test
@@ -100,8 +95,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(All_INSPECTION_DECISIONS);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(All_INSPECTION_DECISIONS, columnNames);
+        generalPage.checkTableFilter(All_INSPECTION_DECISIONS, columnNames);
     }
 
     @Test
@@ -115,8 +109,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(NARUSHENIYA);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(NARUSHENIYA, columnNames);
+        generalPage.checkTableFilter(NARUSHENIYA, columnNames);
 
     }
 
@@ -132,8 +125,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(POSTANOVLENIYA);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(POSTANOVLENIYA, columnNames); //TODO: спросить про проверку данных в таблице
+        generalPage.checkTableFilter(POSTANOVLENIYA, columnNames); //TODO: спросить про проверку данных в таблице
     }
 
     @Test
@@ -148,8 +140,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(PROTOKOLS);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(PROTOKOLS, columnNames);
+        generalPage.checkTableFilter(PROTOKOLS, columnNames);
     }
 
     @Test
@@ -163,8 +154,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(TZ_LABORATORIES);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(TZ_LABORATORIES, columnNames);
+        generalPage.checkTableFilter(TZ_LABORATORIES, columnNames);
 
     }
 
@@ -180,8 +170,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(DEMOLITIONS);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(DEMOLITIONS, columnNames);
+        generalPage.checkTableFilter(DEMOLITIONS, columnNames);
     }
 
     @Test
@@ -196,8 +185,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(PLANNED_DEMOLITION_NOTICES, columnNames);
+        generalPage.checkTableFilter(PLANNED_DEMOLITION_NOTICES, columnNames);
     }
 
     @Test
@@ -212,8 +200,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(MODIFICATION_OBJECT_OPERATION, columnNames);
+        generalPage.checkTableFilter(MODIFICATION_OBJECT_OPERATION, columnNames);
     }
 
     @Test
@@ -228,8 +215,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(CHANGE_CONSTRUCTION_BUILDING, tableColumnList);
+        generalPage.checkTableFilter(CHANGE_CONSTRUCTION_BUILDING, tableColumnList);
     }
 
     @Test
@@ -244,8 +230,7 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(PERMISSIONS_OBJECT_OPERATION, tableColumnList);
+        generalPage.checkTableFilter(PERMISSIONS_OBJECT_OPERATION, tableColumnList);
     }
 
     @Test
@@ -260,7 +245,6 @@ public class RinRifReestrTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(BUILDING_PERMIT);
         reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(BUILDING_PERMIT, tableColumnList);
+        generalPage.checkTableFilter(BUILDING_PERMIT, tableColumnList);
     }
 }

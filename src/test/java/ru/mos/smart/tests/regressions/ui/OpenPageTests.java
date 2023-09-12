@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.regressions.ui;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -11,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.annotations.Owner;
 import ru.mos.smart.tests.TestBase;
+
 import static ru.mos.smart.data.Sidebar.*;
 
 @Owner("Soldatov")
@@ -20,7 +20,6 @@ import static ru.mos.smart.data.Sidebar.*;
 public class OpenPageTests extends TestBase {
 
     @Test
-    @AllureId("12322")
     @Feature("LCS")
     @DisplayName("В возможностях пользователя присутствует список возможностей")
     @Description("Проверить, что в возможностях пользователя присутствуетсписок возможностей")
@@ -31,7 +30,6 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @AllureId("8265")
     @Feature("CDP")
     @DisplayName("В задачах пользователя присутствует список задач")
     @Description("Проверить, что в задачах пользователя присутствует список задач")
@@ -43,7 +41,6 @@ public class OpenPageTests extends TestBase {
 
 
     @Test
-    @AllureId("12325")
     @Feature("CDP")
     @DisplayName("Наличие списка реестров на странице Реестр")
     @Description("Проверить, что отображается список реестров на странице Реестр")
@@ -63,7 +60,6 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @AllureId("8262")
     @Feature("CDP")
     @DisplayName("В справочнике присутствует список элементов")
     @Description("Проверить, что в справочнике присутсвует список элементов")

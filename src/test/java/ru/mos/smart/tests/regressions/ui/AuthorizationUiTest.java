@@ -19,7 +19,6 @@ import static ru.mos.smart.config.ConfigHelper.*;
 public class AuthorizationUiTest extends TestBase {
 
     @Test
-    @AllureId("12310")
     @DisplayName("Проверка авторизации через UI")
     @Description("Проверить, что пользователь залогинен в системе смарт")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

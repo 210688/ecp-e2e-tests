@@ -19,6 +19,7 @@ import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Registers.RINRIF_MATCAP;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
 
@@ -38,7 +39,7 @@ public class RinRifMatCapTests extends TestBase {
     void checkAttributesOfRinRifMatCapRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister("Заявления о выдаче акта по материнскому капиталу");
+        reestrPage.goToRegister(RINRIF_MATCAP);
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form").$("input").shouldBe(visible);
             $(".search-form").$("button.btn-search").shouldBe(visible);
@@ -65,7 +66,7 @@ public class RinRifMatCapTests extends TestBase {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister("Заявления о выдаче акта по материнскому капиталу");
+        reestrPage.goToRegister(RINRIF_MATCAP);
         step("Открыть любую карточку реестра", () -> {
             $("input.input-lg").setValue(statementNumber.toString()).pressEnter();
             $("table").$("tbody").$(byText(statementNumber.toString())).click();

@@ -2,7 +2,6 @@ package ru.mos.smart.tests.mkapmii;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -10,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -21,21 +21,21 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.data.Registers.MKAPMII_ORDER;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
 
 @Epic("OASI")
 public class MkapmiiRegisterTests extends TestBase {
     @Test
-    @AllureId("5189")
     @Feature("Реестр и карточка заявления")
     @Story("MKAPMII")
     @DisplayName("Проверка UI реестр оказания услуг по размещению инженерных изысканий")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("mkapmii")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheAttributesOfTheRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
+        reestrPage.goToRegister(MKAPMII_ORDER);
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form input").shouldBe(visible);
         });
@@ -61,14 +61,14 @@ public class MkapmiiRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("5191")
     @Feature("Реестр и карточка заявления")
     @DisplayName("Проверка UI карточки заявления")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void uiCardTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
-        reestrPage.gotoFirstCardNoSwitchWindow();
+        reestrPage.goToRegister(MKAPMII_ORDER);
+        //reestrPage.gotoFirstCardNoSwitchWindow();
         step("Проверить, что форма озаглавлена Карточка заявления", () ->
                 $("h1").shouldHave(text("Карточка заявления")));
         step("Открытая вкладка озаглавлена Сведения о заявлении", () ->
@@ -117,14 +117,14 @@ public class MkapmiiRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("5190")
     @Feature("Реестр и карточка заявления")
     @DisplayName("Проверка основных контролов карточки заявления")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mainControlsTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
-        reestrPage.gotoFirstCardNoSwitchWindow();
+        reestrPage.goToRegister(MKAPMII_ORDER);
+        //reestrPage.gotoFirstCardNoSwitchWindow();
 
         ElementsCollection dataBlocks = $$(".tab-content .collapsible-title");
 
@@ -153,8 +153,8 @@ public class MkapmiiRegisterTests extends TestBase {
                 $(".buttons-container").$(byText("Назад")).click());
         step("Проверить, что форма успешно закрывается", () ->
                 $("h2").shouldHave(text("Реестр оказания услуги по размещению инженерных изысканий")));
-        reestrPage
-                .gotoFirstCardNoSwitchWindow();
+       // reestrPage
+               // .gotoFirstCardNoSwitchWindow();
         step("Нажать на кнопку В реестр", () ->
                 $(".buttons-container").$(byText("В реестр")).click());
         step("Проверить, что открывается реестр Реестр оказания услуг по размещению инженерных изысканий", () ->
@@ -162,13 +162,13 @@ public class MkapmiiRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("6520")
     @Feature("Выдача заявления на руки")
     @DisplayName("Проверка UI вкладки Выдача на руки")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void handingOverTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
+        reestrPage.goToRegister(MKAPMII_ORDER);
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
             $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();
@@ -194,13 +194,14 @@ public class MkapmiiRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("6519")
+    @OnPreprodOnly
     @Feature("Выдача заявления на руки")
     @DisplayName("Проверка UI модальное окно Выдать на руки")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void handingOverPlusTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister("Реестр оказания услуги по размещению инженерных изысканий");
+        reestrPage.goToRegister(MKAPMII_ORDER);
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
             $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();

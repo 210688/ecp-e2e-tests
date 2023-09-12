@@ -28,6 +28,7 @@ public class TestBase {
     public OasirxProjectsPage oasirxProjectsPage = new OasirxProjectsPage();
     public DictsPage dictsPage = new DictsPage();
     public DronePage dronePage = new DronePage();
+    public GeneralPage generalPage = new GeneralPage();
 
     @BeforeAll
     static void beforeAll() {

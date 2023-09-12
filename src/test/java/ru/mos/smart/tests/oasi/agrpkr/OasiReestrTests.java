@@ -12,13 +12,10 @@ import ru.mos.smart.tests.TestBase;
 import java.util.Arrays;
 import java.util.List;
 
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.Registers.AGR;
+import static ru.mos.smart.data.Registers.PKR;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
-import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasi.AGR;
-import static ru.mos.smart.data.reestrUrl.RegisterObjectTypeOasi.PKR;
-import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
 
 @Owner("Soldatov")
 @Layer("web")
@@ -39,9 +36,6 @@ public class OasiReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PKR);
-/*        reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(PKR, columnNames);*/
     }
 
     @Test
@@ -55,10 +49,6 @@ public class OasiReestrTests extends TestBase {
         List<String> columnNames = Arrays.asList("Номер дела", "Наименование  объекта", "Адрес земельного участка", "Рег. номер", "Дата регистрации",
                 "Статус", "Заявитель", "Дата оказания ГУ", "Номер МПГУ", "Эксперт ", "Значение объекта", "Кол-во дней в МКА", "Номер и дата комиссии",
                 "срок");
-        openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage.goToRegister(AGR);
-/*        reestrPage.searchField();
-        reestrPage.columnsAndFilterButton();
-        reestrPage.checkFilter(AGR, columnNames);*/
     }
 }

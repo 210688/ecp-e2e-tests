@@ -1,6 +1,5 @@
 package ru.mos.smart.tests.mkasdprv;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -17,6 +16,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.data.Registers.MKASDPRV_ORDER;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
 
@@ -26,14 +26,12 @@ import static ru.mos.smart.data.Sidebar.REGISTERS;
 public class MkasdprvRegisterTests extends TestBase {
 
     @Test
-    @AllureId("5597")
     @DisplayName("Проверка атрибутивного состава реестра")
-    @Tags({@Tag("stage"), @Tag("mkasdprv"), @Tag("predprod")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheAttributesOfTheRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage
-                .goToRegister("Реестр оказания услуги Вывесок");
+        reestrPage.goToRegister(MKASDPRV_ORDER);
 
         step("В реестре присутствуют поля:", () -> {
             $x("//th[contains(text(),'Номер заявления')]").shouldBe(exist);
@@ -49,14 +47,12 @@ public class MkasdprvRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("6890")
     @DisplayName("Открытие карточки реестра")
-    @Tags({@Tag("predprod"), @Tag("regres"), @Tag("mkasdprv")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openingRegistryCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage
-                .goToRegister("Реестр оказания услуги Вывесок");
+        reestrPage.goToRegister(MKASDPRV_ORDER);
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg").setValue("КВ-2021-1855").pressEnter();
