@@ -5,6 +5,8 @@ import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -28,7 +30,9 @@ import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
 
-@Epic("RAYON (Мой район)")
+@Epic("OASI")
+@Feature("rayon")
+@Story("program")
 public class MrTests extends TestBase {
 
     private final Faker faker = new Faker();

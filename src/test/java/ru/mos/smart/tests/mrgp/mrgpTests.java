@@ -3,10 +3,12 @@ package ru.mos.smart.tests.mrgp;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
@@ -18,8 +20,10 @@ import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
 
 @Layer("web")
-@Epic("OASI (ОАСИ)")
+@Epic("OASI")
 @Feature("MRGP")
+@Story("Информация")
+@Component("Реестры")
 public class mrgpTests extends TestBase {
     @Test
     @AllureId("6003")

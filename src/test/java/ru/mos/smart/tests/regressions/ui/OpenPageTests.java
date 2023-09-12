@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.annotations.Owner;
 import ru.mos.smart.tests.TestBase;
-
 import static ru.mos.smart.data.Sidebar.*;
 
 @Owner("Soldatov")
@@ -23,8 +22,8 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("12322")
     @Feature("LCS")
-    @Description("Наличие списка возможностей на странице Возможности")
     @DisplayName("В возможностях пользователя присутствует список возможностей")
+    @Description("Проверить, что в возможностях пользователя присутствуетсписок возможностей")
     void goToActionsPage() {
         sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
         sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, ACTIONS);
@@ -34,8 +33,8 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("8265")
     @Feature("CDP")
-    @Description("Наличие списка задач пользователя на странице Задачи")
     @DisplayName("В задачах пользователя присутствует список задач")
+    @Description("Проверить, что в задачах пользователя присутствует список задач")
     void checkListTasksPage() {
         sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
         sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, TASK);
@@ -46,8 +45,8 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("12325")
     @Feature("CDP")
-    @Description("Список реестров пользователя")
     @DisplayName("Наличие списка реестров на странице Реестр")
+    @Description("Проверить, что отображается список реестров на странице Реестр")
     void goToRegister() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -56,8 +55,8 @@ public class OpenPageTests extends TestBase {
 
     @Test
     @Feature("CDP")
-    @Description("Список реестров пользователя")
     @DisplayName("Наличие списка реестров на странице Реестр")
+    @Description("Проверить, что отображается список реестров на странице Реестр")
     void checkListInformation() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.checkInformationMenuContainsRegistries();
@@ -66,8 +65,8 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("8262")
     @Feature("CDP")
-    @Description("Список справочника")
     @DisplayName("В справочнике присутствует список элементов")
+    @Description("Проверить, что в справочнике присутсвует список элементов")
     void goToOpenSpravochnik() {
         sidebarPage.clickSidebarMenu(SETTINGS);
         sidebarPage.clickSubMenuList(SETTINGS, REFERENCE_BOOKS);

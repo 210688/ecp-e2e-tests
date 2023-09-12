@@ -19,8 +19,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12361")
-    @Description("Переход на карту")
     @DisplayName("Наличие подложки на карте")
+    @Description("Проверить, что отображается подложка на карте")
     void goToMaps() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAP);
@@ -29,8 +29,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12364")
-    @Description("Отображение инструментов  на 2D карте")
     @DisplayName("Наличие инструментов  на 2D карте")
+    @Description("Проверить, что присутствуют инструменты на карте 2D")
     void checkAvailabilityInstruments() {
         String[] expectedTexts = {
                 "3D режим",
@@ -48,8 +48,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12360")
-    @Description("Адресный поиск на карте 2D")
     @DisplayName("Наличие поля ввода адресного поиска на карте 2D")
+    @Description("Проверить, что отображается поле ввода адресного поиска на карте 2D")
     void checkAvailabilityAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAP);
@@ -58,8 +58,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("12362")
-    @Description("Поиск слоя на карте 2D")
     @DisplayName("Наличие поля ввода поиска слоя на карте 2D")
+    @Description("Проверить, что отображается поле ввода поиска слоя на карте 2D")
     void checkAvailabilityOfLayerSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAP);
@@ -68,8 +68,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("8298")
-    @Description("Поиск адреса в адресной строке")
     @DisplayName("Поиск адреса на карте 2D")
+    @Description("Проверить, что есть возиожность поиска адреса на карте 2D")
     void checkingAddressSearch() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAP);
@@ -78,8 +78,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("8269")
-    @Description("Инструменты масштабирования")
     @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
+    @Description("Проверить, что отображается инструменты масштабирования")
     void checkingAvailabilityOfScalingTools() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAP);
@@ -88,8 +88,8 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("8266")
-    @Description("Инструменты Мое местоположение")
     @DisplayName("Проверка наличия инструмента Мое местоположение")
+    @Description("Проверить, что отображается инструмент - Моё местоположение")
     void checkingAvailabilityOfMyLocationTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -99,6 +99,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Test
     @AllureId("8276")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
+    @Description("Проверить, что отображается инструмент - Первоначальная позиция")
     void checkingAvailabilityOfInitialPositionTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

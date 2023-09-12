@@ -1,6 +1,7 @@
 package ru.mos.smart.tests.ugd.oati;
 
 import io.qameta.allure.AllureId;
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -30,6 +31,7 @@ class RegistersUvedomleniaTests extends TestBase {
     @AllureId("7056")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regres"), @Tag("ugd"), @Tag("oati")})
     @DisplayName("Проверка открытия реестров")
+    @Description("Проверить, что реестр открывается")
     void openRegisterUvedomlenia() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
         reestrPage

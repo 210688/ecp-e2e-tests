@@ -1,10 +1,7 @@
 /*
 package ru.mos.smart.tests.regressions.ui;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -24,6 +21,7 @@ public class AuthorizationUiTest extends TestBase {
     @Test
     @AllureId("12310")
     @DisplayName("Проверка авторизации через UI")
+    @Description("Проверить, что пользователь залогинен в системе смарт")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void authorizationEcpViaUi() {
     }

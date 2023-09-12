@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.ugd.mtsk;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -32,6 +29,7 @@ class CatalogsMtskTests extends TestBase {
     @Test
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("ugd"), @Tag("mtsk")})
     @DisplayName("Проверка наличия каталогов МТСК")
+    @Description("Проверить, что каталог открывается")
     void checkCatalogsMtsk() {
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
 

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -31,6 +32,8 @@ public class RinRifMatCapTests extends TestBase {
     @Owner("soldatov")
     @AllureId("7996")
     @DisplayName("Проверка реестра Заявления о выдаче акта по материнскому капиталу")
+    @Description("Проверить, что открывается реестр - Заявления о выдаче акта по материнскому капиталу")
+    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("rinrif")})
     void checkAttributesOfRinRifMatCapRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -53,6 +56,10 @@ public class RinRifMatCapTests extends TestBase {
     @Owner("soldatov")
     @AllureId("7995")
     @DisplayName("Проверка карточки реестра Заявления о выдаче акта по материнскому капиталу")
+    @Description("Проверить, что открывается карточка из реестра - Заявления о выдаче акта по материнскому капиталу")
+    @Layer("web")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("regres"), @Tag("rinrif")})
+
     void checkAttributesOfRinRifMatCapObjCard() {
         java.lang.String statementNumber = "09-МК-179/21-(0)-0";
         AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
