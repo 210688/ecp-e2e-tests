@@ -12,11 +12,11 @@ import ru.mos.smart.tests.TestBase;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
+@Epic("ИАИС РИН")
+@Feature("RINRIF")
 public class RinRifApplicationTest extends TestBase {
 
     @Test
-    @Epic("ИАИС РИН")
-    @Feature("RINRIF")
     @DisplayName("Проверка перехода в карточку заявления")
     @Description("Проверить, что открывается карточка заявления")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

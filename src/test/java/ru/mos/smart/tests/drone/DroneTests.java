@@ -19,12 +19,12 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.data.Registers.AEROFOTO;
-import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTERS;
+import static ru.mos.smart.data.enums.OpportunityForm.CREATE_CARD_AEROFOTO;
+import static ru.mos.smart.data.enums.Registers.AEROFOTO;
+import static ru.mos.smart.data.enums.Sidebar.*;
+import static ru.mos.smart.utils.RandomUtils.generateRandomDate;
 
 @Owner("Soldatov")
 @Epic("OASI")
@@ -32,26 +32,28 @@ import static ru.mos.smart.data.Sidebar.REGISTERS;
 @Story("drone")
 public class DroneTests extends TestBase {
     private final String createCard = "/drone/#/app/drone/videoUpload";
-    private final ElementsCollection calendars = $$("div.input-group.date.ng-scope > input");
+    private final ElementsCollection dateInput = $$("div.cdp-date-container > input");
+    private final String randomDate = generateRandomDate();
 
     @Test
-    @AllureId("17118")
     @OnPreprodOnly
     @Component("Госуслуги и функции")
     @DisplayName("Создать карточку аэросъемки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void createCardDrone() {
-        sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        actionsPage.openToBusinessProcess("Создать карточку аэросъемки");
+
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, OPPORTUNITIES );
+        actionsPage.openToBusinessProcess(CREATE_CARD_AEROFOTO);
+        switchTo().window(1);
         step("Наименование объекта", () ->
                 $(byName("object")).click());
         $(byText("ст. «Стахановская»")).click();
         step("Желаемая дата съемки", () ->
-                calendars.get(0).setValue("21.12.2023"));
+                dateInput.get(0).val(randomDate));
         step("Тип съемки", () ->
                 $(byName("shooting_afs")).click());
-        $$(".ng-option-label").findBy(text("Фото")).click();
+        $$(".ng-option-label").findBy(text("Пролет по заданному маршруту")).click();
         step("Требования к съемке", () ->
                 $(byName("requirements")).setValue("Тестовый объект"));
         step("Приоритет", () ->
@@ -66,7 +68,7 @@ public class DroneTests extends TestBase {
         step("Номер заявки", () ->
                 $(byName("droneRequest.number")).val(RandomUtils.getRandomInt(5)));
         step("Дата заявки", () ->
-                calendars.get(1).setValue("24.11.2022"));
+                dateInput.get(1).val(randomDate));
         step("Номер контракта", () ->
                 $(byName("constact_number")).click());
         $$(".ng-option-label").findBy(text("new/test")).click();
@@ -74,7 +76,7 @@ public class DroneTests extends TestBase {
                 $(byName("contractor")).click());
         $$(".ng-option-label").findBy(text("БСА Лужники")).click();
         step("Дата аэрофотосъемки", () ->
-                calendars.get(3).setValue("24.11.2022"));
+                dateInput.get(3).setValue("24.11.2022"));
         $(byName("point")).val("POINT(42 22)");
         $(byName("description")).val("Тестовая заявка для тестирования");
         step("Загрузить материалы аэрофотосъемки", () ->
@@ -87,7 +89,6 @@ public class DroneTests extends TestBase {
     }
 
     @Test
-    @AllureId("17116")
     @Component("Информация")
     @Description("Наличие карточек в реестре данные аэрофотосъемки")
     @DisplayName("В реестре данные аэрофотосъемки присутствуют карточки")
@@ -102,7 +103,6 @@ public class DroneTests extends TestBase {
     }
 
     @Test
-    @AllureId("17117")
     @Component("Информация")
     @Description("Просмотреть карточку аэросъемки")
     @DisplayName("В карточке присутствуют данные")

@@ -1,4 +1,4 @@
-package ru.mos.smart.data;
+package ru.mos.smart.data.enums;
 
 public enum Registers {
 

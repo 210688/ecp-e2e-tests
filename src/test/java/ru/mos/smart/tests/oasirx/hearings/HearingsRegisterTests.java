@@ -7,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.annotations.Owner;
 import ru.mos.smart.tests.TestBase;
 
@@ -20,7 +19,6 @@ import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.HEARINGS_URL;
 @Feature("Oasirx")
 @Story("HEARINGS (Публичные слушания)")
 @Owner("Soldatov")
-@Layer("web")
 public class HearingsRegisterTests extends TestBase {
 
     @Test

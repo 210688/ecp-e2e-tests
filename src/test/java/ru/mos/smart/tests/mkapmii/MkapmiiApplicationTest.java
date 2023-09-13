@@ -23,8 +23,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.data.Sidebar.SERVICES_AND_FUNCTION;
-import static ru.mos.smart.data.Sidebar.TASK;
+import static ru.mos.smart.data.enums.Sidebar.SERVICES_AND_FUNCTION;
+import static ru.mos.smart.data.enums.Sidebar.TASK;
 
 
 @Epic("OASI")
@@ -112,7 +112,6 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("02. Сохранить без завершения")
-    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void saveAndNotFinishTest() {
@@ -135,9 +134,8 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @OnPreprodOnly
-    @DisplayName("03. Проверка перехода в карточку заявления")
-    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
+    @DisplayName("03. Проверка перехода в карточку заявления")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void applicationCardTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
@@ -155,7 +153,6 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("07. Успешный прием документов")
-    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void positiveFinishTask() {
@@ -176,7 +173,6 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("04. Неуспешный отказ в приёме документов (отсутствует причина отказа и файл заключения)")
-    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void unsuccessfulRefuseTest() {
@@ -194,7 +190,6 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("05. Неуспешный отказ в приёме документов (отсутствует файл заключения)")
-    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void unsuccessfulRefuseNoFileTest() {
@@ -234,7 +229,6 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("06. Неуспешный отказ в приёме документов (все поля не заполнены)")
-    @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void unsuccessfulRefuseEmptyFieldsTest() {

@@ -12,7 +12,7 @@ import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.data.Registers.UGD_UPSD;
+import static ru.mos.smart.data.enums.Registers.UGD_UPSD;
 
 @Epic("UGD")
 @Feature("UPSD")

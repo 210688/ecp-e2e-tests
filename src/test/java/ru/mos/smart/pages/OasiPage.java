@@ -13,7 +13,7 @@ import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.switchTo;
-import static ru.mos.smart.data.Registers.AEROFOTO;
+import static ru.mos.smart.data.enums.Registers.AEROFOTO;
 
 public class OasiPage {
     private final ElementsCollection tableHeaders = $$("table th");

@@ -9,7 +9,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.tests.TestBase;
@@ -24,10 +23,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.TASK;
+import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
+import static ru.mos.smart.data.enums.Sidebar.TASK;
 
-@Layer("web")
 @Epic("OASI")
 @Feature("MKASDPRV")
 public class MkasdprvApplicantDetailsCheckTest extends TestBase {
@@ -117,7 +115,6 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("02. Проверка перехода в карточку заявления")
-    @Epic("MKASDPRV (МКА Вывески)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void applicationCardTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
@@ -136,7 +133,6 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("03. Принять решение по заявлению - отказ. Причины отказа")
-    @Epic("MKASDPRV (МКА Вывески)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void negativeDecisionTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);

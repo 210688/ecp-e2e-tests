@@ -1,40 +1,30 @@
 package ru.mos.smart.pages;
 
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import ru.mos.smart.data.Registers;
+import ru.mos.smart.data.enums.OpportunityForm;
 import ru.mos.smart.helpers.AllureAttachments;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 /**
  * Страница Возможности
  */
 
 public class ActionsPage {
-    private final SelenideElement process = $("trv-input input ");
-    private final SelenideElement filter = $x("//button[contains(text(),'Фильтр')]");
-    private final ElementsCollection registryName = $$("trv-input");
+    private final SelenideElement businessProcessInputField = $("trv-input input ");
+    private final SelenideElement buttonFilter = $x("//button[contains(text(),'Фильтр')]");
 
     @Step("Запуск бизнес-процесса {businessProcess}")
-    public void openToBusinessProcess(String businessProcess) {
-        filter.click();
-        process.val(businessProcess);
-        $(byText(businessProcess)).click();
+    public void openToBusinessProcess(OpportunityForm businessProcess) {
+        buttonFilter.click();
+        businessProcessInputField.val(businessProcess.value());
+        $(byText(businessProcess.value())).click();
     }
-
-    @Step("Переход в реестр {registerName}")
-    public void goToRegister(Registers registerName) {
-        filter.click();
-        registryName.get(1).$("input").val(registerName.value());
-        $(byText(registerName.value())).click();
-    }
-
-
 
     @Step("Список возможностей")
     public void checkActionsTask() {

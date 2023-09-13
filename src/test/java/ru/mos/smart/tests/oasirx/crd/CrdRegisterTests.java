@@ -9,19 +9,17 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
-import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTERS;
+import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
+import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.CRD_URL;
 
 @Owner("Soldatov")
-@Layer("web")
 @Epic("Проверки реестров по подсистемам")
 @Feature("ОАСИРХ")
 @Story("Реестр")

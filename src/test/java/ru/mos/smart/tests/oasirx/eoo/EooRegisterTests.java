@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.Arrays;
@@ -23,7 +22,6 @@ import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
 @Epic("Проверки реестров по подсистемам")
 @Feature("ОАСИРХ")
 @Story("Реестр")
-@Layer("web")
 @Owner("Soldatov")
 public class EooRegisterTests extends TestBase {
 

@@ -20,8 +20,8 @@ import static io.qameta.allure.Allure.step;
 @Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("VIOLATION (Нарушения ОГД)")
-
 public class ViolationRegisterTests extends TestBase {
+
     @Test
     @DisplayName("Просмотр раздела Нарушения ОГД")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
