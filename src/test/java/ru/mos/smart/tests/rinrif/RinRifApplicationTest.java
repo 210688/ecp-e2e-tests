@@ -19,7 +19,6 @@ public class RinRifApplicationTest extends TestBase {
     @Feature("RINRIF")
     @DisplayName("Проверка перехода в карточку заявления")
     @Description("Проверить, что открывается карточка заявления")
-    @Epic("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void applicationCard() {
         java.lang.String randomTestId = "Заявление о выдаче разрешения на строительство № 09-З-748/22-(0)-0 от 26.12.2022  Плановая дата: 30.12.2022 ";

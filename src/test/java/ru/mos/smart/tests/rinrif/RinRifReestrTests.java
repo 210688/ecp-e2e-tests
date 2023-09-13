@@ -6,15 +6,14 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.data.Registers.*;
+import static ru.mos.smart.data.Sidebar.INFORMATION;
+import static ru.mos.smart.data.Sidebar.REGISTERS;
 
 @Owner("Soldatov")
 @Layer("web")
@@ -30,9 +29,9 @@ public class RinRifReestrTests extends TestBase {
     void goToRegisterAktsProverok() {
         List<java.lang.String> columnNames = Arrays.asList("Номер акта", "Дата акта", "Место проведения проверки",
                 "Результат проверки", "Специалист УН", "ЕРКНМ");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AKTS_PROVEROK);
-        reestrPage.searchField();
         generalPage.checkTableFilter(AKTS_PROVEROK, columnNames);
     }
 
@@ -43,9 +42,9 @@ public class RinRifReestrTests extends TestBase {
     void goToRegisterVseObjects() {
         List<java.lang.String> columnNames = Arrays.asList("Источник финансирования", "Номер дела", "Объект", "Застройщик ", "Почтовый адрес",
                 "Дата начала строительства", "Дата окончания строительства", "Состояние", "Строительный надзор");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS);
-        reestrPage.searchField();
         generalPage.checkTableFilter(ALL_OBJECTS, columnNames);
     }
 
@@ -55,9 +54,9 @@ public class RinRifReestrTests extends TestBase {
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterAllObjectsSnos() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Объект", "Кадастровый номер ЗУ", "Кадастровый номер здания");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS_SNOS);
-        reestrPage.searchField();
         generalPage.checkTableFilter(ALL_OBJECTS_SNOS, columnNames);
     }
 
@@ -68,9 +67,9 @@ public class RinRifReestrTests extends TestBase {
     void goToRegisterAllOrganizations() {
         List<java.lang.String> columnNames = Arrays.asList("Полное наименование организации / Руководитель", "ИНН", "ОГРН /СНИЛС / Паспорт",
                 "Юр. адрес / Факт. адрес", "Почтовый адрес");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_ORGANIZATION);
-        reestrPage.searchField();
         generalPage.checkTableFilter(ALL_OBJECTS_SNOS, columnNames);
     }
 
@@ -81,9 +80,9 @@ public class RinRifReestrTests extends TestBase {
     void goToRegisterAllInspectionDecisions() {
         List<java.lang.String> columnNames = Arrays.asList("Номер", "Дата", "Объект", "Проверяемая организация", "Вид проверки", "Основание для проверки",
                 "Период проведения", "Ответственный", "Статус", "ЕРКНМ");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_INSPECTION_DECISIONS);
-        reestrPage.searchField();
         generalPage.checkTableFilter(All_INSPECTION_DECISIONS, columnNames);
     }
 
@@ -93,9 +92,9 @@ public class RinRifReestrTests extends TestBase {
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterViolations() {
         List<java.lang.String> columnNames = Arrays.asList("Номер нарушения", "Дата нарушения", "Наименование работ", "Специалист УН. ФИО");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(NARUSHENIYA);
-        reestrPage.searchField();
         generalPage.checkTableFilter(NARUSHENIYA, columnNames);
 
     }
@@ -107,7 +106,8 @@ public class RinRifReestrTests extends TestBase {
     void goToRegisterPostanovleniya() {
         List<java.lang.String> columnNames = Arrays.asList("Постановление", "Нарушитель", "Штраф", "Срок оплаты", "УН", "Подписал", "Оплачено (руб.)",
                 "Долг по оплате (руб.)");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(POSTANOVLENIYA);
         reestrPage.searchField();
         generalPage.checkTableFilter(POSTANOVLENIYA, columnNames); //TODO: спросить про проверку данных в таблице
@@ -120,7 +120,8 @@ public class RinRifReestrTests extends TestBase {
     void goToRegisterProtokols() {
         List<java.lang.String> columnNames = Arrays.asList("Дата протокола", "Место совершения нарушения", "Статья КОАП РФ", "Проверяемая организация",
                 "Специалист УН. ФИО");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PROTOKOLS);
         reestrPage.searchField();
         generalPage.checkTableFilter(PROTOKOLS, columnNames);
@@ -132,7 +133,8 @@ public class RinRifReestrTests extends TestBase {
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterTzLabaratorii() {
         List<java.lang.String> columnNames = Arrays.asList("Дата проверки ЦЭИИС", "Срок исполнения ТЗ", "Состав работ", "Состав работ утвержден ГБУ");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(TZ_LABORATORIES);
         reestrPage.searchField();
         generalPage.checkTableFilter(TZ_LABORATORIES, columnNames);
@@ -146,7 +148,8 @@ public class RinRifReestrTests extends TestBase {
     void goToRegisterUvedomleniyaOzaversheniiSnosa() {
         List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата", "Заявитель",
                 "Исполнитель", "Данные ПГУ");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(DEMOLITIONS);
         reestrPage.searchField();
         generalPage.checkTableFilter(DEMOLITIONS, columnNames);
@@ -159,7 +162,8 @@ public class RinRifReestrTests extends TestBase {
     void goToRegisterUvedomleniyaOplaniruemomSnose() {
         List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата",
                 "Заявитель", "Исполнитель", "Данные ПГУ");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
         reestrPage.searchField();
         generalPage.checkTableFilter(PLANNED_DEMOLITION_NOTICES, columnNames);
@@ -172,7 +176,8 @@ public class RinRifReestrTests extends TestBase {
     void goToRegisterEnteringObjects() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Заявление", "Рег. дата", "Плановая дата",
                 "Объект", "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
         reestrPage.searchField();
         generalPage.checkTableFilter(MODIFICATION_OBJECT_OPERATION, columnNames);
@@ -185,7 +190,8 @@ public class RinRifReestrTests extends TestBase {
     void goToRegisterChangeConstructionBuilding() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Вид изменений", "Заявление", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
         reestrPage.searchField();
         generalPage.checkTableFilter(CHANGE_CONSTRUCTION_BUILDING, tableColumnList);
@@ -198,7 +204,8 @@ public class RinRifReestrTests extends TestBase {
     void goToRegisterObjectOperation() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
         reestrPage.searchField();
         generalPage.checkTableFilter(PERMISSIONS_OBJECT_OPERATION, tableColumnList);
@@ -211,7 +218,8 @@ public class RinRifReestrTests extends TestBase {
     void goToBuildingPermitRegister() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(BUILDING_PERMIT);
         reestrPage.searchField();
         generalPage.checkTableFilter(BUILDING_PERMIT, tableColumnList);

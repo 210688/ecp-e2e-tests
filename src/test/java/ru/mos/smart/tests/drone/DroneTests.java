@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.tests.TestBase;
@@ -27,16 +26,16 @@ import static ru.mos.smart.data.Registers.AEROFOTO;
 import static ru.mos.smart.data.Sidebar.INFORMATION;
 import static ru.mos.smart.data.Sidebar.REGISTERS;
 
+@Owner("Soldatov")
 @Epic("OASI")
 @Feature("Drone (Аэрофотосъемка)")
 @Story("drone")
-@Owner("Soldatov")
-@Layer("web")
 public class DroneTests extends TestBase {
     private final String createCard = "/drone/#/app/drone/videoUpload";
     private final ElementsCollection calendars = $$("div.input-group.date.ng-scope > input");
 
     @Test
+    @AllureId("17118")
     @OnPreprodOnly
     @Component("Госуслуги и функции")
     @DisplayName("Создать карточку аэросъемки")
@@ -88,6 +87,7 @@ public class DroneTests extends TestBase {
     }
 
     @Test
+    @AllureId("17116")
     @Component("Информация")
     @Description("Наличие карточек в реестре данные аэрофотосъемки")
     @DisplayName("В реестре данные аэрофотосъемки присутствуют карточки")
@@ -102,6 +102,7 @@ public class DroneTests extends TestBase {
     }
 
     @Test
+    @AllureId("17117")
     @Component("Информация")
     @Description("Просмотреть карточку аэросъемки")
     @DisplayName("В карточке присутствуют данные")

@@ -112,7 +112,6 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("02. Сохранить без завершения")
-    @Epic("Автотесты")
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -137,7 +136,6 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("03. Проверка перехода в карточку заявления")
-    @Epic("Автотесты")
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -157,7 +155,6 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("07. Успешный прием документов")
-    @Epic("Автотесты")
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -179,7 +176,6 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("04. Неуспешный отказ в приёме документов (отсутствует причина отказа и файл заключения)")
-    @Epic("Автотесты")
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -198,7 +194,6 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("05. Неуспешный отказ в приёме документов (отсутствует файл заключения)")
-    @Epic("Автотесты")
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -239,7 +234,6 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("06. Неуспешный отказ в приёме документов (все поля не заполнены)")
-    @Epic("Автотесты")
     @ManualMember("innovault")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

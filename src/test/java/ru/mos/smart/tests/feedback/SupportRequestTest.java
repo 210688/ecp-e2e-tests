@@ -7,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
@@ -17,20 +16,18 @@ import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
 
-@Layer("web")
 @Epic("OASI")
 @Feature("FEEDBACK")
 public class SupportRequestTest extends TestBase {
 
     @Test
     @OnPreprodOnly
-    @Description("Данная проверка отправляет письмо в тех поддержку, " +
-            "запускать на определеных средах.")
+    @Description("Отправка письма в тех поддержку")
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void SupportRequestForward() {
-        actionsPage
-                .goToActions("Инициировать обращение в техническую поддержку");
+
+        actionsPage.goToActions("Инициировать обращение в техническую поддержку");
 
         step("Заполнение поля Тип обращения", () -> {
             $x("//input[@role='combobox']").click();

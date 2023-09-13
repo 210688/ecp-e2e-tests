@@ -35,8 +35,6 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("01. Проверка основных контролов на странице")
-    @Epic("MKASDPRV (МКА Вывески)")
-    @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mainControlsTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
@@ -120,7 +118,6 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     @OnPreprodOnly
     @DisplayName("02. Проверка перехода в карточку заявления")
     @Epic("MKASDPRV (МКА Вывески)")
-    @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void applicationCardTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
@@ -140,7 +137,6 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     @OnPreprodOnly
     @DisplayName("03. Принять решение по заявлению - отказ. Причины отказа")
     @Epic("MKASDPRV (МКА Вывески)")
-    @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void negativeDecisionTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
@@ -211,8 +207,6 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("04. Принять решение. Сформировать файл решения. Загрузка файлов")
-    @Epic("MKASDPRV (МКА Вывески)")
-    @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void negativeFilesTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
@@ -245,8 +239,6 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     @Test
     @OnPreprodOnly
     @DisplayName("05. Успешный отказ в приёме документов")
-    @Epic("MKASDPRV (МКА Вывески)")
-    @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void refuseDocsTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
@@ -271,8 +263,6 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     @OnPreprodOnly
     @DisplayName("Завершение задачи (принять в работу)")
     @Story("02. Завершение задачи Проверить данные заявления (принять в работу)")
-    @Feature("Автотесты")
-    @Epic("MKASDPRV (МКА Вывески)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void finishTaskTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);

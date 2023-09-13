@@ -18,7 +18,6 @@ public class MkasdprvCreateApplicationTest extends TestBase {
     @DisplayName("Создание заявки через свагер + запрос")
     @Epic("OASI")
     @Feature("MKASDPRV")
-    @Feature("Автотесты")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void createTaskMkasdprv() {
 
