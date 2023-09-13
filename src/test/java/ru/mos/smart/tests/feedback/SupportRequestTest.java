@@ -15,6 +15,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.config.ConfigHelper.webConfig;
+import static ru.mos.smart.data.enums.OpportunityForm.FEEDBACK_FORM;
+import static ru.mos.smart.data.enums.Sidebar.OPPORTUNITIES;
+import static ru.mos.smart.data.enums.Sidebar.SERVICES_AND_FUNCTION;
 
 @Epic("OASI")
 @Feature("FEEDBACK")
@@ -26,8 +29,9 @@ public class SupportRequestTest extends TestBase {
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void SupportRequestForward() {
-
-        actionsPage.goToActions("Инициировать обращение в техническую поддержку");
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, OPPORTUNITIES );
+        actionsPage.openToBusinessProcess(FEEDBACK_FORM);
 
         step("Заполнение поля Тип обращения", () -> {
             $x("//input[@role='combobox']").click();

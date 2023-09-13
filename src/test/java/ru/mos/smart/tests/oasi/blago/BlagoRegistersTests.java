@@ -6,17 +6,15 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static ru.mos.smart.data.Registers.OASI_BLAGO_PRO;
-import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTERS;
+import static ru.mos.smart.data.enums.Registers.OASI_BLAGO_PRO;
+import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
+import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
-@Layer("web")
 @Epic("OASI (ОАСИ)")
 @Feature("BLAGO (ОАСИ Благоустройство)")
 public class BlagoRegistersTests extends TestBase {

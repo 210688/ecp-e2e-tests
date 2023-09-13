@@ -8,18 +8,16 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.data.Registers.MRGP;
-import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTERS;
+import static ru.mos.smart.data.enums.Registers.MRGP;
+import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
+import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
-@Layer("web")
 @Epic("OASI")
 @Feature("MRGP")
 @Story("Информация")

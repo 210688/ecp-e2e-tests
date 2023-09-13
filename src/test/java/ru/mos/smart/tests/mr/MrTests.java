@@ -10,7 +10,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
@@ -24,9 +23,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.data.Registers.MR_PROGRAM_OBJ;
-import static ru.mos.smart.data.Registers.MR_PROGRAM_ORDER;
-import static ru.mos.smart.data.Sidebar.*;
+import static ru.mos.smart.data.enums.Registers.MR_PROGRAM_OBJ;
+import static ru.mos.smart.data.enums.Registers.MR_PROGRAM_ORDER;
+import static ru.mos.smart.data.enums.Sidebar.*;
 
 @Epic("OASI")
 @Feature("rayon")
@@ -37,7 +36,6 @@ public class MrTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия реестра Поручения Мэра по программе \"Мой район\"")
-    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramInstructionRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -61,7 +59,6 @@ public class MrTests extends TestBase {
 
     @Test
     @DisplayName("Проверка открытия реестра Объекты по программе \"Мой район\"")
-    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramObjRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -80,9 +77,8 @@ public class MrTests extends TestBase {
         });
     }
 
-    @DisplayName("Проверка открытия карточки реестра Объекты по программе \"Мой район\"")
-    @Layer("web")
     @Test
+    @DisplayName("Проверка открытия карточки реестра Объекты по программе \"Мой район\"")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramObjCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -111,7 +107,6 @@ public class MrTests extends TestBase {
 
     @Test
     @DisplayName("Переход с мини-карты на карточке объекта на Карту")
-    @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkSwitchToMapOnMrProgramObjCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -137,7 +132,6 @@ public class MrTests extends TestBase {
 
     @Test
     @OnPreprodOnly
-    @Layer("web")
     @DisplayName("Проверка открытия возможности Запустить процесс создания объекта")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkStartingObjectCreationProcess() {
@@ -145,7 +139,7 @@ public class MrTests extends TestBase {
         String createdObjectName = "Объект бытового обслуживания №" + faker.number().numberBetween(1, 100);
 
         sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
-        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, ACTIONS);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, OPPORTUNITIES);
         actionsPage.goToActions("Запустить процесс создания объекта");
 
         step("В открывшемся окне (Вы действительно хотите запустить процесс по созданию объекта?) выбрать ОК", () ->

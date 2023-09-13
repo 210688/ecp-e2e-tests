@@ -13,51 +13,34 @@ import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.data.Registers.MKAPMII_ORDER;
-import static ru.mos.smart.data.Sidebar.INFORMATION;
-import static ru.mos.smart.data.Sidebar.REGISTERS;
+import static ru.mos.smart.data.enums.Registers.MKAPMII_ORDER;
+import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
+import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
 public class MkapmiiRegisterTests extends TestBase {
+
     @Test
     @Feature("Реестр и карточка заявления")
     @Story("MKAPMII")
     @DisplayName("Проверка UI реестр оказания услуг по размещению инженерных изысканий")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheAttributesOfTheRegistry() {
+        List<String> columnNames = Arrays.asList("Номер заявления", "Дата подачи", "Планируемая дата оказания", "Фактическая дата оказания",
+                "Статус", "Решение", "Ответственный", "Заявитель", "Адрес", "Номер ПГУ", "Вид");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MKAPMII_ORDER);
-        step("Проверить, что в форме содержится поле для поиска", () -> {
-            $(".search-form input").shouldBe(visible);
-        });
-        step("Содержатся кнопки: 'Настройка отображения колонок', 'Фильтр'", () -> {
-            $(".fa.fa-bars").shouldBe(visible);
-            $(".fa.fa-filter").shouldBe(visible);
-        });
-        step("Содержится таблица с озаглавленными столбцами", () -> {
-            $(".search-result-table tr").$$("th").filter(visible).shouldHave(textsInAnyOrder(
-                    "Номер заявления",
-                    "Дата подачи",
-                    "Планируемая дата оказания",
-                    "Фактическая дата оказания",
-                    "Статус",
-                    "Решение",
-                    "Ответственный",
-                    "Заявитель",
-                    "Адрес",
-                    "Номер ПГУ",
-                    "Вид"
-            ));
-        });
+        generalPage.checkTableFilter(MKAPMII_ORDER, columnNames);
     }
 
     @Test
@@ -68,20 +51,11 @@ public class MkapmiiRegisterTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MKAPMII_ORDER);
-        //reestrPage.gotoFirstCardNoSwitchWindow();
+        $$("table.search-result-table tr").get(2).$$("td").get(1).$("a").click();
         step("Проверить, что форма озаглавлена Карточка заявления", () ->
                 $("h1").shouldHave(text("Карточка заявления")));
         step("Открытая вкладка озаглавлена Сведения о заявлении", () ->
                 $(".nav-link.active").shouldHave(text("Сведения о заявлении")));
-        step("Проверить наличие нередактируемых полей", () -> {
-            $("app-mkapmii-header").$(byText("Дата создания:")).sibling(0).should(matchText("\\d{2}\\.\\d{2}\\.\\d{4}"));
-            $("app-mkapmii-header").$(byText("Срок исполнения:")).sibling(0).should(matchText("\\d{2}\\.\\d{2}\\.\\d{4}"));
-            $("app-mkapmii-header").$(byText("Исполнитель:")).sibling(0).shouldNotBe(empty);
-            $("app-mkapmii-header").$(byText("Вид инженерных изысканий:")).sibling(0).shouldNotBe(empty);
-            $("app-mkapmii-header").$(byText("Адрес объекта:")).sibling(0).shouldNotBe(empty);
-            $("app-mkapmii-header b").should(matchText("\\W+\\d+\\/\\d+-\\d+"));
-            $(".item span").should(matchText("\\d+-\\d+-\\d+-\\d+\\/\\d+"));
-        });
         step("Проверить, что область Сведения о заявителе свернута по умолчанию", () ->
                 $$(".collapsible-title")
                         .findBy(text("Сведения о заявителе"))

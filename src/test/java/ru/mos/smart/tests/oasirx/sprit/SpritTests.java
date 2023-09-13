@@ -18,13 +18,12 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
+@Epic("OASIRX (ОАСИ Рефактор-Икс)")
+@Feature("SPRIT (Выдача СПРИТ)")
 public class SpritTests extends TestBase {
 
     @Test
-    @Layer("web")
     @DisplayName("Просмотр карточки СПРИТ")
-    @Feature("SPRIT (Выдача СПРИТ)")
-    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void cardViewSprit() {
         sidebarPage
@@ -46,10 +45,7 @@ public class SpritTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @DisplayName("Форма карточки: История изменений")
-    @Feature("SPRIT (Выдача СПРИТ)")
-    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void historyChangeCard() {
         sidebarPage
@@ -65,10 +61,7 @@ public class SpritTests extends TestBase {
     }
 
     @Test
-    @Layer("web")
     @DisplayName("Новая форма подачи заявления (новый регламент)")
-    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
-    @Feature("SPRIT (Выдача СПРИТ)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void newReglament() {
         sidebarPage
@@ -89,8 +82,6 @@ public class SpritTests extends TestBase {
 
     @Test
     @DisplayName("Форма карточки: Процесс")
-    @Feature("SPRIT (Выдача СПРИТ)")
-    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void process() {
         sidebarPage
@@ -109,8 +100,6 @@ public class SpritTests extends TestBase {
     @Test
     @Layer("web")
     @DisplayName("Форма карточки: Материалы")
-    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
-    @Feature("SPRIT (Выдача СПРИТ)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void cardMaterialsTest() {
         sidebarPage

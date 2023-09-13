@@ -4,7 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
-import ru.mos.smart.data.Registers;
+import ru.mos.smart.data.enums.Registers;
 import ru.mos.smart.helpers.AllureAttachments;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.switchTo;
-import static ru.mos.smart.data.Registers.AEROFOTO;
+import static ru.mos.smart.data.enums.Registers.AEROFOTO;
 
 public class DronePage {
     private final ElementsCollection tableHeaders = $$("table th");

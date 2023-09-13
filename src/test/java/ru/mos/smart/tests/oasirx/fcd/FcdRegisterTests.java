@@ -9,7 +9,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
@@ -25,7 +24,6 @@ import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.FCD_URL;
 @Epic("Проверки реестров по подсистемам")
 @Feature("ОАСИРХ")
 @Story("Реестр")
-@Layer("web")
 @Owner("Soldatov")
 public class FcdRegisterTests extends TestBase {
 

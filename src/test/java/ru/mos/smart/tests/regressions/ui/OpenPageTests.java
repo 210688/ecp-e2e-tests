@@ -7,14 +7,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.helpers.annotations.Owner;
 import ru.mos.smart.tests.TestBase;
 
-import static ru.mos.smart.data.Sidebar.*;
+import static ru.mos.smart.data.enums.Sidebar.*;
 
 @Owner("Soldatov")
-@Layer("web")
 @Epic("OASI")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class OpenPageTests extends TestBase {
@@ -25,7 +23,7 @@ public class OpenPageTests extends TestBase {
     @Description("Проверить, что в возможностях пользователя присутствуетсписок возможностей")
     void goToActionsPage() {
         sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
-        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, ACTIONS);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, OPPORTUNITIES);
         actionsPage.checkActionsTask();
     }
 

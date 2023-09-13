@@ -3,7 +3,7 @@ package ru.mos.smart.pages;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Step;
-import ru.mos.smart.data.Sidebar;
+import ru.mos.smart.data.enums.Sidebar;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;

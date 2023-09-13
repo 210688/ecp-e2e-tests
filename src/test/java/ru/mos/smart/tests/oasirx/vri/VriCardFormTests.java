@@ -9,12 +9,13 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.tests.TestBase;
 
+@Epic("OASIRX (ОАСИ Рефактор-Икс)")
+@Feature("VRI (ВРИ)")
 public class VriCardFormTests extends TestBase {
+
     @Test
     @DisplayName("Форма карточки: История изменений")
     @Story("Работа с реестром и карточкой ВРИ")
-    @Feature("VRI (ВРИ)")
-    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void changeHistoryTest() {
         sidebarPage
@@ -29,8 +30,6 @@ public class VriCardFormTests extends TestBase {
     @Test
     @DisplayName("Форма карточки: Процесс")
     @Story("Работа с реестром и карточкой ВРИ")
-    @Feature("VRI (ВРИ)")
-    @Epic("OASIRX (ОАСИ Рефактор-Икс)")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void processTest() {
         sidebarPage

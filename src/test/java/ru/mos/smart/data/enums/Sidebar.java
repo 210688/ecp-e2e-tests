@@ -1,10 +1,10 @@
-package ru.mos.smart.data;
+package ru.mos.smart.data.enums;
 
 public enum Sidebar {
 
     SERVICES_AND_FUNCTION( "Госуслуги и функции"),
     TASK( "Задачи"),
-    ACTIONS("Возможности"),
+    OPPORTUNITIES("Возможности"),
     INFORMATION( "Информация"),
     REGISTERS( "Реестры"),
     SETTINGS("Настройки"),

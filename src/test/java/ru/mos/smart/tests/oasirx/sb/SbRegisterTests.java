@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -17,11 +16,10 @@ import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 
-@Layer("web")
 @Epic("OASIRX (ОАСИ Рефактор-Икс)")
 @Feature("SB (Самострой)")
-
 public class SbRegisterTests extends TestBase {
+
     @Test
     @DisplayName("Просмотр реестра Самострой")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
