@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.regressions.ui;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -20,16 +17,17 @@ import static ru.mos.smart.data.enums.Sidebar.MAPS3D;
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
+    @AllureId("17031")
     @DisplayName("Проверка перехода на карту Цифровой двойник")
     @Description("Проверить, что происходит переход на карту Цифровой двойник")
     void goToMapsCd() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);
         maps3DPage.checkForMapsBox();
-
     }
 
     @Test
+    @AllureId("17032")
     @DisplayName("Проверка отображения панели слоев")
     @Description("Проверить, что отображаются панели слоев")
     void checkingTheDisplayOfLayersPanel() {
@@ -39,6 +37,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("17033")
     @DisplayName("Проверка работы поиска в адресной строке")
     @Description("Проверить, что работает поиск в адресной строке")
     void checkingAddressSearch() {
@@ -48,6 +47,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("17034")
     @DisplayName("Проверка наличия инструмента Первоначальная позиция")
     @Description("Проверить, что отображается инструмент - Первоначальная позиция")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -58,6 +58,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
     }
     @Test
+    @AllureId("16907")
     @DisplayName("Проверка наличия кнопок масштабирования на карте")
     @Description("Проверить, что отображаются кнопки масштабирования на карте")
     void checkingAvailabilityOfScalingTools() {

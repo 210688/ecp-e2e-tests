@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.mkasdprv;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -22,12 +23,13 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
 @Feature("MKASDPRV")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkasdprvRegisterTests extends TestBase {
 
     @Test
+    @AllureId("17088")
     @Description("Доступность реестра оказания услуги Вывесок")
     @DisplayName("Проверка наличия карточек")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheAttributesOfTheRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -47,9 +49,9 @@ public class MkasdprvRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("17089")
     @Description("Доступность реестра оказания услуги Вывесок")
     @DisplayName("Проверка заголовков в карточке")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openingRegistryCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

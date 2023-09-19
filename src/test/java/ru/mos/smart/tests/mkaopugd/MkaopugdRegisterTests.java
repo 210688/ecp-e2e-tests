@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.mkaopugd;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -20,16 +17,17 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("UGD")
-@Feature("ugd mkaopugd")
+@Feature("mkaopugd")
 @Story("mkaopugd-order")
 @Component("Информация")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkaopugdRegisterTests extends TestBase {
     MkaopUgdPage mkaopUgdPage = new MkaopUgdPage();
 
     @Test
+    @AllureId("17225")
     @Description("Проверить корректность открытия и доступность карточек реестра поручений УГД")
     @DisplayName("Проверка наличия карточек и заголовков в реестре")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToRegistryInstructionsUgd() {
         List<String> tableColumnList = Arrays.asList("№ заседания", "№ протокола", "Дата заседания", "Срок", "Тип",
                 "Наименование", "Кадастровый номер", "Адрес", "Статус");
@@ -41,9 +39,9 @@ public class MkaopugdRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("17224")
     @Description("Проверить корректность открытия карточки в реестре поручений УГД")
     @DisplayName("Проверка заголовков и заполнение данных в карточке поручений УГД")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkCardRegisterInstructionsUgd() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

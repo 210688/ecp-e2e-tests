@@ -12,11 +12,11 @@ import ru.mos.smart.helpers.junit.OnPreprodOnly;
 public class MkapmiiCreateApplicationTest {
 
     @Test
+    @AllureId("17101")
     @OnPreprodOnly
-    @Owner("SoldatovKS")
     @Epic("OASI")
     @Feature("MKAPMII")
-    @Story("MKAPMII")
+    @Story("mkapmii")
     @Description("Тестовая заявка MKAPMII")
     @DisplayName("Создание тестовой заявки MKAPMII через swagger")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

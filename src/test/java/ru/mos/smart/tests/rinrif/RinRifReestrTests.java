@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.Arrays;
@@ -16,13 +15,13 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Owner("Soldatov")
-@Layer("web")
 @Epic("ИАИС РИН")
 @Feature("RINRIF")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class RinRifReestrTests extends TestBase {
 
     @Test
+    @AllureId("16987")
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр Акты проверок")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -36,6 +35,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16997")
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр Все объекты")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -49,6 +49,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16996")
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр Все объекты сноса")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -61,6 +62,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16992")
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр Все организации")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -74,6 +76,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16985")
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр Все решения о проверке")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -87,6 +90,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16991")
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр  Нарушения")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -100,6 +104,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16995")
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр Постановления")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -114,6 +119,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16986")
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр Протоколы")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -128,6 +134,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16984")
     @Story("nadzor")
     @DisplayName("Проверка наличия данных и перехода в реестр ТЗ лаборатории")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -142,6 +149,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16994")
     @Story("snos")
     @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о завершении сноса")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -156,6 +164,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16990")
     @Story("snos")
     @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о планируемом сносе")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -170,6 +179,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16998")
     @Story("rv")
     @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -184,6 +194,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16988")
     @Story("rs")
     @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения на строительство")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -198,6 +209,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16989")
     @Story("rv")
     @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на ввод объекта в эксплуатацию")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
@@ -212,6 +224,7 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16993")
     @Story("rs")
     @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на строительство")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")

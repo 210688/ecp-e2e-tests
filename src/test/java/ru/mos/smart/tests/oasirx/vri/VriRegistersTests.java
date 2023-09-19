@@ -1,12 +1,12 @@
 package ru.mos.smart.tests.oasirx.vri;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
@@ -21,14 +21,15 @@ import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 
 @Layer("web")
-@Epic("OASIRX (ОАСИ Рефактор-Икс)")
-@Feature("VRI (ВРИ)")
-@Story("Реестр ВРИ")
+@Epic("OASI")
+@Feature("ОАСИРХ")
+@Story("vri")
+@Component("Реестр")
 public class VriRegistersTests extends TestBase {
 
     @Test
+    @AllureId("17048")
     @DisplayName("Проверка вкладок в реестре ВРИ")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openRegisterVri() {
         List<String> tabs = new ArrayList<String>() {{
             add("ВРИ в работе");
@@ -46,8 +47,8 @@ public class VriRegistersTests extends TestBase {
     }
 
     @Test
+    @AllureId("17047")
     @DisplayName("Поиск карточки реестра ВРИ по номеру")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void searchingVriCardByNumber() {
         step("Из боковой панели перейти в раздел ВРИ", () -> {
             $x("//span[text()='ВРИ']").shouldBe(visible, Duration.ofSeconds(10));

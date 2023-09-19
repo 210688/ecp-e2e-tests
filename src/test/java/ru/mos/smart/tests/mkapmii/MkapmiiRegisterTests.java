@@ -2,10 +2,7 @@ package ru.mos.smart.tests.mkapmii;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -29,14 +26,14 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
 @Feature("MKAPMII")
-@Story("MKAPMII")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkapmiiRegisterTests extends TestBase {
 
     @Test
-    @Feature("Реестр и карточка заявления")
+    @AllureId("17098")
+    @Story("Реестр и карточка заявления")
     @Description("Доступность реестра оказания услуг по размещению инженерных изысканий")
     @DisplayName("Наличие карточек в реестре")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheAttributesOfTheRegistry() {
         List<String> columnNames = Arrays.asList("Номер заявления", "Дата подачи", "Планируемая дата оказания", "Фактическая дата оказания",
                 "Статус", "Решение", "Ответственный", "Заявитель", "Адрес", "Номер ПГУ", "Вид");
@@ -47,10 +44,10 @@ public class MkapmiiRegisterTests extends TestBase {
     }
 
     @Test
-    @Feature("Реестр и карточка заявления")
+    @AllureId("17097")
+    @Story("Реестр и карточка заявления")
     @Description("Доступность реестра оказания услуг по размещению инженерных изысканий")
     @DisplayName("Проверить заполнение карточки")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void uiCardTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -95,10 +92,10 @@ public class MkapmiiRegisterTests extends TestBase {
     }
 
     @Test
-    @Feature("Реестр и карточка заявления")
+    @AllureId("17100")
+    @Story("Реестр и карточка заявления")
     @Description("Доступность реестра оказания услуг по размещению инженерных изысканий")
     @DisplayName("Наличие основных контролов карточки заявления")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mainControlsTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -139,10 +136,10 @@ public class MkapmiiRegisterTests extends TestBase {
     }
 
     @Test
-    @Feature("Выдача заявления на руки")
+    @AllureId("17099")
+    @Story("Выдача заявления на руки")
     @Description("Доступность вкладки Выдача на руки")
     @DisplayName("Вкладка Выдача на руки")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void handingOverTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -172,10 +169,10 @@ public class MkapmiiRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("17102")
     @OnPreprodOnly
-    @Feature("Выдача заявления на руки")
+    @Story("Выдача заявления на руки")
     @DisplayName("Проверка UI модальное окно Выдать на руки")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void handingOverPlusTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

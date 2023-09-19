@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.regressions.ui;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -14,11 +15,12 @@ import static ru.mos.smart.data.enums.Sidebar.*;
 
 @Owner("Soldatov")
 @Epic("OASI")
+@Feature("CDP")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class OpenPageTests extends TestBase {
 
     @Test
-    @Feature("LCS")
+    @AllureId("17027")
     @DisplayName("В возможностях пользователя присутствует список возможностей")
     @Description("Проверить, что в возможностях пользователя присутствуетсписок возможностей")
     void goToActionsPage() {
@@ -28,7 +30,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @Feature("CDP")
+    @AllureId("17028")
     @DisplayName("В задачах пользователя присутствует список задач")
     @Description("Проверить, что в задачах пользователя присутствует список задач")
     void checkListTasksPage() {
@@ -39,7 +41,7 @@ public class OpenPageTests extends TestBase {
 
 
     @Test
-    @Feature("CDP")
+    @AllureId("17029")
     @DisplayName("Наличие списка реестров на странице Реестр")
     @Description("Проверить, что отображается список реестров на странице Реестр")
     void goToRegister() {
@@ -49,7 +51,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @Feature("CDP")
+    @AllureId("16906")
     @DisplayName("Наличие списка реестров на странице Реестр")
     @Description("Проверить, что отображается список реестров на странице Реестр")
     void checkListInformation() {
@@ -58,7 +60,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @Feature("CDP")
+    @AllureId("17030")
     @DisplayName("В справочнике присутствует список элементов")
     @Description("Проверить, что в справочнике присутсвует список элементов")
     void goToOpenSpravochnik() {

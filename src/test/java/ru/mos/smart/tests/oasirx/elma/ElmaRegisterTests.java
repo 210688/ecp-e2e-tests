@@ -1,13 +1,11 @@
 package ru.mos.smart.tests.oasirx.elma;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.Arrays;
@@ -16,14 +14,16 @@ import java.util.List;
 import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.ELMA_URL;
 
 @Owner("Soldatov")
-@Epic("Проверки реестров по подсистемам")
+@Epic("OASI")
 @Feature("ОАСИРХ")
-@Story("Реестр")
+@Story("elma")
+@Component("Реестр")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class ElmaRegisterTests extends TestBase {
 
     @Test
+    @AllureId("17072")
     @DisplayName("Проверка наличия данных и перехода в раздел Соответствие проектной документации СППК")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void goToRegisterElma() {
         List<String> columnNames = Arrays.asList("Дата", "Номер", "Номер МГГТ", "Название", "Статус");
         sidebarPage.goToSection(ELMA_URL);

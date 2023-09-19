@@ -1,11 +1,14 @@
 package ru.mos.smart.tests.oasirx.pkl;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -17,13 +20,16 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-@Epic("OASIRX (ОАСИ Рефактор-Икс)")
-@Feature("PKL")
+@Epic("OASI")
+@Feature("ОАСИРХ")
+@Story("pkl")
+@Component("Реестр")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class PklRegisterTests extends TestBase {
 
     @Test
+    @AllureId("17061")
     @DisplayName("Просмотр реестра ПКЛ")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openingTheRegisterPkl() {
         sidebarPage
                 .goToPkl();
@@ -41,8 +47,8 @@ public class PklRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("17060")
     @DisplayName("Поиск карточки реестра ПКЛ по номеру")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void searchingPklCardByNumber() {
         sidebarPage
                 .goToPkl();

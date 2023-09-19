@@ -19,16 +19,17 @@ import static ru.mos.smart.data.enums.Registers.RINRIF_MATCAP;
 import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
+@Owner("soldatov")
 @Epic("ИАИС РИН")
 @Feature("RINRIF")
 @Story("matcap")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class RinRifMatCapTests extends TestBase {
 
     @Test
-    @Owner("soldatov")
+    @AllureId("16999")
     @DisplayName("Проверка реестра Заявления о выдаче акта по материнскому капиталу")
     @Description("Проверить, что открывается реестр - Заявления о выдаче акта по материнскому капиталу")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfRinRifMatCapRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -47,10 +48,9 @@ public class RinRifMatCapTests extends TestBase {
     }
 
     @Test
-    @Owner("soldatov")
+    @AllureId("17000")
     @DisplayName("Проверка карточки реестра Заявления о выдаче акта по материнскому капиталу")
     @Description("Проверить, что открывается карточка из реестра - Заявления о выдаче акта по материнскому капиталу")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfRinRifMatCapObjCard() {
         java.lang.String statementNumber = "09-МК-179/21-(0)-0";
         sidebarPage.clickSidebarMenu(INFORMATION);

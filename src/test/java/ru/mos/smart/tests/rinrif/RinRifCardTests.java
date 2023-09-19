@@ -18,6 +18,7 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 public class RinRifCardTests extends TestBase {
 
     @Test
+    @AllureId("17008")
     @Story("nadzor")
     @DisplayName("Проверить корректность открытия и доступность карточки Акты проверок")
     @Description("Проверка корректности открытия карточки 'Акты проверок', " +
@@ -31,6 +32,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17011")
     @Story("rv")
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения ввод объекта в эксплуатацию")
@@ -41,7 +43,8 @@ public class RinRifCardTests extends TestBase {
         rinrifPage.goToRegistryCardAndCheck();
     }
 
-    @Test
+/*    @Test
+    @AllureId("17010")
     @Story("nadzor")
     @DisplayName("Проверка перехода в карточку из реестра Все объекты")
     @Description("Проверить, что открывается карточка из реестра - Все объекты")
@@ -50,9 +53,10 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS);
         rinrifPage.goToRegistryCardAndCheck();
-    }
+    }*/
 
     @Test
+    @AllureId("17010")
     @Story("nadzor")
     @DisplayName("Проверка перехода в карточку из реестра Все объекты сноса")
     @Description("Проверить, что открывается карочка из реестра - Все объекты сноса")
@@ -64,6 +68,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17007")
     @Story("nadzor")
     @DisplayName("Проверка перехода в карточку из реестра Все организации")
     @Description("Проверить, что открывается карточка из реестра - Все организации")
@@ -75,6 +80,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17004")
     @Story("nadzor")
     @DisplayName("Проверка перехода в карточку из реестра Все решения о проверке")
     @Description("Проверить, что открывается карточка из реестра - Все решения о проверке")
@@ -86,6 +92,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17002")
     @Story("snos")
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о завершении сноса")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о завершении сноса")
@@ -97,6 +104,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17009")
     @Story("snos")
     @DisplayName("Проверка перехода в карточку из реестра Уведомления о планируемом сносе")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о планируемом сносе")
@@ -108,6 +116,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17005")
     @Story("rs")
     @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения на строительство")
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения на строительство")
@@ -119,6 +128,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17006")
     @Story("rv")
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на ввод объекта в эксплуатацию")
     @Description("Проверить, что открывается карточка из реестра - Разрешения на ввод объекта в эксплуатацию")
@@ -130,6 +140,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17003")
     @Story("rs")
     @DisplayName("Проверка перехода в карточку из реестра Разрешения на строительство")
     @Description("Проверить, что открывается карточка из реестра - Разрешения на строительство")

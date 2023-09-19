@@ -1,13 +1,13 @@
 package ru.mos.smart.tests.regressions.app;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
-import io.qameta.allure.Owner;
+import io.qameta.allure.Feature;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -15,12 +15,12 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка микросервисов")
+@Epic("OASI")
+@Feature("catalogs")
 public class CatalogsTests extends ApiBearerTestBase {
 
     @Test
-    @Owner("SoldatovKS")
-    @Layer("api")
+    @AllureId("17044")
     @DisplayName("Запрос реестров информации")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void catalogsSourceCodesTest() {
@@ -32,8 +32,7 @@ public class CatalogsTests extends ApiBearerTestBase {
     }
 
     @Test
-    @Owner("SoldatovKS")
-    @Layer("api")
+    @AllureId("17043")
     @DisplayName("Получить список имен ядер")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
     void catalogsSearchSolrCoresCountTest() {

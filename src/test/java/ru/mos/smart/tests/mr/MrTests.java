@@ -3,10 +3,7 @@ package ru.mos.smart.tests.mr;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -31,14 +28,15 @@ import static ru.mos.smart.data.enums.Sidebar.*;
 @Epic("OASI")
 @Feature("rayon")
 @Story("program")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MrTests extends TestBase {
 
     private final Faker faker = new Faker();
 
     @Test
+    @AllureId("17085")
     @Description("Проверка открытия реестра")
     @DisplayName("Открытие реестра Поручения Мэра по программе \"Мой район\"")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramInstructionRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -60,9 +58,9 @@ public class MrTests extends TestBase {
     }
 
     @Test
+    @AllureId("17087")
     @Description("Проверка открытия реестра")
     @DisplayName("В реестре Объекты по программе \"Мой район\" присутствуют заголовки карточек")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramObjRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -81,9 +79,9 @@ public class MrTests extends TestBase {
     }
 
     @Test
+    @AllureId("17083")
     @Description("Проверка открытия реестра")
     @DisplayName("Проверка открытия карточки реестра Объекты по программе \"Мой район\"")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramObjCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -110,9 +108,9 @@ public class MrTests extends TestBase {
     }
 
     @Test
+    @AllureId("17086")
     @Description("Проверка открытия реестра")
     @DisplayName("Переход с мини-карты на карточке объекта на Карту")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkSwitchToMapOnMrProgramObjCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -136,10 +134,10 @@ public class MrTests extends TestBase {
     }
 
     @Test
+    @AllureId("17084")
     @OnPreprodOnly
     @Description("Проверка открытия реестра")
     @DisplayName("Запуск процесса создания объекта")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkStartingObjectCreationProcess() {
 
         String createdObjectName = "Объект бытового обслуживания №" + faker.number().numberBetween(1, 100);

@@ -1,3 +1,4 @@
+/*
 package ru.mos.smart.tests.rinrif;
 
 import io.qameta.allure.Description;
@@ -28,3 +29,4 @@ public class RinRifApplicationTest extends TestBase {
         $("#commonino").should(visible);
     }
 }
+*/

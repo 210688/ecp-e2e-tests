@@ -12,13 +12,14 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка доступности Swagger приложений")
+@Owner("Soldatovks")
+@Epic("OASI")
+@Feature("Ossigmip")
 public class OssigmipTests extends ApiBearerTestBase {
 
     @Test
+    @AllureId("16926")
     @Layer("api")
-    @Feature("Ossigmip")
-    @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("/app/ossigmip/permit/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/ossigmip/permit/pzz/swagger-ui.html"),
