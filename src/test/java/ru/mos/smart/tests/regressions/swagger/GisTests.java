@@ -12,15 +12,17 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
 
-@Epic("Проверка доступности Swagger приложений")
+
 public class GisTests extends ApiBearerTestBase {
 
     @Test
+    @AllureId("16965")
     @Layer("api")
     @Owner("Soldatovks")
-    @DisplayName("Получение описания всех типов документов")
-    @Description("gis/documentTypes [GET]")
+    @Epic("OASI")
     @Feature("Gis")
+    @DisplayName("Описание всех типов документов")
+    @Description("Проверить, что описаны все типы документов(gis/documentTypes [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/gis/search/swagger-ui.html#/"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/gis/search/swagger-ui.html#/")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

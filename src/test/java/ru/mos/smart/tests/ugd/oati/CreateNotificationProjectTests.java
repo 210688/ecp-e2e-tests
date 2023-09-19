@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.ugd.oati;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -27,8 +24,9 @@ import static io.qameta.allure.Allure.step;
 class CreateNotificationProjectTests extends TestBase {
 
     @Test
+    @AllureId("16982")
     @OnPreprodOnly
-    @DisplayName("Проверка доступности формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
+    @DisplayName("Доступность формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
     @Description("Проверить, что форма открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingNotificationSubmissionForm() {

@@ -12,15 +12,17 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка доступности Swagger приложений")
+@Epic("ИАИС")
 public class RinrifTests extends ApiBearerTestBase {
 
     @Test
+    @AllureId("16921")
     @Layer("api")
     @Feature("Rinrif")
+    @Story("nadzor")
     @Owner("Soldatovks")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("app/rinrif/nadzor/documentTypes/all [GET]")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/rinrif/nadzor/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/nadzor/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/rinrif/nadzor/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -35,11 +37,13 @@ public class RinrifTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16918")
     @Layer("api")
     @Feature("Rinrif")
+    @Story("matcap")
     @Owner("Soldatovks")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("app/rinrif/matcap/documentTypes/all [GET]")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/rinrif/matcap/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/matcap/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/rinrif/matcap/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -54,11 +58,13 @@ public class RinrifTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16917")
     @Layer("api")
     @Feature("Rinrif")
+    @Story("snos")
     @Owner("Soldatovks")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("app/rinrif/snos/documentTypes/all [GET]")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/rinrif/snos/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/snos/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/rinrif/snos/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

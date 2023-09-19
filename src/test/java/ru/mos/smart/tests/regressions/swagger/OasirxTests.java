@@ -12,15 +12,17 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка доступности Swagger приложений")
+    @Epic("OASI")
 public class OasirxTests extends ApiBearerTestBase {
 
     @Test
+    @AllureId("16929")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
-    @Description("app/oasirx/crd/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @Story("crd")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/crd/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/crd/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/program/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -34,11 +36,13 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16931")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
-    @Description("app/oasirx/elma/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов ")
+    @Story("elma")
+    @DisplayName("Описания всех типов документов ")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/elma/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/elma/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/elma/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -52,11 +56,13 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16937")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
-    @Description("app/oasirx/eoo/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @Story("eoo")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/eoo/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/eoo/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/eoo/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -70,11 +76,13 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16935")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
-    @Description("app/oasirx/fii/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @Story("fii")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/fii/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/fii/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/oasirx/fii/program/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -88,11 +96,13 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16936")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
-    @Description("app/oasirx/hearings/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @Story("hearings")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/hearings/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/hearings/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/hearings/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -106,11 +116,13 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16925")
     @Layer("api")
     @Feature("Oasirx")
+    @Story("pkl")
     @Owner("Soldatovks")
-    @Description("app/oasirx/pkl/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/pkl/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/pkl/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/pkl/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -124,12 +136,15 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16934")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
+    @Story("pmt")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/pmt/swagger-ui.html#/")
-    @Description("app/oasirx/pmt/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/pmt/documentTypes/all [GET])")
+
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/pmt/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/pmt/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -143,12 +158,14 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16939")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
+    @Story("sb")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/sb/swagger-ui.html#/")
-    @Description("app/oasirx/sb/documentTypes/all [GET]")
     @DisplayName("Получение описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/sb/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/sb/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/sb/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -162,12 +179,14 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16924")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
+    @Story("sprit")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/sprit/swagger-ui.html#/")
-    @Description("app/oasirx/sprit/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/sprit/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/sprit/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/sprit/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -181,12 +200,14 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16938")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
+    @Story("szz")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/szz/swagger-ui.html#/")
-    @Description("app/oasirx/szz/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/szz/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/szz/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/szz/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -200,12 +221,14 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16923")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
+    @Story("violation")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/violation/swagger-ui.html#/")
-    @Description("app/oasirx/violation/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/violation/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/violation/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/violation/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -219,12 +242,14 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16922")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
+    @Story("vri")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/vri/swagger-ui.html#/")
-    @Description("app/oasirx/vri/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/vri/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/vri/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/vri/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -238,12 +263,14 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16927")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
+    @Story("itmka")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/itmka/swagger-ui.html#/")
-    @Description("app/oasirx/itmka/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/itmka/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/itmka/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/itmka/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -257,12 +284,14 @@ public class OasirxTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16933")
     @Layer("api")
     @Owner("Soldatovks")
     @Feature("Oasirx")
+    @Story("itmka")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/itmka/swagger-ui.html#/")
-    @Description("app/oasirx/pzz/documentTypes/all [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasirx/pzz/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/pzz/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/pzz/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
