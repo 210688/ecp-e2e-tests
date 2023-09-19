@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.rinrif;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -17,7 +18,8 @@ import static com.codeborne.selenide.Selenide.$;
 public class RinRifApplicationTest extends TestBase {
 
     @Test
-    @DisplayName("Проверка перехода в карточку заявления")
+    @AllureId("17188")
+    @DisplayName("Переход в карточку заявления")
     @Description("Проверить, что открывается карточка заявления")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void applicationCard() {

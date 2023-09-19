@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.regressions.ui;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -19,6 +16,7 @@ import static ru.mos.smart.data.enums.Sidebar.*;
 public class Map2DInstrumentalTests extends TestBase {
 
     @Test
+    @AllureId("17036")
     @DisplayName("Наличие подложки на карте")
     @Description("Проверить, что отображается подложка на карте")
     void goToMaps() {
@@ -28,6 +26,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("17042")
     @DisplayName("Наличие инструментов  на 2D карте")
     @Description("Проверить, что присутствуют инструменты на карте 2D")
     void checkAvailabilityInstruments() {
@@ -46,6 +45,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("17035")
     @DisplayName("Наличие поля ввода адресного поиска на карте 2D")
     @Description("Проверить, что отображается поле ввода адресного поиска на карте 2D")
     void checkAvailabilityAddressSearch() {
@@ -55,6 +55,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("17037")
     @DisplayName("Наличие поля ввода поиска слоя на карте 2D")
     @Description("Проверить, что отображается поле ввода поиска слоя на карте 2D")
     void checkAvailabilityOfLayerSearch() {
@@ -64,6 +65,7 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
+    @AllureId("17040")
     @DisplayName("Поиск адреса на карте 2D")
     @Description("Проверить, что есть возиожность поиска адреса на карте 2D")
     void checkingAddressSearch() {
@@ -73,8 +75,9 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка наличия инструментов масштабирования: кнопок + и -")
-    @Description("Проверить, что отображается инструменты масштабирования")
+    @AllureId("17039")
+    @DisplayName("Наличия инструментов масштабирования: кнопок + и -")
+    @Description("Проверить, что отображаются инструменты масштабирования: кнопок + и -")
     void checkingAvailabilityOfScalingTools() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAP);
@@ -82,7 +85,8 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка наличия инструмента Мое местоположение")
+    @AllureId("17038")
+    @DisplayName("Наличия инструмента - Моё местоположение")
     @Description("Проверить, что отображается инструмент - Моё местоположение")
     void checkingAvailabilityOfMyLocationTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -91,7 +95,8 @@ public class Map2DInstrumentalTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка наличия инструмента Первоначальная позиция")
+    @AllureId("17041")
+    @DisplayName("Наличия инструмента - Первоначальная позиция")
     @Description("Проверить, что отображается инструмент - Первоначальная позиция")
     void checkingAvailabilityOfInitialPositionTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);

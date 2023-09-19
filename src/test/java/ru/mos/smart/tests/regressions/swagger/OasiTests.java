@@ -12,15 +12,17 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка доступности Swagger приложений")
+@Epic("OASI")
 public class OasiTests extends ApiBearerTestBase {
 
     @Test
+    @AllureId("16945")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("Oasi")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("app/oasi/pzz/documentTypes/all [GET]")
+    @Feature("oasi")
+    @Story("pzz")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasi/pzz/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/pzz/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/pzz/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -34,11 +36,13 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16930")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("Oasi")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("app/oasi/ag/documentTypes/all [GET]")
+    @Feature("oasi")
+    @Story("ag")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(app/oasi/ag/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/ag/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/ag/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -52,9 +56,11 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16948")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("blago")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/blago/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/blago/swagger-ui.html"),
@@ -71,9 +77,11 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16928")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("cafe")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/cafe/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/cafe/swagger-ui.html"),
@@ -90,9 +98,11 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16941")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("citydevelopment")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/citydevelopment/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/citydevelopment/swagger-ui.html"),
@@ -109,9 +119,11 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16949")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("pkr")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/pkr/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/pkr/swagger-ui.html"),
@@ -128,9 +140,11 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16946")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("pmt")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/pmt/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/pmt/swagger-ui.html"),
@@ -147,8 +161,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16950")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("ppt")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/ppt/documentTypes/all [GET]")
@@ -166,8 +182,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16953")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("facades")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/facades/documentTypes/all [GET]")
@@ -185,8 +203,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16954")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("signboard")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/signboard/documentTypes/all [GET]")
@@ -204,8 +224,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16955")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("gin")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/gin/documentTypes/all [GET]")
@@ -223,8 +245,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16942")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("lighting")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/lighting/documentTypes/all [GET]")
@@ -242,8 +266,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16951")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("monuments")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/monuments/documentTypes/all [GET]")
@@ -261,8 +287,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16940")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("mrqp")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/mrgp/documentTypes/all [GET]")
@@ -280,8 +308,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16952")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("nto")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/nto/documentTypes/all [GET]")
@@ -299,8 +329,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16932")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("oo")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/oo/documentTypes/all [GET]")
@@ -318,8 +350,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16943")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("advertis")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/advertise/documentTypes/all [GET]")
@@ -337,8 +371,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16947")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("agr")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/agr/documentTypes/all [GET]")
@@ -356,8 +392,10 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16944")
     @Layer("api")
-    @Feature("Oasi")
+    @Feature("oasi")
+    @Story("ddh")
     @Owner("Soldatovks")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/ddh/documentTypes/all [GET]")

@@ -12,14 +12,16 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
 
-@Epic("Проверка доступности Swagger приложений")
+
 public class DroneTests extends ApiBearerTestBase {
 
     @Test
+    @AllureId("16963")
     @Layer("api")
-    @Description("drone/documentTypes [GET]")
-    @DisplayName("Получение описания всех типов документов")
+    @Epic("OASI")
     @Feature("Drone")
+    @DisplayName("Описание всех типов документов")
+    @Description("Проверить, что описаны все типы документов(drone/documentTypes [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/drone/drone/swagger-ui.html#/"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/drone/drone/swagger-ui.html#/")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

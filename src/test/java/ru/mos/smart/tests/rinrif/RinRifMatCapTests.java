@@ -25,9 +25,10 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 public class RinRifMatCapTests extends TestBase {
 
     @Test
+    @AllureId("16999")
     @Owner("soldatov")
-    @DisplayName("Проверка реестра Заявления о выдаче акта по материнскому капиталу")
-    @Description("Проверить, что открывается реестр - Заявления о выдаче акта по материнскому капиталу")
+    @DisplayName("Открытие реестра Заявления о выдаче акта по материнскому капиталу")
+    @Description("Проверить, что открывается реестр - Заявления о выдаче акта по материнскому капиталу, в форме содержится поле для поиска, содержатся кнопки - настройка и фильтр, доступен список объектов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfRinRifMatCapRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -47,9 +48,10 @@ public class RinRifMatCapTests extends TestBase {
     }
 
     @Test
+    @AllureId("17000")
     @Owner("soldatov")
-    @DisplayName("Проверка карточки реестра Заявления о выдаче акта по материнскому капиталу")
-    @Description("Проверить, что открывается карточка из реестра - Заявления о выдаче акта по материнскому капиталу")
+    @DisplayName("Открытие карточки реестра Заявления о выдаче акта по материнскому капиталу")
+    @Description("Проверить, что открывается карточка из реестра - Заявления о выдаче акта по материнскому капиталу, отображение полей в карточке, в карточке присутствуют вкладки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfRinRifMatCapObjCard() {
         java.lang.String statementNumber = "09-МК-179/21-(0)-0";

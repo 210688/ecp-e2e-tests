@@ -24,7 +24,8 @@ import static io.qameta.allure.Allure.step;
 class CatalogsMtskTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка наличия каталогов МТСК")
+    @AllureId("16983")
+    @DisplayName("Наличия каталогов МТСК")
     @Description("Проверить, что каталог открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkCatalogsMtsk() {

@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.ugd.oati;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -25,7 +26,8 @@ import static ru.mos.smart.data.enums.Registers.UGD_OATI;
 class RegistersUvedomleniaTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка открытия реестров")
+    @AllureId("16981")
+    @DisplayName("Открытие реестра")
     @Description("Проверить, что реестр открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openRegisterUvedomlenia() {

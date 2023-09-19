@@ -13,15 +13,16 @@ import static io.qameta.allure.Allure.parameter;
 import static org.hamcrest.Matchers.is;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка доступности Swagger приложений")
+@Epic("UGD")
 public class UgdTests extends ApiBearerTestBase {
 
     @Test
+    @AllureId("16914")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("UGD")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/ugd/ssr/documentTypes/all [GET]")
+    @Feature("ssr")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(/app/ugd/ssr/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/ssr/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/ssr/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -38,11 +39,12 @@ public class UgdTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16919")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("UGD")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/ugd/docs/documentTypes/all [GET]")
+    @Feature("docs")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(/app/ugd/docs/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/docs/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/docs/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -58,11 +60,12 @@ public class UgdTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16910")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("UGD")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/ugd/lrp/documentTypes/all [GET]")
+    @Feature("lrp")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(/app/ugd/lrp/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/lrp/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/lrp/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -79,11 +82,12 @@ public class UgdTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16915")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("UGD")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/ugd/gzk/documentTypes/all [GET]")
+    @Feature("gzk")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(/app/ugd/gzk/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/gzk/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/gzk/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -98,11 +102,12 @@ public class UgdTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16911")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("UGD")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/ugd/nsi/documentTypes/all [GET]")
+    @Feature("nsi")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(/app/ugd/nsi/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/nsi/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/nsi/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -117,11 +122,12 @@ public class UgdTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16913")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("UGD")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/ugd/mtsk/documentTypes/all [GET]")
+    @Feature("mtsk")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(/app/ugd/mtsk/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/mtsk/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/mtsk/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -136,11 +142,12 @@ public class UgdTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16916")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("UGD")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/ugd/oati/documentTypes/all [GET]")
+    @Feature("oati")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(/app/ugd/oati/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/oati/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/oati/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -155,11 +162,12 @@ public class UgdTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16909")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("UGD")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/ugd/ps/documentTypes/all [GET]")
+    @Feature("ps")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(/app/ugd/ps/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/ps/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/ps/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -174,11 +182,12 @@ public class UgdTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16920")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("UGD")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/ugd/upsd/documentTypes/all [GET]")
+    @Feature("upsd")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(/app/ugd/upsd/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/upsd/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/upsd/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -193,11 +202,12 @@ public class UgdTests extends ApiBearerTestBase {
     }
 
     @Test
+    @AllureId("16912")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("UGD")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("/app/ugd/cp/documentTypes/all [GET]")
+    @Feature("cp")
+    @DisplayName("Описания всех типов документов")
+    @Description("Проверить, что описаны все типы документов(/app/ugd/cp/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/cp/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/cp/swagger-ui.html")})
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

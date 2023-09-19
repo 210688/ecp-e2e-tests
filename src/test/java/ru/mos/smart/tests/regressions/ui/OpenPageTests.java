@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.regressions.ui;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -18,6 +19,7 @@ import static ru.mos.smart.data.enums.Sidebar.*;
 public class OpenPageTests extends TestBase {
 
     @Test
+    @AllureId("17027")
     @Feature("LCS")
     @DisplayName("В возможностях пользователя присутствует список возможностей")
     @Description("Проверить, что в возможностях пользователя присутствуетсписок возможностей")
@@ -28,6 +30,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @AllureId("17028")
     @Feature("CDP")
     @DisplayName("В задачах пользователя присутствует список задач")
     @Description("Проверить, что в задачах пользователя присутствует список задач")
@@ -39,6 +42,7 @@ public class OpenPageTests extends TestBase {
 
 
     @Test
+    @AllureId("17029")
     @Feature("CDP")
     @DisplayName("Наличие списка реестров на странице Реестр")
     @Description("Проверить, что отображается список реестров на странице Реестр")
@@ -49,6 +53,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @AllureId("16906")
     @Feature("CDP")
     @DisplayName("Наличие списка реестров на странице Реестр")
     @Description("Проверить, что отображается список реестров на странице Реестр")
@@ -58,6 +63,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @AllureId("17030")
     @Feature("CDP")
     @DisplayName("В справочнике присутствует список элементов")
     @Description("Проверить, что в справочнике присутсвует список элементов")

@@ -18,9 +18,10 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 public class RinRifCardTests extends TestBase {
 
     @Test
+    @AllureId("17008")
     @Story("nadzor")
-    @DisplayName("Проверка перехода в карточку из реестра Акты проверок")
-    @Description("Проверить, что открывается из реестра - Акты проверок")
+    @DisplayName("Переход в карточку из реестра Акты проверок")
+    @Description("Проверить, что открывается карточка из реестра - Акты проверок")
     void checkCardRegisterActsProverok() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -29,8 +30,9 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17011")
     @Story("rv")
-    @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
+    @DisplayName("Переход в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения ввод объекта в эксплуатацию")
     void checkCardRegisterEnteringObject() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -40,8 +42,9 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17010")
     @Story("nadzor")
-    @DisplayName("Проверка перехода в карточку из реестра Все объекты")
+    @DisplayName("Переход в карточку из реестра Все объекты")
     @Description("Проверить, что открывается карточка из реестра - Все объекты")
     void checkCardAllObjects() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -51,8 +54,9 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17010")
     @Story("nadzor")
-    @DisplayName("Проверка перехода в карточку из реестра Все объекты сноса")
+    @DisplayName("Переход в карточку из реестра Все объекты сноса")
     @Description("Проверить, что открывается карочка из реестра - Все объекты сноса")
     void checkCardAllObjectsSnos() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -62,8 +66,9 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17007")
     @Story("nadzor")
-    @DisplayName("Проверка перехода в карточку из реестра Все организации")
+    @DisplayName("Переход в карточку из реестра Все организации")
     @Description("Проверить, что открывается карточка из реестра - Все организации")
     void checkCardAllOrganizations() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -73,8 +78,9 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17004")
     @Story("nadzor")
-    @DisplayName("Проверка перехода в карточку из реестра Все решения о проверке")
+    @DisplayName("Переход в карточку из реестра Все решения о проверке")
     @Description("Проверить, что открывается карточка из реестра - Все решения о проверке")
     void checkCardReestrAllInspectionDecisions() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -84,8 +90,9 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17002")
     @Story("snos")
-    @DisplayName("Проверка перехода в карточку из реестра Уведомления о завершении сноса")
+    @DisplayName("Переход в карточку из реестра Уведомления о завершении сноса")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о завершении сноса")
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -95,8 +102,9 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17009")
     @Story("snos")
-    @DisplayName("Проверка перехода в карточку из реестра Уведомления о планируемом сносе")
+    @DisplayName("Переход в карточку из реестра Уведомления о планируемом сносе")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о планируемом сносе")
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -106,8 +114,9 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17005")
     @Story("rs")
-    @DisplayName("Проверка перехода в карточку из реестра Внесение изменений в разрешения на строительство")
+    @DisplayName("Переход в карточку из реестра Внесение изменений в разрешения на строительство")
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения на строительство")
     void checkCardRegisterConstructionLicense() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -117,8 +126,9 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17006")
     @Story("rv")
-    @DisplayName("Проверка перехода в карточку из реестра Разрешения на ввод объекта в эксплуатацию")
+    @DisplayName("Переход в карточку из реестра Разрешения на ввод объекта в эксплуатацию")
     @Description("Проверить, что открывается карточка из реестра - Разрешения на ввод объекта в эксплуатацию")
     void checkCardRegisterObjectOperation() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -128,8 +138,9 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @AllureId("17003")
     @Story("rs")
-    @DisplayName("Проверка перехода в карточку из реестра Разрешения на строительство")
+    @DisplayName("Переход в карточку из реестра Разрешения на строительство")
     @Description("Проверить, что открывается карточка из реестра - Разрешения на строительство")
     void checkCardBuildingPermitRegister() {
         sidebarPage.clickSidebarMenu(INFORMATION);

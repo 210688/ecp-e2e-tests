@@ -5,7 +5,8 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "file:/opt/platform/config/${environment}.properties",
-        "file:f:/Java_prj/prs/config/${environment}.properties"
+        "file:f:/Java_prj/prs/config/${environment}.properties",
+        "file:c:/Java_prj/config/${environment}.properties"
 
 })
 public interface AppConfig extends Config {

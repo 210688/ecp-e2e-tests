@@ -23,8 +23,9 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 public class RinRifReestrTests extends TestBase {
 
     @Test
+    @AllureId("16987")
     @Story("nadzor")
-    @DisplayName("Проверка наличия данных и перехода в реестр Акты проверок")
+    @DisplayName("Наличия данных и перехода в реестр Акты проверок")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterAktsProverok() {
         List<java.lang.String> columnNames = Arrays.asList("Номер акта", "Дата акта", "Место проведения проверки",
@@ -36,8 +37,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16997")
     @Story("nadzor")
-    @DisplayName("Проверка наличия данных и перехода в реестр Все объекты")
+    @DisplayName("Наличия данных и перехода в реестр Все объекты")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterVseObjects() {
         List<java.lang.String> columnNames = Arrays.asList("Источник финансирования", "Номер дела", "Объект", "Застройщик ", "Почтовый адрес",
@@ -49,8 +51,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16996")
     @Story("nadzor")
-    @DisplayName("Проверка наличия данных и перехода в реестр Все объекты сноса")
+    @DisplayName("Наличия данных и перехода в реестр Все объекты сноса")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterAllObjectsSnos() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Объект", "Кадастровый номер ЗУ", "Кадастровый номер здания");
@@ -61,8 +64,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16992")
     @Story("nadzor")
-    @DisplayName("Проверка наличия данных и перехода в реестр Все организации")
+    @DisplayName("Наличия данных и перехода в реестр Все организации")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterAllOrganizations() {
         List<java.lang.String> columnNames = Arrays.asList("Полное наименование организации / Руководитель", "ИНН", "ОГРН /СНИЛС / Паспорт",
@@ -74,8 +78,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16985")
     @Story("nadzor")
-    @DisplayName("Проверка наличия данных и перехода в реестр Все решения о проверке")
+    @DisplayName("Наличия данных и перехода в реестр Все решения о проверке")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterAllInspectionDecisions() {
         List<java.lang.String> columnNames = Arrays.asList("Номер", "Дата", "Объект", "Проверяемая организация", "Вид проверки", "Основание для проверки",
@@ -87,8 +92,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16991")
     @Story("nadzor")
-    @DisplayName("Проверка наличия данных и перехода в реестр  Нарушения")
+    @DisplayName("Наличия данных и перехода в реестр  Нарушения")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterViolations() {
         List<java.lang.String> columnNames = Arrays.asList("Номер нарушения", "Дата нарушения", "Наименование работ", "Специалист УН. ФИО");
@@ -100,8 +106,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16995")
     @Story("nadzor")
-    @DisplayName("Проверка наличия данных и перехода в реестр Постановления")
+    @DisplayName("Наличия данных и перехода в реестр Постановления")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterPostanovleniya() {
         List<java.lang.String> columnNames = Arrays.asList("Постановление", "Нарушитель", "Штраф", "Срок оплаты", "УН", "Подписал", "Оплачено (руб.)",
@@ -114,8 +121,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16986")
     @Story("nadzor")
-    @DisplayName("Проверка наличия данных и перехода в реестр Протоколы")
+    @DisplayName("Наличия данных и перехода в реестр Протоколы")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterProtokols() {
         List<java.lang.String> columnNames = Arrays.asList("Дата протокола", "Место совершения нарушения", "Статья КОАП РФ", "Проверяемая организация",
@@ -128,8 +136,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16984")
     @Story("nadzor")
-    @DisplayName("Проверка наличия данных и перехода в реестр ТЗ лаборатории")
+    @DisplayName("Наличия данных и перехода в реестр ТЗ лаборатории")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterTzLabaratorii() {
         List<java.lang.String> columnNames = Arrays.asList("Дата проверки ЦЭИИС", "Срок исполнения ТЗ", "Состав работ", "Состав работ утвержден ГБУ");
@@ -142,8 +151,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16994")
     @Story("snos")
-    @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о завершении сноса")
+    @DisplayName("Наличия данных и перехода в реестр Уведомления о завершении сноса")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterUvedomleniyaOzaversheniiSnosa() {
         List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата", "Заявитель",
@@ -156,8 +166,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16990")
     @Story("snos")
-    @DisplayName("Проверка наличия данных и перехода в реестр Уведомления о планируемом сносе")
+    @DisplayName("Наличия данных и перехода в реестр Уведомления о планируемом сносе")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterUvedomleniyaOplaniruemomSnose() {
         List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата",
@@ -170,8 +181,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16998")
     @Story("rv")
-    @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения ввод объекта в эксплуатацию")
+    @DisplayName("Наличия данных и перехода в реестр Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterEnteringObjects() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Заявление", "Рег. дата", "Плановая дата",
@@ -184,8 +196,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16988")
     @Story("rs")
-    @DisplayName("Проверка наличия данных и перехода в реестр Внесение изменений в разрешения на строительство")
+    @DisplayName("Наличия данных и перехода в реестр Внесение изменений в разрешения на строительство")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterChangeConstructionBuilding() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Вид изменений", "Заявление", "Рег. дата", "Плановая дата", "Объект",
@@ -198,8 +211,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16989")
     @Story("rv")
-    @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на ввод объекта в эксплуатацию")
+    @DisplayName("Наличия данных и перехода в реестр Разрешения на ввод объекта в эксплуатацию")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterObjectOperation() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
@@ -212,8 +226,9 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("16993")
     @Story("rs")
-    @DisplayName("Проверка наличия данных и перехода в реестр Разрешения на строительство")
+    @DisplayName("Наличия данных и перехода в реестр Разрешения на строительство")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToBuildingPermitRegister() {
         List<java.lang.String> tableColumnList = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
