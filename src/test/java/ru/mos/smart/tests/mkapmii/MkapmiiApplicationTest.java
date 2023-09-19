@@ -2,6 +2,7 @@ package ru.mos.smart.tests.mkapmii;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -35,6 +36,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @OnPreprodOnly
+    @Description("БП")
     @DisplayName("01. Проверка основных контролов, закрытие задачи без сохранения")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mainControlsTest() {
@@ -111,6 +113,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @OnPreprodOnly
+    @Description("Проверить данные заявления")
     @DisplayName("02. Сохранить без завершения")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -135,7 +138,8 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @OnPreprodOnly
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
-    @DisplayName("03. Проверка перехода в карточку заявления")
+    @Description("Карточка заявления")
+    @DisplayName("03. Переход в карточку заявления")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void applicationCardTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
@@ -152,6 +156,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @OnPreprodOnly
+    @Description("Успешный прием документов")
     @DisplayName("07. Успешный прием документов")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -172,6 +177,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @OnPreprodOnly
+    @Description("отказ в приёме документов")
     @DisplayName("04. Неуспешный отказ в приёме документов (отсутствует причина отказа и файл заключения)")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -189,6 +195,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @OnPreprodOnly
+    @Description("отказ в приёме документов")
     @DisplayName("05. Неуспешный отказ в приёме документов (отсутствует файл заключения)")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -228,6 +235,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @OnPreprodOnly
+    @Description("отказ в приёме документов")
     @DisplayName("06. Неуспешный отказ в приёме документов (все поля не заполнены)")
     @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

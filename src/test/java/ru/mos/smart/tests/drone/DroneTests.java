@@ -31,14 +31,14 @@ import static ru.mos.smart.utils.RandomUtils.generateRandomDate;
 @Feature("Drone (Аэрофотосъемка)")
 @Story("drone")
 public class DroneTests extends TestBase {
-    private final String createCard = "/drone/#/app/drone/videoUpload";
     private final ElementsCollection dateInput = $$("div.cdp-date-container > input");
     private final String randomDate = generateRandomDate();
 
     @Test
     @OnPreprodOnly
     @Component("Госуслуги и функции")
-    @DisplayName("Создать карточку аэросъемки")
+    @Description("Проверить функциональность системы создания карточки аэросъемки")
+    @DisplayName("Проверка, что создается карточка аэросъемки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void createCardDrone() {
 
@@ -90,27 +90,31 @@ public class DroneTests extends TestBase {
 
     @Test
     @Component("Информация")
-    @Description("Наличие карточек в реестре данные аэрофотосъемки")
-    @DisplayName("В реестре данные аэрофотосъемки присутствуют карточки")
+    @Description("Проверить корректность открытия и доступность реестра аэрофотосъемки, " +
+            "включая проверку порядка отображения заголовков")
+    @DisplayName("Проверка наличия карточек и заголовков в реестре аэрофотосъемки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    void checkCardsInReestrDrone() {
+    void checkingOfHeadersInRegistryDrone() {
         List<String> tableColumnList = Arrays.asList("Номер заявки", "Дата заявки", "Объект", "Адрес", "Инициатор заявки",
                 "Дата съемки", "Номер контракта", "Дата контракта", "Подрядчик", "Категория", "Тип съемки", "Статус");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AEROFOTO);
-        dronePage.checkFilter(AEROFOTO, tableColumnList);
+        generalPage.validateTableHeadersInRegistry(AEROFOTO, tableColumnList, 20);
     }
 
     @Test
     @Component("Информация")
-    @Description("Просмотреть карточку аэросъемки")
-    @DisplayName("В карточке присутствуют данные")
+    @Description("Проверить корректность открытия и доступность карточки реестра аэрофотосъемки")
+    @DisplayName("Верификация присутствия заголовков таблицы и проверка наличия кнопок в карточке реестра аэрофотосъемки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    void viewCartDrone() {
+    void checkingViewCardDrone() {
+        List<String> cardHeadersList = Arrays.asList("Объект", "Информация о заявителе", "Информация о съемке", "Техническая информация");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AEROFOTO);
-        dronePage.goToCardDrone();
+        generalPage.goToRegistryCard(AEROFOTO);
+        dronePage.checkButtonCard();
+        dronePage.checkingCardHeaders(AEROFOTO, cardHeadersList);
     }
 }
