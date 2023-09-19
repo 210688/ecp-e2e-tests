@@ -15,8 +15,8 @@ import java.util.List;
 
 import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.HEARINGS_URL;
 
-@Epic("Регрессионные тесты для проверки базового функционала")
-@Feature("Oasirx")
+@Epic("OASIRX (ОАСИ Рефактор-Икс)")
+@Feature("HEARINGS")
 @Story("HEARINGS (Публичные слушания)")
 @Owner("Soldatov")
 public class HearingsRegisterTests extends TestBase {

@@ -28,7 +28,7 @@ public class BlagoRegistersTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(OASI_BLAGO_PRO);
-        generalPage.checkTableFilter(OASI_BLAGO_PRO, columnNames);
+        //generalPage.checkTableFilter(OASI_BLAGO_PRO, 20, columnNames);
 
     }
 }

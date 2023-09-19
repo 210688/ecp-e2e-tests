@@ -30,15 +30,16 @@ public class ReestrPage {
         filter.click();
         registryName.get(1).$("input").val(registerName.value());
         $(byText(registerName.value())).click();
+        $(byText(registerName.value())).should(visible, ofSeconds(10));
     }
 
-    @Step("Проверка, что в реестре  присутствует список реестров доступных пользователю")
+    @Step("В реестре  присутствует список реестров доступных пользователю")
     public void checkReestrTask() {
         $("div.ag-center-cols-viewport").$$("div.ag-row").should(sizeGreaterThan(0));
         AllureAttachments.attachScreenshot("Список реестров пользователя");
     }
 
-    @Step("Проверить, что в реестре содержится поле для поиска")
+    @Step("В реестре содержится поле для поиска")
     public void searchField() {
         $(".search-form").$("input").shouldBe(visible, ofSeconds(10));
     }

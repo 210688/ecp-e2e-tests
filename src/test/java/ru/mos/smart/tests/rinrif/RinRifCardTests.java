@@ -20,13 +20,15 @@ public class RinRifCardTests extends TestBase {
     @Test
     @AllureId("17008")
     @Story("nadzor")
-    @DisplayName("Переход в карточку из реестра Акты проверок")
-    @Description("Проверить, что открывается карточка из реестра - Акты проверок")
+    @DisplayName("Проверить корректность открытия и доступность карточки Акты проверок")
+    @Description("Проверка корректности открытия карточки 'Акты проверок', " +
+            "убедится в наличии заголовков и наличии заполненных данных в этой карточке.")
     void checkCardRegisterActsProverok() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AKTS_PROVEROK);
-        rinrifPage.goToRegistryCardAndCheck();
+        generalPage.goToRegistryCard(AKTS_PROVEROK);
+        rinrifPage.checkingCardHeaders();
     }
 
     @Test
