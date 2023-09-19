@@ -2,10 +2,12 @@ package ru.mos.smart.tests.oasirx.sprit;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
 import java.time.Duration;
@@ -17,13 +19,15 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-@Epic("OASIRX (ОАСИ Рефактор-Икс)")
-@Feature("SPRIT (Выдача СПРИТ)")
+@Epic("OASI")
+@Feature("ОАСИРХ")
+@Story("sprit")
+@Component("Реестр")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class SpritTests extends TestBase {
 
     @Test
     @DisplayName("Просмотр карточки СПРИТ")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void cardViewSprit() {
         sidebarPage
                 .goToSprit();
@@ -45,7 +49,6 @@ public class SpritTests extends TestBase {
 
     @Test
     @DisplayName("Форма карточки: История изменений")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void historyChangeCard() {
         sidebarPage
                 .goToSprit();
@@ -61,7 +64,6 @@ public class SpritTests extends TestBase {
 
     @Test
     @DisplayName("Новая форма подачи заявления (новый регламент)")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void newReglament() {
         sidebarPage
                 .goToSprit();
@@ -81,7 +83,6 @@ public class SpritTests extends TestBase {
 
     @Test
     @DisplayName("Форма карточки: Процесс")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void process() {
         sidebarPage
                 .goToSprit();
@@ -98,7 +99,6 @@ public class SpritTests extends TestBase {
 
     @Test
     @DisplayName("Форма карточки: Материалы")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void cardMaterialsTest() {
         sidebarPage
                 .goToSprit();

@@ -16,7 +16,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 
-
 @Epic("UGD (УГД)")
 @Feature("OATI (Уведомления ОАТИ)")
 @Story("Гоуслуги и функции")

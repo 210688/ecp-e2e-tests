@@ -2,15 +2,11 @@ package ru.mos.smart.tests.mkapmii;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.ManualMember;
 import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.tests.TestBase;
@@ -30,15 +26,15 @@ import static ru.mos.smart.data.enums.Sidebar.TASK;
 
 @Epic("OASI")
 @Feature("MKAPMII")
-@Story("MKAPMII")
-@ManualMember("innovault")
+@Story("mkapmii")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkapmiiApplicationTest extends TestBase {
 
     @Test
+    @AllureId("17108")
     @OnPreprodOnly
     @Description("БП")
     @DisplayName("01. Проверка основных контролов, закрытие задачи без сохранения")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mainControlsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -112,11 +108,10 @@ public class MkapmiiApplicationTest extends TestBase {
     }
 
     @Test
+    @AllureId("17109")
     @OnPreprodOnly
     @Description("Проверить данные заявления")
     @DisplayName("02. Сохранить без завершения")
-    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void saveAndNotFinishTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -136,11 +131,10 @@ public class MkapmiiApplicationTest extends TestBase {
     }
 
     @Test
+    @AllureId("17106")
     @OnPreprodOnly
-    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
     @Description("Карточка заявления")
     @DisplayName("03. Переход в карточку заявления")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void applicationCardTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -155,32 +149,10 @@ public class MkapmiiApplicationTest extends TestBase {
     }
 
     @Test
-    @OnPreprodOnly
-    @Description("Успешный прием документов")
-    @DisplayName("07. Успешный прием документов")
-    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-    void positiveFinishTask() {
-        String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
-        mkapmiiPage.createTask(randomTestId);
-        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
-        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, TASK);
-        taskPage.openTaskByTestId(randomTestId);
-        taskPage.takeUnusedTask();
-        mkapmiiPage.selectTakeToWorkRadioButton();
-        step("Нажать Завершить задачу", () -> {
-            $$("button").findBy(text("Завершить задачу")).shouldNotHave(attribute("[disabled]")).click();
-            $$(".toast-message").findBy(text("Заявка принята в работу!")).shouldBe(visible);
-            $("#my-task-showcase").shouldBe(visible, Duration.ofSeconds(30));
-        });
-    }
-
-    @Test
+    @AllureId("17103")
     @OnPreprodOnly
     @Description("отказ в приёме документов")
     @DisplayName("04. Неуспешный отказ в приёме документов (отсутствует причина отказа и файл заключения)")
-    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void unsuccessfulRefuseTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -194,11 +166,10 @@ public class MkapmiiApplicationTest extends TestBase {
     }
 
     @Test
+    @AllureId("17107")
     @OnPreprodOnly
     @Description("отказ в приёме документов")
     @DisplayName("05. Неуспешный отказ в приёме документов (отсутствует файл заключения)")
-    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void unsuccessfulRefuseNoFileTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -234,11 +205,10 @@ public class MkapmiiApplicationTest extends TestBase {
     }
 
     @Test
+    @AllureId("17104")
     @OnPreprodOnly
     @Description("отказ в приёме документов")
     @DisplayName("06. Неуспешный отказ в приёме документов (все поля не заполнены)")
-    @Feature("Задача Проверить данные заявления. Проверка контролов. Успешный прием документов")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void unsuccessfulRefuseEmptyFieldsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -254,6 +224,26 @@ public class MkapmiiApplicationTest extends TestBase {
                 " (Причина отказа: значение не выбрано! Файл заключения: необходимо сформировать файл!)", () -> {
             $$(".toast-message").findBy(text("Причина отказа: значение не выбрано!")).shouldBe(visible);
             $$(".toast-message").findBy(text("Файл заключения: необходимо сформировать файл!")).shouldBe(visible);
+        });
+    }
+
+    @Test
+    @AllureId("17105")
+    @OnPreprodOnly
+    @Description("Успешный прием документов")
+    @DisplayName("07. Успешный прием документов")
+    void positiveFinishTask() {
+        String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
+        mkapmiiPage.createTask(randomTestId);
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, TASK);
+        taskPage.openTaskByTestId(randomTestId);
+        taskPage.takeUnusedTask();
+        mkapmiiPage.selectTakeToWorkRadioButton();
+        step("Нажать Завершить задачу", () -> {
+            $$("button").findBy(text("Завершить задачу")).shouldNotHave(attribute("[disabled]")).click();
+            $$(".toast-message").findBy(text("Заявка принята в работу!")).shouldBe(visible);
+            $("#my-task-showcase").shouldBe(visible, Duration.ofSeconds(30));
         });
     }
 }

@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.ugd.upsd;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -15,15 +12,16 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.enums.Registers.UGD_UPSD;
 
 @Epic("UGD")
-@Feature("UPSD")
+@Feature("upsd")
 @Story("Информация")
 @Component("Реестры")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 class RegistersUpsdTests extends TestBase {
 
     @Test
+    @AllureId("16980")
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
     @Description("Проверить, что реестр открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void registerUpsdViewing() {
         reestrPage
                 .goToRegister(UGD_UPSD);

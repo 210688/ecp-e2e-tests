@@ -30,16 +30,17 @@ import static ru.mos.smart.utils.RandomUtils.generateRandomDate;
 @Epic("OASI")
 @Feature("Drone (Аэрофотосъемка)")
 @Story("drone")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class DroneTests extends TestBase {
     private final ElementsCollection dateInput = $$("div.cdp-date-container > input");
     private final String randomDate = generateRandomDate();
 
     @Test
+    @AllureId("17118")
     @OnPreprodOnly
     @Component("Госуслуги и функции")
     @Description("Проверить функциональность системы создания карточки аэросъемки")
     @DisplayName("Проверка, что создается карточка аэросъемки")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void createCardDrone() {
 
         sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
@@ -89,11 +90,11 @@ public class DroneTests extends TestBase {
     }
 
     @Test
+    @AllureId("17228")
     @Component("Информация")
     @Description("Проверить корректность открытия и доступность реестра аэрофотосъемки, " +
             "включая проверку порядка отображения заголовков")
     @DisplayName("Проверка наличия карточек и заголовков в реестре аэрофотосъемки")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingOfHeadersInRegistryDrone() {
         List<String> tableColumnList = Arrays.asList("Номер заявки", "Дата заявки", "Объект", "Адрес", "Инициатор заявки",
                 "Дата съемки", "Номер контракта", "Дата контракта", "Подрядчик", "Категория", "Тип съемки", "Статус");
@@ -104,10 +105,10 @@ public class DroneTests extends TestBase {
     }
 
     @Test
+    @AllureId("17229")
     @Component("Информация")
     @Description("Проверить корректность открытия и доступность карточки реестра аэрофотосъемки")
     @DisplayName("Верификация присутствия заголовков таблицы и проверка наличия кнопок в карточке реестра аэрофотосъемки")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingViewCardDrone() {
         List<String> cardHeadersList = Arrays.asList("Объект", "Информация о заявителе", "Информация о съемке", "Техническая информация");
         sidebarPage.clickSidebarMenu(INFORMATION);

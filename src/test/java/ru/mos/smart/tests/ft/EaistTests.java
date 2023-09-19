@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.ft;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -13,11 +14,12 @@ import static ru.mos.smart.data.enums.Registers.EAIST;
 import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
-@Epic("FT (Электронная приемка по ФТ)")
+@Epic("OASI")
 @Feature("Подсистема неактивна, необходимости в автотестах нет")
 public class EaistTests extends TestBase {
 
     @Test
+    @AllureId("17112")
     @Description("Доступность реестра ЕАИСТ")
     @DisplayName("В реестре присутствуют карточки")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

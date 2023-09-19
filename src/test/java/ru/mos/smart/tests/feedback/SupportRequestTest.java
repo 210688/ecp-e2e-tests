@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.feedback;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -20,14 +21,15 @@ import static ru.mos.smart.data.enums.Sidebar.OPPORTUNITIES;
 import static ru.mos.smart.data.enums.Sidebar.SERVICES_AND_FUNCTION;
 
 @Epic("OASI")
-@Feature("FEEDBACK")
+@Feature("feedback")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class SupportRequestTest extends TestBase {
 
     @Test
+    @AllureId("17114")
     @OnPreprodOnly
     @Description("Отправка письма в тех поддержку")
     @DisplayName("Возможность инициировать обращение в техническую поддержку.")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void SupportRequestForward() {
         sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
         sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, OPPORTUNITIES );

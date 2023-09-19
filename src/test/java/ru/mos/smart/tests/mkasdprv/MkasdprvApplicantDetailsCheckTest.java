@@ -2,9 +2,9 @@ package ru.mos.smart.tests.mkasdprv;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -28,12 +28,13 @@ import static ru.mos.smart.data.enums.Sidebar.TASK;
 
 @Epic("OASI")
 @Feature("MKASDPRV")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkasdprvApplicantDetailsCheckTest extends TestBase {
 
     @Test
+    @AllureId("17094")
     @OnPreprodOnly
     @DisplayName("01. Проверка основных контролов на странице")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mainControlsTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
@@ -113,9 +114,9 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     }
 
     @Test
+    @AllureId("17092")
     @OnPreprodOnly
     @DisplayName("02. Проверка перехода в карточку заявления")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void applicationCardTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
@@ -131,9 +132,9 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     }
 
     @Test
+    @AllureId("17095")
     @OnPreprodOnly
     @DisplayName("03. Принять решение по заявлению - отказ. Причины отказа")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void negativeDecisionTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
@@ -201,9 +202,9 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     }
 
     @Test
+    @AllureId("17096")
     @OnPreprodOnly
     @DisplayName("04. Принять решение. Сформировать файл решения. Загрузка файлов")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void negativeFilesTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
@@ -233,9 +234,9 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     }
 
     @Test
+    @AllureId("17091")
     @OnPreprodOnly
     @DisplayName("05. Успешный отказ в приёме документов")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void refuseDocsTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
@@ -256,10 +257,9 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     }
 
     @Test
+    @AllureId("17093")
     @OnPreprodOnly
-    @DisplayName("Завершение задачи (принять в работу)")
-    @Story("02. Завершение задачи Проверить данные заявления (принять в работу)")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @DisplayName("06. Завершение задачи (принять в работу)")
     void finishTaskTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);

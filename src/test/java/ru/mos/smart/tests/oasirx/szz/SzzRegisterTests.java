@@ -1,11 +1,14 @@
 package ru.mos.smart.tests.oasirx.szz;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
@@ -16,13 +19,16 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 
-@Epic("OASIRX (ОАСИ Рефактор-Икс)")
-@Feature("SZZ (СЗЗ)")
+@Epic("OASI")
+@Feature("ОАСИРХ")
+@Story("szz")
+@Component("Реестр")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class SzzRegisterTests extends TestBase {
 
     @Test
+    @AllureId("17055")
     @DisplayName("Просмотр реестра СЗЗ")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openingTheRegisterSzz() {
         sidebarPage
                 .goToSzz();
@@ -41,8 +47,8 @@ public class SzzRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("17054")
     @DisplayName("Поиск карточки реестра СЗЗ по номеру")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void searchingSzzCardByNumber() {
         sidebarPage
                 .goToSzz();
