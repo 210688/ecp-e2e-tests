@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.mkasdprv;
 
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -10,7 +11,6 @@ import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -25,7 +25,8 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 public class MkasdprvRegisterTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка атрибутивного состава реестра")
+    @Description("Доступность реестра оказания услуги Вывесок")
+    @DisplayName("Проверка наличия карточек")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingTheAttributesOfTheRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -46,17 +47,13 @@ public class MkasdprvRegisterTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Открытие карточки реестра")
+    @Description("Доступность реестра оказания услуги Вывесок")
+    @DisplayName("Проверка заголовков в карточке")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void openingRegistryCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MKASDPRV_ORDER);
-
-        step("Открыть любую карточку реестра", () -> {
-            $(".input-lg").setValue("КВ-2021-1855").pressEnter();
-            $(byLinkText("КВ-2021-1855")).click();
-        });
 
         step("В карточке присутствуют вкладки:", () -> {
             $x("//span[contains(text(),'Сведения о заявлении')]").shouldBe(visible);

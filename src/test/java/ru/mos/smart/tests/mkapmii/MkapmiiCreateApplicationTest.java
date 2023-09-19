@@ -1,10 +1,7 @@
 package ru.mos.smart.tests.mkapmii;
 
 import com.github.javafaker.Faker;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -20,13 +17,13 @@ public class MkapmiiCreateApplicationTest {
     @Epic("OASI")
     @Feature("MKAPMII")
     @Story("MKAPMII")
-    @DisplayName("Создание заявки через сваггер")
+    @Description("Тестовая заявка MKAPMII")
+    @DisplayName("Создание тестовой заявки MKAPMII через swagger")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void createApplicationViaApiTest() {
 
         Faker faker = new Faker();
         MkapmiiCreatingTestStatement mkapmii = new MkapmiiCreatingTestStatement();
-
         Object number = faker.number().digits(4);
         String randomTestId = "Тестовая заявка MKAPMII №:" + "KL-" + number;
         mkapmii.create(randomTestId);

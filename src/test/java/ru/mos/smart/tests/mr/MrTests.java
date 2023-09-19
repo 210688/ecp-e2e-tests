@@ -3,6 +3,7 @@ package ru.mos.smart.tests.mr;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -35,7 +36,8 @@ public class MrTests extends TestBase {
     private final Faker faker = new Faker();
 
     @Test
-    @DisplayName("Проверка открытия реестра Поручения Мэра по программе \"Мой район\"")
+    @Description("Проверка открытия реестра")
+    @DisplayName("Открытие реестра Поручения Мэра по программе \"Мой район\"")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramInstructionRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -58,7 +60,8 @@ public class MrTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка открытия реестра Объекты по программе \"Мой район\"")
+    @Description("Проверка открытия реестра")
+    @DisplayName("В реестре Объекты по программе \"Мой район\" присутствуют заголовки карточек")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramObjRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -78,6 +81,7 @@ public class MrTests extends TestBase {
     }
 
     @Test
+    @Description("Проверка открытия реестра")
     @DisplayName("Проверка открытия карточки реестра Объекты по программе \"Мой район\"")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkAttributesOfMrProgramObjCard() {
@@ -106,6 +110,7 @@ public class MrTests extends TestBase {
     }
 
     @Test
+    @Description("Проверка открытия реестра")
     @DisplayName("Переход с мини-карты на карточке объекта на Карту")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkSwitchToMapOnMrProgramObjCard() {
@@ -132,7 +137,8 @@ public class MrTests extends TestBase {
 
     @Test
     @OnPreprodOnly
-    @DisplayName("Проверка открытия возможности Запустить процесс создания объекта")
+    @Description("Проверка открытия реестра")
+    @DisplayName("Запуск процесса создания объекта")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkStartingObjectCreationProcess() {
 

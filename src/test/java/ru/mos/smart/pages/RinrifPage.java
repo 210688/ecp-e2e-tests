@@ -29,6 +29,12 @@ public class RinrifPage {
         switchTo().window(1);
     }
 
+    @Step("В карточке Акт проверки заполнены данные на вкладке Общие сведения")
+    public void checkingCardHeaders(){
+        $("#infoZu").should(visible);
+        AllureAttachments.attachScreenshot("Карточка реестра");
+    }
+
     @Step("Перейти в карточку реестра и проверить наполненность карточки")
     public void goToRegistryCardAndCheck() {
         String linkName = link.getAttribute("href");
@@ -48,7 +54,7 @@ public class RinrifPage {
                 .$$("td").get(1).$("a").click();
     }
 
-    @Step("В реестре {registerName} фильтр содержит колонки {list}")
+    @Step("В карточке присутствуют заголовки {list}")
     public void checkTableFilter(Registers registerName, List<String> list) {
         switchToWindow();
         verifyTableHeaders(list);

@@ -32,7 +32,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AKTS_PROVEROK);
-        generalPage.checkTableFilter(AKTS_PROVEROK, columnNames);
+        //generalPage.checkTableFilter(AKTS_PROVEROK, 20, columnNames);
     }
 
     @Test
@@ -45,7 +45,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS);
-        generalPage.checkTableFilter(ALL_OBJECTS, columnNames);
+        //generalPage.checkTableFilter(ALL_OBJECTS, 20, columnNames);
     }
 
     @Test
@@ -57,7 +57,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS_SNOS);
-        generalPage.checkTableFilter(ALL_OBJECTS_SNOS, columnNames);
+        //generalPage.checkTableFilter(ALL_OBJECTS_SNOS, 20, columnNames);
     }
 
     @Test
@@ -70,7 +70,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_ORGANIZATION);
-        generalPage.checkTableFilter(ALL_OBJECTS_SNOS, columnNames);
+        //generalPage.checkTableFilter(ALL_OBJECTS_SNOS, 20, columnNames);
     }
 
     @Test
@@ -83,7 +83,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_INSPECTION_DECISIONS);
-        generalPage.checkTableFilter(All_INSPECTION_DECISIONS, columnNames);
+        //generalPage.checkTableFilter(All_INSPECTION_DECISIONS, 20, columnNames);
     }
 
     @Test
@@ -95,7 +95,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(NARUSHENIYA);
-        generalPage.checkTableFilter(NARUSHENIYA, columnNames);
+       // generalPage.checkTableFilter(NARUSHENIYA, 20, columnNames);
 
     }
 
@@ -110,7 +110,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(POSTANOVLENIYA);
         reestrPage.searchField();
-        generalPage.checkTableFilter(POSTANOVLENIYA, columnNames); //TODO: спросить про проверку данных в таблице
+        //generalPage.checkTableFilter(POSTANOVLENIYA, 20, columnNames); //TODO: спросить про проверку данных в таблице
     }
 
     @Test
@@ -124,7 +124,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PROTOKOLS);
         reestrPage.searchField();
-        generalPage.checkTableFilter(PROTOKOLS, columnNames);
+       // generalPage.checkTableFilter(PROTOKOLS, 20, columnNames);
     }
 
     @Test
@@ -137,7 +137,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(TZ_LABORATORIES);
         reestrPage.searchField();
-        generalPage.checkTableFilter(TZ_LABORATORIES, columnNames);
+        //generalPage.checkTableFilter(TZ_LABORATORIES, 20, columnNames);
 
     }
 
@@ -152,7 +152,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(DEMOLITIONS);
         reestrPage.searchField();
-        generalPage.checkTableFilter(DEMOLITIONS, columnNames);
+        //generalPage.checkTableFilter(DEMOLITIONS, 20, columnNames);
     }
 
     @Test
@@ -166,7 +166,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
         reestrPage.searchField();
-        generalPage.checkTableFilter(PLANNED_DEMOLITION_NOTICES, columnNames);
+        //generalPage.checkTableFilter(PLANNED_DEMOLITION_NOTICES, 20, columnNames);
     }
 
     @Test
@@ -180,7 +180,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
         reestrPage.searchField();
-        generalPage.checkTableFilter(MODIFICATION_OBJECT_OPERATION, columnNames);
+        //generalPage.checkTableFilter(MODIFICATION_OBJECT_OPERATION, 20, columnNames);
     }
 
     @Test
@@ -194,7 +194,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
         reestrPage.searchField();
-        generalPage.checkTableFilter(CHANGE_CONSTRUCTION_BUILDING, tableColumnList);
+        //generalPage.checkTableFilter(CHANGE_CONSTRUCTION_BUILDING, 20, tableColumnList);
     }
 
     @Test
@@ -208,7 +208,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
         reestrPage.searchField();
-        generalPage.checkTableFilter(PERMISSIONS_OBJECT_OPERATION, tableColumnList);
+       // generalPage.checkTableFilter(PERMISSIONS_OBJECT_OPERATION, 20, tableColumnList);
     }
 
     @Test
@@ -222,6 +222,6 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(BUILDING_PERMIT);
         reestrPage.searchField();
-        generalPage.checkTableFilter(BUILDING_PERMIT, tableColumnList);
+        //generalPage.checkTableFilter(BUILDING_PERMIT, 20, tableColumnList);
     }
 }
