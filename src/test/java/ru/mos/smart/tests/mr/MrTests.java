@@ -26,8 +26,8 @@ import static ru.mos.smart.data.enums.Registers.MR_PROGRAM_ORDER;
 import static ru.mos.smart.data.enums.Sidebar.*;
 
 @Epic("OASI")
-@Feature("rayon")
-@Story("program")
+@Feature("Rayon")
+@Story("Program")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MrTests extends TestBase {
 
@@ -35,8 +35,8 @@ public class MrTests extends TestBase {
 
     @Test
     @AllureId("17085")
-    @Description("Проверка открытия реестра")
     @DisplayName("Открытие реестра Поручения Мэра по программе \"Мой район\"")
+    @Description("Проверить, что открывается реестр - Поручения Мэра по программе Мой район")
     void checkAttributesOfMrProgramInstructionRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -59,8 +59,8 @@ public class MrTests extends TestBase {
 
     @Test
     @AllureId("17087")
-    @Description("Проверка открытия реестра")
     @DisplayName("В реестре Объекты по программе \"Мой район\" присутствуют заголовки карточек")
+    @Description("Проверить, что в реестре присутствуют заголовки карточек")
     void checkAttributesOfMrProgramObjRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -80,8 +80,8 @@ public class MrTests extends TestBase {
 
     @Test
     @AllureId("17083")
-    @Description("Проверка открытия реестра")
-    @DisplayName("Проверка открытия карточки реестра Объекты по программе \"Мой район\"")
+    @DisplayName("Открытие карточки реестра Объекты по программе \"Мой район\"")
+    @Description("Проверить, что открываются карточки в реестре")
     void checkAttributesOfMrProgramObjCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -109,8 +109,8 @@ public class MrTests extends TestBase {
 
     @Test
     @AllureId("17086")
-    @Description("Проверка открытия реестра")
-    @DisplayName("Переход с мини-карты на карточке объекта на Карту")
+    @DisplayName("Переход с мини-карты в карточке объекта в Карту")
+    @Description("Проверить, что происходит переход с мини-карты в карточке объекта в Карту")
     void checkSwitchToMapOnMrProgramObjCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -136,8 +136,8 @@ public class MrTests extends TestBase {
     @Test
     @AllureId("17084")
     @OnPreprodOnly
-    @Description("Проверка открытия реестра")
     @DisplayName("Запуск процесса создания объекта")
+    @Description("Проверить, что запускается процесс создания объекта")
     void checkStartingObjectCreationProcess() {
 
         String createdObjectName = "Объект бытового обслуживания №" + faker.number().numberBetween(1, 100);

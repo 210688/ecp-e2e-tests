@@ -18,16 +18,16 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("UGD")
 @Feature("CDP")
+@Story("Eventmanager")
+@Component("Информация")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class EventmanagerActionTests extends TestBase {
     EventmanagerPage eventmanagerPage = new EventmanagerPage();
 
     @Test
     @AllureId("17227")
-    @Story("eventmanager")
-    @Component("Информация")
-    @Description("Проверить корректность открытия и доступность карточек реестра Подписки на уведомления о событиях")
-    @DisplayName("Проверка наличия карточек и заголовков в реестре Подписки на уведомления о событиях")
+    @Description("Проверить, что корректно открывается реестр и доступность карточек реестра Подписки на уведомления о событиях")
+    @DisplayName("Наличия карточек и заголовков в реестре Подписки на уведомления о событиях")
     void checkTheCardsInRegistryEventmanager() {
         List<String> tableColumnList = Arrays.asList("Дата создания", "Публикатор", "Подписчик", "Тип события");
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -38,10 +38,8 @@ public class EventmanagerActionTests extends TestBase {
 
     @Test
     @AllureId("17226")
-    @Story("eventmanager")
-    @Component("Информация")
-    @Description("Проверить корректность открытия и доступность карточек реестра Подписки на уведомления о событиях")
-    @DisplayName("Проверка заголовков и заполнение данных в карточке Подписка на уведомления о событиях")
+    @DisplayName("Отображение заголовков и заполнение данных в карточке Подписка на уведомления о событиях")
+    @Description("Проверить, что корректно открывается реестр и доступность карточек реестра Подписки на уведомления о событиях")
     void checkTheOpenCardsInRegistryEventmanager() {
         List<String> cardHeadersList = Arrays.asList("Сведения о подписке", "Сведения об авторе подписки");
         sidebarPage.clickSidebarMenu(INFORMATION);

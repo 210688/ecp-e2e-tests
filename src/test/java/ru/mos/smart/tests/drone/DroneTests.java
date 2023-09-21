@@ -28,7 +28,8 @@ import static ru.mos.smart.utils.RandomUtils.generateRandomDate;
 
 @Owner("Soldatov")
 @Epic("OASI")
-@Feature("Drone (Аэрофотосъемка)")
+@Feature("Drone")
+@Story("Drone")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class DroneTests extends TestBase {
     private final ElementsCollection dateInput = $$("div.cdp-date-container > input");
@@ -37,10 +38,9 @@ public class DroneTests extends TestBase {
     @Test
     @AllureId("17118")
     @OnPreprodOnly
-    @Story("drone")
     @Component("Госуслуги и функции")
-    @Description("Проверить функциональность системы создания карточки аэросъемки")
-    @DisplayName("Проверка, что создается карточка аэросъемки")
+    @DisplayName("Функциональность системы создания карточки аэросъемки")
+    @Description("Проверить, что создается карточка аэросъемки")
     void createCardDrone() {
 
         sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
@@ -91,11 +91,10 @@ public class DroneTests extends TestBase {
 
     @Test
     @AllureId("17228")
-    @Story("drone")
     @Component("Информация")
-    @Description("Проверить корректность открытия и доступность реестра аэрофотосъемки, " +
+    @DisplayName("Наличия карточек и заголовков в реестре аэрофотосъемки")
+    @Description("Проверить, что корректно отткрывается реестр и доступность реестра аэрофотосъемки, " +
             "включая проверку порядка отображения заголовков")
-    @DisplayName("Проверка наличия карточек и заголовков в реестре аэрофотосъемки")
     void checkingOfHeadersInRegistryDrone() {
         List<String> tableColumnList = Arrays.asList("Номер заявки", "Дата заявки", "Объект", "Адрес", "Инициатор заявки",
                 "Дата съемки", "Номер контракта", "Дата контракта", "Подрядчик", "Категория", "Тип съемки", "Статус");
@@ -107,10 +106,9 @@ public class DroneTests extends TestBase {
 
     @Test
     @AllureId("17229")
-    @Story("drone")
     @Component("Информация")
-    @Description("Проверить корректность открытия и доступность карточки реестра аэрофотосъемки")
     @DisplayName("Верификация присутствия заголовков таблицы и проверка наличия кнопок в карточке реестра аэрофотосъемки")
+    @Description("Проверить, что корректно открывается реестр и доступность карточки реестра аэрофотосъемки")
     void checkingViewCardDrone() {
         List<String> cardHeadersList = Arrays.asList("Объект", "Информация о заявителе", "Информация о съемке", "Техническая информация");
         sidebarPage.clickSidebarMenu(INFORMATION);

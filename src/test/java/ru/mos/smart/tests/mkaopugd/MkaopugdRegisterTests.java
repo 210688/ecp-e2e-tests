@@ -17,18 +17,17 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("UGD")
-@Feature("mkaopugd")
-
+@Feature("Mkaopugd")
+@Story("Mkaopugd-order")
+@Component("Информация")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkaopugdRegisterTests extends TestBase {
     MkaopUgdPage mkaopUgdPage = new MkaopUgdPage();
 
     @Test
     @AllureId("17225")
-    @Story("mkaopugd-order")
-    @Component("Информация")
-    @Description("Проверить корректность открытия и доступность карточек реестра поручений УГД")
-    @DisplayName("Проверка наличия карточек и заголовков в реестре")
+    @DisplayName("Наличия карточек и заголовков в реестре")
+    @Description("Проверить, что корректно открывается реестр и доступность карточек реестра поручений УГД")
     void goToRegistryInstructionsUgd() {
         List<String> tableColumnList = Arrays.asList("№ заседания", "№ протокола", "Дата заседания", "Срок", "Тип",
                 "Наименование", "Кадастровый номер", "Адрес", "Статус");
@@ -41,10 +40,8 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @AllureId("17224")
-    @Story("mkaopugd-order")
-    @Component("Информация")
-    @Description("Проверить корректность открытия карточки в реестре поручений УГД")
-    @DisplayName("Верификация присутствия заголовков таблицы  и заполнение данных в карточке поручений")
+    @DisplayName("Отображение заголовков и заполнение данных в карточке поручений УГД")
+    @Description("Проверить, что корректно открываются карточки в реестре поручений УГД")
     void checkCardRegisterInstructionsUgd() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

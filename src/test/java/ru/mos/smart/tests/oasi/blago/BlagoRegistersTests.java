@@ -1,8 +1,6 @@
 package ru.mos.smart.tests.oasi.blago;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -17,12 +15,14 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
-@Feature("BLAGO (ОАСИ Благоустройство)")
+@Feature("OASI")
+@Story("Blago")
 public class BlagoRegistersTests extends TestBase {
 
     @Test
     @AllureId("17079")
     @DisplayName("Проверка наличия реестров")
+    @Description("Проверить, что реестр Проекты благоустройства - открывается ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingBlagoRegisters() {
         List<String> columnNames = Arrays.asList("Номер ОАСИ", "Дата", "Адрес", "Плановая дата",

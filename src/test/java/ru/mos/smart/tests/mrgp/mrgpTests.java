@@ -25,8 +25,8 @@ public class mrgpTests extends TestBase {
 
     @Test
     @AllureId("17082")
-    @Description("Доступность реестра")
     @DisplayName("Проверка открытия реестра")
+    @Description("Проверить, что открывается реестр - Перечень программ")
     void openReestr() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

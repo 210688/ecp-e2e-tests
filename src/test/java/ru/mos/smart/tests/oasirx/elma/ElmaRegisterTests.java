@@ -15,15 +15,15 @@ import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.ELMA_URL;
 
 @Owner("Soldatov")
 @Epic("OASI")
-@Feature("ОАСИРХ")
-@Story("elma")
+@Feature("Оасирх")
+@Story("Elma")
 @Component("Реестр")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class ElmaRegisterTests extends TestBase {
 
     @Test
     @AllureId("17072")
-    @DisplayName("Проверка наличия данных и перехода в раздел Соответствие проектной документации СППК")
+    @DisplayName("Наличия данных и перехода в раздел Соответствие проектной документации СППК")
     void goToRegisterElma() {
         List<String> columnNames = Arrays.asList("Дата", "Номер", "Номер МГГТ", "Название", "Статус");
         sidebarPage.goToSection(ELMA_URL);

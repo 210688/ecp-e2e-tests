@@ -25,16 +25,16 @@ import static ru.mos.smart.data.enums.Sidebar.TASK;
 
 
 @Epic("OASI")
-@Feature("MKAPMII")
-@Story("mkapmii")
+@Feature("Mkapmii")
+@Story("Mkapmii")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17108")
     @OnPreprodOnly
-    @Description("БП")
-    @DisplayName("01. Проверка основных контролов, закрытие задачи без сохранения")
+    @DisplayName("01. Функционал основных контролов, закрытие задачи без сохранения")
+    @Description("Проверить, что отображаются блоки, открытие блоков и закрытие, наличие и работоспосбность всех копок")
     void mainControlsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -110,8 +110,8 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @AllureId("17109")
     @OnPreprodOnly
-    @Description("Проверить данные заявления")
-    @DisplayName("02. Сохранить без завершения")
+    @DisplayName("02. Сохранить бизнез процесс без завершения")
+    @Description("Проверить, что данные заявления отображаются")
     void saveAndNotFinishTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -133,8 +133,8 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @AllureId("17106")
     @OnPreprodOnly
-    @Description("Карточка заявления")
     @DisplayName("03. Переход в карточку заявления")
+    @Description("Проверить, что открывается карточка заявления")
     void applicationCardTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -151,8 +151,8 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @AllureId("17103")
     @OnPreprodOnly
-    @Description("отказ в приёме документов")
     @DisplayName("04. Неуспешный отказ в приёме документов (отсутствует причина отказа и файл заключения)")
+    @Description("Проверить, что отказано в приёме документов по причине отказа с файлом заключения")
     void unsuccessfulRefuseTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -168,8 +168,8 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @AllureId("17107")
     @OnPreprodOnly
-    @Description("отказ в приёме документов")
     @DisplayName("05. Неуспешный отказ в приёме документов (отсутствует файл заключения)")
+    @Description("Проверить, что отказано в приёме документов по причине отстутствия файла заключения")
     void unsuccessfulRefuseNoFileTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -207,8 +207,8 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @AllureId("17104")
     @OnPreprodOnly
-    @Description("отказ в приёме документов")
     @DisplayName("06. Неуспешный отказ в приёме документов (все поля не заполнены)")
+    @Description("Проверить, что отказано в приёме документов, где все поля не заполнены")
     void unsuccessfulRefuseEmptyFieldsTest() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
@@ -230,8 +230,8 @@ public class MkapmiiApplicationTest extends TestBase {
     @Test
     @AllureId("17105")
     @OnPreprodOnly
-    @Description("Успешный прием документов")
     @DisplayName("07. Успешный прием документов")
+    @Description("Проверить, что документы приняли успешно")
     void positiveFinishTask() {
         String randomTestId = "MKAPMII_ID: " + RandomUtils.getRandomString(10);
         mkapmiiPage.createTask(randomTestId);
