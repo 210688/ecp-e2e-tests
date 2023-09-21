@@ -14,6 +14,7 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static ru.mos.smart.data.enums.Registers.AKTS_PROVEROK;
 
 /**
  * Описание реестров RinRif.
@@ -21,7 +22,16 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RinrifPage {
 
-    private final ElementsCollection searchResultTable = $$("table.search-result-table tr");
+    private final SelenideElement
+            info = $("#infoZu"),
+            commonInfo = $("#commoninfo-link"),
+            infoZu = $("#infoZu-link"),
+            tep = $("#tep-link");
+
+    private final ElementsCollection
+            searchResultTable = $$("table.search-result-table tr"),
+            blocksInCard = $$(".description h3");
+
     private final SelenideElement link = searchResultTable.get(3).$$("td").get(1).$("a");
     private final ElementsCollection tableHeaders = $("showcase-builder-filter").$$("div.title");
 
@@ -29,20 +39,40 @@ public class RinrifPage {
         switchTo().window(1);
     }
 
-    @Step("В карточке Акт проверки заполнены данные на вкладке Общие сведения")
-    public void checkingCardHeaders(){
-        $("#infoZu").should(visible);
-        AllureAttachments.attachScreenshot("Карточка реестра");
+    private void blocksInCard(List<String> expectedHeaders) {
+        String block = String.join(", ", expectedHeaders);
+        blocksInCard.shouldHave(textsInAnyOrder(expectedHeaders));
     }
 
-    @Step("Перейти в карточку реестра и проверить наполненность карточки")
+    @Step("В карточке Акт проверки заполнены данные на вкладке Общие сведения")
+    public void checkingCardHeaders() {
+        info.should(visible);
+        attachScreenshot(AKTS_PROVEROK);
+    }
+
+    @Step("Доступность вкладок 'Основные сведения', 'Сведения о ЗУ', 'ТЭП' в карточке 'Заявление о выдаче разрешения на ввод в эксплуатацию'")
+    public void checkingCardHeadersRv() {
+        commonInfo.should(visible);
+        infoZu.should(visible);
+        tep.should(visible);
+    }
+
+    @Step("Доступность блоков {list} в карточке {registerName}")
+    public void checkAvailabilityOfUnits(Registers registerName, List<String> list) {
+        switchToWindow();
+        blocksInCard(list);
+        attachScreenshot(registerName);
+    }
+
+
+    @Step("Перейти в карточку реестра и проверить заполнение данных")
     public void goToRegistryCardAndCheck() {
         String linkName = link.getAttribute("href");
         link.click();
         $(".card-header").shouldBe(visible);
         assert linkName != null;
         Allure.addAttachment("Ссылка на карточку", linkName);
-        AllureAttachments.attachScreenshot("Карточка реестра");
+        //AllureAttachments.attachScreenshot("Карточка реестра");
     }
 
     @Step("Переход по ссылке {linkName} в карточку")
@@ -67,6 +97,6 @@ public class RinrifPage {
     }
 
     private void attachScreenshot(Registers registerName) {
-        AllureAttachments.attachScreenshot("Скриншот реестра" + " " + registerName.value());
+        AllureAttachments.attachScreenshot("Скриншот карточки" + " " + registerName.value());
     }
 }

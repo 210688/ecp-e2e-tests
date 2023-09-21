@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
 /**
  * Страница Возможности
@@ -17,14 +16,13 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class ActionsPage {
     private final SelenideElement businessProcessInputField = $("trv-input input");
-    private final SelenideElement buttonFilter = $x("//button[contains(text(),'Фильтр')]");
-
+    //private final SelenideElement buttonFilter = $x("//button[contains(text(),'Фильтр')]");
+    private final SelenideElement buttonFilter = $("lib-button");
     @Step("Запуск бизнес-процесса {businessProcess}")
     public void openToBusinessProcess(OpportunityForm businessProcess) {
         buttonFilter.click();
         businessProcessInputField.val(businessProcess.value());
         $(byText(businessProcess.value())).click();
-
     }
 
     @Step("Список возможностей")
