@@ -18,14 +18,15 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("UGD")
 @Feature("mkaopugd")
-@Story("mkaopugd-order")
-@Component("Информация")
+
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkaopugdRegisterTests extends TestBase {
     MkaopUgdPage mkaopUgdPage = new MkaopUgdPage();
 
     @Test
     @AllureId("17225")
+    @Story("mkaopugd-order")
+    @Component("Информация")
     @Description("Проверить корректность открытия и доступность карточек реестра поручений УГД")
     @DisplayName("Проверка наличия карточек и заголовков в реестре")
     void goToRegistryInstructionsUgd() {
@@ -40,8 +41,10 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @AllureId("17224")
+    @Story("mkaopugd-order")
+    @Component("Информация")
     @Description("Проверить корректность открытия карточки в реестре поручений УГД")
-    @DisplayName("Проверка заголовков и заполнение данных в карточке поручений УГД")
+    @DisplayName("Верификация присутствия заголовков таблицы  и заполнение данных в карточке поручений")
     void checkCardRegisterInstructionsUgd() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

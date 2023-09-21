@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.$x;
  */
 
 public class ActionsPage {
-    private final SelenideElement businessProcessInputField = $("trv-input input ");
+    private final SelenideElement businessProcessInputField = $("trv-input input");
     private final SelenideElement buttonFilter = $x("//button[contains(text(),'Фильтр')]");
 
     @Step("Запуск бизнес-процесса {businessProcess}")
@@ -24,12 +24,19 @@ public class ActionsPage {
         buttonFilter.click();
         businessProcessInputField.val(businessProcess.value());
         $(byText(businessProcess.value())).click();
+
     }
 
     @Step("Список возможностей")
     public void checkActionsTask() {
         $("div[title='Провести консультирование']").should(visible);
         AllureAttachments.attachScreenshot("Список возможностей пользователя");
+    }
+
+    @Step("В меню доступны вкладки {tabAll} и {tabFavorites}")
+    public void checkHeadersAction(String tabAll, String tabFavorites) {
+        $("button[title='" + tabAll + "']").should(visible);
+        $("button[title='" + tabFavorites + "']").should(visible);
     }
 
     @Step("Переход в меню Возможности {actionName}")

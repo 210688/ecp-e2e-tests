@@ -8,7 +8,7 @@ import ru.mos.smart.helpers.AllureAttachments;
 
 import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
 import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
@@ -25,6 +25,10 @@ public class ReestrPage {
     private final ElementsCollection tableFieldData = $$(".table-striped");
     private final ElementsCollection tableFieldDataOasirx = $$(".viewtable");
 
+    private void attachScreenshot() {
+        AllureAttachments.attachScreenshot("Скриншот реестра");
+    }
+
     @Step("Переход в реестр {registerName}")
     public void goToRegister(Registers registerName) {
         filter.click();
@@ -33,10 +37,14 @@ public class ReestrPage {
         $(byText(registerName.value())).should(visible, ofSeconds(10));
     }
 
-    @Step("В реестре  присутствует список реестров доступных пользователю")
-    public void checkReestrTask() {
-        $("div.ag-center-cols-viewport").$$("div.ag-row").should(sizeGreaterThan(0));
-        AllureAttachments.attachScreenshot("Список реестров пользователя");
+    @Step("Проверить наличие {numberCardsPerPage} элементов в списке реестров доступных текущему пользователю")
+    public void checkListInRegistry(int numberCardsPerPage) {
+        CheckingNumberOfItems(numberCardsPerPage);
+        attachScreenshot();
+    }
+
+    private void CheckingNumberOfItems(int expectedSize) {
+        $("div.ag-center-cols-viewport").$$("div.ag-row").shouldHave(sizeGreaterThanOrEqual(expectedSize));
     }
 
     @Step("В реестре содержится поле для поиска")

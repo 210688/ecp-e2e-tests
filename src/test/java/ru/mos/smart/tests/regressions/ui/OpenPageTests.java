@@ -21,12 +21,14 @@ public class OpenPageTests extends TestBase {
     @Test
     @AllureId("17027")
     @Feature("LCS")
-    @DisplayName("В возможностях пользователя присутствует список возможностей")
-    @Description("Проверить, что в возможностях пользователя присутствуетсписок возможностей")
+    @DisplayName("Проверка доступности Возможностей")
+    @Description("Проверка доступности возможностей и проверка отображения задач доступных пользователю")
+    @Tag("lcs")
     void goToActionsPage() {
         sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
         sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, OPPORTUNITIES);
         actionsPage.checkActionsTask();
+        actionsPage.checkHeadersAction("Все", "Избранные");
     }
 
     @Test
@@ -45,11 +47,12 @@ public class OpenPageTests extends TestBase {
     @AllureId("17029")
     @Feature("CDP")
     @DisplayName("Наличие списка реестров на странице Реестр")
-    @Description("Проверить, что отображается список реестров на странице Реестр")
-    void goToRegister() {
+    @Description("Проверка доступности реестра текущему пользователю")
+    @Tag("lcs")
+    void CheckRegistryForTaskList() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.checkReestrTask();
+        reestrPage.checkListInRegistry(18);
     }
 
     @Test

@@ -35,7 +35,7 @@ public class GeneralPage {
         switchTo().window(1);
     }
 
-    @Step("В реестре {registerName} имеется список из {numberCardsPerPage} карточек с заголовками таблицы {list}")
+    @Step("В реестре имеется список из {numberCardsPerPage} карточек с заголовками таблицы {list}")
     public void validateTableHeadersInRegistry(Registers registerName, List<String> list, int numberCardsPerPage) {
         switchToWindow();
         verifyTableHeadersMatchExpected(list);
