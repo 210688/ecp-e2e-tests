@@ -18,13 +18,13 @@ import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Story("EOO")
-@Component("Реестр")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class EooRegisterTests extends TestBase {
 
         @Test
         @AllureId("17071")
+        @Story("EOO")
+        @Component("Реестр")
         @DisplayName("Наличия данных и перехода в раздел Общеcтвенные обcуждения")
         @Description("Проверить, что есть данные и происходит переход в раздел - Общественные обсуждения")
         void goToRegisterEoo() {
