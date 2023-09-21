@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.oasirx.sb;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -20,8 +17,8 @@ import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
-@Feature("ОАСИРХ")
-@Story("sb")
+@Feature("Оасирх")
+@Story("SB")
 @Component("Реестр")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class SbRegisterTests extends TestBase {
@@ -29,6 +26,7 @@ public class SbRegisterTests extends TestBase {
     @Test
     @AllureId("17057")
     @DisplayName("Просмотр реестра Самострой")
+    @Description("Проверить, что открывается реестр Самострой")
     void openingTheRegisterSb() {
 
         step("Из боковой панели перейти в раздел Самострой", () ->
@@ -49,6 +47,7 @@ public class SbRegisterTests extends TestBase {
     @Test
     @AllureId("17056")
     @DisplayName("Поиск карточки реестра Самострой по номеру")
+    @Description("Проверить, что происходит поиск карточки реестра Самострой по номеру")
     void searchingSbCardByNumber() {
 
         step("Из боковой панели перейти в раздел Самострой", () -> {

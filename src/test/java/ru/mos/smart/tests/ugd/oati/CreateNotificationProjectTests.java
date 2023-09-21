@@ -16,8 +16,8 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 
-@Epic("UGD (УГД)")
-@Feature("OATI (Уведомления ОАТИ)")
+@Epic("UGD")
+@Feature("OATI")
 @Story("Гоуслуги и функции")
 @Component("Возможности")
 class CreateNotificationProjectTests extends TestBase {

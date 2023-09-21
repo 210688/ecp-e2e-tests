@@ -16,8 +16,8 @@ import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
 @Layer("web")
-@Epic("UGD (УГД)")
-@Feature("MTSK (Московский территориальный строительный каталог)")
+@Epic("UGD")
+@Feature("MTSK")
 @Story("Информация")
 @Component("Реестры")
 @Owner("Soldatovks")

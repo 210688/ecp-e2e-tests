@@ -1,23 +1,21 @@
 package ru.mos.smart.tests.oasirx.vri;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
 @Epic("OASI")
-@Feature("ОАСИРХ")
-@Story("vri")
+@Feature("Оасирх")
+@Story("VRI")
 @Component("Реестр")
 public class VriCardFormTests extends TestBase {
 
     @Test
     @AllureId("17049")
     @DisplayName("Форма карточки: История изменений")
+    @Description("Проверить, что форма карточки: История изменений - открывается")
     void changeHistoryTest() {
         sidebarPage
                 .goToVri();
@@ -31,6 +29,7 @@ public class VriCardFormTests extends TestBase {
     @Test
     @AllureId("17050")
     @DisplayName("Форма карточки: Процесс")
+    @Description("Проверить, что форма карточки: Процесс - открывается")
     void processTest() {
         sidebarPage
                 .goToVri();
@@ -44,6 +43,7 @@ public class VriCardFormTests extends TestBase {
     @Test
     @AllureId("17051")
     @DisplayName("Форма карточки: Материалы")
+    @Description("Проверить, что Форма карточки: Материалы - открывается")
     void materialsTest() {
         sidebarPage
                 .goToVri();

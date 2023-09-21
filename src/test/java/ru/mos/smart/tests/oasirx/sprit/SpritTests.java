@@ -1,8 +1,6 @@
 package ru.mos.smart.tests.oasirx.sprit;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -20,14 +18,16 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
-@Feature("ОАСИРХ")
-@Story("sprit")
+@Feature("Оасирх")
+@Story("Sprit")
 @Component("Реестр")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class SpritTests extends TestBase {
 
     @Test
+    @AllureId("7709")
     @DisplayName("Просмотр карточки СПРИТ")
+    @Description("Проверить, что в реестре открывается карточка")
     void cardViewSprit() {
         sidebarPage
                 .goToSprit();
@@ -48,7 +48,9 @@ public class SpritTests extends TestBase {
     }
 
     @Test
+    @AllureId("7707")
     @DisplayName("Форма карточки: История изменений")
+    @Description("Проверить, что форма карточки: История изменений - открывается")
     void historyChangeCard() {
         sidebarPage
                 .goToSprit();
@@ -63,7 +65,9 @@ public class SpritTests extends TestBase {
     }
 
     @Test
+    @AllureId("7710")
     @DisplayName("Новая форма подачи заявления (новый регламент)")
+    @Description("Проверить, что форма подачи открывается и пристутствуют блоки с записями")
     void newReglament() {
         sidebarPage
                 .goToSprit();
@@ -82,7 +86,9 @@ public class SpritTests extends TestBase {
     }
 
     @Test
+    @AllureId("7708")
     @DisplayName("Форма карточки: Процесс")
+    @Description("Проверить, что карточка: Процесс - открывается")
     void process() {
         sidebarPage
                 .goToSprit();
@@ -99,6 +105,7 @@ public class SpritTests extends TestBase {
 
     @Test
     @DisplayName("Форма карточки: Материалы")
+    @Description("Проверить, что карточка: Материалы - открывается")
     void cardMaterialsTest() {
         sidebarPage
                 .goToSprit();

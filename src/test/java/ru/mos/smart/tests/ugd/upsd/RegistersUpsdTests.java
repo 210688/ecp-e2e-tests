@@ -12,7 +12,7 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.enums.Registers.UGD_UPSD;
 
 @Epic("UGD")
-@Feature("upsd")
+@Feature("UPSD")
 @Story("Информация")
 @Component("Реестры")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

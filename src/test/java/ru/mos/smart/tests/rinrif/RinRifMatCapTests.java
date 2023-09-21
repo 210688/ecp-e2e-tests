@@ -20,8 +20,8 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("ИАИС РИН")
-@Feature("RINRIF")
-@Story("matcap")
+@Feature("Rinrif")
+@Story("Matcap")
 public class RinRifMatCapTests extends TestBase {
 
     @Test

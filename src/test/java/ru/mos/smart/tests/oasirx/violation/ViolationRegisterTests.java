@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.oasirx.violation;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
@@ -18,14 +15,15 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
-@Feature("ОАСИРХ")
-@Story("violation")
+@Feature("Оасирх")
+@Story("Violation")
 @Component("Реестр")
 public class ViolationRegisterTests extends TestBase {
 
     @Test
     @AllureId("17052")
     @DisplayName("Просмотр раздела Нарушения ОГД")
+    @Description("Проверить, что открывается раздел Нарушения ОГД")
     void openingTheRegisterViolation() {
         sidebarPage
                 .goToViolations();
@@ -44,6 +42,7 @@ public class ViolationRegisterTests extends TestBase {
     @Test
     @AllureId("17053")
     @DisplayName("Поиск карточки реестра Нарушения ОГД по номеру")
+    @Description("Проверить, что происходит поиск карточки реестра Нарушения ОГД по номеру")
     void searchingViolationCardByNumber() {
         sidebarPage
                 .goToViolations();

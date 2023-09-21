@@ -24,6 +24,7 @@ public class ElmaRegisterTests extends TestBase {
     @Test
     @AllureId("17072")
     @DisplayName("Наличия данных и перехода в раздел Соответствие проектной документации СППК")
+    @Description("Проверить, что есть данные и происходит переход в раздел - Соотвествие проектной документации СППК")
     void goToRegisterElma() {
         List<String> columnNames = Arrays.asList("Дата", "Номер", "Номер МГГТ", "Название", "Статус");
         sidebarPage.goToSection(ELMA_URL);

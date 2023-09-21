@@ -20,7 +20,7 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.enums.Registers.UGD_OATI;
 
 @Layer("web")
-@Epic("UGD (УГД)")
+@Epic("UGD")
 @Feature("Информация")
 @Component("Реестры")
 class RegistersUvedomleniaTests extends TestBase {

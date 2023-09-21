@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.oasirx.pkl;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -21,8 +18,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
-@Feature("ОАСИРХ")
-@Story("pkl")
+@Feature("Оасирх")
+@Story("PKL")
 @Component("Реестр")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class PklRegisterTests extends TestBase {
@@ -30,6 +27,7 @@ public class PklRegisterTests extends TestBase {
     @Test
     @AllureId("17061")
     @DisplayName("Просмотр реестра ПКЛ")
+    @Description("Проверить, что открывается реестр ПКЛ")
     void openingTheRegisterPkl() {
         sidebarPage
                 .goToPkl();
@@ -49,6 +47,7 @@ public class PklRegisterTests extends TestBase {
     @Test
     @AllureId("17060")
     @DisplayName("Поиск карточки реестра ПКЛ по номеру")
+    @Description("Проверить, что происходит поиск карточки реестра ПКЛ по номеру")
     void searchingPklCardByNumber() {
         sidebarPage
                 .goToPkl();
