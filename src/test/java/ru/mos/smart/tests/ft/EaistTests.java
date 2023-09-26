@@ -15,13 +15,13 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
-@Feature("Подсистема неактивна, необходимости в автотестах нет")
+@Feature("FT")
 public class EaistTests extends TestBase {
 
     @Test
     @AllureId("17112")
-    @Description("Доступность реестра ЕАИСТ")
-    @DisplayName("Проверка наличия карточек в реестре ЕАИСТ")
+    @DisplayName("В реестре присутствуют карточки")
+    @Description("Проверить, что пристутствуют карточки в реестре")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void reestrEaistCanBeOpened() {
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -29,3 +29,4 @@ public class EaistTests extends TestBase {
         reestrPage.goToRegister(EAIST);
     }
 }
+// Подсистема не активна

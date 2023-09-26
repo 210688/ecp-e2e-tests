@@ -12,14 +12,14 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.enums.Registers.UGD_UPSD;
 
 @Epic("UGD")
-@Feature("upsd")
-@Story("Информация")
-@Component("Реестры")
+@Feature("UPSD")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 class RegistersUpsdTests extends TestBase {
 
     @Test
     @AllureId("16980")
+    @Story("Информация")
+    @Component("Реестры")
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
     @Description("Проверить, что реестр открывается")
     void registerUpsdViewing() {

@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.oasirx.itmka;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -18,15 +15,16 @@ import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
-@Feature("ОАСИРХ")
-@Story("itmka")
-@Component("Реестр")
+@Feature("Оасирх")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class ItmkaRegisterTests extends TestBase {
 
     @Test
     @AllureId("17062")
+    @Story("Itmka")
+    @Component("Реестр")
     @DisplayName("Просмотр реестра заявок Управление ИТ МКА")
+    @Description("Проверить, что реестр открывается и присутствуют завки - Управления ИТ МКА")
     void openingTheRegisterItmka() {
         sidebarPage.goToItmka();
 
@@ -43,7 +41,10 @@ public class ItmkaRegisterTests extends TestBase {
 
     @Test
     @AllureId("17063")
+    @Story("Itmka")
+    @Component("Реестр")
     @DisplayName("Поиск карточки реестра заявок Управление ИТ МКА по номеру")
+    @Description("Проверить, что происходит поиск карточки реестра заявок - Управление ИТ МКА по номеру")
     void searchingItmkaCardByNumber() {
         sidebarPage
                 .goToItmka();

@@ -15,10 +15,10 @@ public class MkapmiiCreateApplicationTest {
     @AllureId("17101")
     @OnPreprodOnly
     @Epic("OASI")
-    @Feature("MKAPMII")
-    @Story("mkapmii")
-    @Description("Тестовая заявка MKAPMII")
-    @DisplayName("Создание тестовой заявки MKAPMII через swagger")
+    @Feature("Mkapmii")
+    @Story("Mkapmii")
+    @DisplayName("Создание тестовой заявки Mkapmii через swagger")
+    @Description("Проверить, что создаётся тестовая заявка Mkapmii через swagger")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void createApplicationViaApiTest() {
 

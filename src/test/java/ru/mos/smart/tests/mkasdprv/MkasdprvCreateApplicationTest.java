@@ -2,6 +2,7 @@ package ru.mos.smart.tests.mkasdprv;
 
 import com.github.javafaker.Faker;
 import io.qameta.allure.AllureId;
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -13,14 +14,15 @@ import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
 @Epic("OASI")
-@Feature("MKASDPRV")
+@Feature("Mkasdprv")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkasdprvCreateApplicationTest extends TestBase {
 
     @Test
     @AllureId("17090")
     @OnPreprodOnly
-    @DisplayName("Создание заявки через свагер + запрос")
+    @DisplayName("Создание заявки через сваггер + запрос")
+    @Description("Проверить, что создаётся заявка через сваггер")
     void createTaskMkasdprv() {
         Faker faker = new Faker();
         Object number = faker.number().digits(4);
