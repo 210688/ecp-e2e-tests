@@ -16,14 +16,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
 
-@Epic("UGD (УГД)")
-@Feature("OATI (Уведомления ОАТИ)")
-@Story("Гоуслуги и функции")
-@Component("Возможности")
+@Epic("UGD")
+@Feature("OATI")
 class CreateNotificationProjectTests extends TestBase {
 
     @Test
     @AllureId("16982")
+    @Story("Гоуслуги и функции")
+    @Component("Возможности")
     @OnPreprodOnly
     @DisplayName("Доступность формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
     @Description("Проверить, что форма открывается")

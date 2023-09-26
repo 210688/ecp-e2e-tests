@@ -16,13 +16,13 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Owner("Soldatov")
 @Epic("ИАИС РИН")
-@Feature("RINRIF")
+@Feature("Rinrif")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16987")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Наличия данных и перехода в реестр Акты проверок")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterAktsProverok() {
@@ -36,7 +36,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16997")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Наличия данных и перехода в реестр Все объекты")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterVseObjects() {
@@ -50,7 +50,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16996")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Наличия данных и перехода в реестр Все объекты сноса")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterAllObjectsSnos() {
@@ -63,7 +63,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16992")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Наличия данных и перехода в реестр Все организации")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterAllOrganizations() {
@@ -77,7 +77,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16985")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Наличия данных и перехода в реестр Все решения о проверке")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterAllInspectionDecisions() {
@@ -91,7 +91,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16991")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Наличия данных и перехода в реестр  Нарушения")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterViolations() {
@@ -105,7 +105,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16995")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Наличия данных и перехода в реестр Постановления")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterPostanovleniya() {
@@ -120,7 +120,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16986")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Наличия данных и перехода в реестр Протоколы")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterProtokols() {
@@ -135,7 +135,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16984")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Наличия данных и перехода в реестр ТЗ лаборатории")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterTzLabaratorii() {
@@ -150,7 +150,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16994")
-    @Story("snos")
+    @Story("Snos")
     @DisplayName("Наличия данных и перехода в реестр Уведомления о завершении сноса")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterUvedomleniyaOzaversheniiSnosa() {
@@ -165,7 +165,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16990")
-    @Story("snos")
+    @Story("Snos")
     @DisplayName("Наличия данных и перехода в реестр Уведомления о планируемом сносе")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterUvedomleniyaOplaniruemomSnose() {
@@ -180,7 +180,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16998")
-    @Story("rv")
+    @Story("RV")
     @DisplayName("Наличия данных и перехода в реестр Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterEnteringObjects() {
@@ -195,7 +195,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16988")
-    @Story("rs")
+    @Story("RS")
     @DisplayName("Наличия данных и перехода в реестр Внесение изменений в разрешения на строительство")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterChangeConstructionBuilding() {
@@ -210,7 +210,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16989")
-    @Story("rv")
+    @Story("RV")
     @DisplayName("Наличия данных и перехода в реестр Разрешения на ввод объекта в эксплуатацию")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegisterObjectOperation() {
@@ -225,7 +225,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16993")
-    @Story("rs")
+    @Story("RS")
     @DisplayName("Наличия данных и перехода в реестр Разрешения на строительство")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToBuildingPermitRegister() {

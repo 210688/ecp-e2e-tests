@@ -20,12 +20,12 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("ИАИС РИН")
-@Feature("RINRIF")
-@Story("matcap")
+@Feature("Rinrif")
 public class RinRifMatCapTests extends TestBase {
 
     @Test
     @AllureId("16999")
+    @Story("Matcap")
     @Owner("soldatov")
     @DisplayName("Открытие реестра Заявления о выдаче акта по материнскому капиталу")
     @Description("Проверить, что открывается реестр - Заявления о выдаче акта по материнскому капиталу, в форме содержится поле для поиска, содержатся кнопки - настройка и фильтр, доступен список объектов")
@@ -49,6 +49,7 @@ public class RinRifMatCapTests extends TestBase {
 
     @Test
     @AllureId("17000")
+    @Story("Matcap")
     @Owner("soldatov")
     @DisplayName("Открытие карточки реестра Заявления о выдаче акта по материнскому капиталу")
     @Description("Проверить, что открывается карточка из реестра - Заявления о выдаче акта по материнскому капиталу, отображение полей в карточке, в карточке присутствуют вкладки")

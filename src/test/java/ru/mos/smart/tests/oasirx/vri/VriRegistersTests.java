@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.oasirx.vri;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
@@ -22,14 +19,15 @@ import static io.qameta.allure.Allure.step;
 
 @Layer("web")
 @Epic("OASI")
-@Feature("ОАСИРХ")
-@Story("vri")
-@Component("Реестр")
+@Feature("Оасирх")
 public class VriRegistersTests extends TestBase {
 
     @Test
     @AllureId("17048")
-    @DisplayName("Проверка вкладок в реестре ВРИ")
+    @Story("VRI")
+    @Component("Реестр")
+    @DisplayName("Просмотр вкладок в реестре ВРИ")
+    @Description("Проверить, что вкладки в реестре ВРИ - открываются")
     void openRegisterVri() {
         List<String> tabs = new ArrayList<String>() {{
             add("ВРИ в работе");
@@ -48,7 +46,10 @@ public class VriRegistersTests extends TestBase {
 
     @Test
     @AllureId("17047")
+    @Story("VRI")
+    @Component("Реестр")
     @DisplayName("Поиск карточки реестра ВРИ по номеру")
+    @Description("Проверить, что происходит поиск карточки реестра ВРИ по номеру")
     void searchingVriCardByNumber() {
         step("Из боковой панели перейти в раздел ВРИ", () -> {
             $x("//span[text()='ВРИ']").shouldBe(visible, Duration.ofSeconds(10));

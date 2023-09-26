@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.oasirx.pmt;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -21,15 +18,16 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
-@Feature("ОАСИРХ")
-@Story("pmt")
-@Component("Реестр")
+@Feature("Оасирх")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 class PmtRegisterTests extends TestBase {
 
     @Test
     @AllureId("17059")
+    @Story("PMT")
+    @Component("Реестр")
     @DisplayName("Просмотр реестра ПМТ")
+    @Description("Проверить, что реестр ПМТ открывается")
     void openingTheRegisterPMT() {
         sidebarPage
                 .goToPmt();
@@ -45,7 +43,10 @@ class PmtRegisterTests extends TestBase {
 
     @Test
     @AllureId("17058")
+    @Story("PMT")
+    @Component("Реестр")
     @DisplayName("Поиск ПМТ по номеру")
+    @Description("Проверить, что происходит поиск по номеру в реестре")
     void searchingPmtCardByNumber() {
         sidebarPage
                 .goToPmt();

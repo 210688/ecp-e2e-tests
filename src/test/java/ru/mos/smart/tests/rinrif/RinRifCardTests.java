@@ -65,7 +65,7 @@ public class RinRifCardTests extends TestBase {
 
 /*    @Test
     @AllureId("17010")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Переход в карточку из реестра Все объекты сноса")
     @Description("Проверить, что открывается карочка из реестра - Все объекты сноса")
     void checkCardAllObjectsSnos() {
@@ -77,7 +77,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17007")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Переход в карточку из реестра Все организации")
     @Description("Проверить, что открывается карточка из реестра - Все организации")
     void checkCardAllOrganizations() {
@@ -89,7 +89,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17004")
-    @Story("nadzor")
+    @Story("Nadzor")
     @DisplayName("Переход в карточку из реестра Все решения о проверке")
     @Description("Проверить, что открывается карточка из реестра - Все решения о проверке")
     void checkCardReestrAllInspectionDecisions() {
@@ -101,7 +101,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17002")
-    @Story("snos")
+    @Story("Snos")
     @DisplayName("Переход в карточку из реестра Уведомления о завершении сноса")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о завершении сноса")
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
@@ -113,7 +113,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17009")
-    @Story("snos")
+    @Story("Snos")
     @DisplayName("Переход в карточку из реестра Уведомления о планируемом сносе")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о планируемом сносе")
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
@@ -125,7 +125,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17005")
-    @Story("rs")
+    @Story("RS")
     @DisplayName("Переход в карточку из реестра Внесение изменений в разрешения на строительство")
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения на строительство")
     void checkCardRegisterConstructionLicense() {
@@ -137,7 +137,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17006")
-    @Story("rv")
+    @Story("RV")
     @DisplayName("Переход в карточку из реестра Разрешения на ввод объекта в эксплуатацию")
     @Description("Проверить, что открывается карточка из реестра - Разрешения на ввод объекта в эксплуатацию")
     void checkCardRegisterObjectOperation() {
@@ -149,7 +149,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17003")
-    @Story("rs")
+    @Story("RS")
     @DisplayName("Переход в карточку из реестра Разрешения на строительство")
     @Description("Проверить, что открывается карточка из реестра - Разрешения на строительство")
     void checkCardBuildingPermitRegister() {

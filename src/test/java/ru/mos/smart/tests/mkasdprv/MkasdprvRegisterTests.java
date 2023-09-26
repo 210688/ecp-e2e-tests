@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.mkasdprv;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -22,14 +19,15 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 
 @Epic("OASI")
-@Feature("MKASDPRV")
+@Feature("Mkasdprv")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkasdprvRegisterTests extends TestBase {
 
     @Test
     @AllureId("17088")
-    @Description("Доступность реестра оказания услуги Вывесок")
-    @DisplayName("Проверка наличия карточек")
+    @Story("Mkasdprv_order")
+    @DisplayName("Наличия карточек")
+    @Description("Проверить, что доступен реестр - оказания услуги Вывесок")
     void checkingTheAttributesOfTheRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -50,8 +48,9 @@ public class MkasdprvRegisterTests extends TestBase {
 
     @Test
     @AllureId("17089")
-    @Description("Доступность реестра оказания услуги Вывесок")
-    @DisplayName("Проверка заголовков в карточке")
+    @Story("Mkasdprv_order")
+    @DisplayName("Отображение заголовков в карточке")
+    @Description("Проверить, что присутствуют все вкладки и кнопки в реестре")
     void openingRegistryCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

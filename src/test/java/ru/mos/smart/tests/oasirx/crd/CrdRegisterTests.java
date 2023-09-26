@@ -19,9 +19,7 @@ import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.CRD_URL;
 
 @Owner("Soldatov")
 @Epic("OASI")
-@Feature("ОАСИРХ")
-@Story("crd")
-@Component("Реестр")
+@Feature("Оасирх")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class CrdRegisterTests extends TestBase {
 
@@ -29,7 +27,10 @@ public class CrdRegisterTests extends TestBase {
 
     @Test
     @AllureId("17077")
-    @DisplayName("Проверка наличия данных и перехода в реестр Согласование документов")
+    @Story("CRD")
+    @Component("Реестр")
+    @DisplayName("Наличия данных и перехода в реестр Согласование документов")
+    @Description("Проверить, что присутствуют данные и есть переход в реестр Согласование документов")
     void goToRegisterCrd() {
         List<String> columnNames = Arrays.asList("Номер", "Дата", "Название", "Инициатор", "Статус");
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -39,21 +40,30 @@ public class CrdRegisterTests extends TestBase {
 
     @Test
     @AllureId("17075")
+    @Story("CRD")
+    @Component("Реестр")
     @DisplayName("Наличие заявок в реестре СД")
+    @Description("Проверить, что присутствуют заявки в реестре СД")
     void checkAvailabilityApplication() {
         oasirxProjectsPage.checkAvailabilityApplication(CRD_URL);
     }
 
     @Test
     @AllureId("17073")
+    @Story("CRD")
+    @Component("Реестр")
     @DisplayName("Переход в карточку заявления")
+    @Description("Проверить, что происходит переход в карточку заявления")
     void goToRequestCardCd() {
         oasirxProjectsPage.goToCard();
     }
 
     @Test
     @AllureId("17074")
+    @Story("CRD")
+    @Component("Реестр")
     @DisplayName("Заголовки в реестре СД")
+    @Description("Проверить, что есть заголовки в реестре СД")
     void checkHeadersTables() {
     }
 }

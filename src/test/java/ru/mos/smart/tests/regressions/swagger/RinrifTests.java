@@ -13,13 +13,13 @@ import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("ИАИС")
+@Feature("Rinrif")
 public class RinrifTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16921")
     @Layer("api")
-    @Feature("Rinrif")
-    @Story("nadzor")
+    @Story("Nadzor")
     @Owner("Soldatovks")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/nadzor/documentTypes/all [GET])")
@@ -39,8 +39,7 @@ public class RinrifTests extends ApiBearerTestBase {
     @Test
     @AllureId("16918")
     @Layer("api")
-    @Feature("Rinrif")
-    @Story("matcap")
+    @Story("Matcap")
     @Owner("Soldatovks")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/matcap/documentTypes/all [GET])")
@@ -60,8 +59,7 @@ public class RinrifTests extends ApiBearerTestBase {
     @Test
     @AllureId("16917")
     @Layer("api")
-    @Feature("Rinrif")
-    @Story("snos")
+    @Story("Snos")
     @Owner("Soldatovks")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/snos/documentTypes/all [GET])")

@@ -25,15 +25,15 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
-@Feature("MKAPMII")
+@Feature("Mkapmii")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17098")
-    @Story("Реестр и карточка заявления")
-    @Description("Доступность реестра оказания услуг по размещению инженерных изысканий")
+    @Story("Mkampii_order")
     @DisplayName("Наличие карточек в реестре")
+    @Description("Проверить, что реестр оказания услуг по размещению инженерных изысканий открывается и присутствуют карточки в реестре")
     void checkingTheAttributesOfTheRegistry() {
         List<String> columnNames = Arrays.asList("Номер заявления", "Дата подачи", "Планируемая дата оказания", "Фактическая дата оказания",
                 "Статус", "Решение", "Ответственный", "Заявитель", "Адрес", "Номер ПГУ", "Вид");
@@ -45,9 +45,9 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17097")
-    @Story("Реестр и карточка заявления")
-    @Description("Доступность реестра оказания услуг по размещению инженерных изысканий")
-    @DisplayName("Проверить заполнение карточки")
+    @Story("Mkampii_order")
+    @DisplayName("Заполняемость карточки")
+    @Description("Проверить, что реестр открвется и в карточке присутствуют все вкладки и поля")
     void uiCardTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -93,9 +93,9 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17100")
-    @Story("Реестр и карточка заявления")
-    @Description("Доступность реестра оказания услуг по размещению инженерных изысканий")
-    @DisplayName("Наличие основных контролов карточки заявления")
+    @Story("Mkampii_order")
+    @DisplayName("Наличие основных контроллов карточки заявления")
+    @Description("Проверить, что есть основные контроллы карточки заявления")
     void mainControlsTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -137,9 +137,9 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17099")
-    @Story("Выдача заявления на руки")
-    @Description("Доступность вкладки Выдача на руки")
+    @Story("Mkampii_order")
     @DisplayName("Вкладка Выдача на руки")
+    @Description("Проверить, что доступна вкладка - Выдача на руки")
     void handingOverTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -170,9 +170,10 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17102")
+    @Story("Mkampii_order")
     @OnPreprodOnly
-    @Story("Выдача заявления на руки")
-    @DisplayName("Проверка UI модальное окно Выдать на руки")
+    @DisplayName("Открытие UI модального окна - Выдать на руки")
+    @Description("Проверить, что открывается в UI модальное окно")
     void handingOverPlusTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

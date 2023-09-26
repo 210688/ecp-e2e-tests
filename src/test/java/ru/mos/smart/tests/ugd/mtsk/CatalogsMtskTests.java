@@ -16,15 +16,15 @@ import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
 @Layer("web")
-@Epic("UGD (УГД)")
-@Feature("MTSK (Московский территориальный строительный каталог)")
-@Story("Информация")
-@Component("Реестры")
+@Epic("UGD")
+@Feature("MTSK")
 @Owner("Soldatovks")
 class CatalogsMtskTests extends TestBase {
 
     @Test
     @AllureId("16983")
+    @Story("Информация")
+    @Component("Реестры")
     @DisplayName("Наличия каталогов МТСК")
     @Description("Проверить, что каталог открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

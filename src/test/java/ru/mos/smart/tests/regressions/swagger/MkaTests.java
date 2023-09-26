@@ -20,7 +20,7 @@ public class MkaTests extends ApiBearerTestBase {
     @AllureId("16962")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("mkapmii")
+    @Feature("Mkapmii")
     @DisplayName("Описания всех типов документов [GET]")
     @Description("Проверить, что описаны все типы документов [GET]")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
@@ -37,7 +37,7 @@ public class MkaTests extends ApiBearerTestBase {
     @AllureId("16964")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("mkasdprv")
+    @Feature("Mkasdprv")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mkaopugd/order/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkasdprv/order/swagger-ui.html"),
@@ -56,7 +56,7 @@ public class MkaTests extends ApiBearerTestBase {
     @AllureId("16961")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("mkaugdint")
+    @Feature("Mkaugdint")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mkaugdint/order/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkaugdint/order/swagger-ui.html"),
@@ -75,7 +75,7 @@ public class MkaTests extends ApiBearerTestBase {
     @AllureId("16958")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("mkaopugd")
+    @Feature("Mkaopugd")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mkaopugd/order/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkaopugd/order/swagger-ui.html"),

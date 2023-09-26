@@ -20,7 +20,7 @@ public class UgdTests extends ApiBearerTestBase {
     @AllureId("16914")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("ssr")
+    @Feature("SSR")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ugd/ssr/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/ssr/swagger-ui.html"),
@@ -42,7 +42,7 @@ public class UgdTests extends ApiBearerTestBase {
     @AllureId("16919")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("docs")
+    @Feature("DOCS")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ugd/docs/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/docs/swagger-ui.html"),
@@ -63,7 +63,7 @@ public class UgdTests extends ApiBearerTestBase {
     @AllureId("16910")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("lrp")
+    @Feature("LRP")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ugd/lrp/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/lrp/swagger-ui.html"),
@@ -85,7 +85,7 @@ public class UgdTests extends ApiBearerTestBase {
     @AllureId("16915")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("gzk")
+    @Feature("GZK")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ugd/gzk/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/gzk/swagger-ui.html"),
@@ -105,7 +105,7 @@ public class UgdTests extends ApiBearerTestBase {
     @AllureId("16911")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("nsi")
+    @Feature("NSI")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ugd/nsi/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/nsi/swagger-ui.html"),
@@ -125,7 +125,7 @@ public class UgdTests extends ApiBearerTestBase {
     @AllureId("16913")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("mtsk")
+    @Feature("MTSK")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ugd/mtsk/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/mtsk/swagger-ui.html"),
@@ -145,7 +145,7 @@ public class UgdTests extends ApiBearerTestBase {
     @AllureId("16916")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("oati")
+    @Feature("OATI")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ugd/oati/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/oati/swagger-ui.html"),
@@ -165,7 +165,7 @@ public class UgdTests extends ApiBearerTestBase {
     @AllureId("16909")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("ps")
+    @Feature("PS")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ugd/ps/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/ps/swagger-ui.html"),
@@ -185,7 +185,7 @@ public class UgdTests extends ApiBearerTestBase {
     @AllureId("16920")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("upsd")
+    @Feature("UPSD")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ugd/upsd/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/upsd/swagger-ui.html"),
@@ -205,7 +205,7 @@ public class UgdTests extends ApiBearerTestBase {
     @AllureId("16912")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("cp")
+    @Feature("CP")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ugd/cp/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/cp/swagger-ui.html"),
