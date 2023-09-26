@@ -44,6 +44,7 @@ public class CrdRegisterTests extends TestBase {
     @Component("Реестр")
     @DisplayName("Наличие заявок в реестре СД")
     @Description("Проверить, что присутствуют заявки в реестре СД")
+    @Tag("regres")
     void checkAvailabilityApplication() {
         oasirxProjectsPage.checkAvailabilityApplication(CRD_URL);
     }

@@ -25,7 +25,7 @@ public class MrTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(mr/documentTypes [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/camera/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/camera/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void mrCameraTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/mr/camera/documentTypes/all")

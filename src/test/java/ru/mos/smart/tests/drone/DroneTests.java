@@ -29,7 +29,7 @@ import static ru.mos.smart.utils.RandomUtils.generateRandomDate;
 @Owner("Soldatov")
 @Epic("OASI")
 @Feature("Drone")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
 public class DroneTests extends TestBase {
     private final ElementsCollection dateInput = $$("div.cdp-date-container > input");
     private final String randomDate = generateRandomDate();

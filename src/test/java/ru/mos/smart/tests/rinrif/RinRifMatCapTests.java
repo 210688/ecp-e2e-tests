@@ -4,14 +4,12 @@ import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
@@ -29,7 +27,7 @@ public class RinRifMatCapTests extends TestBase {
     @Owner("soldatov")
     @DisplayName("Открытие реестра Заявления о выдаче акта по материнскому капиталу")
     @Description("Проверить, что открывается реестр - Заявления о выдаче акта по материнскому капиталу, в форме содержится поле для поиска, содержатся кнопки - настройка и фильтр, доступен список объектов")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tag("regres")
     void checkAttributesOfRinRifMatCapRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -52,18 +50,14 @@ public class RinRifMatCapTests extends TestBase {
     @Story("Matcap")
     @Owner("soldatov")
     @DisplayName("Открытие карточки реестра Заявления о выдаче акта по материнскому капиталу")
-    @Description("Проверить, что открывается карточка из реестра - Заявления о выдаче акта по материнскому капиталу, отображение полей в карточке, в карточке присутствуют вкладки")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Description("Проверить, что открывается карточка из реестра - Заявления о выдаче акта по материнскому капиталу, " +
+            "отображение полей в карточке, в карточке присутствуют вкладки")
+    @Tag("regres")
     void checkAttributesOfRinRifMatCapObjCard() {
-        java.lang.String statementNumber = "09-МК-179/21-(0)-0";
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(RINRIF_MATCAP);
-        step("Открыть любую карточку реестра", () -> {
-            $("input.input-lg").setValue(statementNumber.toString()).pressEnter();
-            $("table").$("tbody").$(byText(statementNumber.toString())).click();
-        });
-
+        generalPage.goToRegistryCard(RINRIF_MATCAP);
         ElementsCollection fieldNames = $$(".col-lg-6.col-md-6.col-sm-12");
         step("Проверить, что в шапке карточки отображаются поля (сведения в них могут отсутствовать)", () -> {
             fieldNames.get(0).$("b").shouldHave(text("Заявитель:"));

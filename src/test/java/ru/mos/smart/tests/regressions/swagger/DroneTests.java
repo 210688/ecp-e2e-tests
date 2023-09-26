@@ -24,7 +24,7 @@ public class DroneTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(drone/documentTypes [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/drone/drone/swagger-ui.html#/"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/drone/drone/swagger-ui.html#/")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void droneTest() {
         ValidatableResponse response = Authorization.apiRequestBearer()
                 .get("/app/drone/drone/documentTypes/all")

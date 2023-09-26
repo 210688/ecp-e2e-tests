@@ -25,7 +25,7 @@ public class FasadesRegistersTests extends TestBase {
     @AllureId("17078")
     @DisplayName("Переход к реестру Проекты изменений фасадов зданий (жилые)")
     @Description("Проверить, что происходит переход к реестру")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void openRegisterFasadesZhil() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

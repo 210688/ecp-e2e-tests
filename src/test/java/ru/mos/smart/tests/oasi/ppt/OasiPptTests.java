@@ -23,7 +23,7 @@ class OasiPptTests extends TestBase {
     @AllureId("17076")
     @DisplayName("Наличия в витрине поля для поиска")
     @Description("Проверить, что в витрине есть поле для поиска")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void searchFieldShouldExist() {
 
         step("Открытие в навигаторе Настройки > Конструктор витрин", () -> {

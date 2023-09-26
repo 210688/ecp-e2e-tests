@@ -13,7 +13,7 @@ import static ru.mos.smart.data.enums.Sidebar.MAPS3D;
 @Owner("Soldatov")
 @Epic("Цифровой двойник")
 @Feature("Map3D")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("maps")})
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test

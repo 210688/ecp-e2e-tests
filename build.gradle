@@ -102,9 +102,9 @@ task regressing(type: Test) {
     }
 }
 
-task regressionsProd(type: Test) {
+task regres(type: Test) {
     useJUnitPlatform {
-        includeTags 'regressionsProd'
+        includeTags 'regres'
     }
 }
 

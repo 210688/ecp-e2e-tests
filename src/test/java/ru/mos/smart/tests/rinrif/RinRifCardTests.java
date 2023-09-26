@@ -3,7 +3,6 @@ package ru.mos.smart.tests.rinrif;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.tests.TestBase;
 
@@ -17,7 +16,6 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 @Owner("Soldatov")
 @Epic("ИАИС РИН")
 @Feature("Rinrif")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class RinRifCardTests extends TestBase {
 
     @Test
@@ -26,6 +24,7 @@ public class RinRifCardTests extends TestBase {
     @DisplayName("Корректность открытия и доступность карточки Акты проверок")
     @Description("Проверка корректности открытия карточки 'Акты проверок', " +
             "убедится в наличии заголовков и наличии заполненных данных в этой карточке.")
+    @Tag("regres")
     void checkCardRegisterActsProverok() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -40,6 +39,7 @@ public class RinRifCardTests extends TestBase {
     @DisplayName("Переход в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения ввод объекта в эксплуатацию " +
             "убедится в наличии заголовков и наличии заполненных данных в этой карточке.")
+    @Tag("regres")
     void checkCardRegisterEnteringObject() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -54,6 +54,7 @@ public class RinRifCardTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Переход в карточку из реестра Все объекты")
     @Description("Проверить, что открывается карточка из реестра - Все объекты")
+    @Tag("regres")
     void checkCardAllObjects() {
         List<String> blocksList = Arrays.asList("Общие сведения", "Организации", "Представленные документы");
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -80,6 +81,7 @@ public class RinRifCardTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Переход в карточку из реестра Все организации")
     @Description("Проверить, что открывается карточка из реестра - Все организации")
+    @Tag("regres")
     void checkCardAllOrganizations() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -92,6 +94,7 @@ public class RinRifCardTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Переход в карточку из реестра Все решения о проверке")
     @Description("Проверить, что открывается карточка из реестра - Все решения о проверке")
+    @Tag("regres")
     void checkCardReestrAllInspectionDecisions() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -104,6 +107,7 @@ public class RinRifCardTests extends TestBase {
     @Story("Snos")
     @DisplayName("Переход в карточку из реестра Уведомления о завершении сноса")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о завершении сноса")
+    @Tag("regres")
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -116,6 +120,7 @@ public class RinRifCardTests extends TestBase {
     @Story("Snos")
     @DisplayName("Переход в карточку из реестра Уведомления о планируемом сносе")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о планируемом сносе")
+    @Tag("regres")
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -128,6 +133,7 @@ public class RinRifCardTests extends TestBase {
     @Story("RS")
     @DisplayName("Переход в карточку из реестра Внесение изменений в разрешения на строительство")
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения на строительство")
+    @Tag("regres")
     void checkCardRegisterConstructionLicense() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -140,6 +146,7 @@ public class RinRifCardTests extends TestBase {
     @Story("RV")
     @DisplayName("Переход в карточку из реестра Разрешения на ввод объекта в эксплуатацию")
     @Description("Проверить, что открывается карточка из реестра - Разрешения на ввод объекта в эксплуатацию")
+    @Tag("regres")
     void checkCardRegisterObjectOperation() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -152,6 +159,7 @@ public class RinRifCardTests extends TestBase {
     @Story("RS")
     @DisplayName("Переход в карточку из реестра Разрешения на строительство")
     @Description("Проверить, что открывается карточка из реестра - Разрешения на строительство")
+    @Tag("regres")
     void checkCardBuildingPermitRegister() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

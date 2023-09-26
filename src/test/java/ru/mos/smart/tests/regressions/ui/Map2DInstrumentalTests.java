@@ -7,12 +7,13 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.tests.TestBase;
 
-import static ru.mos.smart.data.enums.Sidebar.*;
+import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
+import static ru.mos.smart.data.enums.Sidebar.MAP;
 
 @Owner("Soldatov")
 @Epic("OASI")
 @Feature("GIS")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("maps")})
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
 public class Map2DInstrumentalTests extends TestBase {
 
     @Test
@@ -100,7 +101,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description("Проверить, что отображается инструмент - Первоначальная позиция")
     void checkingAvailabilityOfInitialPositionTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkInitialPositionTool();
     }
 }

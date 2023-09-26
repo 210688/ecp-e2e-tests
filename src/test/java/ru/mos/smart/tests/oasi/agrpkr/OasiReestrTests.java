@@ -18,7 +18,7 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Owner("Soldatov")
 @Epic("OASI")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
 public class OasiReestrTests extends TestBase {
 
     @Test
@@ -34,7 +34,7 @@ public class OasiReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PKR);
-        //generalPage.checkTableFilter(PKR, 20, columnNames);
+        generalPage.validateTableHeadersInRegistry(PKR, columnNames, 20);
     }
 
     @Test
@@ -51,6 +51,6 @@ public class OasiReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AGR);
-        //generalPage.checkTableFilter(AGR, 20, columnNames);
+        generalPage.validateTableHeadersInRegistry(AGR, columnNames, 20);
     }
 }

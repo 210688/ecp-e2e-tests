@@ -24,7 +24,7 @@ public class OssigmipTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/ossigmip/permit/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/ossigmip/permit/pzz/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ossigmip/permit/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void ossigmipPermitTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/ossigmip/permit/documentTypes/all")

@@ -25,7 +25,7 @@ public class OasiTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasi/pzz/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/pzz/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/pzz/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void oasiPzzTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/pzz/documentTypes/all")

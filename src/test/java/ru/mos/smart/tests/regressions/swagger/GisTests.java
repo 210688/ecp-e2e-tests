@@ -25,7 +25,7 @@ public class GisTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(gis/documentTypes [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/gis/search/swagger-ui.html#/"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/gis/search/swagger-ui.html#/")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void gisSearchTests() {
         ValidatableResponse response = Authorization.apiRequestBearer()
                 .get("/app/gis/search/swagger-ui.html")

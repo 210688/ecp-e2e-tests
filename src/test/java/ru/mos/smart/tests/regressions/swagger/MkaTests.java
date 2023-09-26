@@ -23,7 +23,7 @@ public class MkaTests extends ApiBearerTestBase {
     @Feature("Mkapmii")
     @DisplayName("Описания всех типов документов [GET]")
     @Description("Проверить, что описаны все типы документов [GET]")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void mkapmiiOrderTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/mkapmii/order/documentTypes/all")
