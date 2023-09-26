@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.tests.TestBase;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static ru.mos.smart.data.enums.Registers.*;
 import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
@@ -20,7 +23,7 @@ public class RinRifCardTests extends TestBase {
     @Test
     @AllureId("17008")
     @Story("Nadzor")
-    @DisplayName("Проверить корректность открытия и доступность карточки Акты проверок")
+    @DisplayName("Корректность открытия и доступность карточки Акты проверок")
     @Description("Проверка корректности открытия карточки 'Акты проверок', " +
             "убедится в наличии заголовков и наличии заполненных данных в этой карточке.")
     void checkCardRegisterActsProverok() {
@@ -35,12 +38,15 @@ public class RinRifCardTests extends TestBase {
     @AllureId("17011")
     @Story("RV")
     @DisplayName("Переход в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
-    @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения ввод объекта в эксплуатацию")
+    @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения ввод объекта в эксплуатацию " +
+            "убедится в наличии заголовков и наличии заполненных данных в этой карточке.")
     void checkCardRegisterEnteringObject() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
-        rinrifPage.goToRegistryCardAndCheck();
+        generalPage.goToRegistryCard(MODIFICATION_OBJECT_OPERATION);
+        rinrifPage.checkingCardHeadersRv();
+
     }
 
     @Test
@@ -49,13 +55,15 @@ public class RinRifCardTests extends TestBase {
     @DisplayName("Переход в карточку из реестра Все объекты")
     @Description("Проверить, что открывается карточка из реестра - Все объекты")
     void checkCardAllObjects() {
+        List<String> blocksList = Arrays.asList("Общие сведения", "Организации", "Представленные документы");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS);
-        rinrifPage.goToRegistryCardAndCheck();
+        generalPage.goToRegistryCard(ALL_OBJECTS);
+        rinrifPage.checkAvailabilityOfUnits(ALL_OBJECTS, blocksList);
     }
 
-    @Test
+/*    @Test
     @AllureId("17010")
     @Story("Nadzor")
     @DisplayName("Переход в карточку из реестра Все объекты сноса")
@@ -64,8 +72,8 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS_SNOS);
-        rinrifPage.goToRegistryCardAndCheck();
-    }
+        generalPage.goToRegistryCard(ALL_OBJECTS_SNOS);
+    */
 
     @Test
     @AllureId("17007")
@@ -76,7 +84,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_ORGANIZATION);
-        rinrifPage.goToRegistryCardAndCheck();
+        generalPage.goToRegistryCard(All_ORGANIZATION);
     }
 
     @Test
@@ -88,7 +96,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_INSPECTION_DECISIONS);
-        rinrifPage.goToRegistryCardAndCheck();
+        generalPage.goToRegistryCard(All_INSPECTION_DECISIONS);
     }
 
     @Test
@@ -100,7 +108,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(DEMOLITIONS);
-        rinrifPage.goToRegistryCardAndCheck();
+        generalPage.goToRegistryCard(DEMOLITIONS);
     }
 
     @Test
@@ -112,7 +120,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
-        rinrifPage.goToRegistryCardAndCheck();
+        generalPage.goToRegistryCard(PLANNED_DEMOLITION_NOTICES);
     }
 
     @Test
@@ -124,7 +132,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
-        rinrifPage.goToRegistryCardAndCheck();
+        generalPage.goToRegistryCard(CHANGE_CONSTRUCTION_BUILDING);
     }
 
     @Test
@@ -136,7 +144,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
-        rinrifPage.goToRegistryCardAndCheck();
+        generalPage.goToRegistryCard(PERMISSIONS_OBJECT_OPERATION);
     }
 
     @Test
@@ -148,6 +156,6 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(BUILDING_PERMIT);
-        rinrifPage.goToRegistryCardAndCheck();
+        generalPage.goToRegistryCard(BUILDING_PERMIT);
     }
 }

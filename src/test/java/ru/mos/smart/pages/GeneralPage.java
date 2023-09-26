@@ -26,10 +26,14 @@ public class GeneralPage {
             checkingTableHeaders = registryCardsTable.$$("th"),
             searchResultsTableRows = $$("table.search-result-table  tr"),
             numberCardsInTheRegistry = listCardsInTheRegistry.$$("tr");
-    private final SelenideElement searchResultLink = searchResultsTableRows.get(2).$$("td").get(1).$("a");
 
-    Random random = new Random();
-    int randomNumber = random.nextInt(5) + 1;
+    //private final SelenideElement searchResultLink = searchResultsTableRows.get(new Random().nextInt(5) + 1).$$("td").get(1).$("a");
+    private SelenideElement searchResultLink() {
+        Random random = new Random();
+        int randomNumber = random.nextInt(5) + 1;
+        return searchResultsTableRows.get(randomNumber).$$("td").get(1).$("a");
+    }
+
 
     private void switchToWindow() {
         switchTo().window(1);
@@ -66,6 +70,7 @@ public class GeneralPage {
     @Step("Переход в карточку реестра ")
     public void goToRegistryCard(Registers RegisterName) {
         switchToWindow();
+        SelenideElement searchResultLink = searchResultLink();
         String linkName = searchResultLink.getAttribute("href");
         searchResultLink.click();
         assert linkName != null;
