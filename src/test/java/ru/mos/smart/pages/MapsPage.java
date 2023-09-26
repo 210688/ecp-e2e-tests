@@ -16,32 +16,33 @@ import static java.time.Duration.ofSeconds;
 
 public class MapsPage {
 
-    private final SelenideElement addressSearch = $("input[placeholder='Поиск']");
-    private final SelenideElement layerSearch = $("input[placeholder='Найти слой']");
-    private final SelenideElement canvas = $("canvas[aria-label='Map']");
-    private final SelenideElement icon =  $(("button[tooltip-right='3D режим']")); //$(".icon-alt-3d");
-    private final SelenideElement traffic = $(("button[tooltip-right='Пробки']"));
-    private final SelenideElement pedestrian = $(("button[tooltip-right='Панорамы']"));
-    private final SelenideElement painting = $(("button[tooltip-right='Рисование']"));
-    private final SelenideElement instruments = $(("button[tooltip-right='Измерение']"));
-    private final SelenideElement legend = $(("button[tooltip-right='Условные обозначения']"));
-    private final SelenideElement info = $(("button[tooltip-right='Информация']"));
-    private final SelenideElement plus = $(("button[tooltip-right='Приблизить']"));
-    private final SelenideElement minus = $(("button[tooltip-right='Отдалить']"));
-    private final SelenideElement location = $(("button[tooltip-right='Мое местоположение']"));
+    private final SelenideElement
+            addressSearch = $("input[placeholder='Поиск']"),
+            layerSearch = $("input[placeholder='Найти слой']"),
+            canvas = $("canvas[aria-label='Map']"),
+            icon = $(("button[tooltip-right='3D режим']")),//$(".icon-alt-3d");
+            traffic = $(("button[tooltip-right='Пробки']")),
+            pedestrian = $(("button[tooltip-right='Панорамы']")),
+            painting = $(("button[tooltip-right='Рисование']")),
+            instruments = $(("button[tooltip-right='Измерение']")),
+            legend = $(("button[tooltip-right='Условные обозначения']")),
+            info = $(("button[tooltip-right='Информация']")),
+            plus = $(("button[tooltip-right='Приблизить']")),
+            minus = $(("button[tooltip-right='Отдалить']")),
+            location = $(("button[tooltip-right='Мое местоположение']"));
 
 
     private void switchToWindow() {
         switchTo().window(1);
     }
 
-    @Step("Проверить наличие подложки")
+    @Step("На карте 2D присутствует подложка")
     public void checkForMapsBox() {
         switchToWindow();
         canvas.shouldBe(visible, ofSeconds(20));
     }
 
-    @Step("На карте присутствуют кнопки {expectedTexts}")
+    @Step("На карте 2D присутствуют кнопки {expectedTexts}")
     public void checkInstrumentsMaps(String[] expectedTexts) {
         switchToWindow();
         icon.should(visible, ofSeconds(15));
@@ -53,38 +54,38 @@ public class MapsPage {
         info.should(visible, ofSeconds(15));
     }
 
-    @Step("На карте присутствует поле адресного поиска")
+    @Step("На карте 2D присутствует поле адресного поиска")
     public void checkAddressSearch() {
         switchToWindow();
         addressSearch.shouldBe(visible, ofSeconds(15));
     }
 
-    @Step("На карте присутствует поле поиска слоя")
+    @Step("На карте 2D присутствует поле поиска слоя")
     public void checkLayerSearch() {
         switchToWindow();
         layerSearch.shouldBe(visible, ofSeconds(10));
     }
 
-    @Step("Проверить поиск адреса")
+    @Step("Осуществляется поиск адреса на карте 2D")
     public void checkSearchAddresses() {
         switchToWindow();
         addressSearch.setValue("улица Кузнецкий Мост").shouldBe(visible, ofSeconds(20));
     }
 
-    @Step("Проверить наличие инструментов масштабирования: кнопок + и -")
+    @Step("Наличие инструментов масштабирования: кнопок + и - на карте 2D")
     public void checkScalingTools() {
         switchToWindow();
         plus.should(visible, ofSeconds(10));
         minus.should(visible, ofSeconds(10));
     }
 
-    @Step("Проверить наличие инструмента Мое местоположение")
+    @Step("Наличие инструмента Мое местоположение на карте 2D")
     public void checkMyLocationTool() {
         switchToWindow();
         location.should(visible, ofSeconds(10));
     }
 
-    @Step("Проверить наличие инструмента Первоначальная позиция")
+    @Step("Наличие инструмента Первоначальная позиция на карте 2D")
     public void checkInitialPositionTool() {
         switchToWindow();
         $(("button[tooltip-right='Первоначальная позиция']")).should(visible, ofSeconds(15));

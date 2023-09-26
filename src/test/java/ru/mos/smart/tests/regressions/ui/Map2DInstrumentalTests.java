@@ -90,7 +90,7 @@ public class Map2DInstrumentalTests extends TestBase {
     @Description("Проверить, что отображается инструмент - Моё местоположение")
     void checkingAvailabilityOfMyLocationTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        sidebarPage.clickSubMenuList(INFORMATION, MAP);
         mapsPage.checkMyLocationTool();
     }
 

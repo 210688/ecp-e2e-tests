@@ -94,17 +94,16 @@ public class DroneTests extends TestBase {
     @Story("Drone")
     @Component("Информация")
     @DisplayName("Наличия карточек и заголовков в реестре аэрофотосъемки")
-    @Description("Проверить, что корректно отткрывается реестр и доступность реестра аэрофотосъемки, " +
+    @Description("Проверить, что корректно открывается реестр и доступность реестра аэрофотосъемки, " +
             "включая проверку порядка отображения заголовков")
     void checkingOfHeadersInRegistryDrone() {
         List<String> tableColumnList = Arrays.asList("Номер заявки", "Дата заявки", "Объект", "Адрес", "Инициатор заявки",
                 "Дата съемки", "Номер контракта", "Дата контракта", "Подрядчик", "Категория", "Тип съемки", "Статус");
         sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        sidebarPage.clickSubMenuList(INFORMATION,  REGISTERS);
         reestrPage.goToRegister(AEROFOTO);
         generalPage.validateTableHeadersInRegistry(AEROFOTO, tableColumnList, 20);
     }
-
     @Test
     @AllureId("17229")
     @Story("Drone")
