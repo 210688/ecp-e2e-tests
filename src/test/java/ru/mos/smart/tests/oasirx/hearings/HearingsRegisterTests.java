@@ -15,13 +15,13 @@ import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.HEARINGS_URL;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Story("Hearings")
-@Component("Реестр")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class HearingsRegisterTests extends TestBase {
 
     @Test
     @AllureId("17064")
+    @Story("Hearings")
+    @Component("Реестр")
     @DisplayName("Переход в реестр Публичные слушания")
     @Description("Проверить, что происходит переход в реестр - Публичные слушания")
     void goToRegisterHearing() {
@@ -29,6 +29,8 @@ public class HearingsRegisterTests extends TestBase {
 
     @Test
     @AllureId("17065")
+    @Story("Hearings")
+    @Component("Реестр")
     @DisplayName("Заголовки колонок в реестре Публичные слушания")
     @Description("Проверить, что есть заголовки колонок в реестре - Публичные слушания")
     void checkHeadersTables() {

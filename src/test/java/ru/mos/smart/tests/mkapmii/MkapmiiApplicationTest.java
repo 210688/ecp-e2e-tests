@@ -26,12 +26,12 @@ import static ru.mos.smart.data.enums.Sidebar.TASK;
 
 @Epic("OASI")
 @Feature("Mkapmii")
-@Story("Mkapmii")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17108")
+    @Story("Mkapmii")
     @OnPreprodOnly
     @DisplayName("01. Функционал основных контролов, закрытие задачи без сохранения")
     @Description("Проверить, что отображаются блоки, открытие блоков и закрытие, наличие и работоспосбность всех копок")
@@ -109,6 +109,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17109")
+    @Story("Mkapmii")
     @OnPreprodOnly
     @DisplayName("02. Сохранить бизнез процесс без завершения")
     @Description("Проверить, что данные заявления отображаются")
@@ -132,6 +133,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17106")
+    @Story("Mkapmii")
     @OnPreprodOnly
     @DisplayName("03. Переход в карточку заявления")
     @Description("Проверить, что открывается карточка заявления")
@@ -150,6 +152,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17103")
+    @Story("Mkapmii")
     @OnPreprodOnly
     @DisplayName("04. Неуспешный отказ в приёме документов (отсутствует причина отказа и файл заключения)")
     @Description("Проверить, что отказано в приёме документов по причине отказа с файлом заключения")
@@ -167,6 +170,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17107")
+    @Story("Mkapmii")
     @OnPreprodOnly
     @DisplayName("05. Неуспешный отказ в приёме документов (отсутствует файл заключения)")
     @Description("Проверить, что отказано в приёме документов по причине отстутствия файла заключения")
@@ -206,6 +210,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17104")
+    @Story("Mkapmii")
     @OnPreprodOnly
     @DisplayName("06. Неуспешный отказ в приёме документов (все поля не заполнены)")
     @Description("Проверить, что отказано в приёме документов, где все поля не заполнены")
@@ -229,6 +234,7 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17105")
+    @Story("Mkapmii")
     @OnPreprodOnly
     @DisplayName("07. Успешный прием документов")
     @Description("Проверить, что документы приняли успешно")

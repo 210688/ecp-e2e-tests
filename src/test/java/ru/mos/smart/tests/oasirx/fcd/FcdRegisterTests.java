@@ -21,13 +21,13 @@ import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.FCD_URL;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Story("FCD")
-@Component("Реестр")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class FcdRegisterTests extends TestBase {
 
     @Test
     @AllureId("17068")
+    @Story("FCD")
+    @Component("Реестр")
     @DisplayName("Наличия данных и перехода в раздел Фасады нежильё")
     @Description("Проверить, что есть данные и происходит переход в раздел Фасады нежильё")
     void goToRegisterEoo() {
@@ -39,6 +39,8 @@ public class FcdRegisterTests extends TestBase {
 
     @Test
     @AllureId("17067")
+    @Story("FCD")
+    @Component("Реестр")
     @DisplayName("Переход в реестр Фасады")
     @Description("Проверить, что происходит переход в реестр Фасады")
     void goToFacades() {
@@ -47,6 +49,8 @@ public class FcdRegisterTests extends TestBase {
 
     @Test
     @AllureId("17066")
+    @Story("FCD")
+    @Component("Реестр")
     @DisplayName("Заголовки колонок в реестре Фасады")
     @Description("Проверить, что есть заголовки колонок в реестре Фасады")
     void checkHeadersTables() {

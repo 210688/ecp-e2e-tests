@@ -27,7 +27,6 @@ import static ru.mos.smart.data.enums.Sidebar.*;
 
 @Epic("OASI")
 @Feature("Rayon")
-@Story("Program")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MrTests extends TestBase {
 
@@ -35,6 +34,7 @@ public class MrTests extends TestBase {
 
     @Test
     @AllureId("17085")
+    @Story("Program")
     @DisplayName("Открытие реестра Поручения Мэра по программе \"Мой район\"")
     @Description("Проверить, что открывается реестр - Поручения Мэра по программе Мой район")
     void checkAttributesOfMrProgramInstructionRegistry() {
@@ -59,6 +59,7 @@ public class MrTests extends TestBase {
 
     @Test
     @AllureId("17087")
+    @Story("Program")
     @DisplayName("В реестре Объекты по программе \"Мой район\" присутствуют заголовки карточек")
     @Description("Проверить, что в реестре присутствуют заголовки карточек")
     void checkAttributesOfMrProgramObjRegistry() {
@@ -80,6 +81,7 @@ public class MrTests extends TestBase {
 
     @Test
     @AllureId("17083")
+    @Story("Program")
     @DisplayName("Открытие карточки реестра Объекты по программе \"Мой район\"")
     @Description("Проверить, что открываются карточки в реестре")
     void checkAttributesOfMrProgramObjCard() {
@@ -109,6 +111,7 @@ public class MrTests extends TestBase {
 
     @Test
     @AllureId("17086")
+    @Story("Program")
     @DisplayName("Переход с мини-карты в карточке объекта в Карту")
     @Description("Проверить, что происходит переход с мини-карты в карточке объекта в Карту")
     void checkSwitchToMapOnMrProgramObjCard() {
@@ -135,6 +138,7 @@ public class MrTests extends TestBase {
 
     @Test
     @AllureId("17084")
+    @Story("Program")
     @OnPreprodOnly
     @DisplayName("Запуск процесса создания объекта")
     @Description("Проверить, что запускается процесс создания объекта")

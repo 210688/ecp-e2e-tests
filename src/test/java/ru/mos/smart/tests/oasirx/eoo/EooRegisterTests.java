@@ -35,6 +35,8 @@ public class EooRegisterTests extends TestBase {
 
     @Test
     @AllureId("17070")
+    @Story("EOO")
+    @Component("Реестр")
     @DisplayName("Наличие заявок в реестре")
     @Description("Проверить, что есть заявки в реестре")
     void checkAvailabilityApplication() {
@@ -43,6 +45,8 @@ public class EooRegisterTests extends TestBase {
 
     @Test
     @AllureId("17069")
+    @Story("EOO")
+    @Component("Реестр")
     @DisplayName("Переход в карточку заявки")
     @Description("Проверить, что происходит переход в карточку заявки")
     void goToRequestCard() {

@@ -18,12 +18,12 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("UGD")
 @Feature("OATI")
-@Story("Гоуслуги и функции")
-@Component("Возможности")
 class CreateNotificationProjectTests extends TestBase {
 
     @Test
     @AllureId("16982")
+    @Story("Гоуслуги и функции")
+    @Component("Возможности")
     @OnPreprodOnly
     @DisplayName("Доступность формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
     @Description("Проверить, что форма открывается")

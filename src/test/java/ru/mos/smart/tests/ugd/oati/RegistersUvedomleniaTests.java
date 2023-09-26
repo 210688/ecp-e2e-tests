@@ -1,17 +1,12 @@
 package ru.mos.smart.tests.ugd.oati;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
@@ -22,11 +17,11 @@ import static ru.mos.smart.data.enums.Registers.UGD_OATI;
 @Layer("web")
 @Epic("UGD")
 @Feature("Информация")
-@Component("Реестры")
 class RegistersUvedomleniaTests extends TestBase {
 
     @Test
     @AllureId("16981")
+    @Story("Реестры")
     @DisplayName("Открытие реестра")
     @Description("Проверить, что реестр открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

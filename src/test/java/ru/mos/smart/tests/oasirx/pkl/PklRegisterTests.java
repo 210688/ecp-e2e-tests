@@ -19,13 +19,13 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Story("PKL")
-@Component("Реестр")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class PklRegisterTests extends TestBase {
 
     @Test
     @AllureId("17061")
+    @Story("PKL")
+    @Component("Реестр")
     @DisplayName("Просмотр реестра ПКЛ")
     @Description("Проверить, что открывается реестр ПКЛ")
     void openingTheRegisterPkl() {
@@ -46,6 +46,8 @@ public class PklRegisterTests extends TestBase {
 
     @Test
     @AllureId("17060")
+    @Story("PKL")
+    @Component("Реестр")
     @DisplayName("Поиск карточки реестра ПКЛ по номеру")
     @Description("Проверить, что происходит поиск карточки реестра ПКЛ по номеру")
     void searchingPklCardByNumber() {

@@ -29,7 +29,6 @@ import static ru.mos.smart.utils.RandomUtils.generateRandomDate;
 @Owner("Soldatov")
 @Epic("OASI")
 @Feature("Drone")
-@Story("Drone")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class DroneTests extends TestBase {
     private final ElementsCollection dateInput = $$("div.cdp-date-container > input");
@@ -38,6 +37,7 @@ public class DroneTests extends TestBase {
     @Test
     @AllureId("17118")
     @OnPreprodOnly
+    @Story("Drone")
     @Component("Госуслуги и функции")
     @DisplayName("Функциональность системы создания карточки аэросъемки")
     @Description("Проверить, что создается карточка аэросъемки")
@@ -91,6 +91,7 @@ public class DroneTests extends TestBase {
 
     @Test
     @AllureId("17228")
+    @Story("Drone")
     @Component("Информация")
     @DisplayName("Наличия карточек и заголовков в реестре аэрофотосъемки")
     @Description("Проверить, что корректно отткрывается реестр и доступность реестра аэрофотосъемки, " +
@@ -106,6 +107,7 @@ public class DroneTests extends TestBase {
 
     @Test
     @AllureId("17229")
+    @Story("Drone")
     @Component("Информация")
     @DisplayName("Верификация присутствия заголовков таблицы и проверка наличия кнопок в карточке реестра аэрофотосъемки")
     @Description("Проверить, что корректно открывается реестр и доступность карточки реестра аэрофотосъемки")

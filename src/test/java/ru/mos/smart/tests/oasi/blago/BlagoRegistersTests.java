@@ -16,11 +16,11 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
 @Feature("OASI")
-@Story("Blago")
 public class BlagoRegistersTests extends TestBase {
 
     @Test
     @AllureId("17079")
+    @Story("Blago")
     @DisplayName("Проверка наличия реестров")
     @Description("Проверить, что реестр Проекты благоустройства - открывается ")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

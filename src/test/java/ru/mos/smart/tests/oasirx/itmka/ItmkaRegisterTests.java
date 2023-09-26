@@ -16,13 +16,13 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Story("Itmka")
-@Component("Реестр")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class ItmkaRegisterTests extends TestBase {
 
     @Test
     @AllureId("17062")
+    @Story("Itmka")
+    @Component("Реестр")
     @DisplayName("Просмотр реестра заявок Управление ИТ МКА")
     @Description("Проверить, что реестр открывается и присутствуют завки - Управления ИТ МКА")
     void openingTheRegisterItmka() {
@@ -41,6 +41,8 @@ public class ItmkaRegisterTests extends TestBase {
 
     @Test
     @AllureId("17063")
+    @Story("Itmka")
+    @Component("Реестр")
     @DisplayName("Поиск карточки реестра заявок Управление ИТ МКА по номеру")
     @Description("Проверить, что происходит поиск карточки реестра заявок - Управление ИТ МКА по номеру")
     void searchingItmkaCardByNumber() {

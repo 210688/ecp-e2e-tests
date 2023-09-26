@@ -19,13 +19,13 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Story("PMT")
-@Component("Реестр")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 class PmtRegisterTests extends TestBase {
 
     @Test
     @AllureId("17059")
+    @Story("PMT")
+    @Component("Реестр")
     @DisplayName("Просмотр реестра ПМТ")
     @Description("Проверить, что реестр ПМТ открывается")
     void openingTheRegisterPMT() {
@@ -43,6 +43,8 @@ class PmtRegisterTests extends TestBase {
 
     @Test
     @AllureId("17058")
+    @Story("PMT")
+    @Component("Реестр")
     @DisplayName("Поиск ПМТ по номеру")
     @Description("Проверить, что происходит поиск по номеру в реестре")
     void searchingPmtCardByNumber() {

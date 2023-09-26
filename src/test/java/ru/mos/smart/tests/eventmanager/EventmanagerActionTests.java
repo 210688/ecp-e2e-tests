@@ -18,14 +18,14 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("UGD")
 @Feature("CDP")
-@Story("Eventmanager")
-@Component("Информация")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class EventmanagerActionTests extends TestBase {
     EventmanagerPage eventmanagerPage = new EventmanagerPage();
 
     @Test
     @AllureId("17227")
+    @Story("Eventmanager")
+    @Component("Информация")
     @Description("Проверить, что корректно открывается реестр и доступность карточек реестра Подписки на уведомления о событиях")
     @DisplayName("Наличия карточек и заголовков в реестре Подписки на уведомления о событиях")
     void checkTheCardsInRegistryEventmanager() {
@@ -38,6 +38,8 @@ public class EventmanagerActionTests extends TestBase {
 
     @Test
     @AllureId("17226")
+    @Story("Eventmanager")
+    @Component("Информация")
     @DisplayName("Отображение заголовков и заполнение данных в карточке Подписка на уведомления о событиях")
     @Description("Проверить, что корректно открывается реестр и доступность карточек реестра Подписки на уведомления о событиях")
     void checkTheOpenCardsInRegistryEventmanager() {

@@ -18,13 +18,13 @@ import static io.qameta.allure.Allure.step;
 @Layer("web")
 @Epic("UGD")
 @Feature("MTSK")
-@Story("Информация")
-@Component("Реестры")
 @Owner("Soldatovks")
 class CatalogsMtskTests extends TestBase {
 
     @Test
     @AllureId("16983")
+    @Story("Информация")
+    @Component("Реестры")
     @DisplayName("Наличия каталогов МТСК")
     @Description("Проверить, что каталог открывается")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})

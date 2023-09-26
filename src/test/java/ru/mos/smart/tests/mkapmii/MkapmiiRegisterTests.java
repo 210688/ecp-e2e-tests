@@ -26,12 +26,12 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
 @Feature("Mkapmii")
-@Story("Mkampii_order")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17098")
+    @Story("Mkampii_order")
     @DisplayName("Наличие карточек в реестре")
     @Description("Проверить, что реестр оказания услуг по размещению инженерных изысканий открывается и присутствуют карточки в реестре")
     void checkingTheAttributesOfTheRegistry() {
@@ -45,6 +45,7 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17097")
+    @Story("Mkampii_order")
     @DisplayName("Заполняемость карточки")
     @Description("Проверить, что реестр открвется и в карточке присутствуют все вкладки и поля")
     void uiCardTest() {
@@ -92,6 +93,7 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17100")
+    @Story("Mkampii_order")
     @DisplayName("Наличие основных контроллов карточки заявления")
     @Description("Проверить, что есть основные контроллы карточки заявления")
     void mainControlsTest() {
@@ -135,6 +137,7 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17099")
+    @Story("Mkampii_order")
     @DisplayName("Вкладка Выдача на руки")
     @Description("Проверить, что доступна вкладка - Выдача на руки")
     void handingOverTest() {
@@ -167,6 +170,7 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17102")
+    @Story("Mkampii_order")
     @OnPreprodOnly
     @DisplayName("Открытие UI модального окна - Выдать на руки")
     @Description("Проверить, что открывается в UI модальное окно")

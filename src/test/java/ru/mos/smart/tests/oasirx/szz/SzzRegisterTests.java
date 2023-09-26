@@ -18,13 +18,13 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Story("SZZ")
-@Component("Реестр")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class SzzRegisterTests extends TestBase {
 
     @Test
     @AllureId("17055")
+    @Story("SZZ")
+    @Component("Реестр")
     @DisplayName("Просмотр реестра СЗЗ")
     @Description("Проверить, что открывается реестр СЗЗ")
     void openingTheRegisterSzz() {
@@ -46,6 +46,8 @@ public class SzzRegisterTests extends TestBase {
 
     @Test
     @AllureId("17054")
+    @Story("SZZ")
+    @Component("Реестр")
     @DisplayName("Поиск карточки реестра СЗЗ по номеру")
     @Description("Проверить, что осуществляется поиск карточки реестра СЗЗ по номеру")
     void searchingSzzCardByNumber() {

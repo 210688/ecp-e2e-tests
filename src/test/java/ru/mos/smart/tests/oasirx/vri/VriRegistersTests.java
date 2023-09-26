@@ -20,12 +20,12 @@ import static io.qameta.allure.Allure.step;
 @Layer("web")
 @Epic("OASI")
 @Feature("Оасирх")
-@Story("VRI")
-@Component("Реестр")
 public class VriRegistersTests extends TestBase {
 
     @Test
     @AllureId("17048")
+    @Story("VRI")
+    @Component("Реестр")
     @DisplayName("Просмотр вкладок в реестре ВРИ")
     @Description("Проверить, что вкладки в реестре ВРИ - открываются")
     void openRegisterVri() {
@@ -46,6 +46,8 @@ public class VriRegistersTests extends TestBase {
 
     @Test
     @AllureId("17047")
+    @Story("VRI")
+    @Component("Реестр")
     @DisplayName("Поиск карточки реестра ВРИ по номеру")
     @Description("Проверить, что происходит поиск карточки реестра ВРИ по номеру")
     void searchingVriCardByNumber() {

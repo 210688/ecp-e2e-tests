@@ -8,12 +8,12 @@ import ru.mos.smart.tests.TestBase;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Story("VRI")
-@Component("Реестр")
 public class VriCardFormTests extends TestBase {
 
     @Test
     @AllureId("17049")
+    @Story("VRI")
+    @Component("Реестр")
     @DisplayName("Форма карточки: История изменений")
     @Description("Проверить, что форма карточки: История изменений - открывается")
     void changeHistoryTest() {
@@ -28,6 +28,8 @@ public class VriCardFormTests extends TestBase {
 
     @Test
     @AllureId("17050")
+    @Story("VRI")
+    @Component("Реестр")
     @DisplayName("Форма карточки: Процесс")
     @Description("Проверить, что форма карточки: Процесс - открывается")
     void processTest() {
@@ -42,6 +44,8 @@ public class VriCardFormTests extends TestBase {
 
     @Test
     @AllureId("17051")
+    @Story("VRI")
+    @Component("Реестр")
     @DisplayName("Форма карточки: Материалы")
     @Description("Проверить, что Форма карточки: Материалы - открывается")
     void materialsTest() {

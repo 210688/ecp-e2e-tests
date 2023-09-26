@@ -16,12 +16,12 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Story("Violation")
-@Component("Реестр")
 public class ViolationRegisterTests extends TestBase {
 
     @Test
     @AllureId("17052")
+    @Story("Violation")
+    @Component("Реестр")
     @DisplayName("Просмотр раздела Нарушения ОГД")
     @Description("Проверить, что открывается раздел Нарушения ОГД")
     void openingTheRegisterViolation() {
@@ -41,6 +41,8 @@ public class ViolationRegisterTests extends TestBase {
 
     @Test
     @AllureId("17053")
+    @Story("Violation")
+    @Component("Реестр")
     @DisplayName("Поиск карточки реестра Нарушения ОГД по номеру")
     @Description("Проверить, что происходит поиск карточки реестра Нарушения ОГД по номеру")
     void searchingViolationCardByNumber() {

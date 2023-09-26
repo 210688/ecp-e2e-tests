@@ -18,13 +18,13 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
 @Feature("MRGP")
-@Story("Информация")
-@Component("Реестры")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class mrgpTests extends TestBase {
 
     @Test
     @AllureId("17082")
+    @Story("Информация")
+    @Component("Реестры")
     @DisplayName("Проверка открытия реестра")
     @Description("Проверить, что открывается реестр - Перечень программ")
     void openReestr() {
