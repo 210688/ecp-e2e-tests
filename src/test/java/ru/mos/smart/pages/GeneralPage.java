@@ -27,7 +27,6 @@ public class GeneralPage {
             searchResultsTableRows = $$("table.search-result-table  tr"),
             numberCardsInTheRegistry = listCardsInTheRegistry.$$("tr");
 
-    //private final SelenideElement searchResultLink = searchResultsTableRows.get(new Random().nextInt(5) + 1).$$("td").get(1).$("a");
     private SelenideElement searchResultLink() {
         Random random = new Random();
         int randomNumber = random.nextInt(5) + 1;

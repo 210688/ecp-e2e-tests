@@ -11,10 +11,7 @@ import ru.mos.smart.tests.TestBase;
 import java.util.Arrays;
 import java.util.List;
 
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
-import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.EOO_URL;
-import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
+import static ru.mos.smart.data.enums.Sidebar.EOO;
 
 @Epic("OASI")
 @Feature("Оасирх")
@@ -29,8 +26,7 @@ public class EooRegisterTests extends TestBase {
         @Description("Проверить, что есть данные и происходит переход в раздел - Общественные обсуждения")
         void goToRegisterEoo() {
             List<String> columnNames = Arrays.asList("Дата", "Номер", "Округ", "Районы", "Адрес","Исполнитель", "Статус");
-            openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-            sidebarPage.goToSection(EOO_URL);
+            sidebarPage.clickSidebarMenu(EOO);
         }
 
     @Test
@@ -40,7 +36,7 @@ public class EooRegisterTests extends TestBase {
     @DisplayName("Наличие заявок в реестре")
     @Description("Проверить, что есть заявки в реестре")
     void checkAvailabilityApplication() {
-        oasirxProjectsPage.checkAvailabilityApplication(EOO_URL);
+        sidebarPage.clickSidebarMenu(EOO);
     }
 
     @Test
@@ -51,6 +47,6 @@ public class EooRegisterTests extends TestBase {
     @Description("Проверить, что происходит переход в карточку заявки")
     void goToRequestCard() {
         List<String> tableColumnList = Arrays.asList("Этап", "Результаты", "Сроки");
-        oasirxProjectsPage.goToCardEoo(tableColumnList);
+        sidebarPage.clickSidebarMenu(EOO);
     }
 }

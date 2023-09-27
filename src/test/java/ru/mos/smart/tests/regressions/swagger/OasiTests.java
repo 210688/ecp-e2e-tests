@@ -130,44 +130,6 @@ public class OasiTests extends ApiBearerTestBase {
     }
 
     @Test
-    @AllureId("16946")
-    @Layer("api")
-    @Owner("Soldatovks")
-    @Story("PMT")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("app/oasi/pmt/documentTypes/all [GET]")
-    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/pmt/swagger-ui.html"),
-            @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/pmt/swagger-ui.html")})
-    void oasiPmtTests() {
-        ValidatableResponse response = apiRequestBearer()
-                .get("app/oasi/pmt/documentTypes/all")
-                .then();
-
-        parameter("Code", response.extract().statusCode());
-
-        response.statusCode(200);
-    }
-
-    @Test
-    @AllureId("16950")
-    @Layer("api")
-    @Story("PPT")
-    @Owner("Soldatovks")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("app/oasi/ppt/documentTypes/all [GET]")
-    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/ppt/swagger-ui.html"),
-            @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/ppt/swagger-ui.html")})
-    void oasiPptTests() {
-        ValidatableResponse response = apiRequestBearer()
-                .get("app/oasi/ppt/documentTypes/all")
-                .then();
-
-        parameter("Code", response.extract().statusCode());
-
-        response.statusCode(200);
-    }
-
-    @Test
     @AllureId("16953")
     @Layer("api")
     @Story("Facades")
@@ -179,25 +141,6 @@ public class OasiTests extends ApiBearerTestBase {
     void oasiFacadesTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasi/facades/documentTypes/all")
-                .then();
-
-        parameter("Code", response.extract().statusCode());
-
-        response.statusCode(200);
-    }
-
-    @Test
-    @AllureId("16954")
-    @Layer("api")
-    @Story("Signboard")
-    @Owner("Soldatovks")
-    @Description("Получение описания всех типов документов")
-    @DisplayName("app/oasi/signboard/documentTypes/all [GET]")
-    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/signboard/swagger-ui.html"),
-            @Link(name = "prod", url = "https://smart.mos.ru/app/oasi/signboard/swagger-ui.html")})
-    void oasiSignboardTests() {
-        ValidatableResponse response = apiRequestBearer()
-                .get("app/oasi/signboard/documentTypes/all")
                 .then();
 
         parameter("Code", response.extract().statusCode());

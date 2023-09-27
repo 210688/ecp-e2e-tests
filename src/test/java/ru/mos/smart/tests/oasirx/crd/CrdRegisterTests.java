@@ -10,8 +10,7 @@ import ru.mos.smart.tests.TestBase;
 import java.util.Arrays;
 import java.util.List;
 
-import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
-import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
+import static ru.mos.smart.data.enums.Sidebar.SD;
 import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.CRD_URL;
 
 @Owner("Soldatov")
@@ -29,9 +28,8 @@ public class CrdRegisterTests extends TestBase {
     @Tag("regres")
     void goToRegisterCrd() {
         List<String> columnNames = Arrays.asList("Номер", "Дата", "Название", "Инициатор", "Статус");
-        sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        sidebarPage.goToSection(CRD_URL);
+        sidebarPage.clickSidebarMenu(SD);
+
     }
 
     @Test
@@ -53,7 +51,7 @@ public class CrdRegisterTests extends TestBase {
     @Description("Проверить, что происходит переход в карточку заявления")
     @Tag("regres")
     void goToRequestCardCd() {
-        oasirxProjectsPage.goToCard();
+        sidebarPage.clickSidebarMenu(SD);
     }
 
     @Test

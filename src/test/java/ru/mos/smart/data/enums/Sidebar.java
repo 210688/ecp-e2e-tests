@@ -12,7 +12,9 @@ public enum Sidebar {
     SETTINGS("Настройки"),
     REFERENCE_BOOKS( "Справочники"),
     MAPS3D("Цифровой двойник"),
-    MAP( "Карта");
+    MAP( "Карта"),
+    SD("СД"),
+    EOO("ЭОО");
 
     private final String value;
 
