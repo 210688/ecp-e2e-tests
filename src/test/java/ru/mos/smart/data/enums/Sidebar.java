@@ -1,12 +1,14 @@
 package ru.mos.smart.data.enums;
 
+import static ru.mos.smart.config.ConfigHelper.IS_STAGE;
+
 public enum Sidebar {
 
     SERVICES_AND_FUNCTION( "Госуслуги и функции"),
     TASK( "Задачи"),
-    OPPORTUNITIES("Возможности"),
+    OPPORTUNITIES(IS_STAGE ? "Возможности LCS" : "Возможности"),
     INFORMATION( "Информация"),
-    REGISTERS( "Реестры"),
+    REGISTERS(IS_STAGE ? "Реестры LCS" : "Реестры"),
     SETTINGS("Настройки"),
     REFERENCE_BOOKS( "Справочники"),
     MAPS3D("Цифровой двойник"),

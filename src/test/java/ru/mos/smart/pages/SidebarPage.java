@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static java.time.Duration.ofSeconds;
 
 /**
  * Описание навигатора.
@@ -28,7 +29,7 @@ public class SidebarPage {
 
     @Step("В боковой панели нажать на {sidebarMenu}")
     public void clickSidebarMenu(Sidebar sidebarMenu) {
-        $$("#sidebar_menu>div").find(text(sidebarMenu.value())).click();
+        $$("#sidebar_menu>div").find(text(sidebarMenu.value())).should(visible, ofSeconds(10)).click();
     }
 
     @Step("В раскрывшемся меню {menuName} нажать {subMenuName}")
@@ -38,6 +39,7 @@ public class SidebarPage {
                 .sibling(0)
                 .$$("div.name")
                 .find(text(subMenuName.value()))
+                .shouldBe(visible, ofSeconds(10))
                 .click();
     }
 
@@ -52,22 +54,11 @@ public class SidebarPage {
         $(byText(sectionName)).click();
     }
 
-
-
-
-
-
-
-
     @Step("Переход в задачи пользователя")
     public void goToTasks() {
         $$("cdp-sidebar div").get(4).click();
         $(byText("Задачи")).click();
     }
-
-
-
-
 
     public SidebarPage goToSprit() {
         step("В навигаторе открыть раздел Выдача СПРИТ", () ->
@@ -75,9 +66,6 @@ public class SidebarPage {
 
         return this;
     }
-
-
-
 
     public SidebarPage goToItmka() {
         step("Из боковой панели перейти в раздел Управление ИТ МКА", () ->

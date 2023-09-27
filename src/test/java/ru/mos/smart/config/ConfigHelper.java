@@ -12,6 +12,8 @@ public class ConfigHelper {
         return ConfigFactory.newInstance().create(WebConfig.class, System.getProperties());
     }
 
+    public static final Boolean IS_STAGE = "stage".equals(ConfigHelper.projectConfig().environment());
+
     public static String getWebUrl() {
         return webConfig().webUrl();
     }
