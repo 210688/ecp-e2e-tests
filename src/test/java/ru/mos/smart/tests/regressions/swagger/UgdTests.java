@@ -14,6 +14,7 @@ import static org.hamcrest.Matchers.is;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("UGD")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
 public class UgdTests extends ApiBearerTestBase {
 
     @Test
@@ -25,7 +26,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/ugd/ssr/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/ssr/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/ssr/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void ugdSsrTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/ugd/ssr/documentTypes/all")
@@ -47,7 +47,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/ugd/docs/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/docs/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/docs/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void ugdDocsTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/ugd/docs/documentTypes/all")
@@ -68,7 +67,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/ugd/lrp/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/lrp/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/lrp/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void ugdLrpTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/ugd/lrp/documentTypes/all")
@@ -90,7 +88,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/ugd/gzk/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/gzk/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/gzk/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void ugdDGzkTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/ugd/gzk/documentTypes/all")
@@ -110,7 +107,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/ugd/nsi/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/nsi/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/nsi/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void ugdNsiTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/ugd/nsi/documentTypes/all")
@@ -130,7 +126,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/ugd/mtsk/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/mtsk/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/mtsk/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void ugdDMtskTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/ugd/mtsk/documentTypes/all")
@@ -150,7 +145,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/ugd/oati/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/oati/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/oati/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void ugdOatiTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/ugd/oati/documentTypes/all")
@@ -170,7 +164,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/ugd/ps/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/ps/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/ps/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void ugdPsTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/ugd/ps/documentTypes/all")
@@ -190,7 +183,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/ugd/upsd/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/upsd/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/upsd/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void ugdUpsdTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/ugd/upsd/documentTypes/all")
@@ -210,7 +202,6 @@ public class UgdTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/ugd/cp/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/ugd/cp/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/ugd/cp/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void ugdCpTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/ugd/cp/documentTypes/all")

@@ -1,10 +1,8 @@
 package ru.mos.smart.tests.oasirx.crd;
 
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
@@ -12,7 +10,6 @@ import ru.mos.smart.tests.TestBase;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.$;
 import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.CRD_URL;
@@ -20,10 +17,8 @@ import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.CRD_URL;
 @Owner("Soldatov")
 @Epic("OASI")
 @Feature("Оасирх")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
 public class CrdRegisterTests extends TestBase {
 
-    private final SelenideElement heading = $(".ng-binding");
 
     @Test
     @AllureId("17077")
@@ -31,6 +26,7 @@ public class CrdRegisterTests extends TestBase {
     @Component("Реестр")
     @DisplayName("Наличия данных и перехода в реестр Согласование документов")
     @Description("Проверить, что присутствуют данные и есть переход в реестр Согласование документов")
+    @Tag("regres")
     void goToRegisterCrd() {
         List<String> columnNames = Arrays.asList("Номер", "Дата", "Название", "Инициатор", "Статус");
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -55,6 +51,7 @@ public class CrdRegisterTests extends TestBase {
     @Component("Реестр")
     @DisplayName("Переход в карточку заявления")
     @Description("Проверить, что происходит переход в карточку заявления")
+    @Tag("regres")
     void goToRequestCardCd() {
         oasirxProjectsPage.goToCard();
     }

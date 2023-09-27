@@ -16,8 +16,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ActionsPage {
     private final SelenideElement businessProcessInputField = $("trv-input input");
-    //private final SelenideElement buttonFilter = $x("//button[contains(text(),'Фильтр')]");
     private final SelenideElement buttonFilter = $("lib-button");
+
     @Step("Запуск бизнес-процесса {businessProcess}")
     public void openToBusinessProcess(OpportunityForm businessProcess) {
         buttonFilter.click();

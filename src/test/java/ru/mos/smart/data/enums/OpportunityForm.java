@@ -3,7 +3,9 @@ package ru.mos.smart.data.enums;
 public enum OpportunityForm {
 
     CREATE_CARD_AEROFOTO( "Создать карточку аэросъемки"),
-    FEEDBACK_FORM( "Инициировать обращение в техническую поддержку");
+    FEEDBACK_FORM( "Инициировать обращение в техническую поддержку"),
+    OATI_TASK("Направить новое уведомление ОАТИ о проведении работ");
+
 
     private final String value;
 

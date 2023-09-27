@@ -21,8 +21,8 @@ public class EaistTests extends TestBase {
     @Test
     @AllureId("17112")
     @DisplayName("В реестре присутствуют карточки")
-    @Description("Проверить, что пристутствуют карточки в реестре")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Description("Проверить, что присутствуют карточки в реестре")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
     void reestrEaistCanBeOpened() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);

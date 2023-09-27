@@ -15,6 +15,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.data.enums.OpportunityForm.OATI_TASK;
+import static ru.mos.smart.data.enums.Sidebar.OPPORTUNITIES;
+import static ru.mos.smart.data.enums.Sidebar.SERVICES_AND_FUNCTION;
 
 @Epic("UGD")
 @Feature("OATI")
@@ -27,11 +30,11 @@ class CreateNotificationProjectTests extends TestBase {
     @OnPreprodOnly
     @DisplayName("Доступность формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
     @Description("Проверить, что форма открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
     void checkingNotificationSubmissionForm() {
-        actionsPage
-                .goToActions("Направить новое уведомление ОАТИ о проведении работ");
-
+        sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
+        sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, OPPORTUNITIES);
+        actionsPage.openToBusinessProcess(OATI_TASK);
         step("Выбрать операцию Направить новое уведомление ОАТИ о проведении работ", () -> {
             $(byName("common")).setValue("Направить новое уведомление ОАТИ о проведении работ");
             $x("//button[contains(text(),'Найти')]").click();

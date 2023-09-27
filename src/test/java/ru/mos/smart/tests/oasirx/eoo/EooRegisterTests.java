@@ -18,7 +18,7 @@ import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
 public class EooRegisterTests extends TestBase {
 
         @Test

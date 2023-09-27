@@ -12,8 +12,9 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-    @Epic("OASI")
-    @Feature("Oasirx")
+@Epic("OASI")
+@Feature("Oasirx")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
 public class OasirxTests extends ApiBearerTestBase {
 
     @Test
@@ -25,7 +26,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/crd/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/crd/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/program/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxCrdTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/crd/documentTypes/all")
@@ -44,7 +44,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/elma/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/elma/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/elma/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxElmaTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/elma/documentTypes/all")
@@ -63,7 +62,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/eoo/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/eoo/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/eoo/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxEooTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/eoo/documentTypes/all")
@@ -82,7 +80,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/fii/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/fii/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/oasirx/fii/program/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxFiiTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/fii/documentTypes/all")
@@ -101,7 +98,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/hearings/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/hearings/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/hearings/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxHearingsTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/hearings/documentTypes/all")
@@ -120,7 +116,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/pkl/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/pkl/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/pkl/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxPklTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/pkl/documentTypes/all")
@@ -141,7 +136,6 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/pmt/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/pmt/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxPmtTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/pmt/documentTypes/all")
@@ -161,7 +155,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/sb/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/sb/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/sb/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxSbTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/sb/documentTypes/all")
@@ -181,7 +174,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/sprit/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/sprit/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/sprit/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxSpritTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/sprit/documentTypes/all")
@@ -201,7 +193,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/szz/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/szz/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/szz/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxSzzTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/szz/documentTypes/all")
@@ -221,7 +212,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/violation/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/violation/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/violation/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxViolationTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/violation/documentTypes/all")
@@ -241,7 +231,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/vri/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/vri/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/vri/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void oasirxVriTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/vri/documentTypes/all")
@@ -261,7 +250,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/itmka/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/itmka/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/itmka/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxItmkaTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/itmka/documentTypes/all")
@@ -281,7 +269,6 @@ public class OasirxTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(app/oasirx/pzz/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/pzz/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/oasirx/pzz/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void oasirxPzzTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("app/oasirx/pzz/documentTypes/all")
