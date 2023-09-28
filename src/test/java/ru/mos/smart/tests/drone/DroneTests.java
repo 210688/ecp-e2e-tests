@@ -102,7 +102,7 @@ public class DroneTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION,  REGISTERS);
         reestrPage.goToRegister(AEROFOTO);
-        generalPage.validateTableHeadersInRegistry(AEROFOTO, tableColumnList, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(AEROFOTO, tableColumnList);
     }
     @Test
     @AllureId("17229")

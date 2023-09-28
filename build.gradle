@@ -78,7 +78,7 @@ tasks.withType(Test) {
     }
 }
 
-task preprod(type: Test) { //Запускает все модули на предпроде
+task preprod(type: Test) { //Запускает все модули на предпрод
     useJUnitPlatform {
         includeTags 'predprod'
     }

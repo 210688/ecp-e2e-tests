@@ -3,6 +3,7 @@ package ru.mos.smart.tests.rinrif;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.tests.TestBase;
 
@@ -16,6 +17,7 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 @Owner("Soldatov")
 @Epic("ИАИС РИН")
 @Feature("Rinrif")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("rinrif")})
 public class RinRifReestrTests extends TestBase {
 
     @Test
@@ -30,7 +32,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AKTS_PROVEROK);
-        generalPage.validateTableHeadersInRegistry(AKTS_PROVEROK, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(AKTS_PROVEROK, columnNames);
     }
 
     @Test
@@ -45,7 +47,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS);
-        generalPage.validateTableHeadersInRegistry(ALL_OBJECTS, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(ALL_OBJECTS, columnNames);
     }
 
     @Test
@@ -59,7 +61,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS_SNOS);
-        generalPage.validateTableHeadersInRegistry(ALL_OBJECTS_SNOS, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(ALL_OBJECTS_SNOS, columnNames);
     }
 
     @Test
@@ -74,7 +76,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_ORGANIZATION);
-        generalPage.validateTableHeadersInRegistry(All_ORGANIZATION, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(All_ORGANIZATION, columnNames);
     }
 
     @Test
@@ -89,7 +91,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_INSPECTION_DECISIONS);
-        generalPage.validateTableHeadersInRegistry(All_INSPECTION_DECISIONS, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(All_INSPECTION_DECISIONS, columnNames);
     }
 
     @Test
@@ -103,7 +105,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(NARUSHENIYA);
-        generalPage.validateTableHeadersInRegistry(NARUSHENIYA, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(NARUSHENIYA, columnNames);
 
     }
 
@@ -119,7 +121,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(POSTANOVLENIYA);
-        generalPage.validateTableHeadersInRegistry(POSTANOVLENIYA, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(POSTANOVLENIYA, columnNames);
     }
 
     @Test
@@ -134,7 +136,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PROTOKOLS);
-        generalPage.validateTableHeadersInRegistry(PROTOKOLS, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(PROTOKOLS, columnNames);
     }
 
     @Test
@@ -148,7 +150,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(TZ_LABORATORIES);
-        generalPage.validateTableHeadersInRegistry(TZ_LABORATORIES, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(TZ_LABORATORIES, columnNames);
 
     }
 
@@ -164,7 +166,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(DEMOLITIONS);
-        generalPage.validateTableHeadersInRegistry(DEMOLITIONS, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(DEMOLITIONS, columnNames);
     }
 
     @Test
@@ -179,7 +181,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
-        generalPage.validateTableHeadersInRegistry(PLANNED_DEMOLITION_NOTICES, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(PLANNED_DEMOLITION_NOTICES, columnNames);
     }
 
     @Test
@@ -194,7 +196,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
-        generalPage.validateTableHeadersInRegistry(MODIFICATION_OBJECT_OPERATION, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(MODIFICATION_OBJECT_OPERATION, columnNames);
     }
 
     @Test
@@ -209,7 +211,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
-        generalPage.validateTableHeadersInRegistry(CHANGE_CONSTRUCTION_BUILDING, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(CHANGE_CONSTRUCTION_BUILDING, columnNames);
     }
 
     @Test
@@ -224,7 +226,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
-        generalPage.validateTableHeadersInRegistry(PERMISSIONS_OBJECT_OPERATION, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(PERMISSIONS_OBJECT_OPERATION, columnNames);
     }
 
     @Test
@@ -239,6 +241,6 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(BUILDING_PERMIT);
-        generalPage.validateTableHeadersInRegistry(BUILDING_PERMIT, columnNames, 20);
+        generalPage.RegistryContainsCardsHeadersCheck(BUILDING_PERMIT, columnNames);
     }
 }
