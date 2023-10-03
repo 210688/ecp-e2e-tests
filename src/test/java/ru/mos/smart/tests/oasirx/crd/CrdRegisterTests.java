@@ -11,36 +11,24 @@ import java.util.Arrays;
 import java.util.List;
 
 import static ru.mos.smart.data.enums.Sidebar.SD;
-import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.CRD_URL;
 
 @Owner("Soldatov")
 @Epic("OASI")
 @Feature("Оасирх")
 public class CrdRegisterTests extends TestBase {
 
-
-    @Test
-    @AllureId("17077")
-    @Story("CRD")
-    @Component("Реестр")
-    @DisplayName("Наличия данных и перехода в реестр Согласование документов")
-    @Description("Проверить, что присутствуют данные и есть переход в реестр Согласование документов")
-    @Tag("regres")
-    void goToRegisterCrd() {
-        List<String> columnNames = Arrays.asList("Номер", "Дата", "Название", "Инициатор", "Статус");
-        sidebarPage.clickSidebarMenu(SD);
-
-    }
-
     @Test
     @AllureId("17075")
     @Story("CRD")
     @Component("Реестр")
-    @DisplayName("Наличие заявок в реестре СД")
-    @Description("Проверить, что присутствуют заявки в реестре СД")
+    @DisplayName("Наличие карточек и заголовков в реестре СД")
+    @Description("Проверить, что реестр СД корректно открывается, " +
+            "включая проверку порядка отображения заголовков")
     @Tag("regres")
     void checkAvailabilityApplication() {
-        oasirxPage.checkAvailabilityApplication(CRD_URL);
+        List<String> tableColumnList = Arrays.asList("Номер", "Дата", "Название", "Инициатор", "Статус");
+        sidebarPage.clickSidebarMenu(SD);
+        oasirxPage.registryContainsCardsHeadersCheck(SD, tableColumnList);
     }
 
     @Test

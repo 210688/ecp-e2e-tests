@@ -4,13 +4,12 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
-import ru.mos.smart.data.enums.Registers;
+import ru.mos.smart.data.enums.Sidebar;
 import ru.mos.smart.helpers.AllureAttachments;
 
 import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
-import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
+import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -21,10 +20,10 @@ import static com.codeborne.selenide.Selenide.$$;
 public class OasirxPage {
 
     private final ElementsCollection
-            tables = $$(".table-responsive tr"),
+            tables = $$(".table-responsive > tbody > tr"),
             tableHeaders = $$(".tab-container li"),
             cardHeaders = $$(".header.row div"),
-            registryTableHeaders = $$(".theadapp > tr > th");
+            registryTableHeaders = $$("table th");
 
 
     private SelenideElement getLinkElement() {
@@ -36,23 +35,22 @@ public class OasirxPage {
     }
 
     @Step("Реестр содержит хотя бы одну карточку, также присутствуют заголовки таблицы {list}")
-    public void registryContainsCardsHeadersCheck(Registers registerName, List<String> list) {
+    public void registryContainsCardsHeadersCheck(Sidebar sidebarName, List<String> list) {
         verifyTableHeadersMatchExpected(list);
-        attachScreenshot(registerName);
+        attachScreenshot(sidebarName);
         verifyTableFieldDataSize();
     }
 
     private void verifyTableHeadersMatchExpected(List<String> expectedHeaders) {
-        String table = String.join(", ", expectedHeaders);
-        registryTableHeaders.shouldHave(textsInAnyOrder(expectedHeaders));
+        registryTableHeaders.shouldHave(texts(expectedHeaders));
     }
 
-    private void attachScreenshot(Registers registerName) {
-        AllureAttachments.attachScreenshot("Скриншот реестра" + " " + registerName.value());
+    private void attachScreenshot(Sidebar sidebarName) {
+        AllureAttachments.attachScreenshot("Скриншот реестра" + " " + sidebarName.value());
     }
 
     private void verifyTableFieldDataSize() {
-        $$(".table-responsive").shouldHave(sizeGreaterThanOrEqual(1));
+        tables.shouldHave(sizeGreaterThanOrEqual(1));
     }
 
 
