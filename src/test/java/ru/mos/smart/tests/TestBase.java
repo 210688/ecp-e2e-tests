@@ -25,7 +25,7 @@ public class TestBase {
     public RinrifPage rinrifPage = new RinrifPage();
     public MapsPage mapsPage = new MapsPage();
     public Maps3DPage maps3DPage = new Maps3DPage();
-    public OasirxProjectsPage oasirxProjectsPage = new OasirxProjectsPage();
+    public OasirxPage oasirxPage = new OasirxPage();
     public DictsPage dictsPage = new DictsPage();
     public DronePage dronePage = new DronePage();
     public GeneralPage generalPage = new GeneralPage();

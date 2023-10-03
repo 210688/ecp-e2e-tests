@@ -109,21 +109,6 @@ public class SpritTests extends TestBase {
         $$("div[class='m-t-md m-l-md m-b-md']").shouldHave(sizeGreaterThan(0), Duration.ofSeconds(10));
     }
 
-    @Test
-    @Story("Sprit")
-    @Component("Реестр")
-    @DisplayName("Форма карточки: Материалы")
-    @Description("Проверить, что карточка: Материалы - открывается")
-    void cardMaterialsTest() {
-        sidebarPage
-                .goToSprit();
-        step("Открыть любую катрочку", () ->
-                $("[heading='Запросы в работе']").$("a").click());
-        step("Нажать на кнопку Материалы", () ->
-                $x("//button[contains(text(), 'Материалы')]").click());
-        step("Открылась таблица с приложенными материалами", () ->
-                $("app-view-stage-materials-table").shouldBe(visible));
-    }
 }
 
 

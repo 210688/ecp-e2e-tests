@@ -26,14 +26,14 @@ public class EventmanagerActionTests extends TestBase {
     @AllureId("17227")
     @Story("Eventmanager")
     @Component("Информация")
-    @DisplayName("Наличия карточек и заголовков в реестре Подписки на уведомления о событиях")
+    @DisplayName("Наличие карточек и заголовков в реестре Подписки на уведомления о событиях")
     @Description("Проверить, что корректно открывается реестр и доступность карточек реестра Подписки на уведомления о событиях")
     void checkTheCardsInRegistryEventmanager() {
         List<String> tableColumnList = Arrays.asList("Дата создания", "Публикатор", "Подписчик", "Тип события");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(EVENTMANAGER);
-        generalPage.RegistryContainsCardsHeadersCheck(EVENTMANAGER, tableColumnList);
+        generalPage.registryContainsCardsHeadersCheck(EVENTMANAGER, tableColumnList);
     }
 
     @Test

@@ -14,7 +14,6 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
-
 @Epic("OASI")
 @Feature("PPT")
 class OasiPptTests extends TestBase {
@@ -30,13 +29,10 @@ class OasiPptTests extends TestBase {
             $(byText("Настройки")).click();
             $(byText("Конструктор витрин")).click();
         });
-
         step("Найти витрину Запросы проверки версии Проекта планировки", () -> {
             $(byName("candidateSearchValue")).setValue("Запросы проверки версии Проекта планировки").pressEnter();
         });
-
         step("Перейти к редактированию витрины", () ->
                 $(byTitle("Редактировать витрину")).click());
-
     }
 }

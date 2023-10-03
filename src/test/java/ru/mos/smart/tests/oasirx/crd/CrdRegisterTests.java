@@ -40,7 +40,7 @@ public class CrdRegisterTests extends TestBase {
     @Description("Проверить, что присутствуют заявки в реестре СД")
     @Tag("regres")
     void checkAvailabilityApplication() {
-        oasirxProjectsPage.checkAvailabilityApplication(CRD_URL);
+        oasirxPage.checkAvailabilityApplication(CRD_URL);
     }
 
     @Test
@@ -61,5 +61,7 @@ public class CrdRegisterTests extends TestBase {
     @DisplayName("Заголовки в реестре СД")
     @Description("Проверить, что есть заголовки в реестре СД")
     void checkHeadersTables() {
+        sidebarPage.clickSidebarMenu(SD);
+
     }
 }

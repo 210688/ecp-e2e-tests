@@ -25,13 +25,12 @@ public class GeneralPage {
     private final ElementsCollection
             checkingTableHeaders = registryCardsTable.$$("th"),
             searchResultsTableRows = $$("table.search-result-table  tr"),
-            //numberCardsInTheRegistry = listCardsInTheRegistry.$$("tr");
-            numberCardsInTheRegistry = $$(".search-result-table > tbody tr");
+            resultsAllCardsInRegistry = $$(".search-result-table > tbody > tr");
 
     private SelenideElement searchResultLink() {
         Random random = new Random();
         int randomNumber = random.nextInt(5) + 1;
-        return searchResultsTableRows.get(randomNumber).$$("td").get(1).$("a");
+        return resultsAllCardsInRegistry.get(randomNumber).$$("td").get(1).$("a");
     }
 
 
@@ -40,7 +39,7 @@ public class GeneralPage {
     }
 
     @Step("Реестр содержит хотя бы одну карточку, и нем отображаются заголовки таблицы {list}")
-    public void RegistryContainsCardsHeadersCheck(Registers registerName, List<String> list) {
+    public void registryContainsCardsHeadersCheck(Registers registerName, List<String> list) {
         switchToWindow();
         verifyTableHeadersMatchExpected(list);
         attachScreenshot(registerName);
@@ -57,7 +56,7 @@ public class GeneralPage {
     }
 
     private void verifyTableFieldDataSize() {
-        numberCardsInTheRegistry.shouldHave(sizeGreaterThanOrEqual(1));
+        resultsAllCardsInRegistry.shouldHave(sizeGreaterThanOrEqual(1));
     }
 
     @Step("В реестре {registerName} отображаются кнопки сортировки и фильтр")

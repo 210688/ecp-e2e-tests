@@ -34,7 +34,7 @@ public class OasiReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PKR);
-        generalPage.RegistryContainsCardsHeadersCheck(PKR, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(PKR, columnNames);
     }
 
     @Test
@@ -46,11 +46,11 @@ public class OasiReestrTests extends TestBase {
     @Description("Проверить, что в реестре присутствуют заголовки и карточки свидетельств")
     void goToRegisterOasiAgr() {
         List<String> columnNames = Arrays.asList("Номер дела", "Наименование  объекта", "Адрес земельного участка", "Рег. номер", "Дата регистрации",
-                "Статус", "Заявитель", "Дата оказания ГУ", "Номер МПГУ", "Эксперт ", "Значение объекта", "Кол-во дней в МКА", "Номер и дата комиссии",
-                "срок");
+                "Статус", "Заявитель", "Дата оказания ГУ", "Номер МПГУ", "Эксперт ",
+                "Значение объекта", "Кол-во дней в МКА", "План. дата на комиссии","Номер и дата комиссии", "срок");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AGR);
-        generalPage.RegistryContainsCardsHeadersCheck(AGR, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(AGR, columnNames);
     }
 }

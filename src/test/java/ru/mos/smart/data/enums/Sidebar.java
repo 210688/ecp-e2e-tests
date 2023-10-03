@@ -14,7 +14,8 @@ public enum Sidebar {
     MAPS3D("Цифровой двойник"),
     MAP( "Карта"),
     SD("СД"),
-    EOO("ЭОО");
+    EOO("ЭОО"),
+    FCD("Фасады");
 
     private final String value;
 

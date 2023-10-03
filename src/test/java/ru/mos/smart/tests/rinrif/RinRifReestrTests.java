@@ -23,8 +23,8 @@ public class RinRifReestrTests extends TestBase {
     @Test
     @AllureId("16987")
     @Story("Nadzor")
-    @DisplayName("Наличия данных и перехода в реестр Акты проверок")
-    @Description("Проверить, что присутствуют данные в реестре и он открывается")
+    @DisplayName("Наличие карточек и заголовков в реестре Акты проверок")
+    @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     @Tag("regres")
     void goToRegisterAktsProverok() {
         List<java.lang.String> columnNames = Arrays.asList("Номер акта", "Дата акта", "Место проведения проверки",
@@ -32,14 +32,14 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AKTS_PROVEROK);
-        generalPage.RegistryContainsCardsHeadersCheck(AKTS_PROVEROK, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(AKTS_PROVEROK, columnNames);
     }
 
     @Test
     @AllureId("16997")
     @Story("Nadzor")
-    @DisplayName("Наличия данных и перехода в реестр Все объекты")
-    @Description("Проверить, что присутствуют данные в реестре и он открывается")
+    @DisplayName("Наличие карточек и заголовков в реестре Все объекты")
+    @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     @Tag("regres")
     void goToRegisterVseObjects() {
         List<java.lang.String> columnNames = Arrays.asList("Источник финансирования", "Номер дела", "Объект", "Застройщик ", "Почтовый адрес",
@@ -47,28 +47,28 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS);
-        generalPage.RegistryContainsCardsHeadersCheck(ALL_OBJECTS, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(ALL_OBJECTS, columnNames);
     }
 
     @Test
     @AllureId("16996")
     @Story("Nadzor")
-    @DisplayName("Наличия данных и перехода в реестр Все объекты сноса")
-    @Description("Проверить, что присутствуют данные в реестре и он открывается")
+    @DisplayName("Наличие карточек и заголовков в реестре Все объекты сноса")
+    @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     @Tag("regres")
     void goToRegisterAllObjectsSnos() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Объект", "Кадастровый номер ЗУ", "Кадастровый номер здания");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS_SNOS);
-        generalPage.RegistryContainsCardsHeadersCheck(ALL_OBJECTS_SNOS, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(ALL_OBJECTS_SNOS, columnNames);
     }
 
     @Test
     @AllureId("16992")
     @Story("Nadzor")
-    @DisplayName("Наличия данных и перехода в реестр Все организации")
-    @Description("Проверить, что присутствуют данные в реестре и он открывается")
+    @DisplayName("Наличие карточек и заголовков в реестре Все организации")
+    @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     @Tag("regres")
     void goToRegisterAllOrganizations() {
         List<java.lang.String> columnNames = Arrays.asList("Полное наименование организации / Руководитель", "ИНН", "ОГРН /СНИЛС / Паспорт",
@@ -76,14 +76,14 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_ORGANIZATION);
-        generalPage.RegistryContainsCardsHeadersCheck(All_ORGANIZATION, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(All_ORGANIZATION, columnNames);
     }
 
     @Test
     @AllureId("16985")
     @Story("Nadzor")
-    @DisplayName("Наличия данных и перехода в реестр Все решения о проверке")
-    @Description("Проверить, что присутствуют данные в реестре и он открывается")
+    @DisplayName("Наличие карточек и заголовков в реестре Все решения о проверке")
+    @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     @Tag("regres")
     void goToRegisterAllInspectionDecisions() {
         List<java.lang.String> columnNames = Arrays.asList("Номер", "Дата", "Объект", "Проверяемая организация", "Вид проверки", "Основание для проверки",
@@ -91,29 +91,29 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_INSPECTION_DECISIONS);
-        generalPage.RegistryContainsCardsHeadersCheck(All_INSPECTION_DECISIONS, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(All_INSPECTION_DECISIONS, columnNames);
     }
 
     @Test
     @AllureId("16991")
     @Story("Nadzor")
-    @DisplayName("Наличия данных и перехода в реестр  Нарушения")
-    @Description("Проверить, что присутствуют данные в реестре и он открывается")
+    @DisplayName("Наличие карточек и заголовков в реестре нарушения")
+    @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     @Tag("regres")
     void goToRegisterViolations() {
         List<java.lang.String> columnNames = Arrays.asList("Номер нарушения", "Дата нарушения", "Наименование работ", "Специалист УН. ФИО");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(NARUSHENIYA);
-        generalPage.RegistryContainsCardsHeadersCheck(NARUSHENIYA, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(NARUSHENIYA, columnNames);
 
     }
 
     @Test
     @AllureId("16995")
     @Story("Nadzor")
-    @DisplayName("Наличия данных и перехода в реестр Постановления")
-    @Description("Проверить, что присутствуют данные в реестре и он открывается")
+    @DisplayName("Наличие карточек и заголовков в реестре постановления")
+    @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     @Tag("regres")
     void goToRegisterPostanovleniya() {
         List<java.lang.String> columnNames = Arrays.asList("Постановление", "Нарушитель", "Штраф", "Срок оплаты", "УН", "Подписал", "Оплачено (руб.)",
@@ -121,7 +121,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(POSTANOVLENIYA);
-        generalPage.RegistryContainsCardsHeadersCheck(POSTANOVLENIYA, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(POSTANOVLENIYA, columnNames);
     }
 
     @Test
@@ -136,7 +136,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PROTOKOLS);
-        generalPage.RegistryContainsCardsHeadersCheck(PROTOKOLS, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(PROTOKOLS, columnNames);
     }
 
     @Test
@@ -150,7 +150,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(TZ_LABORATORIES);
-        generalPage.RegistryContainsCardsHeadersCheck(TZ_LABORATORIES, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(TZ_LABORATORIES, columnNames);
 
     }
 
@@ -166,13 +166,13 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(DEMOLITIONS);
-        generalPage.RegistryContainsCardsHeadersCheck(DEMOLITIONS, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(DEMOLITIONS, columnNames);
     }
 
     @Test
     @AllureId("16990")
     @Story("Snos")
-    @DisplayName("Наличия данных и перехода в реестр Уведомления о планируемом сносе")
+    @DisplayName("Наличие данных и переход в реестр Уведомления о планируемом сносе")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     @Tag("regres")
     void goToRegisterUvedomleniyaOplaniruemomSnose() {
@@ -181,7 +181,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
-        generalPage.RegistryContainsCardsHeadersCheck(PLANNED_DEMOLITION_NOTICES, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(PLANNED_DEMOLITION_NOTICES, columnNames);
     }
 
     @Test
@@ -196,7 +196,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
-        generalPage.RegistryContainsCardsHeadersCheck(MODIFICATION_OBJECT_OPERATION, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(MODIFICATION_OBJECT_OPERATION, columnNames);
     }
 
     @Test
@@ -211,7 +211,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
-        generalPage.RegistryContainsCardsHeadersCheck(CHANGE_CONSTRUCTION_BUILDING, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(CHANGE_CONSTRUCTION_BUILDING, columnNames);
     }
 
     @Test
@@ -226,7 +226,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
-        generalPage.RegistryContainsCardsHeadersCheck(PERMISSIONS_OBJECT_OPERATION, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(PERMISSIONS_OBJECT_OPERATION, columnNames);
     }
 
     @Test
@@ -241,6 +241,6 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(BUILDING_PERMIT);
-        generalPage.RegistryContainsCardsHeadersCheck(BUILDING_PERMIT, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(BUILDING_PERMIT, columnNames);
     }
 }

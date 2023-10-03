@@ -92,7 +92,7 @@ public class DroneTests extends TestBase {
     @AllureId("17228")
     @Story("Drone")
     @Component("Информация")
-    @DisplayName("Наличия карточек и заголовков в реестре аэрофотосъемки")
+    @DisplayName("Наличие карточек и заголовков в реестре аэрофотосъемки")
     @Description("Проверить, что корректно открывается реестр и доступность реестра аэрофотосъемки, " +
             "включая проверку порядка отображения заголовков")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
@@ -102,7 +102,7 @@ public class DroneTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION,  REGISTERS);
         reestrPage.goToRegister(AEROFOTO);
-        generalPage.RegistryContainsCardsHeadersCheck(AEROFOTO, tableColumnList);
+        generalPage.registryContainsCardsHeadersCheck(AEROFOTO, tableColumnList);
     }
     @Test
     @AllureId("17229")

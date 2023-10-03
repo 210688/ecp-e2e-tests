@@ -35,6 +35,6 @@ public class HearingsRegisterTests extends TestBase {
     @Description("Проверить, что есть заголовки колонок в реестре - Публичные слушания")
     void checkHeadersTables() {
         List<String> tableColumnList = Arrays.asList("ПС в работе", "Все ПС", "Мои ПС", "Отчеты", "Заседания комиссий");
-        oasirxProjectsPage.checkFilter(HEARINGS_URL, tableColumnList);
+        oasirxPage.checkFilter(HEARINGS_URL, tableColumnList);
     }
 }

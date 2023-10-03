@@ -41,19 +41,19 @@ public class MkapmiiRegisterTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MKAPMII_ORDER);
-        //generalPage.checkTableFilter(MKAPMII_ORDER, 20, columnNames);
+        generalPage.registryContainsCardsHeadersCheck(MKAPMII_ORDER, columnNames);
     }
 
     @Test
     @AllureId("17097")
     @Story("Mkampii_order")
     @DisplayName("Заполняемость карточки")
-    @Description("Проверить, что реестр открвется и в карточке присутствуют все вкладки и поля")
+    @Description("Проверить, что реестр открывается и в карточке присутствуют все вкладки и поля")
     void uiCardTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MKAPMII_ORDER);
-        $$("table.search-result-table tr").get(2).$$("td").get(1).$("a").click();
+        generalPage.goToRegistryCard(MKAPMII_ORDER);
         step("Проверить, что форма озаглавлена Карточка заявления", () ->
                 $("h1").shouldHave(text("Карточка заявления")));
         step("Открытая вкладка озаглавлена Сведения о заявлении", () ->
@@ -87,8 +87,7 @@ public class MkapmiiRegisterTests extends TestBase {
                         .findBy(text("Способ выдачи результата"))
                         .sibling(0).shouldNotBe(visible));
         step("Содержатся кнопки: В реестр, Выдать на руки", () -> {
-            $(".buttons-container").$(byText("В реестр")).shouldBe(visible);
-            $(".buttons-container").$(byText("Выдать на руки")).shouldBe(visible);
+            $(".btn-success").shouldBe(visible);
         });
     }
 

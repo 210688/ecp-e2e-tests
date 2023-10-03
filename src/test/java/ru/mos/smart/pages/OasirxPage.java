@@ -4,6 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
+import ru.mos.smart.data.enums.Registers;
 import ru.mos.smart.helpers.AllureAttachments;
 
 import java.util.List;
@@ -16,13 +17,14 @@ import static com.codeborne.selenide.Selenide.$$;
 /**
  * Описание общих элементов подсистемы OASIRX.
  */
-// TODO error "#toast-container" .toast-error .toast-message  Нет доступа
 
-public class OasirxProjectsPage {
+public class OasirxPage {
 
-    private final ElementsCollection tables = $$(".table-responsive tr");
-    private final ElementsCollection tableHeaders = $$(".tab-container li");
-    private final ElementsCollection cardHeaders = $$(".header.row div");
+    private final ElementsCollection
+            tables = $$(".table-responsive tr"),
+            tableHeaders = $$(".tab-container li"),
+            cardHeaders = $$(".header.row div"),
+            registryTableHeaders = $$(".theadapp > tr > th");
 
 
     private SelenideElement getLinkElement() {
@@ -32,6 +34,27 @@ public class OasirxProjectsPage {
     private SelenideElement getLinkElementEoo() {
         return tables.get(3).$$("td").get(1).$("a");
     }
+
+    @Step("Реестр содержит хотя бы одну карточку, также присутствуют заголовки таблицы {list}")
+    public void registryContainsCardsHeadersCheck(Registers registerName, List<String> list) {
+        verifyTableHeadersMatchExpected(list);
+        attachScreenshot(registerName);
+        verifyTableFieldDataSize();
+    }
+
+    private void verifyTableHeadersMatchExpected(List<String> expectedHeaders) {
+        String table = String.join(", ", expectedHeaders);
+        registryTableHeaders.shouldHave(textsInAnyOrder(expectedHeaders));
+    }
+
+    private void attachScreenshot(Registers registerName) {
+        AllureAttachments.attachScreenshot("Скриншот реестра" + " " + registerName.value());
+    }
+
+    private void verifyTableFieldDataSize() {
+        $$(".table-responsive").shouldHave(sizeGreaterThanOrEqual(1));
+    }
+
 
     @Step("Проверить наличие заявок в реестре {registerName}")
     public void checkAvailabilityApplication(String registerName) {

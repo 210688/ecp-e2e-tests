@@ -7,7 +7,9 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.tests.TestBase;
 
-import static com.codeborne.selenide.Condition.exist;
+import java.util.Arrays;
+import java.util.List;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -29,21 +31,12 @@ public class MkasdprvRegisterTests extends TestBase {
     @DisplayName("Наличия карточек")
     @Description("Проверить, что доступен реестр - оказания услуги Вывесок")
     void checkingTheAttributesOfTheRegistry() {
+        List<String> tableColumnList = Arrays.asList("Номер заявления", "Дата подачи", "Планируемая дата", "Фактическая дата", "Статус",
+                "Решение", "Ответственный","Заявитель", "Адрес", "Номер ПГУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MKASDPRV_ORDER);
-
-        step("В реестре присутствуют поля:", () -> {
-            $x("//th[contains(text(),'Номер заявления')]").shouldBe(exist);
-            $x("//th[contains(text(),'Планируемая дата')]").shouldBe(exist);
-            $x("//th[contains(text(),'Фактическая дата')]").shouldBe(exist);
-            $x("//th[contains(text(),'Статус')]").shouldBe(exist);
-            $x("//th[contains(text(),'Решение')]").shouldBe(exist);
-            $x("//th[contains(text(),'Ответственный')]").shouldBe(exist);
-            $x("//th[contains(text(),'Заявитель')]").shouldBe(exist);
-            $x("//th[contains(text(),'Адрес')]").shouldBe(exist);
-            $x("//th[contains(text(),'Номер ПГУ')]").shouldBe(exist);
-        });
+        generalPage.registryContainsCardsHeadersCheck(MKASDPRV_ORDER, tableColumnList);
     }
 
     @Test

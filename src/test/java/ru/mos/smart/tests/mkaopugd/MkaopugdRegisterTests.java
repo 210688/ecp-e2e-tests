@@ -34,7 +34,7 @@ public class MkaopugdRegisterTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MKAOPUGD_ORDER);
-        generalPage.RegistryContainsCardsHeadersCheck(MKAOPUGD_ORDER, tableColumnList);
+        generalPage.registryContainsCardsHeadersCheck(MKAOPUGD_ORDER, tableColumnList);
 
     }
 

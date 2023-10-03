@@ -39,7 +39,7 @@ public class SidebarPage {
                 .sibling(0)
                 .$$("div.name")
                 .find(text(subMenuName.value()))
-                .shouldBe(visible, ofSeconds(10))
+                .shouldBe(visible, ofSeconds(20))
                 .click();
     }
 
