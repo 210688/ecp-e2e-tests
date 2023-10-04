@@ -39,14 +39,13 @@ public class RinRifCardTests extends TestBase {
     @Story("RV")
     @DisplayName("Переход в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения ввод объекта в эксплуатацию " +
-            "убедится в наличии заголовков и наличии заполненных данных в этой карточке.")
+            "убедится в наличии  заполненных данных в этой карточке.")
     void checkCardRegisterEnteringObject() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
         generalPage.goToRegistryCard(MODIFICATION_OBJECT_OPERATION);
         rinrifPage.checkingCardHeadersRv();
-
     }
 
     @Test
@@ -145,5 +144,20 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(BUILDING_PERMIT);
         generalPage.goToRegistryCard(BUILDING_PERMIT);
+    }
+
+    @Test
+    @Story("RV")
+    @DisplayName("Переход в карточку из реестра ИЖС. Уведомление о завершении строительства")
+    @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление о завершении строительства " +
+            "убедится в наличии заголовков и данных в карточке.")
+    void checkCardRegistryIzsZav() {
+        List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат",
+                "Внешние системы", "Процессы", "Служебная информация");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(IZS_ZAV);
+        generalPage.goToRegistryCard(IZS_ZAV);
+        rinrifPage.checkAvailabilityOfUnits(IZS_ZAV, cardHeaders);
     }
 }

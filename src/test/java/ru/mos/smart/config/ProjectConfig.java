@@ -15,7 +15,7 @@ public interface ProjectConfig extends Config {
     String remoteDriverUrl();
 
     @Config.Key("browser.name")
-    @Config.DefaultValue("chrome")
+    @Config.DefaultValue("firefox")
     String browserName();
 
     @Config.Key("browser.version")

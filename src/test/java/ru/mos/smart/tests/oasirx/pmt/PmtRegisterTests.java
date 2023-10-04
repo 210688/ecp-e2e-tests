@@ -8,14 +8,18 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.data.enums.Sidebar.PMT;
 
 @Epic("OASI")
 @Feature("Оасирх")
@@ -26,19 +30,21 @@ class PmtRegisterTests extends TestBase {
     @AllureId("17059")
     @Story("PMT")
     @Component("Реестр")
-    @DisplayName("Просмотр реестра ПМТ")
-    @Description("Проверить, что реестр ПМТ открывается")
+    @DisplayName("Наличие карточек и заголовков в реестре Межевание территорий")
+    @Description("Проверить, что реестр Межевание территорий корректно открывается, " +
+            "включая проверку порядка отображения заголовков")
     void openingTheRegisterPMT() {
-        sidebarPage
-                .goToPmt();
+        List<String> tableColumnList = Arrays.asList("Дата", "Номер", "Округ", "Районы", "Адрес",
+                "Название работы", "Цель проекта", "Исполнитель", "Статус");
+        sidebarPage.clickSidebarMenu(PMT);
+        oasirxPage.registryContainsCardsHeadersCheck(PMT, tableColumnList);
 
-        step("Открыт раздел Межевание территорий", () ->
-                $x("//div/h2[contains(text(),'Межевание территорий')]").shouldBe(visible));
 
-        step("В разделе присутствуют вкладки:", () -> {
+
+/*        step("В разделе присутствуют вкладки:", () -> {
             $x("//span[contains(text(),'ПМТ в работе')]").shouldBe(visible);
             $x("//span[contains(text(),'Все ПМТ')]").shouldBe(visible);
-        });
+        });*/
     }
 
     @Test

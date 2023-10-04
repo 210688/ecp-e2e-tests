@@ -15,7 +15,10 @@ public enum Sidebar {
     MAP( "Карта"),
     SD("СД"),
     EOO("ЭОО"),
-    FCD("Фасады");
+    FCD("Фасады"),
+    PMT("ПМТ"),
+    SB("Самострой"),
+    ITMKA("Управление ИТ МКА");
 
     private final String value;
 

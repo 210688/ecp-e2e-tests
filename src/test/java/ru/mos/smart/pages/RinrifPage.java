@@ -30,13 +30,20 @@ public class RinrifPage {
 
     private final ElementsCollection
             searchResultTable = $$("table.search-result-table tr"),
-            blocksInCard = $$(".description h3");
+            blocksInCard = $$(".tab-container li");
 
     private final SelenideElement link = searchResultTable.get(3).$$("td").get(1).$("a");
     private final ElementsCollection tableHeaders = $("showcase-builder-filter").$$("div.title");
 
     private void switchToWindow() {
         switchTo().window(1);
+    }
+
+    @Step("Доступность блоков {list} в карточке")
+    public void checkAvailabilityOfUnits(Registers registerName, List<String> list) {
+        switchToWindow();
+        blocksInCard(list);
+        attachScreenshot(registerName);
     }
 
     private void blocksInCard(List<String> expectedHeaders) {
@@ -56,14 +63,6 @@ public class RinrifPage {
         infoZu.should(visible);
         tep.should(visible);
     }
-
-    @Step("Доступность блоков {list} в карточке {registerName}")
-    public void checkAvailabilityOfUnits(Registers registerName, List<String> list) {
-        switchToWindow();
-        blocksInCard(list);
-        attachScreenshot(registerName);
-    }
-
 
     @Step("Перейти в карточку реестра и проверить заполнение данных")
     public void goToRegistryCardAndCheck() {

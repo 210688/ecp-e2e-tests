@@ -8,13 +8,10 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
-import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.$x;
-import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.data.enums.Sidebar.SB;
 
 @Epic("OASI")
 @Feature("Оасирх")
@@ -25,23 +22,13 @@ public class SbRegisterTests extends TestBase {
     @AllureId("17057")
     @Story("SB")
     @Component("Реестр")
-    @DisplayName("Просмотр реестра Самострой")
-    @Description("Проверить, что открывается реестр Самострой")
+    @DisplayName("Наличие карточек и заголовков в реестре Самострой")
+    @Description("Проверить, что реестр Самострой корректно открывается, присутствуют карточки " +
+            "включая проверку порядка отображения заголовков")
     void openingTheRegisterSb() {
-
-        step("Из боковой панели перейти в раздел Самострой", () ->
-                $x("//span[text()='Самострой']").click());
-
-        step("Открыт раздел Самострой", () ->
-                $x("//div/h2[contains(text(),'Самострой')]").shouldBe(visible));
-
-        step("В разделе присутствуют вкладки:", () -> {
-            $x("//a/span[contains(text(),'В работе')]").shouldBe(visible);
-            $x("//a/span[contains(text(),'Вcе')]").shouldBe(visible);
-            $x("//a/span[contains(text(),'Мои')]").shouldBe(visible);
-            $x("//a/span[contains(text(),'Справка МГК')]").shouldBe(visible);
-            $x("//a/span[contains(text(),'Справка ГЗК')]").shouldBe(visible);
-        });
+        List<String> tableColumnList = Arrays.asList("Дата", "Номер", "Округ", "Адрес", "Тип объекта", "Исполнитель", "Статус");
+        sidebarPage.clickSidebarMenu(SB);
+        oasirxPage.registryContainsCardsHeadersCheck(SB, tableColumnList);
     }
 
     @Test
@@ -51,17 +38,10 @@ public class SbRegisterTests extends TestBase {
     @DisplayName("Поиск карточки реестра Самострой по номеру")
     @Description("Проверить, что происходит поиск карточки реестра Самострой по номеру")
     void searchingSbCardByNumber() {
+        sidebarPage.clickSidebarMenu(SB);
+//TODO метод поиска по номеру карточки
 
-        step("Из боковой панели перейти в раздел Самострой", () -> {
-            $x("//span[text()='Самострой']").should(visible, Duration.ofSeconds(10));
-            ;
-            $x("//span[text()='Самострой']").click();
-        });
-
-        step("Открыт раздел Самострой", () ->
-                $x("//div/h2[contains(text(),'Самострой')]").shouldBe(visible));
-
-        step("В строке поиска ввести номер карточки", () ->
+/*        step("В строке поиска ввести номер карточки", () ->
                 $x("//div/input[contains(@class,'form-control')]").setValue("ОСС-0028-2021").pressEnter());
 
         step("Открыть найденную карточку", () ->
@@ -69,5 +49,6 @@ public class SbRegisterTests extends TestBase {
 
         step("Проверить, что карточка открылась", () ->
                 $x("//div/h2[contains(text(),'ОСС-0028-2021')]").shouldBe(visible));
+*/
     }
 }

@@ -67,12 +67,13 @@ public class GeneralPage {
     }
 
 
-    @Step("Переход в карточку реестра ")
-    public void goToRegistryCard(Registers RegisterName) {
+    @Step("Переход в карточку реестра {registerName}")
+    public void goToRegistryCard(Registers registerName) {
         switchToWindow();
         SelenideElement searchResultLink = searchResultLink();
         String linkName = searchResultLink.getAttribute("href");
         searchResultLink.click();
+        attachScreenshot(registerName);
         assert linkName != null;
         Allure.addAttachment("Ссылка на карточку", linkName);
     }
