@@ -31,6 +31,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @AllureId("17623")
     @Feature("CDP")
     @DisplayName("В задачах пользователя присутствует список задач")
     @Description("Проверить, что в задачах пользователя присутствует список задач")
