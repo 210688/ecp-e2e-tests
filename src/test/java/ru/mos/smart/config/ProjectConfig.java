@@ -11,11 +11,10 @@ public interface ProjectConfig extends Config {
 
     @Config.Key("remote.driver.url")
     @Config.DefaultValue("")
-    //@Config.DefaultValue("http://10.15.58.218:8888/wd/hub")
     String remoteDriverUrl();
 
     @Config.Key("browser.name")
-    @Config.DefaultValue("firefox")
+    @Config.DefaultValue("chrome")
     String browserName();
 
     @Config.Key("browser.version")
