@@ -10,7 +10,6 @@ import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -35,12 +34,6 @@ class CreateNotificationProjectTests extends TestBase {
         sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
         sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, OPPORTUNITIES);
         actionsPage.openToBusinessProcess(OATI_TASK);
-        step("Выбрать операцию Направить новое уведомление ОАТИ о проведении работ", () -> {
-            $(byName("common")).setValue("Направить новое уведомление ОАТИ о проведении работ");
-            $x("//button[contains(text(),'Найти')]").click();
-            $x("//span[contains(text(),'Направить новое уведомление ОАТИ о проведении работ')]").click();
-        });
-
         step("Выбрать Уведомление ОАТИ о проведении работ, предусмотренных АИП", () -> {
             $x("//div[contains(text(),'Уведомление ОАТИ о проведении работ, предусмотренных АИП')]").click();
             $x("//button[contains(text(),'Выбрать')]").click();

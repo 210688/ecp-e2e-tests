@@ -23,7 +23,6 @@ public class OpenPageTests extends TestBase {
     @Feature("LCS")
     @DisplayName("Проверка доступности Возможностей")
     @Description("Проверка доступности возможностей и проверка отображения задач доступных пользователю")
-    @Tag("lcs")
     void goToActionsPage() {
         sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
         sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, OPPORTUNITIES);
@@ -32,7 +31,6 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @AllureId("17028")
     @Feature("CDP")
     @DisplayName("В задачах пользователя присутствует список задач")
     @Description("Проверить, что в задачах пользователя присутствует список задач")
@@ -48,7 +46,6 @@ public class OpenPageTests extends TestBase {
     @Feature("CDP")
     @DisplayName("Наличие списка реестров на странице Реестр")
     @Description("Проверка доступности реестра текущему пользователю")
-    @Tag("lcs")
     void CheckRegistryForTaskList() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
@@ -56,20 +53,10 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
-    @AllureId("16906")
-    @Feature("CDP")
-    @DisplayName("Наличие списка реестров на странице Реестр")
-    @Description("Проверить, что отображается список реестров на странице Реестр")
-    void checkListInformation() {
-        sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.checkInformationMenuContainsRegistries();
-    }
-
-    @Test
     @AllureId("17030")
     @Feature("CDP")
     @DisplayName("В справочнике присутствует список элементов")
-    @Description("Проверить, что в справочнике присутсвует список элементов")
+    @Description("Проверить, что в справочнике присутствует список элементов")
     void goToOpenSpravochnik() {
         sidebarPage.clickSidebarMenu(SETTINGS);
         sidebarPage.clickSubMenuList(SETTINGS, REFERENCE_BOOKS);

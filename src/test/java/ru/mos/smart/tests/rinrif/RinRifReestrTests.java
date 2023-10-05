@@ -17,7 +17,7 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 @Owner("Soldatov")
 @Epic("ИАИС РИН")
 @Feature("Rinrif")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("rinrif")})
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("rinrif"), @Tag("regres")})
 public class RinRifReestrTests extends TestBase {
 
     @Test
@@ -25,7 +25,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Наличие карточек и заголовков в реестре Акты проверок")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
-    @Tag("regres")
     void goToRegistryAktsProverok() {
         List<java.lang.String> columnNames = Arrays.asList("Номер акта", "Дата акта", "Место проведения проверки",
                 "Результат проверки", "Специалист УН", "ЕРКНМ");
@@ -40,7 +39,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Наличие карточек и заголовков в реестре Все объекты")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
-    @Tag("regres")
     void goToRegistryVseObjects() {
         List<java.lang.String> columnNames = Arrays.asList("Источник финансирования", "Номер дела", "Объект", "Застройщик ", "Почтовый адрес",
                 "Дата начала строительства", "Дата окончания строительства", "Состояние", "Строительный надзор");
@@ -55,7 +53,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Наличие карточек и заголовков в реестре Все объекты сноса")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
-    @Tag("regres")
     void goToRegistryAllObjectsSnos() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Объект", "Кадастровый номер ЗУ", "Кадастровый номер здания");
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -69,7 +66,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Наличие карточек и заголовков в реестре Все организации")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
-    @Tag("regres")
     void goToRegistryAllOrganizations() {
         List<java.lang.String> columnNames = Arrays.asList("Полное наименование организации / Руководитель", "ИНН", "ОГРН /СНИЛС / Паспорт",
                 "Юр. адрес / Факт. адрес", "Почтовый адрес");
@@ -84,7 +80,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Наличие карточек и заголовков в реестре Все решения о проверке")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
-    @Tag("regres")
     void goToRegistryAllInspectionDecisions() {
         List<java.lang.String> columnNames = Arrays.asList("Номер", "Дата", "Объект", "Проверяемая организация", "Вид проверки", "Основание для проверки",
                 "Период проведения", "Ответственный", "Статус", "ЕРКНМ");
@@ -99,7 +94,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Наличие карточек и заголовков в реестре нарушения")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
-    @Tag("regres")
     void goToRegistryViolations() {
         List<java.lang.String> columnNames = Arrays.asList("Номер нарушения", "Дата нарушения", "Наименование работ", "Специалист УН. ФИО");
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -114,7 +108,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Наличие карточек и заголовков в реестре постановления")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
-    @Tag("regres")
     void goToRegistryPostanovleniya() {
         List<java.lang.String> columnNames = Arrays.asList("Постановление", "Нарушитель", "Штраф", "Срок оплаты", "УН", "Подписал", "Оплачено (руб.)",
                 "Долг по оплате (руб.)");
@@ -129,7 +122,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Наличия данных и перехода в реестр Протоколы")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tag("regres")
     void goToRegistryProtokols() {
         List<java.lang.String> columnNames = Arrays.asList("Дата протокола", "Место совершения нарушения", "Статья КОАП РФ", "Проверяемая организация",
                 "Специалист УН. ФИО");
@@ -144,7 +136,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("Nadzor")
     @DisplayName("Наличия данных и перехода в реестр ТЗ лаборатории")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tag("regres")
     void goToRegistryTzLabaratorii() {
         List<java.lang.String> columnNames = Arrays.asList("Дата проверки ЦЭИИС", "Срок исполнения ТЗ", "Состав работ", "Состав работ утвержден ГБУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
@@ -159,7 +150,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("Snos")
     @DisplayName("Наличия данных и перехода в реестр Уведомления о завершении сноса")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tag("regres")
     void goToRegistryUvedomleniyaOzaversheniiSnosa() {
         List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата", "Заявитель",
                 "Исполнитель", "Данные ПГУ");
@@ -174,7 +164,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("Snos")
     @DisplayName("Наличие данных и переход в реестр Уведомления о планируемом сносе")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tag("regres")
     void goToRegistryUvedomleniyaOplaniruemomSnose() {
         List<java.lang.String> columnNames = Arrays.asList("Статус", "Номер уведомления", "Дата уведомления", "Плановая дата",
                 "Заявитель", "Исполнитель", "Данные ПГУ");
@@ -189,7 +178,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("RV")
     @DisplayName("Наличия данных и перехода в реестр Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tag("regres")
     void goToRegistryEnteringObjects() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Заявление", "Рег. дата", "Плановая дата",
                 "Объект", "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
@@ -204,7 +192,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("RS")
     @DisplayName("Наличия данных и перехода в реестр Внесение изменений в разрешения на строительство")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tag("regres")
     void goToRegistryChangeConstructionBuilding() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Вид изменений", "Заявление", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
@@ -219,7 +206,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("RV")
     @DisplayName("Наличия данных и перехода в реестр Разрешения на ввод объекта в эксплуатацию")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tag("regres")
     void goToRegistryObjectOperation() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
@@ -234,7 +220,6 @@ public class RinRifReestrTests extends TestBase {
     @Story("RS")
     @DisplayName("Наличия данных и перехода в реестр Разрешения на строительство")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    @Tag("regres")
     void goToRegistryBuildingPermit() {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Заявление ", "Рег. дата", "Плановая дата", "Объект",
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
@@ -245,26 +230,11 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @Story("IZS")
-    @DisplayName("Наличие карточек и заголовков в реестре ИЖС. Уведомление о завершении строительства")
-    @Description("Проверить, что реестр ИЖС. Уведомление о завершении строительства корректно открывается, присутствуют карточки " +
-            "включая проверку порядка отображения заголовков")
-    @Tag("regres")
-    void goToRegistryIzsZav() {
-        List<java.lang.String> columnNames = Arrays.asList("Номер дела", "Заявление", "Дата заявления", "Надзорное дело", "Плановая дата",
-                "Заявитель", "Исполнитель", "Данные ПГУ");
-        sidebarPage.clickSidebarMenu(INFORMATION);
-        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(IZS_ZAV);
-        generalPage.registryContainsCardsHeadersCheck(IZS_ZAV, columnNames);
-    }
-
-    @Test
+    @AllureId("17617")
     @Story("IZS")
     @DisplayName("Наличие карточек и заголовков в реестре ИЖС. Уведомление о планируемом строительстве")
     @Description("Проверить, что реестр ИЖС. Уведомление о планируемом строительстве корректно открывается, присутствуют карточки " +
             "включая проверку порядка отображения заголовков")
-    @Tag("regres")
     void goToRegistryIzsPlan() {
         List<java.lang.String> columnNames = Arrays.asList("Номер дела", "Заявление", "Дата заявления", "Надзорное дело", "Плановая дата",
                 "Заявитель", "Исполнитель", "Данные ПГУ");
@@ -275,11 +245,26 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
+    @AllureId("17618")
+    @Story("IZS")
+    @DisplayName("Наличие карточек и заголовков в реестре ИЖС. Уведомление о завершении строительства")
+    @Description("Проверить, что реестр ИЖС. Уведомление о завершении строительства корректно открывается, присутствуют карточки " +
+            "включая проверку порядка отображения заголовков")
+    void goToRegistryIzsZav() {
+        List<java.lang.String> columnNames = Arrays.asList("Номер дела", "Заявление", "Дата заявления", "Надзорное дело", "Плановая дата",
+                "Заявитель", "Исполнитель", "Данные ПГУ");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(IZS_ZAV);
+        generalPage.registryContainsCardsHeadersCheck(IZS_ZAV, columnNames);
+    }
+
+    @Test
+    @AllureId("17619")
     @Story("IZS")
     @DisplayName("Наличие карточек и заголовков в реестре ИЖС. Уведомление об изменении в строительстве")
     @Description("Проверить, что реестр ИЖС. Уведомление об изменении в строительстве корректно открывается, присутствуют карточки " +
             "включая проверку порядка отображения заголовков")
-    @Tag("regres")
     void goToRegistryIzsChange() {
         List<java.lang.String> columnNames = Arrays.asList("Номер дела", "Заявление", "Дата заявления", "Надзорное дело", "Плановая дата",
                 "Заявитель", "Исполнитель", "Данные ПГУ");
