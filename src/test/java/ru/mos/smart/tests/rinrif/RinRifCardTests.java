@@ -147,7 +147,7 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
-    @Story("RV")
+    @Story("IZS")
     @DisplayName("Переход в карточку из реестра ИЖС. Уведомление о завершении строительства")
     @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление о завершении строительства " +
             "убедится в наличии заголовков и данных в карточке.")
@@ -159,5 +159,35 @@ public class RinRifCardTests extends TestBase {
         reestrPage.goToRegister(IZS_ZAV);
         generalPage.goToRegistryCard(IZS_ZAV);
         rinrifPage.checkAvailabilityOfUnits(IZS_ZAV, cardHeaders);
+    }
+
+    @Test
+    @Story("IZS")
+    @DisplayName("Переход в карточку из реестра ИЖС. Уведомление о планируемом строительстве")
+    @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление о планируемом строительстве " +
+            "убедится в наличии заголовков и данных в карточке.")
+    void checkCardRegistryIzsPlan() {
+        List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат",
+                "Внешние системы", "Процессы", "Служебная информация");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(IZS_PLAN);
+        generalPage.goToRegistryCard(IZS_PLAN);
+        rinrifPage.checkAvailabilityOfUnits(IZS_PLAN, cardHeaders);
+    }
+
+    @Test
+    @Story("IZS")
+    @DisplayName("Переход в карточку из реестра ИЖС. Уведомление об изменении в строительстве")
+    @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление об изменении в строительстве " +
+            "убедится в наличии заголовков и данных в карточке.")
+    void checkCardRegistryIzsChange() {
+        List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат",
+                "Внешние системы", "Процессы", "Служебная информация");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(IZS_PLAN);
+        generalPage.goToRegistryCard(IZS_PLAN);
+        rinrifPage.checkAvailabilityOfUnits(IZS_PLAN, cardHeaders);
     }
 }
