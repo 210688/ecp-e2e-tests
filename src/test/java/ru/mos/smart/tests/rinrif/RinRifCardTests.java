@@ -30,7 +30,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AKTS_PROVEROK);
-        generalPage.goToRegistryCard(AKTS_PROVEROK);
+        rinrifPage.goToRegistryCard(AKTS_PROVEROK);
         rinrifPage.checkingCardHeaders();
     }
 
@@ -44,7 +44,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
-        generalPage.goToRegistryCard(MODIFICATION_OBJECT_OPERATION);
+        rinrifPage.goToRegistryCard(MODIFICATION_OBJECT_OPERATION);
         rinrifPage.checkingCardHeadersRv();
     }
 
@@ -58,8 +58,8 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ALL_OBJECTS);
-        generalPage.goToRegistryCard(ALL_OBJECTS);
-        rinrifPage.checkAvailabilityOfUnits(ALL_OBJECTS, blocksList);
+        rinrifPage.goToRegistryCard(ALL_OBJECTS);
+        rinrifPage.checkAvailabilityHeadersInCard(ALL_OBJECTS, blocksList);
     }
 
     @Test
@@ -71,7 +71,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_ORGANIZATION);
-        generalPage.goToRegistryCard(All_ORGANIZATION);
+        rinrifPage.goToRegistryCard(All_ORGANIZATION);
     }
 
     @Test
@@ -83,7 +83,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(All_INSPECTION_DECISIONS);
-        generalPage.goToRegistryCard(All_INSPECTION_DECISIONS);
+        rinrifPage.goToRegistryCard(All_INSPECTION_DECISIONS);
     }
 
     @Test
@@ -95,7 +95,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(DEMOLITIONS);
-        generalPage.goToRegistryCard(DEMOLITIONS);
+        rinrifPage.goToRegistryCard(DEMOLITIONS);
     }
 
     @Test
@@ -107,7 +107,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
-        generalPage.goToRegistryCard(PLANNED_DEMOLITION_NOTICES);
+        rinrifPage.goToRegistryCard(PLANNED_DEMOLITION_NOTICES);
     }
 
     @Test
@@ -119,7 +119,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
-        generalPage.goToRegistryCard(CHANGE_CONSTRUCTION_BUILDING);
+        rinrifPage.goToRegistryCard(CHANGE_CONSTRUCTION_BUILDING);
     }
 
     @Test
@@ -131,7 +131,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
-        generalPage.goToRegistryCard(PERMISSIONS_OBJECT_OPERATION);
+        rinrifPage.goToRegistryCard(PERMISSIONS_OBJECT_OPERATION);
     }
 
     @Test
@@ -143,22 +143,21 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(BUILDING_PERMIT);
-        generalPage.goToRegistryCard(BUILDING_PERMIT);
+        rinrifPage.goToRegistryCard(BUILDING_PERMIT);
     }
 
     @Test
-    @Story("IZS")
     @DisplayName("Переход в карточку из реестра ИЖС. Уведомление о завершении строительства")
     @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление о завершении строительства " +
             "убедится в наличии заголовков и данных в карточке.")
     void checkCardRegistryIzsZav() {
         List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат",
-                "Внешние системы", "Процессы", "Служебная информация");
+                "Внешние системы", "Процессы", "Служебная информация", "Общие сведения", "Сведения о ЗУ и объекте");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(IZS_ZAV);
-        generalPage.goToRegistryCard(IZS_ZAV);
-        rinrifPage.checkAvailabilityOfUnits(IZS_ZAV, cardHeaders);
+        rinrifPage.goToRegistryCard(IZS_ZAV);
+        rinrifPage.checkAvailabilityHeadersInCard(IZS_ZAV, cardHeaders);
     }
 
     @Test
@@ -168,12 +167,12 @@ public class RinRifCardTests extends TestBase {
             "убедится в наличии заголовков и данных в карточке.")
     void checkCardRegistryIzsPlan() {
         List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат",
-                "Внешние системы", "Процессы", "Служебная информация");
+                "Внешние системы", "Процессы", "Служебная информация", "Общие сведения", "Сведения о ЗУ и объекте");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(IZS_PLAN);
-        generalPage.goToRegistryCard(IZS_PLAN);
-        rinrifPage.checkAvailabilityOfUnits(IZS_PLAN, cardHeaders);
+        rinrifPage.goToRegistryCard(IZS_PLAN);
+        rinrifPage.checkAvailabilityHeadersInCard(IZS_PLAN, cardHeaders);
     }
 
     @Test
@@ -183,11 +182,11 @@ public class RinRifCardTests extends TestBase {
             "убедится в наличии заголовков и данных в карточке.")
     void checkCardRegistryIzsChange() {
         List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат",
-                "Внешние системы", "Процессы", "Служебная информация");
+                "Внешние системы", "Процессы", "Служебная информация", "Общие сведения", "Сведения о ЗУ и объекте");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(IZS_PLAN);
-        generalPage.goToRegistryCard(IZS_PLAN);
-        rinrifPage.checkAvailabilityOfUnits(IZS_PLAN, cardHeaders);
+        rinrifPage.goToRegistryCard(IZS_PLAN);
+        rinrifPage.checkAvailabilityHeadersInCard(IZS_PLAN, cardHeaders);
     }
 }

@@ -33,7 +33,6 @@ public class GeneralPage {
         return resultsAllCardsInRegistry.get(randomNumber).$$("td").get(1).$("a");
     }
 
-
     private void switchToWindow() {
         switchTo().window(1);
     }
@@ -65,7 +64,6 @@ public class GeneralPage {
         settingsButton.shouldBe(visible);
         $(".container-btn").$("button.btn-white").shouldBe(visible);
     }
-
 
     @Step("Переход в карточку реестра {registerName}")
     public void goToRegistryCard(Registers registerName) {

@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.regressions.ui;
+package ru.mos.smart.tests.map2D;
 
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;

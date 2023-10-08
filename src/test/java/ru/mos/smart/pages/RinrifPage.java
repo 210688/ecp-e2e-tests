@@ -6,12 +6,11 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import ru.mos.smart.data.enums.Registers;
 import ru.mos.smart.helpers.AllureAttachments;
-import ru.mos.smart.helpers.utils.RandomUtils;
 
 import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
+import static com.codeborne.selenide.CollectionCondition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static ru.mos.smart.data.enums.Registers.AKTS_PROVEROK;
@@ -26,30 +25,59 @@ public class RinrifPage {
             info = $("#infoZu"),
             commonInfo = $("#commoninfo-link"),
             infoZu = $("#infoZu-link"),
-            tep = $("#tep-link");
+            tep = $("#tep-link"),
+            searchForm = $("input.form-control"),
+            getInfo = $("#commoninfo");
 
     private final ElementsCollection
-            searchResultTable = $$("table.search-result-table tr"),
-            blocksInCard = $$(".tab-container li");
-
-    private final SelenideElement link = searchResultTable.get(3).$$("td").get(1).$("a");
-    private final ElementsCollection tableHeaders = $("showcase-builder-filter").$$("div.title");
+            headersInCard = $$(".tab-container li"),
+            resultsAllCardsInRegistry = $$(".search-result-table > tbody > tr"),
+            cardSearchResultTable = $$(".search-result-table"),
+            tableHeaders = $("showcase-builder-filter").$$("div.title");
 
     private void switchToWindow() {
         switchTo().window(1);
     }
 
-    @Step("Доступность блоков {list} в карточке")
-    public void checkAvailabilityOfUnits(Registers registerName, List<String> list) {
+    @Step("Доступность поиска карточки в реестре")
+    public void searchToCardInRegistry() {
         switchToWindow();
-        blocksInCard(list);
+        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(0));
+        SelenideElement cardLinkElement = resultsAllCardsInRegistry.find(text("ЕНО"));
+        String originalText = cardLinkElement.getText();
+        int startIndex = originalText.indexOf("ЕНО") + 4;
+        String enoNumber = originalText.substring(startIndex);
+        searchForm.val(enoNumber).pressEnter();
+        cardSearchResultTable.find(visible).shouldHave(text(enoNumber));
+    }
+
+    @Step("Перейти в карточку реестра {registerName}")
+    public void goToRegistryCard(Registers registerName) {
+        switchToWindow();
+        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(0));
+        SelenideElement cardLinkElement = resultsAllCardsInRegistry.get(1).$$("td").get(7).$("a");
+        String linkName = cardLinkElement.getAttribute("href");
+        cardLinkElement.click();
+        assert linkName != null;
+        Allure.addAttachment("Ссылка на карточку", linkName);
+    }
+
+    @Step("Доступность заголовков {list} и наличие данных в карточке {registerName}")
+    public void checkAvailabilityHeadersInCard(Registers registerName, List<String> list) {
+        switchToWindow();
+        headersInCard(list);
+        generalInformationInCard();
         attachScreenshot(registerName);
     }
 
-    private void blocksInCard(List<String> expectedHeaders) {
-        String block = String.join(", ", expectedHeaders);
-        blocksInCard.shouldHave(textsInAnyOrder(expectedHeaders));
+    private void headersInCard(List<String> expectedHeaders) {
+        String headers = String.join(", ", expectedHeaders);
+        headersInCard.shouldHave(texts(expectedHeaders));
     }
+    private void generalInformationInCard() {
+        getInfo.should(visible);
+    }
+
 
     @Step("В карточке Акт проверки заполнены данные на вкладке Общие сведения")
     public void checkingCardHeaders() {
@@ -64,24 +92,6 @@ public class RinrifPage {
         tep.should(visible);
     }
 
-    @Step("Перейти в карточку реестра и проверить заполнение данных")
-    public void goToRegistryCardAndCheck() {
-        String linkName = link.getAttribute("href");
-        link.click();
-        $(".card-header").shouldBe(visible);
-        assert linkName != null;
-        Allure.addAttachment("Ссылка на карточку", linkName);
-        //AllureAttachments.attachScreenshot("Карточка реестра");
-    }
-
-    @Step("Переход по ссылке {linkName} в карточку")
-    public void goToCard() {
-
-        String linkName = searchResultTable.get(RandomUtils.getRandomInt(3, 6)).$$("td").get(1).$("a").getAttribute("href");
-        searchResultTable.shouldHave(sizeGreaterThan(0));
-        searchResultTable.get(RandomUtils.getRandomInt(3, 6))
-                .$$("td").get(1).$("a").click();
-    }
 
     @Step("В карточке присутствуют заголовки {list}")
     public void checkTableFilter(Registers registerName, List<String> list) {

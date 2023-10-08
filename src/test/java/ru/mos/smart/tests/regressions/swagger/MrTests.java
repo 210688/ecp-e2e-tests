@@ -14,6 +14,7 @@ import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("OASI")
 @Feature("Rayon")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
 public class MrTests extends ApiBearerTestBase {
 
     @Test
@@ -25,7 +26,6 @@ public class MrTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(mr/documentTypes [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/camera/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/camera/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void mrCameraTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/mr/camera/documentTypes/all")
@@ -45,7 +45,6 @@ public class MrTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/mr/link/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/link/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/link/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mrLinkTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/mr/link/documentTypes/all")
@@ -65,7 +64,6 @@ public class MrTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/mr/meeting/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/meeting/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/meeting/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mrMeetingTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/mr/meeting/documentTypes/all")
@@ -85,7 +83,6 @@ public class MrTests extends ApiBearerTestBase {
     @Description("Проверить, что описаны все типы документов(/app/mr/program/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/program/swagger-ui.html"),
             @Link(name = "prod", url = "https://smart.mos.ru/app/mr/program/swagger-ui.html")})
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void mrProgramTests() {
         ValidatableResponse response = apiRequestBearer()
                 .get("/app/mr/program/documentTypes/all")

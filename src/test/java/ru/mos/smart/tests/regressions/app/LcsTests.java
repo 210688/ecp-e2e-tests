@@ -6,6 +6,7 @@ import io.qameta.allure.Owner;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.api.ResponseCode;
 import ru.mos.smart.helpers.annotations.Layer;
@@ -18,12 +19,13 @@ import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 @Feature("Конструктор форм")
 public class LcsTests extends ApiBearerTestBase {
 
-    private ResponseCode responseCode = new ResponseCode();
+    private final ResponseCode responseCode = new ResponseCode();
 
     @Test
     @Layer("api")
     @DisplayName("Проверка работы Возможности")
     @Tag("lcs")
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
     void checkLcsFormOpportunities() {
         Response response = apiRequestBearer()
                 .get("app/lcs/repository/api/MetaObjects/FORM_OPPORTUNITIES")
