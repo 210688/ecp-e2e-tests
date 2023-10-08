@@ -26,7 +26,8 @@ public class RinrifPage {
             commonInfo = $("#commoninfo-link"),
             infoZu = $("#infoZu-link"),
             tep = $("#tep-link"),
-            searchForm = $("input.form-control");
+            searchForm = $("input.form-control"),
+            getInfo = $("#commoninfo");
 
     private final ElementsCollection
             headersInCard = $$(".tab-container li"),
@@ -50,10 +51,10 @@ public class RinrifPage {
         cardSearchResultTable.find(visible).shouldHave(text(enoNumber));
     }
 
-    @Step("Перейти в карточку реестра и проверить заполнение данных")
+    @Step("Перейти в карточку реестра {registerName}")
     public void goToRegistryCard(Registers registerName) {
+        switchToWindow();
         resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(0));
-        switchTo().window(1);
         SelenideElement cardLinkElement = resultsAllCardsInRegistry.get(1).$$("td").get(7).$("a");
         String linkName = cardLinkElement.getAttribute("href");
         cardLinkElement.click();
@@ -61,10 +62,11 @@ public class RinrifPage {
         Allure.addAttachment("Ссылка на карточку", linkName);
     }
 
-    @Step("Доступность заголовков {list} в карточке")
+    @Step("Доступность заголовков {list} и наличие данных в карточке {registerName}")
     public void checkAvailabilityHeadersInCard(Registers registerName, List<String> list) {
         switchToWindow();
         headersInCard(list);
+        generalInformationInCard();
         attachScreenshot(registerName);
     }
 
@@ -72,6 +74,10 @@ public class RinrifPage {
         String headers = String.join(", ", expectedHeaders);
         headersInCard.shouldHave(texts(expectedHeaders));
     }
+    private void generalInformationInCard() {
+        getInfo.should(visible);
+    }
+
 
     @Step("В карточке Акт проверки заполнены данные на вкладке Общие сведения")
     public void checkingCardHeaders() {

@@ -152,7 +152,7 @@ public class RinRifCardTests extends TestBase {
             "убедится в наличии заголовков и данных в карточке.")
     void checkCardRegistryIzsZav() {
         List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат",
-                "Внешние системы", "Процессы", "Служебная информация");
+                "Внешние системы", "Процессы", "Служебная информация", "Общие сведения", "Сведения о ЗУ и объекте");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(IZS_ZAV);
@@ -167,7 +167,7 @@ public class RinRifCardTests extends TestBase {
             "убедится в наличии заголовков и данных в карточке.")
     void checkCardRegistryIzsPlan() {
         List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат",
-                "Внешние системы", "Процессы", "Служебная информация");
+                "Внешние системы", "Процессы", "Служебная информация", "Общие сведения", "Сведения о ЗУ и объекте");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(IZS_PLAN);
@@ -182,7 +182,7 @@ public class RinRifCardTests extends TestBase {
             "убедится в наличии заголовков и данных в карточке.")
     void checkCardRegistryIzsChange() {
         List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат",
-                "Внешние системы", "Процессы", "Служебная информация");
+                "Внешние системы", "Процессы", "Служебная информация", "Общие сведения", "Сведения о ЗУ и объекте");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(IZS_PLAN);

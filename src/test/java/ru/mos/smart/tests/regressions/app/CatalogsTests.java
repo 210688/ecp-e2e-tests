@@ -24,7 +24,7 @@ public class CatalogsTests extends ApiBearerTestBase {
     @Owner("SoldatovKS")
     @Layer("api")
     @DisplayName("Запрос реестров информации")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
     void catalogsSourceCodesTest() {
         ValidatableResponse response = apiRequestBearer()
                 .get("catalogs/catalog/EHD/54385")
@@ -38,13 +38,12 @@ public class CatalogsTests extends ApiBearerTestBase {
     @Owner("SoldatovKS")
     @Layer("api")
     @DisplayName("Получить список имен ядер")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("api")})
+    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
     void catalogsSearchSolrCoresCountTest() {
         ValidatableResponse response = apiRequestBearer()
                 .get("catalogs-search/v1/solr/cores/names")
                 .then()
                 .statusCode(200);
-        //parameter("cdp", response.extract().body().jsonPath());
         assertThat("cdp", is(equalTo("cdp")));
     }
 }

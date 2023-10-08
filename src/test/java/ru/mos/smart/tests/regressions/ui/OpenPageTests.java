@@ -14,7 +14,7 @@ import ru.mos.smart.tests.TestBase;
 import static ru.mos.smart.data.enums.Sidebar.*;
 
 @Owner("Soldatov")
-@Epic("OASI")
+@Epic("Регрессионные тесты платформы")
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
 public class OpenPageTests extends TestBase {
 
@@ -44,13 +44,13 @@ public class OpenPageTests extends TestBase {
 
     @Test
     @AllureId("17029")
-    @Feature("CDP")
+    @Feature("LCS")
     @DisplayName("Наличие списка реестров на странице Реестр")
     @Description("Проверка доступности реестра текущему пользователю")
     void CheckRegistryForTaskList() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.checkListInRegistry(18);
+        reestrPage.checkListInRegistry(18); //TODO добавить проверку
     }
 
     @Test
@@ -58,9 +58,19 @@ public class OpenPageTests extends TestBase {
     @Feature("CDP")
     @DisplayName("В справочнике присутствует список элементов")
     @Description("Проверить, что в справочнике присутствует список элементов")
-    void goToOpenSpravochnik() {
+    void goToSpravochnik() {
         sidebarPage.clickSidebarMenu(SETTINGS);
         sidebarPage.clickSubMenuList(SETTINGS, REFERENCE_BOOKS);
         dictsPage.checkDicts();
+    }
+
+    @Test
+    @Feature("CDP")
+    @DisplayName("Поиск справочника")
+    @Description("Проверить, что в справочнике присутствует список элементов")
+    void searchSpravochnik() {
+        sidebarPage.clickSidebarMenu(SETTINGS);
+        sidebarPage.clickSubMenuList(SETTINGS, REFERENCE_BOOKS);
+        dictsPage.searchDicts();
     }
 }
