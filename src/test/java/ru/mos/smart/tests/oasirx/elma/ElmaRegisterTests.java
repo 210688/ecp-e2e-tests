@@ -11,22 +11,22 @@ import ru.mos.smart.tests.TestBase;
 import java.util.Arrays;
 import java.util.List;
 
-import static ru.mos.smart.data.registry.RegisterObjectTypeOasirx.ELMA_URL;
+import static ru.mos.smart.data.enums.Sidebar.ELMA;
 
 @Owner("Soldatov")
 @Epic("OASI")
 @Feature("Оасирх")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
 public class ElmaRegisterTests extends TestBase {
 
     @Test
-    @AllureId("17072")
     @Story("Elma")
     @Component("Реестр")
     @DisplayName("Наличия данных и перехода в раздел Соответствие проектной документации СППК")
     @Description("Проверить, что есть данные и происходит переход в раздел - Соотвествие проектной документации СППК")
     void goToRegisterElma() {
-        List<String> columnNames = Arrays.asList("Дата", "Номер", "Номер МГГТ", "Название", "Статус");
-        sidebarPage.goToSection(ELMA_URL);
+        List<String> tableColumnList = Arrays.asList("Дата", "Номер", "Номер МГГТ", "Название");
+        sidebarPage.clickSidebarMenu(ELMA);
+        oasirxPage.registryContainsCardsHeadersCheck(ELMA, tableColumnList);
     }
 }

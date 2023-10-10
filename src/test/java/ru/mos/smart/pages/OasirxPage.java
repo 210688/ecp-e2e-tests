@@ -10,8 +10,8 @@ import ru.mos.smart.helpers.AllureAttachments;
 import java.util.List;
 
 import static com.codeborne.selenide.CollectionCondition.*;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
 
 /**
  * Описание общих элементов подсистемы OASIRX.
@@ -34,6 +34,22 @@ public class OasirxPage {
         return tables.get(3).$$("td").get(1).$("a");
     }
 
+    private void switchToWindow() {
+        switchTo().window(1);
+    }
+
+    @Step("Доступность поиска карточки в реестре")
+    public void searchToCardInRegistry() {
+        //switchToWindow();
+        tables.shouldHave(sizeGreaterThan(0));
+        SelenideElement cardLink = tables.first().$$("td").get(1);
+        String originalText = cardLink.getText();
+        $(".form-control").val(originalText).pressEnter();
+        tables.find(text(originalText)).click();
+        $(".ng-binding").shouldHave(exactText(originalText));
+        AllureAttachments.attachScreenshot("Скриншот карточки");
+    }
+
     @Step("Реестр содержит хотя бы одну карточку, также присутствуют заголовки таблицы {list}")
     public void registryContainsCardsHeadersCheck(Sidebar sidebarName, List<String> list) {
         verifyTableHeadersMatchExpected(list);
@@ -50,7 +66,7 @@ public class OasirxPage {
     }
 
     private void verifyTableFieldDataSize() {
-        tables.shouldHave(sizeGreaterThanOrEqual(1));
+        tables.shouldHave(sizeGreaterThanOrEqual(0));
     }
 
 

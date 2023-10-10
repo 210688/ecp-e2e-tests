@@ -4,21 +4,28 @@ import static ru.mos.smart.config.ConfigHelper.IS_STAGE;
 
 public enum Sidebar {
 
-    SERVICES_AND_FUNCTION( "Госуслуги и функции"),
-    TASK( "Задачи"),
+    SERVICES_AND_FUNCTION("Госуслуги и функции"),
+    TASK("Задачи"),
     OPPORTUNITIES(IS_STAGE ? "Возможности LCS" : "Возможности"),
-    INFORMATION( "Информация"),
+    INFORMATION("Информация"),
     REGISTERS(IS_STAGE ? "Реестры LCS" : "Реестры"),
     SETTINGS("Настройки"),
-    REFERENCE_BOOKS( "Справочники"),
+    REFERENCE_BOOKS("Справочники"),
     MAPS3D("Цифровой двойник"),
-    MAP( "Карта"),
+    MAP("Карта"),
     SD("СД"),
     EOO("ЭОО"),
     FCD("Фасады"),
     PMT("ПМТ"),
     SB("Самострой"),
-    ITMKA("Управление ИТ МКА");
+    ITMKA("Управление ИТ МКА"),
+    SZZ("СЗЗ"),
+    PKL("ПКЛ"),
+    HEARINGS("Публичные слушания"),
+    ELMA("Соответствие СП (МГГТ)"),
+    SPRIT("СПРИТ"),
+    VIOLATION("Нарушения ОГД"),
+    VRI("ВРИ");
 
     private final String value;
 
@@ -30,7 +37,7 @@ public enum Sidebar {
         return value;
     }
 
-   @Override
+    @Override
     public String toString() {
         return value;
     }
