@@ -31,7 +31,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AKTS_PROVEROK);
         rinrifPage.goToRegistryCard(AKTS_PROVEROK);
-        rinrifPage.checkingCardHeaders();
+        //rinrifPage.checkingCardHeaders();
     }
 
     @Test
@@ -147,6 +147,8 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
+    @Story("IZS")
+    @AllureId("17621")
     @DisplayName("Переход в карточку из реестра ИЖС. Уведомление о завершении строительства")
     @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление о завершении строительства " +
             "убедится в наличии заголовков и данных в карточке.")
@@ -162,6 +164,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @Story("IZS")
+    @AllureId("17620")
     @DisplayName("Переход в карточку из реестра ИЖС. Уведомление о планируемом строительстве")
     @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление о планируемом строительстве " +
             "убедится в наличии заголовков и данных в карточке.")

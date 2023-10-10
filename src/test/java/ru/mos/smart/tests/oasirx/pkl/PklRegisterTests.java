@@ -1,6 +1,9 @@
 package ru.mos.smart.tests.oasirx.pkl;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -8,69 +11,34 @@ import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.Arrays;
+import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.step;
+import static ru.mos.smart.data.enums.Sidebar.PKL;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
 public class PklRegisterTests extends TestBase {
 
     @Test
-    @AllureId("17061")
     @Story("PKL")
     @Component("Реестр")
     @DisplayName("Просмотр реестра ПКЛ")
-    @Description("Проверить, что открывается реестр ПКЛ")
+    @Description("Проверить корректности отображения заголовков и наличие карточек в реестре ПКЛ")
     void openingTheRegisterPkl() {
-        sidebarPage
-                .goToPkl();
-
-        step("Открыт раздел ПКЛ", () ->
-                $x("//div/h2[contains(text(),'ПКЛ')]").shouldBe(visible));
-
-        step("В разделе присутствуют вкладки:", () -> {
-            $x("//a/span[contains(text(),'В работе')]").shouldBe(visible);
-            $x("//a/span[contains(text(),'Все')]").shouldBe(visible);
-            $x("//a/span[contains(text(),'Мои')]").shouldBe(visible);
-            $x("//a/span[contains(text(),'Ожидает')]").shouldBe(visible);
-            $x("//a/span[contains(text(),'Статистика')]").shouldBe(visible);
-        });
+        List<String> tableColumnList = Arrays.asList("Дата", "Номер", "Название", "Управление", "Этап", "Статус");
+        sidebarPage.clickSidebarMenu(PKL);
+        oasirxPage.registryContainsCardsHeadersCheck(PKL, tableColumnList);
     }
 
     @Test
-    @AllureId("17060")
     @Story("PKL")
     @Component("Реестр")
     @DisplayName("Поиск карточки реестра ПКЛ по номеру")
-    @Description("Проверить, что происходит поиск карточки реестра ПКЛ по номеру")
+    @Description("Проверить открытия и заполнения карточки после поиска в реестре ПКЛ")
     void searchingPklCardByNumber() {
-        sidebarPage
-                .goToPkl();
-
-        step("Открыт раздел ПКЛ", () ->
-                $x("//div/h2[contains(text(),'ПКЛ')]").shouldBe(visible));
-
-        AtomicReference<String> card = new AtomicReference<>("");
-
-        step("Получаем номер существующей карточки", () -> {
-            $(".viewtable").$$("tr").shouldHave(sizeGreaterThan(0));
-            card.set($(".viewtable").$("a").getText());
-        });
-
-        step("В строке поиска ввести номер карточки", () ->
-                $("input.form-control").setValue(card.get()).pressEnter());
-
-        step("Открыть найденную карточку", () ->
-                $$(byText(card.get())).find(visible).click());
-
-        step("Проверить, что карточка открылась", () ->
-                $("h2").shouldHave(text(card.get())));
+        sidebarPage.clickSidebarMenu(PKL);
+        oasirxPage.searchToCardInRegistry();
     }
 }

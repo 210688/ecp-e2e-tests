@@ -1,6 +1,9 @@
 package ru.mos.smart.tests.oasirx.sb;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -15,11 +18,10 @@ import static ru.mos.smart.data.enums.Sidebar.SB;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
 public class SbRegisterTests extends TestBase {
 
     @Test
-    @AllureId("17057")
     @Story("SB")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре Самострой")
@@ -32,23 +34,12 @@ public class SbRegisterTests extends TestBase {
     }
 
     @Test
-    @AllureId("17056")
     @Story("SB")
     @Component("Реестр")
     @DisplayName("Поиск карточки реестра Самострой по номеру")
     @Description("Проверить, что происходит поиск карточки реестра Самострой по номеру")
     void searchingSbCardByNumber() {
         sidebarPage.clickSidebarMenu(SB);
-//TODO метод поиска по номеру карточки
-
-/*        step("В строке поиска ввести номер карточки", () ->
-                $x("//div/input[contains(@class,'form-control')]").setValue("ОСС-0028-2021").pressEnter());
-
-        step("Открыть найденную карточку", () ->
-                $$(byText("ОСС-0028-2021")).find(visible).click());
-
-        step("Проверить, что карточка открылась", () ->
-                $x("//div/h2[contains(text(),'ОСС-0028-2021')]").shouldBe(visible));
-*/
+        oasirxPage.searchToCardInRegistry();
     }
 }
