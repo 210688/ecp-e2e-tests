@@ -55,7 +55,7 @@ public class RinrifPage {
     public void goToRegistryCard(Registers registerName) {
         switchToWindow();
         resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(0));
-        SelenideElement cardLinkElement = resultsAllCardsInRegistry.get(1).$$("td").get(7).$("a");
+        SelenideElement cardLinkElement = resultsAllCardsInRegistry.first().$$("td").get(2).$("a");
         String linkName = cardLinkElement.getAttribute("href");
         cardLinkElement.click();
         assert linkName != null;

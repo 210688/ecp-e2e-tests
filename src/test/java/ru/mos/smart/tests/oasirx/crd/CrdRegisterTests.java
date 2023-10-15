@@ -20,6 +20,7 @@ import static ru.mos.smart.data.enums.Sidebar.SD;
 public class CrdRegisterTests extends TestBase {
 
     @Test
+    @AllureId("12531")
     @Story("CRD")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре СД")
@@ -32,6 +33,7 @@ public class CrdRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("12529")
     @Story("CRD")
     @Component("Реестр")
     @DisplayName("Поиск карточки в реестре СД")

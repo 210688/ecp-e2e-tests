@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.oasirx.eoo;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -22,6 +19,7 @@ import static ru.mos.smart.data.enums.Sidebar.EOO;
 public class EooRegisterTests extends TestBase {
 
         @Test
+        @AllureId("12357")
         @Story("EOO")
         @Component("Реестр")
         @DisplayName("Наличия данных и перехода в раздел Общеcтвенные обcуждения")

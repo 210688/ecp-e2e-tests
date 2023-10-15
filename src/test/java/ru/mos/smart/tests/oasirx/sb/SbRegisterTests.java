@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.oasirx.sb;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -22,6 +19,7 @@ import static ru.mos.smart.data.enums.Sidebar.SB;
 public class SbRegisterTests extends TestBase {
 
     @Test
+    @AllureId("17671")
     @Story("SB")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре Самострой")
@@ -34,6 +32,7 @@ public class SbRegisterTests extends TestBase {
     }
 
     @Test
+    @AllureId("17670")
     @Story("SB")
     @Component("Реестр")
     @DisplayName("Поиск карточки реестра Самострой по номеру")
