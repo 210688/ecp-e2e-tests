@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.oasirx.sprit;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -22,18 +19,20 @@ import static ru.mos.smart.data.enums.Sidebar.SPRIT;
 public class SpritTests extends TestBase {
 
     @Test
+    @AllureId("17668")
     @Story("Sprit")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре Самострой")
     @Description("Проверить, что реестр Самострой корректно открывается, присутствуют карточки " +
             "включая проверку порядка отображения заголовков")
     void openingTheRegisterSprit() {
-        List<String> tableColumnList = Arrays.asList("Дата", "Номер", "Округ", "Адрес", "Тип объекта", "Исполнитель", "Статус");
+        List<String> tableColumnList = Arrays.asList("Дата", "Номер", "Документ-основание", "Управление", "Статус");
         sidebarPage.clickSidebarMenu(SPRIT);
         oasirxPage.registryContainsCardsHeadersCheck(SPRIT, tableColumnList);
     }
 
     @Test
+    @AllureId("17669")
     @Story("Sprit")
     @Component("Реестр")
     @DisplayName("Проверка работы поиска в реестре СПРИТ")

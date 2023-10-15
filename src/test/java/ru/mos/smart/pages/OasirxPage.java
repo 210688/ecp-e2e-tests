@@ -13,6 +13,7 @@ import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static java.time.Duration.ofSeconds;
 
 /**
  * Описание общих элементов подсистемы OASIRX.
@@ -52,7 +53,7 @@ public class OasirxPage {
         $(".form-control").val(originalText).pressEnter();
         String linkName = cardLinkElement.getAttribute("href");
         executeJavaScript("arguments[0].click();", (cardLinkElement));
-        $("h2").shouldHave(text(originalText)).should(visible);
+        $("h2").shouldBe(visible, ofSeconds(10)).shouldHave(text(originalText));
         assert linkName != null;
         AllureAttachments.attachScreenshot("Скриншот карточки");
     }

@@ -20,6 +20,7 @@ import static ru.mos.smart.data.enums.Sidebar.ELMA;
 public class ElmaRegisterTests extends TestBase {
 
     @Test
+    @AllureId("17678")
     @Story("Elma")
     @Component("Реестр")
     @DisplayName("Наличия данных и перехода в раздел Соответствие проектной документации СППК")
