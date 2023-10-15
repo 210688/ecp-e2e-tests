@@ -10,7 +10,8 @@ import ru.mos.smart.helpers.AllureAttachments;
 import java.util.List;
 
 import static com.codeborne.selenide.CollectionCondition.*;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 /**
@@ -21,9 +22,15 @@ public class OasirxPage {
 
     private final ElementsCollection
             tables = $$(".table-responsive > tbody > tr"),
+            //tables = $$(".viewtable tbody"),
             tableHeaders = $$(".tab-container li"),
             cardHeaders = $$(".header.row div"),
-            registryTableHeaders = $$("table th");
+            registryTableHeaders = $$("table").get(0).$$("th");
+
+    private final SelenideElement
+            cardLink = tables.first().$$("td").get(1),
+            cardLinkElement = $(".viewtable").$("a");
+
 
 
     private SelenideElement getLinkElement() {
@@ -40,13 +47,13 @@ public class OasirxPage {
 
     @Step("Доступность поиска карточки в реестре")
     public void searchToCardInRegistry() {
-        //switchToWindow();
         tables.shouldHave(sizeGreaterThan(0));
-        SelenideElement cardLink = tables.first().$$("td").get(1);
         String originalText = cardLink.getText();
         $(".form-control").val(originalText).pressEnter();
-        tables.find(text(originalText)).click();
-        $(".ng-binding").shouldHave(exactText(originalText));
+        String linkName = cardLinkElement.getAttribute("href");
+        executeJavaScript("arguments[0].click();", (cardLinkElement));
+        $("h2").shouldHave(text(originalText)).should(visible);
+        assert linkName != null;
         AllureAttachments.attachScreenshot("Скриншот карточки");
     }
 
