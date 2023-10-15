@@ -263,7 +263,7 @@ public class OasirxTests extends ApiBearerTestBase {
     @AllureId("16933")
     @Layer("api")
     @Owner("Soldatovks")
-    @Story("Itmka")
+    @Story("Pzz")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/itmka/swagger-ui.html#/")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/oasirx/pzz/documentTypes/all [GET])")

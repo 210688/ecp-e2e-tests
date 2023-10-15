@@ -25,7 +25,7 @@ public class ElmaRegisterTests extends TestBase {
     @DisplayName("Наличия данных и перехода в раздел Соответствие проектной документации СППК")
     @Description("Проверить, что есть данные и происходит переход в раздел - Соотвествие проектной документации СППК")
     void goToRegisterElma() {
-        List<String> tableColumnList = Arrays.asList("Дата", "Номер", "Номер МГГТ", "Название");
+        List<String> tableColumnList = Arrays.asList("Дата", "Номер", "Номер МГГТ", "Название", "Статус");
         sidebarPage.clickSidebarMenu(ELMA);
         oasirxPage.registryContainsCardsHeadersCheck(ELMA, tableColumnList);
     }
