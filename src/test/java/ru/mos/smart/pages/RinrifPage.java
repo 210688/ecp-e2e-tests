@@ -13,7 +13,7 @@ import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-import static ru.mos.smart.data.enums.Registers.AKTS_PROVEROK;
+import static java.lang.String.valueOf;
 
 /**
  * Описание реестров RinRif.
@@ -27,16 +27,28 @@ public class RinrifPage {
             infoZu = $("#infoZu-link"),
             tep = $("#tep-link"),
             searchForm = $("input.form-control"),
-            getInfo = $("#commoninfo");
+            getInfo = $("#commoninfo-link"),
+            registryCardsTable = $("table.search-result-table tr"),
+            heading = $("span[class='ng-star-inserted']");
 
     private final ElementsCollection
             headersInCard = $$(".tab-container li"),
             resultsAllCardsInRegistry = $$(".search-result-table > tbody > tr"),
             cardSearchResultTable = $$(".search-result-table"),
-            tableHeaders = $("showcase-builder-filter").$$("div.title");
+            tableHeaders = $("showcase-builder-filter").$$("div.title"),
+            checkingTableHeaders = registryCardsTable.$$("th");
 
     private void switchToWindow() {
         switchTo().window(1);
+    }
+
+    private void headersInCard(List<String> expectedHeaders) {
+        String headers = String.join(", ", expectedHeaders);
+        headersInCard.shouldHave(texts(expectedHeaders));
+    }
+
+    private void attachScreenshot(Registers registerName) {
+        AllureAttachments.attachScreenshot("Скриншот карточки" + " " + registerName.value());
     }
 
     @Step("Доступность поиска карточки в реестре")
@@ -59,53 +71,31 @@ public class RinrifPage {
         String linkName = cardLinkElement.getAttribute("href");
         cardLinkElement.click();
         assert linkName != null;
-        Allure.addAttachment("Ссылка на карточку", linkName);
+        Allure.addAttachment("Ссылка на карточку" + registerName, linkName);
     }
 
     @Step("Доступность заголовков {list} и наличие данных в карточке {registerName}")
     public void checkAvailabilityHeadersInCard(Registers registerName, List<String> list) {
         switchToWindow();
         headersInCard(list);
-        generalInformationInCard();
         attachScreenshot(registerName);
     }
 
-    private void headersInCard(List<String> expectedHeaders) {
-        String headers = String.join(", ", expectedHeaders);
-        headersInCard.shouldHave(texts(expectedHeaders));
-    }
-    private void generalInformationInCard() {
-        getInfo.should(visible);
-    }
-
-
-    @Step("В карточке Акт проверки заполнены данные на вкладке Общие сведения")
-    public void checkingCardHeaders() {
-        info.should(visible);
-        attachScreenshot(AKTS_PROVEROK);
-    }
-
-    @Step("Доступность вкладок 'Основные сведения', 'Сведения о ЗУ', 'ТЭП' в карточке 'Заявление о выдаче разрешения на ввод в эксплуатацию'")
-    public void checkingCardHeadersRv() {
-        commonInfo.should(visible);
-        infoZu.should(visible);
-        tep.should(visible);
-    }
-
-
-    @Step("В карточке присутствуют заголовки {list}")
-    public void checkTableFilter(Registers registerName, List<String> list) {
+    @Step("Реестр содержит хотя бы одну карточку, отображаются заголовки таблицы {list}")
+    public void registryContainsCardsHeadersCheck(Registers registerName, List<String> list) {
         switchToWindow();
-        verifyTableHeaders(list);
+        verifyTableFieldDataSize();
+        verifyTableHeadersMatchExpected(list);
+        heading.shouldHave(text(valueOf(registerName))).should(visible);
         attachScreenshot(registerName);
     }
 
-    private void verifyTableHeaders(List<String> list) {
-        String table = String.join(", ", list);
-        tableHeaders.shouldHave(textsInAnyOrder(list));
+    private void verifyTableHeadersMatchExpected(List<String> expectedHeaders) {
+        String table = String.join(", ", expectedHeaders);
+        checkingTableHeaders.shouldHave(textsInAnyOrder(expectedHeaders));
     }
 
-    private void attachScreenshot(Registers registerName) {
-        AllureAttachments.attachScreenshot("Скриншот карточки" + " " + registerName.value());
+    private void verifyTableFieldDataSize() {
+        resultsAllCardsInRegistry.shouldHave(sizeGreaterThanOrEqual(1));
     }
 }

@@ -15,7 +15,7 @@ import static ru.mos.smart.data.enums.Sidebar.VIOLATION;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
+@Tags({@Tag("oasirx"), @Tag("regres")})
 public class ViolationRegisterTests extends TestBase {
 
     @Test
