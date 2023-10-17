@@ -15,7 +15,7 @@ import static ru.mos.smart.data.enums.Sidebar.SPRIT;
 
 @Epic("OASI")
 @Feature("Оасирх")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
+@Tags({@Tag("oasirx"), @Tag("regres")})
 public class SpritTests extends TestBase {
 
     @Test

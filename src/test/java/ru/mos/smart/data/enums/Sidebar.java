@@ -25,7 +25,9 @@ public enum Sidebar {
     ELMA("Соответствие СП (МГГТ)"),
     SPRIT("СПРИТ"),
     VIOLATION("Нарушения ОГД"),
-    VRI("ВРИ");
+    VRI("ВРИ"),
+    MY_RAYON("Мой район"),
+    REGISTERS_OBJECTS("Реестр объектов");
 
     private final String value;
 

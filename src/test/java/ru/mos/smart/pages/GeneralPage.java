@@ -40,9 +40,9 @@ public class GeneralPage {
     @Step("Реестр содержит хотя бы одну карточку, и нем отображаются заголовки таблицы {list}")
     public void registryContainsCardsHeadersCheck(Registers registerName, List<String> list) {
         switchToWindow();
+        verifyTableFieldDataSize();
         verifyTableHeadersMatchExpected(list);
         attachScreenshot(registerName);
-        verifyTableFieldDataSize();
     }
 
     private void verifyTableHeadersMatchExpected(List<String> expectedHeaders) {

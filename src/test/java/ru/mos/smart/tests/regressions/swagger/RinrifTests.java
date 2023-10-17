@@ -12,9 +12,9 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("ИАИС")
+@Epic("ИАИС РИН")
 @Feature("Rinrif")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
+@Tags({@Tag("rinrif"), @Tag("regres")})
 public class RinrifTests extends ApiBearerTestBase {
 
     @Test

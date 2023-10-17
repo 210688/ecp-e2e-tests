@@ -13,8 +13,8 @@ import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("OASI")
-@Feature("Oasirx")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
+@Feature("Оасирх")
+@Tags({@Tag("oasirx"), @Tag("regres")})
 public class OasirxTests extends ApiBearerTestBase {
 
     @Test

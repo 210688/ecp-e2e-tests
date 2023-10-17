@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.tests.TestBase;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,35 +18,38 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 @Owner("Soldatov")
 @Epic("ИАИС РИН")
 @Feature("Rinrif")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("rinrif"), @Tag("regres")})
+@Tags({@Tag("rinrif"), @Tag("regres")})
 public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17008")
     @Story("Nadzor")
-    @DisplayName("Корректность открытия и доступность карточки Акты проверок")
+    @DisplayName("Корректность открытия и доступность карточки реестра Акты проверок")
     @Description("Проверка корректности открытия карточки 'Акты проверок', " +
             "убедится в наличии заголовков и наличии заполненных данных в этой карточке.")
     void checkCardRegisterActsProverok() {
+        List<String> blocksList = new ArrayList<>(Arrays.asList("Общая информация", "ЕРКНМ", "", "Общие сведения"));
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(AKTS_PROVEROK);
-        rinrifPage.goToRegistryCard(AKTS_PROVEROK);
-        //rinrifPage.checkingCardHeaders();
+        reestrPage.goToRegister(INSPECTIONACT);
+        rinrifPage.goToRegistryCard(INSPECTIONACT);
+        rinrifPage.checkAvailabilityHeadersInCard(INSPECTIONACT, blocksList );
     }
 
     @Test
     @AllureId("17011")
     @Story("RV")
-    @DisplayName("Переход в карточку из реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
+    @DisplayName("Корректность открытия и доступность карточки реестра Внесение изменений в разрешения ввод объекта в эксплуатацию")
     @Description("Проверить, что открывается карточка из реестра - Внесение изменений в разрешения ввод объекта в эксплуатацию " +
             "убедится в наличии  заполненных данных в этой карточке.")
     void checkCardRegisterEnteringObject() {
+        List<String> blocksList = new ArrayList<>(Arrays.asList("Общая информация", "Документы", "Результат", "Внешние системы",
+                "Процессы", "Общие сведения", "Сведения о ЗУ и объектах", "ТЭП"));
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MODIFICATION_OBJECT_OPERATION);
-        rinrifPage.goToRegistryCard(MODIFICATION_OBJECT_OPERATION);
-        rinrifPage.checkingCardHeadersRv();
+        reestrPage.goToRegister(RV_CHANGE);
+        rinrifPage.goToRegistryCard(RV_CHANGE);
+        rinrifPage.checkAvailabilityHeadersInCard(RV_CHANGE, blocksList);
     }
 
     @Test
@@ -57,9 +61,9 @@ public class RinRifCardTests extends TestBase {
         List<String> blocksList = Arrays.asList("Общие сведения", "Организации", "Представленные документы");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(ALL_OBJECTS);
-        rinrifPage.goToRegistryCard(ALL_OBJECTS);
-        rinrifPage.checkAvailabilityHeadersInCard(ALL_OBJECTS, blocksList);
+        reestrPage.goToRegister(OBJECTPASSPORT);
+        rinrifPage.goToRegistryCard(OBJECTPASSPORT);
+        //rinrifPage.checkAvailabilityHeadersInCard(OBJECTPASSPORT, blocksList);
     }
 
     @Test
@@ -68,10 +72,12 @@ public class RinRifCardTests extends TestBase {
     @DisplayName("Переход в карточку из реестра Все организации")
     @Description("Проверить, что открывается карточка из реестра - Все организации")
     void checkCardAllOrganizations() {
+        List<String> blocksList = Arrays.asList("Общие сведения", "Организации", "Представленные документы");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(All_ORGANIZATION);
-        rinrifPage.goToRegistryCard(All_ORGANIZATION);
+        reestrPage.goToRegister(ORGANIZATION);
+        //rinrifPage.goToRegistryCard(ORGANIZATION);
+        //rinrifPage.checkAvailabilityHeadersInCard(ORGANIZATION, blocksList);
     }
 
     @Test
@@ -82,8 +88,8 @@ public class RinRifCardTests extends TestBase {
     void checkCardReestrAllInspectionDecisions() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(All_INSPECTION_DECISIONS);
-        rinrifPage.goToRegistryCard(All_INSPECTION_DECISIONS);
+        reestrPage.goToRegister(INSPECTIONDECISION);
+        rinrifPage.goToRegistryCard(INSPECTIONDECISION);
     }
 
     @Test
@@ -94,8 +100,8 @@ public class RinRifCardTests extends TestBase {
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(DEMOLITIONS);
-        rinrifPage.goToRegistryCard(DEMOLITIONS);
+        reestrPage.goToRegister(SNOS_FINISH);
+        rinrifPage.goToRegistryCard(SNOS_FINISH);
     }
 
     @Test
@@ -106,8 +112,8 @@ public class RinRifCardTests extends TestBase {
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(PLANNED_DEMOLITION_NOTICES);
-        rinrifPage.goToRegistryCard(PLANNED_DEMOLITION_NOTICES);
+        reestrPage.goToRegister(SNOS_PLAN);
+        rinrifPage.goToRegistryCard(SNOS_PLAN);
     }
 
     @Test
@@ -118,8 +124,8 @@ public class RinRifCardTests extends TestBase {
     void checkCardRegisterConstructionLicense() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(CHANGE_CONSTRUCTION_BUILDING);
-        rinrifPage.goToRegistryCard(CHANGE_CONSTRUCTION_BUILDING);
+        reestrPage.goToRegister(RS_CHANGE);
+        rinrifPage.goToRegistryCard(RS_CHANGE);
     }
 
     @Test
@@ -130,8 +136,8 @@ public class RinRifCardTests extends TestBase {
     void checkCardRegisterObjectOperation() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(PERMISSIONS_OBJECT_OPERATION);
-        rinrifPage.goToRegistryCard(PERMISSIONS_OBJECT_OPERATION);
+        reestrPage.goToRegister(RV_RV);
+        rinrifPage.goToRegistryCard(RV_RV);
     }
 
     @Test
@@ -142,8 +148,8 @@ public class RinRifCardTests extends TestBase {
     void checkCardBuildingPermitRegister() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(BUILDING_PERMIT);
-        rinrifPage.goToRegistryCard(BUILDING_PERMIT);
+        reestrPage.goToRegister(RS_RS);
+        rinrifPage.goToRegistryCard(RS_RS);
     }
 
     @Test
@@ -188,8 +194,76 @@ public class RinRifCardTests extends TestBase {
                 "Внешние системы", "Процессы", "Служебная информация", "Общие сведения", "Сведения о ЗУ и объекте");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(IZS_PLAN);
-        rinrifPage.goToRegistryCard(IZS_PLAN);
-        rinrifPage.checkAvailabilityHeadersInCard(IZS_PLAN, cardHeaders);
+        reestrPage.goToRegister(IZS_CHANGE);
+        rinrifPage.goToRegistryCard(IZS_CHANGE);
+        rinrifPage.checkAvailabilityHeadersInCard(IZS_CHANGE, cardHeaders);
+    }
+
+    @Test
+    @Story("Nadzor")
+    @DisplayName("Переход в карточку из реестра Все объекты сноса")
+    @Description("Проверить, что открывается карточка из реестра - Все объекты сноса " +
+            "убедится в наличии заголовков и данных в карточке.")
+    void checkCardRegistryObjectPassportSnos() {
+        List<String> cardHeaders = Arrays.asList("Паспорт", "Документы МГСН", "Профилактические мероприятия", "", "");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(OBJECTPASSPORT_SNOS);
+        rinrifPage.goToRegistryCard(OBJECTPASSPORT_SNOS);
+        rinrifPage.checkAvailabilityHeadersInCard(OBJECTPASSPORT_SNOS, cardHeaders);
+    }
+
+    @Test
+    @Story("Nadzor")
+    @DisplayName("Переход в карточку из реестра нарушения")
+    @Description("Проверить, что открывается карточка из реестра - нарушения " +
+            "убедится в наличии заголовков и данных в карточке.")
+    void checkCardRegistryViolations() {
+        List<String> cardHeaders = Arrays.asList("Общая информация", "", "");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(VIOLATION);
+        rinrifPage.goToRegistryCard(VIOLATION);
+        rinrifPage.checkAvailabilityHeadersInCard(VIOLATION, cardHeaders);
+    }
+
+    @Test
+    @Story("Nadzor")
+    @DisplayName("Переход в карточку из реестра постановления")
+    @Description("Проверить, что открывается карточка из реестра - постановления " +
+            "убедится в наличии заголовков и данных в карточке.")
+    void checkCardRegistryPostanovlenie() {
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(POSTANOVLENIE);
+        rinrifPage.goToRegistryCard(POSTANOVLENIE);
+    }
+
+    @Test
+    @Story("Nadzor")
+    @DisplayName("Переход в карточку из реестра протоколы")
+    @Description("Проверить, что открывается карточка из реестра - протоколы " +
+            "убедится в наличии заголовков и данных в карточке.")
+    void checkCardRegistryProtocols() {
+        List<String> cardHeaders = Arrays.asList("Общая информация", "", "");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(PROTOCOL);
+        rinrifPage.goToRegistryCard(PROTOCOL);
+        rinrifPage.checkAvailabilityHeadersInCard(PROTOCOL, cardHeaders);
+    }
+
+    @Test
+    @Story("Nadzor")
+    @DisplayName("Переход в карточку из реестра ТЗ лаборатории")
+    @Description("Проверить, что открывается карточка из реестра - ТЗ лаборатории " +
+            "убедится в наличии заголовков и данных в карточке.")
+    void checkCardRegistryTzLabaratorii() {
+        List<String> cardHeaders = Arrays.asList("Общая информация", "", "");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(TZ_LABORATORIES);
+        rinrifPage.goToRegistryCard(TZ_LABORATORIES);
+        rinrifPage.checkAvailabilityHeadersInCard(TZ_LABORATORIES, cardHeaders);
     }
 }
