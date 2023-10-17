@@ -13,7 +13,7 @@ import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("ИАИС РИН")
-@Feature("Rinrif")
+@Feature("Swagger")
 @Tags({@Tag("rinrif"), @Tag("regres")})
 public class RinrifTests extends ApiBearerTestBase {
 
