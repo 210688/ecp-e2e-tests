@@ -28,7 +28,7 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверка корректности открытия карточки 'Акты проверок', " +
             "убедится в наличии заголовков и наличии заполненных данных в этой карточке.")
     void checkCardRegisterActsProverok() {
-        List<String> blocksList = new ArrayList<>(Arrays.asList("Общая информация", "ЕРКНМ", "", "Общие сведения"));
+        List<String> blocksList = new ArrayList<>(Arrays.asList("Общая информация", "ЕРКНМ", "", "", "Общие сведения"));
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(INSPECTIONACT);
