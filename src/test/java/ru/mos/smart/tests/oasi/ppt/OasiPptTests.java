@@ -16,13 +16,13 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("OASI")
 @Feature("PPT")
+@Tags({@Tag("oasi"), @Tag("regres")})
 class OasiPptTests extends TestBase {
 
     @Test
     @AllureId("17076")
     @DisplayName("Наличия в витрине поля для поиска")
     @Description("Проверить, что в витрине есть поле для поиска")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void searchFieldShouldExist() {
 
         step("Открытие в навигаторе Настройки > Конструктор витрин", () -> {

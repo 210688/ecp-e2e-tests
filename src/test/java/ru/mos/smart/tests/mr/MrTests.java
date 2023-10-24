@@ -27,7 +27,7 @@ import static ru.mos.smart.data.enums.Sidebar.*;
 
 @Epic("OASI")
 @Feature("Rayon")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("rayon"), @Tag("regres")})
 public class MrTests extends TestBase {
 
     private final Faker faker = new Faker();

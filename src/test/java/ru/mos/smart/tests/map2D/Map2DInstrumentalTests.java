@@ -13,7 +13,7 @@ import static ru.mos.smart.data.enums.Sidebar.MAP;
 @Owner("Soldatov")
 @Epic("OASI")
 @Feature("GIS")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
+@Tags({@Tag("map2D"), @Tag("regres")})
 public class Map2DInstrumentalTests extends TestBase {
 
     @Test

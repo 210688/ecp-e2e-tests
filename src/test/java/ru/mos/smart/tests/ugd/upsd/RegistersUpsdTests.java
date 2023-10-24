@@ -13,7 +13,7 @@ import static ru.mos.smart.data.enums.Registers.UGD_UPSD;
 
 @Epic("UGD")
 @Feature("UPSD")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("ugd"), @Tag("regres")})
 class RegistersUpsdTests extends TestBase {
 
     @Test

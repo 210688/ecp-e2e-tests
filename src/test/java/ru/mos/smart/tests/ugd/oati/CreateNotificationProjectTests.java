@@ -20,6 +20,7 @@ import static ru.mos.smart.data.enums.Sidebar.SERVICES_AND_FUNCTION;
 
 @Epic("UGD")
 @Feature("OATI")
+@Tags({@Tag("ugd"), @Tag("regres")})
 class CreateNotificationProjectTests extends TestBase {
 
     @Test

@@ -16,6 +16,7 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
 @Feature("OASI")
+@Tags({@Tag("oasi"), @Tag("regres")})
 public class BlagoRegistersTests extends TestBase {
 
     @Test
@@ -23,7 +24,6 @@ public class BlagoRegistersTests extends TestBase {
     @Story("Blago")
     @DisplayName("Проверка наличия реестров")
     @Description("Проверить, что реестр Проекты благоустройства - открывается ")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
     void checkingBlagoRegisters() {
         List<String> columnNames = Arrays.asList("Номер ОАСИ", "Дата", "Адрес", "Плановая дата",
                 "Объект", "Статус", "Ответственный исполнитель");

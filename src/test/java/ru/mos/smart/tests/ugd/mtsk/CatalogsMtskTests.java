@@ -19,6 +19,7 @@ import static io.qameta.allure.Allure.step;
 @Epic("UGD")
 @Feature("MTSK")
 @Owner("Soldatovks")
+@Tags({@Tag("ugd"), @Tag("regres")})
 class CatalogsMtskTests extends TestBase {
 
     @Test

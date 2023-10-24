@@ -19,7 +19,7 @@ public class MkapmiiCreateApplicationTest {
     @Story("Mkapmii")
     @DisplayName("Создание тестовой заявки Mkapmii через swagger")
     @Description("Проверить, что создаётся тестовая заявка Mkapmii через swagger")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+    @Tags({@Tag("mkapmii"), @Tag("regres")})
     void createApplicationViaApiTest() {
 
         Faker faker = new Faker();

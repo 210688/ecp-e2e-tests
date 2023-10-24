@@ -18,7 +18,7 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Owner("Soldatov")
 @Epic("OASI")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
+@Tags({@Tag("oasi"), @Tag("regres")})
 public class OasiReestrTests extends TestBase {
 
     @Test

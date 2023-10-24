@@ -22,7 +22,7 @@ import static ru.mos.smart.data.enums.Sidebar.SERVICES_AND_FUNCTION;
 
 @Epic("OASI")
 @Feature("Feedback")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("cdp"), @Tag("regres")})
 public class SupportRequestTest extends TestBase {
 
     @Test

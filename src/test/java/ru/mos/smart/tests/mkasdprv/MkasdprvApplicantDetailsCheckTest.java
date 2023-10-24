@@ -29,7 +29,7 @@ import static ru.mos.smart.data.enums.Sidebar.TASK;
 
 @Epic("OASI")
 @Feature("Mkasdprv")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("mkasdprv"), @Tag("regres")})
 public class MkasdprvApplicantDetailsCheckTest extends TestBase {
 
     @Test
@@ -209,7 +209,8 @@ public class MkasdprvApplicantDetailsCheckTest extends TestBase {
     @AllureId("17096")
     @OnPreprodOnly
     @DisplayName("04. Принять решение. Сформировать файл решения. Загрузка файлов")
-    @Description("Проверить, что после удаления файла  в области загрузки файла - появляется возможность загрузки нового файла, загрузка файлов с расширением не pdf, doc(x)")
+    @Description("Проверить, что после удаления файла  в области загрузки файла - появляется возможность загрузки нового файла, " +
+            "загрузка файлов с расширением не pdf, doc(x)")
     void negativeFilesTest() {
         String randomTestId = "TEST_ID: " + RandomUtils.getRandomString(10);
         mkasdprvPage.createTask(randomTestId);
