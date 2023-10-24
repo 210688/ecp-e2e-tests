@@ -13,7 +13,7 @@ import static ru.mos.smart.data.enums.Sidebar.MAPS3D;
 @Owner("Soldatov")
 @Epic("Цифровой двойник")
 @Feature("Map3D")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
+@Tags({@Tag("mapСD"), @Tag("regres")})
 public class Map3DInstrumentalTests extends TestBase {
 
     @Test
@@ -51,7 +51,6 @@ public class Map3DInstrumentalTests extends TestBase {
     @AllureId("17034")
     @DisplayName("Наличия инструмента - Первоначальная позиция")
     @Description("Проверить, что отображается инструмент - Первоначальная позиция")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
     void checkingAvailabilityOfInitialPositionTool() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, MAPS3D);

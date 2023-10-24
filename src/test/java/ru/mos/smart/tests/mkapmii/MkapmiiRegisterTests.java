@@ -26,7 +26,7 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
 @Feature("Mkapmii")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("mkapmii"), @Tag("regres")})
 public class MkapmiiRegisterTests extends TestBase {
 
     @Test
@@ -34,7 +34,6 @@ public class MkapmiiRegisterTests extends TestBase {
     @Story("Mkampii_order")
     @DisplayName("Наличие карточек в реестре")
     @Description("Проверить, что реестр оказания услуг по размещению инженерных изысканий открывается и присутствуют карточки в реестре")
-    @Tag("regres")
     void checkingTheAttributesOfTheRegistry() {
         List<String> columnNames = Arrays.asList("Номер заявления", "Дата подачи", "Планируемая дата оказания", "Фактическая дата оказания",
                 "Статус", "Решение", "Ответственный", "Заявитель", "Адрес", "Номер ПГУ", "Вид");

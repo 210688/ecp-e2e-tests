@@ -15,7 +15,7 @@ import static ru.mos.smart.data.enums.Sidebar.*;
 
 @Owner("Soldatov")
 @Epic("Регрессионные тесты платформы")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
+@Tags({@Tag("cdp"), @Tag("regres")})
 public class OpenPageTests extends TestBase {
 
     @Test

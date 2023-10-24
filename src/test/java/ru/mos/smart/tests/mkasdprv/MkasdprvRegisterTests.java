@@ -22,7 +22,7 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
 @Feature("Mkasdprv")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("mkasdprv"), @Tag("regres")})
 public class MkasdprvRegisterTests extends TestBase {
 
     @Test

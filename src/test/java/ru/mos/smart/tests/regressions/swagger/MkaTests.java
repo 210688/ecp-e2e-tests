@@ -14,7 +14,7 @@ import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 
 @Epic("OASI")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
+@Tags({@Tag("mkapmii"), @Tag("mkaopugd"), @Tag("mkasdprv"), @Tag("regres") })
 public class MkaTests extends ApiBearerTestBase {
 
     @Test

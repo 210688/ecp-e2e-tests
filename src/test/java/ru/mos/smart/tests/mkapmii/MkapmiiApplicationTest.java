@@ -23,10 +23,9 @@ import static io.qameta.allure.Allure.step;
 import static ru.mos.smart.data.enums.Sidebar.SERVICES_AND_FUNCTION;
 import static ru.mos.smart.data.enums.Sidebar.TASK;
 
-
 @Epic("OASI")
 @Feature("Mkapmii")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
+@Tags({@Tag("mkapmii"), @Tag("regres")})
 public class MkapmiiApplicationTest extends TestBase {
 
     @Test

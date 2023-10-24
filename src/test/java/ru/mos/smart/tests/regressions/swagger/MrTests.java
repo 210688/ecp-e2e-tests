@@ -14,7 +14,7 @@ import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("OASI")
 @Feature("Rayon")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
+@Tags({@Tag("rayon"), @Tag("regres") })
 public class MrTests extends ApiBearerTestBase {
 
     @Test

@@ -66,7 +66,9 @@ public class RinrifPage {
     @Step("Перейти в карточку реестра {registerName}")
     public void goToRegistryCard(Registers registerName) {
         switchToWindow();
-        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(0));
+        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1)
+                .because("Ожидалось, что таблица содержит хотя-бы одну карточку"));
+        //resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1)).as("");
         SelenideElement cardLinkElement = resultsAllCardsInRegistry.first().$$("td").get(2).$("a");
         String linkName = cardLinkElement.getAttribute("href");
         cardLinkElement.click();

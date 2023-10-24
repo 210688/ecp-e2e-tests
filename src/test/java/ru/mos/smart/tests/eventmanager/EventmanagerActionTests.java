@@ -18,7 +18,7 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("UGD")
 @Feature("CDP")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions") ,@Tag("regres")})
+@Tags({@Tag("cdp") ,@Tag("regres")})
 public class EventmanagerActionTests extends TestBase {
     EventmanagerPage eventmanagerPage = new EventmanagerPage();
 

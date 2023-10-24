@@ -18,8 +18,8 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("OASI")
 @Feature("MRGP")
-@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions")})
-public class mrgpTests extends TestBase {
+@Tags({@Tag("mrgp"), @Tag("regres")})
+public class MrgpTests extends TestBase {
 
     @Test
     @AllureId("17082")

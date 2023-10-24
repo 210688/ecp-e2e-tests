@@ -29,6 +29,7 @@ import static ru.mos.smart.utils.RandomUtils.generateRandomDate;
 @Owner("Soldatov")
 @Epic("OASI")
 @Feature("Drone")
+@Tags({@Tag("regres"), @Tag("drone"), })
 public class DroneTests extends TestBase {
     private final ElementsCollection dateInput = $$("div.cdp-date-container > input");
     private final String randomDate = generateRandomDate();
@@ -95,7 +96,6 @@ public class DroneTests extends TestBase {
     @DisplayName("Наличие карточек и заголовков в реестре аэрофотосъемки")
     @Description("Проверить, что корректно открывается реестр и доступность реестра аэрофотосъемки, " +
             "включая проверку порядка отображения заголовков")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
     void checkingOfHeadersInRegistryDrone() {
         List<String> tableColumnList = Arrays.asList("Номер заявки", "Дата заявки", "Объект", "Адрес", "Инициатор заявки",
                 "Дата съемки", "Номер контракта", "Дата контракта", "Подрядчик", "Категория", "Тип съемки", "Статус");
@@ -110,7 +110,6 @@ public class DroneTests extends TestBase {
     @Component("Информация")
     @DisplayName("Верификация присутствия заголовков таблицы и проверка наличия кнопок в карточке реестра аэрофотосъемки")
     @Description("Проверить, что корректно открывается реестр и доступность карточки реестра аэрофотосъемки")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
     void checkingViewCardDrone() {
         List<String> cardHeadersList = Arrays.asList("Объект", "Информация о заявителе", "Информация о съемке", "Техническая информация");
         sidebarPage.clickSidebarMenu(INFORMATION);

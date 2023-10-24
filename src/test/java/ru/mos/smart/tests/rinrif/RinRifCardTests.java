@@ -58,12 +58,12 @@ public class RinRifCardTests extends TestBase {
     @DisplayName("Переход в карточку из реестра Все объекты")
     @Description("Проверить, что открывается карточка из реестра - Все объекты")
     void checkCardAllObjects() {
-        List<String> blocksList = Arrays.asList("Общие сведения", "Организации", "Представленные документы");
+        List<String> blocksList = Arrays.asList("Паспорт", "Документы МГСН", "Профилактические мероприятия", "", "");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(OBJECTPASSPORT);
         rinrifPage.goToRegistryCard(OBJECTPASSPORT);
-        //rinrifPage.checkAvailabilityHeadersInCard(OBJECTPASSPORT, blocksList);
+        rinrifPage.checkAvailabilityHeadersInCard(OBJECTPASSPORT, blocksList);
     }
 
     @Test
@@ -76,7 +76,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(ORGANIZATION);
-        //rinrifPage.goToRegistryCard(ORGANIZATION);
+        rinrifPage.goToRegistryCard(ORGANIZATION);
         //rinrifPage.checkAvailabilityHeadersInCard(ORGANIZATION, blocksList);
     }
 
@@ -89,7 +89,6 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(INSPECTIONDECISION);
-        rinrifPage.goToRegistryCard(INSPECTIONDECISION);
     }
 
     @Test
@@ -159,8 +158,8 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление о завершении строительства " +
             "убедится в наличии заголовков и данных в карточке.")
     void checkCardRegistryIzsZav() {
-        List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат",
-                "Внешние системы", "Процессы", "Служебная информация", "Общие сведения", "Сведения о ЗУ и объекте");
+        List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат", "Внешние системы",
+                "Процессы", "Общие сведения", "Сведения о ЗУ и объекте");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(IZS_ZAV);
@@ -207,7 +206,7 @@ public class RinRifCardTests extends TestBase {
     @Description("Проверить, что открывается карточка из реестра - Все объекты сноса " +
             "убедится в наличии заголовков и данных в карточке.")
     void checkCardRegistryObjectPassportSnos() {
-        List<String> cardHeaders = Arrays.asList("Паспорт", "Документы МГСН", "Профилактические мероприятия", "", "");
+        List<String> cardHeaders = Arrays.asList("Паспорт", "Документы МГСН", "", "", "");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(OBJECTPASSPORT_SNOS);

@@ -56,7 +56,7 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     if (System.getProperty("environment") == null) {
-        System.setProperty("environment", "predprod")
+        System.setProperty("environment", "prod")
     }
     systemProperties(System.getProperties())
     useJUnitPlatform()
@@ -78,33 +78,15 @@ tasks.withType(Test) {
     }
 }
 
-task preprod(type: Test) { //Запускает все модули на предпрод
+task oasirx(type: Test) { //Запускает все модули на предпрод
     useJUnitPlatform {
-        includeTags 'predprod'
+        includeTags 'oasirx'
     }
 }
 
-task prod(type: Test) {
+task rinrif(type: Test) {
     useJUnitPlatform {
-        includeTags 'prod'
-    }
-}
-
-task stage(type: Test) {
-    useJUnitPlatform {
-        includeTags 'stage'
-    }
-}
-
-task regressing(type: Test) {
-    useJUnitPlatform {
-        includeTags 'regressions'
-    }
-}
-
-task regres(type: Test) {
-    useJUnitPlatform {
-        includeTags 'regres'
+        includeTags 'rinrif'
     }
 }
 
@@ -114,19 +96,67 @@ task drone(type: Test) {
     }
 }
 
-task createCartDrone(type: Test) {
+task cdp(type: Test) {
     useJUnitPlatform {
-        includeTags 'createCartDrone'
+        includeTags 'cdp'
     }
 }
 
-task rinrif(type: Test) {
+task regres(type: Test) {
     useJUnitPlatform {
-        includeTags 'rinrif'
+        includeTags 'regres'
     }
 }
-task oasirx(type: Test) {
+
+task map2D(type: Test) {
     useJUnitPlatform {
-        includeTags 'oasirx'
+        includeTags 'map2D'
+    }
+}
+
+task mapСD(type: Test) {
+    useJUnitPlatform {
+        includeTags 'mapСD'
+    }
+}
+
+task mkaopugd(type: Test) {
+    useJUnitPlatform {
+        includeTags 'mkaopugd'
+    }
+}
+task mkapmii(type: Test) {
+    useJUnitPlatform {
+        includeTags 'mkapmii'
+    }
+}
+task mkasdprv(type: Test) {
+    useJUnitPlatform {
+        includeTags 'mkasdprv'
+    }
+}
+task rayon(type: Test) {
+    useJUnitPlatform {
+        includeTags 'rayon'
+    }
+}
+task mrgp(type: Test) {
+    useJUnitPlatform {
+        includeTags 'mrgp'
+    }
+}
+task oasi(type: Test) {
+    useJUnitPlatform {
+        includeTags 'oasi'
+    }
+}
+task ossigmip(type: Test) {
+    useJUnitPlatform {
+        includeTags 'ossigmip'
+    }
+}
+task ugd(type: Test) {
+    useJUnitPlatform {
+        includeTags 'ugd'
     }
 }

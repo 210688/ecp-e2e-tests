@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
@@ -17,6 +18,7 @@ import static ru.mos.smart.data.enums.Registers.UGD_OATI;
 @Layer("web")
 @Epic("UGD")
 @Feature("Информация")
+@Tags({@Tag("ugd"), @Tag("regres")})
 class RegistersUvedomleniaTests extends TestBase {
 
     @Test
