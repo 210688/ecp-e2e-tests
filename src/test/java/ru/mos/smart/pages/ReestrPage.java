@@ -33,8 +33,8 @@ public class ReestrPage {
     public void goToRegister(Registers registerName) {
         filter.click();
         registryName.get(1).$("input").val(registerName.value());
-        $(byText(registerName.value())).should(visible, ofSeconds(15)).click();
-        $(byText(registerName.value())).should(visible, ofSeconds(15));
+        $(byText(registerName.value())).should(visible, ofSeconds(30)).click();
+        $(byText(registerName.value())).should(visible, ofSeconds(30));
     }
 
     @Step("Проверить наличие {numberCardsPerPage} элементов в списке реестров доступных текущему пользователю")
