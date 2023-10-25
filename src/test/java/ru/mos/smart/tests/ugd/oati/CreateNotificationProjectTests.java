@@ -9,8 +9,8 @@ import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.Allure.step;
@@ -28,17 +28,15 @@ class CreateNotificationProjectTests extends TestBase {
     @Story("Гоуслуги и функции")
     @Component("Возможности")
     @OnPreprodOnly
-    @DisplayName("Доступность формы подачи Сформировать уведомление о проведении работ, предусмотренных АИП г. Москвы")
-    @Description("Проверить, что форма открывается")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("regressions"), @Tag("regres")})
+    @DisplayName("Доступность формы заявления Подать уведомление ОАТИ о проведении работ")
+    @Description("Проверить, что форма доступна")
     void checkingNotificationSubmissionForm() {
         sidebarPage.clickSidebarMenu(SERVICES_AND_FUNCTION);
         sidebarPage.clickSubMenuList(SERVICES_AND_FUNCTION, OPPORTUNITIES);
         actionsPage.openToBusinessProcess(OATI_TASK);
         step("Выбрать Уведомление ОАТИ о проведении работ, предусмотренных АИП", () -> {
-            $x("//div[contains(text(),'Уведомление ОАТИ о проведении работ, предусмотренных АИП')]").click();
             $x("//button[contains(text(),'Выбрать')]").click();
-            $(byText("Выберите объект капитального строительства")).shouldBe(visible);
+            $("h2").shouldHave(text("Подать уведомление ОАТИ о проведении работ")).should(visible);
         });
     }
 }
