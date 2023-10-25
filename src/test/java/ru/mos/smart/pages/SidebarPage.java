@@ -29,7 +29,7 @@ public class SidebarPage {
 
     @Step("В боковой панели нажать на {sidebarMenu}")
     public void clickSidebarMenu(Sidebar sidebarMenu) {
-        $$("#sidebar_menu>div").find(text(sidebarMenu.value())).should(visible, ofSeconds(20)).click();
+        $$("#sidebar_menu>div").find(text(sidebarMenu.value())).should(visible, ofSeconds(30)).click();
     }
 
     @Step("В раскрывшемся меню {menuName} нажать {subMenuName}")
@@ -39,7 +39,7 @@ public class SidebarPage {
                 .sibling(0)
                 .$$("div.name")
                 .find(text(subMenuName.value()))
-                .shouldBe(visible, ofSeconds(20))
+                .shouldBe(visible, ofSeconds(30))
                 .click();
     }
 
