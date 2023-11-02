@@ -21,13 +21,13 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 
 @Epic("OASI")
-@Feature("Mkasdprv")
+@Feature("MKASDPRV")
 @Tags({@Tag("mkasdprv"), @Tag("regres")})
 public class MkasdprvRegisterTests extends TestBase {
 
     @Test
     @AllureId("17088")
-    @Story("Mkasdprv_order")
+    @Story("MKASDPRV_ORDER")
     @DisplayName("Наличия карточек")
     @Description("Проверить, что доступен реестр - оказания услуги Вывесок")
     void checkingTheAttributesOfTheRegistry() {
@@ -41,7 +41,7 @@ public class MkasdprvRegisterTests extends TestBase {
 
     @Test
     @AllureId("17089")
-    @Story("Mkasdprv_order")
+    @Story("MKASDPRV_ORDER")
     @DisplayName("Отображение заголовков в карточке")
     @Description("Проверить, что присутствуют все вкладки и кнопки в реестре")
     void openingRegistryCard() {

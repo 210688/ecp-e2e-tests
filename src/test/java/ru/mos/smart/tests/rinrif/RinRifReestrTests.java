@@ -22,7 +22,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16987")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Наличие карточек и заголовков в реестре Акты проверок")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     void goToRegistryAktsProverok() {
@@ -36,7 +36,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16997")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Наличие карточек и заголовков в реестре Все объекты")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     void goToRegistryVseObjects() {
@@ -50,7 +50,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16996")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Наличие карточек и заголовков в реестре Все объекты сноса")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     void goToRegistryAllObjectsSnos() {
@@ -63,7 +63,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16992")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Наличие карточек и заголовков в реестре Все организации")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     void goToRegistryAllOrganizations() {
@@ -77,7 +77,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16985")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Наличие карточек и заголовков в реестре Все решения о проверке")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     void goToRegistryAllInspectionDecisions() {
@@ -91,7 +91,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16991")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Наличие карточек и заголовков в реестре нарушения")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     void goToRegistryViolations() {
@@ -105,7 +105,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16995")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Наличие карточек и заголовков в реестре постановления")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     void goToRegistryPostanovleniya() {
@@ -119,7 +119,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16986")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Наличия данных и перехода в реестр Протоколы")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegistryProtokols() {
@@ -133,7 +133,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16984")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Наличия данных и перехода в реестр ТЗ лаборатории")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegistryTzLabaratorii() {
@@ -146,7 +146,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16994")
-    @Story("Snos")
+    @Story("SNOS")
     @DisplayName("Наличия данных и перехода в реестр Уведомления о завершении сноса")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegistryUvedomleniyaOzaversheniiSnosa() {
@@ -160,7 +160,7 @@ public class RinRifReestrTests extends TestBase {
 
     @Test
     @AllureId("16990")
-    @Story("Snos")
+    @Story("SNOS")
     @DisplayName("Наличие данных и переход в реестр Уведомления о планируемом сносе")
     @Description("Проверить, что присутствуют данные в реестре и он открывается")
     void goToRegistryUvedomleniyaOplaniruemomSnose() {
@@ -274,8 +274,8 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @Story("Nadzor")
     @AllureId("17843")
+    @Story("NADZOR")
     @DisplayName("Наличие карточек и заголовков в реестре Решения о приостановке проверок")
     @Description("Проверить, что реестр Решения о приостановке проверок корректно открывается, присутствуют карточки " +
             "включая проверку порядка отображения заголовков")
@@ -289,8 +289,8 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @Story("Nadzor")
     @AllureId("17846")
+    @Story("NADZOR")
     @DisplayName("Наличие карточек и заголовков в реестре Заявления в прокуратуру")
     @Description("Проверить, что реестр Заявления в прокуратуру корректно открывается, присутствуют карточки " +
             "включая проверку порядка отображения заголовков")
@@ -304,8 +304,8 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @Story("Nadzor")
     @AllureId("17845")
+    @Story("NADZOR")
     @DisplayName("Наличие карточек и заголовков в реестре Документы по итогам КНМ")
     @Description("Проверить, что реестр Документы по итогам КНМ корректно открывается, присутствуют карточки " +
             "включая проверку порядка отображения заголовков")
@@ -318,8 +318,8 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @Story("Pm")
     @AllureId("17842")
+    @Story("PM")
     @DisplayName("Наличие карточек и заголовков в реестре Предостережения")
     @Description("Проверить, что реестр Предостережения корректно открывается, присутствуют карточки " +
             "включая проверку порядка отображения заголовков")
@@ -335,8 +335,8 @@ public class RinRifReestrTests extends TestBase {
     }
 
     @Test
-    @Story("Nadzor")
     @AllureId("17844")
+    @Story("NADZOR")
     @DisplayName("Наличие карточек и заголовков в реестре Извещения о начале СМР")
     @Description("Проверить, что реестр Извещения о начале СМР корректно открывается, присутствуют карточки " +
             "включая проверку порядка отображения заголовков")

@@ -160,3 +160,8 @@ task ugd(type: Test) {
         includeTags 'ugd'
     }
 }
+task swagger(type: Test) {
+    useJUnitPlatform {
+        includeTags 'swagger'
+    }
+}

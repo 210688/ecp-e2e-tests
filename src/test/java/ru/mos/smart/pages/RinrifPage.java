@@ -98,6 +98,6 @@ public class RinrifPage {
     }
 
     private void verifyTableFieldDataSize() {
-        resultsAllCardsInRegistry.shouldHave(sizeGreaterThanOrEqual(1));
+        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1));
     }
 }

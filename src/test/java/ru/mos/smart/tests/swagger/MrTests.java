@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.regressions.swagger;
+package ru.mos.smart.tests.swagger;
 
 import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
@@ -12,16 +12,16 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("OASI")
-@Feature("Rayon")
-@Tags({@Tag("rayon"), @Tag("regres") })
+@Epic("Проверка работы swagger по подсистемам")
+@Feature("RAYON")
+@Tags({@Tag("rayon"), @Tag("regres"), @Tag("swagger")})
 public class MrTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16957")
     @Layer("api")
     @Owner("Soldatovks")
-    @Story("Camera")
+    @Story("CAMERA")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(mr/documentTypes [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/camera/swagger-ui.html"),
@@ -40,7 +40,7 @@ public class MrTests extends ApiBearerTestBase {
     @AllureId("16956")
     @Layer("api")
     @Owner("Soldatovks")
-    @Story("Link")
+    @Story("LINK")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mr/link/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/link/swagger-ui.html"),
@@ -59,7 +59,7 @@ public class MrTests extends ApiBearerTestBase {
     @AllureId("16960")
     @Layer("api")
     @Owner("Soldatovks")
-    @Story("Meeting")
+    @Story("MEETING")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mr/meeting/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/meeting/swagger-ui.html"),
@@ -78,7 +78,7 @@ public class MrTests extends ApiBearerTestBase {
     @AllureId("16959")
     @Layer("api")
     @Owner("Soldatovks")
-    @Story("Program")
+    @Story("PROGRAM")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mr/program/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/program/swagger-ui.html"),

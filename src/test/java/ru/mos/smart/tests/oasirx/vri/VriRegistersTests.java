@@ -16,7 +16,7 @@ import static ru.mos.smart.data.enums.Sidebar.VRI;
 
 @Layer("web")
 @Epic("OASI")
-@Feature("Оасирх")
+@Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
 public class VriRegistersTests extends TestBase {
 

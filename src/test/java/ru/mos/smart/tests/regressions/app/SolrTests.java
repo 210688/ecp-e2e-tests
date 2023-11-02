@@ -14,8 +14,8 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка микросервисов")
-@Tags({@Tag("cdp"), @Tag("regres")})
+@Epic("Проверка работы swagger по подсистемам")
+@Tags({@Tag("cdp"), @Tag("regres"), @Tag("swagger")})
 public class SolrTests extends ApiBearerTestBase {
 
     @Test

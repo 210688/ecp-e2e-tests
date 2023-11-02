@@ -14,13 +14,13 @@ import java.util.List;
 import static ru.mos.smart.data.enums.Sidebar.VIOLATION;
 
 @Epic("OASI")
-@Feature("Оасирх")
+@Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
 public class ViolationRegisterTests extends TestBase {
 
     @Test
     @AllureId("17664")
-    @Story("Violation")
+    @Story("VIOLATION")
     @Component("Реестр")
     @DisplayName("Просмотр раздела Нарушения ОГД")
     @Description("Проверить, что открывается раздел Нарушения ОГД")
@@ -32,7 +32,7 @@ public class ViolationRegisterTests extends TestBase {
 
     @Test
     @AllureId("17665")
-    @Story("Violation")
+    @Story("VIOLATION")
     @Component("Реестр")
     @DisplayName("Поиск карточки реестра Нарушения ОГД по номеру")
     @Description("Проверить, что происходит поиск карточки реестра Нарушения ОГД по номеру")

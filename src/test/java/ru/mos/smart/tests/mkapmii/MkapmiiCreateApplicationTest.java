@@ -15,8 +15,8 @@ public class MkapmiiCreateApplicationTest {
     @AllureId("17101")
     @OnPreprodOnly
     @Epic("OASI")
-    @Feature("Mkapmii")
-    @Story("Mkapmii")
+    @Feature("MKAPMII")
+    @Story("MKAPMII")
     @DisplayName("Создание тестовой заявки Mkapmii через swagger")
     @Description("Проверить, что создаётся тестовая заявка Mkapmii через swagger")
     @Tags({@Tag("mkapmii"), @Tag("regres")})

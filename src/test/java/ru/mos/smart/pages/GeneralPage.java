@@ -10,8 +10,7 @@ import ru.mos.smart.helpers.AllureAttachments;
 import java.util.List;
 import java.util.Random;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
-import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
+import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -37,7 +36,7 @@ public class GeneralPage {
         switchTo().window(1);
     }
 
-    @Step("Реестр содержит хотя бы одну карточку, и нем отображаются заголовки таблицы {list}")
+    @Step("Реестр содержит хотя бы одну карточку, и в нем отображаются заголовки таблицы {list}")
     public void registryContainsCardsHeadersCheck(Registers registerName, List<String> list) {
         switchToWindow();
         verifyTableFieldDataSize();
@@ -55,7 +54,7 @@ public class GeneralPage {
     }
 
     private void verifyTableFieldDataSize() {
-        resultsAllCardsInRegistry.shouldHave(sizeGreaterThanOrEqual(1));
+        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1));
     }
 
     @Step("В реестре {registerName} отображаются кнопки сортировки и фильтр")

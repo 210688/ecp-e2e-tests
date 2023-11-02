@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.regressions.swagger;
+package ru.mos.smart.tests.swagger;
 
 import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
@@ -11,13 +11,13 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("ОССИГ")
-@Tags({@Tag("ossigmip"), @Tag("regres") })
+@Epic("Проверка работы swagger по подсистемам")
+@Tags({@Tag("ossigmip"), @Tag("regres"), @Tag("swagger")})
 public class OssigmipTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16926")
-    @Feature("Ossigmip")
+    @Feature("OSSIGMIP")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ossigmip/permit/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/ossigmip/permit/pzz/swagger-ui.html"),
