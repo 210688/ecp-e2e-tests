@@ -2,6 +2,7 @@ package ru.mos.smart.tests.regressions.app;
 
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
@@ -17,6 +18,7 @@ import static org.hamcrest.Matchers.is;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("Проверка работы swagger по подсистемам")
+@Feature("API по платформе")
 @Tags({@Tag("cdp"), @Tag("regres"), @Tag("swagger")})
 public class CatalogsTests extends ApiBearerTestBase {
 

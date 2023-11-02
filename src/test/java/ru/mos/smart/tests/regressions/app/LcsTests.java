@@ -16,7 +16,7 @@ import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Owner("SoldatovKS")
 @Epic("Регрессионные тесты платформы")
-@Feature("LCS")
+@Feature("API по платформе")
 @Tags({@Tag("cdp"), @Tag("regres")})
 public class LcsTests extends ApiBearerTestBase {
 
