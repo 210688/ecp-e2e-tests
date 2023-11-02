@@ -21,7 +21,7 @@ public class RinRifMatCapTests extends TestBase {
 
     @Test
     @AllureId("16999")
-    @Story("Matcap")
+    @Story("MATCAP")
     @Owner("soldatov")
     @DisplayName("Открытие реестра Заявления о выдаче акта по материнскому капиталу")
     @Description("Проверить, что открывается карточка из реестра - Заявления о выдаче акта по материнскому капиталу" +
@@ -37,7 +37,7 @@ public class RinRifMatCapTests extends TestBase {
 
     @Test
     @AllureId("17000")
-    @Story("Matcap")
+    @Story("MATCAP")
     @Owner("soldatov")
     @DisplayName("Открытие карточки реестра Заявления о выдаче акта по материнскому капиталу")
     @Description("Проверить, что открывается карточка из реестра - Заявления о выдаче акта по материнскому капиталу, " +

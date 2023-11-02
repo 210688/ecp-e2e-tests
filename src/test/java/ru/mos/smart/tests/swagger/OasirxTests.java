@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.regressions.swagger;
+package ru.mos.smart.tests.swagger;
 
 import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
@@ -11,9 +11,9 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("OASI")
-@Feature("Оасирх")
-@Tags({@Tag("oasirx"), @Tag("regres")})
+@Epic("Проверка работы swagger по подсистемам")
+@Feature("OASIRX")
+@Tags({@Tag("oasirx"), @Tag("regres"), @Tag("swagger")})
 public class OasirxTests extends ApiBearerTestBase {
 
     @Test
@@ -34,7 +34,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16931")
-    @Story("Elma")
+    @Story("ELMA")
     @DisplayName("Описания всех типов документов ")
     @Description("Проверить, что описаны все типы документов(app/oasirx/elma/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/elma/swagger-ui.html"),
@@ -50,7 +50,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16937")
-    @Story("Eoo")
+    @Story("EOO")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/oasirx/eoo/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/eoo/swagger-ui.html"),
@@ -66,7 +66,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16935")
-    @Story("Fii")
+    @Story("FII")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/oasirx/fii/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/fii/swagger-ui.html"),
@@ -82,7 +82,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16936")
-    @Story("Hearings")
+    @Story("HEARINGS")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/oasirx/hearings/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasirx/hearings/swagger-ui.html"),
@@ -149,7 +149,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16924")
-    @Story("Sprit")
+    @Story("SPRIT")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/sprit/swagger-ui.html#/")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/oasirx/sprit/documentTypes/all [GET])")
@@ -183,7 +183,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16923")
-    @Story("Violation")
+    @Story("VIOLATION")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/violation/swagger-ui.html#/")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/oasirx/violation/documentTypes/all [GET])")
@@ -217,7 +217,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16927")
-    @Story("Itmka")
+    @Story("ITMKA")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/itmka/swagger-ui.html#/")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/oasirx/itmka/documentTypes/all [GET])")
@@ -234,7 +234,7 @@ public class OasirxTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16933")
-    @Story("Pzz")
+    @Story("PZZ")
     @Link(url = "https://smart-predprod.mos.ru/app/oasirx/itmka/swagger-ui.html#/")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/oasirx/pzz/documentTypes/all [GET])")

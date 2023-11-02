@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.regressions.swagger;
+package ru.mos.smart.tests.swagger;
 
 import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
@@ -14,23 +14,25 @@ import static io.qameta.allure.Allure.parameter;
 
 
 @Layer("api")
-@Epic("OASI")
-@Feature("Drone")
-@Tags({@Tag("drone") ,@Tag("regres")})
-public class DroneTests extends ApiBearerTestBase {
-
+@Owner("Soldatovks")
+@Epic("Проверка работы swagger по подсистемам")
+@Feature("GIS")
+@Tags({@Tag("map2D") ,@Tag("regres"), @Tag("swagger")})
+public class GisTests extends ApiBearerTestBase {
 
     @Test
-    @AllureId("16963")
+    @AllureId("16965")
     @DisplayName("Описание всех типов документов")
-    @Description("Проверить, что описаны все типы документов(drone/documentTypes [GET])")
-    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/drone/drone/swagger-ui.html#/"),
-            @Link(name = "prod", url = "https://smart.mos.ru/app/drone/drone/swagger-ui.html#/")})
-    void droneTest() {
+    @Description("Проверить, что описаны все типы документов(gis/documentTypes [GET])")
+    @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/gis/search/swagger-ui.html#/"),
+            @Link(name = "prod", url = "https://smart.mos.ru/app/gis/search/swagger-ui.html#/")})
+    void gisSearchTests() {
         ValidatableResponse response = Authorization.apiRequestBearer()
-                .get("/app/drone/drone/documentTypes/all")
+                .get("/app/gis/search/swagger-ui.html")
                 .then();
+
         parameter("Code", response.extract().statusCode());
         response.statusCode(200);
     }
+
 }

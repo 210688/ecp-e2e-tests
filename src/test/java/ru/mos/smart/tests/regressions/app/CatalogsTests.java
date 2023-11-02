@@ -16,8 +16,8 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка микросервисов")
-@Tags({@Tag("cdp"), @Tag("regres")})
+@Epic("Проверка работы swagger по подсистемам")
+@Tags({@Tag("cdp"), @Tag("regres"), @Tag("swagger")})
 public class CatalogsTests extends ApiBearerTestBase {
 
     @Test

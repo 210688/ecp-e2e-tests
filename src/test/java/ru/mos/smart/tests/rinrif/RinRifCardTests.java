@@ -17,13 +17,13 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Owner("Soldatov")
 @Epic("ИАИС РИН")
-@Feature("Rinrif")
+@Feature("RINRIF")
 @Tags({@Tag("rinrif"), @Tag("regres")})
 public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17008")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Корректность открытия и доступность карточки реестра Акты проверок")
     @Description("Проверка корректности открытия карточки 'Акты проверок', " +
             "убедится в наличии заголовков и наличии заполненных данных в этой карточке.")
@@ -54,7 +54,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17010")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Переход в карточку из реестра Все объекты")
     @Description("Проверить, что открывается карточка из реестра - Все объекты")
     void checkCardAllObjects() {
@@ -68,7 +68,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17007")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Переход в карточку из реестра Все организации")
     @Description("Проверить, что открывается карточка из реестра - Все организации")
     void checkCardAllOrganizations() {
@@ -82,7 +82,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17004")
-    @Story("Nadzor")
+    @Story("NADZOR")
     @DisplayName("Переход в карточку из реестра Все решения о проверке")
     @Description("Проверить, что открывается карточка из реестра - Все решения о проверке")
     void checkCardReestrAllInspectionDecisions() {
@@ -93,7 +93,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17002")
-    @Story("Snos")
+    @Story("SNOS")
     @DisplayName("Переход в карточку из реестра Уведомления о завершении сноса")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о завершении сноса")
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
@@ -105,7 +105,7 @@ public class RinRifCardTests extends TestBase {
 
     @Test
     @AllureId("17009")
-    @Story("Snos")
+    @Story("SNOS")
     @DisplayName("Переход в карточку из реестра Уведомления о планируемом сносе")
     @Description("Проверить, что открывается карточка из реестра - Уведомления о планируемом сносе")
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
@@ -140,8 +140,8 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
-    @Story("RS")
     @AllureId("17003")
+    @Story("RS")
     @DisplayName("Переход в карточку из реестра Разрешения на строительство")
     @Description("Проверить, что открывается карточка из реестра - Разрешения на строительство")
     void checkCardBuildingPermitRegister() {
@@ -152,8 +152,8 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
-    @Story("IZS")
     @AllureId("17621")
+    @Story("IZS")
     @DisplayName("Переход в карточку из реестра ИЖС. Уведомление о завершении строительства")
     @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление о завершении строительства " +
             "убедится в наличии заголовков и данных в карточке.")
@@ -168,8 +168,8 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
-    @Story("IZS")
     @AllureId("17620")
+    @Story("IZS")
     @DisplayName("Переход в карточку из реестра ИЖС. Уведомление о планируемом строительстве")
     @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление о планируемом строительстве " +
             "убедится в наличии заголовков и данных в карточке.")
@@ -184,8 +184,8 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
-    @Story("IZS")
     @AllureId("17619")
+    @Story("IZS")
     @DisplayName("Переход в карточку из реестра ИЖС. Уведомление об изменении в строительстве")
     @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление об изменении в строительстве " +
             "убедится в наличии заголовков и данных в карточке.")
@@ -200,8 +200,8 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
-    @Story("Nadzor")
     @AllureId("17847")
+    @Story("NADZOR")
     @DisplayName("Переход в карточку из реестра Все объекты сноса")
     @Description("Проверить, что открывается карточка из реестра - Все объекты сноса " +
             "убедится в наличии заголовков и данных в карточке.")
@@ -215,8 +215,8 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
-    @Story("Nadzor")
     @AllureId("17850")
+    @Story("NADZOR")
     @DisplayName("Переход в карточку из реестра нарушения")
     @Description("Проверить, что открывается карточка из реестра - нарушения " +
             "убедится в наличии заголовков и данных в карточке.")
@@ -230,8 +230,8 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
-    @Story("Nadzor")
     @AllureId("17849")
+    @Story("NADZOR")
     @DisplayName("Переход в карточку из реестра постановления")
     @Description("Проверить, что открывается карточка из реестра - постановления " +
             "убедится в наличии заголовков и данных в карточке.")
@@ -243,8 +243,8 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
-    @Story("Nadzor")
     @AllureId("17851")
+    @Story("NADZOR")
     @DisplayName("Переход в карточку из реестра протоколы")
     @Description("Проверить, что открывается карточка из реестра - протоколы " +
             "убедится в наличии заголовков и данных в карточке.")
@@ -258,8 +258,8 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
-    @Story("Nadzor")
     @AllureId("17848")
+    @Story("NADZOR")
     @DisplayName("Переход в карточку из реестра ТЗ лаборатории")
     @Description("Проверить, что открывается карточка из реестра - ТЗ лаборатории " +
             "убедится в наличии заголовков и данных в карточке.")

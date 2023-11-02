@@ -15,7 +15,7 @@ import static ru.mos.smart.data.enums.Sidebar.SD;
 
 @Owner("Soldatov")
 @Epic("OASI")
-@Feature("Оасирх")
+@Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
 public class CrdRegisterTests extends TestBase {
 

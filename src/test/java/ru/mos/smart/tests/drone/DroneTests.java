@@ -91,7 +91,7 @@ public class DroneTests extends TestBase {
 
     @Test
     @AllureId("17228")
-    @Story("Drone")
+    @Story("DRONE")
     @Component("Информация")
     @DisplayName("Наличие карточек и заголовков в реестре аэрофотосъемки")
     @Description("Проверить, что корректно открывается реестр и доступность реестра аэрофотосъемки, " +
@@ -106,7 +106,7 @@ public class DroneTests extends TestBase {
     }
     @Test
     @AllureId("17229")
-    @Story("Drone")
+    @Story("DRONE")
     @Component("Информация")
     @DisplayName("Верификация присутствия заголовков таблицы и проверка наличия кнопок в карточке реестра аэрофотосъемки")
     @Description("Проверить, что корректно открывается реестр и доступность карточки реестра аэрофотосъемки")

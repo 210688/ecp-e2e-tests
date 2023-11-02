@@ -28,7 +28,7 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.TASK;
 
 @Epic("OASI")
-@Feature("Mkasdprv")
+@Feature("MKASDPRV")
 @Tags({@Tag("mkasdprv"), @Tag("regres")})
 public class MkasdprvApplicantDetailsCheckTest extends TestBase {
 

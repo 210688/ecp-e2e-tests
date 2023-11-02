@@ -14,13 +14,13 @@ import java.util.List;
 import static ru.mos.smart.data.enums.Sidebar.SPRIT;
 
 @Epic("OASI")
-@Feature("Оасирх")
+@Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
 public class SpritTests extends TestBase {
 
     @Test
     @AllureId("17668")
-    @Story("Sprit")
+    @Story("SPRIT")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре Самострой")
     @Description("Проверить, что реестр Самострой корректно открывается, присутствуют карточки " +
@@ -33,7 +33,7 @@ public class SpritTests extends TestBase {
 
     @Test
     @AllureId("17669")
-    @Story("Sprit")
+    @Story("SPRIT")
     @Component("Реестр")
     @DisplayName("Проверка работы поиска в реестре СПРИТ")
     @Description("Проверить открытия и заполнения карточки после поиска в реестре")

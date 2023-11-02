@@ -14,7 +14,7 @@ import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
 @Epic("OASI")
-@Feature("Mkasdprv")
+@Feature("MKASDPRV")
 @Tags({@Tag("mkasdprv"), @Tag("regres")})
 public class MkasdprvCreateApplicationTest extends TestBase {
 

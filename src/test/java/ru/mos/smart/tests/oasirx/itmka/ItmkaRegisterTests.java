@@ -14,13 +14,13 @@ import java.util.List;
 import static ru.mos.smart.data.enums.Sidebar.ITMKA;
 
 @Epic("OASI")
-@Feature("Оасирх")
+@Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
 public class ItmkaRegisterTests extends TestBase {
 
     @Test
     @AllureId("17675")
-    @Story("Itmka")
+    @Story("ITMKA")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре Управление информатизацией МКА")
     @Description("Проверить, что реестр Управление информатизацией МКА корректно открывается, присутствуют карточки " +
@@ -33,7 +33,7 @@ public class ItmkaRegisterTests extends TestBase {
 
     @Test
     @AllureId("17676")
-    @Story("Itmka")
+    @Story("ITMKA")
     @Component("Реестр")
     @DisplayName("Поиск карточки реестра заявок Управление ИТ МКА по номеру")
     @Description("Проверить, что происходит поиск карточки реестра заявок - Управление ИТ МКА по номеру")

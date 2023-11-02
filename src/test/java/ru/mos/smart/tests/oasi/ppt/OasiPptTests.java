@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.oasi.ppt;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -21,6 +18,7 @@ class OasiPptTests extends TestBase {
 
     @Test
     @AllureId("17076")
+    @Story("PPT")
     @DisplayName("Наличия в витрине поля для поиска")
     @Description("Проверить, что в витрине есть поле для поиска")
     void searchFieldShouldExist() {

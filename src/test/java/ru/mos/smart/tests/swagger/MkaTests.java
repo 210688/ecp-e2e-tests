@@ -1,4 +1,4 @@
-package ru.mos.smart.tests.regressions.swagger;
+package ru.mos.smart.tests.swagger;
 
 import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
@@ -13,15 +13,15 @@ import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 
-@Epic("OASI")
-@Tags({@Tag("mkapmii"), @Tag("mkaopugd"), @Tag("mkasdprv"), @Tag("regres") })
+@Epic("Проверка работы swagger по подсистемам")
+@Tags({@Tag("mkapmii"), @Tag("mkaopugd"), @Tag("mkasdprv"), @Tag("regres"), @Tag("swagger")})
 public class MkaTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16962")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("Mkapmii")
+    @Story("MKAPMII")
     @DisplayName("Описания всех типов документов [GET]")
     @Description("Проверить, что описаны все типы документов [GET]")
     void mkapmiiOrderTests() {
@@ -37,7 +37,7 @@ public class MkaTests extends ApiBearerTestBase {
     @AllureId("16964")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("Mkasdprv")
+    @Story("MKASDPRV")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mkaopugd/order/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkasdprv/order/swagger-ui.html"),
@@ -55,7 +55,7 @@ public class MkaTests extends ApiBearerTestBase {
     @AllureId("16961")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("Mkaugdint")
+    @Story("MKAUGDINT")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mkaugdint/order/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkaugdint/order/swagger-ui.html"),
@@ -73,7 +73,7 @@ public class MkaTests extends ApiBearerTestBase {
     @AllureId("16958")
     @Layer("api")
     @Owner("Soldatovks")
-    @Feature("Mkaopugd")
+    @Story("MKAOPUGD")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mkaopugd/order/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mkaopugd/order/swagger-ui.html"),

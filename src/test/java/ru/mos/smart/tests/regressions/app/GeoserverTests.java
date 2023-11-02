@@ -13,8 +13,8 @@ import ru.mos.smart.tests.ApiBasicTestBase;
 
 import static io.qameta.allure.Allure.parameter;
 
-@Epic("Проверка микросервисов")
-@Tags({@Tag("cdp"), @Tag("regres")})
+@Epic("Проверка работы swagger по подсистемам")
+@Tags({@Tag("cdp"), @Tag("regres"), @Tag("swagger")})
 public class GeoserverTests extends ApiBasicTestBase {
 
     @Test

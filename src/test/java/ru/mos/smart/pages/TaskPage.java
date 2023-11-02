@@ -34,7 +34,7 @@ public class TaskPage {
     @Step("Проверка, что в задачах пользователя присутствует список задач")
     public void checkUserTask() {
         $(".list-group-item").should(visible,Duration.ofSeconds(10));
-        assert elements.size() > 0 : "Коллекция не содержит элементов";
+        assert !elements.isEmpty() : "Коллекция не содержит элементов";
         AllureAttachments.attachScreenshot("Список задач пользователя");
     }
 
