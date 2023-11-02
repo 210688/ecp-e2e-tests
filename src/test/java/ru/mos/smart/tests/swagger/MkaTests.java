@@ -14,6 +14,7 @@ import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 
 @Epic("Проверка работы swagger по подсистемам")
+@Feature("MKA")
 @Tags({@Tag("mkapmii"), @Tag("mkaopugd"), @Tag("mkasdprv"), @Tag("regres"), @Tag("swagger")})
 public class MkaTests extends ApiBearerTestBase {
 

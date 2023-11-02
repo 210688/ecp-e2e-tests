@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.regressions.app;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Link;
-import io.qameta.allure.Links;
+import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -15,6 +12,7 @@ import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("Проверка работы swagger по подсистемам")
+@Feature("API по платформе")
 @Tags({@Tag("cdp"), @Tag("regres"), @Tag("swagger")})
 public class SolrTests extends ApiBearerTestBase {
 
