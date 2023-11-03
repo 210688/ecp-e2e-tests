@@ -114,7 +114,7 @@ task map2D(type: Test) {
     }
 }
 
-task mapСD(type: Test) {
+task map3D(type: Test) {
     useJUnitPlatform {
         includeTags 'mapСD'
     }

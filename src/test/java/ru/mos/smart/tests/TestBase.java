@@ -29,6 +29,7 @@ public class TestBase {
     public DictsPage dictsPage = new DictsPage();
     public DronePage dronePage = new DronePage();
     public GeneralPage generalPage = new GeneralPage();
+    public MydistrictPage mydistrictPage = new MydistrictPage();
 
     @BeforeAll
     static void beforeAll() {
