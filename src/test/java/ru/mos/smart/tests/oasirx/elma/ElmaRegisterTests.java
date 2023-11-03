@@ -15,13 +15,13 @@ import static ru.mos.smart.data.enums.Sidebar.ELMA;
 
 @Owner("Soldatov")
 @Epic("OASI")
-@Feature("Оасирх")
+@Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
 public class ElmaRegisterTests extends TestBase {
 
     @Test
     @AllureId("17678")
-    @Story("Elma")
+    @Story("ELMA")
     @Component("Реестр")
     @DisplayName("Наличия данных и перехода в раздел Соответствие проектной документации СППК")
     @Description("Проверить, что есть данные и происходит переход в раздел - Соотвествие проектной документации СППК")

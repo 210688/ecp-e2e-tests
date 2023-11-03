@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.regressions.app;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Link;
-import io.qameta.allure.Links;
+import io.qameta.allure.*;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -13,8 +10,9 @@ import ru.mos.smart.tests.ApiBasicTestBase;
 
 import static io.qameta.allure.Allure.parameter;
 
-@Epic("Проверка микросервисов")
-@Tags({@Tag("cdp"), @Tag("regres")})
+@Epic("Проверка работы swagger по подсистемам")
+@Feature("API по платформе")
+@Tags({@Tag("cdp"), @Tag("regres"), @Tag("swagger")})
 public class GeoserverTests extends ApiBasicTestBase {
 
     @Test

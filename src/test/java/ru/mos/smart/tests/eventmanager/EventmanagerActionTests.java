@@ -24,7 +24,7 @@ public class EventmanagerActionTests extends TestBase {
 
     @Test
     @AllureId("17227")
-    @Story("Eventmanager")
+    @Story("EVENTMANAGER")
     @Component("Информация")
     @DisplayName("Наличие карточек и заголовков в реестре Подписки на уведомления о событиях")
     @Description("Проверить, что корректно открывается реестр и доступность карточек реестра Подписки на уведомления о событиях")
@@ -38,7 +38,7 @@ public class EventmanagerActionTests extends TestBase {
 
     @Test
     @AllureId("17226")
-    @Story("Eventmanager")
+    @Story("EVENTMANAGER")
     @Component("Информация")
     @DisplayName("Отображение заголовков и заполнение данных в карточке Подписка на уведомления о событиях")
     @Description("Проверить, что корректно открывается реестр и доступность карточек реестра Подписки на уведомления о событиях")

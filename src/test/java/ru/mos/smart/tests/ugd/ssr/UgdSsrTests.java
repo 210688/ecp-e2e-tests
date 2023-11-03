@@ -1,86 +1,68 @@
-/*
+
 package ru.mos.smart.tests.ugd.ssr;
 
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.AllureId;
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.AutoMember;
-import ru.mos.smart.helpers.annotations.Layer;
-import ru.mos.smart.helpers.annotations.ManualMember;
-import ru.mos.smart.pages.AuthorizationPage;
 import ru.mos.smart.tests.TestBase;
 
-import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byName;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.step;
-import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
-import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
+import static ru.mos.smart.data.enums.Registers.*;
+import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
+import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
-@Epic("UGD (УГД)")
-@Feature("SSR (Суперсервис реновации ССР)")
-@Story("Автотесты")
-@ManualMember("croc")
+@Epic("UGD")
+@Feature("SSR")
+@Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
 @AutoMember("soldatovks")
 public class UgdSsrTests extends TestBase {
     @Test
-   ("6433")
-    @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
+    @Description("Реестр отселяемых домов")
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
     void ugdSsrRealEstateCatalogTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister("ССР. Реестр отселяемых домов");
-        step("Реестр содержит по умолчанию колонки:", () -> {
-            $("table").$$("th").shouldHave(textsInAnyOrder(
-                    "UNOM",
-                    "Адрес",
-                    "Номер дома",
-                    "Административный округ",
-                    "Год постройки",
-                    "Скоро начнется переселение дома",
-                    "Статус обогащения",
-                    "Дата обогащения",
-                    "Количество SsoId",
-                    "Количество квартир"));
-        });
+        List<String> columnNames = Arrays.asList("UNOM", "Адрес", "Номер дома", "Административный округ", "Год постройки",
+                "Скоро начнется переселение дома", "Статус обогащения", "Дата обогащения", "Количество SsoId", "Количество квартир", "Статус дома"
+        );
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(UGD_SSR_REAL);
+        generalPage.registryContainsCardsHeadersCheck(UGD_SSR_REAL, columnNames);
     }
 
     @Test
-    @Layer("web")
-    @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
+    @Description("Реестр жителей")
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
     void ugdSsrPersonCatalogTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
-        navigatorPage
-                .goToRegister("ССР. Реестр жителей");
-
-        step("Реестр содержит по умолчанию колонки:", () -> {
-            $("table").$$("th").shouldHave(textsInAnyOrder(
-                    "Фамилия, имя, отчество",
-                    "Дата рождения",
-                    "Адрес отселяемого дома",
-                    "Номер квартиры",
-                    "Статус обогащения из ПФР",
-                    "Дата обогащения из ПФР",
-                    "Статус обогащения из ЕЛК",
-                    "Дата обогащения из ЕЛК"));
-        });
+        List<String> columnNames = Arrays.asList("Фамилия, имя, отчество", "Дата рождения", "Адрес отселяемого дома", "Номер квартиры",
+                "Статус обогащения из ПФР", "Дата обогащения из ПФР", "Статус обогащения из ЕЛК", "Дата обогащения из ЕЛК"
+        );
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(UGD_SSR_PERSON);
+        generalPage.registryContainsCardsHeadersCheck(UGD_SSR_PERSON, columnNames);
     }
 
+    @Test
+    @DisplayName("Наличие карточек и заголовков в реестре Центр информирования по переселению жителей")
+    @Description("Проверка корректности открытия реестра Центр информирования по переселению жителей, наличие карточек" +
+            " и отображения заголовков таблицы")
+    void ugdSsrCipCatalog() {
+        List<String> columnNames = Arrays.asList("Адрес центра переселения (округ, район)", "Отселяемых домов", "Заселяемых домов",
+                "Дата открытия центра", "Дата закрытия центра", "Статус");
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(UGD_SSR_CIP);
+        generalPage.registryContainsCardsHeadersCheck(UGD_SSR_CIP, columnNames);
+    }
+}
+/*
     @Test
     @Layer("web")
     @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
@@ -298,37 +280,59 @@ public class UgdSsrTests extends TestBase {
     }
 
 
-        step("В модальном окне нажать на кнопку Взять", () ->
-                $(".modal-content").$(byText("Взять")).click());
-        step("Проверка  перехода в возможность 'Инициация процесса начала переселения'", () -> {
-            $x("//label[contains(text(),'Дата начала переселения')]").$(".our-mandatory").shouldBe(visible);
-            $x("//label[contains(text(),'Письмо о начале переселения от')]").$(".our-mandatory").shouldBe(visible);
-            $x("//label[contains(text(),'Номер')]").$(".our-mandatory").shouldBe(visible);
-            $x("//h3[text()='Заселяемые дома']").shouldBe(visible);
-            $x("//h3[text()='Принять решение']").shouldBe(visible);
-            $x("//button[contains(text(),'Инициировать')]").shouldBe(visible);
-            $x("//span[contains(text(),'Сохранить')]").shouldBe(visible);
-            $x("//button[contains(text(),'Отмена')]").shouldBe(visible);
-        });
-        step("Нажать на кнопку Добавить дом/а", () -> {
-            $x("//button[text()='Добавить дом/а']").click();
-            $x("//button[contains(text(),'Выбрать заселяемый дом')]").shouldBe(visible);
-            $x("//button[contains(text(),'Добавить отселяемые дома')]").shouldBe(visible);
-            $x("//button[contains(text(),'Сохранить данные переселения')]").shouldBe(visible);
-            $x("//button[contains(text(),'Отмена')]").shouldBe(visible);
-        });
-        step("Нажать на кнопку Отмена", () -> {
-            $x("//button[contains(text(),'Отмена')]").click();
-            $(".modal-content").$(byText("Отмена")).shouldBe(visible);
-        });
-        step("В модальном окне нажать на кнопку Закрыть", () ->
-                $(".modal-content").$(byText("Закрыть")).click());
+    step("В модальном окне нажать на кнопку Взять",() ->
 
-        step("Нажать на кнопку Отмена", () -> {
-            $x("//button[contains(text(),'Отмена')]").click();
-            $(byText("Все задачи")).shouldBe(visible);
-        });
-    }
+    $(".modal-content").
+
+    $(byText("Взять")).
+
+    click());
+
+    step("Проверка  перехода в возможность 'Инициация процесса начала переселения'",() ->
+
+    {
+        $x("//label[contains(text(),'Дата начала переселения')]").$(".our-mandatory").shouldBe(visible);
+        $x("//label[contains(text(),'Письмо о начале переселения от')]").$(".our-mandatory").shouldBe(visible);
+        $x("//label[contains(text(),'Номер')]").$(".our-mandatory").shouldBe(visible);
+        $x("//h3[text()='Заселяемые дома']").shouldBe(visible);
+        $x("//h3[text()='Принять решение']").shouldBe(visible);
+        $x("//button[contains(text(),'Инициировать')]").shouldBe(visible);
+        $x("//span[contains(text(),'Сохранить')]").shouldBe(visible);
+        $x("//button[contains(text(),'Отмена')]").shouldBe(visible);
+    });
+
+    step("Нажать на кнопку Добавить дом/а",() ->
+
+    {
+        $x("//button[text()='Добавить дом/а']").click();
+        $x("//button[contains(text(),'Выбрать заселяемый дом')]").shouldBe(visible);
+        $x("//button[contains(text(),'Добавить отселяемые дома')]").shouldBe(visible);
+        $x("//button[contains(text(),'Сохранить данные переселения')]").shouldBe(visible);
+        $x("//button[contains(text(),'Отмена')]").shouldBe(visible);
+    });
+
+    step("Нажать на кнопку Отмена",() ->
+
+    {
+        $x("//button[contains(text(),'Отмена')]").click();
+        $(".modal-content").$(byText("Отмена")).shouldBe(visible);
+    });
+
+    step("В модальном окне нажать на кнопку Закрыть",() ->
+
+    $(".modal-content").
+
+    $(byText("Закрыть")).
+
+    click());
+
+    step("Нажать на кнопку Отмена",() ->
+
+    {
+        $x("//button[contains(text(),'Отмена')]").click();
+        $(byText("Все задачи")).shouldBe(visible);
+    });
+}
 
     @Test
     @Layer("web")
@@ -414,6 +418,6 @@ public class UgdSsrTests extends TestBase {
             $("h2").shouldHave(text("Реестр заявлений на устранение строительных дефектов"));
             $("cdp-showcase-builder-search-results-table").$$("td").shouldHave(sizeGreaterThan(0));
         });
-    }
-}
-*/
+    }*/
+
+

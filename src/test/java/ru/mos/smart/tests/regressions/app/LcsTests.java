@@ -1,5 +1,6 @@
 package ru.mos.smart.tests.regressions.app;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -14,14 +15,15 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Owner("SoldatovKS")
-@Epic("LCS")
-@Feature("Конструктор форм")
+@Epic("Регрессионные тесты платформы")
+@Feature("API по платформе")
 @Tags({@Tag("cdp"), @Tag("regres")})
 public class LcsTests extends ApiBearerTestBase {
 
     private final ResponseCode responseCode = new ResponseCode();
 
     @Test
+    @AllureId("17640")
     @DisplayName("Проверка работы Возможности")
     void checkLcsFormOpportunities() {
         Response response = apiRequestBearer()

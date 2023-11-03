@@ -35,6 +35,7 @@ public class ActionsPage {
     public void checkHeadersAction(String tabAll, String tabFavorites) {
         $("button[title='" + tabAll + "']").should(visible);
         $("button[title='" + tabFavorites + "']").should(visible);
+        AllureAttachments.attachScreenshot("Меню Возможности");
     }
 
     @Step("Переход в меню Возможности {actionName}")

@@ -21,7 +21,7 @@ import static ru.mos.smart.data.enums.Sidebar.OPPORTUNITIES;
 import static ru.mos.smart.data.enums.Sidebar.SERVICES_AND_FUNCTION;
 
 @Epic("OASI")
-@Feature("Feedback")
+@Feature("FEEDBACK")
 @Tags({@Tag("cdp"), @Tag("regres")})
 public class SupportRequestTest extends TestBase {
 

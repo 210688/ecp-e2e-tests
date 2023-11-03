@@ -3,6 +3,7 @@ package ru.mos.smart.pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.jetbrains.annotations.NotNull;
 import ru.mos.smart.data.enums.Registers;
 import ru.mos.smart.helpers.AllureAttachments;
 
@@ -30,7 +31,7 @@ public class ReestrPage {
     }
 
     @Step("Переход в реестр {registerName}")
-    public void goToRegister(Registers registerName) {
+    public void goToRegister(@NotNull Registers registerName) {
         filter.click();
         registryName.get(1).$("input").val(registerName.value());
         $(byText(registerName.value())).should(visible, ofSeconds(30)).click();

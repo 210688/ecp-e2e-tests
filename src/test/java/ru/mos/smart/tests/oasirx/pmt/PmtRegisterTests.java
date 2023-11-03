@@ -14,7 +14,7 @@ import java.util.List;
 import static ru.mos.smart.data.enums.Sidebar.PMT;
 
 @Epic("OASI")
-@Feature("Оасирх")
+@Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
 class PmtRegisterTests extends TestBase {
 

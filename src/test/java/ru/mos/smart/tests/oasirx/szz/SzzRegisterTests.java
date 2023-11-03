@@ -14,7 +14,7 @@ import java.util.List;
 import static ru.mos.smart.data.enums.Sidebar.SZZ;
 
 @Epic("OASI")
-@Feature("Оасирх")
+@Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
 public class SzzRegisterTests extends TestBase {
 

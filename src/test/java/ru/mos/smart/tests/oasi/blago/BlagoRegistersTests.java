@@ -21,7 +21,7 @@ public class BlagoRegistersTests extends TestBase {
 
     @Test
     @AllureId("17079")
-    @Story("Blago")
+    @Story("BLAGO")
     @DisplayName("Проверка наличия реестров")
     @Description("Проверить, что реестр Проекты благоустройства - открывается ")
     void checkingBlagoRegisters() {

@@ -14,13 +14,13 @@ import java.util.List;
 import static ru.mos.smart.data.enums.Sidebar.HEARINGS;
 
 @Epic("OASI")
-@Feature("Оасирх")
+@Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
 public class HearingsRegisterTests extends TestBase {
 
     @Test
     @AllureId("12534")
-    @Story("Hearings")
+    @Story("HEARINGS")
     @Component("Реестр")
     @DisplayName("Переход в реестр Публичные слушания")
     @Description("Проверить, что происходит переход в реестр - Публичные слушания")
@@ -32,7 +32,7 @@ public class HearingsRegisterTests extends TestBase {
 
     @Test
     @AllureId("12535")
-    @Story("Hearings")
+    @Story("HEARINGS")
     @Component("Реестр")
     @DisplayName("Поиск в реестре")
     @Description("Проверить, что поиск карточки в реестре Публичные слушания работает корректно")
