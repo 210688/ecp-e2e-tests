@@ -4,6 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
+import lombok.NonNull;
 import ru.mos.smart.data.enums.Registers;
 import ru.mos.smart.helpers.AllureAttachments;
 
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 import static com.codeborne.selenide.CollectionCondition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -37,23 +39,23 @@ public class GeneralPage {
     }
 
     @Step("Реестр содержит хотя бы одну карточку, и в нем отображаются заголовки таблицы {list}")
-    public void registryContainsCardsHeadersCheck(Registers registerName, List<String> list) {
+    public void  verifyRegistryContainsCardsAndTableHeaders(Registers registerName, List<String> list) {
         switchToWindow();
-        verifyTableFieldDataSize();
-        verifyTableHeadersMatchExpected(list);
+        checkTableFieldDataSize();
+        checkTableHeadersMatchExpected(list);
         attachScreenshot(registerName);
     }
 
-    private void verifyTableHeadersMatchExpected(List<String> expectedHeaders) {
+    private void checkTableHeadersMatchExpected(List<String> expectedHeaders) {
         String table = String.join(", ", expectedHeaders);
         checkingTableHeaders.shouldHave(textsInAnyOrder(expectedHeaders));
     }
 
-    private void attachScreenshot(Registers registerName) {
+    private void attachScreenshot(@NonNull Registers registerName) {
         AllureAttachments.attachScreenshot("Скриншот реестра" + " " + registerName.value());
     }
 
-    private void verifyTableFieldDataSize() {
+    private void checkTableFieldDataSize() {
         resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1));
     }
 

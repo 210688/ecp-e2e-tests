@@ -40,7 +40,7 @@ public class MkapmiiRegisterTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MKAPMII_ORDER);
-        generalPage.registryContainsCardsHeadersCheck(MKAPMII_ORDER, columnNames);
+        generalPage.verifyRegistryContainsCardsAndTableHeaders(MKAPMII_ORDER, columnNames);
     }
 
     @Test
