@@ -34,7 +34,7 @@ public class OasiReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(PKR);
-        generalPage.registryContainsCardsHeadersCheck(PKR, columnNames);
+        generalPage.verifyRegistryContainsCardsAndTableHeaders(PKR, columnNames);
     }
 
     @Test
@@ -51,6 +51,6 @@ public class OasiReestrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(AGR);
-        generalPage.registryContainsCardsHeadersCheck(AGR, columnNames);
+        generalPage.verifyRegistryContainsCardsAndTableHeaders(AGR, columnNames);
     }
 }

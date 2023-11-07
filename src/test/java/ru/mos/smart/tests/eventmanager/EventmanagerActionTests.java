@@ -33,7 +33,7 @@ public class EventmanagerActionTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(EVENTMANAGER);
-        generalPage.registryContainsCardsHeadersCheck(EVENTMANAGER, tableColumnList);
+        generalPage.verifyRegistryContainsCardsAndTableHeaders(EVENTMANAGER, tableColumnList);
     }
 
     @Test
