@@ -46,6 +46,10 @@ public class GeneralPage {
         attachScreenshot(registerName);
     }
 
+    private void checkTableFieldDataSize() {
+        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1));
+    }
+
     private void checkTableHeadersMatchExpected(List<String> expectedHeaders) {
         String table = String.join(", ", expectedHeaders);
         checkingTableHeaders.shouldHave(textsInAnyOrder(expectedHeaders));
@@ -55,25 +59,16 @@ public class GeneralPage {
         AllureAttachments.attachScreenshot("Скриншот реестра" + " " + registerName.value());
     }
 
-    private void checkTableFieldDataSize() {
-        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1));
-    }
 
-    @Step("В реестре {registerName} отображаются кнопки сортировки и фильтр")
-    public void columnsAndFilterButton(Registers registerName) {
-        switchTo().window(1);
-        settingsButton.shouldBe(visible);
-        $(".container-btn").$("button.btn-white").shouldBe(visible);
-    }
-
-    @Step("Переход в карточку реестра {registerName}")
+    @Step("Перейти в карточку реестра {registerName}")
     public void goToRegistryCard(Registers registerName) {
         switchToWindow();
-        SelenideElement searchResultLink = searchResultLink();
-        String linkName = searchResultLink.getAttribute("href");
-        searchResultLink.click();
-        attachScreenshot(registerName);
+        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1)
+                .because("Ожидалось, что таблица содержит хотя-бы одну карточку"));
+        SelenideElement cardLinkElement = resultsAllCardsInRegistry.first().$$("td").get(2).$("a");
+        String linkName = cardLinkElement.getAttribute("href");
+        cardLinkElement.click();
         assert linkName != null;
-        Allure.addAttachment("Ссылка на карточку", linkName);
+        Allure.addAttachment("Ссылка на карточку" + registerName, linkName);
     }
 }

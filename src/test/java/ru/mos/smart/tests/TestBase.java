@@ -19,7 +19,6 @@ public class TestBase {
     public TaskPage taskPage = new TaskPage();
     public SidebarPage sidebarPage = new SidebarPage();
     public ActionsPage actionsPage = new ActionsPage();
-    public VriPage vriPage = new VriPage();
     public MkapmiiPage mkapmiiPage = new MkapmiiPage();
     public MkasdprvPage mkasdprvPage = new MkasdprvPage();
     public RinrifPage rinrifPage = new RinrifPage();
@@ -29,6 +28,7 @@ public class TestBase {
     public DictsPage dictsPage = new DictsPage();
     public DronePage dronePage = new DronePage();
     public GeneralPage generalPage = new GeneralPage();
+    public UgdPage ugdPage = new UgdPage();
 
     @BeforeAll
     static void beforeAll() {
