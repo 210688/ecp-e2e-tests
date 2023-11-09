@@ -1,6 +1,7 @@
 
 package ru.mos.smart.tests.ugd.ssr;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -23,7 +24,9 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 @Tags({@Tag("stage"), @Tag("predprod"), @Tag("prod"), @Tag("ugd"), @Tag("ssr")})
 @AutoMember("soldatovks")
 public class UgdSsrTests extends TestBase {
+
     @Test
+    @AllureId("18005")
     @Description("Реестр отселяемых домов")
     @DisplayName("Проверка доступности реестра ССР. Реестр отселяемых домов")
     void ugdSsrRealEstateCatalogTest() {
@@ -33,10 +36,11 @@ public class UgdSsrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(UGD_SSR_REAL);
-        generalPage.registryContainsCardsHeadersCheck(UGD_SSR_REAL, columnNames);
+        generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_SSR_REAL, columnNames);
     }
 
     @Test
+    @AllureId("18007")
     @Description("Реестр жителей")
     @DisplayName("Проверка доступности реестра ССР. Реестр жителей")
     void ugdSsrPersonCatalogTest() {
@@ -46,10 +50,11 @@ public class UgdSsrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(UGD_SSR_PERSON);
-        generalPage.registryContainsCardsHeadersCheck(UGD_SSR_PERSON, columnNames);
+        generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_SSR_PERSON, columnNames);
     }
 
     @Test
+    @AllureId("18006")
     @DisplayName("Наличие карточек и заголовков в реестре Центр информирования по переселению жителей")
     @Description("Проверка корректности открытия реестра Центр информирования по переселению жителей, наличие карточек" +
             " и отображения заголовков таблицы")
@@ -59,7 +64,7 @@ public class UgdSsrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(UGD_SSR_CIP);
-        generalPage.registryContainsCardsHeadersCheck(UGD_SSR_CIP, columnNames);
+        generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_SSR_CIP, columnNames);
     }
 }
 /*

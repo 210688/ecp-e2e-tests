@@ -74,6 +74,7 @@ public class RinrifTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
+    @AllureId("18001")
     @Story("RV")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/rv/documentTypes/all [GET])")
@@ -91,6 +92,7 @@ public class RinrifTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
+    @AllureId("18004")
     @Story("RS")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/rs/documentTypes/all [GET])")
@@ -108,6 +110,7 @@ public class RinrifTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
+    @AllureId("18003")
     @Story("IZS")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/izs/documentTypes/all [GET])")
@@ -125,6 +128,7 @@ public class RinrifTests extends ApiBearerTestBase {
     @Test
     @Layer("api")
     @Owner("Soldatovks")
+    @AllureId("18002")
     @Story("PM")
     @DisplayName("Описания всех типов документов Предостережения")
     @Description("Проверить, что описаны все типы документов Предостережения")

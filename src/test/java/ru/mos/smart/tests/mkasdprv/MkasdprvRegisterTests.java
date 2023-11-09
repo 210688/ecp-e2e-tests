@@ -36,7 +36,7 @@ public class MkasdprvRegisterTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(MKASDPRV_ORDER);
-        generalPage.registryContainsCardsHeadersCheck(MKASDPRV_ORDER, tableColumnList);
+        generalPage.verifyRegistryContainsCardsAndTableHeaders(MKASDPRV_ORDER, tableColumnList);
     }
 
     @Test

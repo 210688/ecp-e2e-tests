@@ -9,6 +9,7 @@ import java.util.List;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 public class MydistrictPage {
 
@@ -30,6 +31,20 @@ public class MydistrictPage {
     private void headersInCard(List<String> expectedHeaders) {
         String headers = String.join(", ", expectedHeaders);
         headersInCard.shouldHave(texts(expectedHeaders));
+    }
+
+    @Step("Проверка наименования:Объекты по программе Мой район")
+    public void nameObjectsUnderMyDistrictProgram() {
+        step("Проверка наименования:Объекты по программе Мой район", () -> {
+            $(".bs-text-ex__h3.ng-star-inserted").shouldBe();
+        });
+    }
+
+    @Step("Проверка, что активная кнопка Экспорт в Excel")
+    public void exportToExcelButton() {
+        step("Проверка, что активная кнопка Экспорт в Excel", () -> {
+            $(".d-flex.flex-row.justify-content-end").shouldBe();
+        });
     }
 
 }

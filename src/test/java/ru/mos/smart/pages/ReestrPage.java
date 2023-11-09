@@ -3,6 +3,7 @@ package ru.mos.smart.pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import lombok.NonNull;
 import org.jetbrains.annotations.NotNull;
 import ru.mos.smart.data.enums.Registers;
 import ru.mos.smart.helpers.AllureAttachments;
@@ -19,7 +20,8 @@ import static java.time.Duration.ofSeconds;
 
 public class ReestrPage {
     private final ElementsCollection registryName = $$("trv-input");
-    private final SelenideElement filter = $x("//button[contains(text(),'Фильтр')]");
+    //private final SelenideElement filter = $x("//button[contains(text(),'Фильтр')]");
+    private final SelenideElement filter = $(".btn.btn-type-basic");
     private final ElementsCollection elements = $$("[title]");
     private final ElementsCollection tableHeaders = $$("table th");
     private final ElementsCollection registryFilledWithData = $$(".search-result-table");
@@ -31,11 +33,10 @@ public class ReestrPage {
     }
 
     @Step("Переход в реестр {registerName}")
-    public void goToRegister(@NotNull Registers registerName) {
-        filter.click();
+    public void goToRegister(@NonNull Registers registerName) {
+        filter.should(visible, ofSeconds(10)).click();
         registryName.get(1).$("input").val(registerName.value());
-        $(byText(registerName.value())).should(visible, ofSeconds(30)).click();
-        $(byText(registerName.value())).should(visible, ofSeconds(30));
+        $(byText(registerName.value())).should(visible, ofSeconds(15)).click();
     }
 
     @Step("Проверить наличие {numberCardsPerPage} элементов в списке реестров доступных текущему пользователю")
