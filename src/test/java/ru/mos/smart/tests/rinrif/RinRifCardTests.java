@@ -33,7 +33,7 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(INSPECTIONACT);
         rinrifPage.goToRegistryCard(INSPECTIONACT);
-        rinrifPage.checkAvailabilityHeadersInCard(INSPECTIONACT, blocksList );
+        rinrifPage.checkAvailabilityHeadersInCard(INSPECTIONACT, blocksList);
     }
 
     @Test
@@ -149,6 +149,18 @@ public class RinRifCardTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(RS_RS);
         rinrifPage.goToRegistryCard(RS_RS);
+    }
+
+    @Test
+    @Story("RS")
+    @DisplayName("Проверка карточки на открытие вкладок в реестре Разрешения на строительство")
+    @Description("Проверить, что вкладки открываются и отображаются элементы")
+    void verifyTabsOpenAndPresenceOfElements() {
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegister(RS_RS);
+        rinrifPage.goToRegistryCard(RS_RS);
+        rinrifPage.checkDataTabsDocuments();
     }
 
     @Test

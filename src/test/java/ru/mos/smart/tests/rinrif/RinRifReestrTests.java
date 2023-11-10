@@ -16,7 +16,7 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Owner("Soldatov")
 @Epic("ИАИС РИН")
-@Feature("Rinrif")
+@Feature("RINRIF")
 @Tags({@Tag("rinrif"), @Tag("regres")})
 public class RinRifReestrTests extends TestBase {
 
