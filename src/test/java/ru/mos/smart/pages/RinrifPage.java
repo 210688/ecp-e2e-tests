@@ -99,4 +99,11 @@ public class RinrifPage {
     private void verifyTableFieldDataSize() {
         resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1));
     }
+
+    @Step("В карточке отображается вкладка с таблицей документов")
+    public void checkDataTabsDocuments() {
+        $x("//span[contains(text(),'Документы')]").should(visible).click();
+        $$(".table-bordered").find(text("Печатное представление заявки на оказание ГУ")).should(visible);
+        AllureAttachments.attachScreenshot("Вкладка документы");
+    }
 }

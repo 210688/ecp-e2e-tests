@@ -15,7 +15,7 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("ИАИС РИН")
-@Feature("Rinrif")
+@Feature("RINRIF")
 @Tags({@Tag("rinrif"), @Tag("regres")})
 public class RinRifMatCapTests extends TestBase {
 
