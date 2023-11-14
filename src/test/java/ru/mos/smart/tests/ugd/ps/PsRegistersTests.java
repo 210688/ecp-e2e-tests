@@ -11,18 +11,19 @@ import ru.mos.smart.tests.TestBase;
 import java.util.Arrays;
 import java.util.List;
 
-import static ru.mos.smart.data.enums.Registers.*;
+import static ru.mos.smart.data.enums.Registers.UGD_PS_CAPITAL_CONSTRUCTION_OBJECT;
+import static ru.mos.smart.data.enums.Registers.UGD_PS_CAPITAL_CONSTRUCTION_PROJECT;
 import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("UGD")
-@Feature("PS")
+@Feature("Ugd")
 @Owner("soldatovks")
 @Tags({@Tag("ugd") ,@Tag("regres")})
 public class PsRegistersTests extends TestBase {
 
     @Test
-    @Story("Информация")
+    @Story("Ps")
     @Component("Реестры")
     @AllureId("18034")
     @DisplayName("Наличие карточек и заголовков в реестре Цифровые паспорта объектов капитального строительства")
@@ -39,7 +40,7 @@ public class PsRegistersTests extends TestBase {
     }
 
     @Test
-    @Story("Информация")
+    @Story("Ps")
     @Component("Реестры")
     @AllureId("18033")
     @DisplayName("Наличие карточек и заголовков в реестре Цифровые паспорта проектов строительства")

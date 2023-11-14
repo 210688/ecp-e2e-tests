@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.helpers.annotations.Component;
-import ru.mos.smart.helpers.annotations.Layer;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.Arrays;
@@ -14,7 +13,6 @@ import java.util.List;
 
 import static ru.mos.smart.data.enums.Sidebar.VRI;
 
-@Layer("web")
 @Epic("OASI")
 @Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
@@ -22,7 +20,7 @@ public class VriRegistersTests extends TestBase {
 
     @Test
     @AllureId("17048")
-    @Story("VRI")
+    @Story("Vri")
     @Component("Реестр")
     @DisplayName("Просмотр вкладок в реестре ВРИ")
     @Description("Проверить, что вкладки в реестре ВРИ - открываются")
@@ -35,7 +33,7 @@ public class VriRegistersTests extends TestBase {
 
     @Test
     @AllureId("17047")
-    @Story("VRI")
+    @Story("Vri")
     @Component("Реестр")
     @DisplayName("Поиск карточки реестра ВРИ по номеру")
     @Description("Проверить, что происходит поиск карточки реестра ВРИ по номеру")

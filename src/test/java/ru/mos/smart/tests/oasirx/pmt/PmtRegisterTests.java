@@ -20,7 +20,7 @@ class PmtRegisterTests extends TestBase {
 
     @Test
     @AllureId("17672")
-    @Story("PMT")
+    @Story("Pmt")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре Межевание территорий")
     @Description("Проверить корректности отображения заголовков и наличие карточек в реестре СЗЗ")
@@ -32,7 +32,7 @@ class PmtRegisterTests extends TestBase {
     }
 
     @Test
-    @Story("PMT")
+    @Story("Pmt")
     @Component("Реестр")
     @DisplayName("Поиск ПМТ по номеру")
     @Description("Проверить открытия и заполнения карточки после поиска в реестре Межевание территорий")

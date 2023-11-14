@@ -7,16 +7,18 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.api.mkapmii.MkapmiiCreatingTestStatement;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.junit.OnPreprodOnly;
 
+@Epic("OASI")
+@Feature("MKAPMII")
 public class MkapmiiCreateApplicationTest {
 
     @Test
-    @AllureId("17101")
     @OnPreprodOnly
-    @Epic("OASI")
-    @Feature("MKAPMII")
-    @Story("MKAPMII")
+    @AllureId("17101")
+    @Story("Mkapmii")
+    @Component("Работа с заявкой")
     @DisplayName("Создание тестовой заявки Mkapmii через swagger")
     @Description("Проверить, что создаётся тестовая заявка Mkapmii через swagger")
     @Tags({@Tag("mkapmii"), @Tag("regres")})

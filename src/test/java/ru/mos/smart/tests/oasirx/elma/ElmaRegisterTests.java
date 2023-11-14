@@ -21,7 +21,7 @@ public class ElmaRegisterTests extends TestBase {
 
     @Test
     @AllureId("17678")
-    @Story("ELMA")
+    @Story("Elma")
     @Component("Реестр")
     @DisplayName("Наличия данных и перехода в раздел Соответствие проектной документации СППК")
     @Description("Проверить, что есть данные и происходит переход в раздел - Соотвествие проектной документации СППК")

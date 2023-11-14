@@ -16,13 +16,13 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("UGD")
-@Feature("UPSD")
+@Feature("Ugd")
 @Tags({@Tag("ugd"), @Tag("regres")})
 class RegistersUpsdTests extends TestBase {
 
     @Test
     @AllureId("16980")
-    @Story("Информация")
+    @Story("Upsd")
     @Component("Реестры")
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
     @Description("Проверить, что реестр открывается")
@@ -36,7 +36,8 @@ class RegistersUpsdTests extends TestBase {
     }
 
     @Test
-    @Story("Информация")
+    @AllureId("18074")
+    @Story("Upsd")
     @Component("Реестры")
     @DisplayName("Проверка доступности карточек в реестре УПСД. Подведомственные организации, утверждающие проектную документацию")
     @Description("Проверить, что карточка открывается в реестре УПСД. Подведомственные организации, утверждающие проектную документацию, " +

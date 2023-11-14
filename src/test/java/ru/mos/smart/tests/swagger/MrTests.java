@@ -6,22 +6,22 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка работы swagger по подсистемам")
+@Epic("OASI")
 @Feature("RAYON")
+@Owner("Soldatovks")
 @Tags({@Tag("rayon"), @Tag("regres"), @Tag("swagger")})
 public class MrTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16957")
-    @Layer("api")
-    @Owner("Soldatovks")
-    @Story("CAMERA")
+    @Story("Camera")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(mr/documentTypes [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/camera/swagger-ui.html"),
@@ -38,9 +38,8 @@ public class MrTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16956")
-    @Layer("api")
-    @Owner("Soldatovks")
-    @Story("LINK")
+    @Story("Link")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mr/link/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/link/swagger-ui.html"),
@@ -57,9 +56,8 @@ public class MrTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16960")
-    @Layer("api")
-    @Owner("Soldatovks")
-    @Story("MEETING")
+    @Story("Meeting")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mr/meeting/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/meeting/swagger-ui.html"),
@@ -76,9 +74,8 @@ public class MrTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16959")
-    @Layer("api")
-    @Owner("Soldatovks")
-    @Story("PROGRAM")
+    @Story("Program")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/mr/program/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/mr/program/swagger-ui.html"),
