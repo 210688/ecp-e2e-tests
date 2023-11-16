@@ -20,7 +20,7 @@ public class SzzRegisterTests extends TestBase {
 
     @Test
     @AllureId("17667")
-    @Story("SZZ")
+    @Story("Szz")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре СЗЗ")
     @Description("Проверить, что реестр СЗЗ корректно открывается, присутствуют карточки " +
@@ -34,7 +34,7 @@ public class SzzRegisterTests extends TestBase {
 
     @Test
     @AllureId("17666")
-    @Story("SZZ")
+    @Story("Szz")
     @Component("Реестр")
     @DisplayName("Поиск карточки")
     @Description("Проверить, что поиск карточки в реестре СЗЗ работает корректно")

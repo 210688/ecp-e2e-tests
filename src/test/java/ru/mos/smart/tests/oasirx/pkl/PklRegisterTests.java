@@ -20,7 +20,7 @@ public class PklRegisterTests extends TestBase {
 
     @Test
     @AllureId("17673")
-    @Story("PKL")
+    @Story("Pkl")
     @Component("Реестр")
     @DisplayName("Поиск карточки реестра ПКЛ по номеру")
     @Description("Проверить открытия и заполнения карточки после поиска в реестре ПКЛ")
@@ -31,7 +31,7 @@ public class PklRegisterTests extends TestBase {
 
     @Test
     @AllureId("17674")
-    @Story("PKL")
+    @Story("Pkl")
     @Component("Реестр")
     @DisplayName("Просмотр реестра ПКЛ")
     @Description("Проверить корректности отображения заголовков и наличие карточек в реестре ПКЛ")

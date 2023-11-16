@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.helpers.utils.RandomUtils;
 import ru.mos.smart.tests.TestBase;
@@ -30,7 +31,8 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17108")
-    @Story("MKAPMII")
+    @Story("Mkapmii")
+    @Component("Работа с заявкой")
     @OnPreprodOnly
     @DisplayName("01. Функционал основных контролов, закрытие задачи без сохранения")
     @Description("Проверить, что отображаются блоки, открытие блоков и закрытие, наличие и работоспосбность всех копок")
@@ -108,7 +110,8 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17109")
-    @Story("MKAPMII")
+    @Story("Mkapmii")
+    @Component("Работа с заявкой")
     @OnPreprodOnly
     @DisplayName("02. Сохранить бизнез процесс без завершения")
     @Description("Проверить, что данные заявления отображаются")
@@ -132,7 +135,8 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17106")
-    @Story("MKAPMII")
+    @Story("Mkapmii")
+    @Component("Работа с заявкой")
     @OnPreprodOnly
     @DisplayName("03. Переход в карточку заявления")
     @Description("Проверить, что открывается карточка заявления")
@@ -151,7 +155,8 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17103")
-    @Story("MKAPMII")
+    @Story("Mkapmii")
+    @Component("Работа с заявкой")
     @OnPreprodOnly
     @DisplayName("04. Неуспешный отказ в приёме документов (отсутствует причина отказа и файл заключения)")
     @Description("Проверить, что отказано в приёме документов по причине отказа с файлом заключения")
@@ -169,7 +174,8 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17107")
-    @Story("MKAPMII")
+    @Story("Mkapmii")
+    @Component("Работа с заявкой")
     @OnPreprodOnly
     @DisplayName("05. Неуспешный отказ в приёме документов (отсутствует файл заключения)")
     @Description("Проверить, что отказано в приёме документов по причине отстутствия файла заключения")
@@ -209,7 +215,8 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17104")
-    @Story("MKAPMII")
+    @Story("Mkapmii")
+    @Component("Работа с заявкой")
     @OnPreprodOnly
     @DisplayName("06. Неуспешный отказ в приёме документов (все поля не заполнены)")
     @Description("Проверить, что отказано в приёме документов, где все поля не заполнены")
@@ -233,7 +240,8 @@ public class MkapmiiApplicationTest extends TestBase {
 
     @Test
     @AllureId("17105")
-    @Story("MKAPMII")
+    @Story("Mkapmii")
+    @Component("Работа с заявкой")
     @OnPreprodOnly
     @DisplayName("07. Успешный прием документов")
     @Description("Проверить, что документы приняли успешно")

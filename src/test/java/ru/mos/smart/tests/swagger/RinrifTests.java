@@ -2,27 +2,25 @@ package ru.mos.smart.tests.swagger;
 
 import io.qameta.allure.*;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import ru.mos.smart.helpers.annotations.Layer;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
-import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
 @Epic("Проверка работы swagger по подсистемам")
 @Feature("ИАИС РИН")
+@Owner("Soldatovks")
 @Tags({@Tag("rinrif"), @Tag("regres"), @Tag("swagger")})
 public class RinrifTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16921")
-    @Layer("api")
-    @Owner("Soldatovks")
     @Story("NADZOR")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/nadzor/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/nadzor/swagger-ui.html"),
@@ -38,9 +36,8 @@ public class RinrifTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16918")
-    @Layer("api")
-    @Owner("Soldatovks")
     @Story("MATCAP")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/matcap/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/matcap/swagger-ui.html"),
@@ -55,9 +52,8 @@ public class RinrifTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16917")
-    @Layer("api")
-    @Owner("Soldatovks")
     @Story("SNOS")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/snos/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/snos/swagger-ui.html"),
@@ -72,10 +68,9 @@ public class RinrifTests extends ApiBearerTestBase {
     }
 
     @Test
-    @Layer("api")
-    @Owner("Soldatovks")
     @AllureId("18001")
     @Story("RV")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/rv/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/rv/swagger-ui.html"),
@@ -90,10 +85,9 @@ public class RinrifTests extends ApiBearerTestBase {
     }
 
     @Test
-    @Layer("api")
-    @Owner("Soldatovks")
     @AllureId("18004")
     @Story("RS")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/rs/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/rs/swagger-ui.html"),
@@ -108,10 +102,9 @@ public class RinrifTests extends ApiBearerTestBase {
     }
 
     @Test
-    @Layer("api")
-    @Owner("Soldatovks")
     @AllureId("18003")
     @Story("IZS")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/rinrif/izs/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/izs/swagger-ui.html"),
@@ -126,10 +119,9 @@ public class RinrifTests extends ApiBearerTestBase {
     }
 
     @Test
-    @Layer("api")
-    @Owner("Soldatovks")
     @AllureId("18002")
     @Story("PM")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов Предостережения")
     @Description("Проверить, что описаны все типы документов Предостережения")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/rinrif/pm/swagger-ui.html"),

@@ -19,13 +19,13 @@ import static ru.mos.smart.data.enums.Sidebar.OPPORTUNITIES;
 import static ru.mos.smart.data.enums.Sidebar.SERVICES_AND_FUNCTION;
 
 @Epic("UGD")
-@Feature("OATI")
+@Feature("Ugd")
 @Tags({@Tag("ugd"), @Tag("regres")})
 class CreateNotificationProjectTests extends TestBase {
 
     @Test
     @AllureId("16982")
-    @Story("Гоуслуги и функции")
+    @Story("Oati")
     @Component("Возможности")
     @OnPreprodOnly
     @DisplayName("Доступность формы заявления Подать уведомление ОАТИ о проведении работ")

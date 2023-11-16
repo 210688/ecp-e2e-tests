@@ -20,7 +20,7 @@ public class ViolationRegisterTests extends TestBase {
 
     @Test
     @AllureId("17664")
-    @Story("VIOLATION")
+    @Story("Violation")
     @Component("Реестр")
     @DisplayName("Просмотр раздела Нарушения ОГД")
     @Description("Проверить, что открывается раздел Нарушения ОГД")
@@ -32,7 +32,7 @@ public class ViolationRegisterTests extends TestBase {
 
     @Test
     @AllureId("17665")
-    @Story("VIOLATION")
+    @Story("Violation")
     @Component("Реестр")
     @DisplayName("Поиск карточки реестра Нарушения ОГД по номеру")
     @Description("Проверить, что происходит поиск карточки реестра Нарушения ОГД по номеру")

@@ -20,7 +20,7 @@ public class SpritTests extends TestBase {
 
     @Test
     @AllureId("17668")
-    @Story("SPRIT")
+    @Story("Sprit")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре Самострой")
     @Description("Проверить, что реестр Самострой корректно открывается, присутствуют карточки " +
@@ -33,7 +33,7 @@ public class SpritTests extends TestBase {
 
     @Test
     @AllureId("17669")
-    @Story("SPRIT")
+    @Story("Sprit")
     @Component("Реестр")
     @DisplayName("Проверка работы поиска в реестре СПРИТ")
     @Description("Проверить открытия и заполнения карточки после поиска в реестре")

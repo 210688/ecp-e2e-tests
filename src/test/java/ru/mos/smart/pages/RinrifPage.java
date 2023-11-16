@@ -2,7 +2,6 @@ package ru.mos.smart.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import ru.mos.smart.data.enums.Registers;
 import ru.mos.smart.helpers.AllureAttachments;
@@ -13,7 +12,10 @@ import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.addAttachment;
+import static io.qameta.allure.Allure.step;
 import static java.lang.String.valueOf;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Описание реестров RinRif.
@@ -31,12 +33,13 @@ public class RinrifPage {
             registryCardsTable = $("table.search-result-table tr"),
             heading = $("span[class='ng-star-inserted']");
 
+
     private final ElementsCollection
             headersInCard = $$(".tab-container li"),
             resultsAllCardsInRegistry = $$(".search-result-table > tbody > tr"),
             cardSearchResultTable = $$(".search-result-table"),
-            tableHeaders = $("showcase-builder-filter").$$("div.title"),
             checkingTableHeaders = registryCardsTable.$$("th");
+
 
     private void switchToWindow() {
         switchTo().window(1);
@@ -72,7 +75,7 @@ public class RinrifPage {
         String linkName = cardLinkElement.getAttribute("href");
         cardLinkElement.click();
         assert linkName != null;
-        Allure.addAttachment("Ссылка на карточку" + registerName, linkName);
+        addAttachment("Ссылка на карточку" + registerName, linkName);
     }
 
     @Step("Доступность заголовков {list} и наличие данных в карточке {registerName}")
@@ -105,5 +108,21 @@ public class RinrifPage {
         $x("//span[contains(text(),'Документы')]").should(visible).click();
         $$(".table-bordered").find(text("Печатное представление заявки на оказание ГУ")).should(visible);
         AllureAttachments.attachScreenshot("Вкладка документы");
+    }
+
+    public ElementsCollection getTableHeaders() {
+        return checkingTableHeaders;
+    }
+
+    public void verifyColumnHeader(String expectedHeader, int index) {
+        ElementsCollection headers = getTableHeaders();
+        String actualHeader = headers.get(index).getText();
+        step("Проверка, что заголовок '" + expectedHeader + "' соответствует ожидаемому. Фактическое значение: " + actualHeader, () -> {
+            assertEquals(expectedHeader, actualHeader, "Значение не соответствует ожидаемому");
+        });
+    }
+
+    public void verifyNumberHeader() {
+        verifyColumnHeader("Номер акта", 0);
     }
 }

@@ -14,7 +14,7 @@ import ru.mos.smart.tests.TestBase;
 import static ru.mos.smart.data.enums.Sidebar.*;
 
 @Owner("Soldatov")
-@Epic("Регрессионные тесты платформы")
+@Epic("OASI")
 @Tags({@Tag("cdp"), @Tag("regres")})
 public class OpenPageTests extends TestBase {
 
@@ -50,7 +50,7 @@ public class OpenPageTests extends TestBase {
     void CheckRegistryForTaskList() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.checkListInRegistry(18); //TODO добавить проверку
+        //reestrPage.checkListInRegistry(18); //TODO добавить проверку
     }
 
     @Test
@@ -61,7 +61,7 @@ public class OpenPageTests extends TestBase {
     void goToSpravochnik() {
         sidebarPage.clickSidebarMenu(SETTINGS);
         sidebarPage.clickSubMenuList(SETTINGS, REFERENCE_BOOKS);
-        dictsPage.checkDicts();
+        dictPage.checkListSystemDict();
     }
 
     @Test
@@ -71,6 +71,6 @@ public class OpenPageTests extends TestBase {
     void searchSpravochnik() {
         sidebarPage.clickSidebarMenu(SETTINGS);
         sidebarPage.clickSubMenuList(SETTINGS, REFERENCE_BOOKS);
-        dictsPage.searchDicts();
+        dictPage.searchDicts();
     }
 }

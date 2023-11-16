@@ -21,7 +21,7 @@ public class CrdRegisterTests extends TestBase {
 
     @Test
     @AllureId("12531")
-    @Story("CRD")
+    @Story("Crd")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре СД")
     @Description("Проверить, что реестр СД корректно открывается, " +
@@ -34,7 +34,7 @@ public class CrdRegisterTests extends TestBase {
 
     @Test
     @AllureId("12529")
-    @Story("CRD")
+    @Story("Crd")
     @Component("Реестр")
     @DisplayName("Поиск карточки в реестре СД")
     @Description("Проверить, что происходит поиск карточки реестра СД")

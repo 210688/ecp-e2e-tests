@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Action;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.Arrays;
@@ -23,6 +25,8 @@ public class RinRifReestrTests extends TestBase {
     @Test
     @AllureId("16987")
     @Story("NADZOR")
+    @Component("Информация")
+    @Action("Карточки")
     @DisplayName("Наличие карточек и заголовков в реестре Акты проверок")
     @Description("Проверка Корректности открытия реестра и отображения заголовков таблицы")
     void goToRegistryAktsProverok() {
@@ -32,6 +36,7 @@ public class RinRifReestrTests extends TestBase {
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegister(INSPECTIONACT);
         rinrifPage.registryContainsCardsHeadersCheck(INSPECTIONACT, columnNames);
+        rinrifPage.verifyNumberHeader();
     }
 
     @Test

@@ -14,6 +14,7 @@ public class ConfigHelper {
 
     public static final Boolean IS_STAGE = "stage".equals(ConfigHelper.projectConfig().environment());
 
+
     public static String getWebUrl() {
         return webConfig().webUrl();
     }
