@@ -11,7 +11,7 @@ import ru.mos.smart.tests.TestBase;
 import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.MAP;
 
-@Owner("Soldatov")
+
 @Epic("OASI")
 @Feature("GIS")
 @Tags({@Tag("map2D"), @Tag("regres")})
@@ -19,6 +19,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17036")
+    @Owner("Soldatov")
     @Story("2D")
     @Component("Карта")
     @DisplayName("Наличие подложки на карте")
@@ -31,6 +32,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17042")
+    @Owner("Soldatov")
     @Story("2D")
     @Component("Карта")
     @DisplayName("Наличие инструментов  на 2D карте")
@@ -52,6 +54,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17035")
+    @Owner("Soldatov")
     @Story("2D")
     @Component("Карта")
     @DisplayName("Наличие поля ввода адресного поиска на карте 2D")
@@ -64,6 +67,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17037")
+    @Owner("Soldatov")
     @Story("2D")
     @Component("Карта")
     @DisplayName("Наличие поля ввода поиска слоя на карте 2D")
@@ -76,6 +80,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17040")
+    @Owner("Soldatov")
     @Story("2D")
     @Component("Карта")
     @DisplayName("Поиск адреса на карте 2D")
@@ -88,6 +93,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17039")
+    @Owner("Soldatov")
     @Story("2D")
     @Component("Карта")
     @DisplayName("Наличия инструментов масштабирования: кнопок + и -")
@@ -100,6 +106,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17038")
+    @Owner("Soldatov")
     @Story("2D")
     @Component("Карта")
     @DisplayName("Наличия инструмента - Моё местоположение")
@@ -112,6 +119,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17041")
+    @Owner("Soldatov")
     @Story("2D")
     @Component("Карта")
     @DisplayName("Наличия инструмента - Первоначальная позиция")

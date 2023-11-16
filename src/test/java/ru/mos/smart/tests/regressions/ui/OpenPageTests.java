@@ -13,13 +13,13 @@ import ru.mos.smart.tests.TestBase;
 
 import static ru.mos.smart.data.enums.Sidebar.*;
 
-@Owner("Soldatov")
 @Epic("OASI")
 @Tags({@Tag("cdp"), @Tag("regres")})
 public class OpenPageTests extends TestBase {
 
     @Test
     @AllureId("17027")
+    @Owner("Soldatov")
     @Feature("LCS")
     @DisplayName("Проверка доступности Возможностей")
     @Description("Проверка доступности возможностей и проверка отображения задач доступных пользователю")
@@ -32,6 +32,7 @@ public class OpenPageTests extends TestBase {
 
     @Test
     @AllureId("17623")
+    @Owner("Soldatov")
     @Feature("CDP")
     @DisplayName("В задачах пользователя присутствует список задач")
     @Description("Проверить, что в задачах пользователя присутствует список задач")
@@ -44,6 +45,7 @@ public class OpenPageTests extends TestBase {
 
     @Test
     @AllureId("17029")
+    @Owner("Soldatov")
     @Feature("LCS")
     @DisplayName("Наличие списка реестров на странице Реестр")
     @Description("Проверка доступности реестра текущему пользователю")
@@ -55,6 +57,7 @@ public class OpenPageTests extends TestBase {
 
     @Test
     @AllureId("17030")
+    @Owner("Soldatov")
     @Feature("CDP")
     @DisplayName("В справочнике присутствует список элементов")
     @Description("Проверить, что в справочнике присутствует список элементов")
@@ -65,6 +68,7 @@ public class OpenPageTests extends TestBase {
     }
 
     @Test
+    @Owner("Soldatov")
     @Feature("CDP")
     @DisplayName("Поиск справочника")
     @Description("Проверить, что в справочнике присутствует список элементов")

@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.platform;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -18,7 +15,10 @@ import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 @Tag("regressing")
 public class RegistryTests extends TestBase {
 
+
     @Test
+    @AllureId("18510")
+    @Owner("Soldatov")
     @DisplayName("Наличие списка реестров на странице Реестр")
     @Description("Проверка доступности реестров")
     void CheckRegistryForTaskList() {
@@ -29,6 +29,7 @@ public class RegistryTests extends TestBase {
 
     @Test
     @AllureId("17970")
+    @Owner("Soldatov")
     @DisplayName("Проверка открытия реестров")
     @Description("Проверка открытия реестра и наличие карточек")
     void CheckCardInRegistry() {

@@ -13,7 +13,7 @@ import java.util.List;
 
 import static ru.mos.smart.data.enums.Sidebar.ELMA;
 
-@Owner("Soldatov")
+
 @Epic("OASI")
 @Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
@@ -21,6 +21,7 @@ public class ElmaRegisterTests extends TestBase {
 
     @Test
     @AllureId("17678")
+    @Owner("Soldatov")
     @Story("Elma")
     @Component("Реестр")
     @DisplayName("Наличия данных и перехода в раздел Соответствие проектной документации СППК")

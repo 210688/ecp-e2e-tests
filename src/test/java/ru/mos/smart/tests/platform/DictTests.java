@@ -2,10 +2,7 @@ package ru.mos.smart.tests.platform;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.FileDownloadMode;
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -25,6 +22,8 @@ import static ru.mos.smart.data.enums.Sidebar.SETTINGS;
 public class DictTests extends TestBase {
 
     @Test
+    @AllureId("1851")
+    @Owner("Soldatov")
     @DisplayName("Работоспособность раздела Справочники")
     @Description("Проверка, что в справочнике присутствуют Системные справочники")
     void goToSystemDict() {
@@ -35,6 +34,7 @@ public class DictTests extends TestBase {
 
     @Test
     @AllureId("17964")
+    @Owner("Soldatov")
     @DisplayName("Проверка работоспособности раздела Справочники")
     @Description("Проверка открытия системного справочника возможности и наличие данных")
     void goToCardInSystemDict() {
@@ -46,6 +46,7 @@ public class DictTests extends TestBase {
 
     @Test
     @AllureId("17965")
+    @Owner("Soldatov")
     @DisplayName("Выгрузка системного справочника")
     @Description("Проверка работы экспорта справочника в JSON файл")
     void downloadSystemDict() throws FileNotFoundException {
