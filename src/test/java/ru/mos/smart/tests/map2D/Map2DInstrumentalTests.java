@@ -19,7 +19,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17036")
-    @Story("Gis")
+    @Story("2D")
     @Component("Карта")
     @DisplayName("Наличие подложки на карте")
     @Description("Проверить, что отображается подложка на карте")
@@ -31,7 +31,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17042")
-    @Story("Gis")
+    @Story("2D")
     @Component("Карта")
     @DisplayName("Наличие инструментов  на 2D карте")
     @Description("Проверить, что присутствуют инструменты на карте 2D")
@@ -52,7 +52,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17035")
-    @Story("Gis")
+    @Story("2D")
     @Component("Карта")
     @DisplayName("Наличие поля ввода адресного поиска на карте 2D")
     @Description("Проверить, что отображается поле ввода адресного поиска на карте 2D")
@@ -64,7 +64,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17037")
-    @Story("Gis")
+    @Story("2D")
     @Component("Карта")
     @DisplayName("Наличие поля ввода поиска слоя на карте 2D")
     @Description("Проверить, что отображается поле ввода поиска слоя на карте 2D")
@@ -76,7 +76,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17040")
-    @Story("Gis")
+    @Story("2D")
     @Component("Карта")
     @DisplayName("Поиск адреса на карте 2D")
     @Description("Проверить, что есть возиожность поиска адреса на карте 2D")
@@ -88,7 +88,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17039")
-    @Story("Gis")
+    @Story("2D")
     @Component("Карта")
     @DisplayName("Наличия инструментов масштабирования: кнопок + и -")
     @Description("Проверить, что отображаются инструменты масштабирования: кнопок + и -")
@@ -100,7 +100,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17038")
-    @Story("Gis")
+    @Story("2D")
     @Component("Карта")
     @DisplayName("Наличия инструмента - Моё местоположение")
     @Description("Проверить, что отображается инструмент - Моё местоположение")
@@ -112,7 +112,7 @@ public class Map2DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17041")
-    @Story("Gis")
+    @Story("2D")
     @Component("Карта")
     @DisplayName("Наличия инструмента - Первоначальная позиция")
     @Description("Проверить, что отображается инструмент - Первоначальная позиция")

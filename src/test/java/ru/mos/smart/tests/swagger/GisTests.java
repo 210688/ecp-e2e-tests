@@ -20,7 +20,7 @@ public class GisTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16965")
-    @Story("Gis")
+    @Story("2D")
     @Component("Swagger")
     @DisplayName("Описание всех типов документов")
     @Description("Проверить, что описаны все типы документов(gis/documentTypes [GET])")
