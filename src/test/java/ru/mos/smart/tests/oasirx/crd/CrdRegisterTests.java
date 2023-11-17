@@ -13,7 +13,6 @@ import java.util.List;
 
 import static ru.mos.smart.data.enums.Sidebar.SD;
 
-@Owner("Soldatov")
 @Epic("OASI")
 @Feature("OASIRX")
 @Tags({@Tag("oasirx"), @Tag("regres")})
@@ -21,6 +20,7 @@ public class CrdRegisterTests extends TestBase {
 
     @Test
     @AllureId("12531")
+    @Owner("Soldatov")
     @Story("Crd")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре СД")
@@ -34,6 +34,7 @@ public class CrdRegisterTests extends TestBase {
 
     @Test
     @AllureId("12529")
+    @Owner("Soldatov")
     @Story("Crd")
     @Component("Реестр")
     @DisplayName("Поиск карточки в реестре СД")
