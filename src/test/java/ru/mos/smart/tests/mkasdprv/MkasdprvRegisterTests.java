@@ -37,7 +37,7 @@ public class MkasdprvRegisterTests extends TestBase {
                 "Решение", "Ответственный","Заявитель", "Адрес", "Номер ПГУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MKASDPRV_ORDER);
+        reestrPage.goToRegistry(MKASDPRV_ORDER);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(MKASDPRV_ORDER, tableColumnList);
     }
 
@@ -50,7 +50,7 @@ public class MkasdprvRegisterTests extends TestBase {
     void openingRegistryCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MKASDPRV_ORDER);
+        reestrPage.goToRegistry(MKASDPRV_ORDER);
 
         step("В карточке присутствуют вкладки:", () -> {
             $x("//span[contains(text(),'Сведения о заявлении')]").shouldBe(visible);

@@ -34,7 +34,7 @@ public class OasiReestrTests extends TestBase {
                 "Плановая дата", "Исполнитель", "Номер МПГУ", "Дата подготовки решения", "Получен ответ из БР");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(PKR);
+        reestrPage.goToRegistry(PKR);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(PKR, columnNames);
     }
 
@@ -51,7 +51,7 @@ public class OasiReestrTests extends TestBase {
                 "Значение объекта", "Кол-во дней в МКА", "План. дата на комиссии","Номер и дата комиссии", "срок");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(AGR);
+        reestrPage.goToRegistry(AGR);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(AGR, columnNames);
     }
 }

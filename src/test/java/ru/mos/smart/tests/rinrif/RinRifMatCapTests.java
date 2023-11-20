@@ -31,7 +31,7 @@ public class RinRifMatCapTests extends TestBase {
                 "Плановая дата исполнения", "Заявитель", "Данные ПГУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(APPMATCAP);
+        reestrPage.goToRegistry(APPMATCAP);
         rinrifPage.registryContainsCardsHeadersCheck(APPMATCAP, columnNames);
     }
 
@@ -47,7 +47,7 @@ public class RinRifMatCapTests extends TestBase {
                 "Процесс", "", "", "Общие сведения", "Сведения о ЗУ и объекте");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(APPMATCAP);
+        reestrPage.goToRegistry(APPMATCAP);
         rinrifPage.goToRegistryCard(APPMATCAP);
         rinrifPage.checkAvailabilityHeadersInCard(APPMATCAP, cardHeaders);
     }

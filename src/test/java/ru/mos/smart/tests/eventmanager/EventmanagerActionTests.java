@@ -32,7 +32,7 @@ public class EventmanagerActionTests extends TestBase {
         List<String> tableColumnList = Arrays.asList("Дата создания", "Публикатор", "Подписчик", "Тип события");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(EVENTMANAGER);
+        reestrPage.goToRegistry(EVENTMANAGER);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(EVENTMANAGER, tableColumnList);
     }
 
@@ -46,7 +46,7 @@ public class EventmanagerActionTests extends TestBase {
         List<String> cardHeadersList = Arrays.asList("Сведения о подписке", "Сведения об авторе подписки");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(EVENTMANAGER);
+        reestrPage.goToRegistry(EVENTMANAGER);
         generalPage.goToRegistryCard(EVENTMANAGER);
         eventmanagerPage.checkingCardTabs();
         eventmanagerPage.checkingCardHeaders(EVENTMANAGER, cardHeadersList);

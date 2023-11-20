@@ -4,7 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.mos.smart.data.enums.Registers;
-import ru.mos.smart.helpers.AllureAttachments;
+import ru.mos.smart.data.enums.RinRif;
 
 import java.util.List;
 
@@ -16,6 +16,7 @@ import static io.qameta.allure.Allure.addAttachment;
 import static io.qameta.allure.Allure.step;
 import static java.lang.String.valueOf;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static ru.mos.smart.helpers.AllureAttachments.attachScreenshot;
 
 /**
  * Описание реестров RinRif.
@@ -45,14 +46,26 @@ public class RinrifPage {
         switchTo().window(1);
     }
 
+    private void attachScreenshotCard(Registers registerName) {
+        attachScreenshot("Скриншот карточки" + " " + registerName.value());
+    }
+
+    @Step("Проверить наличие карточек в реестре {registerName}")
+    public void checkPresenceCardInRegistry(Registers registerName) {
+        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1));
+        attachScreenshot("Наличие карточек в реестре" + " " + registerName.value());
+    }
+
+    @Step("Проверить заполненность вкладки Общие сведения")
+    public void checkInformationTheTab() {
+        $$("#commoninfo").shouldHave(sizeGreaterThan(0));
+    }
+
     private void headersInCard(List<String> expectedHeaders) {
         String headers = String.join(", ", expectedHeaders);
         headersInCard.shouldHave(texts(expectedHeaders));
     }
 
-    private void attachScreenshot(Registers registerName) {
-        AllureAttachments.attachScreenshot("Скриншот карточки" + " " + registerName.value());
-    }
 
     @Step("Доступность поиска карточки в реестре")
     public void searchToCardInRegistry() {
@@ -69,8 +82,6 @@ public class RinrifPage {
     @Step("Перейти в карточку реестра {registerName}")
     public void goToRegistryCard(Registers registerName) {
         switchToWindow();
-        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1)
-                .because("Ожидалось, что таблица содержит хотя-бы одну карточку"));
         SelenideElement cardLinkElement = resultsAllCardsInRegistry.first().$$("td").get(2).$("a");
         String linkName = cardLinkElement.getAttribute("href");
         cardLinkElement.click();
@@ -82,7 +93,7 @@ public class RinrifPage {
     public void checkAvailabilityHeadersInCard(Registers registerName, List<String> list) {
         switchToWindow();
         headersInCard(list);
-        attachScreenshot(registerName);
+        attachScreenshotCard(registerName);
     }
 
     @Step("Реестр содержит хотя бы одну карточку, отображаются заголовки таблицы {list}")
@@ -91,7 +102,7 @@ public class RinrifPage {
         verifyTableFieldDataSize();
         verifyTableHeadersMatchExpected(list);
         heading.shouldHave(text(valueOf(registerName))).should(visible);
-        attachScreenshot(registerName);
+        attachScreenshotCard(registerName);
     }
 
     private void verifyTableHeadersMatchExpected(List<String> expectedHeaders) {
@@ -103,11 +114,12 @@ public class RinrifPage {
         resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1));
     }
 
+
     @Step("В карточке отображается вкладка с таблицей документов")
     public void checkDataTabsDocuments() {
         $x("//span[contains(text(),'Документы')]").should(visible).click();
         $$(".table-bordered").find(text("Печатное представление заявки на оказание ГУ")).should(visible);
-        AllureAttachments.attachScreenshot("Вкладка документы");
+        attachScreenshot("Вкладка документы");
     }
 
     public ElementsCollection getTableHeaders() {
@@ -125,4 +137,38 @@ public class RinrifPage {
     public void verifyNumberHeader() {
         verifyColumnHeader("Номер акта", 0);
     }
+
+    //Метод для получения заголовков таблицы
+    private ElementsCollection getTableCardHeaders() {
+        return headersInCard;
+    }
+
+    // Проверка соответствия заголовка колонки ожидаемому значению
+    public void verifyColumnCardHeader(RinRif expectedCardHeader, int index) {
+        ElementsCollection headers = getTableCardHeaders();
+        String actualCardHeader = headers.get(index).getText();
+        step("Проверка, что заголовок '" + expectedCardHeader.getValue() + "' соответствует ожидаемому. Фактическое значение: "
+                + actualCardHeader, () -> {
+            assertEquals(expectedCardHeader.getValue(), actualCardHeader, "Значение не соответствует ожидаемому");
+        });
+    }
+
+    public void verifyCardHeader(RinRif[] headers) {
+        step("Проверка заголовков карточки", () -> {
+            for (int i = 0; i < headers.length; i++) {
+                verifyColumnCardHeader(headers[i], i);
+            }
+        });
+    }
 }
+
+/*    public void verifyCardHeader() {
+        verifyColumnCardHeader(GENERAL_INFORMATION_HEADER, 0);
+        verifyColumnCardHeader(DOCUMENTS_HEADER, 1);
+        verifyColumnCardHeader(RESULT_HEADER, 2);
+        verifyColumnCardHeader(EXTERNAL_SYSTEMS_HEADER, 3);
+        verifyColumnCardHeader(PROCESS_HEADER, 4);
+        verifyColumnCardHeader(GENERAL_DATA, 5);
+        verifyColumnCardHeader(INFORMATION_ZU_AND_OBJECTS, 6);
+    }*/
+

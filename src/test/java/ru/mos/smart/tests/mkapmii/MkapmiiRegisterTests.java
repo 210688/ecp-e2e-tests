@@ -41,7 +41,7 @@ public class MkapmiiRegisterTests extends TestBase {
                 "Статус", "Решение", "Ответственный", "Заявитель", "Адрес", "Номер ПГУ", "Вид");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MKAPMII_ORDER);
+        reestrPage.goToRegistry(MKAPMII_ORDER);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(MKAPMII_ORDER, columnNames);
     }
 
@@ -54,7 +54,7 @@ public class MkapmiiRegisterTests extends TestBase {
     void uiCardTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MKAPMII_ORDER);
+        reestrPage.goToRegistry(MKAPMII_ORDER);
         generalPage.goToRegistryCard(MKAPMII_ORDER);
         step("Проверить, что форма озаглавлена Карточка заявления", () ->
                 $("h1").shouldHave(text("Карточка заявления")));
@@ -102,7 +102,7 @@ public class MkapmiiRegisterTests extends TestBase {
     void mainControlsTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MKAPMII_ORDER);
+        reestrPage.goToRegistry(MKAPMII_ORDER);
         ElementsCollection dataBlocks = $$(".tab-content .collapsible-title");
 
         step("Проверка наличия блоков данных", () ->
@@ -147,7 +147,7 @@ public class MkapmiiRegisterTests extends TestBase {
     void handingOverTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MKAPMII_ORDER);
+        reestrPage.goToRegistry(MKAPMII_ORDER);
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
             $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();
@@ -182,7 +182,7 @@ public class MkapmiiRegisterTests extends TestBase {
     void handingOverPlusTest() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MKAPMII_ORDER);
+        reestrPage.goToRegistry(MKAPMII_ORDER);
 
         step("Используя фильтр, найти и открыть карточку в статусе Услуга оказана. Решение положительное", () -> {
             $(".search-result-table thead").$$("tr").last().$$("th").get(4).click();

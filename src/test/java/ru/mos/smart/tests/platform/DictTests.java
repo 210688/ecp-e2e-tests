@@ -22,7 +22,7 @@ import static ru.mos.smart.data.enums.Sidebar.SETTINGS;
 public class DictTests extends TestBase {
 
     @Test
-    @AllureId("1851")
+    @AllureId("18151")
     @Owner("Soldatov")
     @DisplayName("Работоспособность раздела Справочники")
     @Description("Проверка, что в справочнике присутствуют Системные справочники")

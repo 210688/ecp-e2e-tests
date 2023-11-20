@@ -103,7 +103,7 @@ public class DroneTests extends TestBase {
                 "Дата съемки", "Номер контракта", "Дата контракта", "Подрядчик", "Категория", "Тип съемки", "Статус");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION,  REGISTERS);
-        reestrPage.goToRegister(AEROFOTO);
+        reestrPage.goToRegistry(AEROFOTO);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(AEROFOTO, tableColumnList);
     }
     @Test
@@ -117,7 +117,7 @@ public class DroneTests extends TestBase {
         List<String> cardHeadersList = Arrays.asList("Объект", "Информация о заявителе", "Информация о съемке", "Техническая информация");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(AEROFOTO);
+        reestrPage.goToRegistry(AEROFOTO);
         generalPage.goToRegistryCard(AEROFOTO);
         dronePage.checkButtonCard();
         dronePage.checkingCardHeaders(AEROFOTO, cardHeadersList);

@@ -11,9 +11,8 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка работы swagger по подсистемам")
-@Feature("ИАИС РИН")
-@Owner("Soldatovks")
+@Epic("ИАИС РИН")
+@Feature("RINRIF")
 @Tags({@Tag("rinrif"), @Tag("regres"), @Tag("swagger")})
 public class RinrifTests extends ApiBearerTestBase {
 

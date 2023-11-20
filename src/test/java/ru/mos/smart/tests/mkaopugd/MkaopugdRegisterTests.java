@@ -33,7 +33,7 @@ public class MkaopugdRegisterTests extends TestBase {
                 "Наименование", "Кадастровый номер", "Адрес", "Статус");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MKAOPUGD_ORDER);
+        reestrPage.goToRegistry(MKAOPUGD_ORDER);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(MKAOPUGD_ORDER, tableColumnList);
 
     }
@@ -47,7 +47,7 @@ public class MkaopugdRegisterTests extends TestBase {
     void checkCardRegisterInstructionsUgd() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MKAOPUGD_ORDER);
+        reestrPage.goToRegistry(MKAOPUGD_ORDER);
         generalPage.goToRegistryCard(MKAOPUGD_ORDER);
         mkaopUgdPage.checkingCardTabs();
     }

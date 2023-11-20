@@ -41,7 +41,7 @@ public class MrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
-                .goToRegister(MR_PROGRAM_ORDER);
+                .goToRegistry(MR_PROGRAM_ORDER);
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form").$("input").shouldBe(visible);
             $(".search-form").$("button.btn-search").shouldBe(visible);
@@ -65,7 +65,7 @@ public class MrTests extends TestBase {
     void checkAttributesOfMrProgramObjRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MR_PROGRAM_OBJ);
+        reestrPage.goToRegistry(MR_PROGRAM_OBJ);
         step("Проверить, что в форме содержится поле для поиска", () -> {
             $(".search-form input").shouldBe(visible);
             $(".search-form").$("button.btn-search").shouldBe(visible);
@@ -87,7 +87,7 @@ public class MrTests extends TestBase {
     void checkAttributesOfMrProgramObjCard() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MR_PROGRAM_OBJ);
+        reestrPage.goToRegistry(MR_PROGRAM_OBJ);
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg").setValue("город Москва, Сиреневый бульвар, дом 30, строение 1").pressEnter();
@@ -118,7 +118,7 @@ public class MrTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage
-                .goToRegister(MR_PROGRAM_OBJ);
+                .goToRegistry(MR_PROGRAM_OBJ);
 
         step("Открыть любую карточку реестра", () -> {
             $(".input-lg")
@@ -179,7 +179,7 @@ public class MrTests extends TestBase {
 
         $(".mail-box-header").$(byText("Все задачи")).should(visible, Duration.ofSeconds(20));
         reestrPage
-                .goToRegister(MR_PROGRAM_OBJ);
+                .goToRegistry(MR_PROGRAM_OBJ);
 
         step("Проверить объект в реестре", () -> {
             $(".input-lg").setValue(createdObjectName).pressEnter();

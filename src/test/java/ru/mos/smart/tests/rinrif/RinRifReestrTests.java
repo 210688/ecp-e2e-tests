@@ -34,7 +34,7 @@ public class RinRifReestrTests extends TestBase {
                 "Результат проверки", "Специалист УН", "ЕРКНМ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(INSPECTIONACT);
+        reestrPage.goToRegistry(INSPECTIONACT);
         rinrifPage.registryContainsCardsHeadersCheck(INSPECTIONACT, columnNames);
         rinrifPage.verifyNumberHeader();
     }
@@ -49,7 +49,7 @@ public class RinRifReestrTests extends TestBase {
                 "Дата начала строительства", "Дата окончания строительства", "Состояние", "Строительный надзор");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(OBJECTPASSPORT);
+        reestrPage.goToRegistry(OBJECTPASSPORT);
         rinrifPage.registryContainsCardsHeadersCheck(OBJECTPASSPORT, columnNames);
     }
 
@@ -62,7 +62,7 @@ public class RinRifReestrTests extends TestBase {
         List<java.lang.String> columnNames = Arrays.asList("Дело", "Объект", "Кадастровый номер ЗУ", "Кадастровый номер здания");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(OBJECTPASSPORT_SNOS);
+        reestrPage.goToRegistry(OBJECTPASSPORT_SNOS);
         rinrifPage.registryContainsCardsHeadersCheck(OBJECTPASSPORT_SNOS, columnNames);
     }
 
@@ -76,7 +76,7 @@ public class RinRifReestrTests extends TestBase {
                 "Юр. адрес / Факт. адрес", "Почтовый адрес");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(ORGANIZATION);
+        reestrPage.goToRegistry(ORGANIZATION);
         rinrifPage.registryContainsCardsHeadersCheck(ORGANIZATION, columnNames);
     }
 
@@ -90,7 +90,7 @@ public class RinRifReestrTests extends TestBase {
                 "Период проведения", "Ответственный", "Статус", "ЕРКНМ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(INSPECTIONDECISION);
+        reestrPage.goToRegistry(INSPECTIONDECISION);
         rinrifPage.registryContainsCardsHeadersCheck(INSPECTIONDECISION, columnNames);
     }
 
@@ -103,7 +103,7 @@ public class RinRifReestrTests extends TestBase {
         List<java.lang.String> columnNames = Arrays.asList("Номер нарушения", "Дата нарушения", "Наименование работ", "Специалист УН. ФИО");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(VIOLATION);
+        reestrPage.goToRegistry(VIOLATION);
         rinrifPage.registryContainsCardsHeadersCheck(VIOLATION, columnNames);
 
     }
@@ -118,7 +118,7 @@ public class RinRifReestrTests extends TestBase {
                 "Долг по оплате (руб.)");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(POSTANOVLENIE);
+        reestrPage.goToRegistry(POSTANOVLENIE);
         rinrifPage.registryContainsCardsHeadersCheck(POSTANOVLENIE, columnNames);
     }
 
@@ -132,7 +132,7 @@ public class RinRifReestrTests extends TestBase {
                 "Специалист УН. ФИО");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(PROTOCOL);
+        reestrPage.goToRegistry(PROTOCOL);
         rinrifPage.registryContainsCardsHeadersCheck(PROTOCOL, columnNames);
     }
 
@@ -145,7 +145,7 @@ public class RinRifReestrTests extends TestBase {
         List<java.lang.String> columnNames = Arrays.asList("Дата проверки ЦЭИИС", "Срок исполнения ТЗ", "Состав работ", "Состав работ утвержден ГБУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(TZ_LABORATORIES);
+        reestrPage.goToRegistry(TZ_LABORATORIES);
         rinrifPage.registryContainsCardsHeadersCheck(TZ_LABORATORIES, columnNames);
     }
 
@@ -159,7 +159,7 @@ public class RinRifReestrTests extends TestBase {
                 "Исполнитель", "Данные ПГУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(SNOS_FINISH);
+        reestrPage.goToRegistry(SNOS_FINISH);
         rinrifPage.registryContainsCardsHeadersCheck(SNOS_FINISH, columnNames);
     }
 
@@ -173,7 +173,7 @@ public class RinRifReestrTests extends TestBase {
                 "Заявитель", "Исполнитель", "Данные ПГУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(SNOS_PLAN);
+        reestrPage.goToRegistry(SNOS_PLAN);
         rinrifPage.registryContainsCardsHeadersCheck(SNOS_PLAN, columnNames);
     }
 
@@ -187,7 +187,7 @@ public class RinRifReestrTests extends TestBase {
                 "Объект", "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(RV_CHANGE);
+        reestrPage.goToRegistry(RV_CHANGE);
         rinrifPage.registryContainsCardsHeadersCheck(RV_CHANGE, columnNames);
     }
 
@@ -201,7 +201,7 @@ public class RinRifReestrTests extends TestBase {
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(RS_CHANGE);
+        reestrPage.goToRegistry(RS_CHANGE);
         rinrifPage.registryContainsCardsHeadersCheck(RS_CHANGE, columnNames);
     }
 
@@ -215,7 +215,7 @@ public class RinRifReestrTests extends TestBase {
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(RV_RV);
+        reestrPage.goToRegistry(RV_RV);
         rinrifPage.registryContainsCardsHeadersCheck(RV_RV, columnNames);
     }
 
@@ -229,7 +229,7 @@ public class RinRifReestrTests extends TestBase {
                 "Заявитель", "Данные ПГУ", "Ответный документ", "Исполнитель");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(RS_RS);
+        reestrPage.goToRegistry(RS_RS);
         rinrifPage.registryContainsCardsHeadersCheck(RS_RS, columnNames);
     }
 
@@ -244,7 +244,7 @@ public class RinRifReestrTests extends TestBase {
                 "Заявитель", "Исполнитель", "Данные ПГУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(IZS_PLAN);
+        reestrPage.goToRegistry(IZS_PLAN);
         rinrifPage.registryContainsCardsHeadersCheck(IZS_PLAN, columnNames);
     }
 
@@ -259,12 +259,11 @@ public class RinRifReestrTests extends TestBase {
                 "Заявитель", "Исполнитель", "Данные ПГУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(IZS_ZAV);
+        reestrPage.goToRegistry(IZS_ZAV);
         rinrifPage.registryContainsCardsHeadersCheck(IZS_ZAV, columnNames);
     }
 
     @Test
-    @AllureId("17619")
     @Story("IZS")
     @DisplayName("Наличие карточек и заголовков в реестре ИЖС. Уведомление об изменении в строительстве")
     @Description("Проверить, что реестр ИЖС. Уведомление об изменении в строительстве корректно открывается, присутствуют карточки " +
@@ -274,7 +273,7 @@ public class RinRifReestrTests extends TestBase {
                 "Заявитель", "Исполнитель", "Данные ПГУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(IZS_CHANGE);
+        reestrPage.goToRegistry(IZS_CHANGE);
         rinrifPage.registryContainsCardsHeadersCheck(IZS_CHANGE, columnNames);
     }
 
@@ -289,7 +288,7 @@ public class RinRifReestrTests extends TestBase {
                 "Ответственный", "Решение принял", "Подразделение", "ЕРКНМ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(CHECKPAUSE);
+        reestrPage.goToRegistry(CHECKPAUSE);
         rinrifPage.registryContainsCardsHeadersCheck(CHECKPAUSE, columnNames);
     }
 
@@ -304,7 +303,7 @@ public class RinRifReestrTests extends TestBase {
                 "Сопроводительное письмо", "Решение", "Номер решения", "Дата решения", "ЕРКНМ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(PROCCLAIM);
+        reestrPage.goToRegistry(PROCCLAIM);
         rinrifPage.registryContainsCardsHeadersCheck(PROCCLAIM, columnNames);
     }
 
@@ -318,7 +317,7 @@ public class RinRifReestrTests extends TestBase {
         List<java.lang.String> columnNames = Arrays.asList("Тип", "Номер документа", "Дата документа", "ЕРКНМ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(KNMRESULT);
+        reestrPage.goToRegistry(KNMRESULT);
         rinrifPage.registryContainsCardsHeadersCheck(KNMRESULT, columnNames);
     }
 
@@ -335,7 +334,7 @@ public class RinRifReestrTests extends TestBase {
                 "Дата ответа на возражения", "Результат рассмотрения возражения");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(CAUTION);
+        reestrPage.goToRegistry(CAUTION);
         rinrifPage.registryContainsCardsHeadersCheck(CAUTION, columnNames);
     }
 
@@ -350,7 +349,7 @@ public class RinRifReestrTests extends TestBase {
                 "Заявитель", "Данные ПГУ", "Ответственный специалист УН");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(IZVSTARTSMR);
+        reestrPage.goToRegistry(IZVSTARTSMR);
         rinrifPage.registryContainsCardsHeadersCheck(IZVSTARTSMR, columnNames);
     }
 }

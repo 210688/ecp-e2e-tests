@@ -17,7 +17,7 @@ public class RegistryTests extends TestBase {
 
 
     @Test
-    @AllureId("18510")
+    @AllureId("18150")
     @Owner("Soldatov")
     @DisplayName("Наличие списка реестров на странице Реестр")
     @Description("Проверка доступности реестров")
@@ -35,6 +35,6 @@ public class RegistryTests extends TestBase {
     void CheckCardInRegistry() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(ORGANIZATION);
+        reestrPage.goToRegistry(ORGANIZATION);
     }
 }

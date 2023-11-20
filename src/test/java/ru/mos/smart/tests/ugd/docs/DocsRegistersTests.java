@@ -35,7 +35,7 @@ public class DocsRegistersTests extends TestBase {
                 "Удален", "Файл", "Наличие жилищного строительства");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_DOCS_GPZU_DOCUMENT);
+        reestrPage.goToRegistry(UGD_DOCS_GPZU_DOCUMENT);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_DOCS_GPZU_DOCUMENT, columnNames);
     }
 
@@ -51,7 +51,7 @@ public class DocsRegistersTests extends TestBase {
                 "Признак удаления", "Файл");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_DOCS_MGGT_CONCLUSION_DOCUMENT);
+        reestrPage.goToRegistry(UGD_DOCS_MGGT_CONCLUSION_DOCUMENT);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_DOCS_MGGT_CONCLUSION_DOCUMENT, columnNames);
     }
 
@@ -67,7 +67,7 @@ public class DocsRegistersTests extends TestBase {
                 "Объект", "Организация", "Исполнитель", "Принятое решение", "Удален", "Файл");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_DOCS_EQUIVALENT_CONCLUSION_DOCUMENT);
+        reestrPage.goToRegistry(UGD_DOCS_EQUIVALENT_CONCLUSION_DOCUMENT);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_DOCS_EQUIVALENT_CONCLUSION_DOCUMENT, columnNames);
     }
 
@@ -85,7 +85,7 @@ public class DocsRegistersTests extends TestBase {
                 "Экспертная организация", "Файл");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_DOCS_CONCLUSION_EXPERTISE_DOCUMENT);
+        reestrPage.goToRegistry(UGD_DOCS_CONCLUSION_EXPERTISE_DOCUMENT);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_DOCS_CONCLUSION_EXPERTISE_DOCUMENT, columnNames);
     }
 
@@ -101,7 +101,7 @@ public class DocsRegistersTests extends TestBase {
                 "Признак удаления", "Файл");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_DOCS_MGGT_EXDRAWING_DOCUMENT);
+        reestrPage.goToRegistry(UGD_DOCS_MGGT_EXDRAWING_DOCUMENT);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_DOCS_MGGT_EXDRAWING_DOCUMENT, columnNames);
     }
 
@@ -117,7 +117,7 @@ public class DocsRegistersTests extends TestBase {
                 "Состояние документа", "Кем выдан", "Номер заявления", "Дата заявления", "Объект", "Организация", "Статус ГКУ/ГРП", "Удален", "Файл");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_DOCS_STARTUP_PERMISSION_DOCUMENT);
+        reestrPage.goToRegistry(UGD_DOCS_STARTUP_PERMISSION_DOCUMENT);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_DOCS_STARTUP_PERMISSION_DOCUMENT, columnNames);
     }
 
@@ -133,7 +133,7 @@ public class DocsRegistersTests extends TestBase {
                 "Кем выдан", "Номер заявления", "Дата заявления", "Объект", "Организация", "Удален", "Файл");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_DOCS_CONSTRUCTION_PERMISSION_DOCUMENT);
+        reestrPage.goToRegistry(UGD_DOCS_CONSTRUCTION_PERMISSION_DOCUMENT);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_DOCS_CONSTRUCTION_PERMISSION_DOCUMENT, columnNames);
     }
 
@@ -149,7 +149,7 @@ public class DocsRegistersTests extends TestBase {
                 "Государственный заказчик", "Заказчик", "Состояние", "Программа Правительства Москвы");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_DOCS_TITLE_DOCUMENT);
+        reestrPage.goToRegistry(UGD_DOCS_TITLE_DOCUMENT);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_DOCS_TITLE_DOCUMENT, columnNames);
     }
 }

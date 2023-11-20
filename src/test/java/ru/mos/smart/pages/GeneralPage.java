@@ -11,9 +11,8 @@ import ru.mos.smart.helpers.AllureAttachments;
 import java.util.List;
 import java.util.Random;
 
-import static com.codeborne.selenide.CollectionCondition.*;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Selenide.*;
 
 public class GeneralPage {
@@ -32,6 +31,10 @@ public class GeneralPage {
         Random random = new Random();
         int randomNumber = random.nextInt(5) + 1;
         return resultsAllCardsInRegistry.get(randomNumber).$$("td").get(1).$("a");
+    }
+
+    public void checkMainPage() {
+
     }
 
     private void switchToWindow() {

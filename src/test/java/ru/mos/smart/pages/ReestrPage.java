@@ -3,7 +3,6 @@ package ru.mos.smart.pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import lombok.NonNull;
 import ru.mos.smart.data.enums.Registers;
 import ru.mos.smart.helpers.AllureAttachments;
 
@@ -23,8 +22,8 @@ public class ReestrPage {
     private final ElementsCollection registryName = $$("trv-input"),
             listRegistry = $$(".ag-center-cols-container > div");
 
-    @Step("Переход в реестр {registerName}")
-    public void goToRegister(@NonNull Registers registerName) {
+    @Step("Перейти в реестр {registerName}")
+    public void goToRegistry(Registers registerName) {
         filter.should(visible, ofSeconds(10)).click();
         registryName.get(1).$("input").val(registerName.value());
         $(byText(registerName.value())).should(visible, ofSeconds(15)).click();

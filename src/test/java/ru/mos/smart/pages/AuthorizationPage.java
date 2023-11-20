@@ -22,7 +22,7 @@ public class AuthorizationPage {
     }
 
     public static void openUrlWithAuthorizationAPI(String login, String password) {
-        step("Авторизация", (step) -> {
+        step("Авторизоваться в УЗ", (step) -> {
             step.parameter("Login", login);
             Authorization authorization = new Authorization();
             setCookies(authorization.getAuthCookie(login, password));
@@ -31,9 +31,10 @@ public class AuthorizationPage {
 
     public static void openUrlWithAuthorizationUI(String url, String login, String password) {
         Selenide.open(url);
-        step("Авторизация", (step) -> {
+        step("Авторизоваться в УЗ", (step) -> {
             step.parameter("Login", login);
             $(byText("Войти по логину и паролю")).click();
+            step.parameter("Ввести логин", login);
             $("#username").setValue(login);
             $("#password").setValue(password);
             $("#kc-login").click();
@@ -47,7 +48,6 @@ public class AuthorizationPage {
             $("#login").setValue(login);
             $("#password").setValue(password);
             $("#bind").click();
-            //$("#showMethodsList").click();
         });
     }
 }

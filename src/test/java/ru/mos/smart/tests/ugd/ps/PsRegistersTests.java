@@ -35,7 +35,7 @@ public class PsRegistersTests extends TestBase {
                 "Удален", "Статус надзорного дела");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_PS_CAPITAL_CONSTRUCTION_OBJECT);
+        reestrPage.goToRegistry(UGD_PS_CAPITAL_CONSTRUCTION_OBJECT);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_PS_CAPITAL_CONSTRUCTION_OBJECT, columnNames);
     }
 
@@ -52,7 +52,7 @@ public class PsRegistersTests extends TestBase {
                 "Особые отметки", "Включен в реестр строек", "Удален");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_PS_CAPITAL_CONSTRUCTION_PROJECT);
+        reestrPage.goToRegistry(UGD_PS_CAPITAL_CONSTRUCTION_PROJECT);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_PS_CAPITAL_CONSTRUCTION_PROJECT, columnNames);
     }
 }
