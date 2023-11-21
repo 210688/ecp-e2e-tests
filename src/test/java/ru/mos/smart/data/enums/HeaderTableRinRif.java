@@ -3,7 +3,7 @@ package ru.mos.smart.data.enums;
 /**
  * Перечисление, представляющее заголовки в реестрах и карточках РинРиф.
  */
-public enum RinRif {
+public enum HeaderTableRinRif {
 
     GENERAL_INFORMATION_HEADER("Общая информация"),
     DOCUMENTS_HEADER("Документы"),
@@ -15,7 +15,7 @@ public enum RinRif {
 
     private final String value;
 
-    RinRif(String value) {
+    HeaderTableRinRif(String value) {
         this.value = value;
     }
 

@@ -3,8 +3,8 @@ package ru.mos.smart.pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import ru.mos.smart.data.enums.HeaderTableRinRif;
 import ru.mos.smart.data.enums.Registers;
-import ru.mos.smart.data.enums.RinRif;
 
 import java.util.List;
 
@@ -52,13 +52,14 @@ public class RinrifPage {
 
     @Step("Проверить наличие карточек в реестре {registerName}")
     public void checkPresenceCardInRegistry(Registers registerName) {
+        switchToWindow();
         resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1));
         attachScreenshot("Наличие карточек в реестре" + " " + registerName.value());
     }
 
-    @Step("Проверить заполненность вкладки Общие сведения")
+    @Step("Проверить заполненность данными в карточке")
     public void checkInformationTheTab() {
-        $$("#commoninfo").shouldHave(sizeGreaterThan(0));
+        $(".description").should(visible);
     }
 
     private void headersInCard(List<String> expectedHeaders) {
@@ -82,11 +83,30 @@ public class RinrifPage {
     @Step("Перейти в карточку реестра {registerName}")
     public void goToRegistryCard(Registers registerName) {
         switchToWindow();
-        SelenideElement cardLinkElement = resultsAllCardsInRegistry.first().$$("td").get(2).$("a");
+        SelenideElement cardLinkElement = resultsAllCardsInRegistry.first().$$("td").get(0).$("a");
         String linkName = cardLinkElement.getAttribute("href");
         cardLinkElement.click();
         assert linkName != null;
-        addAttachment("Ссылка на карточку" + registerName, linkName);
+        addAttachment("Ссылка на карточку " + registerName, linkName);
+    }
+
+    @Step("Перейти в карточку реестра {registerName}")
+    public void goToRegistryCarr(Registers registerName) {
+        switchTo().window(1);
+        ElementsCollection rows = $$(".search-result-table > tbody > tr");
+        SelenideElement randomRow = rows.get((int) (Math.random() * rows.size()));
+        ElementsCollection cells = randomRow.$$("td");
+
+        int randomCellIndex = (int) (Math.random() * cells.size());
+        String cellText = cells.get(randomCellIndex).getText();
+        if (!cellText.isEmpty()) {
+            String hrefLink = cells.get(randomCellIndex).$("a").getAttribute("href");
+            cells.get(randomCellIndex).$("a").click();
+            assert hrefLink != null;
+            addAttachment("Ссылка на карточку " + registerName, hrefLink);
+        } else {
+            throw new AssertionError("Текст в ячейке отсутствует.");
+        }
     }
 
     @Step("Доступность заголовков {list} и наличие данных в карточке {registerName}")
@@ -144,31 +164,21 @@ public class RinrifPage {
     }
 
     // Проверка соответствия заголовка колонки ожидаемому значению
-    public void verifyColumnCardHeader(RinRif expectedCardHeader, int index) {
+    public void verifyColumnCardHeader(HeaderTableRinRif expectedCardHeader, int index) {
         ElementsCollection headers = getTableCardHeaders();
         String actualCardHeader = headers.get(index).getText();
-        step("Проверка, что заголовок '" + expectedCardHeader.getValue() + "' соответствует ожидаемому. Фактическое значение: "
+        step("Проверить, что заголовок '" + expectedCardHeader.getValue() + "' соответствует ожидаемому. Фактическое значение: "
                 + actualCardHeader, () -> {
             assertEquals(expectedCardHeader.getValue(), actualCardHeader, "Значение не соответствует ожидаемому");
         });
     }
 
-    public void verifyCardHeader(RinRif[] headers) {
-        step("Проверка заголовков карточки", () -> {
+    public void verifyCardHeader(HeaderTableRinRif[] headers) {
+        step("Проверить заголовки в карточки", () -> {
             for (int i = 0; i < headers.length; i++) {
                 verifyColumnCardHeader(headers[i], i);
             }
         });
     }
 }
-
-/*    public void verifyCardHeader() {
-        verifyColumnCardHeader(GENERAL_INFORMATION_HEADER, 0);
-        verifyColumnCardHeader(DOCUMENTS_HEADER, 1);
-        verifyColumnCardHeader(RESULT_HEADER, 2);
-        verifyColumnCardHeader(EXTERNAL_SYSTEMS_HEADER, 3);
-        verifyColumnCardHeader(PROCESS_HEADER, 4);
-        verifyColumnCardHeader(GENERAL_DATA, 5);
-        verifyColumnCardHeader(INFORMATION_ZU_AND_OBJECTS, 6);
-    }*/
 

@@ -139,13 +139,14 @@ public class RinRifReestrTests extends TestBase {
     @Test
     @AllureId("16984")
     @Story("NADZOR")
-    @DisplayName("Наличия данных и перехода в реестр ТЗ лаборатории")
-    @Description("Проверить, что присутствуют данные в реестре и он открывается")
-    void goToRegistryTzLabaratorii() {
+    @DisplayName("Проверить доступность реестра ТЗ лаборатории и наличие карточек.")
+    @Description("Проверить открытие реестра ТЗ лаборатории и наличие карточек")
+    void checkOpenRegistryTzLabs() {
         List<java.lang.String> columnNames = Arrays.asList("Дата проверки ЦЭИИС", "Срок исполнения ТЗ", "Состав работ", "Состав работ утвержден ГБУ");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegistry(TZ_LABORATORIES);
+        rinrifPage.checkPresenceCardInRegistry(IZS_CHANGE);
         rinrifPage.registryContainsCardsHeadersCheck(TZ_LABORATORIES, columnNames);
     }
 
