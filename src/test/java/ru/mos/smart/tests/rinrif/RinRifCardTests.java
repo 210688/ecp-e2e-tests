@@ -215,7 +215,6 @@ public class RinRifCardTests extends TestBase {
     }
 
     @Test
-    @AllureId("17619")
     @Owner("Soldatov")
     @Story("IZS")
     @DisplayName("Перейти в карточку из реестра ИЖС. Уведомление об изменении в строительстве")
