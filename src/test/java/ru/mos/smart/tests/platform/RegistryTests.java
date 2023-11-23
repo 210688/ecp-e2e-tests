@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.tests.TestBase;
 
-import static ru.mos.smart.data.enums.Registers.ORGANIZATION;
+import static ru.mos.smart.data.enums.Registers.*;
 import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
@@ -36,5 +36,30 @@ public class RegistryTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegistry(ORGANIZATION);
+        reestrPage.checkListRegistry();
     }
+
+    @Test
+    @AllureId("18012")
+    @Owner("Soldatov")
+    @DisplayName("Открытие реестра профили организации")
+    @Description("Проверить функционал открытия реестра профили организации, убедиться в наличии карточек в реестре")
+    void CheckRegistryOrgrofile() {
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegistry(ORGPROFILE);
+    }
+
+    @Test
+    @AllureId("18070")
+    @Owner("Soldatov")
+    @DisplayName("Проверка адресного реестра (компонент addresses)")
+    @Description("Проверить функционал открытия адресного реестра, убедиться в наличии данных")
+    void CheckRegistryAddressed() {
+        sidebarPage.clickSidebarMenu(INFORMATION);
+        sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
+        reestrPage.goToRegistry(ADDRESSES);
+        reestrPage.checkListInRegistry();
+    }
+
 }

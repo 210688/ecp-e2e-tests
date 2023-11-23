@@ -59,7 +59,9 @@ public enum Registers {
     UGD_DOCS_CONSTRUCTION_PERMISSION_DOCUMENT("Реестр оперативных данных документов. Разрешения на строительство"),
     UGD_DOCS_TITLE_DOCUMENT("Реестр оперативных данных документов. Титульные списки"),
     UGD_PS_CAPITAL_CONSTRUCTION_OBJECT("Цифровые паспорта объектов капитального строительства"),
-    UGD_PS_CAPITAL_CONSTRUCTION_PROJECT("Цифровые паспорта проектов строительства");
+    UGD_PS_CAPITAL_CONSTRUCTION_PROJECT("Цифровые паспорта проектов строительства"),
+    ORGPROFILE("Профили организаций"),
+    ADDRESSES("Адресный реестр");
 
     private final String value;
 
