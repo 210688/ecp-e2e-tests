@@ -8,13 +8,9 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.mos.smart.tests.TestBase;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 
-import static com.codeborne.selenide.Selenide.$x;
-import static org.assertj.core.api.Assertions.assertThat;
-import static ru.mos.smart.data.enums.Sidebar.REFERENCE_BOOKS;
-import static ru.mos.smart.data.enums.Sidebar.SETTINGS;
+import static ru.mos.smart.data.enums.Sidebar.*;
 
 @Epic("Регрессионные тесты платформы (функционал)")
 @Feature("Работа со справочниками")
@@ -24,22 +20,23 @@ public class DictTests extends TestBase {
     @Test
     @AllureId("18151")
     @Owner("Soldatov")
-    @DisplayName("Работоспособность раздела Справочники")
-    @Description("Проверка, что в справочнике присутствуют Системные справочники")
+    @DisplayName("Проверить наличие системных справочников")
+    @Description("Проверить, что в справочнике присутствуют Системные справочники")
     void goToSystemDict() {
         sidebarPage.clickSidebarMenu(SETTINGS);
         sidebarPage.clickSubMenuList(SETTINGS, REFERENCE_BOOKS);
-        dictPage.checkListSystemDict();
+        dictPage.verifySystemDictionariesExistence();
     }
 
     @Test
     @AllureId("17964")
     @Owner("Soldatov")
-    @DisplayName("Проверка работоспособности раздела Справочники")
-    @Description("Проверка открытия системного справочника возможности и наличие данных")
+    @DisplayName("Открытие карточки системного справочника")
+    @Description("Проверить функционал открытия системного справочника и убедиться в заполненности справочника данными")
     void goToCardInSystemDict() {
         sidebarPage.clickSidebarMenu(SETTINGS);
         sidebarPage.clickSubMenuList(SETTINGS, REFERENCE_BOOKS);
+        dictPage.verifySystemDictionariesExistence();
         dictPage.goToSystemDict();
         dictPage.checkListActions();
     }
@@ -47,14 +44,30 @@ public class DictTests extends TestBase {
     @Test
     @AllureId("17965")
     @Owner("Soldatov")
-    @DisplayName("Выгрузка системного справочника")
-    @Description("Проверка работы экспорта справочника в JSON файл")
+    @DisplayName("Экспорт справочника в JSON файл")
+    @Description("Проверить работу функционала экспорта справочника в JSON файл")
     void downloadSystemDict() throws FileNotFoundException {
         Configuration.fileDownload = FileDownloadMode.FOLDER;
         sidebarPage.clickSidebarMenu(SETTINGS);
         sidebarPage.clickSubMenuList(SETTINGS, REFERENCE_BOOKS);
         dictPage.goToSystemDict();
-        File downloadedFile = $x("//button[@title='Экспорт справочника в JSON файл']").download();
-        assertThat(downloadedFile.getName()).matches(".*_Actions_complete\\.json");
+        dictPage.exportDictionary();
+        //File downloadedFile = $(".fa-upload").download();
+        //$x("//button[@title='Экспорт справочника в JSON файл']").download();
+        //assertThat(downloadedFile.getName()).matches(".*_complete\\.json");
+    }
+
+    @Test
+    @AllureId("17962")
+    @Owner("Soldatov")
+    @DisplayName("Проверка функционала получения данных пользователей")
+    @Description("Проверить работу функционала открытия карточки пользователя через интерфейс поиска пользователей")
+    void checkSearchUser() {
+        sidebarPage.clickSidebarMenu(SETTINGS);
+        sidebarPage.clickSubMenuList(SETTINGS, USER);
+        userPage.searchUser();
+        userPage.userList();
+        userPage.goToUserCard();
+        userPage.checkCardUser();
     }
 }

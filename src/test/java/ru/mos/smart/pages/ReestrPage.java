@@ -4,7 +4,6 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.mos.smart.data.enums.Registers;
-import ru.mos.smart.helpers.AllureAttachments;
 
 import java.util.List;
 
@@ -16,23 +15,42 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static java.time.Duration.ofSeconds;
+import static ru.mos.smart.helpers.AllureAttachments.attachScreenshot;
 
 public class ReestrPage {
-    private final SelenideElement filter = $(".btn.btn-type-basic");
-    private final ElementsCollection registryName = $$("trv-input"),
-            listRegistry = $$(".ag-center-cols-container > div");
+    private final SelenideElement
+            filter = $(".btn.btn-type-basic"),
+            nameRegistry = $("span[class='ng-star-inserted']");
 
-    @Step("Перейти в реестр {registerName}")
+    private final ElementsCollection
+            registryName = $$("trv-input"),
+            listRegistry = $$(".ag-center-cols-container > div"),
+            resultsAllCardsInRegistry = $$(".search-result-table > tbody > tr");
+
+    @Step("Переход в реестр {registerName}")
     public void goToRegistry(Registers registerName) {
         filter.should(visible, ofSeconds(10)).click();
         registryName.get(1).$("input").val(registerName.value());
         $(byText(registerName.value())).should(visible, ofSeconds(15)).click();
     }
 
-    @Step("Проверить наличие элементов в списке реестров")
+    @Step("Проверить наличие списка элементов в реестре")
     public void checkListInRegistry() {
         listRegistry.shouldHave(sizeGreaterThan(1));
-        AllureAttachments.attachScreenshot("Скриншот реестра");
+        attachScreenshot("Скриншот реестра");
+    }
+
+/*   @Step("Проверить название реестра {registerName}")
+    public void checkNameRegistry(Registers registerName) {
+        String expectedText = registerName.value();
+        nameRegistry.shouldHave(text(expectedText));
+        attachScreenshot("Скриншот реестра" + " " + registerName.value());
+    }*/
+
+    @Step("Проверить наличие карточек в реестре")
+    public void checkListRegistry() {
+        resultsAllCardsInRegistry.shouldHave(sizeGreaterThan(1));
+
     }
 
     @Step("В реестре содержится поле для поиска")

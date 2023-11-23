@@ -80,7 +80,7 @@ public class RinrifPage {
         cardSearchResultTable.find(visible).shouldHave(text(enoNumber));
     }
 
-    @Step("Перейти в карточку реестра {registerName}")
+    @Step("Переход в карточку реестра {registerName}")
     public void goToRegistryCard(Registers registerName) {
         switchToWindow();
         SelenideElement cardLinkElement = resultsAllCardsInRegistry.first().$$("td").get(0).$("a");
