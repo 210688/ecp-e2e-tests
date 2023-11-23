@@ -29,7 +29,7 @@ public class FasadesRegistersTests extends TestBase {
     void openRegisterFasades() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(OASI_FACADES_PFD);
+        reestrPage.goToRegistry(OASI_FACADES_PFD);
         $(byText("Проекты изменений фасадов зданий (жилые)")).shouldBe(visible);
 
     }

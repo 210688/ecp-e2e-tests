@@ -11,6 +11,7 @@ public enum Sidebar {
     REGISTERS(IS_STAGE ? "Реестры LCS" : "Реестры"),
     SETTINGS("Настройки"),
     REFERENCE_BOOKS("Справочники"),
+    USER("Пользователи"),
     MAPS3D("Цифровой двойник"),
     MAP("Карта"),
     SD("СД"),

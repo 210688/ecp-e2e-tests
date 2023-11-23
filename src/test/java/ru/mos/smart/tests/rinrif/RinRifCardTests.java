@@ -5,12 +5,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.data.enums.HeaderTableRinRif;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static ru.mos.smart.data.enums.HeaderTableRinRif.*;
 import static ru.mos.smart.data.enums.Registers.*;
 import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
@@ -31,7 +33,7 @@ public class RinRifCardTests extends TestBase {
         List<String> blocksList = new ArrayList<>(Arrays.asList("Общая информация", "ЕРКНМ", "", "", "Общие сведения"));
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(INSPECTIONACT);
+        reestrPage.goToRegistry(INSPECTIONACT);
         rinrifPage.goToRegistryCard(INSPECTIONACT);
         rinrifPage.checkAvailabilityHeadersInCard(INSPECTIONACT, blocksList);
     }
@@ -48,7 +50,7 @@ public class RinRifCardTests extends TestBase {
                 "Процессы", "Общие сведения", "Сведения о ЗУ и объектах", "ТЭП"));
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(RV_CHANGE);
+        reestrPage.goToRegistry(RV_CHANGE);
         rinrifPage.goToRegistryCard(RV_CHANGE);
         rinrifPage.checkAvailabilityHeadersInCard(RV_CHANGE, blocksList);
     }
@@ -63,7 +65,7 @@ public class RinRifCardTests extends TestBase {
         List<String> blocksList = Arrays.asList("Паспорт", "Документы МГСН", "Профилактические мероприятия", "", "");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(OBJECTPASSPORT);
+        reestrPage.goToRegistry(OBJECTPASSPORT);
         rinrifPage.goToRegistryCard(OBJECTPASSPORT);
         rinrifPage.checkAvailabilityHeadersInCard(OBJECTPASSPORT, blocksList);
     }
@@ -78,8 +80,9 @@ public class RinRifCardTests extends TestBase {
         List<String> blocksList = Arrays.asList("Общие сведения", "Организации", "Представленные документы");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(ORGANIZATION);
-        rinrifPage.goToRegistryCard(ORGANIZATION);
+        reestrPage.goToRegistry(ORGANIZATION);
+        rinrifPage.goToRegistryCarr(ORGANIZATION);
+
     }
 
     @Test
@@ -91,7 +94,7 @@ public class RinRifCardTests extends TestBase {
     void checkCardReestrAllInspectionDecisions() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(INSPECTIONDECISION);
+        reestrPage.goToRegistry(INSPECTIONDECISION);
     }
 
     @Test
@@ -103,7 +106,7 @@ public class RinRifCardTests extends TestBase {
     void checkCardReestrUvedomleniyaOzaversheniiSnosa() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(SNOS_FINISH);
+        reestrPage.goToRegistry(SNOS_FINISH);
         rinrifPage.goToRegistryCard(SNOS_FINISH);
     }
 
@@ -116,7 +119,7 @@ public class RinRifCardTests extends TestBase {
     void checkCardReestrUvedomleniyaOplaniruemomSnose() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(SNOS_PLAN);
+        reestrPage.goToRegistry(SNOS_PLAN);
         rinrifPage.goToRegistryCard(SNOS_PLAN);
     }
 
@@ -129,7 +132,7 @@ public class RinRifCardTests extends TestBase {
     void checkCardRegisterConstructionLicense() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(RS_CHANGE);
+        reestrPage.goToRegistry(RS_CHANGE);
         rinrifPage.goToRegistryCard(RS_CHANGE);
     }
 
@@ -142,7 +145,7 @@ public class RinRifCardTests extends TestBase {
     void checkCardRegisterObjectOperation() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(RV_RV);
+        reestrPage.goToRegistry(RV_RV);
         rinrifPage.goToRegistryCard(RV_RV);
     }
 
@@ -155,7 +158,7 @@ public class RinRifCardTests extends TestBase {
     void checkCardBuildingPermitRegister() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(RS_RS);
+        reestrPage.goToRegistry(RS_RS);
         rinrifPage.goToRegistryCard(RS_RS);
     }
 
@@ -168,7 +171,7 @@ public class RinRifCardTests extends TestBase {
     void verifyTabsOpenAndPresenceOfElements() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(RS_RS);
+        reestrPage.goToRegistry(RS_RS);
         rinrifPage.goToRegistryCard(RS_RS);
         rinrifPage.checkDataTabsDocuments();
     }
@@ -185,7 +188,7 @@ public class RinRifCardTests extends TestBase {
                 "Процессы", "Общие сведения", "Сведения о ЗУ и объекте");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(IZS_ZAV);
+        reestrPage.goToRegistry(IZS_ZAV);
         rinrifPage.goToRegistryCard(IZS_ZAV);
         rinrifPage.checkAvailabilityHeadersInCard(IZS_ZAV, cardHeaders);
     }
@@ -194,48 +197,56 @@ public class RinRifCardTests extends TestBase {
     @AllureId("17620")
     @Owner("Soldatov")
     @Story("IZS")
-    @DisplayName("Переход в карточку из реестра ИЖС. Уведомление о планируемом строительстве")
+    @DisplayName("Перейти в карточку из реестра ИЖС. Уведомление о планируемом строительстве")
     @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление о планируемом строительстве " +
             "убедится в наличии заголовков и данных в карточке.")
-    void checkCardRegistryIzsPlan() {
-        List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат", "Внешние системы",
-                "Процессы", "Служебная информация", "Общие сведения", "Сведения о ЗУ и объекте");
+    void checkCardInRegistryIzsPlan() {
+        HeaderTableRinRif[] expectedHeaders = {
+                GENERAL_INFORMATION_HEADER, DOCUMENTS_HEADER, RESULT_HEADER, EXTERNAL_SYSTEMS_HEADER,
+                PROCESS_HEADER, GENERAL_DATA, INFORMATION_ZU_AND_OBJECTS
+        };
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(IZS_PLAN);
+        reestrPage.goToRegistry(IZS_PLAN);
+        rinrifPage.checkPresenceCardInRegistry(IZS_PLAN);
         rinrifPage.goToRegistryCard(IZS_PLAN);
-        rinrifPage.checkAvailabilityHeadersInCard(IZS_PLAN, cardHeaders);
+        rinrifPage.checkInformationTheTab();
+        rinrifPage.verifyCardHeader(expectedHeaders);
     }
 
     @Test
-    @AllureId("17619")
     @Owner("Soldatov")
     @Story("IZS")
-    @DisplayName("Переход в карточку из реестра ИЖС. Уведомление об изменении в строительстве")
+    @DisplayName("Перейти в карточку из реестра ИЖС. Уведомление об изменении в строительстве")
     @Description("Проверить, что открывается карточка из реестра - ИЖС. Уведомление об изменении в строительстве " +
             "убедится в наличии заголовков и данных в карточке.")
-    void checkCardRegistryIzsChange() {
-        List<String> cardHeaders = Arrays.asList("Общая информация", "Документы", "Результат",
-                "Внешние системы", "Процессы", "Служебная информация", "Общие сведения", "Сведения о ЗУ и объекте");
+    void checkCardInRegistryIzsChange() {
+        HeaderTableRinRif[] expectedHeaders = {
+                GENERAL_INFORMATION_HEADER, DOCUMENTS_HEADER, RESULT_HEADER, EXTERNAL_SYSTEMS_HEADER,
+                PROCESS_HEADER, GENERAL_DATA, INFORMATION_ZU_AND_OBJECTS
+        };
+
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(IZS_CHANGE);
+        reestrPage.goToRegistry(IZS_CHANGE);
+        rinrifPage.checkPresenceCardInRegistry(IZS_CHANGE);
         rinrifPage.goToRegistryCard(IZS_CHANGE);
-        rinrifPage.checkAvailabilityHeadersInCard(IZS_CHANGE, cardHeaders);
+        rinrifPage.checkInformationTheTab();
+        rinrifPage.verifyCardHeader(expectedHeaders);
     }
 
     @Test
     @AllureId("17847")
     @Owner("Soldatov")
     @Story("NADZOR")
-    @DisplayName("Переход в карточку из реестра Все объекты сноса")
+    @DisplayName("Перейти в карточку из реестра Все объекты сноса")
     @Description("Проверить, что открывается карточка из реестра - Все объекты сноса " +
             "убедится в наличии заголовков и данных в карточке.")
     void checkCardRegistryObjectPassportSnos() {
         List<String> cardHeaders = Arrays.asList("Паспорт", "Документы МГСН", "", "", "");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(OBJECTPASSPORT_SNOS);
+        reestrPage.goToRegistry(OBJECTPASSPORT_SNOS);
         rinrifPage.goToRegistryCard(OBJECTPASSPORT_SNOS);
         rinrifPage.checkAvailabilityHeadersInCard(OBJECTPASSPORT_SNOS, cardHeaders);
     }
@@ -251,7 +262,7 @@ public class RinRifCardTests extends TestBase {
         List<String> cardHeaders = Arrays.asList("Общая информация", "", "");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(VIOLATION);
+        reestrPage.goToRegistry(VIOLATION);
         rinrifPage.goToRegistryCard(VIOLATION);
         rinrifPage.checkAvailabilityHeadersInCard(VIOLATION, cardHeaders);
     }
@@ -266,7 +277,7 @@ public class RinRifCardTests extends TestBase {
     void checkCardRegistryPostanovlenie() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(POSTANOVLENIE);
+        reestrPage.goToRegistry(POSTANOVLENIE);
         rinrifPage.goToRegistryCard(POSTANOVLENIE);
     }
 
@@ -281,7 +292,7 @@ public class RinRifCardTests extends TestBase {
         List<String> cardHeaders = Arrays.asList("Общая информация", "", "");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(PROTOCOL);
+        reestrPage.goToRegistry(PROTOCOL);
         rinrifPage.goToRegistryCard(PROTOCOL);
         rinrifPage.checkAvailabilityHeadersInCard(PROTOCOL, cardHeaders);
     }
@@ -297,7 +308,7 @@ public class RinRifCardTests extends TestBase {
         List<String> cardHeaders = Arrays.asList("Общая информация", "", "");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(TZ_LABORATORIES);
+        reestrPage.goToRegistry(TZ_LABORATORIES);
         rinrifPage.goToRegistryCard(TZ_LABORATORIES);
         rinrifPage.checkAvailabilityHeadersInCard(TZ_LABORATORIES, cardHeaders);
     }

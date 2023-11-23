@@ -35,7 +35,7 @@ public class UgdSsrTests extends TestBase {
         );
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_SSR_REAL);
+        reestrPage.goToRegistry(UGD_SSR_REAL);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_SSR_REAL, columnNames);
     }
 
@@ -51,7 +51,7 @@ public class UgdSsrTests extends TestBase {
         );
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_SSR_PERSON);
+        reestrPage.goToRegistry(UGD_SSR_PERSON);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_SSR_PERSON, columnNames);
     }
 
@@ -67,7 +67,7 @@ public class UgdSsrTests extends TestBase {
                 "Дата открытия центра", "Дата закрытия центра", "Статус");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_SSR_CIP);
+        reestrPage.goToRegistry(UGD_SSR_CIP);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_SSR_CIP, columnNames);
     }
 }

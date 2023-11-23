@@ -31,7 +31,7 @@ class RegistersUpsdTests extends TestBase {
                 "Объект", "Организация, утвердившая ПД", "Дата предоставления информации");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_UPSD_APPROVAL_DECISION);
+        reestrPage.goToRegistry(UGD_UPSD_APPROVAL_DECISION);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(UGD_UPSD_APPROVAL_DECISION, tableColumnList);
     }
 
@@ -47,7 +47,7 @@ class RegistersUpsdTests extends TestBase {
                 "Сведения об утверждающем документе", "Организация, утвердившая проектную документацию");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_UPSD_APPROVAL_DECISION);
+        reestrPage.goToRegistry(UGD_UPSD_APPROVAL_DECISION);
         ugdPage.goToRegistryCard(UGD_UPSD_APPROVAL_DECISION);
         ugdPage.checkBlocksInCard(UGD_UPSD_APPROVAL_DECISION, blockColumnList);
     }

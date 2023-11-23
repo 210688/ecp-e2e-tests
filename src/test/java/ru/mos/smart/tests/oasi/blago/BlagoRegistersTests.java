@@ -31,7 +31,7 @@ public class BlagoRegistersTests extends TestBase {
                 "Объект", "Статус", "Ответственный исполнитель");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(OASI_BLAGO_PRO);
+        reestrPage.goToRegistry(OASI_BLAGO_PRO);
         generalPage.verifyRegistryContainsCardsAndTableHeaders(OASI_BLAGO_PRO, columnNames);
 
     }

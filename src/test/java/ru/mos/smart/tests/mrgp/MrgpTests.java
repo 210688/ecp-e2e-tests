@@ -30,7 +30,7 @@ public class MrgpTests extends TestBase {
     void openReestr() {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(MRGP);
+        reestrPage.goToRegistry(MRGP);
 
         step("Открытие реестра Перечень программ", () -> {
             $(byText("Перечень программ")).shouldBe(visible);

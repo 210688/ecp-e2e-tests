@@ -1,6 +1,5 @@
 package ru.mos.smart.pages;
 
-import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.Cookie;
 import ru.mos.smart.api.Authorization;
 
@@ -22,7 +21,7 @@ public class AuthorizationPage {
     }
 
     public static void openUrlWithAuthorizationAPI(String login, String password) {
-        step("Авторизация", (step) -> {
+        step("Авторизоваться в УЗ", (step) -> {
             step.parameter("Login", login);
             Authorization authorization = new Authorization();
             setCookies(authorization.getAuthCookie(login, password));
@@ -30,12 +29,24 @@ public class AuthorizationPage {
     }
 
     public static void openUrlWithAuthorizationUI(String url, String login, String password) {
-        Selenide.open(url);
-        step("Авторизация", (step) -> {
-            step.parameter("Login", login);
-            $(byText("Войти по логину и паролю")).click();
+        open(url);
+        step("Авторизоваться в УЗ", (step) -> {
+            $(".login-page__login").click();
+            step.parameter("Ввести логин", login);
             $("#username").setValue(login);
             $("#password").setValue(password);
+            $("#kc-login").click();
+            step.parameter("Пользователь успешно авторизовался", "Логин: " + login);
+        });
+    }
+
+    public static void openUrlWithAuthorizationUIWrongPassword(String url, String login) {
+        open(url);
+        step("Авторизоваться в УЗ", (step) -> {
+            $(".login-page__login").click();
+            step.parameter("Ввести логин", login);
+            $("#username").setValue(login);
+            $("#password").setValue("123456");
             $("#kc-login").click();
         });
     }
@@ -47,7 +58,6 @@ public class AuthorizationPage {
             $("#login").setValue(login);
             $("#password").setValue(password);
             $("#bind").click();
-            //$("#showMethodsList").click();
         });
     }
 }

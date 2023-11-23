@@ -8,7 +8,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.mos.smart.data.enums.Registers;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
@@ -36,10 +35,6 @@ public class AllureAttachments {
                 "Browser console logs",
                 String.join("\n", Selenide.getWebDriverLogs(BROWSER))
         );
-    }
-
-    public static void attachScreenshotRegisters(Registers registerName) {
-        AllureAttachments.attachScreenshot("Скриншот карточки" + " " + registerName.value());
     }
 }
 

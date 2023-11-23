@@ -31,7 +31,7 @@ class RegistersUvedomleniaTests extends TestBase {
         ElementsCollection tables = $$(".search-result-table > tbody > tr");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_OATI);
+        reestrPage.goToRegistry(UGD_OATI);
         switchTo().window(1);
         tables.shouldHave(sizeGreaterThanOrEqual(1));
     }

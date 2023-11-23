@@ -27,12 +27,13 @@ public class SidebarPage {
         subMenuItems.shouldHave(CollectionCondition.texts(expectedTexts));
     }
 
-    @Step("В боковой панели нажать на {sidebarMenu}")
+    @Step("Перейти в меню {sidebarMenu}")
     public void clickSidebarMenu(Sidebar sidebarMenu) {
-        $$("#sidebar_menu>div").find(text(sidebarMenu.value())).should(visible, ofSeconds(30)).click();
+        $$("#sidebar_menu>div").find(text(sidebarMenu.value()))
+                .should(visible, ofSeconds(30)).click();
     }
 
-    @Step("В раскрывшемся меню {menuName} нажать {subMenuName}")
+    @Step("Перейти из меню {menuName} в подменю {subMenuName}")
     public void clickSubMenuList(Sidebar menuName, Sidebar subMenuName) {
         $(byText(menuName.value()))
                 .parent().parent()

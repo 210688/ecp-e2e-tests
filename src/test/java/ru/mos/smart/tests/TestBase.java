@@ -26,6 +26,7 @@ public class TestBase {
     public Maps3DPage maps3DPage = new Maps3DPage();
     public OasirxPage oasirxPage = new OasirxPage();
     public DictPage dictPage = new DictPage();
+    public NewUser newUser = new NewUser();
     public DronePage dronePage = new DronePage();
     public GeneralPage generalPage = new GeneralPage();
     public UgdPage ugdPage = new UgdPage();

@@ -4,8 +4,8 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
-import ru.mos.smart.data.enums.Registers;
 import lombok.extern.slf4j.Slf4j;
+import ru.mos.smart.data.enums.Registers;
 
 import java.util.List;
 
@@ -13,7 +13,6 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.switchTo;
-import static ru.mos.smart.helpers.AllureAttachments.attachScreenshotRegisters;
 
 @Slf4j
 public class UgdPage {
@@ -48,7 +47,7 @@ public class UgdPage {
     public void checkBlocksInCard(Registers registerName, List<String> expectedHeaders) {
         switchToWindow();
         verifyHeadersInCard(expectedHeaders);
-        attachScreenshotRegisters(registerName);
+        //attachScreenshotRegisters(registerName);
     }
 
     /**
