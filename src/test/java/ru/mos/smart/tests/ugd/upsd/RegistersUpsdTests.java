@@ -11,20 +11,18 @@ import ru.mos.smart.tests.TestBase;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.switchTo;
 import static ru.mos.smart.data.enums.Registers.UGD_UPSD_APPROVAL_DECISION;
 import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("UGD")
-@Feature("UPSD")
+@Feature("Ugd")
 @Tags({@Tag("ugd"), @Tag("regres")})
 class RegistersUpsdTests extends TestBase {
 
     @Test
     @AllureId("16980")
-    @Story("Информация")
+    @Story("Upsd")
     @Component("Реестры")
     @DisplayName("Проверка доступности реестра \"УПСД. Подведомственные организации, утверждающие проектную документацию\"")
     @Description("Проверить, что реестр открывается")
@@ -38,7 +36,8 @@ class RegistersUpsdTests extends TestBase {
     }
 
     @Test
-    @Story("Информация")
+    @AllureId("18074")
+    @Story("Upsd")
     @Component("Реестры")
     @DisplayName("Проверка доступности карточек в реестре УПСД. Подведомственные организации, утверждающие проектную документацию")
     @Description("Проверить, что карточка открывается в реестре УПСД. Подведомственные организации, утверждающие проектную документацию, " +

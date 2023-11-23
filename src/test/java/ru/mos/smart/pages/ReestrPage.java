@@ -4,33 +4,24 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.NonNull;
-import org.jetbrains.annotations.NotNull;
 import ru.mos.smart.data.enums.Registers;
 import ru.mos.smart.helpers.AllureAttachments;
 
 import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static java.time.Duration.ofSeconds;
 
 public class ReestrPage {
-    private final ElementsCollection registryName = $$("trv-input");
-    //private final SelenideElement filter = $x("//button[contains(text(),'Фильтр')]");
     private final SelenideElement filter = $(".btn.btn-type-basic");
-    private final ElementsCollection elements = $$("[title]");
-    private final ElementsCollection tableHeaders = $$("table th");
-    private final ElementsCollection registryFilledWithData = $$(".search-result-table");
-    private final ElementsCollection tableFieldData = $$(".table-striped");
-    private final ElementsCollection tableFieldDataOasirx = $$(".viewtable");
-
-    private void attachScreenshot() {
-        AllureAttachments.attachScreenshot("Скриншот реестра");
-    }
+    private final ElementsCollection registryName = $$("trv-input"),
+            listRegistry = $$(".ag-center-cols-container > div");
 
     @Step("Переход в реестр {registerName}")
     public void goToRegister(@NonNull Registers registerName) {
@@ -39,14 +30,10 @@ public class ReestrPage {
         $(byText(registerName.value())).should(visible, ofSeconds(15)).click();
     }
 
-    @Step("Проверить наличие {numberCardsPerPage} элементов в списке реестров доступных текущему пользователю")
-    public void checkListInRegistry(int numberCardsPerPage) {
-        CheckingNumberOfItems(numberCardsPerPage);
-        attachScreenshot();
-    }
-
-    private void CheckingNumberOfItems(int expectedSize) {
-        $("div.ag-center-cols-viewport").$$("div.ag-row").shouldHave(sizeGreaterThanOrEqual(expectedSize));
+    @Step("Проверить наличие элементов в списке реестров")
+    public void checkListInRegistry() {
+        listRegistry.shouldHave(sizeGreaterThan(1));
+        AllureAttachments.attachScreenshot("Скриншот реестра");
     }
 
     @Step("В реестре содержится поле для поиска")

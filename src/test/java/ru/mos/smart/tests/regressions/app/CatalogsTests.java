@@ -24,6 +24,7 @@ public class CatalogsTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("17044")
+    @Owner("Soldatov")
     @DisplayName("Запрос реестров информации")
     void catalogsSourceCodesTest() {
         ValidatableResponse response = apiRequestBearer()
@@ -35,7 +36,7 @@ public class CatalogsTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("17043")
-    @Owner("SoldatovKS")
+    @Owner("Soldatov")
     @Layer("api")
     @DisplayName("Получить список имен ядер")
     void catalogsSearchSolrCoresCountTest() {

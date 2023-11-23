@@ -16,15 +16,16 @@ import static ru.mos.smart.data.enums.Registers.PKR;
 import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
-@Owner("Soldatov")
+
 @Epic("OASI")
+@Feature("OASI")
 @Tags({@Tag("oasi"), @Tag("regres")})
 public class OasiReestrTests extends TestBase {
 
     @Test
     @AllureId("17080")
-    @Feature("PKR")
-    @Story("Информация")
+    @Owner("Soldatov")
+    @Story("Pkr")
     @Component("Реестры")
     @DisplayName("Отображение реестра ПКР на наличие заголовков и карточек оформления Паспортов колористических решений")
     @Description("Проверить, что корректно открывается и доступности реестра ПКР, включая проверку порядка отображения заголовков и карточек")
@@ -39,8 +40,8 @@ public class OasiReestrTests extends TestBase {
 
     @Test
     @AllureId("17081")
-    @Feature("AGR")
-    @Story("Информация")
+    @Owner("Soldatov")
+    @Story("Agr")
     @Component("Реестры")
     @DisplayName("Отображение реестра АГР на наличие заголовков и карточек свидетельств")
     @Description("Проверить, что в реестре присутствуют заголовки и карточки свидетельств")

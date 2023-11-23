@@ -6,18 +6,21 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка работы swagger по подсистемам")
+@Epic("OASI")
 @Tags({@Tag("ossigmip"), @Tag("regres"), @Tag("swagger")})
 public class OssigmipTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16926")
     @Feature("OSSIGMIP")
+    @Story("Ossigmip")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(/app/ossigmip/permit/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/ossigmip/permit/pzz/swagger-ui.html"),

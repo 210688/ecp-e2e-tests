@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.Arrays;
@@ -21,7 +22,8 @@ public class BlagoRegistersTests extends TestBase {
 
     @Test
     @AllureId("17079")
-    @Story("BLAGO")
+    @Story("Blago")
+    @Component("Реестры")
     @DisplayName("Проверка наличия реестров")
     @Description("Проверить, что реестр Проекты благоустройства - открывается ")
     void checkingBlagoRegisters() {

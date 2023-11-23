@@ -10,7 +10,6 @@ import ru.mos.smart.tests.TestBase;
 import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.MAPS3D;
 
-@Owner("Soldatov")
 @Epic("Цифровой двойник")
 @Feature("Map3D")
 @Tags({@Tag("mapСD"), @Tag("regres")})
@@ -18,6 +17,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17031")
+    @Owner("Soldatov")
     @DisplayName("Переход на карту Цифровой двойник")
     @Description("Проверить, что происходит переход на карту Цифровой двойник")
     void goToMapsCd() {
@@ -29,6 +29,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17032")
+    @Owner("Soldatov")
     @DisplayName("Отображения панели слоев")
     @Description("Проверить, что отображаются панели слоев")
     void checkingTheDisplayOfLayersPanel() {
@@ -39,6 +40,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17033")
+    @Owner("Soldatov")
     @DisplayName("Работа поиска в адресной строке")
     @Description("Проверить, что работает поиск в адресной строке")
     void checkingAddressSearch() {
@@ -49,6 +51,7 @@ public class Map3DInstrumentalTests extends TestBase {
 
     @Test
     @AllureId("17034")
+    @Owner("Soldatov")
     @DisplayName("Наличия инструмента - Первоначальная позиция")
     @Description("Проверить, что отображается инструмент - Первоначальная позиция")
     void checkingAvailabilityOfInitialPositionTool() {
@@ -59,6 +62,7 @@ public class Map3DInstrumentalTests extends TestBase {
     }
     @Test
     @AllureId("16907")
+    @Owner("Soldatov")
     @DisplayName("Наличия кнопок масштабирования на карте")
     @Description("Проверить, что отображаются кнопки масштабирования на карте")
     void checkingAvailabilityOfScalingTools() {

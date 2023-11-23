@@ -20,7 +20,7 @@ public class SbRegisterTests extends TestBase {
 
     @Test
     @AllureId("17671")
-    @Story("SB")
+    @Story("Sb")
     @Component("Реестр")
     @DisplayName("Наличие карточек и заголовков в реестре Самострой")
     @Description("Проверить, что реестр Самострой корректно открывается, присутствуют карточки " +
@@ -33,7 +33,7 @@ public class SbRegisterTests extends TestBase {
 
     @Test
     @AllureId("17670")
-    @Story("SB")
+    @Story("Sb")
     @Component("Реестр")
     @DisplayName("Поиск карточки реестра Самострой по номеру")
     @Description("Проверить, что происходит поиск карточки реестра Самострой по номеру")

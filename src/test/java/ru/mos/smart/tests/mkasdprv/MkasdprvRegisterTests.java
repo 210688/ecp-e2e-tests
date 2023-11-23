@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.TestBase;
 
 import java.util.Arrays;
@@ -27,7 +28,8 @@ public class MkasdprvRegisterTests extends TestBase {
 
     @Test
     @AllureId("17088")
-    @Story("MKASDPRV_ORDER")
+    @Story("Mkasdprv")
+    @Component("Работа с заявкой")
     @DisplayName("Наличия карточек")
     @Description("Проверить, что доступен реестр - оказания услуги Вывесок")
     void checkingTheAttributesOfTheRegistry() {
@@ -41,7 +43,8 @@ public class MkasdprvRegisterTests extends TestBase {
 
     @Test
     @AllureId("17089")
-    @Story("MKASDPRV_ORDER")
+    @Story("Mkasdprv")
+    @Component("Работа с заявкой")
     @DisplayName("Отображение заголовков в карточке")
     @Description("Проверить, что присутствуют все вкладки и кнопки в реестре")
     void openingRegistryCard() {

@@ -165,3 +165,8 @@ task swagger(type: Test) {
         includeTags 'swagger'
     }
 }
+task regressing(type: Test) {
+    useJUnitPlatform {
+        includeTags 'regressing'
+    }
+}

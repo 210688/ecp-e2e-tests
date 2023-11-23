@@ -26,7 +26,7 @@ import static ru.mos.smart.data.enums.Registers.AEROFOTO;
 import static ru.mos.smart.data.enums.Sidebar.*;
 import static ru.mos.smart.utils.RandomUtils.generateRandomDate;
 
-@Owner("Soldatov")
+
 @Epic("OASI")
 @Feature("Drone")
 @Tags({@Tag("regres"), @Tag("drone"), })
@@ -36,6 +36,7 @@ public class DroneTests extends TestBase {
 
     @Test
     @AllureId("17118")
+    @Owner("Soldatov")
     @OnPreprodOnly
     @Story("Drone")
     @Component("Госуслуги и функции")
@@ -91,7 +92,8 @@ public class DroneTests extends TestBase {
 
     @Test
     @AllureId("17228")
-    @Story("DRONE")
+    @Owner("Soldatov")
+    @Story("Drone")
     @Component("Информация")
     @DisplayName("Наличие карточек и заголовков в реестре аэрофотосъемки")
     @Description("Проверить, что корректно открывается реестр и доступность реестра аэрофотосъемки, " +
@@ -106,7 +108,8 @@ public class DroneTests extends TestBase {
     }
     @Test
     @AllureId("17229")
-    @Story("DRONE")
+    @Owner("Soldatov")
+    @Story("Drone")
     @Component("Информация")
     @DisplayName("Верификация присутствия заголовков таблицы и проверка наличия кнопок в карточке реестра аэрофотосъемки")
     @Description("Проверить, что корректно открывается реестр и доступность карточки реестра аэрофотосъемки")

@@ -14,7 +14,6 @@ import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Owner("SoldatovKS")
 @Epic("Регрессионные тесты платформы")
 @Feature("API по платформе")
 @Tags({@Tag("cdp"), @Tag("regres")})
@@ -24,6 +23,7 @@ public class LcsTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("17640")
+    @Owner("Soldatov")
     @DisplayName("Проверка работы Возможности")
     void checkLcsFormOpportunities() {
         Response response = apiRequestBearer()

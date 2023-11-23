@@ -17,14 +17,14 @@ import static io.qameta.allure.Allure.step;
 
 @Layer("web")
 @Epic("UGD")
-@Feature("MTSK")
+@Feature("Ugd")
 @Owner("Soldatovks")
 @Tags({@Tag("ugd"), @Tag("regres")})
 class CatalogsMtskTests extends TestBase {
 
     @Test
     @AllureId("16983")
-    @Story("Информация")
+    @Story("Mtsk")
     @Component("Реестры")
     @DisplayName("Наличия каталогов МТСК")
     @Description("Проверить, что каталог открывается")

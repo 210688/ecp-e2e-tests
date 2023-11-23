@@ -20,7 +20,7 @@ public class HearingsRegisterTests extends TestBase {
 
     @Test
     @AllureId("12534")
-    @Story("HEARINGS")
+    @Story("Hearings")
     @Component("Реестр")
     @DisplayName("Переход в реестр Публичные слушания")
     @Description("Проверить, что происходит переход в реестр - Публичные слушания")
@@ -32,7 +32,7 @@ public class HearingsRegisterTests extends TestBase {
 
     @Test
     @AllureId("12535")
-    @Story("HEARINGS")
+    @Story("Hearings")
     @Component("Реестр")
     @DisplayName("Поиск в реестре")
     @Description("Проверить, что поиск карточки в реестре Публичные слушания работает корректно")

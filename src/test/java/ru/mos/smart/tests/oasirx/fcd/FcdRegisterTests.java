@@ -20,7 +20,7 @@ public class FcdRegisterTests extends TestBase {
 
     @Test
     @AllureId("17677")
-    @Story("FCD")
+    @Story("Fcd")
     @Component("Реестр")
     @DisplayName("Наличия данных и перехода в раздел Фасады")
     @Description("Проверить, что есть данные и происходит переход в раздел Фасады")
@@ -32,7 +32,7 @@ public class FcdRegisterTests extends TestBase {
 
     @Test
     @AllureId("12536")
-    @Story("FCD")
+    @Story("Fcd")
     @Component("Реестр")
     @DisplayName("Поиск карточки")
     @Description("Проверить, что поиск карточки в реестре Фасады работает корректно")

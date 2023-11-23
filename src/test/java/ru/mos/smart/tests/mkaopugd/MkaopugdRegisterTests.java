@@ -24,7 +24,7 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @AllureId("17225")
-    @Story("MKAOPUGD_ORDER")
+    @Story("Mkaopugd_Order")
     @Component("Информация")
     @DisplayName("Наличия карточек и заголовков в реестре")
     @Description("Проверить, что корректно открывается реестр и доступность карточек реестра поручений УГД")
@@ -40,7 +40,7 @@ public class MkaopugdRegisterTests extends TestBase {
 
     @Test
     @AllureId("17224")
-    @Story("MKAOPUGD_ORDER")
+    @Story("Mkaopugd_Order")
     @Component("Информация")
     @DisplayName("Отображение заголовков и заполнение данных в карточке поручений УГД")
     @Description("Проверить, что корректно открываются карточки в реестре поручений УГД")

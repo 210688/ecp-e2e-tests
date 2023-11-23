@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.helpers.junit.OnPreprodOnly;
 import ru.mos.smart.tests.TestBase;
 
@@ -31,7 +32,8 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17098")
-    @Story("MKAPMII_ORDER")
+    @Story("MkapmiiOrder")
+    @Component("Реестры")
     @DisplayName("Наличие карточек в реестре")
     @Description("Проверить, что реестр оказания услуг по размещению инженерных изысканий открывается и присутствуют карточки в реестре")
     void checkingTheAttributesOfTheRegistry() {
@@ -45,7 +47,8 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17097")
-    @Story("MKAPMII_ORDER")
+    @Story("MkapmiiOrder")
+    @Component("Реестры")
     @DisplayName("Заполняемость карточки")
     @Description("Проверить, что реестр открывается и в карточке присутствуют все вкладки и поля")
     void uiCardTest() {
@@ -92,7 +95,8 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17100")
-    @Story("MKAPMII_ORDER")
+    @Story("MkapmiiOrder")
+    @Component("Реестры")
     @DisplayName("Наличие основных контроллов карточки заявления")
     @Description("Проверить, что есть основные контроллы карточки заявления")
     void mainControlsTest() {
@@ -136,7 +140,8 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17099")
-    @Story("MKAPMII_ORDER")
+    @Story("MkapmiiOrder")
+    @Component("Реестры")
     @DisplayName("Вкладка Выдача на руки")
     @Description("Проверить, что доступна вкладка - Выдача на руки")
     void handingOverTest() {
@@ -169,7 +174,8 @@ public class MkapmiiRegisterTests extends TestBase {
 
     @Test
     @AllureId("17102")
-    @Story("MKAPMII_ORDER")
+    @Story("MkapmiiOrder")
+    @Component("Реестры")
     @OnPreprodOnly
     @DisplayName("Открытие UI модального окна - Выдать на руки")
     @Description("Проверить, что открывается в UI модальное окно")

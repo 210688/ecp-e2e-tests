@@ -6,19 +6,21 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import ru.mos.smart.helpers.annotations.Component;
 import ru.mos.smart.tests.ApiBearerTestBase;
 
 import static io.qameta.allure.Allure.parameter;
 import static ru.mos.smart.requests.Authorization.apiRequestBearer;
 
-@Epic("Проверка работы swagger по подсистемам")
+@Epic("OASI")
 @Feature("OASI")
 @Tags({@Tag("oasi"), @Tag("regres"), @Tag("swagger")})
 public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16945")
-    @Story("PZZ")
+    @Story("Pzz")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/oasi/pzz/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/pzz/swagger-ui.html"),
@@ -34,7 +36,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16930")
-    @Story("AG")
+    @Story("Ag")
+    @Component("Swagger")
     @DisplayName("Описания всех типов документов")
     @Description("Проверить, что описаны все типы документов(app/oasi/ag/documentTypes/all [GET])")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/ag/swagger-ui.html"),
@@ -50,7 +53,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16948")
-    @Story("BLAGO")
+    @Story("Blago")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/blago/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/blago/swagger-ui.html"),
@@ -67,7 +71,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16928")
-    @Story("CAFE")
+    @Story("Cafe")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/cafe/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/cafe/swagger-ui.html"),
@@ -84,7 +89,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16941")
-    @Story("CITYDEVELOPMENT")
+    @Story("Citydevelopment")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/citydevelopment/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/citydevelopment/swagger-ui.html"),
@@ -101,7 +107,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16949")
-    @Story("PKR")
+    @Story("Pkr")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/pkr/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/pkr/swagger-ui.html"),
@@ -118,7 +125,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16953")
-    @Story("FACADES")
+    @Story("Facades")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/facades/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/facades/swagger-ui.html"),
@@ -135,7 +143,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16955")
-    @Story("GIN")
+    @Story("Gin")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/gin/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/gin/swagger-ui.html"),
@@ -152,7 +161,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16942")
-    @Story("LIGHTING")
+    @Story("Lighting")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/lighting/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/lighting/swagger-ui.html"),
@@ -169,7 +179,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16951")
-    @Story("MONUMENTS")
+    @Story("Monuments")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/monuments/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/monuments/swagger-ui.html"),
@@ -186,7 +197,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16940")
-    @Story("MRGP")
+    @Story("Mrgp")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/mrgp/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/mrgp/swagger-ui.html"),
@@ -203,7 +215,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16952")
-    @Story("NTO")
+    @Story("Nto")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/nto/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/nto/swagger-ui.html"),
@@ -220,7 +233,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16932")
-    @Story("OO")
+    @Story("Oo")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/oo/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/oo/swagger-ui.html"),
@@ -237,7 +251,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16943")
-    @Story("ADVERTISE")
+    @Story("Advertise")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/advertise/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/advertise/swagger-ui.html"),
@@ -254,7 +269,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16947")
-    @Story("AGR")
+    @Story("Agr")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/agr/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/agr/swagger-ui.html"),
@@ -271,7 +287,8 @@ public class OasiTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("16944")
-    @Story("DDH")
+    @Story("Ddh")
+    @Component("Swagger")
     @Description("Получение описания всех типов документов")
     @DisplayName("app/oasi/ddh/documentTypes/all [GET]")
     @Links(value = {@Link(name = "predprod", url = "https://smart-predprod.mos.ru/app/oasi/ddh/swagger-ui.html"),

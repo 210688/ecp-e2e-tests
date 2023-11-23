@@ -20,7 +20,7 @@ public class EooRegisterTests extends TestBase {
 
         @Test
         @AllureId("12357")
-        @Story("EOO")
+        @Story("Eoo")
         @Component("Реестр")
         @DisplayName("Наличия данных и перехода в раздел Общеcтвенные обcуждения")
         @Description("Проверить, что есть данные и происходит переход в раздел - Общественные обсуждения")

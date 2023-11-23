@@ -17,13 +17,14 @@ import static ru.mos.smart.data.enums.Sidebar.INFORMATION;
 import static ru.mos.smart.data.enums.Sidebar.REGISTERS;
 
 @Epic("UGD")
-@Feature("DOCS (Реестр оперативных данных документов)")
+@Feature("Ugd")
 @Owner("soldatovks")
 @Tags({@Tag("ugd") ,@Tag("regres")})
 public class DocsCardsTests extends TestBase {
 
     @Test
-    @Story("Информация")
+    @AllureId("18038")
+    @Story("Docs")
     @Component("Реестры")
     @DisplayName("Открытие карточки в реестре оперативных данных документов. Заключения Мосгоргеотреста " +
             "заполненность данными и наличие всех блоков информации")
