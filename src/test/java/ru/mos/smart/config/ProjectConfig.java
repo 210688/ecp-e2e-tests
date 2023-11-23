@@ -14,7 +14,7 @@ public interface ProjectConfig extends Config {
     String remoteDriverUrl();
 
     @Config.Key("browser.name")
-    @Config.DefaultValue("firefox")
+    @Config.DefaultValue("chrome")
     String browserName();
 
     @Config.Key("browser.version")
@@ -22,7 +22,7 @@ public interface ProjectConfig extends Config {
     String browserVersion();
 
     @Config.Key("browser.size")
-    @Config.DefaultValue("1280x1024")
+    @Config.DefaultValue("1000x1024")
     String browserSize();
 
     @Config.Key("threads")
