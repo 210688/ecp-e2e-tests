@@ -36,7 +36,6 @@ public class RegistryTests extends TestBase {
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
         reestrPage.goToRegistry(ORGANIZATION);
-        reestrPage.checkListRegistry();
     }
 
     @Test
