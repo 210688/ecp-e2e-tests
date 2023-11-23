@@ -34,7 +34,7 @@ public class DocsCardsTests extends TestBase {
         List<String> blockColumnList = Arrays.asList("Назначение объекта", "Организации", "Коммуникации");
         sidebarPage.clickSidebarMenu(INFORMATION);
         sidebarPage.clickSubMenuList(INFORMATION, REGISTERS);
-        reestrPage.goToRegister(UGD_DOCS_MGGT_CONCLUSION_DOCUMENT);
+        reestrPage.goToRegistry(UGD_DOCS_MGGT_CONCLUSION_DOCUMENT);
         ugdPage.goToRegistryCard(UGD_DOCS_MGGT_CONCLUSION_DOCUMENT);
         ugdPage.checkBlocksInCard(UGD_DOCS_MGGT_CONCLUSION_DOCUMENT, blockColumnList);
     }

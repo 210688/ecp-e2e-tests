@@ -64,7 +64,7 @@ public class OpenPageTests extends TestBase {
     void goToSpravochnik() {
         sidebarPage.clickSidebarMenu(SETTINGS);
         sidebarPage.clickSubMenuList(SETTINGS, REFERENCE_BOOKS);
-        dictPage.checkListSystemDict();
+        dictPage.verifySystemDictionariesExistence();
     }
 
     @Test

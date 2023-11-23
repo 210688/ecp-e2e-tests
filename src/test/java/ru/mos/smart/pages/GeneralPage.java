@@ -8,13 +8,16 @@ import lombok.NonNull;
 import ru.mos.smart.data.enums.Registers;
 import ru.mos.smart.helpers.AllureAttachments;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
-import static com.codeborne.selenide.CollectionCondition.*;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static ru.mos.smart.config.ConfigHelper.getWebSecureUrl;
 
 public class GeneralPage {
 
@@ -34,8 +37,41 @@ public class GeneralPage {
         return resultsAllCardsInRegistry.get(randomNumber).$$("td").get(1).$("a");
     }
 
+    public void checkMainPage() {
+
+    }
+
     private void switchToWindow() {
         switchTo().window(1);
+    }
+
+    @Step("Проверить открытие страницы Создать пользователя")
+    public void createUser() {
+        $x("//button[contains(text(),'Создать пользователя')]").should(visible).click();
+    }
+
+    @Step("Проверить доступность Главной страницы")
+    public void checkFormMainPage() {
+        $(".formly-form").should(visible, Duration.ofSeconds(15));
+    }
+
+    @Step("Проверить сообщение Неправильное имя пользователя или пароль.")
+    public void checkMessageWrongPassword() {
+        $(".kc-feedback-text")
+                .shouldHave(text("Неправильное имя пользователя или пароль."));
+    }
+
+    @Step("Проверить открытие страницы восстановления пароля по Логину или Email")
+    public void checkOpenRestorePassword() {
+        open(getWebSecureUrl());
+        $(".login-page__login").click();
+        $(".restore_open").click();
+    }
+
+    @Step("Проверить сообщение об успешном восстановлении пароля")
+    public void checkMessageRestorePassword() {
+        $("#inputLogin").val("user_tests");
+        $(".btn-primary block").click();
     }
 
     @Step("Реестр содержит хотя бы одну карточку, и в нем отображаются заголовки таблицы {list}")

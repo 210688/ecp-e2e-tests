@@ -10,6 +10,7 @@ import ru.mos.smart.pages.*;
 import static ru.mos.smart.config.ConfigHelper.getLoginRegress;
 import static ru.mos.smart.config.ConfigHelper.getPasswordRegress;
 import static ru.mos.smart.helpers.DriverSettings.configureSelenide;
+import static ru.mos.smart.pages.AuthorizationPage.openUrlWithAuthorizationAPI;
 
 @ExtendWith(CustomListener.class)
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
@@ -26,12 +27,14 @@ public class TestBase {
     public Maps3DPage maps3DPage = new Maps3DPage();
     public OasirxPage oasirxPage = new OasirxPage();
     public DictPage dictPage = new DictPage();
+    public NewUser newUser = new NewUser();
     public DronePage dronePage = new DronePage();
     public GeneralPage generalPage = new GeneralPage();
 
     public MydistrictPage mydistrictPage = new MydistrictPage();
 
     public UgdPage ugdPage = new UgdPage();
+    public UserPage userPage = new UserPage();
 
 
     @BeforeAll
@@ -41,6 +44,6 @@ public class TestBase {
 
     @BeforeEach
     void authorizeBeforeTest() {
-        AuthorizationPage.openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
+        openUrlWithAuthorizationAPI(getLoginRegress(), getPasswordRegress());
     }
 }
