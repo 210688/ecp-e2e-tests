@@ -1,9 +1,6 @@
 package ru.mos.smart.tests.platform;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -19,6 +16,7 @@ public class MailTests extends ApiBearerTestBase {
 
     @Test
     @AllureId("18072")
+    @Owner("Soldatov")
     @DisplayName("Получение документа заданного типа по идентификатору")
     @Description("")
     void mailDocumentTypeCodTests() {
