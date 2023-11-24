@@ -22,7 +22,7 @@ public interface ProjectConfig extends Config {
     String browserVersion();
 
     @Config.Key("browser.size")
-    @Config.DefaultValue("1000x1024")
+    @Config.DefaultValue("1280x1024")
     String browserSize();
 
     @Config.Key("threads")
